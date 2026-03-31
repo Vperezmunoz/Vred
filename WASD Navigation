@@ -1,0 +1,619 @@
+"""
+VRED WASD Navigation Toggle + Viewport Status Plate
+===================================================
+ 
+Shortcuts:
+  X                 - toggle WASD navigation on / off
+  Mouse wheel       - change speed by 250 while active
+  Shift             - 2x faster movement while moving
+ 
+When WASD is enabled:
+  W / S             - move forward / backward
+  A / D             - strafe left / right
+  Q / E             - move down / up
+  LMB / RMB drag    - look around (only in viewport)
+  Mouse wheel       - adjust speed in steps of 250
+ 
+UI:
+  - Solid frontplate inside viewport
+  - Active: shows current speed + disable hint
+  - Inactive: shows "Press X to switch to WASD navigation"
+"""
+ 
+import math
+import vrCamera
+ 
+try:
+    from PySide6 import QtCore, QtWidgets
+    USE_QT6 = True
+except ImportError:
+    from PySide2 import QtCore, QtWidgets
+    USE_QT6 = False
+ 
+ 
+def get_global_pos(event):
+    if USE_QT6:
+        return event.globalPosition().toPoint()
+    return event.globalPos()
+ 
+ 
+class WASDNavigation(QtCore.QObject):
+    NAV_NONE_MODE = 3
+    TWO_AXIS_MODE = 2
+    SPEED_STEP = 250.0
+    MIN_SPEED = 250.0
+    STATUS_OBJECT_NAME = "wasdStatusPlate"
+ 
+    def __init__(self, speed=2000.0, restore_mode=TWO_AXIS_MODE):
+        super(WASDNavigation, self).__init__()
+ 
+        self._speed = float(speed)
+        self._fast = 2.0
+        self._restore_mode = restore_mode
+        self._active = False
+ 
+        self._keys = set()
+        self._mouse_look = False
+        self._mouse_button = None
+        self._last_mouse_pos = None
+        self._mouse_sensitivity = 0.0035
+ 
+        self._toggle_key = QtCore.Qt.Key_X
+        self._toggle_key_down = False
+ 
+        self._timer = QtCore.QTimer(self)
+        self._timer.timeout.connect(self._tick)
+        self._timer.setInterval(16)
+ 
+        self._status_plate = None
+        self._status_label = None
+        self._viewport_widget = None
+ 
+        app = QtWidgets.QApplication.instance()
+        if app:
+            app.installEventFilter(self)
+ 
+        self._show_status_plate()
+ 
+        print("[WASD] Controller loaded")
+        print("       Press X to toggle WASD navigation")
+        print("       Mouse wheel changes speed by 250 while active")
+ 
+    # ------------------------------------------------------------
+    # viewport helpers
+    # ------------------------------------------------------------
+    def _is_widget_valid(self, widget):
+        if widget is None:
+            return False
+        try:
+            return widget.isVisible()
+        except Exception:
+            return False
+ 
+    def _widget_text(self, widget):
+        if widget is None:
+            return ""
+        try:
+            name = (widget.objectName() or "").lower()
+        except Exception:
+            name = ""
+        try:
+            cls = widget.__class__.__name__.lower()
+        except Exception:
+            cls = ""
+        return name + " " + cls
+ 
+    def _is_viewport_widget(self, widget):
+        if widget is None:
+            return False
+ 
+        allow = ("viewport", "render", "gl", "opengl", "renderwindow")
+        reject = ("tree", "list", "menu", "dock", "panel", "editor")
+ 
+        w = widget
+        while w is not None:
+            text = self._widget_text(w)
+ 
+            if any(r in text for r in reject):
+                return False
+            if any(a in text for a in allow):
+                return True
+ 
+            try:
+                w = w.parentWidget()
+            except Exception:
+                w = None
+ 
+        return False
+ 
+    def _find_viewport_widget(self):
+        app = QtWidgets.QApplication.instance()
+        if not app:
+            return None
+ 
+        best = None
+        best_area = -1
+ 
+        try:
+            widgets = app.allWidgets()
+        except Exception:
+            return None
+ 
+        for w in widgets:
+            try:
+                if not w.isVisible():
+                    continue
+                if not self._is_viewport_widget(w):
+                    continue
+                size = w.size()
+                area = size.width() * size.height()
+                if area > best_area:
+                    best = w
+                    best_area = area
+            except Exception:
+                pass
+ 
+        return best
+ 
+    def _ensure_viewport_widget(self, preferred_widget=None):
+        if preferred_widget is not None:
+            try:
+                if self._is_viewport_widget(preferred_widget):
+                    self._viewport_widget = preferred_widget
+                    return self._viewport_widget
+            except Exception:
+                pass
+ 
+        if self._is_widget_valid(self._viewport_widget):
+            return self._viewport_widget
+ 
+        self._viewport_widget = self._find_viewport_widget()
+        return self._viewport_widget
+ 
+    def _widget_from_event(self, event):
+        app = QtWidgets.QApplication.instance()
+        if not app:
+            return None
+        try:
+            return app.widgetAt(get_global_pos(event))
+        except Exception:
+            return None
+ 
+    # ------------------------------------------------------------
+    # status plate
+    # ------------------------------------------------------------
+    def _remove_existing_status_plates(self):
+        app = QtWidgets.QApplication.instance()
+        if not app:
+            return
+ 
+        try:
+            widgets = app.allWidgets()
+        except Exception:
+            return
+ 
+        for w in widgets:
+            try:
+                if w.objectName() == self.STATUS_OBJECT_NAME:
+                    w.hide()
+                    w.deleteLater()
+            except Exception:
+                pass
+ 
+    def _update_status_text(self):
+        if self._status_label is None:
+            return
+ 
+        if self._active:
+            self._status_label.setText(
+                "WASD ACTIVE\n"
+                "Speed: {:.0f}\n"
+                "Press X to disable\n"
+                "Wheel: +/-250".format(self._speed)
+            )
+        else:
+            self._status_label.setText("Press X to switch to WASD navigation")
+ 
+        self._status_label.adjustSize()
+        if self._status_plate is not None:
+            self._status_plate.adjustSize()
+ 
+    def _create_status_plate(self):
+        parent = self._ensure_viewport_widget()
+        if parent is None:
+            return
+ 
+        if self._status_plate is not None:
+            try:
+                if self._status_plate.parent() is parent:
+                    self._update_status_text()
+                    self._position_status_plate()
+                    return
+            except Exception:
+                pass
+ 
+        self._remove_existing_status_plates()
+ 
+        if self._status_plate is not None:
+            try:
+                self._status_plate.hide()
+                self._status_plate.deleteLater()
+            except Exception:
+                pass
+ 
+        self._status_plate = QtWidgets.QFrame(parent)
+        self._status_plate.setObjectName(self.STATUS_OBJECT_NAME)
+        self._status_plate.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self._status_plate.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents, True)
+ 
+        self._status_label = QtWidgets.QLabel(self._status_plate)
+        self._status_label.setAlignment(QtCore.Qt.AlignCenter)
+ 
+        # solid plate, no transparency
+        self._status_plate.setStyleSheet("""
+            QFrame#wasdStatusPlate {
+                background-color: rgb(30, 30, 30);
+                border: 1px solid rgb(120, 120, 120);
+                border-radius: 6px;
+            }
+            QLabel {
+                color: rgb(255, 255, 255);
+                font-size: 14px;
+                font-weight: bold;
+                padding: 8px 14px;
+                background-color: rgb(30, 30, 30);
+            }
+        """)
+ 
+        self._update_status_text()
+        self._position_status_plate()
+        self._status_plate.show()
+        self._status_plate.raise_()
+ 
+    def _position_status_plate(self):
+        if self._status_plate is None:
+            return
+ 
+        parent = self._ensure_viewport_widget()
+        if parent is None:
+            return
+ 
+        try:
+            if self._status_plate.parent() is not parent:
+                self._create_status_plate()
+                return
+        except Exception:
+            self._create_status_plate()
+            return
+ 
+        self._status_plate.adjustSize()
+        self._status_plate.move(16, 16)
+        self._status_plate.raise_()
+ 
+    def _show_status_plate(self):
+        self._create_status_plate()
+        self._update_status_text()
+        if self._status_plate is not None:
+            self._position_status_plate()
+            self._status_plate.show()
+            self._status_plate.raise_()
+ 
+    # ------------------------------------------------------------
+    # control
+    # ------------------------------------------------------------
+    def start(self):
+        if self._active:
+            return
+ 
+        self._active = True
+        self._keys.clear()
+        self._mouse_look = False
+        self._mouse_button = None
+        self._last_mouse_pos = None
+ 
+        self._ensure_viewport_widget()
+        self._switch_mode_preserve_pose(self.NAV_NONE_MODE)
+        self._timer.start()
+        self._show_status_plate()
+ 
+        print("[WASD] Enabled | Speed =", self._speed)
+ 
+    def stop(self):
+        if not self._active:
+            return
+ 
+        self._active = False
+        self._timer.stop()
+        self._keys.clear()
+        self._mouse_look = False
+        self._mouse_button = None
+        self._last_mouse_pos = None
+ 
+        self._switch_mode_preserve_pose(self._restore_mode)
+        self._show_status_plate()
+        print("[WASD] Disabled")
+ 
+    def toggle(self):
+        if self._active:
+            self.stop()
+        else:
+            self.start()
+ 
+    def set_speed(self, speed):
+        self._speed = max(self.MIN_SPEED, float(speed))
+        self._update_status_text()
+        self._position_status_plate()
+        print("[WASD] Speed set to {:.1f}".format(self._speed))
+ 
+    def _adjust_speed_by_wheel(self, steps):
+        if steps == 0:
+            return
+        self.set_speed(self._speed + self.SPEED_STEP * steps)
+ 
+    # ------------------------------------------------------------
+    # mode switching
+    # ------------------------------------------------------------
+    def _get_cam_matrix(self):
+        cam = vrCamera.getActiveCameraNode()
+        if not cam:
+            return None, None
+        try:
+            return cam, list(cam.getWorldTransform())
+        except Exception as e:
+            print("[WASD] Failed to read camera matrix:", e)
+            return None, None
+ 
+    def _switch_mode_preserve_pose(self, mode):
+        cam, m = self._get_cam_matrix()
+        if cam is None or m is None:
+            try:
+                vrCamera.setNavigatorMode(mode)
+            except Exception as e:
+                print("[WASD] Failed to switch navigator mode:", e)
+            return
+ 
+        saved = list(m)
+ 
+        def apply_pose():
+            c = vrCamera.getActiveCameraNode()
+            if c:
+                try:
+                    c.setTransformMatrix(list(saved), False)
+                except Exception as e:
+                    print("[WASD] Failed to restore transform:", e)
+ 
+        try:
+            vrCamera.setNavigatorMode(mode)
+        except Exception as e:
+            print("[WASD] Failed to switch navigator mode:", e)
+            return
+ 
+        apply_pose()
+        QtCore.QTimer.singleShot(0, apply_pose)
+        QtCore.QTimer.singleShot(30, apply_pose)
+ 
+    # ------------------------------------------------------------
+    # input
+    # ------------------------------------------------------------
+    def eventFilter(self, obj, event):
+        t = event.type()
+ 
+        # global X toggle
+        if t == QtCore.QEvent.KeyPress and not event.isAutoRepeat():
+            if event.key() == self._toggle_key:
+                if not self._toggle_key_down:
+                    self._toggle_key_down = True
+                    self.toggle()
+                return True
+ 
+        elif t == QtCore.QEvent.KeyRelease and not event.isAutoRepeat():
+            if event.key() == self._toggle_key:
+                self._toggle_key_down = False
+                return True
+ 
+        if t in (QtCore.QEvent.Resize, QtCore.QEvent.Move, QtCore.QEvent.Show):
+            if self._status_plate is not None:
+                QtCore.QTimer.singleShot(0, self._position_status_plate)
+ 
+        if not self._active:
+            return False
+ 
+        if t == QtCore.QEvent.KeyPress and not event.isAutoRepeat():
+            self._keys.add(event.key())
+            return False
+ 
+        elif t == QtCore.QEvent.KeyRelease and not event.isAutoRepeat():
+            self._keys.discard(event.key())
+            return False
+ 
+        elif t == QtCore.QEvent.Wheel:
+            widget = self._widget_from_event(event)
+            if self._is_viewport_widget(widget):
+                self._ensure_viewport_widget(widget)
+                try:
+                    delta_y = event.angleDelta().y()
+                except Exception:
+                    delta_y = 0
+ 
+                if delta_y > 0:
+                    self._adjust_speed_by_wheel(1)
+                elif delta_y < 0:
+                    self._adjust_speed_by_wheel(-1)
+                return True
+            return False
+ 
+        elif t == QtCore.QEvent.MouseButtonPress:
+            if event.button() in (QtCore.Qt.LeftButton, QtCore.Qt.RightButton):
+                w = self._widget_from_event(event)
+                if self._is_viewport_widget(w):
+                    self._ensure_viewport_widget(w)
+                    self._mouse_look = True
+                    self._mouse_button = event.button()
+                    self._last_mouse_pos = get_global_pos(event)
+                    return True
+            return False
+ 
+        elif t == QtCore.QEvent.MouseMove:
+            if self._mouse_look and self._last_mouse_pos is not None:
+                pos = get_global_pos(event)
+                dx = pos.x() - self._last_mouse_pos.x()
+                dy = pos.y() - self._last_mouse_pos.y()
+                self._last_mouse_pos = pos
+ 
+                if dx != 0 or dy != 0:
+                    self._apply_mouse_look(dx, dy)
+                return True
+ 
+        elif t == QtCore.QEvent.MouseButtonRelease:
+            if self._mouse_look:
+                self._mouse_look = False
+                self._mouse_button = None
+                self._last_mouse_pos = None
+                return True
+            return False
+ 
+        return False
+ 
+    # ------------------------------------------------------------
+    # camera math
+    # ------------------------------------------------------------
+    def _normalize(self, v):
+        l = math.sqrt(sum(x * x for x in v))
+        return tuple(x / l for x in v) if l else (0.0, 0.0, 0.0)
+ 
+    def _cross(self, a, b):
+        return (
+            a[1] * b[2] - a[2] * b[1],
+            a[2] * b[0] - a[0] * b[2],
+            a[0] * b[1] - a[1] * b[0]
+        )
+ 
+    def _rotate(self, v, axis, angle):
+        axis = self._normalize(axis)
+        c = math.cos(angle)
+        s = math.sin(angle)
+        dot = sum(v[i] * axis[i] for i in range(3))
+        cross = self._cross(axis, v)
+        return tuple(
+            v[i] * c + cross[i] * s + axis[i] * dot * (1 - c)
+            for i in range(3)
+        )
+ 
+    def _apply_mouse_look(self, dx, dy):
+        cam, m = self._get_cam_matrix()
+        if not cam or not m:
+            return
+ 
+        right = self._normalize((m[0], m[4], m[8]))
+        forward = self._normalize((-m[2], -m[6], -m[10]))
+        world_up = (0.0, 0.0, 1.0)
+ 
+        yaw = -dx * self._mouse_sensitivity
+        pitch = -dy * self._mouse_sensitivity
+ 
+        forward = self._normalize(self._rotate(forward, world_up, yaw))
+        right = self._normalize(self._cross(forward, world_up))
+ 
+        f2 = self._normalize(self._rotate(forward, right, pitch))
+        if abs(f2[2]) < 0.99:
+            forward = f2
+ 
+        right = self._normalize(self._cross(forward, world_up))
+        up = self._normalize(self._cross(right, forward))
+ 
+        m[0], m[4], m[8] = right
+        m[1], m[5], m[9] = up
+        m[2], m[6], m[10] = (-forward[0], -forward[1], -forward[2])
+ 
+        try:
+            cam.setTransformMatrix(m, False)
+        except Exception as e:
+            print("[WASD] Failed to apply mouse look:", e)
+ 
+    # ------------------------------------------------------------
+    # movement
+    # ------------------------------------------------------------
+    def _tick(self):
+        if not self._active or not self._keys:
+            return
+ 
+        cam, m = self._get_cam_matrix()
+        if not cam or not m:
+            return
+ 
+        dt = self._timer.interval() / 1000.0
+        speed = self._speed * (self._fast if QtCore.Qt.Key_Shift in self._keys else 1.0)
+        d = speed * dt
+ 
+        right = (m[0], m[4], m[8])
+        up = (m[1], m[5], m[9])
+        forward = (-m[2], -m[6], -m[10])
+ 
+        dx = dy = dz = 0.0
+        K = QtCore.Qt
+ 
+        if K.Key_W in self._keys:
+            dx += forward[0] * d
+            dy += forward[1] * d
+            dz += forward[2] * d
+        if K.Key_S in self._keys:
+            dx -= forward[0] * d
+            dy -= forward[1] * d
+            dz -= forward[2] * d
+        if K.Key_A in self._keys:
+            dx -= right[0] * d
+            dy -= right[1] * d
+            dz -= right[2] * d
+        if K.Key_D in self._keys:
+            dx += right[0] * d
+            dy += right[1] * d
+            dz += right[2] * d
+        if K.Key_E in self._keys:
+            dx += up[0] * d
+            dy += up[1] * d
+            dz += up[2] * d
+        if K.Key_Q in self._keys:
+            dx -= up[0] * d
+            dy -= up[1] * d
+            dz -= up[2] * d
+ 
+        m[3] += dx
+        m[7] += dy
+        m[11] += dz
+ 
+        try:
+            cam.setTransformMatrix(m, False)
+        except Exception as e:
+            print("[WASD] Failed to move camera:", e)
+ 
+ 
+# Clean reset
+app = QtWidgets.QApplication.instance()
+ 
+try:
+    if 'wasd_nav' in globals() and wasd_nav is not None:
+        try:
+            wasd_nav.stop()
+        except Exception:
+            pass
+        try:
+            if app:
+                app.removeEventFilter(wasd_nav)
+        except Exception:
+            pass
+except Exception:
+    pass
+ 
+try:
+    if app:
+        for w in app.allWidgets():
+            try:
+                if w.objectName() == "wasdStatusPlate":
+                    w.hide()
+                    w.deleteLater()
+            except Exception:
+                pass
+except Exception:
+    pass
+ 
+wasd_nav = WASDNavigation(speed=2000.0)
