@@ -1,7 +1,9 @@
 """
 VRED WASD Navigation Toggle + Viewport Status Plate
 ===================================================
- 
+
+Known bugs: WASD navigation mode has to be disabled to interact with the UI
+
 Shortcuts:
   X                 - toggle WASD navigation on / off
   Mouse wheel       - change speed by 250 while active
