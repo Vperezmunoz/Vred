@@ -1,0 +1,83 @@
+MODULE vrCollision (legacy v1 API)
+
+-----------
+vrCollision
+-----------
+
+Collision detection.
+
+Example::
+
+    See also example collision.py
+
+Summary
+=======
+
+Functions:
+    * getCollidingNodes() → tuple
+    * getCollidingTriangleIndices() → tuple
+    * getCollidingTriangles(useWorldSpace) → tuple
+    * getCollisionInfo(useWorldSpace) → tuple
+    * getCollisionPoint(useWorldSpace) → Pnt3f
+    * isColliding() → bool
+
+.. method:: isColliding()
+
+    Checks if objects from the two lists are colliding.
+
+    :return: Returns true if a collision is detected, false otherwise.
+    :rtype: bool
+
+.. method:: getCollidingTriangles(useWorldSpace)
+
+    Retrieve the pair of triangle vertices that collided.
+
+    Only valid after a call to isColliding() that returned true.
+
+    :param useWorldSpace: Specifies whether the returned positions should be in world space or object space.
+    :type useWorldSpace: bool
+    :return: Tuple of 6 Pnt3f representing the two colliding triangles.
+    :rtype: tuple of Pnt3f
+
+.. method:: getCollidingTriangleIndices()
+
+    Retrieve the pair of triangle indices that collided.
+
+    Only valid after a call to isColliding() that returned true.
+
+    :return: Tuple of two indices.
+    :rtype: tuple of int
+
+.. method:: getCollidingNodes()
+
+    Retrieve the pair of nodes that collided.
+
+    Only valid after a call to isColliding() that returned true.
+
+    :return: Tuple of two nodes.
+    :rtype: tuple of vrNodePtr
+
+.. method:: getCollisionPoint(useWorldSpace)
+
+    Retrieves the detected collision point.
+
+    Only valid after a call to isColliding() that returned true.
+
+    :param useWorldSpace: Specifies whether the returned positions should be in world space or object space.
+    :type useWorldSpace: bool
+    :return: Returns the position of the collision.
+    :rtype: Pnt3f
+
+.. method:: getCollisionInfo(useWorldSpace)
+
+    Retrieves information about the collision.
+
+    Only valid after a call to isColliding() that returned true.
+
+    The function returns the collision position, the node and the normal of the first object involved in the collision,
+    and the node and the normal of the second object involved in the collision.
+
+    :param useWorldSpace: Specifies whether the returned positions and normals should be in world space or object space.
+    :type useWorldSpace: bool
+    :return: Tuple of collision point, first collision object, first collision object normal, second collision object, second collision normal.
+    :rtype: tuple of Pnt3f, vrNodePtr, Vec3f, vrNodePtr, Vec3f

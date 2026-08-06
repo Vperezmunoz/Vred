@@ -1,0 +1,141 @@
+-----------------
+vrdLensFlareGhost
+-----------------
+
+.. py:class:: vrdLensFlareGhost
+
+(Inherits vrdLensFlareFxElement)
+
+This class is used for a ghost effect in a ghost line. Ghost are elements that move with the light source. A short introduction can be found under     https://help.autodesk.com/view/VREDPRODUCTS/2020/ENU/?guid=VRED_Lights_About_Lens_Flares_and_Elements_html.
+
+Summary
+=======
+
+Functions:
+    * getChromaticAberration() → QVector3D
+    * getDistance() → float
+    * getEdgeIntensity() → float
+    * getEdgeThickness() → float
+    * getImage() → vrdImage
+    * getIsChromaticAberrationActive() → bool
+    * getShape() → vrLensFlareTypes.ElementShape
+    * setChromaticAberration(chromaticAberration)
+    * setDistance(distance)
+    * setEdgeIntensity(edgeIntensity)
+    * setEdgeThickness(thickness)
+    * setImage(image)
+    * setIsChromaticAberrationActive(isActive)
+    * setShape(shape)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareGhost.getChromaticAberration()
+
+    Get used chromatic aberration values as RGB.
+
+    :return: Used chromatic aberration
+    :rtype: QVector3D
+
+.. py:method:: vrdLensFlareGhost.getDistance()
+
+    Get the lens flare effect distance from light source.
+
+    :return: Distance from light source
+    :rtype: float
+
+.. py:method:: vrdLensFlareGhost.getEdgeIntensity()
+
+    Get the edge color intensity of the Ghost Line element.
+
+    :return: The edge color intensity
+    :rtype: float
+
+.. py:method:: vrdLensFlareGhost.getEdgeThickness()
+
+    Get thickness of the edges of the Ghost Line element.
+
+    :return: Thickness of the edges of the Ghost Line element
+    :rtype: float
+
+.. py:method:: vrdLensFlareGhost.getImage()
+
+    Return the current used texture.
+
+    :return: The current used image for texture. May be invalid, if no image is used.
+    :rtype: vrdImage
+
+.. py:method:: vrdLensFlareGhost.getIsChromaticAberrationActive()
+
+    Get activation state the usage of chromatic aberration.
+
+    :return: Activation state the usage of chromatic aberration
+    :rtype: bool
+
+.. py:method:: vrdLensFlareGhost.getShape()
+
+    Give the current used shape for the ghost element.
+
+    :return: Current used shape for the ghost element.
+    :rtype: vrLensFlareTypes.ElementShape
+
+.. py:method:: vrdLensFlareGhost.setChromaticAberration(chromaticAberration)
+
+    Use chromatic aberration with the lens flare element to distort the colors.
+
+    :param chromaticAberration: New Chromatic Aberration
+    :type chromaticAberration: QVector3D
+
+.. py:method:: vrdLensFlareGhost.setDistance(distance)
+
+    Lens flare effect distance from light source. Must be between -5 and 5. Use a negative value for a position in front of the light source.
+
+    :param distance: New distance from light source
+    :type distance: float
+
+.. py:method:: vrdLensFlareGhost.setEdgeIntensity(edgeIntensity)
+
+    Makes the edge color of the Ghost Line element more or less intense. Changing it to 0 will make the edge disappear.
+
+    :param edgeIntensity: New edge color intensity.
+    :type edgeIntensity: float
+
+.. py:method:: vrdLensFlareGhost.setEdgeThickness(thickness)
+
+    The thickness of the edges of the Ghost Line element. When Edge Intensity is high, it is much easier to see the difference.
+
+    :param thickness: New thickness of the rays of light.
+    :type thickness: float
+
+.. py:method:: vrdLensFlareGhost.setImage(image)
+
+    Set an image for this ghost element. You have to change the type to Texture to use the image for the ghost.
+
+    :param image: The image used for this ghost
+    :type image: vrdImage
+
+.. py:method:: vrdLensFlareGhost.setIsChromaticAberrationActive(isActive)
+
+    Activate the usage of chromatic aberration.
+
+    :param isActive: New activation state the usage of chromatic aberration
+    :type isActive: bool
+
+.. py:method:: vrdLensFlareGhost.setShape(shape)
+
+    Set a shape for the ghost element.
+
+    Circle = A circular shape
+    Triangle = Shape with 3 edges
+    Quad = Shape with 4 edges
+    Pentagon = Shape with 5 edges
+    Hexagon = Shape with 6 edges
+    Heptagon = Shape with 7 edges
+    Octagon = Shape with 8 edges
+    Nonagon = Shape with 9 edges
+    Decagon = Shape with 10 edges
+    Texture = Shape assigned to an image
+
+    :param shape: New image type to be set
+    :type shape: vrLensFlareTypes.ElementShape
+

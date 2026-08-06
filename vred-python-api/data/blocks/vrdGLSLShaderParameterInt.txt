@@ -1,0 +1,30 @@
+-------------------------
+vrdGLSLShaderParameterInt
+-------------------------
+
+.. py:class:: vrdGLSLShaderParameterInt
+
+(Inherits vrdGLSLShaderParameter)
+
+Summary
+=======
+
+Functions:
+    * getValue() → integer
+    * setValue(value)
+
+Functions
+=========
+
+.. py:method:: vrdGLSLShaderParameterInt.getValue()
+
+    :return: The integer value of the shader parameter.
+    :rtype: integer
+
+.. py:method:: vrdGLSLShaderParameterInt.setValue(value)
+
+    Sets the value of the shader parameter.
+
+    :param value: New value.
+    :type value: integer
+

@@ -1,0 +1,106 @@
+-------------------
+vrdSkylightMaterial
+-------------------
+
+.. py:class:: vrdSkylightMaterial
+
+(Inherits vrdEnvironmentMaterial)
+
+This class is used to handle all skylight material properties.
+
+Summary
+=======
+
+Functions:
+    * getDate() → QDate
+    * getEnvironmentWithSun() → vrdImage
+    * getLocation() → vrdSkylightLocation
+    * getResolution() → integer
+    * getShowCompass() → bool
+    * getSkyAndSun() → vrdSkylightSkyAndSun
+    * getTime() → QTime
+    * setDate(value)
+    * setResolution(value)
+    * setShowCompass(value)
+    * setTime(value)
+
+Functions
+=========
+
+.. py:method:: vrdSkylightMaterial.getDate()
+
+    Gets the date used to compute the sun position.
+
+    :return: Currently used date
+    :rtype: QDate
+
+.. py:method:: vrdSkylightMaterial.getEnvironmentWithSun()
+
+    Gets skylight environment image including a rasterized sun. Please note, for         vrdSkylightMaterial, vrdEnvironmentMaterial.getEnvironment() returns an image of the sky without sun.
+
+    :return: The current skylight environment image with sun.
+    :rtype: vrdImage
+
+.. py:method:: vrdSkylightMaterial.getLocation()
+
+    Gets access to all properties of the embedded         vrdSkylightLocation object.
+
+    :return: The vrdSkylightLocation object
+    :rtype: vrdSkylightLocation
+
+.. py:method:: vrdSkylightMaterial.getResolution()
+
+    Gets the resolution of the procedural environment texture.
+
+    :return: Current resolution
+    :rtype: integer
+
+.. py:method:: vrdSkylightMaterial.getShowCompass()
+
+    Gets the current compass state.
+
+    :return: Is the compass visible
+    :rtype: bool
+
+.. py:method:: vrdSkylightMaterial.getSkyAndSun()
+
+    Gets access to all properties of the embedded         vrdSkylightSkyAndSun object.
+
+    :return: The vrdSkylightLocation object
+    :rtype: vrdSkylightSkyAndSun
+
+.. py:method:: vrdSkylightMaterial.getTime()
+
+    Gets the local time used to compute the sun position.
+
+    :return: Local time
+    :rtype: QTime
+
+.. py:method:: vrdSkylightMaterial.setDate(value)
+
+    Sets the date used to compute the sun position. The sun position is computed from Local Time, Date, and Location.
+
+    :param value: New date
+    :type value: QDate
+
+.. py:method:: vrdSkylightMaterial.setResolution(value)
+
+    Sets the resolution of the procedural environment texture. A higher quality yields higher generation time for the environment, but might be necessary in precomputed illumination mode with animated sun. Default value is 128.
+
+    :param value: New resolution in pixels for one side of the 6-sided environment cube map
+    :type value: integer
+
+.. py:method:: vrdSkylightMaterial.setShowCompass(value)
+
+    Displays a compass in the render window for the currently selected skylight material. The compass is positioned at the environment's center and oriented according to the environment rotation.
+
+    :param value: Is the compass visible
+    :type value: bool
+
+.. py:method:: vrdSkylightMaterial.setTime(value)
+
+    Sets the local time used to compute the sun position. The sun position is computed from Local Time, Date, and Location. Time zone is controlled by         vrdSkylightLocation.
+
+    :param value: New local time
+    :type value: QTime
+

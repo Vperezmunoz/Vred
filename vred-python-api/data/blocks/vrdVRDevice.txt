@@ -1,0 +1,227 @@
+-----------
+vrdVRDevice
+-----------
+
+.. py:class:: vrdVRDevice
+
+(Inherits vrdObject)
+
+Represents a VR device like a controller or a tracker. This can be created before the actual device is connected with the system. When a device connects, VRED will map the physical device to the already created object. This allows to define mappings in advance.
+
+Please note: You get two different vrdVRDevice objects when you call both vrDeviceService.getVRDevice(name); and vrDeviceService.getVRDeviceBySerialNumber(serialNumber) before you connect the real hardware device. It's not possible to verify that they belong to the same physical device before the hardware is available.
+
+When the hardware is connected those device nodes will internally resolve to the correct physical device but they will still be two separate object instances and therefore you should not compare those nodes using the "==" operator.
+
+It is safer to use either     vrdVRDevice.getName() or vrdVRDevice.getSerialNumber() to compare them (depending on if you used name or serial number to get the node).
+
+Summary
+=======
+
+Functions:
+    * addVirtualButton(button, physicalButton)
+    * disableRay()
+    * enableRay(axis)
+    * getButtonState(button) → vrdButtonState
+    * getName() → string
+    * getNode() → vrdNode
+    * getRole() → vrHandTypes.HandRole
+    * getSerialNumber() → string
+    * getTrackingMatrix() → QMatrix4x4
+    * getVisualizationMode() → integer
+    * getVisualizationNode() → vrdNode
+    * getWristOrientationAngle() → float
+    * isVisible() → bool
+    * pick() → vrdRayIntersection
+    * removeVirtualButton(button, physicalButton)
+    * removeVirtualButton(virtualButton, physicalButton)
+    * setButtonPressed(state, button)
+    * setButtonTouched(state, button)
+    * setTrackingMatrix(matrix)
+    * setVisible(visible)
+    * setVisualizationMode(mode)
+    * signal() → Q_SLOTvrdVRDeviceSignal
+    * vibrate(milliseconds, axisId)
+
+Functions
+=========
+
+.. py:method:: vrdVRDevice.addVirtualButton(button, physicalButton)
+
+    Adds a virtual button to the controller that maps a position of a button to a new signal.
+
+    :param button: The virtual button.
+    :type button: vrdVirtualTouchpadButton
+
+    :param physicalButton: Name of the physical button the virtual one is related to.
+    :type physicalButton: string
+
+.. py:method:: vrdVRDevice.disableRay()
+
+    Disables the currently activated pointing ray.
+
+.. py:method:: vrdVRDevice.enableRay(axis)
+
+    Enables a pointing ray out of the controller.
+
+    :param axis: The axis of the pointing ray. Possible values are "x", "y", "z" for the respective axes of the controller's coordinate system, "custom" for the axis of the "Pointer" interaction, "teleportaxis" for the axis of the "Teleport" interaction, "controllerhandle" for the axis through the controller handle, as well as "leftfinger" and "rightfinger" for axes through the left and right index fingers of the hand visualization, respectively.
+    :type axis: string
+
+.. py:method:: vrdVRDevice.getButtonState(button)
+
+    Gets the state of the current button.
+
+    :param button: The name of the button.
+    :type button: string
+
+    :return: The state of the current button. This might be invalid, if the name of the button is unknown to the VR device.
+    :rtype: vrdButtonState
+
+.. py:method:: vrdVRDevice.getName()
+
+    Gets the name of the device.
+
+    :return: The name of the device. Will be empty if the device is invalid.
+    :rtype: string
+
+.. py:method:: vrdVRDevice.getNode()
+
+    Gets a node under the origin of the VR device. This node is not part of the scenegraph. If some geometry should be attached to the device, a constraint (see vrConstraintService::createParentConstraint(const QList<vrdNode> &,const vrdNode &,const bool)) should be used. Example: vr/attachToController.py.
+
+    :return: The node at the origin of the VR device.
+    :rtype: vrdNode
+
+.. py:method:: vrdVRDevice.getRole()
+
+    Gets the role of the device. This can be left hand, right hand or undefined.
+
+    :return: The hand role of the device.
+    :rtype: vrHandTypes.HandRole
+
+.. py:method:: vrdVRDevice.getSerialNumber()
+
+    Gets the serial number of the device.
+
+    Note: In OpenXR mode this is only available for Vive trackers due to API limitations.
+
+    :return: The serial number. This may be empty if the device has been created by name and the physical device is not connected, yet.
+    :rtype: string
+
+.. py:method:: vrdVRDevice.getTrackingMatrix()
+
+    :return: The current tracking matrix
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdVRDevice.getVisualizationMode()
+
+    Gets the current visualization mode.
+
+    :return: Id of the mode 0 = controller, 1 = hand, 2 = controller and hand, 3 = Uninitialized
+    :rtype: integer
+
+.. py:method:: vrdVRDevice.getVisualizationNode()
+
+    Gets the root node of the controller visualization. If the controller is currently not visible or not detected by the tracking system, this function will return an empty node.
+
+    :return: The root node of the VR device.
+    :rtype: vrdNode
+
+.. py:method:: vrdVRDevice.getWristOrientationAngle()
+
+    Returns the angle of the wrist orientation. This is 0 if the wrist is in rest position. This is the same angle that is also used to determine the orientation for VRED's built-in teleport.
+
+    :return: Angle of the wrist in degree.
+    :rtype: float
+
+.. py:method:: vrdVRDevice.isVisible()
+
+    Gets the visibility of the device.
+
+    :return: True = visible, False = invisible
+    :rtype: bool
+
+.. py:method:: vrdVRDevice.pick()
+
+    Tries to pick the object in the scene at the intersection point of the pointing ray with the scene.
+
+    :return: The data of the intersection.
+    :rtype: vrdRayIntersection
+
+.. py:method:: vrdVRDevice.removeVirtualButton(button, physicalButton)
+
+    Removes a virtual button that is related to a physical button.
+
+    :param button: The virtual button.
+    :type button: vrdVirtualTouchpadButton
+
+    :param physicalButton: The name of the physical button the virtual button is related to.
+    :type physicalButton: string
+
+.. py:method:: vrdVRDevice.removeVirtualButton(virtualButton, physicalButton)
+   :no-index:
+
+    Removes a virtual button that is related to a physical button.
+
+    :param virtualButton: The name of the virtual button.
+    :type virtualButton: string
+
+    :param physicalButton: The name of the physical button the virtual button is related to.
+    :type physicalButton: string
+
+.. py:method:: vrdVRDevice.setButtonPressed(state, button)
+
+    Simulate a button press.
+
+    :param state: True = pressed, False = released
+    :type state: bool
+
+    :param button: "menu", "grip", "touchpad" or "trigger"
+    :type button: string
+
+.. py:method:: vrdVRDevice.setButtonTouched(state, button)
+
+    Simulate a button press.
+
+    :param state: True = touched, False = untouched
+    :type state: bool
+
+    :param button: "menu", "grip", "touchpad" or "trigger"
+    :type button: string
+
+.. py:method:: vrdVRDevice.setTrackingMatrix(matrix)
+
+    Simulate a tracking position change.
+
+    :param matrix: The tracking matrix
+    :type matrix: QMatrix4x4
+
+.. py:method:: vrdVRDevice.setVisible(visible)
+
+    Sets the VR device visible or invisible.
+
+    :param visible: True for visible, False for invisible.
+    :type visible: bool
+
+.. py:method:: vrdVRDevice.setVisualizationMode(mode)
+
+    Sets the visualization mode.
+
+    :param mode: Id of the mode 0 = controller, 1 = hand, 2 = controller and hand
+    :type mode: integer
+
+.. py:method:: vrdVRDevice.signal()
+
+    Gets the signal that can be triggered.
+
+    :return: The signal object.
+    :rtype: Q_SLOTvrdVRDeviceSignal
+
+.. py:method:: vrdVRDevice.vibrate(milliseconds, axisId)
+
+    Triggers the vibration functionality of the device if available.
+
+    :param milliseconds: The duration of the vibration in milliseconds.
+    :type milliseconds: integer
+
+    :param axisId: The axis of the controller that will vibrate. Note: This parameter will be ignored in OpenXR. Oculus Touch, HTC Vive and Windows MR controllers will ignore this parameter or assume it to be 0 in OpenVR.
+    :type axisId: integer
+

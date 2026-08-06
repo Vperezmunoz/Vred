@@ -1,0 +1,36 @@
+--------------------------------
+vrdPhysicsSphereColliderSettings
+--------------------------------
+
+.. py:class:: vrdPhysicsSphereColliderSettings
+
+(Inherits vrdPhysicsColliderSettings)
+
+The     vrdPhysicsSphereColliderSettings class represents collider settings for PhysX sphere colliders.
+
+Summary
+=======
+
+Functions:
+    * getScale() → float
+    * setScale(scale)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsSphereColliderSettings.getScale()
+
+    Get the scale of the sphere.
+
+    :return: The scale of the sphere.
+    :rtype: float
+
+.. py:method:: vrdPhysicsSphereColliderSettings.setScale(scale)
+
+    Set the scale of the sphere.
+
+    The scale of the sphere is used to scale the sphere. The default value is 1.0.
+
+    :param scale: The scale of the sphere.
+    :type scale: float
+

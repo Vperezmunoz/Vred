@@ -1,0 +1,43 @@
+MODULE vrTransformHelper (legacy v1 API)
+
+-----------------
+vrTransformHelper
+-----------------
+
+Summary
+=======
+
+Functions:
+    * activateRotateManipulator()
+    * activateScaleManipulator()
+    * activateTranslateManipulator()
+    * activateUniversalManipulator()
+    * showTransformManipulator(state)
+    * togglePivotManipulator()
+
+.. function:: activateTranslateManipulator()
+
+    Activates the Translate Helper.
+
+.. function:: activateRotateManipulator()
+
+    Activates the Rotate Helper.
+
+.. function:: activateScaleManipulator()
+
+    Activates the Scale Helper.
+
+.. function:: togglePivotManipulator()
+
+    Activates the Pivot Helper.
+
+.. function:: activateUniversalManipulator()
+
+    Activates the Universal Helper.
+
+.. function:: showTransformManipulator(state)
+
+    Displays the Transform Helper.
+
+    :param state: Transform Helper: Show/Hide.
+    :type state: bool

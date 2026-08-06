@@ -1,0 +1,10 @@
+--------------
+vrdSurfaceNode
+--------------
+
+.. py:class:: vrdSurfaceNode
+
+(Inherits vrdGeometryNode)
+
+This is currently a placeholder interface with no functionality.
+

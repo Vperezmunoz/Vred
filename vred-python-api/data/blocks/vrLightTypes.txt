@@ -1,0 +1,67 @@
+------------
+vrLightTypes
+------------
+
+.. py:class:: vrLightTypes
+
+    .. py:class:: Attenuation
+
+        Sets the falloff of the light intensity.
+
+            .. py:data:: None_
+               :no-index:
+
+                Keeps the intensity of the light constant, in relation to the distance of the light source.
+
+            .. py:data:: Linear
+               :no-index:
+
+                Decreases light intensity linearly, in relation to the distance of the light source.
+
+            .. py:data:: Realistic
+               :no-index:
+
+                Decreases light intensity quadratically, in relation to the distance of the light source to an illuminated object.
+
+    .. py:class:: LightType
+
+            .. py:data:: Directional
+
+            .. py:data:: Point
+               :no-index:
+
+            .. py:data:: Spot
+
+            .. py:data:: Rectangular
+
+            .. py:data:: Disk
+
+            .. py:data:: Spherical
+
+            .. py:data:: Ray
+
+    .. py:class:: Unit
+
+            .. py:data:: Lumen
+
+            .. py:data:: Candela
+
+            .. py:data:: Lux
+
+            .. py:data:: CandelaPerSquaremeter
+
+    .. py:class:: VolumeIlluminationMode
+
+            .. py:data:: On
+
+                Enables lighting on volumes.
+
+            .. py:data:: Off
+               :no-index:
+
+                Disables lighting on volumes.
+
+            .. py:data:: Only
+
+                Enables lighting only for volumes.
+

@@ -1,0 +1,20 @@
+MODULE vrUVEditor (legacy v1 API)
+
+----------
+vrUVEditor
+----------
+
+Summary
+=======
+
+Functions:
+    * setAutoMaxIterations(enable)
+    * getAutoMaxIterations()
+
+.. function:: setAutoMaxIterations(enable)
+
+    Deprecated.
+
+.. function:: getAutoMaxIterations()
+
+    Deprecated.

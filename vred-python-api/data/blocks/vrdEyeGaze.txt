@@ -1,0 +1,78 @@
+----------
+vrdEyeGaze
+----------
+
+.. py:class:: vrdEyeGaze
+
+(Inherits vrdData)
+
+Holds eye gaze data returned by     vrHMDService.getEyeGaze().
+
+Summary
+=======
+
+Functions:
+    * getDirection() → QVector3D
+    * getOrigin() → QVector3D
+    * isTracked() → bool
+    * setDirection(direction)
+    * setOrigin(origin)
+    * setTracked(tracked)
+    * vrdEyeGaze()
+    * vrdEyeGaze(state)
+
+Functions
+=========
+
+.. py:method:: vrdEyeGaze.getDirection()
+
+    Get normalized direction of the gaze ray.
+
+    :return: gaze direction
+    :rtype: QVector3D
+
+.. py:method:: vrdEyeGaze.getOrigin()
+
+    Get origin of the gaze ray.
+
+    :return: gaze origin in mm
+    :rtype: QVector3D
+
+.. py:method:: vrdEyeGaze.isTracked()
+
+    :return: True if eye gaze is tracked, False if not tracked.
+    :rtype: bool
+
+.. py:method:: vrdEyeGaze.setDirection(direction)
+
+    Set normalized direction of the gaze ray.
+
+    :param direction: Normalized gaze direction
+    :type direction: QVector3D
+
+.. py:method:: vrdEyeGaze.setOrigin(origin)
+
+    Set origin of the gaze ray.
+
+    :param origin: Gaze origin in mm
+    :type origin: QVector3D
+
+.. py:method:: vrdEyeGaze.setTracked(tracked)
+
+    Set whether the eye gaze is tracked.
+
+    :param tracked:
+    :type tracked: bool
+
+.. py:method:: vrdEyeGaze.vrdEyeGaze()
+
+    Default constructor.
+
+.. py:method:: vrdEyeGaze.vrdEyeGaze(state)
+   :no-index:
+
+    Copy constructor.
+
+    :param state:
+    :type state: vrdEyeGaze
+

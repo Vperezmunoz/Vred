@@ -1,0 +1,10 @@
+--------------------
+vrdMultiPassMaterial
+--------------------
+
+.. py:class:: vrdMultiPassMaterial
+
+(Inherits vrdMultiMaterial)
+
+This class represents a multi pass material.
+

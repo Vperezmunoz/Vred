@@ -1,0 +1,26 @@
+MODULE vrVRMLViewPoints (legacy v1 API)
+
+----------------
+vrVRMLViewPoints
+----------------
+
+Summary
+=======
+
+Functions:
+    * setVRMLCurrentViewpoint(name)
+    * setVRMLViewPointsEnabled(state)
+
+.. function:: setVRMLViewPointsEnabled(state)
+
+    Enables VRML viewpoints.
+
+    :param state: Viewpoints: Enable/Disable.
+    :type state: bool
+
+.. function:: setVRMLCurrentViewpoint(name)
+
+    Set the current viewpoint.
+
+    :param name: The name of the viewpoint.
+    :type name: string

@@ -1,0 +1,307 @@
+MODULE vrCluster (legacy v1 API)
+
+---------
+vrCluster
+---------
+
+DEPRECATED: Use functions from vrClusterService and vrClusterManagerService instead.
+
+.. module:: vrCluster
+
+Summary
+=======
+
+Functions:
+    * getHPCRunning() → bool
+    * getClusterRunning() → bool
+    * hasClusterLicense() → bool
+    * loadHPC(filename)
+    * loadCluster(filename)
+    * loginToClusterManager(server, user, password) → bool
+    * logoffFromClusterManager()
+    * renderOnClusterQueue(queue) → bool
+    * renderQueueOnClusterQueue(queue) → bool
+    * renderSequencesOnClusterQueue(queue) → bool
+    * setClusterEyeSeparation(es)
+    * setClusterZeroParallax(zp)
+    * setClusterAdvanced(value)
+    * setClusterConnectionDelay(delay)
+    * setClusterNetworkSpeed(index, value)
+    * setClusterNetworkType(index, value)
+    * setClusterNodes(hosts)
+    * setClusterProjectionPlane(value)
+    * setHPCAdvanced(value)
+    * setHPCNetworkSpeed(index, value)
+    * setHPCNetworkType(index, value)
+    * setHPCNodes(hosts)
+    * startBookedRaytracingCluster(bookingId, server, user, password)
+    * startHPC()
+    * startCluster()
+    * startHPCRaytracing(hosts)
+    * startRaytracingCluster(hosts)
+    * stopHPC()
+    * stopCluster()
+
+.. method:: loadHPC(filename)
+
+    DEPRECATED. Use vrClusterService.loadConfig() instead.
+
+    Loads the HPC cluster configuration.
+
+    :param filename: The name of the XML file with the cluster configuration.
+    :type filename: string
+
+.. method:: startHPC()
+
+    DEPRECATED. Use vrClusterService.start() instead.
+
+    Activates the HPC cluster mode.
+
+.. method:: startHPCRaytracing(hosts="localhost")
+
+    DEPRECATED. Use vrClusterService.start() instead.
+
+    Starts a cluster with the given compute nodes.
+
+    :param hosts: List of host names.
+    :type hosts: string
+
+.. method:: stopHPC()
+
+    DEPRECATED. Use vrClusterService.stop() instead.
+
+    Deactivates the HPC cluster mode.
+
+.. method:: setHPCNodes(hosts="localhost")
+
+    DEPRECATED. Use vrClusterService.setConfig() instead.
+
+    Sets the list of compute nodes.
+
+    :param hosts: List of host names.
+    :type hosts: string
+
+.. method:: getHPCRunning() → bool
+
+    DEPRECATED. Use vrClusterService.isRunning() instead.
+
+    Returns true if the HPC cluster is running.
+
+    :return: True if running, False otherwise.
+    :rtype: bool
+
+.. method:: setHPCNetworkType(index, value)
+
+    DEPRECATED. Use vrClusterService.setConfig() instead.
+
+    Used to change the HPC network interface.
+
+    :param index: Network number (1 = first network).
+    :type index: int
+    :param value: Network type (e.g., infiniband or ethernet).
+    :type value: string
+
+.. method:: setHPCNetworkSpeed(index, value)
+
+    DEPRECATED. Use vrClusterService.setConfig() instead.
+
+    Used to change the HPC network speed hint.
+
+    :param index: Network number (1 = first network).
+    :type index: int
+    :param value: Speed (e.g., 1g, 10g, 10g1g, 40g20g).
+    :type value: string
+
+.. method:: setHPCAdvanced(value)
+
+    DEPRECATED. This function is not used anymore.
+
+    :param value: Advanced setting value.
+    :type value: bool
+
+.. method:: hasClusterLicense() → bool
+
+    DEPRECATED. Use vrClusterService.hasLicense() instead.
+
+    Returns true if the cluster has valid licenses.
+
+    :return: True if valid licenses exist, False otherwise.
+    :rtype: bool
+
+.. method:: setClusterEyeSeparation(es)
+
+    DEPRECATED. Use vrClusterService.setEyeSeparation() instead.
+
+    Sets the cluster eye separation.
+
+    :param es: The eye separation value.
+    :type es: float
+
+.. method:: setClusterZeroParallax(zp)
+
+    DEPRECATED. Use vrClusterService.setZeroParallax() instead.
+
+    Sets the cluster zero parallax.
+
+    :param zp: The zero parallax value.
+    :type zp: float
+
+.. method:: loginToClusterManager(server, user, password) → bool
+
+    DEPRECATED. Use vrClusterManagerService.login() instead.
+
+    Logs in to the cluster manager.
+
+    :param server: Hostname of the cluster manager.
+    :type server: string
+    :param user: Username for the cluster manager.
+    :type user: string
+    :param password: Password for the cluster manager.
+    :type password: string
+    :return: True if login is successful, False otherwise.
+    :rtype: bool
+
+.. method:: logoffFromClusterManager()
+
+    DEPRECATED. Use vrClusterManagerService.logoff() instead.
+
+    Logs off from the cluster manager.
+
+.. method:: renderOnClusterQueue(queue) → bool
+
+    DEPRECATED. Use vrClusterManagerService.sendToJobQueue() instead.
+
+    Starts rendering on the cluster queue.
+
+    :param queue: Name of the cluster queue.
+    :type queue: string
+    :return: True if rendering starts successfully, False otherwise.
+    :rtype: bool
+
+.. method:: renderQueueOnClusterQueue(queue) → bool
+
+    DEPRECATED. Use vrClusterManagerService.sendToJobQueue() instead.
+
+    Starts rendering the queue on the cluster queue.
+
+    :param queue: Name of the cluster queue.
+    :type queue: string
+    :return: True if rendering starts successfully, False otherwise.
+    :rtype: bool
+
+.. method:: renderSequencesOnClusterQueue(queue) → bool
+
+    DEPRECATED. Use vrClusterManagerService.sendToJobQueue() instead.
+
+    Starts rendering sequences on the cluster queue.
+
+    :param queue: Name of the cluster queue.
+    :type queue: string
+    :return: True if rendering starts successfully, False otherwise.
+    :rtype: bool
+
+.. method:: getClusterRunning() → bool
+
+    **Deprecated.** Use vrClusterService.isRunning() instead.
+
+    Returns true if the cluster is running.
+
+    :return: True if running, False otherwise.
+    :rtype: bool
+
+.. method:: loadCluster(filename)
+
+    **Deprecated.** Use vrClusterService.loadConfig() instead.
+
+    Loads the cluster configuration.
+
+    :param filename: The name of the XML file with the cluster configuration.
+    :type filename: string
+
+.. method:: startCluster()
+
+    **Deprecated.** Use vrClusterService.start() instead.
+
+    Activates the cluster mode.
+
+.. method:: stopCluster()
+
+    **Deprecated.** Use vrClusterService.stop() instead.
+
+    Deactivates the cluster mode.
+
+.. method:: startRaytracingCluster(hostnames)
+
+    **Deprecated.** Use vrClusterService.start() instead.
+
+    Starts a cluster with the given compute nodes.
+
+    :param hostnames: Space-separated list of names or IPs of the cluster client machines.
+    :type hostnames: string
+
+.. method:: startBookedRaytracingCluster(bookingId, server, user, password)
+
+    **Deprecated.** Use vrClusterManagerService functions instead.
+
+    Starts a booked raytracing cluster session.
+
+    :param bookingId: Id of the booked session.
+    :type bookingId: string
+    :param server: Hostname of the cluster manager.
+    :type server: string
+    :param user: User name used to login into cluster manager.
+    :type user: string
+    :param password: Password used to login into cluster manager.
+    :type password: string
+
+.. method:: setClusterNodes(hosts="localhost")
+
+    **Deprecated.** Use vrClusterService.setConfig() instead.
+
+    Sets the list of compute nodes.
+
+    :param hosts: List of host names.
+    :type hosts: string
+
+.. method:: setClusterNetworkType(index, value)
+
+    **Deprecated.** Use vrClusterService.setConfig() instead.
+
+    Used to change the cluster network interface.
+
+    :param index: Network number (1 = first network).
+    :type index: int
+    :param value: Network type (e.g., infiniband or ethernet).
+    :type value: string
+
+.. method:: setClusterNetworkSpeed(index, value)
+
+    **Deprecated.** Use vrClusterService.setConfig() instead.
+
+    Used to change the cluster network speed hint.
+
+    :param index: Network number (1 = first network).
+    :type index: int
+    :param value: Speed (e.g., 1g, 10g, 10g1g, 40g20g).
+    :type value: string
+
+.. method:: setClusterAdvanced(value)
+
+    **Deprecated.** This function is not used anymore.
+
+    :param value: Advanced setting value.
+    :type value: bool
+
+.. method:: setClusterProjectionPlane(index, points)
+
+    **Deprecated.** This function is not used anymore.
+
+    :param index: Index (unused).
+    :param points: Points (unused).
+
+.. method:: setClusterConnectionDelay(delay)
+
+    **Deprecated.** This function is not used anymore.
+
+    :param delay: The delay value.
+    :type delay: float

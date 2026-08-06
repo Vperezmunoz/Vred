@@ -1,0 +1,90 @@
+-----------------
+vrdHDRLightStudio
+-----------------
+
+.. py:class:: vrdHDRLightStudio
+
+(Inherits vrdSceneObject)
+
+This class is used for connecting a VRED environment to HDR Light Studio.
+
+    .. py:class:: LightPaintMode
+
+            .. py:data:: ReflectionPainting
+
+            .. py:data:: IlluminationPainting
+
+            .. py:data:: RimPainting
+
+Summary
+=======
+
+Functions:
+    * editAndLoadSettings() → bool
+    * getLightPaint() → bool
+    * getLightPaintMode() → vrdHDRLightStudio.LightPaintMode
+    * isConnected() → bool
+    * quit()
+    * saveSettings() → bool
+    * setLightPaint(value)
+    * setLightPaintMode(mode)
+    * show()
+
+Functions
+=========
+
+.. py:method:: vrdHDRLightStudio.editAndLoadSettings()
+
+    Opens HDR Light Studio and tries to load a project saved for this environment. If no project has been previously saved for this environment, you start with a blank canvas. The current HDR image is replaced. All changes made on the HDR Light Studio canvas are immediately applied to the HDR image of the connected VRED Sphere Environment.
+
+    :return: Success
+    :rtype: bool
+
+.. py:method:: vrdHDRLightStudio.getLightPaint()
+
+    Gets the Light Paint enable state. Light Paint allows you to directly click the VRED Render Window for positioning light sources in the HDR image.
+
+    :return: Current state of Light Paint
+    :rtype: bool
+
+.. py:method:: vrdHDRLightStudio.getLightPaintMode()
+
+    Gets the light paint mode used for positioning light sources in the HDR image.
+
+    :return: Current light paint mode
+    :rtype: vrdHDRLightStudio.LightPaintMode
+
+.. py:method:: vrdHDRLightStudio.isConnected()
+
+    :return: Whether the VRED environment this vrdHDRLightStudio object belongs to is connected to a running instance of HDR Light Studio.
+    :rtype: bool
+
+.. py:method:: vrdHDRLightStudio.quit()
+
+    Shuts down the HDR Light Studio background process (HDRLightStudio.exe) and frees up the license.
+
+.. py:method:: vrdHDRLightStudio.saveSettings()
+
+    Internally saves the HDR Light Studio project for the Sphere Environment currently being edited.
+
+    :return: Success
+    :rtype: bool
+
+.. py:method:: vrdHDRLightStudio.setLightPaint(value)
+
+    Toggle Light Paint on or off. Light Paint allows you to directly click the VRED Render Window for positioning light sources in the HDR image.
+
+    :param value: True to enable Light Paint tool, False to disable it.
+    :type value: bool
+
+.. py:method:: vrdHDRLightStudio.setLightPaintMode(mode)
+
+    Sets the light paint mode used for positioning light sources in the HDR image.
+
+    :param mode: New light paint mode
+    :type mode: vrdHDRLightStudio.LightPaintMode
+
+.. py:method:: vrdHDRLightStudio.show()
+
+    Displays the HDR Light Studio window, if previously closed.
+

@@ -1,0 +1,195 @@
+-----------------
+vrdAnnotationNode
+-----------------
+
+.. py:class:: vrdAnnotationNode
+
+(Inherits vrdNode)
+
+Summary
+=======
+
+Functions:
+    * getBackgroundColor() → QColor
+    * getFarScaleLimit() → float
+    * getFontColor() → QColor
+    * getLineColor() → QColor
+    * getNearScaleLimit() → float
+    * getPosition() → QVector3D
+    * getSceneNode() → vrdNode
+    * getSize() → float
+    * getText() → string
+    * getUseSceneNodeVisibility() → bool
+    * isAnchored() → bool
+    * setAnchored(enabled)
+    * setBackgroundColor(color)
+    * setFarScaleLimit(value)
+    * setFontColor(color)
+    * setLineColor(color)
+    * setNearScaleLimit(value)
+    * setPosition(worldPosition)
+    * setSceneNode(node)
+    * setSize(size)
+    * setText(text)
+    * setUseSceneNodeVisibility(enabled)
+    * zoomTo()
+
+Functions
+=========
+
+.. py:method:: vrdAnnotationNode.getBackgroundColor()
+
+    Returns the label background color.
+
+    :return: The color.
+    :rtype: QColor
+
+.. py:method:: vrdAnnotationNode.getFarScaleLimit()
+
+    :return: Returns the dynamic far scaling limit in mm.
+    :rtype: float
+
+.. py:method:: vrdAnnotationNode.getFontColor()
+
+    Returns the font color for the displayed text.
+
+    :return: The color.
+    :rtype: QColor
+
+.. py:method:: vrdAnnotationNode.getLineColor()
+
+    Returns the line color for border and leader.
+
+    :return: The color.
+    :rtype: QColor
+
+.. py:method:: vrdAnnotationNode.getNearScaleLimit()
+
+    :return: Returns the dynamic near scaling limit in mm.
+    :rtype: float
+
+.. py:method:: vrdAnnotationNode.getPosition()
+
+    Returns the position as a 3D world coordinate.
+
+    :return: The position.
+    :rtype: QVector3D
+
+.. py:method:: vrdAnnotationNode.getSceneNode()
+
+    :return: Returns the linked scene graph node.
+    :rtype: vrdNode
+
+.. py:method:: vrdAnnotationNode.getSize()
+
+    :return: The size.
+    :rtype: float
+
+.. py:method:: vrdAnnotationNode.getText()
+
+    Returns the displayed description text.
+
+    :return: The text.
+    :rtype: string
+
+.. py:method:: vrdAnnotationNode.getUseSceneNodeVisibility()
+
+    Returns if a scene graph node is used for determining the visibility.
+
+    :return: True if a node is used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAnnotationNode.isAnchored()
+
+    Returns if the position is linked with the position of the associated node.
+
+    :return: True if the position is linked, False if not.
+    :rtype: bool
+
+.. py:method:: vrdAnnotationNode.setAnchored(enabled)
+
+    Specifies if the position will be linked with the position of the associated node.
+
+    :param enabled: True if the position will be linked, False if not.
+    :type enabled: bool
+
+.. py:method:: vrdAnnotationNode.setBackgroundColor(color)
+
+    Sets the label background color (linear RGB) and opacity (alpha).
+
+    :param color: The color values. They can either be set as integer values (color.setRgba(..)) in range [0 .. 255] or as floating point values (color.setRgbaF(..)) in range [0.0 .. 1.0].
+    :type color: QColor
+
+.. py:method:: vrdAnnotationNode.setFarScaleLimit(value)
+
+    Sets the far scaling limit. The value is used for scaling the size dynamically depending on the camera position.
+
+    Maximum size of label is reached for camera distance <= nearLimit. Minimum size of label is reached for camera distance >= farLimit. Between these limits the label is scaled linearly.
+
+    :param value: Scale limit in mm.
+    :type value: float
+
+.. py:method:: vrdAnnotationNode.setFontColor(color)
+
+    Sets the font color for the displayed text (linear RGB).
+
+    :param color: The color values. They can either be set as integer values (color.setRgb(..)) in range [0 .. 255] or as floating point values (color.setRgbF(..)) in range [0.0 .. 1.0].
+    :type color: QColor
+
+.. py:method:: vrdAnnotationNode.setLineColor(color)
+
+    Sets the line color for border and leader (linear RGB).
+
+    :param color: The color values. They can either be set as integer values (color.setRgb(..)) in range [0 .. 255] or as floating point values (color.setRgbF(..)) in range [0.0 .. 1.0].
+    :type color: QColor
+
+.. py:method:: vrdAnnotationNode.setNearScaleLimit(value)
+
+    Sets the near scaling limit. The value is used for scaling the size dynamically depending on the camera position.
+
+    Maximum size of label is reached for camera distance <= nearLimit. Minimum size of label is reached for camera distance >= farLimit. Between these limits the label is scaled linearly.
+
+    :param value: Scale limit in mm.
+    :type value: float
+
+.. py:method:: vrdAnnotationNode.setPosition(worldPosition)
+
+    The point (3D world coordinates) to which the leader arrow head is pointing.
+
+    :param worldPosition: The position.
+    :type worldPosition: QVector3D
+
+.. py:method:: vrdAnnotationNode.setSceneNode(node)
+
+    Sets the linked scene graph node (see         vrdAnnotationNode.setUseSceneNodeVisibility(enabled)).
+
+    :param node: The node.
+    :type node: vrdNode
+
+.. py:method:: vrdAnnotationNode.setSize(size)
+
+    Sets the size.
+
+    :param size: The size. A value of 1.0 will result in a decent predefined size. Use smaller or larger values to size appropriately.
+    :type size: float
+
+.. py:method:: vrdAnnotationNode.setText(text)
+
+    The displayed description text.
+
+    :param text: The description.
+    :type text: string
+
+.. py:method:: vrdAnnotationNode.setUseSceneNodeVisibility(enabled)
+
+    Toggles the use of the linked scene graph node to determine the visiblity. A set linked scene node is necessary (see         vrdAnnotationNode.setSceneNode(node)).
+
+    :param enabled: True to use the linked node to determine the visibility, False otherwise.
+    :type enabled: bool
+
+.. py:method:: vrdAnnotationNode.zoomTo()
+
+    Lets the camera of the current render window zoom to this annotation.
+
+    The annotation position is centered in the render window and the node is used to calculate the distance of the camera to the annotation.
+

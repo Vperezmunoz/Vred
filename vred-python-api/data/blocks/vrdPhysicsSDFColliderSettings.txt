@@ -1,0 +1,38 @@
+-----------------------------
+vrdPhysicsSDFColliderSettings
+-----------------------------
+
+.. py:class:: vrdPhysicsSDFColliderSettings
+
+(Inherits vrdPhysicsTrianglesColliderSettings)
+
+The     vrdPhysicsSDFColliderSettings class represents collider settings for PhysX SDF colliders.
+
+SDF (Signed Distance Field) colliders are used for dynamic and kinematic objects with complex non-convex geometries. They provide high-quality collision detection for detailed meshes that would be expensive or inaccurate to represent with convex decomposition.
+
+Summary
+=======
+
+Functions:
+    * getResolution() → integer
+    * setResolution(resolution)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsSDFColliderSettings.getResolution()
+
+    Get the SDF grid resolution.
+
+    :return: The SDF grid resolution (8-128).
+    :rtype: integer
+
+.. py:method:: vrdPhysicsSDFColliderSettings.setResolution(resolution)
+
+    Set the SDF grid resolution.
+
+    Higher resolution values provide more accurate collision detection but use more memory. The resolution determines the number of voxels along each axis of the SDF grid.
+
+    :param resolution: The SDF grid resolution. Must be between 8 and 128. Higher values provide better accuracy but increase memory usage and build time.
+    :type resolution: integer
+

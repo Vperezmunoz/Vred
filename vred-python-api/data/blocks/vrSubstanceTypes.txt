@@ -1,0 +1,22 @@
+----------------
+vrSubstanceTypes
+----------------
+
+.. py:class:: vrSubstanceTypes
+
+    .. py:class:: PresetApplyMode
+
+        Defines the mode with which a preset is applied to the graph.
+
+            .. py:data:: ApplyAndReset
+
+                Applies the stored values of the preset and resets all graph inputs which are not included in the preset.
+
+            .. py:data:: ApplyAndMerge
+
+                Applies the stored values of the preset and leaves all other graph inputs unchanged.
+
+            .. py:data:: UsePreference
+
+                Use the entry from the preferences which is either Apply and Reset or Apply and Merge.
+

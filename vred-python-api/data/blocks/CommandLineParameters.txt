@@ -1,0 +1,108 @@
+Commandline Options
+===================
+
+The list of commandline options per product can be listed by starting the product with the "-help" option.
+For product variants with a graphical user interface (**VREDPro / VREDDesign / AutomotiveAssets**) you need to
+specify both "-console" and "-help" to see the list of parameters in the opened console window.
+
+All Products
+------------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-help                    produce help message
+-productKey arg          set license productKey
+-productLicensePath arg  set license productLicensePath
+-productLicenseType arg  set license productLicenseType
+-productVersion arg      set license productVersion
+-screen arg              set screen number when using an extended desktop
+-no_opengl               force no opengl
+-software_opengl         force software opengl
+-gpu arg                 set GPU device id
+-nobanner                disable startup banner
+-hide_gui                hide user interface
+-no_gui                  disable user interface
+-nogui                   disable user interface
+-rpc arg                 set rpc server port
+-dbg                     enable debug mode
+-rt arg                  specify the raytracing library to use. Valid choices are SSE2, SSE42 and AVX
+-jobid arg               set job id
+-tracking_config arg     set tracking config path
+-import arg              import files
+-licenseSilentMode       force license silent mode
+-noUserLicense           disable user license
+-insecure_python         allow all python commands
+-useStagingServer        use staging server for shared views
+-input_stream_size arg   set input stream size
+-input_stream_name arg   set input stream name
+-preferencesOverride arg set the file to override preferences
+-renderer arg            specify the renderer to use. Valid choices are gl, vk, cpurt, gpurt
+======================== ===========
+
+VREDPro / VREDDesign / VREDCore / VREDServerNode
+------------------------------------------------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-wport arg               set web server port (overrides preferences)
+-wsslport arg            set web server ssl port (overrides preferences)
+-wpipe arg               set web server pipeline
+-atf                     force ATF importer
+-dc                      force DirectConnect importer
+-legacy_tessellator      force legacy tessellator
+-prepython arg           executes any semicolon-separated python command or base64 encoded python script prior to loading the scene.
+-postpython arg          executes any semicolon-separated python command or base64 encoded python script after loading the scene.
+======================== ===========
+
+All Products except Automotive Assets
+-------------------------------------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-cloudtype arg (=redis)  set cloud type
+-cloudhost arg           set cloud host
+-cloudid arg             set cloud id
+-cloudpw arg             set cloud password
+-log                     enable cloud log mode
+-sslverify arg (=1)      ssl client verification level (0=off)
+======================== ===========
+
+VREDCore / VREDServerNode
+-------------------------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-edit_preferences        edit preferences
+======================== ===========
+
+VREDGo
+------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-mode                    VREDGo mode currently supported "desktop" and "vr".
+======================== ===========
+
+VREDPresenter
+-------------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-analysis                enable analysis mode
+-livelink                enable livelink
+======================== ===========
+
+All Products with a graphical user interface
+--------------------------------------------
+
+======================== ===========
+Parameter                Description
+======================== ===========
+-console                 open console for debugging
+======================== ===========

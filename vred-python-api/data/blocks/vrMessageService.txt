@@ -1,0 +1,38 @@
+----------------
+vrMessageService
+----------------
+
+.. py:class:: vrMessageService
+
+(Inherits vrBaseService)
+
+The     vrMessageService gives access to messages sent by the VRED application.
+
+Example:
+
+```
+
+     def receivedMessage(msg_id, args):
+         print('Message: ', msg_id, args)
+
+     vrMessageService.message.connect(receivedMessage)
+
+Summary
+=======
+
+Signals:
+    * message(id, args)
+
+Signals
+=======
+
+.. py:method:: vrMessageService.message(id, args)
+
+    Message signal emitted for the VRED_MSG_[...] messages defined in vrController (API v1).
+
+    :param id: Message ID (VRED_MSG_[...] constant)
+    :type id: integer
+
+    :param args: Message arguments.
+    :type args: QVariant
+

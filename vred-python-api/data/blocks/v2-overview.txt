@@ -1,0 +1,152 @@
+Python API v2 documentation
+===========================
+
+The VRED Python API v2 is based on `Qt for Python <https://wiki.qt.io/Qt_for_Python>`_ (also known as PySide)
+and is the recommended API going forward.
+
+Since VRED 2024, VRED uses Qt 6 (PySide6 and shiboken6).
+
+.. contents:: Contents
+   :local:
+   :depth: 2
+   :backlinks: none
+
+Types
+-----
+Some functions in API v2 use Qt types for parameters or as return type.
+Those types are imported automatically into the python namespace and can be used without
+the need to import them from the PySide6 module.
+
+Additional Qt classes can be imported like this:
+
+```
+
+    from PySide6.QtCore import QLine
+    from PySide6.QtGui import QBrush
+
+    line = QLine(0,0,100,100)
+    brush = QBrush()
+
+Objects
+-------
+
+Scene objects in API v2 are derived from class_vrdObject. Class names for these objects start with the prefix "vrd",
+for example class_vrdNode for node objects or class_vrdMaterial for material objects.
+
+Whenever those objects are returned from an API function or method, their class type will be determined dynamically.
+That means they will be either of the base class type as specified by the documentation, or a descendant class. For example,
+when retrieving the default environment switch via class_vrMaterialService.findMaterial("Environments"), the returned
+object will be of class_vrdEnvironmentSwitchMaterial type instead of the documented base type class_vrdMaterial.
+
+Thus, users do not need to upcast the returned objects as they already exhibit their most specific type. Users should however
+check the type of the returned object via vrdObject.isType(type) before accessing methods or properties of a particular
+type in order to prevent runtime errors. For example, when the user wants to access the choice property of the material returned
+by the call to findMaterial() above, the material type should be checked via material.isType(class_vrdSwitchMaterial) before
+invoking material.getChoice(). If only methods or properties of the documented base type are about to be accessed, this is of course
+not necessary.
+
+Services
+--------
+
+While the objects have many functions to query and change properties, the main entry point is through the services to get the objects you want to work with.
+
+Use services to find existing scene objects, create new objects, delete objects, or access other functions that are available in the related VRED modules.
+
+* Annotation: class_vrAnnotationService
+* Bake Light and Shadows: class_vrBakeService
+* Camera Editor: class_vrCameraService
+* Cluster: class_vrClusterService, class_vrClusterManagerService
+* Geometry: class_vrGeometryService
+* Light Editor: class_vrLightService
+* Material Editor: class_vrMaterialService
+* Reference Editor: class_vrReferenceService
+* Live References: class_vrLiveReferenceService
+* Scenegraph: class_vrScenegraphService, class_vrNodeService
+* Sceneplate Editor: class_vrSceneplateService
+* Collaboration: class_vrSessionService
+* Virtual Reality: class_vrDeviceService, class_vrImmersiveInteractionService, class_vrImmersiveUiService, class_vrHMDService
+* Constraints: class_vrConstraintService
+* Physics and Collision: class_vrPhysicsService
+* UVs: class_vrUVService
+* Loading and saving files: class_vrFileIOService
+* Metadata: class_vrMetadataService
+* Advanced Search: class_vrQueryService
+* Logging: class_vrLogService
+* Render Settings: class_vrRenderSettingsService
+* Variant Sets: class_vrVariantService
+
+Call service functions through an object that has the same name as the service class. For example:
+
+```
+
+    camNode = vrCameraService.createCamera("new camera")
+
+All service objects (`vrCameraService`, `vrImmersiveUiService`, etc.)
+are injected by VRED as built-in names and are available without an import statement
+in the Script Editor and in script plugins.
+
+.. caution::
+   Do **not** import services from `vrKernelServices`
+   (i.e. do **not** use `from vrKernelServices import vrCameraService`).
+   Such an import statement would shadow the service's singleton object by the class,
+   and any method call would raise an `unbound method … needs an argument` error.
+
+Object and enum types (`vrdNode`, `vrScenegraphTypes`, etc.)
+are also preloaded by VRED into the Script Editor and, since VRED 2027,
+into the main module of script plugins, so they can be used there without an import statement.
+Unlike services, importing types from `vrKernelServices` is safe.
+In helper modules imported by a script plugin, import types explicitly,
+e.g. `from vrKernelServices import vrScenegraphTypes`.
+
+Function calls
+--------------
+In VRED API v2, **only optional** parameters can be passed as keyword arguments (named arguments) in a function call.
+Optional parameters are displayed with their default value in the function signature in this documentation.
+
+All mandatory parameters must be passed as positional arguments, i.e. without their name, in the order as specified in the signature.
+
+For example, class_vrNodeService.findNode has one mandatory parameter (`name`) and the rest is optional.
+That means, this function call works (omitting the second and third parameter):
+
+```
+
+    trackNode = vrNodeService.findNode("track1", root=vrCameraService.getCameraRoot())
+
+while this function call would give an error:
+
+```
+
+    trackNode = vrNodeService.findNode(name="track1", root=vrCameraService.getCameraRoot())
+
+Using API v2 from JavaScript
+----------------------------
+
+VRED also exposes API v2 to JavaScript clients as a module served by VRED's web server.
+This is different from the URL endpoints for sending Python commands to VRED; see
+the webinterface documentation for those.
+
+To use the JavaScript API, VRED's web server must be running, for example by enabling it in
+the Web Interface preferences. The JavaScript API module is served as `/api.js` by that server.
+
+A page delivered by VRED's web server from a custom web root directory can import the module from `/api.js`.
+A page opened from a local file or served by another web server can import it with the full
+VRED web server URL, such as `http://hostname:8888/api.js`. In this case,
+Cross-Origin-Requests must also be enabled in the Web Interface preferences.
+
+Function calls are executed asynchronously. The following example shows how such a call could
+look in JavaScript. All parameter and return types are mapped to JavaScript types.
+`QVector3D` and `QMatrix4x4`, for example, are mapped to arrays of 3 or 16 numbers.
+
+```
+
+  <script type="module">
+    import {api} from '/api.js';
+
+    // reacting on a signal
+    api.vrClusterService.started.connect(() => {console.log('Started')});
+    // calling a function
+    api.vrClusterService.start();
+    // changing the position of the camera
+    api.vrNodeService.findNode("Perspective")
+        .then((node) => node.setTranslation([10,20,30]));
+  </script>

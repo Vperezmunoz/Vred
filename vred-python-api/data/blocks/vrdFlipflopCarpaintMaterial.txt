@@ -1,0 +1,82 @@
+---------------------------
+vrdFlipflopCarpaintMaterial
+---------------------------
+
+.. py:class:: vrdFlipflopCarpaintMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all flipflop material properties.
+
+Summary
+=======
+
+Functions:
+    * getBaseColor() → QVector3D
+    * getBaseColorSpectrum() → vrSpectrum
+    * getClearcoat() → vrdClearcoat
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getFlakeLayer() → vrdFlipflopFlakeLayer
+    * getIncandescence() → vrdIncandescence
+    * setBaseColor(color)
+    * setBaseColorSpectrum(value)
+
+Functions
+=========
+
+.. py:method:: vrdFlipflopCarpaintMaterial.getBaseColor()
+
+    Get the the base color.
+
+    :return: The current used the basic color
+    :rtype: QVector3D
+
+.. py:method:: vrdFlipflopCarpaintMaterial.getBaseColorSpectrum()
+
+    Gets the spectrum of the base color.
+
+    :return: The current used spectrum for base color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdFlipflopCarpaintMaterial.getClearcoat()
+
+    Gets access to all properties of         vrdClearcoat.
+
+    :return: An vrdClearcoat object, to read and write access of alls properties.
+    :rtype: vrdClearcoat
+
+.. py:method:: vrdFlipflopCarpaintMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdFlipflopCarpaintMaterial.getFlakeLayer()
+
+    Gets access to all properties of         vrdFlipflopFlakeLayer.
+
+    :return: An vrdFlipflopFlakeLayer object, to read and write access of alls properties.
+    :rtype: vrdFlipflopFlakeLayer
+
+.. py:method:: vrdFlipflopCarpaintMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdFlipflopCarpaintMaterial.setBaseColor(color)
+
+    Defines the base color, which is the main characteristic of the material.
+
+    :param color: Value for the new base color.
+    :type color: QVector3D
+
+.. py:method:: vrdFlipflopCarpaintMaterial.setBaseColorSpectrum(value)
+
+    Sets the spectrum of the base color.
+
+    :param value: New spectrum for base color
+    :type value: vrSpectrum
+

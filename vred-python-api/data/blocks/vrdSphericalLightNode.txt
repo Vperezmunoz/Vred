@@ -1,0 +1,12 @@
+---------------------
+vrdSphericalLightNode
+---------------------
+
+.. py:class:: vrdSphericalLightNode
+
+(Inherits vrdAreaLightNode)
+
+This class gives access to the properties of a spherical light source.
+
+The spherical light is an area light that emits light from a sphere. It is more realistic than point light.
+

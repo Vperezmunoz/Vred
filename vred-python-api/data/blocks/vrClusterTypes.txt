@@ -1,0 +1,14 @@
+--------------
+vrClusterTypes
+--------------
+
+.. py:class:: vrClusterTypes
+
+    .. py:class:: JobType
+
+            .. py:data:: Images
+
+            .. py:data:: Sequences
+
+            .. py:data:: RenderQueue
+

@@ -1,0 +1,131 @@
+MODULE vrAmbientOcclusion (legacy v1 API)
+
+------------------
+vrAmbientOcclusion
+------------------
+
+.. module:: vrAmbientOcclusion
+
+Summary
+=======
+
+Functions:
+    * computeAmbientOcclusion(...)
+    * computeMissingAmbientOcclusion(...)
+    * getAmbientOcclusionMode() → int
+    * setAmbientOcclusionMode(mode)
+
+Attributes:
+    * VR_AO_MODE_CLASSIC
+    * VR_AO_MODE_SHADOWS
+    * VR_AO_MODE_LIGHT_AND_SHADOWS
+    * VR_AO_WEIGHTING_COSINE
+    * VR_AO_WEIGHTING_UNIFORM
+
+.. method:: computeAmbientOcclusion(quality, minDistance, maxDistance, indirectIllumination, colorBleeding, gatherQuality, numIndirections, subdivide, minEdgeLength, overrideMaterialColor=None, materialColorR=None, materialColorG=None, materialColorB=None, subdivisionQuality=None, intensityThreshold=None, weighting=None)
+
+    Calculates ambient occlusion and indirect illumination including color bleeding.
+
+    :param quality: The quality level (value from 0 to 5) for the ambient occlusion calculation.
+    :type quality: unsigned int
+    :param minDistance: The minimum distance a ray searches for intersections.
+    :type minDistance: float
+    :param maxDistance: The maximum distance a ray searches for intersections.
+    :type maxDistance: float
+    :param indirectIllumination: Turns indirect illumination on or off.
+    :type indirectIllumination: bool
+    :param colorBleeding: Turns color bleeding on or off.
+    :type colorBleeding: bool
+    :param gatherQuality: The quality level (value from 0 to 4) for the indirect illumination gathering passes.
+    :type gatherQuality: unsigned int
+    :param numIndirections: The number of bounces (gathering passes) for the indirect illumination.
+    :type numIndirections: unsigned int
+    :param subdivide: Turns geometry subdivision on or off.
+    :type subdivide: bool
+    :param minEdgeLength: Sets the minimum length an edge may have after subdivision.
+    :type minEdgeLength: float
+    :param overrideMaterialColor: Turns material color override on or off (Optional).
+    :type overrideMaterialColor: bool
+    :param materialColorR: Red component of the material override color (Optional).
+    :type materialColorR: float
+    :param materialColorG: Green component of the material override color (Optional).
+    :type materialColorG: float
+    :param materialColorB: Blue component of the material override color (Optional).
+    :type materialColorB: float
+    :param subdivisionQuality: The quality level (value from 0 to 2) for the subdivision of the geometry (Optional).
+    :type subdivisionQuality: int
+    :param intensityThreshold: Sets the intensity threshold for a subdivision (Optional).
+    :type intensityThreshold: float
+    :param weighting: Sets how the ambient occlusion samples in the hemisphere above the calculation point are weighted (Optional).
+    :type weighting: int
+
+.. method:: computeMissingAmbientOcclusion(quality, minDistance, maxDistance, indirectIllumination, colorBleeding, gatherQuality, numIndirections, subdivide, minEdgeLength, intensityThreshold, overrideMaterialColor=None, materialColorR=None, materialColorG=None, materialColorB=None, subdivisionQuality=None, weighting=None)
+
+    Calculates ambient occlusion and indirect illumination including color bleeding for the selected nodes that do not have a calculation yet.
+
+    :param quality: The quality level (value from 0 to 5) for the ambient occlusion calculation.
+    :type quality: unsigned int
+    :param minDistance: The minimum distance a ray searches for intersections.
+    :type minDistance: float
+    :param maxDistance: The maximum distance a ray searches for intersections.
+    :type maxDistance: float
+    :param indirectIllumination: Turns indirect illumination on or off.
+    :type indirectIllumination: bool
+    :param colorBleeding: Turns color bleeding on or off.
+    :type colorBleeding: bool
+    :param gatherQuality: The quality level (value from 0 to 4) for the indirect illumination gathering passes.
+    :type gatherQuality: unsigned int
+    :param numIndirections: The number of bounces (gathering passes) for the indirect illumination.
+    :type numIndirections: unsigned int
+    :param subdivide: Turns geometry subdivision on or off.
+    :type subdivide: bool
+    :param minEdgeLength: Sets the minimum length an edge may have after subdivision.
+    :type minEdgeLength: float
+    :param intensityThreshold: Sets the intensity threshold for a subdivision.
+    :type intensityThreshold: float
+    :param overrideMaterialColor: Turns material color override on or off (Optional).
+    :type overrideMaterialColor: bool
+    :param materialColorR: Red component of the material override color (Optional).
+    :type materialColorR: float
+    :param materialColorG: Green component of the material override color (Optional).
+    :type materialColorG: float
+    :param materialColorB: Blue component of the material override color (Optional).
+    :type materialColorB: float
+    :param subdivisionQuality: The quality level (value from 0 to 2) for the subdivision of the geometry (Optional).
+    :type subdivisionQuality: int
+    :param weighting: Sets how the ambient occlusion samples in the hemisphere above the calculation point are weighted (Optional).
+    :type weighting: int
+
+.. method:: setAmbientOcclusionMode(mode)
+
+    Sets the ambient occlusion mode.
+
+    :param mode: The new mode. Accepted modes are VR_AO_MODE_CLASSIC, VR_AO_MODE_SHADOWS, and VR_AO_MODE_LIGHT_AND_SHADOWS.
+    :type mode: int
+
+.. method:: getAmbientOcclusionMode()
+
+    Returns the current ambient occlusion mode.
+
+    :return: The current mode.
+    :rtype: int
+
+.. attribute:: VR_AO_MODE_CLASSIC
+
+    Classic ambient occlusion mode.
+
+.. attribute:: VR_AO_MODE_SHADOWS
+
+    Shadows-only ambient occlusion mode.
+
+.. attribute:: VR_AO_MODE_LIGHT_AND_SHADOWS
+
+    Light and shadows ambient occlusion mode.
+
+.. attribute:: VR_AO_WEIGHTING_COSINE
+
+    Ambient occlusion samples in the direction of the surface normal have more influence on the result.
+
+.. attribute:: VR_AO_WEIGHTING_UNIFORM
+
+    All ambient occlusion samples have the same weight.

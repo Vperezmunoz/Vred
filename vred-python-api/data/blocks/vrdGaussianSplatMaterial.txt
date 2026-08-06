@@ -1,0 +1,90 @@
+------------------------
+vrdGaussianSplatMaterial
+------------------------
+
+.. py:class:: vrdGaussianSplatMaterial
+
+(Inherits vrdMaterial)
+
+This class is used to handle all Gaussian splat material properties. This material type must be used in combination with     vrdPointCloudNode.
+
+Summary
+=======
+
+Functions:
+    * getAllowClipping() → bool
+    * getCastShadowsOntoShadowMaterial() → bool
+    * getColorCorrection() → vrdColorCorrection
+    * getKernelDegree() → integer
+    * getReceiveShadows() → bool
+    * setAllowClipping(allowClipping)
+    * setCastShadowsOntoShadowMaterial(castShadowsOntoShadowMaterial)
+    * setKernelDegree(kernelDegree)
+    * setReceiveShadows(receiveShadows)
+
+Functions
+=========
+
+.. py:method:: vrdGaussianSplatMaterial.getAllowClipping()
+
+    Get whether to allow clipping for the gaussian splat.
+
+    :return: Whether to allow clipping.
+    :rtype: bool
+
+.. py:method:: vrdGaussianSplatMaterial.getCastShadowsOntoShadowMaterial()
+
+    Get whether to cast shadows onto shadow material.
+
+    :return: Whether to cast shadows onto shadow material.
+    :rtype: bool
+
+.. py:method:: vrdGaussianSplatMaterial.getColorCorrection()
+
+    Gets access to all properties of         vrdColorCorrection.
+
+    :return: An vrdColorCorrection object, to read and write access of alls properties.
+    :rtype: vrdColorCorrection
+
+.. py:method:: vrdGaussianSplatMaterial.getKernelDegree()
+
+    Get the kernel degree for the gaussian splat.
+
+    :return: The current used kernel degree.
+    :rtype: integer
+
+.. py:method:: vrdGaussianSplatMaterial.getReceiveShadows()
+
+    Get whether the gaussian splat should receive shadows.
+
+    :return: Whether to receive shadows.
+    :rtype: bool
+
+.. py:method:: vrdGaussianSplatMaterial.setAllowClipping(allowClipping)
+
+    Sets whether to allow clipping for the gaussian splat.
+
+    :param allowClipping: Whether to allow clipping.
+    :type allowClipping: bool
+
+.. py:method:: vrdGaussianSplatMaterial.setCastShadowsOntoShadowMaterial(castShadowsOntoShadowMaterial)
+
+    Sets whether to cast shadows onto shadow material.
+
+    :param castShadowsOntoShadowMaterial: Whether to cast shadows onto shadow material.
+    :type castShadowsOntoShadowMaterial: bool
+
+.. py:method:: vrdGaussianSplatMaterial.setKernelDegree(kernelDegree)
+
+    Defines the kernel degree for the gaussian splat.
+
+    :param kernelDegree: Value for the new kernel degree.
+    :type kernelDegree: integer
+
+.. py:method:: vrdGaussianSplatMaterial.setReceiveShadows(receiveShadows)
+
+    Sets whether the gaussian splat should receive shadows.
+
+    :param receiveShadows: Whether to receive shadows.
+    :type receiveShadows: bool
+

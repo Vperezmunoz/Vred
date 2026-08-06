@@ -1,0 +1,206 @@
+MODULE vrAnnotationPtr (legacy v1 API)
+
+----------------
+vrAnnotationPtr
+----------------
+
+This class is **deprecated**; use vrdAnnotationNode instead.
+
+Summary
+=======
+
+Functions:
+    * getBackgroundColor() → Color4f
+    * getDynamicScalingMode() → int
+    * getFontColor() → Color3f
+    * getLineColor() → Color3f
+    * getName() → string
+    * getNode() → vrNodePtr
+    * getPosition() → Pnt3f
+    * getSize() → float
+    * getText() → string
+    * getUseNodeVisibility() → bool
+    * isVisible() → bool
+    * setBackgroundColor(color)
+    * setDynamicScalingMode(mode)
+    * setFontColor(color)
+    * setLineColor(color)
+    * setName(name)
+    * setNode(node)
+    * setPosition(position)
+    * setSize(size)
+    * setText(text)
+    * setUseNodeVisibility(enabled)
+    * setVisible(visible)
+    * zoomTo()
+
+Variables:
+    - VR_ANNOTATION_DYNAMIC_SCALING_FAR = 2
+  	- VR_ANNOTATION_DYNAMIC_SCALING_NEAR = 1
+  	- VR_ANNOTATION_DYNAMIC_SCALING_OFF = 0
+
+.. method:: getName()
+
+    Gets the name.
+
+    :return: name
+    :rtype: string
+
+.. method:: setName(name)
+
+    Sets the name. When used as an identifier, the name should be unique.
+
+    :param name: name
+    :type name: string
+
+.. method:: getText()
+
+    Gets the description text.
+
+    :return: description text
+    :rtype: string
+
+.. method:: setText(text)
+
+    Sets the description text. Use \\n for multiline text.
+
+    :param text: Description text
+    :type text: string
+
+.. method:: getPosition()
+
+    Gets the point to which the leader arrow head is pointing.
+
+    :return: 3D position in world coordinates
+    :rtype: Pnt3f
+
+.. method:: setPosition(position)
+
+    Sets the point to which the leader arrow head is pointing.
+
+    :param position: 3D position in world coordinates
+    :type position: Pnt3f
+
+.. method:: isVisible()
+
+    Gets the visibility of the annotation label.
+
+    If the 'use node visibility' flag is enabled, the annotation label is only visible if the associated Scenegraph node is also visible.
+
+    :return: True if visible, false if hidden
+    :rtype: bool
+
+.. method:: setVisible(visible)
+
+    Sets the annotation label to be visible or hidden in the render window.
+
+    If the 'use node visibility' flag is enabled, the annotation label is only visible if the associated Scenegraph node is also visible. A hidden annotation will never be visible in the render window, even if its associated node is visible.
+
+    :param visible: Set true to show, false to hide
+    :type visible: bool
+
+.. method:: getUseNodeVisibility()
+
+    Returns whether the annotation label visibility should depend on the visibility of its associated Scenegraph node.
+
+    :return: True if flag enabled, false if not enabled
+    :rtype: bool
+
+.. method:: setUseNodeVisibility(enabled)
+
+    Set whether the annotation label visibility should depend on the visibility of its associated Scenegraph node.
+
+    If the annotation has no associated Scenegraph node, this flag is ignored.
+
+    :param enabled: True to enable this flag, false otherwise
+    :type enabled: bool
+
+.. method:: getSize()
+
+    Gets the size of the annotation label.
+
+    :return: label size
+    :rtype: float
+
+.. method:: setSize(size)
+
+    Set the size of the annotation label. Recommended value range is 0 to 1.
+
+    :param size: label size
+    :type size: float
+
+.. method:: getLineColor()
+
+    Gets border and leader color of the annotation visualization.
+
+    :return: color as linear RGB
+    :rtype: Color3f
+
+.. method:: setLineColor(color)
+
+    Sets border and leader color of the annotation visualization.
+
+    :param color: linear RGB
+    :type color: Color3f
+
+.. method:: getFontColor()
+
+    Gets color of the annotation text.
+
+    :return: color as linear RGB
+    :rtype: Color3f
+
+.. method:: setFontColor(color)
+
+    Sets color of the annotation text.
+
+    :param color: linear RGB
+    :type color: Color3f
+
+.. method:: getBackgroundColor()
+
+    Gets label background color and opacity.
+
+    :return: RGBA color (linear RGB and alpha)
+    :rtype: Color4f
+
+.. method:: setBackgroundColor(color)
+
+    Sets label background color and opacity.
+
+    :param color: RGBA (linear RGB and alpha)
+    :type color: Color4f
+
+.. method:: getDynamicScalingMode()
+
+    Gets dynamic scaling mode of the annotation label.
+
+    :return: mode VR_ANNOTATION_DYNAMIC_SCALING_OFF (0), VR_ANNOTATION_DYNAMIC_SCALING_NEAR (1), VR_ANNOTATION_DYNAMIC_SCALING_FAR (2)
+    :rtype: int
+
+.. method:: setDynamicScalingMode(mode)
+
+    Sets how the annotation label is scaled dynamically depending on its distance to the camera.
+
+    :param mode: VR_ANNOTATION_DYNAMIC_SCALING_OFF (0), VR_ANNOTATION_DYNAMIC_SCALING_NEAR (1), VR_ANNOTATION_DYNAMIC_SCALING_FAR (2)
+    :type mode: int
+
+.. method:: getNode()
+
+    Gets Scenegraph node to which this annotation is assigned.
+
+    :return: node
+    :rtype: vrNodePtr
+
+.. method:: setNode(node)
+
+    Sets Scenegraph node to which this annotation is assigned.
+
+    :param node: scenegraph node
+    :type node: vrNodePtr
+
+.. method:: zoomTo()
+
+    Camera zooms to this annotation in the current render window.
+
+    The annotation position is centered in the render window.

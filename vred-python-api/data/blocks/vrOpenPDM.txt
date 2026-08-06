@@ -1,0 +1,75 @@
+MODULE vrOpenPDM (legacy v1 API)
+
+---------
+vrOpenPDM
+---------
+
+Summary
+=======
+
+Functions:
+    * pdmBar()
+    * pdmExport(type, name, revision)
+    * pdmFoo(type, name, revision)
+    * pdmLoadTest(fileName, type, name)
+    * pdmLogin(user, passwd, system)
+    * pdmPullTest(fileName)
+
+.. function:: pdmLogin(user, passwd, system)
+
+    Login to PDM system.
+
+    :param user: User name.
+    :type user: string
+    :param passwd: Password.
+    :type passwd: string
+    :param system: OpenPDM system connector.
+    :type system: string
+    :return: Success/Failure.
+    :rtype: bool
+
+.. function:: pdmExport(type, name, revision)
+
+    Export object from PDM system.
+
+    :param type: Type.
+    :type type: string
+    :param name: Name.
+    :type name: string
+    :param revision: Revision.
+    :type revision: string
+    :return: Success/Failure.
+    :rtype: bool
+
+.. function:: pdmFoo(type, name, revision)
+
+    Foo.
+
+    :param type: Type.
+    :type type: string
+    :param name: Name.
+    :type name: string
+    :param revision: Revision.
+    :type revision: string
+
+.. function:: pdmBar()
+
+    Bar.
+
+.. function:: pdmLoadTest(fileName, type, name)
+
+    loadTest.
+
+    :param fileName: File name.
+    :type fileName: string
+    :param type: Type.
+    :type type: string
+    :param name: Name.
+    :type name: string
+
+.. function:: pdmPullTest(fileName)
+
+    pullTest.
+
+    :param fileName: File name.
+    :type fileName: string

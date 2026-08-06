@@ -1,0 +1,32 @@
+------------------------
+vrdXRiteMeasuredMaterial
+------------------------
+
+.. py:class:: vrdXRiteMeasuredMaterial
+
+(Inherits vrdSwitchMaterial)
+
+This class is used to handle all X-Rite material properties.
+
+Summary
+=======
+
+Functions:
+    * getMeasurement() → string
+    * setMeasurement(filename)
+
+Functions
+=========
+
+.. py:method:: vrdXRiteMeasuredMaterial.getMeasurement()
+
+    :return: The file path of the loaded measurement
+    :rtype: string
+
+.. py:method:: vrdXRiteMeasuredMaterial.setMeasurement(filename)
+
+    Loads a measurement file for the material.
+
+    :param filename: File path to load. VRED supports files in AXF, CPA, and BTF format.
+    :type filename: string
+

@@ -1,0 +1,529 @@
+-----------------
+vrdVariantSetNode
+-----------------
+
+.. py:class:: vrdVariantSetNode
+
+(Inherits vrdNode)
+
+Node containing a variant set.
+
+These nodes are part of the variant set tree. Its root can be obtained by calling     vrVariantService.getVariantSetRoot().
+
+Summary
+=======
+
+Functions:
+    * addCapture(captureFlags, sceneNodes)
+    * addReference(vset) → vrdVariantSetReferenceNode
+    * addState(targetType, target, state, searchMethod, index) → vrdVariantState
+    * addState(targetType, targetObject, stateValue, searchMethod, index) → vrdVariantState
+    * addState(targetObject, stateValue, searchMethod, index) → vrdVariantState
+    * addToRenderQueue(showFileDialog)
+    * capture(captureFlags, sceneNodes)
+    * capturePreview(width, height, captureViewport)
+    * clearCapture(captureFlags)
+    * duplicateStates(states, index) → List[vrdVariantState]
+    * execute(flags)
+    * findReferencingStates(objects, stateValues, targetType) → List[vrdVariantState]
+    * findState(targetObject, targetType) → vrdVariantState
+    * findStates(targetType) → List[vrdVariantState]
+    * getCapturedNodes() → List[vrdNode]
+    * getCaptureFlags() → vrVariantTypes.CaptureFlags
+    * getClippingOptions() → vrdClippingOptions
+    * getComment() → string
+    * getComposedPreview(styled) → QImage
+    * getCustomPreviewIcon() → QIcon
+    * getHotKey() → QKeySequence
+    * getParentGroup() → vrdVariantSetGroupNode
+    * getPreviewIconName() → string
+    * getPreviewImage() → QImage
+    * getPreviewType() → vrVariantTypes.PreviewType
+    * getResetDLSSHistory() → bool
+    * getScript() → string
+    * getShowInVRMenu() → bool
+    * getStates() → List[vrdVariantState]
+    * getSyncInCollaboration() → bool
+    * getSyncOverConnector() → bool
+    * getTouchSensorNodes() → List[vrdNode]
+    * isReadOnly() → bool
+    * isResetDLSSHistoryEnabled() → bool
+    * isShowInVRMenuEnabled() → bool
+    * isSyncInCollaborationEnabled() → bool
+    * isSyncOverConnectorEnabled() → bool
+    * loadPreview(filePath) → bool
+    * recapturePreview(keepCameraAngle)
+    * removeReferencingStates(object)
+    * setComment(comment)
+    * setCustomPreviewIcon(icon)
+    * setHotKey(keySequence)
+    * setPreviewIconName(icon)
+    * setPreviewImage(image)
+    * setPreviewType(type)
+    * setResetDLSSHistory(reset)
+    * setScript(script)
+    * setShowInVRMenu(visible)
+    * setSyncInCollaboration(enabled)
+    * setSyncOverConnector(enabled)
+    * setTouchSensorNodes(nodes)
+
+Functions
+=========
+
+.. py:method:: vrdVariantSetNode.addCapture(captureFlags=vrVariantTypes.CaptureFlag.AllCapture, sceneNodes=List[vrdNode])
+
+    Adds the given capture to the existing capture of the variant set.
+
+    :param captureFlags: Flags controlling the capture process.
+    :type captureFlags: vrVariantTypes.CaptureFlags
+
+    :param sceneNodes: Scene nodes to be included in the capture.
+    :type sceneNodes: List[vrdNode]
+
+.. py:method:: vrdVariantSetNode.addReference(vset)
+
+    Adds a reference to another variant set.
+
+    :param vset: The variant set to reference.
+    :type vset: vrdVariantSetNode
+
+    :return: vrdVariantSetReferenceNode The created reference node.
+    :rtype: vrdVariantSetReferenceNode
+
+.. py:method:: vrdVariantSetNode.addState(targetType=vrVariantTypes.TargetType.Scenegraph, target="", state="", searchMethod=vrVariantTypes.SearchMethod.Name, index=-1)
+
+    Creates a state.
+
+    :param targetType: Object type to be affected by the state.
+    :type targetType: vrVariantTypes.TargetType
+
+    :param target: Identifier to be used based on the search method.
+    :type target: string
+
+    :param state: State value to set for the target object.
+    :type state: string
+
+    :param searchMethod: Method to find the target objects.
+    :type searchMethod: vrVariantTypes.SearchMethod
+
+    :param index: Insertion index for the new state, -1 to append.
+    :type index: integer
+
+    :return: vrdVariantState The created state.
+    :rtype: vrdVariantState
+
+.. py:method:: vrdVariantSetNode.addState(targetType, targetObject, stateValue="", searchMethod=vrVariantTypes.SearchMethod.Name, index=-1)
+   :no-index:
+
+    Adds a state to the variant set by specifying the target object, the state value, the type of the target and the search method to find the target.
+
+    :param targetType: The type of the target object.
+    :type targetType: vrVariantTypes.TargetType
+
+    :param targetObject: The target object.
+    :type targetObject: vrdSceneObject
+
+    :param stateValue: The state value to set for the target object.
+    :type stateValue: string
+
+    :param searchMethod: The method to find the target object.
+    :type searchMethod: vrVariantTypes.SearchMethod
+
+    :param index: Insertion index for the new state, -1 to append.
+    :type index: integer
+
+    :return: vrdVariantState The created state.
+    :rtype: vrdVariantState
+
+.. py:method:: vrdVariantSetNode.addState(targetObject, stateValue="", searchMethod=vrVariantTypes.SearchMethod.Name, index=-1)
+   :no-index:
+
+    Adds a state to the variant set by specifying the target object, the state value and the search method to find the target.
+
+    :param targetObject: The target object.
+    :type targetObject: vrdSceneObject
+
+    :param stateValue: The state value to set for the target object.
+    :type stateValue: string
+
+    :param searchMethod: The method to find the target object.
+    :type searchMethod: vrVariantTypes.SearchMethod
+
+    :param index: Insertion index for the new state, -1 to append.
+    :type index: integer
+
+    :return: vrdVariantState The created state.
+    :rtype: vrdVariantState
+
+.. py:method:: vrdVariantSetNode.addToRenderQueue(showFileDialog=False)
+
+    Adds this variant set to the render queue.
+
+    :param showFileDialog: If true, a file dialog is shown.
+    :type showFileDialog: bool
+
+.. py:method:: vrdVariantSetNode.capture(captureFlags=vrVariantTypes.CaptureFlag.AllCapture, sceneNodes=List[vrdNode])
+
+    Captures the selected aspects of the scene into this variant set.
+
+    :param captureFlags: Flags controlling the capture process.
+    :type captureFlags: vrVariantTypes.CaptureFlags
+
+    :param sceneNodes: Scene nodes to be included in the capture.
+    :type sceneNodes: List[vrdNode]
+
+.. py:method:: vrdVariantSetNode.capturePreview(width=264, height=256, captureViewport=False)
+
+    Captures a preview image.
+
+    :param width: Width of the preview image.
+    :type width: integer
+
+    :param height: Height of the preview image.
+    :type height: integer
+
+    :param captureViewport: If true, the preview is captured from the current viewport.
+    :type captureViewport: bool
+
+.. py:method:: vrdVariantSetNode.clearCapture(captureFlags=vrVariantTypes.CaptureFlag.AllCapture)
+
+    Clears the captured data for the specified capture flags.
+
+    :param captureFlags: Flags specifying which captured data to clear.
+    :type captureFlags: vrVariantTypes.CaptureFlags
+
+.. py:method:: vrdVariantSetNode.duplicateStates(states, index=-1)
+
+    Duplicates states.
+
+    :param states: States to duplicate.
+    :type states: List[vrdVariantState]
+
+    :param index: Insertion index for the new states, -1 to append.
+    :type index: integer
+
+    :return: QList<vrdVariantState> The duplicated states.
+    :rtype: List[vrdVariantState]
+
+.. py:method:: vrdVariantSetNode.execute(flags=vrVariantTypes.ExecuteFlag.None)
+
+    Executes all states of this set.
+
+    :param flags: Execution flags to control behavior during execution.
+    :type flags: vrVariantTypes.ExecuteFlags
+
+.. py:method:: vrdVariantSetNode.findReferencingStates(objects, stateValues={}, targetType=vrVariantTypes.TargetType.All)
+
+    Finds states referencing one of the given objects.
+
+    :param objects: A list of scene objects.
+    :type objects: List[vrdSceneObject]
+
+    :param stateValues: A list of state values to filter for, empty to consider any states.
+    :type stateValues: List[string]
+
+    :param targetType: Type of targets to consider.
+    :type targetType: vrVariantTypes.TargetType
+
+    :return: QList<vrdVariantState> The found variant states.
+    :rtype: List[vrdVariantState]
+
+.. py:method:: vrdVariantSetNode.findState(targetObject, targetType)
+
+    Finds a state in the variant set by specifying the target object and the type of the target.
+
+    :param targetObject: The target object.
+    :type targetObject: vrdSceneObject
+
+    :param targetType: The type of the target object.
+    :type targetType: vrVariantTypes.TargetType
+
+    :return: vrdVariantState The found state, or an invalid state if no matching state was found.
+    :rtype: vrdVariantState
+
+.. py:method:: vrdVariantSetNode.findStates(targetType)
+
+    Finds states by target type.
+
+    :param targetType: Type of targets to consider.
+    :type targetType: vrVariantTypes.TargetType
+
+    :return: QList<vrdVariantState> The found variant states.
+    :rtype: List[vrdVariantState]
+
+.. py:method:: vrdVariantSetNode.getCapturedNodes()
+
+    Gets the captured nodes.
+
+    :return: QList<vrdNode> The captured nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdVariantSetNode.getCaptureFlags()
+
+    Gets the capture flags for this variant set.
+
+    :return: vrVariantTypes::CaptureFlags The capture flags.
+    :rtype: vrVariantTypes.CaptureFlags
+
+.. py:method:: vrdVariantSetNode.getClippingOptions()
+
+    Gets the clipping options for this variant set.
+
+    :return: vrdClippingOptions The clipping options.
+    :rtype: vrdClippingOptions
+
+.. py:method:: vrdVariantSetNode.getComment()
+
+    Gets the user comment for the set.
+
+    :return: QString The user comment.
+    :rtype: string
+
+.. py:method:: vrdVariantSetNode.getComposedPreview(styled=True)
+
+    Gets the preview image composed from the preview and the preview icon.
+
+    :param styled: If true, applies current color theme to the preview icons.
+    :type styled: bool
+
+    :return: QImage The thumbnail image.
+    :rtype: QImage
+
+.. py:method:: vrdVariantSetNode.getCustomPreviewIcon()
+
+    Gets the custom preview icon.
+
+    :return: QIcon The custom preview icon.
+    :rtype: QIcon
+
+.. py:method:: vrdVariantSetNode.getHotKey()
+
+    Gets the hotkey for executing the set.
+
+    :return: QKeySequence The triggering key sequence.
+    :rtype: QKeySequence
+
+.. py:method:: vrdVariantSetNode.getParentGroup()
+
+    Gets the group this variant set belongs to.
+
+    :return: vrdVariantSetGroupNode The group.
+    :rtype: vrdVariantSetGroupNode
+
+.. py:method:: vrdVariantSetNode.getPreviewIconName()
+
+    Gets the preview icon name.
+
+    :return: QString The preview icon name.
+    :rtype: string
+
+.. py:method:: vrdVariantSetNode.getPreviewImage()
+
+    Gets a preview image of the set.
+
+    :return: QImage The preview image.
+    :rtype: QImage
+
+.. py:method:: vrdVariantSetNode.getPreviewType()
+
+    Gets the preview type.
+
+    :return: vrVariantTypes.PreviewType The preview type.
+    :rtype: vrVariantTypes.PreviewType
+
+.. py:method:: vrdVariantSetNode.getResetDLSSHistory()
+
+    Tells if DLSS history should be reset when activating this variant set.
+
+    :return: bool True if DLSS history should be reset, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.getScript()
+
+    Gets the script associated with the set.
+
+    The script is executed when the set is executed.
+
+    :return: QString The script.
+    :rtype: string
+
+.. py:method:: vrdVariantSetNode.getShowInVRMenu()
+
+    Tells if the set is shown in the VR menu.
+
+    :return: bool True if shown, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.getStates()
+
+    Gets the states of this set.
+
+    :return: QList<vrdVariantState> The states.
+    :rtype: List[vrdVariantState]
+
+.. py:method:: vrdVariantSetNode.getSyncInCollaboration()
+
+    Tells if the set is synchronized in collaboration sessions.
+
+    :return: bool True if synchronized, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.getSyncOverConnector()
+
+    Tells if the set is synchronized over a connector.
+
+    :return: bool True if synchronized, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.getTouchSensorNodes()
+
+    Gets the touch sensor nodes associated with this variant set.
+
+    :return: QList<vrdNode> The touch sensor nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdVariantSetNode.isReadOnly()
+
+    Tells if this variant set is read-only.
+
+    :return: bool True if it is read-only, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.isResetDLSSHistoryEnabled()
+
+    Tells if reset DLSS is enabled for this variant set and its parent groups.
+
+    :return: bool True if reset DLSS is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.isShowInVRMenuEnabled()
+
+    Tells if this variant and its parent groups are shown in the VR menu.
+
+    :return: bool True if shown, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.isSyncInCollaborationEnabled()
+
+    Tells if this variant set is synchronized in collaboration sessions.
+
+    :return: bool True if synchronized, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.isSyncOverConnectorEnabled()
+
+    Tells if this variant set is synchronized over a connector.
+
+    :return: bool True if synchronized, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.loadPreview(filePath)
+
+    Loads a preview image from file.
+
+    :param filePath: Path to the image file.
+    :type filePath: string
+
+    :return: bool True on success, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetNode.recapturePreview(keepCameraAngle)
+
+    Rerenders the preview image.
+
+    :param keepCameraAngle: If true, uses the camera angle from the last capture.
+    :type keepCameraAngle: bool
+
+.. py:method:: vrdVariantSetNode.removeReferencingStates(object)
+
+    Removes all states referencing the given object.
+
+    :param object: The scene object.
+    :type object: vrdSceneObject
+
+.. py:method:: vrdVariantSetNode.setComment(comment)
+
+    Sets the user comment for the set.
+
+    :param comment: The user comment to set.
+    :type comment: string
+
+.. py:method:: vrdVariantSetNode.setCustomPreviewIcon(icon)
+
+    Sets the custom preview icon.
+
+    :param icon: The custom preview icon to set.
+    :type icon: QIcon
+
+.. py:method:: vrdVariantSetNode.setHotKey(keySequence)
+
+    Sets the hotkey for executing the set.
+
+    :param keySequence: The triggering key sequence.
+    :type keySequence: QKeySequence
+
+.. py:method:: vrdVariantSetNode.setPreviewIconName(icon)
+
+    Sets the preview icon name.
+
+    :param icon: The icon name to set.
+    :type icon: string
+
+.. py:method:: vrdVariantSetNode.setPreviewImage(image)
+
+    Sets a preview image for the set.
+
+    :param image: The preview image to set.
+    :type image: QImage
+
+.. py:method:: vrdVariantSetNode.setPreviewType(type)
+
+    Sets the preview type.
+
+    :param type: The preview type to set.
+    :type type: vrVariantTypes.PreviewType
+
+.. py:method:: vrdVariantSetNode.setResetDLSSHistory(reset)
+
+    Sets whether to reset DLSS history when activating this variant set.
+
+    :param reset: True to reset DLSS history, false to keep it.
+    :type reset: bool
+
+.. py:method:: vrdVariantSetNode.setScript(script)
+
+    Sets the script associated with the set.
+
+    The script is executed when the set is executed.
+
+    :param script: The script to set.
+    :type script: string
+
+.. py:method:: vrdVariantSetNode.setShowInVRMenu(visible)
+
+    Sets whether the set should be shown in the VR menu.
+
+    :param visible: True to show, false to hide.
+    :type visible: bool
+
+.. py:method:: vrdVariantSetNode.setSyncInCollaboration(enabled)
+
+    Sets whether the set should be synchronized in collaboration sessions.
+
+    :param enabled: True to enable synchronization, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdVariantSetNode.setSyncOverConnector(enabled)
+
+    Sets the sync over connector option.
+
+    :param enabled: True to enable synchronization, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdVariantSetNode.setTouchSensorNodes(nodes)
+
+    Sets the touch sensor nodes associated with this variant set.
+
+    :param nodes: The touch sensor nodes to set.
+    :type nodes: List[vrdNode]
+

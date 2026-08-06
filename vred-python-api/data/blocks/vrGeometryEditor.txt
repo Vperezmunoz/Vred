@@ -1,0 +1,30 @@
+MODULE vrGeometryEditor (legacy v1 API)
+
+----------------
+vrGeometryEditor
+----------------
+
+Summary
+=======
+
+Functions:
+    * tessellateSurfaces(nodes, chordalDeviation, normalTolerance, maxChordLength, enableStitching, stitchingTolerance, preserveUVs=False)
+
+.. function:: tessellateSurfaces(nodes, chordalDeviation, normalTolerance, maxChordLength, enableStitching, stitchingTolerance, preserveUVs=False)
+
+    Retessellates the given surfaces.
+
+    :param nodes: The list of nodes.
+    :type nodes: list of vrNodePtrs
+    :param chordalDeviation: The chordal deviation limit.
+    :type chordalDeviation: float
+    :param normalTolerance: The normal tolerance.
+    :type normalTolerance: float
+    :param maxChordLength: The maximum length of a chord.
+    :type maxChordLength: float
+    :param enableStitching: Sets stitching to either on or off.
+    :type enableStitching: boolean
+    :param stitchingTolerance: The maximum radius to use for stitching.
+    :type stitchingTolerance: float
+    :param preserveUVs: Preserve existing UV layouts (Optional). Default is off. Enable this option if you retessellate surfaces for which you've already setup UVs in VRED.
+    :type preserveUVs: bool

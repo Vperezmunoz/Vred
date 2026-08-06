@@ -1,0 +1,45 @@
+-----------------------------
+vrdRaytracedDiffuseGISettings
+-----------------------------
+
+.. py:class:: vrdRaytracedDiffuseGISettings
+
+(Inherits vrdObject)
+
+This class configures the Raytraced Diffuse GI in Vulkan rendering mode.
+
+Raytraced Diffuse GI uses GPU accelerated ray-tracing to compute diffuse global illumination bounces.
+
+Because it uses GPU accelerated ray-tracing, it is only available on those graphic cards with ray-tracing support.
+
+Example:
+
+```
+
+     renderSettings = vrRenderSettingsService.getSettings()
+     renderSettings.setUseRealtimeEnvironmentShadows(True)
+     renderSettings.setRealtimeEnvironmentShadowsMode(vrRenderSettingsTypes.RaytracedDiffuseGI)
+     renderSettings.getRaytracedDiffuseGISettings().setTraceDepth(2)
+
+Summary
+=======
+
+Functions:
+    * getTraceDepth() → integer
+    * setTraceDepth(value)
+
+Functions
+=========
+
+.. py:method:: vrdRaytracedDiffuseGISettings.getTraceDepth()
+
+    :return: The number of GI bounces.
+    :rtype: integer
+
+.. py:method:: vrdRaytracedDiffuseGISettings.setTraceDepth(value)
+
+    Sets the number of GI bounces.
+
+    :param value: The number of GI bounces (1-4).
+    :type value: integer
+

@@ -1,0 +1,106 @@
+------------------
+vrDeviceInputTypes
+------------------
+
+.. py:class:: vrDeviceInputTypes
+
+    .. py:class:: InputDeviceType
+
+            .. py:data:: UndefinedDevice
+
+            .. py:data:: Mouse
+
+            .. py:data:: Keyboard
+
+            .. py:data:: MouseAndKeyboard
+
+            .. py:data:: Spacemouse
+
+            .. py:data:: Gamepad
+
+            .. py:data:: VRController
+
+            .. py:data:: Tracker
+
+            .. py:data:: Pen
+
+    .. py:class:: VRControllerTypes
+
+            .. py:data:: Undefined
+
+            .. py:data:: OculusTouch
+
+            .. py:data:: OpenVR
+
+            .. py:data:: HandTracker
+
+    .. py:class:: InputActionType
+
+            .. py:data:: UndefinedAction
+
+            .. py:data:: Pressed
+
+            .. py:data:: Released
+
+            .. py:data:: PressedContinue
+
+            .. py:data:: Touched
+
+            .. py:data:: Untouched
+
+            .. py:data:: TouchedContinue
+
+            .. py:data:: Moved
+
+    .. py:class:: InputSide
+
+            .. py:data:: UndefinedSide
+
+            .. py:data:: Any
+               :no-index:
+
+            .. py:data:: Left
+
+            .. py:data:: Right
+
+Summary
+=======
+
+Functions:
+    * getActionType(actionType) → InputActionType
+    * getButtonActions() → List[InputActionType]
+    * getDeviceType(deviceType) → InputDeviceType
+    * getInputSide(inputSide) → InputSide
+
+Functions
+=========
+
+.. py:method:: vrDeviceInputTypes.getActionType(actionType)
+
+    :param actionType:
+    :type actionType: String
+
+    :return:
+    :rtype: InputActionType
+
+.. py:method:: vrDeviceInputTypes.getButtonActions()
+
+    :return:
+    :rtype: List[InputActionType]
+
+.. py:method:: vrDeviceInputTypes.getDeviceType(deviceType)
+
+    :param deviceType:
+    :type deviceType: String
+
+    :return:
+    :rtype: InputDeviceType
+
+.. py:method:: vrDeviceInputTypes.getInputSide(inputSide)
+
+    :param inputSide:
+    :type inputSide: String
+
+    :return:
+    :rtype: InputSide
+

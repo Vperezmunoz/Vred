@@ -1,0 +1,322 @@
+------------
+vrdSoundNode
+------------
+
+.. py:class:: vrdSoundNode
+
+(Inherits vrdNode)
+
+This class provides access to access a sound node.
+
+    .. py:class:: SpatializeSourceMode
+
+        Modes for spatialized source.
+
+            .. py:data:: SpatializeSourceOff
+
+            .. py:data:: SpatializeSourceOn
+
+            .. py:data:: SpatializeSourceAuto
+
+    .. py:class:: ReverbEffect
+
+        Reverb effects.
+
+            .. py:data:: NoReverb
+
+            .. py:data:: GenericReverb
+
+            .. py:data:: PaddedCellReverb
+
+            .. py:data:: RoomReverb
+
+            .. py:data:: BathRoomReverb
+
+            .. py:data:: LivingRoomReverb
+
+            .. py:data:: StoneRoomReverb
+
+            .. py:data:: AuditoriumReverb
+
+            .. py:data:: ConcertHallReverb
+
+            .. py:data:: CaveReverb
+
+            .. py:data:: ArenaReverb
+
+            .. py:data:: HangarReverb
+
+            .. py:data:: CarpetedHallwayReverb
+
+            .. py:data:: HallwayReverb
+
+            .. py:data:: StoneCorridorReverb
+
+            .. py:data:: AlleyReverb
+
+            .. py:data:: ForestReverb
+
+            .. py:data:: CityReverb
+
+            .. py:data:: MountainsReverb
+
+            .. py:data:: QuarryReverb
+
+            .. py:data:: PlainReverb
+
+Summary
+=======
+
+Functions:
+    * getConeInnerAngle() → float
+    * getConeOuterAngle() → float
+    * getConeOuterGain() → float
+    * getGain() → float
+    * getLoop() → bool
+    * getMaxDistance() → float
+    * getMaxGain() → float
+    * getMinGain() → float
+    * getPitch() → float
+    * getPlay() → bool
+    * getReferenceDistance() → float
+    * getReverbEffect() → vrdSoundNode.ReverbEffect
+    * getRolloffFactor() → float
+    * getSoundData() → QByteArray
+    * getSoundFile() → string
+    * getSourceRadius() → float
+    * getSpatializeSource() → vrdSoundNode.SpatializeSourceMode
+    * setConeInnerAngle(value)
+    * setConeOuterAngle(value)
+    * setConeOuterGain(value)
+    * setGain(value)
+    * setLoop(value)
+    * setMaxDistance(value)
+    * setMaxGain(value)
+    * setMinGain(value)
+    * setPitch(value)
+    * setPlay(value)
+    * setReferenceDistance(value)
+    * setReverbEffect(value)
+    * setRolloffFactor(value)
+    * setSoundData(value)
+    * setSoundFile(value)
+    * setSourceRadius(value)
+    * setSpatializeSource(value)
+    * start()
+    * stop()
+
+Functions
+=========
+
+.. py:method:: vrdSoundNode.getConeInnerAngle()
+
+    :return: Get the inner angle of the sound cone
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getConeOuterAngle()
+
+    :return: Get the outer angle of the sound cone
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getConeOuterGain()
+
+    :return: Get the cone outer gain
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getGain()
+
+    :return: Get the scalar amplitude multiplier
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getLoop()
+
+    :return: True, if the sound is looped
+    :rtype: bool
+
+.. py:method:: vrdSoundNode.getMaxDistance()
+
+    :return: Get the maximum distance for gain calculation
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getMaxGain()
+
+    :return: Get the maximum gain
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getMinGain()
+
+    :return: Get the minimum gain
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getPitch()
+
+    :return: Get the frequence shift value
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getPlay()
+
+    :return: True, if sound is playing
+    :rtype: bool
+
+.. py:method:: vrdSoundNode.getReferenceDistance()
+
+    :return: Get the distance at which the listener will experience the volume defined by the gain parameter
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getReverbEffect()
+
+    :return: The current reverb effect
+    :rtype: vrdSoundNode.ReverbEffect
+
+.. py:method:: vrdSoundNode.getRolloffFactor()
+
+    :return: Get the roll off factor
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getSoundData()
+
+    :return: Get the sound data
+    :rtype: QByteArray
+
+.. py:method:: vrdSoundNode.getSoundFile()
+
+    :return: Get the path to the sound file
+    :rtype: string
+
+.. py:method:: vrdSoundNode.getSourceRadius()
+
+    :return: The radius of the sound source
+    :rtype: float
+
+.. py:method:: vrdSoundNode.getSpatializeSource()
+
+    :return: The spatialize sound mode
+    :rtype: vrdSoundNode.SpatializeSourceMode
+
+.. py:method:: vrdSoundNode.setConeInnerAngle(value)
+
+    Sets the inner angle of the sound cone.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setConeOuterAngle(value)
+
+    Sets the outer angle of the sound cone.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setConeOuterGain(value)
+
+    Sets the cone outer gain that defines the attenuation depending on the angle to a listener.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setGain(value)
+
+    Sets the scalar amplitude multiplier.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setLoop(value)
+
+    Enables or disables playing the sound in a loop.
+
+    :param value: If True, play sound in a loop
+    :type value: bool
+
+.. py:method:: vrdSoundNode.setMaxDistance(value)
+
+    Sets the maximum distance for gain calculation.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setMaxGain(value)
+
+    Sets the maximum gain.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setMinGain(value)
+
+    Sets the minimum gain.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setPitch(value)
+
+    Sets a frequence shift.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setPlay(value)
+
+    Starts or stops the sound.
+
+    :param value: If True, the sound starts playing. If False, stopp playing
+    :type value: bool
+
+.. py:method:: vrdSoundNode.setReferenceDistance(value)
+
+    Sets the distance at which the listener will experience the volume defined by the gain parameter.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setReverbEffect(value)
+
+    Changes the reverb effect.
+
+    :param value: The new value
+    :type value: vrdSoundNode.ReverbEffect
+
+.. py:method:: vrdSoundNode.setRolloffFactor(value)
+
+    The roll off parameter increases or decreases the attenuation.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setSoundData(value)
+
+    Sets the sound data.
+
+    :param value: The sound data in binary format
+    :type value: QByteArray
+
+.. py:method:: vrdSoundNode.setSoundFile(value)
+
+    Sets a sound file to play.
+
+    :param value: Path to the sound file
+    :type value: string
+
+.. py:method:: vrdSoundNode.setSourceRadius(value)
+
+    Changes the radius of the sound source.
+
+    :param value: The new value
+    :type value: float
+
+.. py:method:: vrdSoundNode.setSpatializeSource(value)
+
+    Changes the spatialize source mode.
+
+    :param value: The new value
+    :type value: vrdSoundNode.SpatializeSourceMode
+
+.. py:method:: vrdSoundNode.start()
+
+    Start playing.
+
+.. py:method:: vrdSoundNode.stop()
+
+    Stop playing.
+

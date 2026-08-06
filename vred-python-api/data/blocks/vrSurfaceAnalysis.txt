@@ -1,0 +1,113 @@
+MODULE vrSurfaceAnalysis (legacy v1 API)
+
+-----------------
+vrSurfaceAnalysis
+-----------------
+
+Summary
+=======
+
+Functions:
+    * enableSurfaceAnalysis(state)
+    * setSurfaceAnalysisDirection(state)
+    * setSurfaceAnalysisLineColor(state)
+    * setSurfaceAnalysisLineCount(state)
+    * setSurfaceAnalysisLineType(state)
+    * setSurfaceAnalysisMode(state)
+    * setSurfaceAnalysisPickNormal(state)
+    * setSurfaceAnalysisSetToXAxis()
+    * setSurfaceAnalysisSetToYAxis()
+    * setSurfaceAnalysisSetToZAxis()
+    * setSurfaceAnalysisShowDirection(state)
+    * setSurfaceAnalysisSurfaceBaseColor(state)
+    * setSurfaceAnalysisSurfaceLightingMode(state)
+    * setSurfaceAnalysisUseCamVec(state)
+
+.. function:: enableSurfaceAnalysis(state)
+
+    Enable/disable surface analysis render mode.
+
+    :param state: Clipping: Enable/Disable.
+    :type state: bool
+
+.. function:: setSurfaceAnalysisMode(state)
+
+    Sets surface analysis mode.
+
+    :param state: The mode of the surface analysis.
+    :type state: int
+
+.. function:: setSurfaceAnalysisShowDirection(state)
+
+    Enable/disable show light direction.
+
+    :param state: Show light source direction: Enable/Disable.
+    :type state: bool
+
+.. function:: setSurfaceAnalysisDirection(state)
+
+    Sets light direction.
+
+    :param state: Sets the light source direction.
+    :type state: Vec3f
+
+.. function:: setSurfaceAnalysisSetToXAxis()
+
+    Sets light source direction to X axis.
+
+.. function:: setSurfaceAnalysisSetToYAxis()
+
+    Sets light source direction to Y axis.
+
+.. function:: setSurfaceAnalysisSetToZAxis()
+
+    Sets light source direction to Z axis.
+
+.. function:: setSurfaceAnalysisPickNormal(state)
+
+    Enable/disable pick surface normal.
+
+    :param state: Enable pick surface normal: Enable/Disable.
+    :type state: bool
+
+.. function:: setSurfaceAnalysisUseCamVec(state)
+
+    Enable/disable use camera view vector.
+
+    :param state: Enable use camera view vector : Enable/Disable.
+    :type state: bool
+
+.. function:: setSurfaceAnalysisLineType(state)
+
+    Sets lines/stripes mode.
+
+    :param state: The mode for the lines/stripes.
+    :type state: int
+
+.. function:: setSurfaceAnalysisLineCount(state)
+
+    Sets lines/stripes count.
+
+    :param state: The number for the lines/stripes.
+    :type state: int
+
+.. function:: setSurfaceAnalysisLineColor(state)
+
+    Sets lines/stripes color.
+
+    :param state: The color for the lines/stripes.
+    :type state: Vec3f
+
+.. function:: setSurfaceAnalysisSurfaceLightingMode(state)
+
+    Sets surface mode.
+
+    :param state: The mode for the surface.
+    :type state: int
+
+.. function:: setSurfaceAnalysisSurfaceBaseColor(state)
+
+    Sets surface color.
+
+    :param state: The color for the surface.
+    :type state: Vec3f

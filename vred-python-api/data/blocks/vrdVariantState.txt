@@ -1,0 +1,117 @@
+---------------
+vrdVariantState
+---------------
+
+.. py:class:: vrdVariantState
+
+(Inherits vrdSceneObject)
+
+A variant state represents a certain configuration of a variant.
+
+Holds a variant and a state that should be executed on it.
+
+Summary
+=======
+
+Functions:
+    * execute()
+    * getAvailableStates() → List[string]
+    * getExclude() → List[string]
+    * getOptions() → string
+    * getSequenceIndex() → integer
+    * getState() → string
+    * getVariant() → vrdVariant
+    * setExclude(exclude)
+    * setOptions(options)
+    * setSequenceIndex(index)
+    * setState(state)
+    * validate() → vrVariantTypes.StateValidity
+
+Functions
+=========
+
+.. py:method:: vrdVariantState.execute()
+
+    Executes the state on the variant.
+
+.. py:method:: vrdVariantState.getAvailableStates()
+
+    Gets the list of available states for this variant.
+
+    :return: A list with states that can be executed on this variant.
+    :rtype: List[string]
+
+.. py:method:: vrdVariantState.getExclude()
+
+    Gets the list of tags used to exclude states in loop/next actions.
+
+    :return: A list of exclude tags.
+    :rtype: List[string]
+
+.. py:method:: vrdVariantState.getOptions()
+
+    Gets the options.
+
+    :return: QString The options.
+    :rtype: string
+
+.. py:method:: vrdVariantState.getSequenceIndex()
+
+    Gets the sequence index.
+
+    Determines the order of execution when multiple         vrdVariantState objects are executed.
+
+    :return: int The sequence index.
+    :rtype: integer
+
+.. py:method:: vrdVariantState.getState()
+
+    Gets the state used for execution.
+
+    :return: QString The state.
+    :rtype: string
+
+.. py:method:: vrdVariantState.getVariant()
+
+    Gets the variant used for execution.
+
+    :return: vrdVariant The variant.
+    :rtype: vrdVariant
+
+.. py:method:: vrdVariantState.setExclude(exclude)
+
+    Sets the list of tags used to exclude states in loop/next actions.
+
+    :param exclude: A list of exclude tags.
+    :type exclude: List[string]
+
+.. py:method:: vrdVariantState.setOptions(options)
+
+    Sets the options.
+
+    :param options: The options to set.
+    :type options: string
+
+.. py:method:: vrdVariantState.setSequenceIndex(index)
+
+    Sets the sequence index.
+
+    Determines the order of execution when multiple
+
+    :param index: The sequence index to set.
+    :type index: integer
+
+.. py:method:: vrdVariantState.setState(state)
+
+    Sets the state used for execution.
+
+    :param state: The state to set.
+    :type state: string
+
+.. py:method:: vrdVariantState.validate()
+
+    Validates the variant state configuration.
+
+    :return: vrVariantTypes.StateValidity An enum value indicating the validity of the state.
+    :rtype: vrVariantTypes.StateValidity
+

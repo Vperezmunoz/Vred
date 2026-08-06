@@ -1,0 +1,78 @@
+--------------------------
+vrdPhysicsColliderSettings
+--------------------------
+
+.. py:class:: vrdPhysicsColliderSettings
+
+(Inherits vrdSceneObject)
+
+The     vrdPhysicsColliderSettings class represents base collider settings for physics objects.
+
+This is the base class for all physics collider settings classes. Physics collider settings are used to configure collider properties independently from physics configuration.
+
+Summary
+=======
+
+Functions:
+    * getContactOffset() → float
+    * getRestOffset() → float
+    * isAllowInvisibleCollision() → bool
+    * setAllowInvisibleCollision(state)
+    * setContactOffset(offset)
+    * setRestOffset(offset)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsColliderSettings.getContactOffset()
+
+    Get the contact offset.
+
+    :return: The contact offset value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsColliderSettings.getRestOffset()
+
+    Get the rest offset.
+
+    :return: The rest offset value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsColliderSettings.isAllowInvisibleCollision()
+
+    Check if the object will collide with other objects while invisible.
+
+    :return: True if the object will collide with other objects while invisible, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsColliderSettings.setAllowInvisibleCollision(state)
+
+    Set whether the object will collide with other objects while invisible.
+
+    If this is enabled, the object will still collide with other objects even if it is set to invisible.
+
+    :param state: The state indicating whether the object will collide with other objects while invisible.
+    :type state: bool
+
+.. py:method:: vrdPhysicsColliderSettings.setContactOffset(offset)
+
+    Set the contact offset.
+
+    From the PhysX documentation: Shapes whose distance is less than the sum of their contactOffset values will generate contacts. The contact offset must be positive and greater than the rest offset. Having a contactOffset greater than the restOffset allows the collision detection system to predictively enforce the contact constraint even when the objects are slightly separated. This prevents jitter that would occur if the constraint were enforced only when shapes were within the rest distance.
+
+    The default value is 0.02.
+
+    :param offset: The contact offset value.
+    :type offset: float
+
+.. py:method:: vrdPhysicsColliderSettings.setRestOffset(offset)
+
+    Set the rest offset.
+
+    From the PhysX documentation: Two shapes will come to rest at a distance equal to the sum of their restOffset values. If the restOffset is 0, they should converge to touching exactly. Having a restOffset greater than zero is useful to have objects slide smoothly, so that they do not get hung up on irregularities of each others' surfaces.
+
+    The default value is 0.0.
+
+    :param offset: The rest offset value.
+    :type offset: float
+

@@ -1,0 +1,275 @@
+MODULE vrAssetsModule (legacy v1 API)
+
+--------------
+vrAssetsModule
+--------------
+
+Summary
+=======
+
+Functions:
+    * applyMaterialAssetsByName(path)
+    * createEnvironmentAsset(environmentNode, assetManagerDirectory) → bool
+    * createGeometryAsset(node, assetManagerDirectory) → bool
+    * createMaterialAsset(material, assetManagerDirectory) → bool
+    * createSceneplateAsset(node, assetManagerDirectory) → bool
+    * getSelectedAssetDirectory(assetType) → string
+    * getSelectedMaterialAssetDirectory() → string
+    * loadEnvironmentAssetByName(assetName) → bool
+    * loadEnvironmentAssetByName(assetName, assetPath) → bool
+    * loadEnvironmentAssetByUUID(assetUUID) → bool
+    * loadGeometryAssetByName(assetName) → vrNodePtr
+    * loadGeometryAssetByName(assetName, assetPath) → vrNodePtr
+    * loadGeometryAssetByUUID(assetUUID) → vrNodePtr
+    * loadMaterialAssetByName(assetName) → vrMaterialPtr
+    * loadMaterialAssetByName(assetName, assetPath) → vrMaterialPtr
+    * loadMaterialAssetByUUID(assetUUID) → vrMaterialPtr
+    * loadSceneplateAssetByName(assetName) → vrNodePtr
+    * loadSceneplateAssetByName(assetName, assetPath) → vrNodePtr
+    * loadSceneplateAssetByUUID(assetUUID) → vrNodePtr
+    * overwriteEnvironmentAsset(environmentAsset) → bool
+    * overwriteGeometryAsset(assetRootNode) → bool
+    * overwriteMaterialAsset(material) → bool
+    * overwriteSceneplateAsset(assetRootNode) → bool
+    * reloadAllAssetDirectories()
+    * reloadAssetDirectory(path)
+
+Variables:
+  	- VR_ASSET_ENVIRONMENT = 2
+  	- VR_ASSET_GEOMETRY = 3
+  	- VR_ASSET_MATERIAL = 1
+  	- VR_ASSET_SCENEPLATE = 4
+
+.. method:: applyMaterialAssetsByName(path)
+
+    Each material in the scene is replaced by an equally-named material asset that can be found under the specified directory and its sub-directories.
+
+    :param path: The path to the directory containing material assets.
+    :type path: string
+
+.. method:: loadMaterialAssetByName(assetName)
+
+    Loads a material asset by its name.
+
+    :param assetName: The name of the material asset.
+    :type assetName: string
+    :return: The loaded material asset.
+    :rtype: vrMaterialPtr
+
+.. method:: loadMaterialAssetByName(assetName, assetPath)
+    :no-index:
+
+    Loads a material asset by its name and optionally its path.
+
+    :param assetName: The name of the material asset.
+    :type assetName: string
+    :param assetPath: The path to the directory containing the material asset.
+    :type assetPath: string
+    :return: The loaded material asset.
+    :rtype: vrMaterialPtr
+
+.. method:: loadMaterialAssetByUUID(assetUUID)
+
+    Searches for a material asset by its UUID and loads it.
+
+    :param assetUUID: The UUID of the material asset.
+    :type assetUUID: string
+    :return: The loaded material asset.
+    :rtype: vrMaterialPtr
+
+.. method:: createMaterialAsset(material, assetManagerDirectory)
+
+    Saves the given material as a new material asset in the specified directory.
+
+    :param material: The material to be saved as an asset.
+    :type material: vrMaterialPtr
+    :param assetManagerDirectory: Path of a directory in the Asset Manager.
+    :type assetManagerDirectory: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: overwriteMaterialAsset(material)
+
+    Overwrites an existing material asset in the Asset Manager.
+
+    :param material: A material referencing a material asset in the Asset Manager.
+    :type material: vrMaterialPtr
+    :return: Success.
+    :rtype: bool
+
+.. method:: getSelectedAssetDirectory(assetType)
+
+    Returns the path of the currently selected directory in the Asset Manager.
+
+    :param assetType: The type of asset (e.g., VR_ASSET_MATERIAL).
+    :type assetType: enumeration
+    :return: The path of the selected directory.
+    :rtype: string
+
+.. method:: getSelectedMaterialAssetDirectory()
+
+    Deprecated. Use getSelectedAssetDirectory(VR_ASSET_MATERIAL) instead.
+
+    :return: The path of the selected directory.
+    :rtype: string
+
+.. method:: loadEnvironmentAssetByName(assetName)
+
+    Loads an environment asset by its name.
+
+    :param assetName: The name of the environment asset.
+    :type assetName: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: loadEnvironmentAssetByName(assetName, assetPath)
+    :no-index:
+
+    Loads an environment asset by its name and optionally its path.
+
+    :param assetName: The name of the environment asset.
+    :type assetName: string
+    :param assetPath: The path to the directory containing the environment asset.
+    :type assetPath: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: loadEnvironmentAssetByUUID(assetUUID)
+
+    Searches for an environment asset by its UUID and loads it.
+
+    :param assetUUID: The UUID of the environment asset.
+    :type assetUUID: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: createEnvironmentAsset(environmentNode, assetManagerDirectory)
+
+    Saves the given environment node as a new environment asset in the specified directory.
+
+    :param environmentNode: The environment node to be saved as an asset.
+    :type environmentNode: vrNodePtr
+    :param assetManagerDirectory: Path of a directory in the Asset Manager.
+    :type assetManagerDirectory: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: overwriteEnvironmentAsset(environmentAsset)
+
+    Overwrites an existing environment asset in the Asset Manager.
+
+    :param environmentAsset: An environment node referencing an environment asset in the Asset Manager.
+    :type environmentAsset: vrNodePtr
+    :return: Success.
+    :rtype: bool
+
+.. method:: loadGeometryAssetByName(assetName)
+
+    Loads a geometry asset by its name.
+
+    :param assetName: The name of the geometry asset.
+    :type assetName: string
+    :return: The root node of the loaded asset.
+    :rtype: vrNodePtr
+
+.. method:: loadGeometryAssetByName(assetName, assetPath)
+    :no-index:
+
+    Loads a geometry asset by its name and optionally its path.
+
+    :param assetName: The name of the geometry asset.
+    :type assetName: string
+    :param assetPath: The path to the directory containing the geometry asset.
+    :type assetPath: string
+    :return: The root node of the loaded asset.
+    :rtype: vrNodePtr
+
+.. method:: loadGeometryAssetByUUID(assetUUID)
+
+    Searches for a geometry asset by its UUID and loads it.
+
+    :param assetUUID: The UUID of the geometry asset.
+    :type assetUUID: string
+    :return: The root node of the loaded asset.
+    :rtype: vrNodePtr
+
+.. method:: createGeometryAsset(node, assetManagerDirectory)
+
+    Saves the given node as a new geometry asset in the specified directory.
+
+    :param node: The node to be saved as an asset.
+    :type node: vrNodePtr
+    :param assetManagerDirectory: Path of a directory in the Asset Manager.
+    :type assetManagerDirectory: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: overwriteGeometryAsset(assetRootNode)
+
+    Overwrites an existing geometry asset in the Asset Manager.
+
+    :param assetRootNode: A node referencing a geometry asset in the Asset Manager.
+    :type assetRootNode: vrNodePtr
+    :return: Success.
+    :rtype: bool
+
+.. method:: loadSceneplateAssetByName(assetName)
+
+    Loads a sceneplate asset by its name.
+
+    :param assetName: The name of the sceneplate asset.
+    :type assetName: string
+    :return: The root node of the loaded asset.
+    :rtype: vrNodePtr
+
+.. method:: loadSceneplateAssetByName(assetName, assetPath)
+    :no-index:
+
+    Loads a sceneplate asset by its name and optionally its path.
+
+    :param assetName: The name of the sceneplate asset.
+    :type assetName: string
+    :param assetPath: The path to the directory containing the sceneplate asset.
+    :type assetPath: string
+    :return: The root node of the loaded asset.
+    :rtype: vrNodePtr
+
+.. method:: loadSceneplateAssetByUUID(assetUUID)
+
+    Searches for a sceneplate asset by its UUID and loads it.
+
+    :param assetUUID: The UUID of the sceneplate asset.
+    :type assetUUID: string
+    :return: The root node of the loaded asset.
+    :rtype: vrNodePtr
+
+.. method:: createSceneplateAsset(node, assetManagerDirectory)
+
+    Saves the given node as a new sceneplate asset in the specified directory.
+
+    :param node: The sceneplate to be saved as an asset.
+    :type node: vrNodePtr
+    :param assetManagerDirectory: Path of a directory in the Asset Manager.
+    :type assetManagerDirectory: string
+    :return: Success.
+    :rtype: bool
+
+.. method:: overwriteSceneplateAsset(assetRootNode)
+
+    Overwrites an existing sceneplate asset in the Asset Manager.
+
+    :param assetRootNode: A node referencing a sceneplate asset in the Asset Manager.
+    :type assetRootNode: vrNodePtr
+    :return: Success.
+    :rtype: bool
+
+.. method:: reloadAllAssetDirectories()
+
+    Reloads all directories in the Asset Manager. No scene assets are updated.
+
+.. method:: reloadAssetDirectory(path)
+
+    Reloads the directory with the specified path. No scene assets are updated.
+
+    :param path: Directory path.
+    :type path: string

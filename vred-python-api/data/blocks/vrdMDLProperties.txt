@@ -1,0 +1,42 @@
+----------------
+vrdMDLProperties
+----------------
+
+.. py:class:: vrdMDLProperties
+
+(Inherits vrdSceneObject)
+
+This class is used to query information about all attributes of a mdl material.
+
+```
+
+     # Query a mdl material by name
+     mdlMat = vrMaterialService.findMaterial("MaterialName")
+
+     # Get the update class to query mdl material properties
+     properties = mdlMat.getProperties()
+
+     # Create an empty object and fill it with dynamic properties
+     obj = PySide6.QtCore.QObject()
+     properties.update(obj)
+
+     # Dump all property names. This are the names of all mdl attributes.
+     for propertyName in obj.dynamicPropertyNames():
+           print(propertyName)
+
+Summary
+=======
+
+Functions:
+    * update(obj)
+
+Functions
+=========
+
+.. py:method:: vrdMDLProperties.update(obj)
+
+    Fill a QObject with dynamic properties. The dynamic properties of the object correspond to the Mdl attributes. All property IDs can be determined via the list of names of all dynamic properties. The type and value of the Mdl attribute can be determined by querying the property.
+
+    :param obj: Fill a QObject with dynamic properties.
+    :type obj: QObject
+

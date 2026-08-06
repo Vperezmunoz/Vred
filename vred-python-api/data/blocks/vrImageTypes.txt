@@ -1,0 +1,58 @@
+------------
+vrImageTypes
+------------
+
+.. py:class:: vrImageTypes
+
+    .. py:class:: LoadOptionsBitmask
+
+        Options for         vrImageService.loadImage(filename, loadType, loadOptions).
+
+            .. py:data:: DontReuse
+
+                Simply return the loaded image instead of trying to reuse an existing image from the scene that has the same data as the loaded image.
+
+    .. py:class:: LoadType
+
+        Type of image to load with         vrImageService.loadImage(filename, loadType, loadOptions).
+
+            .. py:data:: Default
+               :no-index:
+
+                Default is for all kinds of images and textures for which no specific type is available. E.g. Sceneplate images, diffuse textures.
+
+            .. py:data:: Environment
+
+                Environment is for loading and converting the image into the format used by           vrdSphereEnvironmentMaterial.
+
+            .. py:data:: Bump
+
+                Bump is for loading and converting an image to be used for bump mapping (see           vrdBumpTexture).
+
+            .. py:data:: Displacement
+
+                Displacement is for loading and converting an image to be used for displacement mapping (see           vrdDisplacementTexture).
+
+            .. py:data:: RawData
+
+                When using RawData option for loading an image the data is used "as is" and is not converted to another color space. Use it for images containing data like vectors, height or roughness values (e.g.           vrdRoughnessTexture).
+
+    .. py:class:: ShareMode
+
+        Enum for image sharing modes.
+
+        The share mode controls when images with the same contents will be shared.
+
+            .. py:data:: Always
+               :no-index:
+
+                Images will be shared always.
+
+            .. py:data:: SameFileName
+
+                Images will be shared only if they have the same file name (base name + extension).
+
+            .. py:data:: SameAbsolutePath
+
+                Images will be shared only if they have the same absolute file path (path + base name + extension).
+

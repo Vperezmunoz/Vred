@@ -1,0 +1,42 @@
+MODULE vrFade (legacy v1 API)
+
+------
+vrFade
+------
+
+Contains the functionality to fade objects.
+
+.. class:: vrFade
+
+   vrFade fades the alpha values of objects below the specified node from opaque to full transparency in the first cycle. When the second cycle is executed, it will fade back to opaque. After finishing one complete cycle, the fading is disabled.
+
+Summary
+=======
+
+Functions:
+    * __init__(node, time)
+    * setDuration(duration)
+    * setTime(time)
+
+.. method:: __init__(node, time)
+
+    Constructor for the vrFade class.
+
+    :param node: The scenegraph node to be faded. Everything below this object will be faded. Caution: If the materials of the objects below node are used elsewhere within the scene, these objects are also faded.
+    :type node: vrNodePtr
+    :param time: The current time within the fade cycle.
+    :type time: float (64bit)
+
+.. method:: setTime(time)
+
+    Sets the current time of the fade action in seconds.
+
+    :param time: The current time within the fade cycle.
+    :type time: float (64bit)
+
+.. method:: setDuration(duration)
+
+    Sets the duration of the fade action in seconds.
+
+    :param duration: The duration of the fade cycle.
+    :type duration: float (64bit)

@@ -1,0 +1,67 @@
+----------------------------------
+vrdUVCylindricalProjectionSettings
+----------------------------------
+
+.. py:class:: vrdUVCylindricalProjectionSettings
+
+(Inherits vrdUVBaseProjectionSettings)
+
+Class for cylindrical UV coordinate projection settings.
+
+Functions needed to setup a cylindrical projection:
+
+Set center of cylinder with vrdUVBaseProjectionSettings.setProjectionCenter(center).
+
+Set rotation of cylinder with vrdUVBaseProjectionSettings.setProjectionRotation(rotation).
+
+Set height and width of cylinder with vrdUVBaseProjectionSettings.setProjectionScale(scale).
+
+Set how often the texture should wrap around the cylinder with vrdUVCylindricalProjectionSettings.setProjectionUAngle(uAngle).
+
+Set an additional 2d rotation of the texture on the cylinder with     vrdUVCylindricalProjectionSettings.setCylindricRotation2D(angle).
+
+Summary
+=======
+
+Functions:
+    * getCylindricRotation2D() → float
+    * getProjectionUAngle() → float
+    * print()
+    * setCylindricRotation2D(angle)
+    * setProjectionUAngle(uAngle)
+
+Functions
+=========
+
+.. py:method:: vrdUVCylindricalProjectionSettings.getCylindricRotation2D()
+
+    Get additional 2d rotation of the texture on the cylinder.
+
+    :return: rotation angle in degrees
+    :rtype: float
+
+.. py:method:: vrdUVCylindricalProjectionSettings.getProjectionUAngle()
+
+    :return: Angle in degrees defining how often the texture wraps around the cylinder. See vrdUVCylindricalProjectionSettings.setProjectionUAngle(uAngle).
+    :rtype: float
+
+.. py:method:: vrdUVCylindricalProjectionSettings.print()
+
+    Debug print of settings.
+
+.. py:method:: vrdUVCylindricalProjectionSettings.setCylindricRotation2D(angle)
+
+    Set an additional 2d rotation of the texture on the cylinder.
+
+    :param angle: Angle in degrees
+    :type angle: float
+
+.. py:method:: vrdUVCylindricalProjectionSettings.setProjectionUAngle(uAngle)
+
+    Use this angle value to set how often the texture should wrap around the cylinder. The angle value defines the segment on the cylinder onto which the texture is projected once, horizontally.
+
+    With 360 degrees, the texture wraps exactly once around the cylinder. With 180 degrees, the texture is projected two times, once onto each half of the cylinder, etc.
+
+    :param uAngle: Angle in degrees.
+    :type uAngle: float
+

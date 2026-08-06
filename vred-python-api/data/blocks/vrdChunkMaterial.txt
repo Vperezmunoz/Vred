@@ -1,0 +1,67 @@
+----------------
+vrdChunkMaterial
+----------------
+
+.. py:class:: vrdChunkMaterial
+
+(Inherits vrdMaterial)
+
+This class is used to handle all chunk material properties.
+
+    .. py:class:: TransparencyMode
+
+            .. py:data:: AutoDetection
+
+            .. py:data:: ForceTransparent
+
+            .. py:data:: ForceOpaque
+
+Summary
+=======
+
+Functions:
+    * getSortKey() → integer
+    * getTransparencyMode() → vrdChunkMaterial.TransparencyMode
+    * setSortKey(value)
+    * setTransparencyMode(mode)
+
+Instance Variables:
+    * chunks → vrdMaterialChunkList
+
+Functions
+=========
+
+.. py:method:: vrdChunkMaterial.getSortKey()
+
+    :return: Current sort key value of the material for OpenGL
+    :rtype: integer
+
+.. py:method:: vrdChunkMaterial.getTransparencyMode()
+
+    Returns the transparency mode.
+
+    :return: Current used transparency mode
+    :rtype: vrdChunkMaterial.TransparencyMode
+
+.. py:method:: vrdChunkMaterial.setSortKey(value)
+
+    Changes the order in which transparent materials are rendered in OpenGL when the Transparency Mode is set to Object Sorting. Transparent surfaces with the same sort key are sorted back to front.
+
+    :param value: New sort key value.
+    :type value: integer
+
+.. py:method:: vrdChunkMaterial.setTransparencyMode(mode)
+
+    Sets the mode used for the transparency of the Chunk material.
+
+    :param mode: New used transparency mode
+    :type mode: vrdChunkMaterial.TransparencyMode
+
+Instance Variables
+==================
+
+.. py:attribute:: chunks
+    :type: vrdMaterialChunkList
+
+    Access the list of chunks.
+

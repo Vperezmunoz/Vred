@@ -1,0 +1,101 @@
+--------------------------------------
+vrdRaytracedEnvironmentShadowsSettings
+--------------------------------------
+
+.. py:class:: vrdRaytracedEnvironmentShadowsSettings
+
+(Inherits vrdObject)
+
+This class configures the Raytraced Environment Shadows in Vulkan rendering mode.
+
+Raytraced Environment Shadows uses GPU accelerated ray-tracing to compute the shadows from the environment map.
+
+It is similar to Raytraced Ambient Occlusion (RTAO), but it takes into consideration the bright areas of the environment map, producing a result that is biased towards those directions, while the RTAO produces a more uniform result.
+
+Because it uses GPU accelerated ray-tracing, it is only available on those graphic cards with ray-tracing support.
+
+Example:
+
+```
+
+     renderSettings = vrRenderSettingsService.getSettings()
+     renderSettings.setUseRealtimeEnvironmentShadows(True)
+     renderSettings.setRealtimeEnvironmentShadowsMode(vrRenderSettingsTypes.RaytracedEnvironmentShadows)
+     renderSettings.getRaytracedEnvironmentShadowSettings().setRaysPerPixel(2)
+
+Summary
+=======
+
+Functions:
+    * getDistance() → float
+    * getIntensity() → float
+    * getRaysPerPixel() → integer
+    * getUseBakedShadowsForShadowMaterial() → bool
+    * setDistance(value)
+    * setIntensity(value)
+    * setRaysPerPixel(value)
+    * setUseBakedShadowsForShadowMaterial(value)
+
+Functions
+=========
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.getDistance()
+
+    Gets the maximum distance for the geometry to be considered as an occluder. Geometry beyond that distance does not occlude illumination.
+
+    :return: Distance in scene units.
+    :rtype: float
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.getIntensity()
+
+    Gets the intensity of the shadow. The greater the value, the darker the shadows.
+
+    :return: Intensity of the shadow.
+    :rtype: float
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.getRaysPerPixel()
+
+    Gets the number of rays to trace per pixel.
+
+    :return: The number of rays to trace per pixel.
+    :rtype: integer
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.getUseBakedShadowsForShadowMaterial()
+
+    Sets if the baked shadows are used for the shadow material instead of the output of the Raytraced Environment Shadows.
+
+    Deprecated. This property was moved to the shadow material.
+
+    :return: True if baked shadows are used.
+    :rtype: bool
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.setDistance(value)
+
+    Sets the maximum distance for the geometry to be considered as an occluder. Geometry beyond that distance does not occlude illumination.
+
+    :param value: Distance in scene units.
+    :type value: float
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.setIntensity(value)
+
+    Sets the intensity of the shadow. The greater the value, the darker the shadows.
+
+    :param value: Intensity of the shadow.
+    :type value: float
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.setRaysPerPixel(value)
+
+    Sets the number of rays to trace per pixel.
+
+    :param value: The number of rays to trace per pixel.
+    :type value: integer
+
+.. py:method:: vrdRaytracedEnvironmentShadowsSettings.setUseBakedShadowsForShadowMaterial(value)
+
+    Sets if the baked shadows should be used for the shadow material instead of the output of the Raytraced Environment Shadows.
+
+    Deprecated. This property was moved to the shadow material.
+
+    :param value: True if baked shadows should be used.
+    :type value: bool
+

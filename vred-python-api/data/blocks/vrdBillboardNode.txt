@@ -1,0 +1,88 @@
+----------------
+vrdBillboardNode
+----------------
+
+.. py:class:: vrdBillboardNode
+
+(Inherits vrdNode)
+
+This class provides access to a billboard node.
+
+Summary
+=======
+
+Functions:
+    * getAlignToScreen() → bool
+    * getAxisOfRotation() → QVector3D
+    * getFocusOnCamera() → bool
+    * getMaxAngle() → float
+    * getMinAngle() → float
+    * setAlignToScreen(value)
+    * setAxisOfRotation(value)
+    * setFocusOnCamera(value)
+    * setMaxAngle(value)
+    * setMinAngle(value)
+
+Functions
+=========
+
+.. py:method:: vrdBillboardNode.getAlignToScreen()
+
+    :return: True, if screen alignment is enabled
+    :rtype: bool
+
+.. py:method:: vrdBillboardNode.getAxisOfRotation()
+
+    :return: The axis of rotation
+    :rtype: QVector3D
+
+.. py:method:: vrdBillboardNode.getFocusOnCamera()
+
+    :return: True, if focus on camera is enabled
+    :rtype: bool
+
+.. py:method:: vrdBillboardNode.getMaxAngle()
+
+    :return: The maximum rotation angle
+    :rtype: float
+
+.. py:method:: vrdBillboardNode.getMinAngle()
+
+    :return: The minimum rotation angle
+    :rtype: float
+
+.. py:method:: vrdBillboardNode.setAlignToScreen(value)
+
+    Enable or disabled screen alignment.
+
+    :param value: True, if screen alignment should be enabled
+    :type value: bool
+
+.. py:method:: vrdBillboardNode.setAxisOfRotation(value)
+
+    Changes the axis of rotation.
+
+    :param value: A vector describing the rotation axis
+    :type value: QVector3D
+
+.. py:method:: vrdBillboardNode.setFocusOnCamera(value)
+
+    Enable or disabled focus on camera.
+
+    :param value: True, if focus on camera should be enabled
+    :type value: bool
+
+.. py:method:: vrdBillboardNode.setMaxAngle(value)
+
+    Restrict rotation to a maximum angle.
+
+    :param value: The new maximum angle
+    :type value: float
+
+.. py:method:: vrdBillboardNode.setMinAngle(value)
+
+    Restrict rotation to a minimum angle.
+
+    :param value: The new minimum angle
+    :type value: float
+

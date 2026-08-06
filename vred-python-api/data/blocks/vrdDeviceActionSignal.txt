@@ -1,0 +1,31 @@
+---------------------
+vrdDeviceActionSignal
+---------------------
+
+.. py:class:: vrdDeviceActionSignal
+
+(Inherits vrdObjectSignal)
+
+Signal object containing an actual signal that is sent, when the action this object belongs to is triggered.
+
+Summary
+=======
+
+Signals:
+    * triggered(action, device)
+
+Signals
+=======
+
+.. py:method:: vrdDeviceActionSignal.triggered(action, device)
+
+    Signal is emitted when the corresponding device action is triggered.
+
+    Note: This currently only works for controllers and not for tracked hands in OpenXR mode.
+
+    :param action: The action the signal belongs to and which is triggered.
+    :type action: vrdDeviceAction
+
+    :param device: The device that triggered the action with an input.
+    :type device: vrdVRDevice
+

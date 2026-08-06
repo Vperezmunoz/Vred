@@ -1,0 +1,334 @@
+-------------------
+vrConstraintService
+-------------------
+
+.. py:class:: vrConstraintService
+
+(Inherits vrBaseService)
+
+Constraints control object transformations based on other objects. They create dynamic relationships where target nodes control the transformations of constrained nodes.
+
+Available constraint types: vrdPositionConstraintNode, vrdOrientationConstraintNode, vrdParentConstraintNode and vrdAimConstraintNode. Constraint groups are available for organizing constraints.
+
+See vrdConstraintNode for constraint tree management and settings and see vrdConstraintObject for per-node parameter management.
+
+Basic usage examples:
+
+```
+
+     # Get some nodes from the scene graph
+     obj1 = vrNodeService.findNode("Object1")
+     obj2 = vrNodeService.findNode("Object2")
+     obj3 = vrNodeService.findNode("Object3")
+
+     # Create a position constraint which synchronizes the position of two objects.
+     posConstraint = vrConstraintService.createPositionConstraint([obj1], obj2, False)
+
+     # Change the constrained node of the position constraint.
+     posConstraint.setConstrainedNode(obj3)
+
+     # Deletes the constraint.
+     vrConstraintService.deleteConstraint(posConstraint)
+
+     # Create another position constraint which synchronizes the position of two objects
+     # with a third one and keeps the current offsets.
+     posConstraint = vrConstraintService.createPositionConstraint([obj1, obj2], obj3, True)
+
+     # Modify the weight of an object.
+     posConstraint.setTargetNodeWeight(obj1, 0.5)
+
+     # Create an aim constraint which computes the target orientation by a source position.
+     # The up vector is calculated automatically.
+     aimConstraint = vrConstraintService.createAimConstraint([obj1], [], obj2)
+
+     # Find constraints for a given constrained node.
+     constraints = vrConstraintService.findConstrainedNode(obj2)
+
+     # Set all found constraints inactive
+     for constraint in constraints:
+         constraint.setActive(False)
+
+     # Access constraint objects for fine-grained control
+     constrainedObjects = posConstraint.getConstrainedObjects()
+     for constrainedObj in constrainedObjects:
+         constrainedObj.setMaintainOffset(True)
+         constrainedObj.setTranslationOffset(QVector3D(1.0, 0.0, 0.0))
+
+Summary
+=======
+
+Functions:
+    * copiedNodesAvailable() → bool
+    * copyNodes(nodes)
+    * createAimConstraint(targetNodes, upTargetNodes, constrainedNode, parent) → vrdAimConstraintNode
+    * createGroup(parent, name, forceUniqueName) → vrdNode
+    * createOrientationConstraint(targetNodes, constrainedNode, parent) → vrdOrientationConstraintNode
+    * createParentConstraint(targetNodes, constrainedNode, maintainOffset, parent) → vrdParentConstraintNode
+    * createPositionConstraint(targetNodes, constrainedNode, maintainOffset, parent) → vrdPositionConstraintNode
+    * cutNodes(nodes)
+    * deleteConstraint(constraintNode) → bool
+    * deleteNodes(nodes)
+    * duplicateNodes(nodes) → List[vrdNode]
+    * exportEvaluationSequence(filename)
+    * findConstrainedNode(constrainedNode) → List[vrdConstraintNode]
+    * getConstraintRoot() → vrdNode
+    * getConstraints() → List[vrdConstraintNode]
+    * getConstraintsForNode(node) → List[vrdConstraintNode]
+    * getNodesUsedInConstraints() → List[vrdNode]
+    * getSelection() → List[vrdNode]
+    * isNodeUsedInConstraints(node) → bool
+    * pasteNodes(parent) → List[vrdNode]
+    * setSelection(nodes)
+
+Signals:
+    * constraintNodesChanged()
+    * selectionChanged(nodes)
+
+Functions
+=========
+
+.. py:method:: vrConstraintService.copiedNodesAvailable()
+
+    Indicates if there are constraints in the internal copy buffer.
+
+    Nodes can be copied with vrConstraintService.copyNodes(nodes).
+
+    :return: True if there are any constraints in the copy buffer, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrConstraintService.copyNodes(nodes)
+
+    Add nodes to the internal copy buffer.
+
+    This adds nodes to the internal copy buffer from where they then can be used with pasteNodes(parent). The copy buffer is always cleared first when this function is called. The copied nodes must be in the constraint tree.
+
+    :param nodes: The nodes to be copied
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrConstraintService.createAimConstraint(targetNodes={}, upTargetNodes={}, constrainedNode=vrdNode(), parent=vrdNode())
+
+    Creates a new aim constraint node.
+
+    :param targetNodes: The nodes to use as constraint targets.
+    :type targetNodes: List[vrdNode]
+
+    :param upTargetNodes: The nodes to use as constraint up vector targets. Use an empty list for auto calculation.
+    :type upTargetNodes: List[vrdNode]
+
+    :param constrainedNode: The node to use as the constrained one.
+    :type constrainedNode: vrdNode
+
+    :param parent: This node contains the new constraint node as a child.
+    :type parent: vrdNode
+
+    :return: The aim constraint node.
+    :rtype: vrdAimConstraintNode
+
+.. py:method:: vrConstraintService.createGroup(parent=vrdNode(), name="", forceUniqueName=True)
+
+    Creates a new group node
+
+    :param parent: The parent node of the newly created node. By default the constraint root is used.
+    :type parent: vrdNode
+
+    :param name: A name for the new node.
+    :type name: string
+
+    :param forceUniqueName: Forces the name of the new node to be unique
+    :type forceUniqueName: bool
+
+    :return: The new node
+    :rtype: vrdNode
+
+.. py:method:: vrConstraintService.createOrientationConstraint(targetNodes={}, constrainedNode=vrdNode(), parent=vrdNode())
+
+    Creates a new orientation constraint node.
+
+    :param targetNodes: The nodes to use as constraint targets.
+    :type targetNodes: List[vrdNode]
+
+    :param constrainedNode: The node to use as the constrained one.
+    :type constrainedNode: vrdNode
+
+    :param parent: This node contains the new constraint node as a child.
+    :type parent: vrdNode
+
+    :return: The orientation constraint node.
+    :rtype: vrdOrientationConstraintNode
+
+.. py:method:: vrConstraintService.createParentConstraint(targetNodes={}, constrainedNode=vrdNode(), maintainOffset=True, parent=vrdNode())
+
+    Creates a new parent constraint node.
+
+    :param targetNodes: The nodes to use as constraint targets.
+    :type targetNodes: List[vrdNode]
+
+    :param constrainedNode: The node to use as the constrained one.
+    :type constrainedNode: vrdNode
+
+    :param maintainOffset: True if the offset shall be maintained, False otherwise.
+    :type maintainOffset: bool
+
+    :param parent: This node contains the new constraint node as a child.
+    :type parent: vrdNode
+
+    :return: The parent constraint node.
+    :rtype: vrdParentConstraintNode
+
+.. py:method:: vrConstraintService.createPositionConstraint(targetNodes={}, constrainedNode=vrdNode(), maintainOffset=True, parent=vrdNode())
+
+    Creates a new position constraint node.
+
+    :param targetNodes: The nodes to use as constraint targets.
+    :type targetNodes: List[vrdNode]
+
+    :param constrainedNode: The node to use as the constrained one.
+    :type constrainedNode: vrdNode
+
+    :param maintainOffset: True if the offset shall be maintained, False otherwise.
+    :type maintainOffset: bool
+
+    :param parent: This node contains the new constraint node as a child.
+    :type parent: vrdNode
+
+    :return: The position constraint node.
+    :rtype: vrdPositionConstraintNode
+
+.. py:method:: vrConstraintService.cutNodes(nodes)
+
+    Removes the given nodes from constraints and adds them to the internal copy buffer.
+
+    This adds nodes to the internal copy buffer from where they then can be used with pasteNodes(parent). The copy buffer is always cleared first when this function is called. The cut nodes must be in the constraint tree.
+
+    :param nodes: The nodes to be copied
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrConstraintService.deleteConstraint(constraintNode)
+
+    Deletes a given constraint node.
+
+    :param constraintNode: The constraint node to delete.
+    :type constraintNode: vrdConstraintNode
+
+    :return: True on success, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrConstraintService.deleteNodes(nodes)
+
+    Deletes the given nodes.
+
+    :param nodes: The nodes to be deleted
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrConstraintService.duplicateNodes(nodes)
+
+    Duplicates the given nodes. The nodes must be in the constraint tree.
+
+    :param nodes: The nodes to be duplicated
+    :type nodes: List[vrdNode]
+
+    :return: The duplicated nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrConstraintService.exportEvaluationSequence(filename)
+
+    Exports the evaluation sequence of the constraints to a file using tgf format.
+
+    :param filename:
+    :type filename: string
+
+.. py:method:: vrConstraintService.findConstrainedNode(constrainedNode)
+
+    Returns a list of constraint nodes for a given constrained node.
+
+    :param constrainedNode: The constrained node to get the constraint nodes for.
+    :type constrainedNode: vrdNode
+
+    :return: The list of constraint nodes.
+    :rtype: List[vrdConstraintNode]
+
+.. py:method:: vrConstraintService.getConstraintRoot()
+
+    Returns the root node of the constraints.
+
+    :return: The constraint root.
+    :rtype: vrdNode
+
+.. py:method:: vrConstraintService.getConstraints()
+
+    Returns a list of all public constraint nodes.
+
+    :return: The list of constraint nodes.
+    :rtype: List[vrdConstraintNode]
+
+.. py:method:: vrConstraintService.getConstraintsForNode(node)
+
+    Returns all constraints that are connected to the given node.
+
+    This is equivalent to iterate over all constraints and collect the constraints that have the given node as target or constrained node.
+
+    :param node: The nodes to get the constraints for
+    :type node: vrdNode
+
+    :return:
+    :rtype: List[vrdConstraintNode]
+
+.. py:method:: vrConstraintService.getNodesUsedInConstraints()
+
+    Returns all nodes that are used in constraints.
+
+    This is equivalent to iterate over all constraints and collect the target and constrained nodes.
+
+    :return:
+    :rtype: List[vrdNode]
+
+.. py:method:: vrConstraintService.getSelection()
+
+    :return: All nodes currently selected in the constraint editor
+    :rtype: List[vrdNode]
+
+.. py:method:: vrConstraintService.isNodeUsedInConstraints(node)
+
+    This is a quick way to find out if a node is used in any constraint.
+
+    This is equivalent to iterate over all constraints and check if the given node is used as target or constrained node.
+
+    :param node: The node to check if it is used in constraints
+    :type node: vrdNode
+
+    :return:
+    :rtype: bool
+
+.. py:method:: vrConstraintService.pasteNodes(parent)
+
+    Paste constraints from the internal copy buffer.
+
+    This adds a copy of every constraint in the internal copy buffer.
+
+    :param parent: The parent node for the pasted constraints
+    :type parent: vrdNode
+
+    :return: The pasted constraints
+    :rtype: List[vrdNode]
+
+.. py:method:: vrConstraintService.setSelection(nodes)
+
+    Selects a list of nodes in the constraint editor.
+
+    :param nodes: A list nodes
+    :type nodes: List[vrdNode]
+
+Signals
+=======
+
+.. py:method:: vrConstraintService.constraintNodesChanged()
+
+    Signal is emitted when constraints, constrained nodes or targets have been added or removed.
+
+.. py:method:: vrConstraintService.selectionChanged(nodes)
+
+    Signal will be sent if the selection in the constraint editor has changed.
+
+    :param nodes: All selected nodes
+    :type nodes: List[vrdNode]
+

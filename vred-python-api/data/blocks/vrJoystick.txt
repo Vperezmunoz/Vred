@@ -1,0 +1,36 @@
+MODULE vrJoystick (legacy v1 API)
+
+----------
+vrJoystick
+----------
+
+Joystick device handler.
+
+Example::
+
+    See also example joystick.py
+
+Summary
+=======
+
+Functions:
+    * getAxes() → list of floats
+    * getButtons() → int
+
+.. method:: getAxes()
+
+    Returns the axis array.
+
+    :return: The axis array.
+    :rtype: list of floats
+
+.. method:: getButtons()
+
+    Returns the button mask.
+
+    :return: The button mask.
+    :rtype: int
+
+.. class:: vrJoystick
+
+   Joystick device handler.

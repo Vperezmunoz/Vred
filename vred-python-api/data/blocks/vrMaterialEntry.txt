@@ -1,0 +1,123 @@
+---------------
+vrMaterialEntry
+---------------
+
+.. py:class:: vrMaterialEntry
+
+Holds information about an entry in the virtual material tree.
+
+Summary
+=======
+
+Functions:
+    * getChildIndex() → integer
+    * getGroupNode() → vrdNode
+    * getMainMaterial() → vrdMaterial
+    * getMaterial() → vrdMaterial
+    * getMaterialNode() → vrdMaterialNode
+    * getNode() → vrdNode
+    * getParentMaterial() → vrdMultiMaterial
+    * getSubMaterial() → vrdMaterial
+    * getType() → vrMaterialEntryType
+    * vrMaterialEntry()
+    * vrMaterialEntry(groupNode)
+    * vrMaterialEntry(materialNode)
+    * vrMaterialEntry(parentMaterial, childIndex)
+
+Functions
+=========
+
+.. py:method:: vrMaterialEntry.getChildIndex()
+
+    Gets the index of the submaterial within its parent.
+
+    :return: The child index.
+    :rtype: integer
+
+.. py:method:: vrMaterialEntry.getGroupNode()
+
+    Gets the group node.
+
+    :return: The node.
+    :rtype: vrdNode
+
+.. py:method:: vrMaterialEntry.getMainMaterial()
+
+    Gets the main material.
+
+    :return: The material.
+    :rtype: vrdMaterial
+
+.. py:method:: vrMaterialEntry.getMaterial()
+
+    Gets the main or submaterial.
+
+    :return: The material.
+    :rtype: vrdMaterial
+
+.. py:method:: vrMaterialEntry.getMaterialNode()
+
+    Gets the material node.
+
+    :return: The node.
+    :rtype: vrdMaterialNode
+
+.. py:method:: vrMaterialEntry.getNode()
+
+    Gets the group or material node.
+
+    :return: The node.
+    :rtype: vrdNode
+
+.. py:method:: vrMaterialEntry.getParentMaterial()
+
+    Gets the parent material.
+
+    :return: The parent multimaterial.
+    :rtype: vrdMultiMaterial
+
+.. py:method:: vrMaterialEntry.getSubMaterial()
+
+    Gets the submaterial.
+
+    :return: The material.
+    :rtype: vrdMaterial
+
+.. py:method:: vrMaterialEntry.getType()
+
+    Gets the type of the entry.
+
+    :return: The entry type.
+    :rtype: vrMaterialEntryType
+
+.. py:method:: vrMaterialEntry.vrMaterialEntry()
+
+    Creates an invalid entry.
+
+.. py:method:: vrMaterialEntry.vrMaterialEntry(groupNode)
+   :no-index:
+
+    Creates a material group entry.
+
+    :param groupNode: The node of the group.
+    :type groupNode: vrdNode
+
+.. py:method:: vrMaterialEntry.vrMaterialEntry(materialNode)
+   :no-index:
+
+    Creates a main material entry.
+
+    :param materialNode: The node of the material.
+    :type materialNode: vrdMaterialNode
+
+.. py:method:: vrMaterialEntry.vrMaterialEntry(parentMaterial, childIndex)
+   :no-index:
+
+    Creates a submaterial entry.
+
+    :param parentMaterial: The parent material.
+    :type parentMaterial: vrdMultiMaterial
+
+    :param childIndex: The child index of the submaterial within its parent.
+    :type childIndex: integer
+

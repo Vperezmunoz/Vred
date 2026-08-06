@@ -1,0 +1,164 @@
+----------------------
+vrdVariantSetGroupNode
+----------------------
+
+.. py:class:: vrdVariantSetGroupNode
+
+(Inherits vrdNode)
+
+Node containing a group for variant sets.
+
+These nodes are part of the variant set tree. Its root can be obtained by calling     vrVariantService.getVariantSetRoot().
+
+Summary
+=======
+
+Functions:
+    * getAllVariantSets() → List[vrdVariantSetNode]
+    * getComment() → string
+    * getGroups() → List[vrdVariantSetGroupNode]
+    * getGroupType() → vrVariantTypes.GroupType
+    * getParentGroup() → vrdVariantSetGroupNode
+    * getResetDLSSHistory() → bool
+    * getShowInVRMenu() → bool
+    * getSyncInCollaboration() → bool
+    * getSyncOverConnector() → bool
+    * getVariantSets() → List[vrdVariantSetNode]
+    * isFavorite() → bool
+    * isReadOnly() → bool
+    * setComment(comment)
+    * setGroupType(type)
+    * setResetDLSSHistory(reset)
+    * setShowInVRMenu(visible)
+    * setSyncInCollaboration(enabled)
+    * setSyncOverConnector(enabled)
+
+Functions
+=========
+
+.. py:method:: vrdVariantSetGroupNode.getAllVariantSets()
+
+    Gets all variant sets in this group and its subgroups recursively.
+
+    :return: QList<vrdVariantSetNode> All variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrdVariantSetGroupNode.getComment()
+
+    Gets the comment for the group.
+
+    :return: QString The comment.
+    :rtype: string
+
+.. py:method:: vrdVariantSetGroupNode.getGroups()
+
+    Gets the variant set groups contained in this group.
+
+    :return: QList<vrdVariantSetGroupNode> The variant set groups.
+    :rtype: List[vrdVariantSetGroupNode]
+
+.. py:method:: vrdVariantSetGroupNode.getGroupType()
+
+    Gets the type of the variant group.
+
+    :return: vrVariantTypes.GroupType The group type.
+    :rtype: vrVariantTypes.GroupType
+
+.. py:method:: vrdVariantSetGroupNode.getParentGroup()
+
+    Gets the parent group of this group.
+
+    :return: vrdVariantSetGroupNode The parent group.
+    :rtype: vrdVariantSetGroupNode
+
+.. py:method:: vrdVariantSetGroupNode.getResetDLSSHistory()
+
+    Tells if DLSS history should be reset when activating this variant set.
+
+    :return: bool True if DLSS history should be reset, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetGroupNode.getShowInVRMenu()
+
+    Tells if the group is shown in the VR menu.
+
+    :return: bool True if shown, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetGroupNode.getSyncInCollaboration()
+
+    Tells if the group is synchronized in collaboration sessions.
+
+    :return: bool True if synchronized, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetGroupNode.getSyncOverConnector()
+
+    Tells if sets in this group are synchronized over a connector.
+
+    :return: bool True if synchronized, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetGroupNode.getVariantSets()
+
+    Gets the variant sets contained in this group.
+
+    :return: QList<vrdVariantSetNode> The variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrdVariantSetGroupNode.isFavorite()
+
+    Tells if this group is a favorite group.
+
+    :return: bool True if it is a favorite group, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetGroupNode.isReadOnly()
+
+    Tells if this group is read-only.
+
+    :return: bool True if it is read-only, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetGroupNode.setComment(comment)
+
+    Sets the comment for the group.
+
+    :param comment: The comment to set.
+    :type comment: string
+
+.. py:method:: vrdVariantSetGroupNode.setGroupType(type)
+
+    Sets the type of the variant group.
+
+    :param type: The group type to set.
+    :type type: vrVariantTypes.GroupType
+
+.. py:method:: vrdVariantSetGroupNode.setResetDLSSHistory(reset)
+
+    Sets whether to reset DLSS history when activating this variant set.
+
+    :param reset: True to reset DLSS history, false to keep it.
+    :type reset: bool
+
+.. py:method:: vrdVariantSetGroupNode.setShowInVRMenu(visible)
+
+    Sets whether the group should be shown in the VR menu.
+
+    :param visible: True to show, false to hide.
+    :type visible: bool
+
+.. py:method:: vrdVariantSetGroupNode.setSyncInCollaboration(enabled)
+
+    Sets whether the group should be synchronized in collaboration sessions.
+
+    :param enabled: True to enable synchronization, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdVariantSetGroupNode.setSyncOverConnector(enabled)
+
+    Sets the sync over connector option.
+
+    :param enabled: True to enable synchronization, false to disable.
+    :type enabled: bool
+

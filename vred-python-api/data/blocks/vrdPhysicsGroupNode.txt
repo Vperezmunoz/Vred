@@ -1,0 +1,56 @@
+-------------------
+vrdPhysicsGroupNode
+-------------------
+
+.. py:class:: vrdPhysicsGroupNode
+
+(Inherits vrdNode)
+
+The     vrdPhysicsGroupNode class represents a physics group in the scene.
+
+Physics groups are used to organize physics objects and provide a way to activate or deactivate multiple physics objects together. Groups can contain physics objects and other physics groups, creating a hierarchical structure.
+
+Groups can be activated or deactivated, which affects all physics objects within the group. When a group is inactive, all physics objects within it are also inactive.
+
+Summary
+=======
+
+Functions:
+    * getDescription() → string
+    * isActive() → bool
+    * setActive(active)
+    * setDescription(description)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsGroupNode.getDescription()
+
+    Get the description of the physics group.
+
+    :return: The description text.
+    :rtype: string
+
+.. py:method:: vrdPhysicsGroupNode.isActive()
+
+    Get whether the physics group is active.
+
+    :return: True if the group is active, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsGroupNode.setActive(active)
+
+    Activate or deactivate the physics group.
+
+    When a group is deactivated, all physics objects within it are also deactivated. When activated, physics objects within the group respect their individual active states.
+
+    :param active: True to activate the group, false to deactivate it.
+    :type active: bool
+
+.. py:method:: vrdPhysicsGroupNode.setDescription(description)
+
+    Set the description of the physics group.
+
+    :param description: The description text to set.
+    :type description: string
+

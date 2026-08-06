@@ -1,0 +1,233 @@
+------------------
+vrdClippingOptions
+------------------
+
+.. py:class:: vrdClippingOptions
+
+(Inherits vrdSceneObject)
+
+Configuration options for clipping planes in variant sets.
+
+This class provides a comprehensive interface for configuring clipping plane properties including position, orientation, visual appearance, and rendering behavior. It is used to control how objects are clipped in 3D scenes using planar clipping.
+
+Summary
+=======
+
+Functions:
+    * getContourColor() → QColor
+    * getContourWidth() → integer
+    * getEnabled() → bool
+    * getGridColor() → QColor
+    * getHideScene() → bool
+    * getInvertDirection() → bool
+    * getPlaneColor() → QColor
+    * getPlaneNormal() → QVector3D
+    * getPlanePosition() → QVector3D
+    * getShowContour() → bool
+    * getShowGrid() → bool
+    * getShowPlane() → bool
+    * getState() → vrVariantTypes.ClippingState
+    * setContourColor(color)
+    * setContourWidth(width)
+    * setCurrentValues()
+    * setEnabled(enable)
+    * setGridColor(color)
+    * setHideScene(hide)
+    * setInvertDirection(invert)
+    * setPlaneColor(color)
+    * setPlaneNormal(normal)
+    * setPlanePosition(position)
+    * setShowContour(show)
+    * setShowGrid(show)
+    * setShowPlane(show)
+    * setState(state)
+
+Functions
+=========
+
+.. py:method:: vrdClippingOptions.getContourColor()
+
+    Gets the current color of the contour lines.
+
+    :return: RGB color of the contour lines.
+    :rtype: QColor
+
+.. py:method:: vrdClippingOptions.getContourWidth()
+
+    Gets the current width of the contour lines.
+
+    :return: Line width in pixels.
+    :rtype: integer
+
+.. py:method:: vrdClippingOptions.getEnabled()
+
+    Gets the current enabled state of the clipping plane.
+
+    :return: True if clipping is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClippingOptions.getGridColor()
+
+    Gets the current color of the grid.
+
+    :return: RGB color of the grid lines.
+    :rtype: QColor
+
+.. py:method:: vrdClippingOptions.getHideScene()
+
+    Gets whether the scene is hidden when clipping is active.
+
+    :return: True if scene is hidden, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClippingOptions.getInvertDirection()
+
+    Gets whether the clipping direction is inverted.
+
+    :return: True if direction is inverted, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClippingOptions.getPlaneColor()
+
+    Gets the current color of the clipping plane.
+
+    :return: RGB color of the plane visualization.
+    :rtype: QColor
+
+.. py:method:: vrdClippingOptions.getPlaneNormal()
+
+    Gets the normal vector of the clipping plane.
+
+    :return: 3D normal vector of the clipping plane.
+    :rtype: QVector3D
+
+.. py:method:: vrdClippingOptions.getPlanePosition()
+
+    Gets the current position of the clipping plane.
+
+    :return: 3D position vector of the clipping plane.
+    :rtype: QVector3D
+
+.. py:method:: vrdClippingOptions.getShowContour()
+
+    Gets whether contour lines are currently displayed.
+
+    :return: True if contour lines are shown, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClippingOptions.getShowGrid()
+
+    Gets whether the grid is currently displayed on the clipping plane.
+
+    :return: True if grid is shown, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClippingOptions.getShowPlane()
+
+    Gets whether the clipping plane is currently visible.
+
+    :return: True if the plane is shown, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClippingOptions.getState()
+
+    Gets the current clipping state.
+
+    :return: The currently active clipping state.
+    :rtype: vrVariantTypes.ClippingState
+
+.. py:method:: vrdClippingOptions.setContourColor(color)
+
+    Sets the color of the contour lines.
+
+    :param color: RGB color for the contour lines.
+    :type color: QColor
+
+.. py:method:: vrdClippingOptions.setContourWidth(width)
+
+    Sets the width of the contour lines in pixels.
+
+    :param width: Line width in pixels (typically 1-10).
+    :type width: integer
+
+.. py:method:: vrdClippingOptions.setCurrentValues()
+
+    Sets values from the clipping module.
+
+.. py:method:: vrdClippingOptions.setEnabled(enable)
+
+    Enables or disables the clipping plane.
+
+    :param enable: True to enable clipping, false to disable.
+    :type enable: bool
+
+.. py:method:: vrdClippingOptions.setGridColor(color)
+
+    Sets the color of the grid displayed on the clipping plane.
+
+    :param color: RGB color for the grid lines.
+    :type color: QColor
+
+.. py:method:: vrdClippingOptions.setHideScene(hide)
+
+    Sets whether to hide the entire scene when clipping is active.
+
+    :param hide: True to hide the scene, false to show it.
+    :type hide: bool
+
+.. py:method:: vrdClippingOptions.setInvertDirection(invert)
+
+    Sets whether to invert the clipping direction.
+
+    :param invert: True to invert clipping direction, false for normal direction.
+    :type invert: bool
+
+.. py:method:: vrdClippingOptions.setPlaneColor(color)
+
+    Sets the color of the clipping plane visualization.
+
+    :param color: RGB color for the plane display.
+    :type color: QColor
+
+.. py:method:: vrdClippingOptions.setPlaneNormal(normal)
+
+    Sets the normal vector of the clipping plane.
+
+    :param normal: 3D normal vector defining the plane orientation.
+    :type normal: QVector3D
+
+.. py:method:: vrdClippingOptions.setPlanePosition(position)
+
+    Sets the position of the clipping plane in 3D space.
+
+    :param position: 3D position vector for the clipping plane.
+    :type position: QVector3D
+
+.. py:method:: vrdClippingOptions.setShowContour(show)
+
+    Sets whether to show contour lines at the clipping intersection.
+
+    :param show: True to show contour lines, false to hide them.
+    :type show: bool
+
+.. py:method:: vrdClippingOptions.setShowGrid(show)
+
+    Sets whether to display a grid on the clipping plane.
+
+    :param show: True to show grid, false to hide it.
+    :type show: bool
+
+.. py:method:: vrdClippingOptions.setShowPlane(show)
+
+    Sets whether to visually display the clipping plane.
+
+    :param show: True to show the plane, false to hide it.
+    :type show: bool
+
+.. py:method:: vrdClippingOptions.setState(state)
+
+    Sets the clipping state.
+
+    :param state: The clipping mode to use.
+    :type state: vrVariantTypes.ClippingState
+

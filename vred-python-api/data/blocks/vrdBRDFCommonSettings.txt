@@ -1,0 +1,198 @@
+---------------------
+vrdBRDFCommonSettings
+---------------------
+
+.. py:class:: vrdBRDFCommonSettings
+
+(Inherits vrdSceneObject)
+
+This class is used for common properties for all BRDF materials.
+
+    .. py:class:: LightingMode
+
+            .. py:data:: IBLIndirectDirect
+
+            .. py:data:: IBLIndirect
+
+            .. py:data:: IBLDirect
+
+            .. py:data:: IBL
+
+            .. py:data:: Direct
+
+    .. py:class:: VrsQuality
+
+            .. py:data:: VrsOff
+
+            .. py:data:: VrsNative1x1
+
+            .. py:data:: VrsCoarse2x2
+
+            .. py:data:: VrsCoarse4x4
+
+            .. py:data:: VrsSupersampling2x
+
+            .. py:data:: VrsSupersampling4x
+
+            .. py:data:: VrsSupersampling8x
+
+    .. py:class:: ProjectionSpace
+
+            .. py:data:: ObjectSpace
+
+                Use local object space for texture mapping.
+
+            .. py:data:: WorldSpace
+
+                Use world space for texture mapping.
+
+Summary
+=======
+
+Functions:
+    * getEnvironment() → vrdMaterial
+    * getLightingMode() → vrdBRDFCommonSettings.LightingMode
+    * getLineTubeRadius() → float
+    * getOcclusionColor() → QVector3D
+    * getOcclusionColorSpectrum() → vrSpectrum
+    * getOcclusionIntensity() → float
+    * getProjectionSpace() → vrdBRDFCommonSettings.ProjectionSpace
+    * getSortKey() → integer
+    * getVrsQuality() → vrdBRDFCommonSettings.VrsQuality
+    * setEnvironment(envMat)
+    * setLightingMode(mode)
+    * setLineTubeRadius(value)
+    * setOcclusionColor(value)
+    * setOcclusionColorSpectrum(value)
+    * setOcclusionIntensity(value)
+    * setProjectionSpace(space)
+    * setSortKey(value)
+    * setVrsQuality(quality)
+
+Functions
+=========
+
+.. py:method:: vrdBRDFCommonSettings.getEnvironment()
+
+    Gets the environment material used for reflections on this material.
+
+    :return: The current environment material.
+    :rtype: vrdMaterial
+
+.. py:method:: vrdBRDFCommonSettings.getLightingMode()
+
+    Gets the light model used for the shader.
+
+    :return: The current used light model used for the shader.
+    :rtype: vrdBRDFCommonSettings.LightingMode
+
+.. py:method:: vrdBRDFCommonSettings.getLineTubeRadius()
+
+    Gets the radius of tubes that are used to render lines with raytracing or Vulkan renderer. It is given in object space.
+
+    :return: Current radius of tubes
+    :rtype: float
+
+.. py:method:: vrdBRDFCommonSettings.getOcclusionColor()
+
+    Gets the multiplication color for the pre-calculated ambient occlusion or environment shadows.
+
+    :return: Current used multiplication color for the pre-calculated ambient occlusion or environment shadows.
+    :rtype: QVector3D
+
+.. py:method:: vrdBRDFCommonSettings.getOcclusionColorSpectrum()
+
+    Gets the multiplication color for the pre-calculated ambient occlusion or environment shadows.
+
+    :return: Current used multiplication color spectrum for the pre-calculated ambient occlusion or environment shadows.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdBRDFCommonSettings.getOcclusionIntensity()
+
+    Gets the intensity of shadowed areas.
+
+    :return: Current value of the intensity of shadowed areas.
+    :rtype: float
+
+.. py:method:: vrdBRDFCommonSettings.getProjectionSpace()
+
+    Returns the projection coordinate system currently used for this material.
+
+    :return: Current texture space
+    :rtype: vrdBRDFCommonSettings.ProjectionSpace
+
+.. py:method:: vrdBRDFCommonSettings.getSortKey()
+
+    :return: Current sort key value of the material for OpenGL
+    :rtype: integer
+
+.. py:method:: vrdBRDFCommonSettings.getVrsQuality()
+
+    Gets the setting is used for content adaptive Variable Rate Shading (VRS)
+
+    :return: Current setting is used for content adaptive Variable Rate Shading
+    :rtype: vrdBRDFCommonSettings.VrsQuality
+
+.. py:method:: vrdBRDFCommonSettings.setEnvironment(envMat)
+
+    Sets the environment material used for reflections on this material. The HDR image of the assigned environment is used for diffuse, glossy, and specular reflections on this material in OpenGL rendering. Different materials can have different environments assigned to get different lighting effects. In Raytracing, the handling of the environment depends on the active illumination mode.
+
+    :param envMat: The new environment material.
+    :type envMat: vrdMaterial
+
+.. py:method:: vrdBRDFCommonSettings.setLightingMode(mode)
+
+    Defines the light model used for the shader.
+
+    :param mode: The new light model used for the shader.
+    :type mode: vrdBRDFCommonSettings.LightingMode
+
+.. py:method:: vrdBRDFCommonSettings.setLineTubeRadius(value)
+
+    Sets the radius of tubes that are used to render lines with raytracing or Vulkan renderer. It is given in object space.
+
+    :param value: New radius of tubes
+    :type value: float
+
+.. py:method:: vrdBRDFCommonSettings.setOcclusionColor(value)
+
+    Sets the multiplication color for pre-calculated ambient occlusion or environment shadows.
+
+    :param value: New multiplication color for the pre-calculated ambient occlusion or environment shadows.
+    :type value: QVector3D
+
+.. py:method:: vrdBRDFCommonSettings.setOcclusionColorSpectrum(value)
+
+    Sets the multiplication color spectrum for pre-calculated ambient occlusion or environment shadows.
+
+    :param value: New multiplication color spectrum for the pre-calculated ambient occlusion or environment shadows.
+    :type value: vrSpectrum
+
+.. py:method:: vrdBRDFCommonSettings.setOcclusionIntensity(value)
+
+    Controls the intensity of shadowed areas.
+
+    :param value: The new value of the intensity of shadowed areas.
+    :type value: float
+
+.. py:method:: vrdBRDFCommonSettings.setProjectionSpace(space)
+
+    Sets the coordinate system to use for calculating texture projections in the material.
+
+    :param space: Texture space to set. Available types are Object Space or World Space.
+    :type space: vrdBRDFCommonSettings.ProjectionSpace
+
+.. py:method:: vrdBRDFCommonSettings.setSortKey(value)
+
+    Changes the order in which transparent materials are rendered in OpenGL when the Transparency Mode is set to Object Sorting. Transparent surfaces with the same sort key are sorted back to front.
+
+    :param value: New sort key value.
+    :type value: integer
+
+.. py:method:: vrdBRDFCommonSettings.setVrsQuality(quality)
+
+    Sets the setting is used for content adaptive Variable Rate Shading (VRS)
+
+    :param quality: New setting is used for content adaptive Variable Rate Shading
+    :type quality: vrdBRDFCommonSettings.VrsQuality
+

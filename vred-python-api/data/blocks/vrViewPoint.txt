@@ -1,0 +1,24 @@
+MODULE vrViewPoint (legacy v1 API)
+
+-----------
+vrViewPoint
+-----------
+
+Creates an event if specified viewpoint is reached.
+
+Examples::
+
+    See also example viewpoints.py
+
+Summary
+=======
+
+Constructors:
+    * vrViewPoint(name)
+
+.. class:: vrViewPoint(name)
+
+    The constructor of the vrViewPoint class.
+
+    :param name: The name of viewpoint.
+    :type name: string

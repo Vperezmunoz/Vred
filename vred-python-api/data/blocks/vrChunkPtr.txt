@@ -1,0 +1,92 @@
+MODULE vrChunkPtr (legacy v1 API)
+
+----------
+vrChunkPtr
+----------
+
+**Deprecated**. Use API v2 vrdMaterialChunk types instead.
+
+Summary
+=======
+
+Functions:
+    * createChunk(type) → vrChunkPtr
+    * fields()
+    * getID()
+    * getPtr()
+    * isValid() → bool
+
+Classes:
+    * vrChunkPtr
+    * StateChunkPtr
+
+.. method:: getID()
+
+    Returns the node ID.
+
+    :return: The node ID.
+    :rtype: unsigned int (32bit)
+
+.. method:: getPtr()
+
+    Returns the OpenSG StateChunkPtr.
+
+    :return: The pointer to the state chunk.
+    :rtype: StateChunkPtr
+
+.. method:: isValid()
+
+    Returns true when the node is valid. Should be called for sanity reasons after searching a material with findMaterial.
+
+    :return: Valid/Invalid.
+    :rtype: bool
+
+.. method:: fields()
+
+    Returns the field access object to get access to all fields. Take a look at the vrFieldAccess documentation to see how to manipulate the value of the fields.
+
+    :return: The field access object.
+    :rtype: vrFieldAccess
+
+.. function:: createChunk(type)
+
+    Deprecated!! Creates a ChunkPtr of a specific type. Many of these chunks are no longer functional.
+
+    Types can be:
+        - MaterialChunk
+        - TextureChunk
+        - CubeTextureChunk
+        - TextureTransformChunk
+        - TexGenChunk
+        - PermTexture2DChunk
+        - SimplexTexture1DChunk
+        - VectorNoiseTexture3DChunk
+        - LineChunk
+        - PointChunk
+        - PolygonChunk
+        - BlendChunk
+        - ClipPlaneChunk
+        - DepthTestChunk
+        - SHLChunk
+
+    :param type: The name of the chunk type.
+    :type type: string
+    :return: The pointer to the created chunk.
+    :rtype: vrChunkPtr
+
+.. class:: vrChunkPtr
+
+    .. method:: __init__()
+
+        The constructor of the vrChunkPtr class. There are three valid versions:
+
+        - vrChunkPtr() Creates a vrChunkPtr object.
+        - vrChunkPtr(source) Creates a vrChunkPtr object from an unsigned int.
+        - vrChunkPtr(source) Creates a vrChunkPtr object from a StateChunkPtr.
+
+        :param source: The source (Optional).
+        :type source: unsigned int or StateChunkPtr
+
+.. class:: StateChunkPtr
+
+    Base class for vrChunkPtr.

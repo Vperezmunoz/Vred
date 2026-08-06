@@ -1,0 +1,148 @@
+------------
+vrdTurntable
+------------
+
+.. py:class:: vrdTurntable
+
+(Inherits vrdSceneObject)
+
+This class provides control over the turntable of a camera.
+
+Here is an example that plays a camera turntable animation for the active camera starting from its current view:
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     turntable = cam.getTurntable()
+     turntable.setAnimationDuration(15)
+     turntable.setLoop(True)
+     turntable.updateFromView()
+     turntable.setPlaying(True)
+
+Summary
+=======
+
+Functions:
+    * getAngle() → float
+    * getAnimationDuration() → float
+    * getDirection() → vrCameraTypes.TurntableDirection
+    * getDistance() → float
+    * getHeight() → float
+    * getLoop() → bool
+    * getPlaying() → bool
+    * setAngle(angle)
+    * setAnimationDuration(seconds)
+    * setDirection(direction)
+    * setDistance(distance)
+    * setHeight(height)
+    * setLoop(enable)
+    * setPlaying(value)
+    * updateFromView()
+
+Functions
+=========
+
+.. py:method:: vrdTurntable.getAngle()
+
+    Returns the angle of the turntable/.
+
+    :return: The angle of the turntable in degree.
+    :rtype: float
+
+.. py:method:: vrdTurntable.getAnimationDuration()
+
+    Returns the duration of the turntable animation.
+
+    :return: The animation duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdTurntable.getDirection()
+
+    Returns the turntable animation playback direction.
+
+    :return: The playback direction of the turntable animation (clockwise or counter clockwise).
+    :rtype: vrCameraTypes.TurntableDirection
+
+.. py:method:: vrdTurntable.getDistance()
+
+    Returns the distance of the turntable.
+
+    :return: The distance of the turntable.
+    :rtype: float
+
+.. py:method:: vrdTurntable.getHeight()
+
+    Returns the height of the turntable.
+
+    :return: The height of the turntable.
+    :rtype: float
+
+.. py:method:: vrdTurntable.getLoop()
+
+    Returns the state of the turntable animation loop mode.
+
+    :return: True if loop mode is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTurntable.getPlaying()
+
+    Returns the playback state of the turntable animation.
+
+    :return: True if the turntable animation is playing, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTurntable.setAngle(angle)
+
+    Sets the angle of the turntable.
+
+    :param angle: The angle of the turntable in degree.
+    :type angle: float
+
+.. py:method:: vrdTurntable.setAnimationDuration(seconds)
+
+    Sets the duration of the turntable animation.
+
+    :param seconds: The duration in seconds.
+    :type seconds: float
+
+.. py:method:: vrdTurntable.setDirection(direction)
+
+    Sets the playback direction of the turntable animation.
+
+    :param direction: The direction of the turntable animation (clockwise or counter clockwise()
+    :type direction: vrCameraTypes.TurntableDirection
+
+.. py:method:: vrdTurntable.setDistance(distance)
+
+    Sets the distance of the turntable.
+
+    :param distance: The distance of the turntable.
+    :type distance: float
+
+.. py:method:: vrdTurntable.setHeight(height)
+
+    Sets the height of the turntable.
+
+    :param height: The height of the turntable.
+    :type height: float
+
+.. py:method:: vrdTurntable.setLoop(enable)
+
+    Sets the turntable animation to loop mode.
+
+    :param enable: True to enable loop mode, False to disable.
+    :type enable: bool
+
+.. py:method:: vrdTurntable.setPlaying(value)
+
+    Starts / stops the turntable animation.
+
+    :param value: True to start the turntable animation, False to stop it.
+    :type value: bool
+
+.. py:method:: vrdTurntable.updateFromView()
+
+    Update the turntable parameters from the current view.
+
+    This functions updates the angle, distance and height properties of the turntable with values taken from the current camera view.
+

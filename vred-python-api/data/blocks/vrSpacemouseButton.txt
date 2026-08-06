@@ -1,0 +1,75 @@
+MODULE vrSpacemouseButton (legacy v1 API)
+
+------------------
+vrSpacemouseButton
+------------------
+
+Contains the functionality to receive spacemouse button events.
+
+Summary
+=======
+
+Classes:
+    * vrSpacemouseButton
+
+Functions:
+    * setSpacemouseButtonText(index, text)
+    * setSpacemouseMenuText(text)
+
+Variables:
+    - Key_Spacemouse_1 = 1
+    - Key_Spacemouse_2 = 2
+    - Key_Spacemouse_3 = 3
+    - Key_Spacemouse_4 = 4
+    - Key_Spacemouse_5 = 5
+    - Key_Spacemouse_6 = 6
+    - Key_Spacemouse_7 = 7
+    - Key_Spacemouse_8 = 8
+    - Key_Spacemouse_9 = 9
+    - Key_Spacemouse_10 = 10
+    - Key_Spacemouse_11 = 11
+    - Key_Spacemouse_12 = 12
+    - Key_Spacemouse_13 = 13
+    - Key_Spacemouse_14 = 14
+    - Key_Spacemouse_15 = 15
+    - Key_Spacemouse_16 = 16
+    - Key_Spacemouse_17 = 17
+    - Key_Spacemouse_18 = 18
+    - Key_Spacemouse_19 = 19
+    - Key_Spacemouse_20 = 20
+    - Key_Spacemouse_21 = 21
+    - Key_Spacemouse_22 = 22
+    - Key_Spacemouse_23 = 23
+    - Key_Spacemouse_24 = 24
+    - Key_Spacemouse_25 = 25
+    - Key_Spacemouse_26 = 26
+    - Key_Spacemouse_27 = 27
+    - Key_Spacemouse_28 = 28
+    - Key_Spacemouse_29 = 29
+    - Key_Spacemouse_30 = 30
+    - Key_Spacemouse_31 = 31
+    - Key_Spacemouse_32 = 32
+
+.. class:: vrSpacemouseButton(button)
+
+    The spacemouse button class is responsible to trigger functionality when a spacemouse button is pressed. To use it just create a spacemouse button object and connect the callback functionality you need.
+
+    :param button: The spacemouse button. Valid buttons are: "Key_Spacemouse_1" - "Key_Spacemouse_32".
+    :type button: unsigned integer
+
+.. function:: setSpacemouseButtonText(index, text)
+
+    Sets the text for the 3Dconnection space pilot button.
+
+    :param index: The index of the button.
+    :type index: integer
+
+    :param text: The text of the button to be displayed.
+    :type text: string
+
+.. function:: setSpacemouseMenuText(text)
+
+    Sets the text for the 3Dconnection space pilot menu.
+
+    :param text: The text of the menu to be displayed.
+    :type text: string

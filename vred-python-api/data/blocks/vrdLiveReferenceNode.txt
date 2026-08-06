@@ -1,0 +1,86 @@
+--------------------
+vrdLiveReferenceNode
+--------------------
+
+.. py:class:: vrdLiveReferenceNode
+
+(Inherits vrdReferenceNode)
+
+Live Reference node.
+
+Summary
+=======
+
+Functions:
+    * getAutoUpdate() → bool
+    * getLiveChangeTime() → QDateTime
+    * getLiveFileState() → vrReferenceTypes.FileState
+    * getLiveFolder() → string
+    * getUseAssetMaterials() → bool
+    * hasBlockingOverlay() → bool
+    * relinkLiveSource(fileName)
+    * setAutoUpdate(autoUpdate)
+    * setUseAssetMaterials(useAssetMaterials)
+
+Functions
+=========
+
+.. py:method:: vrdLiveReferenceNode.getAutoUpdate()
+
+    Get the auto update flag.
+
+    :return: True, if the live reference should be updated automatically
+    :rtype: bool
+
+.. py:method:: vrdLiveReferenceNode.getLiveChangeTime()
+
+    Get the time, when the status of the interop could have changed.
+
+    :return: Time of the last change
+    :rtype: QDateTime
+
+.. py:method:: vrdLiveReferenceNode.getLiveFileState()
+
+    :return: The status of the live file
+    :rtype: vrReferenceTypes.FileState
+
+.. py:method:: vrdLiveReferenceNode.getLiveFolder()
+
+    Get the path that is used to connect alias and vred.
+
+    :return: The path to the live reference
+    :rtype: string
+
+.. py:method:: vrdLiveReferenceNode.getUseAssetMaterials()
+
+    Returns True, if this reference used asset materials on create or update.
+
+    :return: True, if this reference should used asset materials.
+    :rtype: bool
+
+.. py:method:: vrdLiveReferenceNode.hasBlockingOverlay()
+
+    :return:
+    :rtype: bool
+
+.. py:method:: vrdLiveReferenceNode.relinkLiveSource(fileName)
+
+    Relink the source file of the live reference.
+
+    :param fileName:
+    :type fileName: string
+
+.. py:method:: vrdLiveReferenceNode.setAutoUpdate(autoUpdate)
+
+    Set the auto update flag.
+
+    :param autoUpdate: True, if the live reference should be updated automatically
+    :type autoUpdate: bool
+
+.. py:method:: vrdLiveReferenceNode.setUseAssetMaterials(useAssetMaterials)
+
+    Change, if this reference should use asset materials.
+
+    :param useAssetMaterials: True, if this reference used asset materials.
+    :type useAssetMaterials: bool
+

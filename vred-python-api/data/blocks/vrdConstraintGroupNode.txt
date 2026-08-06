@@ -1,0 +1,36 @@
+----------------------
+vrdConstraintGroupNode
+----------------------
+
+.. py:class:: vrdConstraintGroupNode
+
+(Inherits vrdNode)
+
+Constraint groups provide organizational structure in the constraint tree, allowing logical grouping of related constraints.
+
+For managing constraints and code examples see     vrConstraintService.
+
+Summary
+=======
+
+Functions:
+    * getDescription() → string
+    * setDescription(value)
+
+Functions
+=========
+
+.. py:method:: vrdConstraintGroupNode.getDescription()
+
+    Returns the description of the constraint group.
+
+    :return: The description of the constraint group.
+    :rtype: string
+
+.. py:method:: vrdConstraintGroupNode.setDescription(value)
+
+    Sets the description of the constraint group.
+
+    :param value: The description of the constraint group.
+    :type value: string
+

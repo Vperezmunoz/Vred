@@ -1,0 +1,327 @@
+-------------------
+vrAnnotationService
+-------------------
+
+.. py:class:: vrAnnotationService
+
+(Inherits vrBaseService)
+
+Summary
+=======
+
+Functions:
+    * createAnnotation(name, parent) → vrdAnnotationNode
+    * createAnnotationGroup(name, parent) → vrdNode
+    * deleteAnnotation(annotation)
+    * deleteAnnotations(nodes)
+    * duplicateAnnotation(annotation) → vrdAnnotationNode
+    * duplicateAnnotations(nodes) → List[vrdNode]
+    * findAnnotation(name) → vrdAnnotationNode
+    * getAnnotationRoot() → vrdNode
+    * getAnnotations() → List[vrdAnnotationNode]
+    * getDefaultAnchored() → bool
+    * getDefaultBackgroundColor() → QColor
+    * getDefaultFontColor() → QColor
+    * getDefaultLineColor() → QColor
+    * getDefaultScalingMode() → vrAnnotationTypes.ScalingMode
+    * getDefaultSize() → float
+    * getDefaultUseSceneNodeVisibility() → bool
+    * getSelection() → List[vrdAnnotationNode]
+    * getShowAnnotations() → bool
+    * loadAnnotations(path) → List[vrdAnnotationNode]
+    * pickAnnotation(annotation)
+    * saveAnnotations(annotations, path)
+    * setDefaultAnchored(anchored)
+    * setDefaultBackgroundColor(color)
+    * setDefaultFontColor(color)
+    * setDefaultLineColor(color)
+    * setDefaultScalingMode(mode)
+    * setDefaultSize(size)
+    * setDefaultUseSceneNodeVisibility(use)
+    * setSelection(annotations)
+    * setShowAnnotations(value)
+
+Signals:
+    * annotationCreated(annotation)
+    * annotationGraphChanged()
+    * annotationsAdded()
+    * annotationsDeleted()
+    * selectionChanged(annotations)
+    * showAnnotationsChanged(value)
+
+Functions
+=========
+
+.. py:method:: vrAnnotationService.createAnnotation(name, parent=vrdNode())
+
+    Creates a new annotation. Each annotation is created with a unique name. If the passed name is not unique (e.g. an annotation with that name already exists), it is modified so that it is unique.
+
+    :param name: The name for the annotation.
+    :type name: string
+
+    :param parent: The new annotation node will be attached to this node. The parent node must be a node in the annotation graph. It must be the annotation graph root or one of its child groups. If this parameter is omitted, the annotation graph root will be used.
+    :type parent: vrdNode
+
+    :return: Created annotation node.
+    :rtype: vrdAnnotationNode
+
+.. py:method:: vrAnnotationService.createAnnotationGroup(name, parent=vrdNode())
+
+    Creates a new annotation group with a unique name within the annotation graph.
+
+    :param name: The name for the new annotation group node.
+    :type name: string
+
+    :param parent: The new group node will be attached to this node. The parent node must be a node in the annotation graph. It must be the annotation graph root or one of its child groups. If this parameter is omitted, the annotation graph root will be used.
+    :type parent: vrdNode
+
+    :return: The newly created annotation group node.
+    :rtype: vrdNode
+
+.. py:method:: vrAnnotationService.deleteAnnotation(annotation)
+
+    Deletes an existing annotation.
+
+    :param annotation: The annotation node which should be deleted.
+    :type annotation: vrdAnnotationNode
+
+.. py:method:: vrAnnotationService.deleteAnnotations(nodes)
+
+    Deletes existing annotations and/or annotation groups including all their children.
+
+    :param nodes: The list of annotation/group nodes which should be deleted.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrAnnotationService.duplicateAnnotation(annotation)
+
+    Duplicates an existing annotation.
+
+    :param annotation: The annotation node which should be duplicated.
+    :type annotation: vrdAnnotationNode
+
+    :return: Duplicated annotation node.
+    :rtype: vrdAnnotationNode
+
+.. py:method:: vrAnnotationService.duplicateAnnotations(nodes)
+
+    Duplicates existing annotations and/or annotation groups including all their children.
+
+    :param nodes: The list of annotation/group nodes which should be duplicated.
+    :type nodes: List[vrdNode]
+
+    :return: List of duplicated annotation/group nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrAnnotationService.findAnnotation(name)
+
+    Searches for an existing annotation via name.
+
+    :param name: The name of the annotation.
+    :type name: string
+
+    :return: Found annotation node.
+    :rtype: vrdAnnotationNode
+
+.. py:method:: vrAnnotationService.getAnnotationRoot()
+
+    Returns the root node of the annotation hierarchy. Currently, all annotations are children of that root.
+
+    :return: Root node.
+    :rtype: vrdNode
+
+.. py:method:: vrAnnotationService.getAnnotations()
+
+    Returns a list of all annotations.
+
+    :return: List of annotation nodes.
+    :rtype: List[vrdAnnotationNode]
+
+.. py:method:: vrAnnotationService.getDefaultAnchored()
+
+    Returns the default anchored state of annotations. It is used when creating a new annotation.
+
+    :return: True if the annotation is anchored to a scene node, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrAnnotationService.getDefaultBackgroundColor()
+
+    Returns the default label background color of annotations.
+
+    :return: The color.
+    :rtype: QColor
+
+.. py:method:: vrAnnotationService.getDefaultFontColor()
+
+    Returns the default font color for the displayed text of annotations.
+
+    :return: The color.
+    :rtype: QColor
+
+.. py:method:: vrAnnotationService.getDefaultLineColor()
+
+    Returns the default line color for borders and leaders of annotations.
+
+    :return: The color.
+    :rtype: QColor
+
+.. py:method:: vrAnnotationService.getDefaultScalingMode()
+
+    Returns the default scaling mode of annotations.
+
+    :return: The scaling mode.
+    :rtype: vrAnnotationTypes.ScalingMode
+
+.. py:method:: vrAnnotationService.getDefaultSize()
+
+    Returns the default size of annotations.
+
+    :return: The size.
+    :rtype: float
+
+.. py:method:: vrAnnotationService.getDefaultUseSceneNodeVisibility()
+
+    Returns the default value for using the linked scene graph node to determine the visibility of annotations.
+
+    :return: True if the linked node determines the visibility, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrAnnotationService.getSelection()
+
+    Returns the current selection.
+
+    :return: A list of all selected annotations.
+    :rtype: List[vrdAnnotationNode]
+
+.. py:method:: vrAnnotationService.getShowAnnotations()
+
+    Returns the global visibility of annotations.
+
+    :return: True if annotations are shown, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrAnnotationService.loadAnnotations(path)
+
+    Loads annotation data from an xml file. The annotations are directly added to the scene.
+
+    :param path: The path to an xml file with annotation data.
+    :type path: string
+
+    :return: A list of annotation nodes.
+    :rtype: List[vrdAnnotationNode]
+
+.. py:method:: vrAnnotationService.pickAnnotation(annotation)
+
+    Activates the scene node picking functionality of the UI for the passed annotation.
+
+    :param annotation: The annotation node for which the picking should be started.
+    :type annotation: vrdAnnotationNode
+
+.. py:method:: vrAnnotationService.saveAnnotations(annotations, path)
+
+    Saves a list of annotations. The annotation data is stored in an xml file.
+
+    :param annotations: A list of annotation nodes.
+    :type annotations: List[vrdAnnotationNode]
+
+    :param path: The path for the xml file.
+    :type path: string
+
+.. py:method:: vrAnnotationService.setDefaultAnchored(anchored)
+
+    Sets the default anchored state of annotations. It is used when creating a new annotation.
+
+    :param anchored: True if the annotation should be anchored to a scene node, False otherwise.
+    :type anchored: bool
+
+.. py:method:: vrAnnotationService.setDefaultBackgroundColor(color)
+
+    Sets the default label background color of annotations. It is used when creating a new annotation.
+
+    :param color: The color values. They can either be set as integer values (color.setRgb(..)) in range [0 .. 255] or as floating point values (color.setRgbF(..)) in range [0.0 .. 1.0].
+    :type color: QColor
+
+.. py:method:: vrAnnotationService.setDefaultFontColor(color)
+
+    Sets the default font color for the displayed text of annotations. It is used when creating a new annotation.
+
+    :param color: The color values. They can either be set as integer values (color.setRgb(..)) in range [0 .. 255] or as floating point values (color.setRgbF(..)) in range [0.0 .. 1.0].
+    :type color: QColor
+
+.. py:method:: vrAnnotationService.setDefaultLineColor(color)
+
+    Sets the default line color for borders and leaders of annotations. It is used when creating a new annotation.
+
+    :param color: The color values. They can either be set as integer values (color.setRgb(..)) in range [0 .. 255] or as floating point values (color.setRgbF(..)) in range [0.0 .. 1.0].
+    :type color: QColor
+
+.. py:method:: vrAnnotationService.setDefaultScalingMode(mode)
+
+    Sets the default scaling mode of annotations. It is used when creating a new annotation.
+
+    :param mode: The scaling mode value. Choose between vrAnnotationTypes::ScalingMode::Off, Near or Far.
+    :type mode: vrAnnotationTypes.ScalingMode
+
+.. py:method:: vrAnnotationService.setDefaultSize(size)
+
+    Sets the default size of annotations. It is used when creating a new annotation.
+
+    :param size: The size value. A value of 1.0 will result in a decent predefined size. Use smaller or larger values to size appropriately.
+    :type size: float
+
+.. py:method:: vrAnnotationService.setDefaultUseSceneNodeVisibility(use)
+
+    Sets the default value for using the linked scene graph node to determine the visibility of annotations. It is used when creating a new annotation.
+
+    :param use: True if the linked node should determine the visibility, False otherwise.
+    :type use: bool
+
+.. py:method:: vrAnnotationService.setSelection(annotations)
+
+    Select the given annotations in the annotation module.
+
+    :param annotations: Annotations to be selected.
+    :type annotations: List[vrdAnnotationNode]
+
+.. py:method:: vrAnnotationService.setShowAnnotations(value)
+
+    Sets the global visibility of annotations. Individual visibility can be set in         vrdAnnotationNode.
+
+    :param value: True to show annotations, False otherwise.
+    :type value: bool
+
+Signals
+=======
+
+.. py:method:: vrAnnotationService.annotationCreated(annotation)
+
+    Triggered when a new annotation was created.
+
+    :param annotation: The newly created annotation.
+    :type annotation: vrdAnnotationNode
+
+.. py:method:: vrAnnotationService.annotationGraphChanged()
+
+    Triggered whenever the annotation graph changed. This includes adding and deleting annotations or groups as well as moving annotations or groups.
+
+.. py:method:: vrAnnotationService.annotationsAdded()
+
+    Triggered when one or more annotations were added to the scene.
+
+.. py:method:: vrAnnotationService.annotationsDeleted()
+
+    Triggered when one or more annotations were deleted from the scene.
+
+.. py:method:: vrAnnotationService.selectionChanged(annotations)
+
+    Triggered when the selection has been changed.
+
+    :param annotations: The selected annotations.
+    :type annotations: List[vrdAnnotationNode]
+
+.. py:method:: vrAnnotationService.showAnnotationsChanged(value)
+
+    Triggered when the global annotation visibility has changed.
+
+    :param value: True if annotations are shown, False otherwise.
+    :type value: bool
+

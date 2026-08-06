@@ -1,0 +1,140 @@
+--------------------------------------
+vrdScreenSpaceAmbientOcclusionSettings
+--------------------------------------
+
+.. py:class:: vrdScreenSpaceAmbientOcclusionSettings
+
+(Inherits vrdObject)
+
+This class configures the Screen Space Ambient Occlusion (SSAO) in OpenGL and Vulkan rendering modes.
+
+Screen Space Ambient Occlusion is an effect that uses screen-space information
+to calculate areas where the diffuse illumination is occluded by other geometry.
+
+It produces a plausible output, but as it only uses screen-space data, it misses
+the necessary information to create the correct output.
+
+Summary
+=======
+
+Functions:
+    * getBlurAmount() → integer
+    * getCutoffAngle() → float
+    * getEdgePreservation() → float
+    * getIntensity() → float
+    * getRadius() → float
+    * getSampleQuality() → integer
+    * getUseBakedShadowsForShadowMaterial() → bool
+    * setBlurAmount(value)
+    * setCutoffAngle(value)
+    * setEdgePreservation(value)
+    * setIntensity(value)
+    * setRadius(value)
+    * setSampleQuality(value)
+    * setUseBakedShadowsForShadowMaterial(value)
+
+Functions
+=========
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getBlurAmount()
+
+    Sets the amount of blur passes.
+
+    :return: Amount of blur passes.
+    :rtype: integer
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getCutoffAngle()
+
+    Gets the cutoff angle. Directions outside of the cutoff angle are not considered.
+
+    :return: Cutoff angle in degrees.
+    :rtype: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getEdgePreservation()
+
+    Gets the edge preservation factor for the blur passes. The edge preservation is based on the continuity of the depth of adjacent pixels. A value of 0 will filter everything. A value of 1 will only filter pixels at the same depth.
+
+    :return: The edge preservation factor, from 0 to 1.
+    :rtype: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getIntensity()
+
+    Gets the intensity of the SSAO effect. The greater the value, the darker the shadows.
+
+    :return: Intensity of the SSAO effect.
+    :rtype: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getRadius()
+
+    Gets the radius of effect of the SSAO, in scene units. Geometry beyond that distance does not occlude illumination.
+
+    :return: Radius of effect, in scene units.
+    :rtype: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getSampleQuality()
+
+    Gets the sample quality of the SSAO.
+
+    :return: Sample quality, from 0 upwards.
+    :rtype: integer
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.getUseBakedShadowsForShadowMaterial()
+
+    Gets if the baked shadows are used for the shadow material instead of the output of the SSAO.
+
+    Deprecated. This property was moved to the shadow material.
+
+    :return: True if baked shadows are be used.
+    :rtype: bool
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setBlurAmount(value)
+
+    Sets the amount of blur passes. More blur passes produces a softer output, but increases the execution time.
+
+    :param value: Amount of blur passes.
+    :type value: integer
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setCutoffAngle(value)
+
+    Sets the cutoff angle. Directions outside of the cutoff angle are not considered.
+
+    :param value: Cutoff angle in degrees.
+    :type value: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setEdgePreservation(value)
+
+    Sets the edge preservation factor for the blur passes. The edge preservation is based on the continuity of the depth of adjacent pixels. A value of 0 will filter everything. A value of 1 will only filter pixels at the same depth.
+
+    :param value: The edge preservation factor, from 0 to 1.
+    :type value: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setIntensity(value)
+
+    Sets the intensity of the SSAO effect. The greater the value, the darker the shadows.
+
+    :param value: Intensity of the SSAO effect.
+    :type value: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setRadius(value)
+
+    Sets the radius of effect of the SSAO, in scene units. Geometry beyond that distance does not occlude illumination.
+
+    :param value: Radius of effect, in scene units.
+    :type value: float
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setSampleQuality(value)
+
+    Sets the sample quality of the SSAO. More samples produces better results, but it is also slower.
+
+    :param value: Sampling quality, from 0 upwards.
+    :type value: integer
+
+.. py:method:: vrdScreenSpaceAmbientOcclusionSettings.setUseBakedShadowsForShadowMaterial(value)
+
+    Sets if the baked shadows should be used for the shadow material instead of the output of the SSAO.
+
+    Deprecated. This property was moved to the shadow material.
+
+    :param value: True if baked shadows should be used.
+    :type value: bool
+

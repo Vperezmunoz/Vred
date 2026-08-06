@@ -1,0 +1,114 @@
+----------------
+vrdPhysicsConfig
+----------------
+
+.. py:class:: vrdPhysicsConfig
+
+(Inherits vrdData)
+
+The base class for all physics configuration classes.
+
+Physics configurations are used to specify the properties of physics objects during its creation.
+
+Summary
+=======
+
+Functions:
+    * getContactOffset() → float
+    * getRestOffset() → float
+    * getShape() → vrPhysicsTypes.ColliderShape
+    * getType() → vrPhysicsTypes.ObjectType
+    * isAllowInvisibleCollision() → bool
+    * isInternal() → bool
+    * setAllowInvisibleCollision(state)
+    * setContactOffset(offset)
+    * setInternal(internal)
+    * setRestOffset(offset)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsConfig.getContactOffset()
+
+    Get the contact offset.
+
+    :return: The contact offset value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsConfig.getRestOffset()
+
+    Get the rest offset.
+
+    :return: The rest offset value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsConfig.getShape()
+
+    Get the collider shape of the physics object (ConvexHull, Triangles, ConvexDecomp).
+
+    :return: The collider shape of the physics object.
+    :rtype: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsConfig.getType()
+
+    Get the collider type of the physics object (ConvexHull, Triangles, ConvexDecomp).
+
+    :return: The collider type of the physics object.
+    :rtype: vrPhysicsTypes.ObjectType
+
+.. py:method:: vrdPhysicsConfig.isAllowInvisibleCollision()
+
+    Check if the object will collide with other objects while invisible.
+
+    :return: True if the object will collide with other objects while invisible, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsConfig.isInternal()
+
+    Check if this physics object is marked as internal.
+
+    :return: True if internal (system-created), False if user-created.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsConfig.setAllowInvisibleCollision(state)
+
+    Set whether the object will collide with other objects while invisible.
+
+    The default value is 'false'. If this is enabled, the object will still collide with other objects even if set to invisible in the scenegraph.
+
+    Note: this affects only the collision reporting through the collisionStarted, collisionStopped, collisionContinues signals and the collision highlighting feature. It does not affect the actual collision detection.
+
+    :param state: The state indicating whether the object will collide with other objects while invisible.
+    :type state: bool
+
+.. py:method:: vrdPhysicsConfig.setContactOffset(offset)
+
+    Set the contact offset.
+
+    From the PhysX documentation: Shapes whose distance is less than the sum of their contactOffset values will generate contacts. The contact offset must be positive and greater than the rest offset. Having a contactOffset greater than the restOffset allows the collision detection system to predictively enforce the contact constraint even when the objects are slightly separated. This prevents jitter that would occur if the constraint were enforced only when shapes were within the rest distance.
+
+    The default value is 0.02.
+
+    :param offset: The contact offset value.
+    :type offset: float
+
+.. py:method:: vrdPhysicsConfig.setInternal(internal)
+
+    Set whether this physics object is internal (system-created, temporary).
+
+    Internal physics objects are typically created by the system during VR sessions (e.g., for avatars, tracking markers, controllers) and should be hidden from the physics tree UI to avoid user confusion.
+
+    :param internal: True to mark as internal, False for user-created objects.
+    :type internal: bool
+
+.. py:method:: vrdPhysicsConfig.setRestOffset(offset)
+
+    Set the rest offset.
+
+    From the PhysX documentation: Two shapes will come to rest at a distance equal to the sum of their restOffset values. If the restOffset is 0, they should converge to touching exactly. Having a restOffset greater than zero is useful to have objects slide smoothly, so that they do not get hung up on irregularities of each others' surfaces.
+
+    The default value is 0.0.
+
+    :param offset: The rest offset value.
+    :type offset: float
+

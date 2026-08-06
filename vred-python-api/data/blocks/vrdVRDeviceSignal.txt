@@ -1,0 +1,76 @@
+-----------------
+vrdVRDeviceSignal
+-----------------
+
+.. py:class:: vrdVRDeviceSignal
+
+(Inherits vrdObjectSignal)
+
+Signal object containing actual signals that are sent by the     vrdVRDevice.
+
+Summary
+=======
+
+Signals:
+    * collisionStarted(otherNode, device)
+    * collisionStartedByType(otherNode, device, collisionType)
+    * collisionStopped(otherNode, device)
+    * collisionStoppedByType(otherNode, device, collisionType)
+    * moved(device)
+
+Signals
+=======
+
+.. py:method:: vrdVRDeviceSignal.collisionStarted(otherNode, device)
+
+    Signal is emitted when the collision sensor of the device touches a collision sensitive node.
+
+    :param otherNode: The node with which the device collides
+    :type otherNode: vrdNode
+
+    :param device: The device that is colliding
+    :type device: vrdVRDevice
+
+.. py:method:: vrdVRDeviceSignal.collisionStartedByType(otherNode, device, collisionType)
+
+    Signal is emitted when the collision sensor of the device touches a collision sensitive node, with the collision type.
+
+    :param otherNode: The node with which the device collides
+    :type otherNode: vrdNode
+
+    :param device: The device that is colliding
+    :type device: vrdVRDevice
+
+    :param collisionType: Whether the collision was from the device tip or hull
+    :type collisionType: vrVRInputDeviceTypes.DeviceCollisionType
+
+.. py:method:: vrdVRDeviceSignal.collisionStopped(otherNode, device)
+
+    Signal is emitted when the collision sensor of the device stops touching a collision sensitive node.
+
+    :param otherNode: The node with which the device stops colliding
+    :type otherNode: vrdNode
+
+    :param device: The device that stops colliding
+    :type device: vrdVRDevice
+
+.. py:method:: vrdVRDeviceSignal.collisionStoppedByType(otherNode, device, collisionType)
+
+    Signal is emitted when the collision sensor of the device stops touching a collision sensitive node, with the collision type.
+
+    :param otherNode: The node with which the device stops colliding
+    :type otherNode: vrdNode
+
+    :param device: The device that stops colliding
+    :type device: vrdVRDevice
+
+    :param collisionType: Whether the collision was from the device tip or hull
+    :type collisionType: vrVRInputDeviceTypes.DeviceCollisionType
+
+.. py:method:: vrdVRDeviceSignal.moved(device)
+
+    Signal is emitted when the         vrdVRDevice moves.
+
+    :param device: The vrdVRDevice that triggered the signal
+    :type device: vrdVRDevice
+

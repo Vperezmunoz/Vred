@@ -1,0 +1,178 @@
+--------------
+vrCADFileTypes
+--------------
+
+.. py:class:: vrCADFileTypes
+
+    .. py:class:: FileType
+
+        Enum for import file types.
+
+            .. py:data:: Cinema4D
+
+                Maxon Cinema 4D file format.
+
+            .. py:data:: Cosmo
+
+                Cosmo 3D binary format.
+
+            .. py:data:: DesignWeb
+
+                Autodesk Design Web Format.
+
+            .. py:data:: FBX
+
+                Autodesk FBX exchange file format.
+
+            .. py:data:: LCC
+
+                XGRIDS Lixel CyberColor format.
+
+            .. py:data:: Obj
+
+                Wavefront obj file format.
+
+            .. py:data:: OpenSG
+
+                OpenSG file format.
+
+            .. py:data:: PLMXML
+
+                PLM XML file format.
+
+            .. py:data:: Python
+
+                Python script file format.
+
+            .. py:data:: ThreeDS
+
+                Autodesk 3DS Max file format.
+
+            .. py:data:: PLY
+
+                PLY file format.
+
+            .. py:data:: SPZ
+
+                SPZ file format.
+
+            .. py:data:: VRED
+
+                Native VRED project file format.
+
+            .. py:data:: VRML
+
+                VRML world format.
+
+            .. py:data:: ACIS
+
+                ACIS file format.
+
+            .. py:data:: Alias
+
+                Autodesk Alias file format.
+
+            .. py:data:: AutoCAD
+
+                Autodesk AutoCAD.
+
+            .. py:data:: CatiaV4
+
+                Dassault Catia V4 format.
+
+            .. py:data:: CatiaV5
+
+                Dassault Catia V5 format.
+
+            .. py:data:: CatiaV6
+
+                Dassault Catia V6 format.
+
+            .. py:data:: DGN
+
+                Bentley Microstation format.
+
+            .. py:data:: Inventor
+
+                Autodesk Inventor file format.
+
+            .. py:data:: JT
+
+                JT file format.
+
+            .. py:data:: NX
+
+                Siemens NX file format.
+
+            .. py:data:: IGES
+
+                IGES file format.
+
+            .. py:data:: ProE
+
+                Pro Engineer file format.
+
+            .. py:data:: Rhino
+
+                Rhino file format.
+
+            .. py:data:: SolidEdge
+
+                Solidedge file format.
+
+            .. py:data:: SolidWorks
+
+                Solidworks file format.
+
+            .. py:data:: Step
+
+                Step file format.
+
+            .. py:data:: STL
+
+                STL file format.
+
+            .. py:data:: C3MF
+
+                3MF file format
+
+            .. py:data:: IFC
+
+                IFC file format.
+
+            .. py:data:: SLP
+
+                ProE render file format.
+
+            .. py:data:: Generic
+
+                CAD file formats that don't have dedicated import settings (Parasolid, Sketchup)
+
+    .. py:class:: JobState
+
+        Enum of states a job can have.
+
+            .. py:data:: kSucceeded
+
+                Job finished succesful.
+
+            .. py:data:: kFailed
+
+                Job failed.
+
+            .. py:data:: kAborted
+
+                Job was aborted by user.
+
+            .. py:data:: kIncomplete
+
+                Job finished, but not all parts of an assembly were imported succesfully.
+
+            .. py:data:: kRunning
+
+                Job is still running.
+
+            .. py:data:: kUnknown
+
+                state of Job can't be determined
+

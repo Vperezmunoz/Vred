@@ -1,0 +1,233 @@
+------------------------
+vrdVolumeScatterMaterial
+------------------------
+
+.. py:class:: vrdVolumeScatterMaterial
+
+(Inherits vrdVolumeMaterial)
+
+This class is used to handle all volume scatter material properties.
+
+    .. py:class:: NoiseMode
+
+        There are two noise modes: Off to have a homgenous volume, and FlowNoise which is a continuous volume that animates smoothly.
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: FlowNoise
+
+Summary
+=======
+
+Functions:
+    * getEnableFalloff() → bool
+    * getFalloffOffset() → QVector3D
+    * getFalloffRate() → float
+    * getFalloffScale() → QVector3D
+    * getGradientCoefficient() → float
+    * getNoiseFrequency() → QVector3D
+    * getNoiseGain() → float
+    * getNoiseLacunarity() → float
+    * getNoiseMode() → vrdVolumeScatterMaterial.NoiseMode
+    * getNoiseTime() → float
+    * getNumNoiseOctaves() → integer
+    * getUseGlobalNoise() → bool
+    * setEnableFalloff(enable)
+    * setFalloffOffset(offset)
+    * setFalloffRate(rate)
+    * setFalloffScale(scale)
+    * setGradientCoefficient(coefficient)
+    * setNoiseFrequency(freq)
+    * setNoiseGain(gain)
+    * setNoiseLacunarity(lacunarity)
+    * setNoiseMode(mode)
+    * setNoiseTime(time)
+    * setNumNoiseOctaves(num)
+    * setUseGlobalNoise(use)
+
+Functions
+=========
+
+.. py:method:: vrdVolumeScatterMaterial.getEnableFalloff()
+
+    Gets whether volume falloff is enable for a smoother transition along the volumes edges.
+
+    :return: false if is not enabled, true if it is
+    :rtype: bool
+
+.. py:method:: vrdVolumeScatterMaterial.getFalloffOffset()
+
+    Gets the origin of the falloff.
+
+    -1: Starts at the bottom of the given axis. +1: Starts at the top of the given axis.
+
+    :return: Current offset
+    :rtype: QVector3D
+
+.. py:method:: vrdVolumeScatterMaterial.getFalloffRate()
+
+    Gets the falloff rate.
+
+    :return: Current rate
+    :rtype: float
+
+.. py:method:: vrdVolumeScatterMaterial.getFalloffScale()
+
+    Gets the amount of falloff of each dimension.
+
+    :return: Current scale
+    :rtype: QVector3D
+
+.. py:method:: vrdVolumeScatterMaterial.getGradientCoefficient()
+
+    Gets the gradient coefficent of the noise.
+
+    The gradient of the current noies octave can be used to offset the lookup of the noise value of the next octave. The gradient coefficient scales that effect.
+
+    :return: Current gradient coefficient
+    :rtype: float
+
+.. py:method:: vrdVolumeScatterMaterial.getNoiseFrequency()
+
+    Gets the frequency of the noise in X,Y and Z.
+
+    :return: Current frequency
+    :rtype: QVector3D
+
+.. py:method:: vrdVolumeScatterMaterial.getNoiseGain()
+
+    Gets the gain of the noise.
+
+    The gain remaps the noise values to either increase or decrease the spread of values.
+
+    :return: Current gain
+    :rtype: float
+
+.. py:method:: vrdVolumeScatterMaterial.getNoiseLacunarity()
+
+    Gets the lacunarity of the noise.
+
+    The lacunariy is the rate at which the frequency increases between successive octaves of noise
+
+    :return: Current lacunarity
+    :rtype: float
+
+.. py:method:: vrdVolumeScatterMaterial.getNoiseMode()
+
+    Gets the noise mode.
+
+    :return: The current noise mode
+    :rtype: vrdVolumeScatterMaterial.NoiseMode
+
+.. py:method:: vrdVolumeScatterMaterial.getNoiseTime()
+
+    Gets the time at which the noise is evaluated.
+
+    :return: Current time
+    :rtype: float
+
+.. py:method:: vrdVolumeScatterMaterial.getNumNoiseOctaves()
+
+    Gets the number of layers of noise, where each successive layer has a greater frequency and a smaller amplitude.
+
+    :return: Current number of octaves
+    :rtype: integer
+
+.. py:method:: vrdVolumeScatterMaterial.getUseGlobalNoise()
+
+    Gets the noise to either be defined in the volume's local space or global scene space.
+
+    :return: True if the noise uses global scene space coordinates, false if otherwise
+    :rtype: bool
+
+.. py:method:: vrdVolumeScatterMaterial.setEnableFalloff(enable)
+
+    Sets whether volume falloff is enable for a smoother transition along the volumes edges.
+
+    :param enable: New value to enable or disable volume falloff
+    :type enable: bool
+
+.. py:method:: vrdVolumeScatterMaterial.setFalloffOffset(offset)
+
+    Sets the origin of the falloff.
+
+    -1: Starts at the bottom of the given axis. +1: Starts at the top of the given axis.
+
+    :param offset: New offset
+    :type offset: QVector3D
+
+.. py:method:: vrdVolumeScatterMaterial.setFalloffRate(rate)
+
+    Sets the falloff rate.
+
+    :param rate: New rate
+    :type rate: float
+
+.. py:method:: vrdVolumeScatterMaterial.setFalloffScale(scale)
+
+    Sets the amount of falloff of each dimension.
+
+    :param scale: New scale
+    :type scale: QVector3D
+
+.. py:method:: vrdVolumeScatterMaterial.setGradientCoefficient(coefficient)
+
+    Sets the gradient coefficent of the noise.
+
+    The gradient of the current noies octave can be used to offset the lookup of the noise value of the next octave. The gradient coefficient scales that effect.
+
+    :param coefficient: New gradient coefficient
+    :type coefficient: float
+
+.. py:method:: vrdVolumeScatterMaterial.setNoiseFrequency(freq)
+
+    Sets the frequency of the noise in X,Y and Z.
+
+    :param freq: New frequency
+    :type freq: QVector3D
+
+.. py:method:: vrdVolumeScatterMaterial.setNoiseGain(gain)
+
+    Sets the gain of the noise.
+
+    The gain remaps the noise values to either increase or decrease the spread of values.
+
+    :param gain: New gain
+    :type gain: float
+
+.. py:method:: vrdVolumeScatterMaterial.setNoiseLacunarity(lacunarity)
+
+    Sets the lacunarity of the noise.
+
+    :param lacunarity: New lacunarity
+    :type lacunarity: float
+
+.. py:method:: vrdVolumeScatterMaterial.setNoiseMode(mode)
+
+    Sets the noise mode.
+
+    :param mode: The new noise mode
+    :type mode: vrdVolumeScatterMaterial.NoiseMode
+
+.. py:method:: vrdVolumeScatterMaterial.setNoiseTime(time)
+
+    Sets the time at which the noise is evaluated.
+
+    :param time: New time
+    :type time: float
+
+.. py:method:: vrdVolumeScatterMaterial.setNumNoiseOctaves(num)
+
+    Sets the number of layers of noise, where each successive layer has a great frequency and a smaller amplitude.
+
+    :param num: New number of octaves
+    :type num: integer
+
+.. py:method:: vrdVolumeScatterMaterial.setUseGlobalNoise(use)
+
+    Sets the noise to either be defined in the volume's local space or global scene space.
+
+    :param use: new state
+    :type use: bool
+

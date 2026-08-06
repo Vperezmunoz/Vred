@@ -1,0 +1,66 @@
+-----------
+vrdThinFilm
+-----------
+
+.. py:class:: vrdThinFilm
+
+(Inherits vrdSceneObject)
+
+This class is used for thin film properties.
+
+Summary
+=======
+
+Functions:
+    * getIor() → float
+    * getThickness() → float
+    * getWeight() → float
+    * setIor(value)
+    * setThickness(value)
+    * setWeight(value)
+
+Functions
+=========
+
+.. py:method:: vrdThinFilm.getIor()
+
+    Gets the index of refraction of the thin film.
+
+    :return: Current used value for the index of refraction
+    :rtype: float
+
+.. py:method:: vrdThinFilm.getThickness()
+
+    Gets the thickness of the thin film.
+
+    :return: Current used value for the thickness
+    :rtype: float
+
+.. py:method:: vrdThinFilm.getWeight()
+
+    Gets the weight of the thin film.
+
+    :return: Current used value for the weight
+    :rtype: float
+
+.. py:method:: vrdThinFilm.setIor(value)
+
+    Sets the index of refraction of the thin film.
+
+    :param value: New value for the index of refraction
+    :type value: float
+
+.. py:method:: vrdThinFilm.setThickness(value)
+
+    Sets the thickness of the thin film layer.
+
+    :param value: New value for the thickness
+    :type value: float
+
+.. py:method:: vrdThinFilm.setWeight(value)
+
+    Sets the weight of the thin film.
+
+    :param value: New value for the weight
+    :type value: float
+

@@ -1,0 +1,38 @@
+-------------------------
+vrdPositionConstraintNode
+-------------------------
+
+.. py:class:: vrdPositionConstraintNode
+
+(Inherits vrdConstraintNode)
+
+Position constraints control constrained node positions by using target node positions. Multiple targets are combined using weighted average calculations.
+
+To obtain the vrdPositionConstraintObject and configure how transformations are applied from target nodes to constrained nodes, see vrdConstraintNode::getConstrainedObject(vrdNode).
+
+For managing constraints and code examples see     vrConstraintService.
+
+Summary
+=======
+
+Functions:
+    * getMaintainOffset() → bool
+    * setMaintainOffset(value)
+
+Functions
+=========
+
+.. py:method:: vrdPositionConstraintNode.getMaintainOffset()
+
+    Returns if the constraint maintains the offset to its sources. Deprecated, use         vrdPositionConstraintObject.getMaintainOffset()
+
+    :return: True if at least one constrained node maintains the offset, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPositionConstraintNode.setMaintainOffset(value)
+
+    Sets if the constraint should maintain the offset to the sources when creating it. Deprecated, use         vrdPositionConstraintObject.setMaintainOffset(maintain)
+
+    :param value: True if the offset shall be maintained, False otherwise.
+    :type value: bool
+

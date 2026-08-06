@@ -1,0 +1,153 @@
+-----------
+vrdNodeInfo
+-----------
+
+.. py:class:: vrdNodeInfo
+
+(Inherits vrdData)
+
+Holds statistical information of a node returned by     vrScenegraphService.getNodeInfo(nodes).
+
+Summary
+=======
+
+Functions:
+    * getBoundingBox() → vrdBoundingBox
+    * getLines() → integer
+    * getName() → string
+    * getNodes() → integer
+    * getPoints() → integer
+    * getSmartReferences() → integer
+    * getSourceReferences() → integer
+    * getSurfaces() → integer
+    * getTextureMemory() → integer
+    * getTriangles() → integer
+    * getVertices() → integer
+    * setBoundingBox(value)
+    * setLines(value)
+    * setName(name)
+    * setNodes(value)
+    * setPoints(value)
+    * setSmartReferences(value)
+    * setSourceReferences(value)
+    * setSurfaces(value)
+    * setTextureMemory(value)
+    * setTriangles(value)
+    * setVertices(value)
+    * vrdNodeInfo()
+
+Functions
+=========
+
+.. py:method:: vrdNodeInfo.getBoundingBox()
+
+    :return: The combined world bounding box of the input nodes
+    :rtype: vrdBoundingBox
+
+.. py:method:: vrdNodeInfo.getLines()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getName()
+
+    :return:
+    :rtype: string
+
+.. py:method:: vrdNodeInfo.getNodes()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getPoints()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getSmartReferences()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getSourceReferences()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getSurfaces()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getTextureMemory()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getTriangles()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.getVertices()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdNodeInfo.setBoundingBox(value)
+
+    :param value:
+    :type value: vrdBoundingBox
+
+.. py:method:: vrdNodeInfo.setLines(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setName(name)
+
+    :param name:
+    :type name: string
+
+.. py:method:: vrdNodeInfo.setNodes(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setPoints(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setSmartReferences(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setSourceReferences(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setSurfaces(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setTextureMemory(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setTriangles(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.setVertices(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdNodeInfo.vrdNodeInfo()
+

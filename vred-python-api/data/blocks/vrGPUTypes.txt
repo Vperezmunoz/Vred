@@ -1,0 +1,28 @@
+----------
+vrGPUTypes
+----------
+
+.. py:class:: vrGPUTypes
+
+    .. py:class:: OpenGLVendor
+
+            .. py:data:: AMD
+
+            .. py:data:: NVIDIA
+
+            .. py:data:: Intel
+
+            .. py:data:: Mesa
+
+            .. py:data:: LLVMPipe
+
+    .. py:class:: OpenGLFeature
+
+            .. py:data:: DoubleBufferedStereo
+
+            .. py:data:: MulticastSLI
+
+            .. py:data:: SinglePassStereo
+
+            .. py:data:: VariableRateShading
+

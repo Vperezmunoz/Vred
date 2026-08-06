@@ -1,0 +1,18 @@
+MODULE vrInteractionModule (legacy v1 API)
+
+-------------------
+vrInteractionModule
+-------------------
+
+Summary
+=======
+
+Functions:
+    * setObjectDraggingIgnore(state)
+
+.. function:: setObjectDraggingIgnore(state)
+
+    Enable/disable object dragging ignore mode.
+
+    :param state: Ignore dragging: On/Off.
+    :type state: bool

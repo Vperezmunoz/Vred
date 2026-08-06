@@ -1,0 +1,102 @@
+----------------------------------
+vrdRenderAutomationVariantSetGroup
+----------------------------------
+
+.. py:class:: vrdRenderAutomationVariantSetGroup
+
+(Inherits vrdObject)
+
+Summary
+=======
+
+Functions:
+    * addActiveVariantSetName(setName) → bool
+    * clearActiveVariantSetNames()
+    * getActiveVariantSetCount() → size_t
+    * getActiveVariantSetNames() → List[string]
+    * getGroupName() → string
+    * hasActiveVariantSetName(setName) → bool
+    * hasActiveVariantSets() → bool
+    * removeActiveVariantSetName(setName) → bool
+    * setActiveVariantSetNames(variantSets)
+    * setGroupName(groupName)
+
+Functions
+=========
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.addActiveVariantSetName(setName)
+
+    Adds a variant set name to the list of active variant sets.
+
+    :param setName: The name of the variant set to add.
+    :type setName: string
+
+    :return: True if the variant set was successfully added, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.clearActiveVariantSetNames()
+
+    Clears all active variant set names from the group.
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.getActiveVariantSetCount()
+
+    Gets the count of active variant sets in the group.
+
+    :return: The number of active variant sets.
+    :rtype: size_t
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.getActiveVariantSetNames()
+
+    Gets the list of active variant set names in the group.
+
+    :return: The list of active variant set names.
+    :rtype: List[string]
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.getGroupName()
+
+    Gets the name of the group.
+
+    :return: The name of the group.
+    :rtype: string
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.hasActiveVariantSetName(setName)
+
+    Checks if the group has an active variant set with the specified name.
+
+    :param setName: The name of the variant set to check.
+    :type setName: string
+
+    :return: True if the variant set is active, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.hasActiveVariantSets()
+
+    Checks if the group has any active variant sets.
+
+    :return: True if there are active variant sets, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.removeActiveVariantSetName(setName)
+
+    Removes a variant set name from the list of active variant sets.
+
+    :param setName: The name of the variant set to remove.
+    :type setName: string
+
+    :return: True if the variant set was successfully removed, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.setActiveVariantSetNames(variantSets)
+
+    Sets the list of active variant set names in the group.
+
+    :param variantSets: The new list of active variant set names.
+    :type variantSets: List[string]
+
+.. py:method:: vrdRenderAutomationVariantSetGroup.setGroupName(groupName)
+
+    Sets the name of the group.
+
+    :param groupName: The new name of the group.
+    :type groupName: string
+

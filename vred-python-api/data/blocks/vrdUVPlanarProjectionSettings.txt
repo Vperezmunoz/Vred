@@ -1,0 +1,35 @@
+-----------------------------
+vrdUVPlanarProjectionSettings
+-----------------------------
+
+.. py:class:: vrdUVPlanarProjectionSettings
+
+(Inherits vrdUVBaseProjectionSettings)
+
+Class for planar UV coordinate projection settings.
+
+Functions needed to setup a planar projection:
+
+Set projection plane center with vrdUVBaseProjectionSettings.setProjectionCenter(center).
+
+Set an additional offset to shift the projection from the center with vrdUVBaseProjectionSettings.setTextureOffset(offset).
+
+Set the base projection plane size in scene units with vrdUVBaseProjectionSettings.setTextureSize(size).
+
+Set an additional scale factor for the projection plane with vrdUVBaseProjectionSettings.setTextureScale(scale).
+
+Set projection plane rotation with     vrdUVBaseProjectionSettings.setProjectionRotation(rotation).
+
+Summary
+=======
+
+Functions:
+    * print()
+
+Functions
+=========
+
+.. py:method:: vrdUVPlanarProjectionSettings.print()
+
+    Debug print of settings.
+

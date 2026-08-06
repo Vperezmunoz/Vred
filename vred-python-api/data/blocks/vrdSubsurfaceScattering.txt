@@ -1,0 +1,294 @@
+-----------------------
+vrdSubsurfaceScattering
+-----------------------
+
+.. py:class:: vrdSubsurfaceScattering
+
+(Inherits vrdSceneObject)
+
+This class is used for all subsurface scattering properties.
+
+    .. py:class:: Mode
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: ThinWalledTranslucency
+
+            .. py:data:: VolumeScattering
+
+    .. py:class:: MediumType
+       :no-index:
+
+            .. py:data:: Custom
+               :no-index:
+
+            .. py:data:: Diamond
+               :no-index:
+
+            .. py:data:: Polysilicon
+               :no-index:
+
+            .. py:data:: AcrylicGlass
+               :no-index:
+
+            .. py:data:: PlasticPolystyrene
+               :no-index:
+
+            .. py:data:: PlasticPolycarbonates
+               :no-index:
+
+            .. py:data:: Ethanol
+               :no-index:
+
+            .. py:data:: Methanol
+               :no-index:
+
+            .. py:data:: Water19degrees
+               :no-index:
+
+            .. py:data:: Water24degrees
+               :no-index:
+
+            .. py:data:: CrownGlassBorosilicateGlass
+               :no-index:
+
+            .. py:data:: GlassLanthanumDenseFlint
+               :no-index:
+
+            .. py:data:: GlassBariumFlint
+               :no-index:
+
+            .. py:data:: GlassDenseFlint
+               :no-index:
+
+            .. py:data:: QuartzFusedSilica
+               :no-index:
+
+            .. py:data:: FusedGermania
+               :no-index:
+
+Summary
+=======
+
+Functions:
+    * getAsymmetry() → float
+    * getAttenuation() → float
+    * getColor() → QVector3D
+    * getColorSpectrum() → vrSpectrum
+    * getDepth() → integer
+    * getMediumType() → vrdSubsurfaceScattering.MediumType
+    * getMode() → vrdSubsurfaceScattering.Mode
+    * getRadius() → QVector3D
+    * getRadiusSpectrum() → vrSpectrum
+    * getRefractionIndex() → float
+    * getRoughness() → float
+    * getTexture() → vrdTexture
+    * getUseRoughness() → bool
+    * getWeight() → float
+    * setAsymmetry(asymmetry)
+    * setAttenuation(attenuation)
+    * setColor(color)
+    * setColorSpectrum(value)
+    * setDepth(depth)
+    * setMediumType(type)
+    * setMode(mode)
+    * setRadius(radius)
+    * setRadiusSpectrum(value)
+    * setRefractionIndex(indexOfRefraction)
+    * setRoughness(roughness)
+    * setUseRoughness(useRoughness)
+    * setWeight(weight)
+
+Functions
+=========
+
+.. py:method:: vrdSubsurfaceScattering.getAsymmetry()
+
+    Gets the value of the directional characteristic of scattering events.
+
+    :return: Current used value of the directional characteristic of scattering events.
+    :rtype: float
+
+.. py:method:: vrdSubsurfaceScattering.getAttenuation()
+
+    Gets how deep light penetrates a surface.
+
+    :return: Current value how deep light penetrates a surface.
+    :rtype: float
+
+.. py:method:: vrdSubsurfaceScattering.getColor()
+
+    Gets the color of the scattering/translucent light.
+
+    :return: Current color for the scattering/translucent light.
+    :rtype: QVector3D
+
+.. py:method:: vrdSubsurfaceScattering.getColorSpectrum()
+
+    Gets the scatter color spectrum.
+
+    :return: The current used spectrum for scatter color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdSubsurfaceScattering.getDepth()
+
+    Gets the maximum number of scatter events that can happen before a ray leaves the volume.
+
+    :return: Current value of the maximum number of scatter events that can happen before a ray leaves the volume.
+    :rtype: integer
+
+.. py:method:: vrdSubsurfaceScattering.getMediumType()
+
+    Gets the type of common index refraction values.
+
+    :return: Current index of common index refraction values.
+    :rtype: vrdSubsurfaceScattering.MediumType
+
+.. py:method:: vrdSubsurfaceScattering.getMode()
+
+    Gets the currently active subsurface scattering mode.
+
+    :return: Current subsurface scattering mode
+    :rtype: vrdSubsurfaceScattering.Mode
+
+.. py:method:: vrdSubsurfaceScattering.getRadius()
+
+    Gets the maximum distance a ray can travel before hitting a particle.
+
+    :return: Current value for the maximum distance light can scatter below the surface.
+    :rtype: QVector3D
+
+.. py:method:: vrdSubsurfaceScattering.getRadiusSpectrum()
+
+    Gets the scatter radius spectrum.
+
+    :return: The current used spectrum for scatter radius.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdSubsurfaceScattering.getRefractionIndex()
+
+    Get the index of refraction of the material.
+
+    :return: Current value of the index of refraction.
+    :rtype: float
+
+.. py:method:: vrdSubsurfaceScattering.getRoughness()
+
+    Gets the amount of diffusion of a material.
+
+    :return: The current value of roughness for this material.
+    :rtype: float
+
+.. py:method:: vrdSubsurfaceScattering.getTexture()
+
+    Gets access to all properties of         vrdTexture.
+
+    :return: All properties of vrdTexture.
+    :rtype: vrdTexture
+
+.. py:method:: vrdSubsurfaceScattering.getUseRoughness()
+
+    Query whether surface roughness should be considered when entering or leaving the medium or not.
+
+    :return: Current state whether to evaluate the surface roughness when entering or leaving the medium or not.
+    :rtype: bool
+
+.. py:method:: vrdSubsurfaceScattering.getWeight()
+
+    Gets the blending factor between diffuse reflections and subsurface scattering.
+
+    :return: Current used factor for blending between diffuse reflections and subsurface scattering.
+    :rtype: float
+
+.. py:method:: vrdSubsurfaceScattering.setAsymmetry(asymmetry)
+
+    Sets the directional characteristic of scattering events. The asymmetry sets the Henyey-Greenstein anisotropy coefficient between -1 (full back-scatter) and 1 (full forward-scatter). The default is 0 for an isotropic medium which scatters the light evenly in all directions, giving a uniform effect. Positive values bias the scattering effect forward, in the direction of the incoming ray while negative values bias the scattering backward toward the incoming ray.
+
+    :param asymmetry: New value of the directional characteristic of scattering events.
+    :type asymmetry: float
+
+.. py:method:: vrdSubsurfaceScattering.setAttenuation(attenuation)
+
+    Sets how deep light penetrates a surface. It calculates a scaling factor that multiplies the Radius Color to adjust the density of particles inside the volume. The scaling factor is calculated as radius scale = (1.0 / (Attenuation*Attenuation))) A value of 0.0 will therefore make the material completely transparent while a value of 1.0 will make it completely solid.
+
+    :param attenuation: New scaling value the radius to increase or decrease the density of particles in the volume.
+    :type attenuation: float
+
+.. py:method:: vrdSubsurfaceScattering.setColor(color)
+
+    Sets the color of the scattering/translucent light.
+
+    :param color: New color for the scattering/translucent light.
+    :type color: QVector3D
+
+.. py:method:: vrdSubsurfaceScattering.setColorSpectrum(value)
+
+    Sets the scatter color spectrum.
+
+    :param value: New spectrum for scatter color
+    :type value: vrSpectrum
+
+.. py:method:: vrdSubsurfaceScattering.setDepth(depth)
+
+    Sets the maximum number of scatter events that can happen before a ray leaves the volume.
+
+    :param depth: New value of the maximum number of scatter events that can happen before a ray leaves the volume.
+    :type depth: integer
+
+.. py:method:: vrdSubsurfaceScattering.setMediumType(type)
+
+    Provides a large collection of common index refraction values.
+
+    :param type: New index of common index refraction values.
+    :type type: vrdSubsurfaceScattering.MediumType
+
+.. py:method:: vrdSubsurfaceScattering.setMode(mode)
+
+    Sets the subsurface scattering mode to use. The subsurface scattering mode specifies the algorithm used to calculate subsurface scattering effects. Two modes are available at the moment: ThinWalledTranslucency simulates a simple translucency effect for single sided objects like a sheet of paper or leaves VolumeScattering uses random walk subsurface scattering to simulate the effects of subsurface scattering on solid objects.
+
+    :param mode: The subsurface scattering mode to use.
+    :type mode: vrdSubsurfaceScattering.Mode
+
+.. py:method:: vrdSubsurfaceScattering.setRadius(radius)
+
+    Sets the maximum distance light can travel inside the volume before hitting a particle. The higher the value the smoother the appearance of the subsurface scattering. The lower the value the more opaque the look. Increasing the radius can radically change a material's appearance. Since subsurface scattering is scale dependent, adjust Attenuation as per the size of your model.
+
+    :param radius: New value for the maximum distance a light can travel before hitting a particle.
+    :type radius: QVector3D
+
+.. py:method:: vrdSubsurfaceScattering.setRadiusSpectrum(value)
+
+    Sets the scatter radius spectrum.
+
+    :param value: New spectrum for scatter radius
+    :type value: vrSpectrum
+
+.. py:method:: vrdSubsurfaceScattering.setRefractionIndex(indexOfRefraction)
+
+    Sets the index of refraction of the material. It defines how light is refracted when entering or leaving a volume of a different density.
+
+    :param indexOfRefraction: New value of the index of refraction.
+    :type indexOfRefraction: float
+
+.. py:method:: vrdSubsurfaceScattering.setRoughness(roughness)
+
+    Defines the amount of diffusion that is applied to translucent light.
+
+    :param roughness: New value of roughness for this material.
+    :type roughness: float
+
+.. py:method:: vrdSubsurfaceScattering.setUseRoughness(useRoughness)
+
+    Sets whether the surface roughness should be considered when entering or leaving the medium.
+
+    :param useRoughness: New state whether to evaluate the surface roughness when entering or leaving the medium or not.
+    :type useRoughness: bool
+
+.. py:method:: vrdSubsurfaceScattering.setWeight(weight)
+
+    Sets the blending factor between diffuse reflections and subsurface scattering. When set to 1.0, there is only subsurface scattering, and when set to 0 it is only the normal diffuse term. In most cases, you want this to be 1.0 for full subsurface scattering. Note that the glossy or specular term are not affected by this weight but the index of refraction controls the reflectivity of the glossy or specular term in order to stay physically plausible.
+
+    :param weight: New value for the blending factor between diffuse reflections and subsurface scattering
+    :type weight: float
+

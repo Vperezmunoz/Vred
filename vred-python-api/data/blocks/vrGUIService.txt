@@ -1,0 +1,254 @@
+------------
+vrGUIService
+------------
+
+.. py:class:: vrGUIService
+
+(Inherits vrBaseService)
+
+    .. py:class:: DialogType
+
+        Defines a type of file dialog, e.g. to open/save a texture.
+
+            .. py:data:: Texture
+               :no-index:
+
+                Dialog for texture files.
+
+            .. py:data:: MeasuredMaterial
+
+                Dialog for measured material files, e.g. X-Rite.
+
+            .. py:data:: SubstanceArchive
+
+                Dialog for Substance archive files.
+
+            .. py:data:: MDLArchive
+
+                Dialog for MDL module files.
+
+            .. py:data:: MaterialXArchive
+
+                Dialog for MaterialX document files.
+
+            .. py:data:: OpenVDB
+
+                Dialog for OpenVDB files.
+
+            .. py:data:: GaussianSplat
+
+                Dialog for Gaussian splat files.
+
+    .. py:class:: ViewCubePosition
+
+        Defines the position of the view cube.
+
+            .. py:data:: TopRight
+
+            .. py:data:: BottomRight
+
+            .. py:data:: TopLeft
+
+            .. py:data:: BottomLeft
+
+    .. py:class:: ViewCubeSize
+
+        Defines the size of the view cube.
+
+            .. py:data:: Automatic
+
+                Adapts to render window size between tiny and normal.
+
+            .. py:data:: Tiny
+
+            .. py:data:: Small
+
+            .. py:data:: Normal
+
+            .. py:data:: Large
+
+Summary
+=======
+
+Functions:
+    * addMainWindowToolBar(toolbar)
+    * getFileDialogPath(type) → string
+    * getViewCubeOpacity() → float
+    * getViewCubePosition() → vrGUIService.ViewCubePosition
+    * getViewCubeSize() → vrGUIService.ViewCubeSize
+    * isNavBarVisible() → bool
+    * isViewCubeVisible() → bool
+    * openExportDialog(file, nodes)
+    * openExportSceneDialog(file)
+    * openImportDialog(files, parent)
+    * removeMainWindowToolBar(toolbar)
+    * setFileDialogPath(type, path)
+    * setNavBarVisible(value)
+    * setViewCubeOpacity(value)
+    * setViewCubePosition(value)
+    * setViewCubeSize(value)
+    * setViewCubeVisible(value)
+    * viewInNewRenderWindow(nodes)
+
+Signals:
+    * colorThemeChanged(newTheme)
+    * recentFilesChanged()
+    * recentFilesCleared()
+
+Functions
+=========
+
+.. py:method:: vrGUIService.addMainWindowToolBar(toolbar)
+
+    Adds a toolbar to the main window and also adds an entry to the Toolbar menu.
+
+    :param toolbar: The toolbar to add
+    :type toolbar: QToolBar
+
+.. py:method:: vrGUIService.getFileDialogPath(type)
+
+    Returns the path that is used as an initial path for file dialogs for the given type.
+
+    :param type: The type of dialog, e.g. vrGUIService.DialogType.Texture for the file dialog to load/save textures.
+    :type type: vrGUIService.DialogType
+
+    :return: Path
+    :rtype: string
+
+.. py:method:: vrGUIService.getViewCubeOpacity()
+
+    :return: The view cube opacity
+    :rtype: float
+
+.. py:method:: vrGUIService.getViewCubePosition()
+
+    :return: The view cube position
+    :rtype: vrGUIService.ViewCubePosition
+
+.. py:method:: vrGUIService.getViewCubeSize()
+
+    :return: The view cube size
+    :rtype: vrGUIService.ViewCubeSize
+
+.. py:method:: vrGUIService.isNavBarVisible()
+
+    :return: True, if navigation bar is visible
+    :rtype: bool
+
+.. py:method:: vrGUIService.isViewCubeVisible()
+
+    :return: True, if view cube is visible
+    :rtype: bool
+
+.. py:method:: vrGUIService.openExportDialog(file, nodes)
+
+    Opens the export dialog for the given nodes.
+
+    No automatic export is triggered. Modifications to the export settings are still possible.
+
+    :param file: File path
+    :type file: string
+
+    :param nodes: A list of nodes be exported
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrGUIService.openExportSceneDialog(file)
+
+    Opens the export dialog for the scene.
+
+    No automatic export is triggered. Modifications to the export settings are still possible.
+
+    :param file: File path
+    :type file: string
+
+.. py:method:: vrGUIService.openImportDialog(files, parent=vrdNode())
+
+    Opens the import dialog with the given files.
+
+    No automatic import is triggered. Modifications to the import settings are still possible.
+
+    :param files: A list of files to import
+    :type files: List[string]
+
+    :param parent: The parent node in the scene tree where these files should be added
+    :type parent: vrdNode
+
+.. py:method:: vrGUIService.removeMainWindowToolBar(toolbar)
+
+    Removes a toolbar from the main window and also removes the entry from the Toolbar menu.
+
+    :param toolbar: The toolbar to remove
+    :type toolbar: QToolBar
+
+.. py:method:: vrGUIService.setFileDialogPath(type, path)
+
+    Sets the path that should be used as an initial path for file dialogs for the given type.
+
+    In case a full file path is given, e.g. "e:\\test\\myfile.abc", the file name will be automatically removed. For network paths forward slashes have to be used, e.g.: "//server/directory/".
+
+    :param type: The type of dialog, e.g. vrGUIService.DialogType.Texture for the file dialog to load/save textures.
+    :type type: vrGUIService.DialogType
+
+    :param path: The path that should be used as initial value.
+    :type path: string
+
+.. py:method:: vrGUIService.setNavBarVisible(value)
+
+    Changes navigation bar visibility.
+
+    :param value: If True, navigation bar is visible
+    :type value: bool
+
+.. py:method:: vrGUIService.setViewCubeOpacity(value)
+
+    Changes view cubes opacity if mouse is outside the cube area.
+
+    :param value: The new opacity
+    :type value: float
+
+.. py:method:: vrGUIService.setViewCubePosition(value)
+
+    Changes view cube position.
+
+    :param value: The new position
+    :type value: ViewCubePosition
+
+.. py:method:: vrGUIService.setViewCubeSize(value)
+
+    Changes view cube size.
+
+    :param value: The new view cube size
+    :type value: ViewCubeSize
+
+.. py:method:: vrGUIService.setViewCubeVisible(value)
+
+    Changes view cube visibility.
+
+    :param value: If True, view cube is visible
+    :type value: bool
+
+.. py:method:: vrGUIService.viewInNewRenderWindow(nodes)
+
+    Open a new render window for the given nodes.
+
+    :param nodes: A list of nodes be shown
+    :type nodes: List[vrdNode]
+
+Signals
+=======
+
+.. py:method:: vrGUIService.colorThemeChanged(newTheme)
+
+    This signal is emitted, when the color theme has changed.
+
+    :param newTheme:
+    :type newTheme: vrStyleTypes.ColorTheme
+
+.. py:method:: vrGUIService.recentFilesChanged()
+
+    This signal is emitted when the list of recent files is updated.
+
+.. py:method:: vrGUIService.recentFilesCleared()
+
+    This signal is emitted when the list of recent files is cleared.
+

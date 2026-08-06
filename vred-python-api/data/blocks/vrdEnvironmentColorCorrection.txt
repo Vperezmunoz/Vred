@@ -1,0 +1,50 @@
+-----------------------------
+vrdEnvironmentColorCorrection
+-----------------------------
+
+.. py:class:: vrdEnvironmentColorCorrection
+
+(Inherits vrdColorCorrection)
+
+This class is used for color correction properties of     vrdEnvironmentMaterial.
+
+Summary
+=======
+
+Functions:
+    * getReflectedSaturation() → float
+    * getWhiteBalance() → integer
+    * setReflectedSaturation(value)
+    * setWhiteBalance(value)
+
+Functions
+=========
+
+.. py:method:: vrdEnvironmentColorCorrection.getReflectedSaturation()
+
+    Gets reflection saturation.
+
+    :return: Current value of reflection saturation
+    :rtype: float
+
+.. py:method:: vrdEnvironmentColorCorrection.getWhiteBalance()
+
+    Gets the white balance.
+
+    :return: Current value of the white balance
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentColorCorrection.setReflectedSaturation(value)
+
+    Sets reflection saturation.
+
+    :param value: New value of reflection saturation
+    :type value: float
+
+.. py:method:: vrdEnvironmentColorCorrection.setWhiteBalance(value)
+
+    Sets the white balance.
+
+    :param value: New value of the white balance
+    :type value: integer
+

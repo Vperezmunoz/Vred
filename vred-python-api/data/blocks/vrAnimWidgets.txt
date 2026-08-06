@@ -1,0 +1,511 @@
+MODULE vrAnimWidgets (legacy v1 API)
+
+-------------
+vrAnimWidgets
+-------------
+
+Contains functionality for managing animation widgets, including keyframes, animation blocks, and clips.
+
+.. class:: vrAnimWidgets
+
+   Provides methods to interact with animation widgets in VRED.
+
+Summary
+=======
+
+Functions:
+    * addChoiceControlPoint(node, time, value) → bool
+    * addChoiceControlPoints(node, times, values) → bool
+    * addRotationControlPoint(node, time, rot) → bool
+    * addRotationControlPoints(node, times, rots) → bool
+    * addRotationOrientationControlPoint(node, time, rot) → bool
+    * addRotationOrientationControlPoints(node, times, rots) → bool
+    * addScaleControlPoint(node, time, scale) → bool
+    * addScaleControlPoints(node, times, scales) → bool
+    * addToAnimClip(clip, object, frame) → bool
+    * addTranslationControlPoint(node, time, trans, updateGui) → bool
+    * addTranslationControlPoints(node, times, trans, updateGui) → bool
+    * addVisibleControlPoint(node, time, value) → bool
+    * addVisibleControlPoints(node, times, values) → bool
+    * animateClippingTransform()
+    * createAnimClip(name, parentClip) → vrNodePtr
+    * createAnimationBlockForMaterial(material, updateGui) → bool
+    * createAnimationBlockForNode(node, updateGui) → bool
+    * findAnimBlock(name) → vrNodePtr
+    * findAnimClip(name) → vrNodePtr
+    * findCameraTrackBlock(name) → vrNodePtr
+    * getAnimBlockNodes(includeHidden) → list
+    * getAnimBlocks(includeHidden) → list
+    * getAnimClipNodes() → list
+    * getAnimClips() → list
+    * getCurrentFrame() → float
+    * isPlaying(name) → bool
+    * keyAll()
+    * keySelected()
+    * pauseCAnimation(name, value)
+    * playAnim(name, startFrame=None, endFrame=None)
+    * playCAnimation(name, startFrame=None, endFrame=None)
+    * resetAnim(name)
+    * resetCAnimation(name)
+    * restoreAnimation(node) → bool
+    * restoreAnimations(nodes) → bool
+    * setAnimClipActive(clip, active)
+    * setAnimClipDuration(clip, frames)
+    * setAnimClipEnd(clip, frame, keepStart)
+    * setAnimClipFlipped(clip, flipped)
+    * setAnimClipLocked(clip, locked)
+    * setAnimClipStart(clip, frame, keepEnd)
+    * setCurrentFrame(frame)
+    * stopAnim(name)
+    * trashAnimation(node) → bool
+    * trashAnimations(nodes) → bool
+
+.. method:: keyAll()
+
+    Sets a keyframe for all attributes.
+
+.. method:: keySelected()
+
+    Sets a keyframe for selected attributes.
+
+.. method:: playAnim(name, startFrame=None, endFrame=None)
+
+    Plays an animation block or animation clip from start to end via name. The function waits till animation is finished.
+
+    :param name: name of the animation object.
+    :type name: string
+    :param startFrame: the optional start of the play range
+    :type startFrame: float
+    :param endFrame: the optional end of the pay range
+    :type endFrame: float
+
+.. method:: stopAnim(name)
+
+    Stops the animation evaluation of an animation block or clip.
+
+    :param name: The name of the animation object.
+    :type name: string
+
+.. method:: resetAnim(name)
+
+    Resets the animation block or clip.
+
+    :param name: The name of the animation object.
+    :type name: string
+
+.. method:: playCAnimation(name, startFrame=None, endFrame=None)
+
+    Plays an animation block or animation clip from start to end via name. This function returns immediatly.
+
+    :param name: name of the animation object
+    :type name: string
+    :param startFrame:  the optional start of the play range
+    :type startFrame: float
+    :param endFrame: the optional end of the pay range
+    :type endFrame: float
+
+.. method:: pauseCAnimation(name, value)
+
+    Pauses or resumes an animation block or clip.
+
+    :param name: The name of the animation object.
+    :type name: string
+    :param value: True to pause, False to resume.
+    :type value: bool
+
+.. method:: resetCAnimation(name)
+
+    Resets the animation block or clip.
+
+    :param name: The name of the animation object.
+    :type name: string
+
+.. method:: isPlaying(name) → bool
+
+    Returns whether the object with the given name is playing.
+
+    :param name: The name of the animation object.
+    :type name: string
+    :return: True if playing, False otherwise.
+    :rtype: bool
+
+.. method:: animateClippingTransform()
+
+    Loads the clipping transform node into the curve editor.
+
+.. method:: trashAnimation(node) → bool
+
+    Moves an animation to the trash.
+
+    :param node: The animation node or parent object node.
+    :type node: NodePtr
+    :return: True if trashed, False otherwise.
+    :rtype: bool
+
+.. method:: trashAnimations(nodes) → bool
+
+    Moves a list of animations to the trash.
+
+    :param nodes: Animation nodes or parent object nodes.
+    :type nodes: list of NodePtr
+    :return: True if trashed, False otherwise.
+    :rtype: bool
+
+.. method:: restoreAnimation(node) → bool
+
+    Deprecated: Use `vrUndoService.undo()` in API v2.
+
+    Restores an animation from the trash.
+
+    :param node: The node of the animation object.
+    :type node: NodePtr
+    :return: True if restored, False otherwise.
+    :rtype: bool
+
+.. method:: restoreAnimations(nodes) → bool
+
+    Deprecated: Use `vrUndoService.undo()` in API v2.
+
+    Restores a list of animations from the trash.
+
+    :param nodes: Nodes of animation objects.
+    :type nodes: list of NodePtr
+    :return: True if restored, False otherwise.
+    :rtype: bool
+
+.. method:: addTranslationControlPoint(node, time, trans, updateGui) → bool
+
+    Adds a control point to the translation channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param time: The time value for the control point.
+    :type time: float
+    :param trans: The translation value.
+    :type trans: Vec3f
+    :param updateGui: Whether to update the GUI.
+    :type updateGui: bool
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addTranslationControlPoints(node, times, trans, updateGui) → bool
+
+    Adds multiple control points to the translation channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param times: The time values for the control points.
+    :type times: list of float
+    :param trans: The translation values.
+    :type trans: list of Vec3f
+    :param updateGui: Whether to update the GUI.
+    :type updateGui: bool
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addScaleControlPoint(node, time, scale) → bool
+
+    Adds a control point to the scale channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param time: The time value for the control point.
+    :type time: float
+    :param scale: The scale value.
+    :type scale: Vec3f
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addScaleControlPoints(node, times, scales) → bool
+
+    Adds multiple control points to the scale channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param times: The time values for the control points.
+    :type times: list of float
+    :param scales: The scale values.
+    :type scales: list of Vec3f
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addRotationControlPoint(node, time, rot) → bool
+
+    Adds a control point to the rotation channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param time: The time value for the control point.
+    :type time: float
+    :param rot: The rotation value.
+    :type rot: Vec3f
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addRotationControlPoints(node, times, rots) → bool
+
+    Adds multiple control points to the rotation channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param times: The time values for the control points.
+    :type times: list of float
+    :param rots: The rotation values.
+    :type rots: list of Vec3f
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addRotationOrientationControlPoint(node, time, rot) → bool
+
+    Adds a control point to the rotation orientation channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param time: The time value for the control point.
+    :type time: float
+    :param rot: The rotation value.
+    :type rot: Vec3f
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addRotationOrientationControlPoints(node, times, rots) → bool
+
+    Adds multiple control points to the rotation orientation channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param times: The time values for the control points.
+    :type times: list of float
+    :param rots: The rotation values.
+    :type rots: list of Vec3f
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addVisibleControlPoint(node, time, value) → bool
+
+    Adds a control point to the visibility channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param time: The time value for the control point.
+    :type time: float
+    :param value: The visibility value.
+    :type value: float
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addVisibleControlPoints(node, times, values) → bool
+
+    Adds multiple control points to the visibility channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param times: The time values for the control points.
+    :type times: list of float
+    :param values: The visibility values.
+    :type values: list of float
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addChoiceControlPoint(node, time, value) → bool
+
+    Adds a control point to the choice channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param time: The time value for the control point.
+    :type time: float
+    :param value: The choice value.
+    :type value: int
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: addChoiceControlPoints(node, times, values) → bool
+
+    Adds multiple control points to the choice channel of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param times: The time values for the control points.
+    :type times: list of float
+    :param values: The choice values.
+    :type values: list of int
+    :return: True if added, False otherwise.
+    :rtype: bool
+
+.. method:: createAnimationBlockForNode(node, updateGui) → bool
+
+    Creates an animation block for the specified node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param updateGui: Whether to update the GUI.
+    :type updateGui: bool
+    :return: True if created, False otherwise.
+    :rtype: bool
+
+.. method:: createAnimationBlockForMaterial(material, updateGui) → bool
+
+    Creates an animation block for the specified material.
+
+    :param material: The material.
+    :type material: MaterialPtr
+    :param updateGui: Whether to update the GUI.
+    :type updateGui: bool
+    :return: True if created, False otherwise.
+    :rtype: bool
+
+.. method:: setCurrentFrame(frame)
+
+    Sets the current frame of the timeline.
+
+    :param frame: The frame to set.
+    :type frame: float
+
+.. method:: getCurrentFrame() → float
+
+    Gets the current frame of the timeline.
+
+    :return: The current frame.
+    :rtype: float
+
+.. method:: getAnimClips() → list
+
+    Gets all top-level animation clip names from the scene.
+
+    :return: A list of animation clip names.
+    :rtype: list of strings
+
+.. method:: getAnimClipNodes() → list
+
+    Gets all top-level animation clip nodes from the scene.
+
+    :return: A list of animation clip nodes.
+    :rtype: list of NodePtr
+
+.. method:: getAnimBlocks(includeHidden) → list
+
+    Gets all animation block names from the scene.
+
+    :param includeHidden: Whether to include hidden blocks.
+    :type includeHidden: bool
+    :return: A list of animation block names.
+    :rtype: list of strings
+
+.. method:: getAnimBlockNodes(includeHidden) → list
+
+    Gets all animation block nodes from the scene.
+
+    :param includeHidden: Whether to include hidden blocks.
+    :type includeHidden: bool
+    :return: A list of animation block nodes.
+    :rtype: list of NodePtr
+
+.. method:: createAnimClip(name, parentClip) → vrNodePtr
+
+    Creates a new animation clip.
+
+    :param name: The name of the new clip.
+    :type name: string
+    :param parentClip: The parent clip. For top-level clips, use a default instance of vrNodePtr.
+    :type parentClip: vrNodePtr
+    :return: The created animation clip node.
+    :rtype: vrNodePtr
+
+.. method:: findAnimClip(name) → vrNodePtr
+
+    Finds an animation clip by name.
+
+    :param name: The name of the clip to find.
+    :type name: string
+    :return: The found clip node or a default instance of vrNodePtr if no clip was found.
+    :rtype: vrNodePtr
+
+.. method:: findAnimBlock(name) → vrNodePtr
+
+    Finds an animation block by name.
+
+    :param name: The name of the block to find.
+    :type name: string
+    :return: The found block node or a default instance of vrNodePtr if no block was found.
+    :rtype: vrNodePtr
+
+.. method:: findCameraTrackBlock(name) → vrNodePtr
+
+    Finds a camera track block by name.
+
+    :param name: The name of the camera track block to find.
+    :type name: string
+    :return: The found camera track block node or a default instance of vrNodePtr if no block was found.
+    :rtype: vrNodePtr
+
+.. method:: addToAnimClip(clip, object, frame) → bool
+
+    Adds a block, clip, or camera track to an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param object: The object to add to the clip.
+    :type object: vrNodePtr
+    :param frame: The start frame for the block or camera track. This value has no effect for clips.
+    :type frame: int
+    :return: True if successful, False otherwise.
+    :rtype: bool
+
+.. method:: setAnimClipDuration(clip, frames)
+
+    Sets the frame duration of an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param frames: The duration of the clip in frames.
+    :type frames: int
+
+.. method:: setAnimClipStart(clip, frame, keepEnd)
+
+    Sets the start frame of an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param frame: The start frame of the clip.
+    :type frame: int
+    :param keepEnd: If True, the end frame will be kept, and the length of the clip changes. The new start frame must be smaller than the end frame.
+    :type keepEnd: bool
+
+.. method:: setAnimClipEnd(clip, frame, keepStart)
+
+    Sets the end frame of an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param frame: The end frame of the clip.
+    :type frame: int
+    :param keepStart: If True, the start frame will be kept, and the length of the clip changes. The new end frame must be greater than the start frame.
+    :type keepStart: bool
+
+.. method:: setAnimClipActive(clip, active)
+
+    Activates or deactivates an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param active: True for active, False otherwise.
+    :type active: bool
+
+.. method:: setAnimClipLocked(clip, locked)
+
+    Locks or unlocks an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param locked: True for locked, False otherwise.
+    :type locked: bool
+
+.. method:: setAnimClipFlipped(clip, flipped)
+
+    Flips or unflips an animation clip.
+
+    :param clip: The target clip.
+    :type clip: vrNodePtr
+    :param flipped: True for flipped, False otherwise.
+    :type flipped: bool

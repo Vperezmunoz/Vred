@@ -1,0 +1,28 @@
+MODULE vrVredUi (legacy v1 API)
+
+--------
+vrVredUi
+--------
+
+Contains some function to access the vred ui widgets.
+
+Summary
+=======
+
+Functions:
+    * getMainWindow()
+
+.. function:: getMainWindow()
+
+    Returns the pointer address of vred main window. In order to use it in python you need to wrap it to a QMainWindow in python::
+
+       from PySide6 import QtWidgets
+       from shiboken6 import wrapInstance
+       def vredMainWindow() :
+           main_window_ptr = getMainWindow()
+           return wrapInstance(long(main_window_ptr), QtWidgets.QMainWindow)
+
+    For your convenience the vredMainWindow() wrapper function is already defined when you start Vred.
+
+    :return: The main window Widget.
+    :rtype: long long

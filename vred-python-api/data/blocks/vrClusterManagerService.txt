@@ -1,0 +1,124 @@
+-----------------------
+vrClusterManagerService
+-----------------------
+
+.. py:class:: vrClusterManagerService
+
+(Inherits vrBaseService)
+
+A service to control cluster manager functions.
+
+A cluster manager allows to manage cluster resources for multple users. The cluster service provides functions to send the currently loaded project to a cluster manager for rendering.
+
+Sending the current project to a cluster manager for offline rendering
+
+```
+
+     vrClusterManagerService.login("pc1","tom","XXX")
+     vrClusterManagerService.sendToJobQueue(vrClusterTypes.JobType.Images,"batchQueue")
+     vrClusterManagerService.logoff();
+
+Summary
+=======
+
+Functions:
+    * getJobQueuesNames() → List[string]
+    * getSessionBookingId() → string
+    * isManagerConnected() → bool
+    * login(server, user, passwd) → bool
+    * logoff()
+    * sendToJobQueue(type, jobQueue) → bool
+    * startSession(bookingId) → bool
+
+Signals:
+    * disconnected()
+    * sessionEnded()
+    * sessionEndWarning(seconds)
+    * sessionStarting(seconds)
+
+Functions
+=========
+
+.. py:method:: vrClusterManagerService.getJobQueuesNames()
+
+    :return: Returns a list cluster manager queues
+    :rtype: List[string]
+
+.. py:method:: vrClusterManagerService.getSessionBookingId()
+
+    :return: Returns the current cluster session booking id
+    :rtype: string
+
+.. py:method:: vrClusterManagerService.isManagerConnected()
+
+    :return: Returns true, if the user has logged in to a cluster manager
+    :rtype: bool
+
+.. py:method:: vrClusterManagerService.login(server, user, passwd)
+
+    Try to login to a cluster manager.
+
+    :param server: Server name or IP address
+    :type server: string
+
+    :param user: User name
+    :type user: string
+
+    :param passwd: Password
+    :type passwd: string
+
+    :return: True, if login was successful
+    :rtype: bool
+
+.. py:method:: vrClusterManagerService.logoff()
+
+    Logoff from cluster manager.
+
+.. py:method:: vrClusterManagerService.sendToJobQueue(type, jobQueue)
+
+    Send the current project to a cluster manager queue.
+
+    :param type: Type of job to add
+    :type type: vrClusterTypes.JobType
+
+    :param jobQueue: The name of the target queue
+    :type jobQueue: string
+
+    :return: True on success
+    :rtype: bool
+
+.. py:method:: vrClusterManagerService.startSession(bookingId)
+
+    Starts a new session booked in the cluster manager module.
+
+    :param bookingId: The booking id managed by the cluster manager
+    :type bookingId: string
+
+    :return: True, if session started successfully
+    :rtype: bool
+
+Signals
+=======
+
+.. py:method:: vrClusterManagerService.disconnected()
+
+    Signal emitted when a user has signed off from the cluster manager.
+
+.. py:method:: vrClusterManagerService.sessionEnded()
+
+    Signal indicates a cluster manager session end.
+
+.. py:method:: vrClusterManagerService.sessionEndWarning(seconds)
+
+    Signal indicates a cluster manager session ends soon.
+
+    :param seconds: Number of seconds until session end
+    :type seconds: float
+
+.. py:method:: vrClusterManagerService.sessionStarting(seconds)
+
+    Signal indicates a cluster manager session starts soon.
+
+    :param seconds: Number of seconds until session start
+    :type seconds: float
+

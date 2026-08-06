@@ -1,0 +1,98 @@
+--------------
+vrdButtonState
+--------------
+
+.. py:class:: vrdButtonState
+
+(Inherits vrdData)
+
+Represents the state of a button on a VR controller.
+
+Summary
+=======
+
+Functions:
+    * getName() → string
+    * getPosition() → QVector2D
+    * isPressed() → bool
+    * isTouched() → bool
+    * setName(name)
+    * setPosition(position)
+    * setPressed(pressed)
+    * setTouched(touched)
+    * vrdButtonState()
+    * vrdButtonState(state)
+
+Functions
+=========
+
+.. py:method:: vrdButtonState.getName()
+
+    Default destructor.
+
+    Gets the name of to button to which the state belongs.
+
+    :return: The button name.
+    :rtype: string
+
+.. py:method:: vrdButtonState.getPosition()
+
+    Gets the position of the button in two dimensions. Only the x value will be set if the button has only one dimension in which it can move.
+
+    :return: The position of the button. Range if button has two axis: -1.0 - 1.0 per component. Range if button has only one axis: 0.0 - 1.0 and second component will be 0.
+    :rtype: QVector2D
+
+.. py:method:: vrdButtonState.isPressed()
+
+    Returns if the button is pressed or not.
+
+    :return: true if the button is pressed, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdButtonState.isTouched()
+
+    Returns if the button is touched or not.
+
+    :return: True if the button is touched, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdButtonState.setName(name)
+
+    Sets the name of the button to which the state belongs.
+
+    :param name: The name of the button.
+    :type name: string
+
+.. py:method:: vrdButtonState.setPosition(position)
+
+    Sets the position of the button in two dimensions.
+
+    :param position: The position of the button. Range if button has two axis: -1.0 - 1.0 per component. Range if button has only one axis: 0.0 -1.0 and second component will be 0.
+    :type position: QVector2D
+
+.. py:method:: vrdButtonState.setPressed(pressed)
+
+    Sets if the button is pressed.
+
+    :param pressed: true when the button is pressed, false otherwise.
+    :type pressed: bool
+
+.. py:method:: vrdButtonState.setTouched(touched)
+
+    Sets if the button is touched or not.
+
+    :param touched: true is the button is touched, false otherwise.
+    :type touched: bool
+
+.. py:method:: vrdButtonState.vrdButtonState()
+
+    Default constructor.
+
+.. py:method:: vrdButtonState.vrdButtonState(state)
+   :no-index:
+
+    Copy constructor.
+
+    :param state:
+    :type state: vrdButtonState
+

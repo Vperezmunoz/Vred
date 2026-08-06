@@ -1,0 +1,217 @@
+--------------
+vrVariantTypes
+--------------
+
+.. py:class:: vrVariantTypes
+
+    .. py:class:: PreviewType
+
+        Specifies the style of the preview image of a variant.
+
+            .. py:data:: Thumbnail
+
+            .. py:data:: Icon
+
+            .. py:data:: ThumbnailWithIcon
+
+    .. py:class:: TargetType
+
+        Specifies the type of objects that are targeted by a variant.
+
+            .. py:data:: Scenegraph
+
+                Matches various scenegraph nodes (geometries, switches, groups, lights, material groups).
+
+            .. py:data:: Material
+               :no-index:
+
+                Matches material switches and materials with states (xRite, Substance).
+
+            .. py:data:: Transform
+
+                Matches transform variants.
+
+            .. py:data:: Light
+               :no-index:
+
+                Matches lights.
+
+            .. py:data:: Sceneplate
+               :no-index:
+
+                Matches sceneplates.
+
+            .. py:data:: Animation
+
+                Matches animation clips and blocks.
+
+            .. py:data:: Viewpoint
+
+                Matches viewpoints, tracks, and cameras.
+
+            .. py:data:: RenderLayer
+
+                Matches render layers.
+
+            .. py:data:: Annotation
+
+                Matches annotations.
+
+            .. py:data:: All
+               :no-index:
+
+            .. py:data:: None_
+               :no-index:
+
+    .. py:class:: GroupType
+
+        Specifies the type of a variant group.
+
+            .. py:data:: Group
+               :no-index:
+
+            .. py:data:: Favorites
+
+            .. py:data:: SmartReference
+
+    .. py:class:: StateValidity
+
+            .. py:data:: Valid
+               :no-index:
+
+                The state is valid and can be executed on the target objects.
+
+            .. py:data:: InvalidTarget
+
+                The target configuration does not resolve to any valid objects.
+
+            .. py:data:: InvalidState
+
+                The specified state is not applicable to the target objects.
+
+            .. py:data:: InvalidExclusionTag
+
+                The specified exclusion tag does not exist.
+
+            .. py:data:: TargetNameFallback
+
+                The target object could not be found by UUID, but an object with a matching name was found.
+
+    .. py:class:: SearchMethod
+
+        Specifies the method a variant uses to search for target objects.
+
+            .. py:data:: Name
+
+                Match objects with a specific name.
+
+            .. py:data:: Uuid
+
+                Match the object by using a UUID.
+
+            .. py:data:: Metadata
+
+                Match objects based on a metadata query.
+
+            .. py:data:: Tag
+               :no-index:
+
+                Match objects with a specific tag.
+
+            .. py:data:: MetadataKey
+
+                Match objects based on a metadata key.
+
+            .. py:data:: MetadataSet
+
+                Match objects based on a metadata set name.
+
+            .. py:data:: ObjectSearch
+
+            .. py:data:: MetadataSearch
+
+            .. py:data:: All
+               :no-index:
+
+    .. py:class:: CaptureFlag
+
+            .. py:data:: Scenegraph
+               :no-index:
+
+            .. py:data:: Materials
+
+            .. py:data:: Lights
+
+            .. py:data:: Viewpoints
+
+            .. py:data:: Sceneplates
+
+            .. py:data:: Annotations
+
+            .. py:data:: RenderLayers
+
+            .. py:data:: Transformations
+
+            .. py:data:: Environment
+               :no-index:
+
+                Include environment variants separately.
+
+            .. py:data:: GenerateMaterialSwitches
+
+                Generate switch materials for captured materials.
+
+            .. py:data:: GenerateTransformVariants
+
+                Generate transform variants for captured transforms.
+
+            .. py:data:: ById
+
+                Capture target objects by UUID instead of name.
+
+            .. py:data:: RenderQueue
+               :no-index:
+
+                Capture for render queue.
+
+            .. py:data:: NoCapture
+
+                Variant has not been captured.
+
+            .. py:data:: AllCapture
+
+    .. py:class:: ExecuteFlag
+
+            .. py:data:: None_
+               :no-index:
+
+                No special execution behavior.
+
+            .. py:data:: ExcludeViewpoints
+
+                Skip viewpoint changes.
+
+            .. py:data:: NoAnimationsAndScripts
+
+                Do not run animations and scripts.
+
+            .. py:data:: InstantaneousAnimations
+
+                Apply animations instantaneously when applying the variant set.
+
+    .. py:class:: ClippingState
+
+            .. py:data:: Off
+               :no-index:
+
+                Disable the clipping plane.
+
+            .. py:data:: On
+               :no-index:
+
+                Enable the clipping plane.
+
+            .. py:data:: UpdateParameters
+
+                Update the clipping plane parameters.
+

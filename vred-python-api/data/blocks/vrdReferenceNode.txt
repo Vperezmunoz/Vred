@@ -1,0 +1,259 @@
+----------------
+vrdReferenceNode
+----------------
+
+.. py:class:: vrdReferenceNode
+
+(Inherits vrdTransformNode)
+
+Reference node.
+
+Summary
+=======
+
+Functions:
+    * createSmartPath(location, customPath) → string
+    * createSmartReference(useSourcePath)
+    * createSourceReference()
+    * getSmartCreationDate() → QDateTime
+    * getSmartFileState() → vrReferenceTypes.FileState
+    * getSmartLastModified() → QDateTime
+    * getSmartOwner() → string
+    * getSmartPath() → string
+    * getSmartRevision() → string
+    * getSmartRevisionPath(revision) → string
+    * getSmartRevisions() → List[string]
+    * getSourceFileState() → vrReferenceTypes.FileState
+    * getSourceImportDate() → QDateTime
+    * getSourceLastModified() → QDateTime
+    * getSourceOwner() → string
+    * getSourcePath() → string
+    * getSourceRevision() → string
+    * getSourceRevisionPath(revision) → string
+    * getSourceRevisions() → List[string]
+    * getState() → vrReferenceTypes.State
+    * hasSmartReference() → bool
+    * hasSourceReference() → bool
+    * isChanged() → bool
+    * isLoaded() → bool
+    * isRootNode() → bool
+    * isSelfOrSubReferenceChanged() → bool
+    * isSubReferenceChanged() → bool
+    * load()
+    * loadSmartReference()
+    * loadSourceReference()
+    * removeSmartReference()
+    * removeSourceReference()
+    * saveSmartReference()
+    * saveSmartReferenceAs(path, unshare)
+    * setSmartPath(path)
+    * setSourcePath(path)
+    * unload()
+
+Functions
+=========
+
+.. py:method:: vrdReferenceNode.createSmartPath(location, customPath="")
+
+    Constructs the path to the smart file.
+
+    :param location: The type of locaton
+    :type location: vrReferenceTypes.ExportLocation
+
+    :param customPath: If the type is custom, this parameter conteins the custom path
+    :type customPath: string
+
+    :return: Path to the smart file
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.createSmartReference(useSourcePath=False)
+
+    Creates a smart file reference for this reference.
+
+    :param useSourcePath:
+    :type useSourcePath: bool
+
+.. py:method:: vrdReferenceNode.createSourceReference()
+
+    Creates a source file reference for this reference.
+
+.. py:method:: vrdReferenceNode.getSmartCreationDate()
+
+    :return: The creation date of the smart file on disk
+    :rtype: QDateTime
+
+.. py:method:: vrdReferenceNode.getSmartFileState()
+
+    :return: The status of the smart file
+    :rtype: vrReferenceTypes.FileState
+
+.. py:method:: vrdReferenceNode.getSmartLastModified()
+
+    :return: The modification time of the smart file
+    :rtype: QDateTime
+
+.. py:method:: vrdReferenceNode.getSmartOwner()
+
+    :return: The file owner of the smart file
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSmartPath()
+
+    :return: Path to the smart file
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSmartRevision()
+
+    :return: The current smart revision.
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSmartRevisionPath(revision)
+
+    :param revision:
+    :type revision: string
+
+    :return: The path to the smart file with the given revision
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSmartRevisions()
+
+    :return: A list of available smart revisions
+    :rtype: List[string]
+
+.. py:method:: vrdReferenceNode.getSourceFileState()
+
+    :return: The status of the sources file
+    :rtype: vrReferenceTypes.FileState
+
+.. py:method:: vrdReferenceNode.getSourceImportDate()
+
+    :return: The time at which the file was imported
+    :rtype: QDateTime
+
+.. py:method:: vrdReferenceNode.getSourceLastModified()
+
+    :return: The modification date of the sources file
+    :rtype: QDateTime
+
+.. py:method:: vrdReferenceNode.getSourceOwner()
+
+    :return: The file owner of the sources file
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSourcePath()
+
+    :return: Path to the source file
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSourceRevision()
+
+    :return: The current source revision.
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSourceRevisionPath(revision)
+
+    :param revision:
+    :type revision: string
+
+    :return: The path to the source file with the given revision
+    :rtype: string
+
+.. py:method:: vrdReferenceNode.getSourceRevisions()
+
+    :return: A list of available source revisions
+    :rtype: List[string]
+
+.. py:method:: vrdReferenceNode.getState()
+
+    Get the current status of the reference node.
+
+    :return: Loaded, Unloaded or New
+    :rtype: vrReferenceTypes.State
+
+.. py:method:: vrdReferenceNode.hasSmartReference()
+
+    :return: True if this reference is dynamically loaded from a project file
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.hasSourceReference()
+
+    :return: True if this reference points to a source file.
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.isChanged()
+
+    :return: True if the content of the reference has been modified without saving
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.isLoaded()
+
+    :return: True if this reference is loaded
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.isRootNode()
+
+    :return: True if this reference is the scene root node
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.isSelfOrSubReferenceChanged()
+
+    :return: True if vrdReferenceNode.isChanged() is true and vrdReferenceNode.isSubReferenceChanged() is true
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.isSubReferenceChanged()
+
+    :return: True if one of the sub references has unsaved changes
+    :rtype: bool
+
+.. py:method:: vrdReferenceNode.load()
+
+    Loads the reference content.
+
+.. py:method:: vrdReferenceNode.loadSmartReference()
+
+    Loads the reference content, if this reference contains a source reference.
+
+.. py:method:: vrdReferenceNode.loadSourceReference()
+
+    Loads the reference content, if this reference contains a smart reference.
+
+.. py:method:: vrdReferenceNode.removeSmartReference()
+
+    Removes the smart reference information from this reference.
+
+.. py:method:: vrdReferenceNode.removeSourceReference()
+
+    Removes the source reference information from this reference.
+
+.. py:method:: vrdReferenceNode.saveSmartReference()
+
+    Save changes to the referenced project file.
+
+.. py:method:: vrdReferenceNode.saveSmartReferenceAs(path, unshare)
+
+    Save content of the reference to a new project file.
+
+    :param path: The project file name
+    :type path: string
+
+    :param unshare: If true, unshare and only linke this instance to the new project
+    :type unshare: bool
+
+.. py:method:: vrdReferenceNode.setSmartPath(path)
+
+    Change the path to the smart reference file.
+
+    :param path: The new path to the file
+    :type path: string
+
+.. py:method:: vrdReferenceNode.setSourcePath(path)
+
+    Change the path to the source file.
+
+    :param path: The new path of the source file
+    :type path: string
+
+.. py:method:: vrdReferenceNode.unload()
+
+    Remove all children of this node and mark as not loaded.
+

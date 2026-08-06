@@ -1,0 +1,216 @@
+-----------
+vrdNodeList
+-----------
+
+.. py:class:: vrdNodeList
+
+(Inherits vrdObjectList)
+
+This class gives access to a collection of nodes.
+
+Operations on this list will directly be executed on the underlying data model.
+
+            Example:
+            Node A has a child node B. B has two child nodes C and D.
+
+```
+
+     # We want to reparent node D so that it is on the same hierarchy level as B and has A
+     # as new parent
+     a = vrNodeService.findNode('A')
+     b = vrNodeService.findNode('B')
+     d = b.children.find('D')
+     a.children.append(d)
+
+     # There's no need to remove d from b's list of children. This is all done automatically
+     # since a vrdNode can only have a single parent.
+     # You can check the number of children afterwards.
+     print(a.children.size())  # this will now be 2
+     print(b.children.size())  # this will now be 1
+
+Summary
+=======
+
+Functions:
+    * append(value)
+    * append(values)
+    * at(i) → vrdNode
+    * canInsert(value) → bool
+    * clear()
+    * contains(value) → bool
+    * count(value) → integer
+    * data() → List[vrdNode]
+    * find(name) → vrdNode
+    * index(value, start, end) → integer
+    * insert(i, value)
+    * insert(i, values)
+    * move(from, to) → bool
+    * remove(value) → bool
+    * removeAll(value) → integer
+    * removeAt(i) → bool
+    * size() → integer
+
+Functions
+=========
+
+.. py:method:: vrdNodeList.append(value)
+
+    Appends the value to this list.
+
+    :param value: The value to append
+    :type value: vrdNode
+
+.. py:method:: vrdNodeList.append(values)
+   :no-index:
+
+    Appends the items of the value list to this list.
+
+    :param values: The values to append
+    :type values: List[vrdNode]
+
+.. py:method:: vrdNodeList.at(i)
+
+    Get the value at the given index.
+
+    :param i:
+    :type i: integer
+
+    :return: i The index of the requested value
+    :rtype: vrdNode
+
+.. py:method:: vrdNodeList.canInsert(value)
+
+    Check, if the given entry can be inserted.
+
+    :param value:
+    :type value: vrdNode
+
+    :return: True, if insert is allowed
+    :rtype: bool
+
+.. py:method:: vrdNodeList.clear()
+
+    Removes all items from the list.
+
+.. py:method:: vrdNodeList.contains(value)
+
+    Check, if an element is already in the list.
+
+    :param value:
+    :type value: vrdNode
+
+    :return: True, if the given value is in this list
+    :rtype: bool
+
+.. py:method:: vrdNodeList.count(value)
+
+    Count the occurences of a given vlaue.
+
+    :param value:
+    :type value: vrdNode
+
+    :return: The number of times, the value has been found in the list
+    :rtype: integer
+
+.. py:method:: vrdNodeList.data()
+
+    Get all entries of this list.
+
+    :return: List of elements
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdNodeList.find(name)
+
+    Returns first occurrence with given name.
+
+    :param name: Name
+    :type name: string
+
+    :return:
+    :rtype: vrdNode
+
+.. py:method:: vrdNodeList.index(value, start=0, end=-1)
+
+    Returns the index of the given value.
+
+    :param value: The value to search
+    :type value: vrdNode
+
+    :param start: The index to start the search, default is 0
+    :type start: integer
+
+    :param end: The index to end the search, default is -1 to search until the end
+    :type end: integer
+
+    :return: The index or -1, if not found
+    :rtype: integer
+
+.. py:method:: vrdNodeList.insert(i, value)
+
+    Insert a value at a given position.
+
+    :param i: The position, starting from 0
+    :type i: integer
+
+    :param value: The value to be inserted
+    :type value: vrdNode
+
+.. py:method:: vrdNodeList.insert(i, values)
+   :no-index:
+
+    Insert values at a given position.
+
+    :param i: The position, starting from 0
+    :type i: integer
+
+    :param values: The values to be inserted
+    :type values: List[vrdNode]
+
+.. py:method:: vrdNodeList.move(from, to)
+
+    Moves a values inside the list.
+
+    :param from: The index to move
+    :type from: integer
+
+    :param to: The destination index
+    :type to: integer
+
+    :return: True on success, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdNodeList.remove(value)
+
+    Remove the first occurences of the given value.
+
+    :param value:
+    :type value: vrdNode
+
+    :return: True, if the value has been removed
+    :rtype: bool
+
+.. py:method:: vrdNodeList.removeAll(value)
+
+    Remove all occurences of the given value.
+
+    :param value:
+    :type value: vrdNode
+
+    :return: The number of value that have been removed
+    :rtype: integer
+
+.. py:method:: vrdNodeList.removeAt(i)
+
+    Remove a value from the list.
+
+    :param i: Index of the value to be removed
+    :type i: integer
+
+    :return: True, if the value has been removed
+    :rtype: bool
+
+.. py:method:: vrdNodeList.size()
+
+    :return: Number of elements in this list.
+    :rtype: integer
+

@@ -1,0 +1,104 @@
+------------
+vrLogService
+------------
+
+.. py:class:: vrLogService
+
+(Inherits vrBaseService)
+
+Service that provides access to logging functionality.
+
+When using the setLogEnabled, setLogLevel or setLogType functions for temporarily changing the logging behavior, ensure that the corresponding revert call is executed. It's suggested to use a try statement like in the following example:
+
+```
+
+     logEnabled = vrLogService.isLogEnabled()
+     vrLogService.setLogEnabled(False)
+     try:
+         findNode("Name")
+     finally:
+         vrLogService.setLogEnabled(logEnabled)
+
+Summary
+=======
+
+Functions:
+    * error(message, context)
+    * getLogType() → vrLogTypes.LogType
+    * info(message, context)
+    * isLogEnabled() → bool
+    * setLogEnabled(value)
+    * setLogLevel(level)
+    * setLogType(type)
+    * warning(message, context)
+
+Functions
+=========
+
+.. py:method:: vrLogService.error(message, context={})
+
+    Adds a new error log message.
+
+    Error messages are typically printed in red.
+
+    :param message: The error which should be added to the log.
+    :type message: string
+
+    :param context: Optional context string. Will be shown in squared brackets in front of the the message e.g. [Scenegraph] Node locked.
+    :type context: string
+
+.. py:method:: vrLogService.getLogType()
+
+    :return: The current active log type.
+    :rtype: vrLogTypes.LogType
+
+.. py:method:: vrLogService.info(message, context={})
+
+    Adds a new info log message.
+
+    :param message: The info which should be added to the log.
+    :type message: string
+
+    :param context: Optional context string. Will be shown in squared brackets in front of the the message e.g. [Scenegraph] Node locked.
+    :type context: string
+
+.. py:method:: vrLogService.isLogEnabled()
+
+    :return: True if logging is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrLogService.setLogEnabled(value)
+
+    Enables or disables logging.
+
+    :param value: If True, logging is enabled. False disables logging.
+    :type value: bool
+
+.. py:method:: vrLogService.setLogLevel(level)
+
+    Sets a log level.
+
+    The log level defines which type of log messages are displayed in the terminal and log file. Currently, there are three different types of log levels: Error, Warning and Info. Each level will output messages for the specified type as well as higher severity types. For example, log level Warning will also output Errors.
+
+    :param level: The log level used for output.
+    :type level: vrLogTypes.Level
+
+.. py:method:: vrLogService.setLogType(type)
+
+    Sets the log message type.
+
+    :param type: The message type which should be active. This can also be a combination of types.
+    :type type: vrLogTypes.LogType
+
+.. py:method:: vrLogService.warning(message, context={})
+
+    Adds a new warning log message.
+
+    Warning messages are typically printed in yellow.
+
+    :param message: The warning which should be added to the log.
+    :type message: string
+
+    :param context: Optional context string. Will be shown in squared brackets in front of the the message e.g. [Scenegraph] Node locked.
+    :type context: string
+

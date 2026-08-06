@@ -1,0 +1,54 @@
+-------------
+vrMathService
+-------------
+
+.. py:class:: vrMathService
+
+(Inherits vrBaseService)
+
+Math utilities.
+
+Summary
+=======
+
+Functions:
+    * getRotation(matrix) → QQuaternion
+    * getScaleFactor(matrix) → QVector3D
+    * getScaleOrientation(matrix) → QQuaternion
+    * getTranslation(matrix) → QVector3D
+
+Functions
+=========
+
+.. py:method:: vrMathService.getRotation(matrix)
+
+    :param matrix:
+    :type matrix: QMatrix4x4
+
+    :return: the rotation of the given matrix
+    :rtype: QQuaternion
+
+.. py:method:: vrMathService.getScaleFactor(matrix)
+
+    :param matrix:
+    :type matrix: QMatrix4x4
+
+    :return: the scale factor of the given matrix
+    :rtype: QVector3D
+
+.. py:method:: vrMathService.getScaleOrientation(matrix)
+
+    :param matrix:
+    :type matrix: QMatrix4x4
+
+    :return: the scale orientation of the given matrix
+    :rtype: QQuaternion
+
+.. py:method:: vrMathService.getTranslation(matrix)
+
+    :param matrix:
+    :type matrix: QMatrix4x4
+
+    :return: the translation of the given matrix
+    :rtype: QVector3D
+

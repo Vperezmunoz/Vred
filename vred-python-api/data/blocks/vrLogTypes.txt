@@ -1,0 +1,55 @@
+----------
+vrLogTypes
+----------
+
+.. py:class:: vrLogTypes
+
+    .. py:class:: Level
+
+        Defines the logging level.
+
+            .. py:data:: Error
+
+                Only errors will be output.
+
+            .. py:data:: Warning
+
+                Warnings and Errors will be output.
+
+            .. py:data:: Info
+
+                Info, Warnings and Errors will be output.
+
+    .. py:class:: LogType
+
+        Defines which message will be logged.
+
+            .. py:data:: Error
+               :no-index:
+
+            .. py:data:: Warning
+               :no-index:
+
+            .. py:data:: Info
+               :no-index:
+
+            .. py:data:: ErrorWarning
+
+                Predefined combination for Errors and Warnings.
+
+            .. py:data:: ErrorInfo
+
+                Predefined combination for Errors and Infos.
+
+            .. py:data:: WarningInfo
+
+                Predefined combination for Warnings and Infos.
+
+            .. py:data:: ErrorWarningInfo
+
+                Predefined combination for Error, Warnings and Infos.
+
+            .. py:data:: All
+
+                Predefined setting for all existing types.
+

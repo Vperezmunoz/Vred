@@ -1,0 +1,382 @@
+MODULE vrOSGTypes (legacy v1 API)
+
+----------
+vrOSGTypes
+----------
+
+.. class:: Color3f
+
+   .. method:: __init__(r: float, g: float, b: float)
+
+      The constructor of the Color3f class.
+
+      :param r: The red component.
+      :type r: float
+      :param g: The green component.
+      :type g: float
+      :param b: The blue component.
+      :type b: float
+
+Summary
+=======
+
+   Functions:
+       * blue()
+       * green()
+       * red()
+
+.. method:: red()
+
+    Returns the red component.
+
+    :return: The red component.
+    :rtype: float
+
+.. method:: green()
+
+    Returns the green component.
+
+    :return: The green component.
+    :rtype: float
+
+.. method:: blue()
+
+    Returns the blue component.
+
+    :return: The blue component.
+    :rtype: float
+
+.. class:: Color4f
+
+   Represents a color with four components: red, green, blue, and alpha.
+
+   .. method:: __init__(r: float, g: float, b: float, a: float)
+
+      The constructor of the Color4f class.
+
+      :param r: The red component.
+      :type r: float
+      :param g: The green component.
+      :type g: float
+      :param b: The blue component.
+      :type b: float
+      :param a: The alpha component.
+      :type a: float
+
+Summary
+=======
+
+   Functions:
+       * alpha()
+       * blue()
+       * green()
+       * red()
+
+.. method:: red()
+    :no-index:
+
+    Returns the red component.
+
+    :return: The red component.
+    :rtype: float
+
+.. method:: green()
+    :no-index:
+
+    Returns the green component.
+
+    :return: The green component.
+    :rtype: float
+
+.. method:: blue()
+    :no-index:
+
+    Returns the blue component.
+
+    :return: The blue component.
+    :rtype: float
+
+.. method:: alpha()
+
+    Returns the alpha component.
+
+    :return: The alpha component.
+    :rtype: float
+
+.. class:: Vec2f
+
+   Represents a 2D vector.
+
+   .. method:: __init__(x: float, y: float)
+
+      The constructor of the Vec2f class.
+
+      :param x: The x component.
+      :type x: float
+      :param y: The y component.
+      :type y: float
+
+Summary
+=======
+
+   Functions:
+       * x()
+       * y()
+
+.. method:: x()
+
+    Returns the x component.
+
+    :return: The x component.
+    :rtype: float
+
+.. method:: y()
+
+    Returns the y component.
+
+    :return: The y component.
+    :rtype: float
+
+.. class:: Vec3f
+
+   Represents a 3D vector.
+
+   .. method:: __init__(x: float, y: float, z: float)
+
+      The constructor of the Vec3f class.
+
+      :param x: The x component.
+      :type x: float
+      :param y: The y component.
+      :type y: float
+      :param z: The z component.
+      :type z: float
+
+Summary
+=======
+
+   Functions:
+       * x()
+       * y()
+       * z()
+
+.. method:: x()
+    :no-index:
+
+    Returns the x component.
+
+    :return: The x component.
+    :rtype: float
+
+.. method:: y()
+    :no-index:
+
+    Returns the y component.
+
+    :return: The y component.
+    :rtype: float
+
+.. method:: z()
+
+    Returns the z component.
+
+    :return: The z component.
+    :rtype: float
+
+.. class:: Vec4f
+
+   Represents a 4D vector.
+
+   .. method:: __init__(x: float, y: float, z: float, w: float)
+
+      The constructor of the Vec4f class.
+
+      :param x: The x component.
+      :type x: float
+      :param y: The y component.
+      :type y: float
+      :param z: The z component.
+      :type z: float
+      :param w: The w component.
+      :type w: float
+
+Summary
+=======
+
+   Functions:
+       * x()
+       * y()
+       * z()
+       * w()
+
+.. method:: x()
+    :no-index:
+
+    Returns the x component.
+
+    :return: The x component.
+    :rtype: float
+
+.. method:: y()
+    :no-index:
+
+    Returns the y component.
+
+    :return: The y component.
+    :rtype: float
+
+.. method:: z()
+    :no-index:
+
+    Returns the z component.
+
+    :return: The z component.
+    :rtype: float
+
+.. method:: w()
+
+    Returns the w component.
+
+    :return: The w component.
+    :rtype: float
+
+.. class:: Pnt2f
+
+   Represents a 2D point.
+
+   .. method:: __init__(x: float, y: float)
+
+      The constructor of the Pnt2f class.
+
+      :param x: The x component.
+      :type x: float
+      :param y: The y component.
+      :type y: float
+
+Summary
+=======
+
+   Functions:
+       * x()
+       * y()
+
+.. method:: x()
+    :no-index:
+
+    Returns the x component.
+
+    :return: The x component.
+    :rtype: float
+
+.. method:: y()
+    :no-index:
+
+    Returns the y component.
+
+    :return: The y component.
+    :rtype: float
+
+.. class:: Pnt3f
+
+   Represents a 3D point.
+
+   .. method:: __init__(x: float, y: float, z: float)
+
+      The constructor of the Pnt3f class.
+
+      :param x: The x component.
+      :type x: float
+      :param y: The y component.
+      :type y: float
+      :param z: The z component.
+      :type z: float
+
+Summary
+=======
+
+   Functions:
+       * x()
+       * y()
+       * z()
+
+.. method:: x()
+    :no-index:
+
+    Returns the x component.
+
+    :return: The x component.
+    :rtype: float
+
+.. method:: y()
+    :no-index:
+
+    Returns the y component.
+
+    :return: The y component.
+    :rtype: float
+
+.. method:: z()
+    :no-index:
+
+    Returns the z component.
+
+    :return: The z component.
+    :rtype: float
+
+.. class:: Pnt4f
+
+   Represents a 4D point.
+
+   .. method:: __init__(x: float, y: float, z: float, w: float)
+
+      The constructor of the Pnt4f class.
+
+      :param x: The x component.
+      :type x: float
+      :param y: The y component.
+      :type y: float
+      :param z: The z component.
+      :type z: float
+      :param w: The w component.
+      :type w: float
+
+Summary
+=======
+
+   Functions:
+       * x()
+       * y()
+       * z()
+       * w()
+
+.. method:: x()
+    :no-index:
+
+    Returns the x component.
+
+    :return: The x component.
+    :rtype: float
+
+.. method:: y()
+    :no-index:
+
+    Returns the y component.
+
+    :return: The y component.
+    :rtype: float
+
+.. method:: z()
+    :no-index:
+
+    Returns the z component.
+
+    :return: The z component.
+    :rtype: float
+
+.. method:: w()
+    :no-index:
+
+    Returns the w component.
+
+    :return: The w component.
+    :rtype: float

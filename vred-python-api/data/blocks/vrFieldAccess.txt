@@ -1,0 +1,1061 @@
+MODULE vrFieldAccess (legacy v1 API)
+
+-------------
+vrFieldAccess
+-------------
+
+The vrFieldAccess class offers access to any kind of data (fields) inside the scenegraph (regardless if it is a node, a geometry, material, etc.). You get access to the field pointer within the materials or nodes via the fields()-method.
+
+The names of the fields can be found in the node editor. The type of a field is shown in a tooltip when hovering over the right-side column in the table of the Node Editor.
+
+A type beginning with 'SF...' stands for Single field, which holds a single value or object. For example, 'SFInt8' means the field holds an 8-bit int value. It can be accessed with setInt8 and getInt8.
+
+A type beginning with 'MF...' means it is a multi-field. A multi-field is a list of values or objects. For example, 'MFString' is a list of strings. The methods for multi-fields start with `getM...` or `setM...`, for example, setMString and getMString for a string multi-field.
+
+Summary
+=======
+
+Functions:
+    * addAttachment(attachment) → bool
+    * getAttachment(aname) → FieldContainerPtr
+    * getBool(fname) → bool
+    * getColor(fname, d) → list
+    * getFieldContainer(fname) → FieldContainerPtr
+    * getFieldContainerID(fname) → unsigned int
+    * getGLenum(fname) → GLenum
+    * getID() → unsigned int
+    * getInt16(fname) → int
+    * getInt32(fname) → int
+    * getInt64(fname) → int
+    * getInt8(fname) → int
+    * getMatrix(fname) → list
+    * getMBool(fname) → list
+    * getMColor3f(fname) → list
+    * getMColor4f(fname) → list
+    * getMFieldContainer(fname) → list
+    * getMFieldContainerId(fname) → list
+    * getMGLenum(fname) → list
+    * getMInt16(fname) → list
+    * getMInt32(fname) → list
+    * getMInt64(fname) → list
+    * getMInt8(fname) → list
+    * getMPnt2f(fname) → list
+    * getMPnt3f(fname) → list
+    * getMPnt4f(fname) → list
+    * getMReal32(fname) → list
+    * getMReal64(fname) → list
+    * getMString(fname) → list
+    * getMUInt16(fname) → list
+    * getMUInt32(fname) → list
+    * getMUInt64(fname) → list
+    * getMUInt8(fname) → list
+    * getMVec2f(fname) → list
+    * getMVec3f(fname) → list
+    * getMVec4f(fname) → list
+    * getNode(fname) → NodePtr
+    * getPnt(fname, d) → list
+    * getReal32(fname) → float
+    * getReal64(fname) → float
+    * getString(fname) → string
+    * getTime(fname) → time
+    * getUInt16(fname) → unsigned int
+    * getUInt32(fname) → unsigned int
+    * getUInt64(fname) → unsigned int
+    * getUInt8(fname) → unsigned int
+    * getVec(fname, d) → list
+    * hasAttachment(fname) → bool
+    * hasField(fname) → bool
+    * isValid() → bool
+    * setBool(fname, v)
+    * setColor(fname, v)
+    * setColor4f(fname, r, g, b, a)
+    * setFieldContainer(fname, v)
+    * setFieldContainerId(fname, v)
+    * setGLenum(fname, v)
+    * setInt16(fname, v)
+    * setInt32(fname, v)
+    * setInt64(fname, v)
+    * setInt8(fname, v)
+    * setMatrix(fname, v, transposed)
+    * setMBool(fname, v)
+    * setMColor3f(fname, v)
+    * setMColor4f(fname, v)
+    * setMFieldContainer(fname, v)
+    * setMFieldContainerId(fname, v)
+    * setMGLenum(fname, v)
+    * setMInt16(fname, v)
+    * setMInt32(fname, v)
+    * setMInt64(fname, v)
+    * setMInt8(fname, v)
+    * setMPnt2f(fname, v)
+    * setMPnt3f(fname, v)
+    * setMPnt4f(fname, v)
+    * setMReal32(fname, v)
+    * setMReal64(fname, v)
+    * setMString(fname, v)
+    * setMUInt16(fname, v)
+    * setMUInt32(fname, v)
+    * setMUInt64(fname, v)
+    * setMUInt8(fname, v)
+    * setMVec2f(fname, v)
+    * setMVec3f(fname, v)
+    * setMVec4f(fname, v)
+    * setNode(fname, v)
+    * setPnt(fname, v)
+    * setPnt2f(fname, x, y)
+    * setPnt3f(fname, x, y, z)
+    * setReal32(fname, v)
+    * setReal64(fname, v)
+    * setString(fname, v)
+    * setTime(fname, v)
+    * setUInt16(fname, v)
+    * setUInt32(fname, v)
+    * setUInt64(fname, v)
+    * setUInt8(fname, v)
+    * setVec(fname, v)
+    * setVec2f(fname, x, y)
+    * setVec3f(fname, x, y, z)
+    * setVec4f(fname, x, y, z, w)
+    * subAttachment(attachment) → bool
+
+.. method:: hasField(fname)
+
+    Checks the existence of a field via name.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The existence (true or false).
+    :rtype: bool
+
+.. method:: isValid()
+    :no-index:
+
+    Returns true if the FieldContainer is valid.
+
+    :return: True if valid, false otherwise.
+    :rtype: bool
+
+.. method:: getID()
+    :no-index:
+
+    Returns the internal id of the field container.
+
+    :return: The field container id.
+    :rtype: unsigned int (32bit)
+
+.. method:: hasAttachment(fname)
+
+    Checks the existence of an attachment via name.
+
+    :param fname: The name of the attachment.
+    :type fname: string
+    :return: The existence (true or false).
+    :rtype: bool
+
+.. method:: addAttachment(attachment)
+
+    Adds an attachment to an AttachmentContainer.
+
+    :param attachment: The attachment to add.
+    :type attachment: FieldContainerPtr
+    :return: True or false.
+    :rtype: bool
+
+.. method:: subAttachment(attachment)
+
+    Removes an attachment from the AttachmentContainer.
+
+    :param attachment: The attachment to remove.
+    :type attachment: FieldContainerPtr
+    :return: True or false.
+    :rtype: bool
+
+.. method:: setBool(fname, v)
+
+    Sets the value of a bool field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value (true or false).
+    :type v: boolean
+
+.. method:: setGLenum(fname, v)
+
+    Sets the value of a GLenum field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: GLenum
+
+.. method:: setInt8(fname, v)
+
+    Sets the value of a byte field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (signed 8bit)
+
+.. method:: setUInt8(fname, v)
+
+    Sets the value of an unsigned byte field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (unsigned 8bit)
+
+.. method:: setInt16(fname, v)
+
+    Sets the value of a short field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (signed 16bit)
+
+.. method:: setUInt16(fname, v)
+
+    Sets the value of an unsigned short field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (unsigned 16bit)
+
+.. method:: setInt32(fname, v)
+
+    Sets the value of an int field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (signed 32bit)
+
+.. method:: setUInt32(fname, v)
+
+    Sets the value of an unsigned int field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (unsigned 32bit)
+
+.. method:: setInt64(fname, v)
+
+    Sets the value of an int field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (signed 64bit)
+
+.. method:: setUInt64(fname, v)
+
+    Sets the value of an unsigned int field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: integer (unsigned 64bit)
+
+.. method:: setReal32(fname, v)
+
+    Sets the value of a float field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: float (32bit)
+
+.. method:: setReal64(fname, v)
+
+    Sets the value of a double field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: float (64bit)
+
+.. method:: setTime(fname, v)
+    :no-index:
+
+    Sets the value of a time field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: time (float 64bit)
+
+.. method:: setVec(fname, v)
+
+    Sets the value of an n-dimensional vector field (n in [2,4]).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The list of values e.g., [1.0, 2.0].
+    :type v: list of floats (32bit)
+
+.. method:: setVec2f(fname, x, y)
+
+    Sets the value of a 2-dimensional vector field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param x: The x value.
+    :type x: float (32bit)
+    :param y: The y value.
+    :type y: float (32bit)
+
+.. method:: setVec3f(fname, x, y, z)
+
+    Sets the value of a 3-dimensional vector field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param x: The x value.
+    :type x: float (32bit)
+    :param y: The y value.
+    :type y: float (32bit)
+    :param z: The z value.
+    :type z: float (32bit)
+
+.. method:: setVec4f(fname, x, y, z, w)
+
+    Sets the value of a 4-dimensional vector field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param x: The x value.
+    :type x: float (32bit)
+    :param y: The y value.
+    :type y: float (32bit)
+    :param z: The z value.
+    :type z: float (32bit)
+    :param w: The w value.
+    :type w: float (32bit)
+
+.. method:: setPnt(fname, v)
+
+    Sets the value of an n-dimensional point field (n in [2,4]).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The list of values e.g., [1.0, 2.0].
+    :type v: list of floats (32bit)
+
+.. method:: setPnt2f(fname, x, y)
+
+    Sets the value of a 2-dimensional point field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param x: The x value.
+    :type x: float (32bit)
+    :param y: The y value.
+    :type y: float (32bit)
+
+.. method:: setPnt3f(fname, x, y, z)
+
+    Sets the value of a 3-dimensional point field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param x: The x value.
+    :type x: float (32bit)
+    :param y: The y value.
+    :type y: float (32bit)
+    :param z: The z value.
+    :type z: float (32bit)
+
+.. method:: setColor(fname, v)
+
+    Sets an n-dimensional color field (n in [3,4]).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The list of values e.g., [1.0, 2.0].
+    :type v: list of floats (32bit)
+
+.. method:: setColor4f(fname, r, g, b, a)
+
+    Sets a 4-dimensional color field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param r: The red value.
+    :type r: float (32bit)
+    :param g: The green value.
+    :type g: float (32bit)
+    :param b: The blue value.
+    :type b: float (32bit)
+    :param a: The alpha value.
+    :type a: float (32bit)
+
+.. method:: setMatrix(fname, v, transposed)
+
+    Sets a 16-dimensional matrix field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The list of values.
+    :type v: list of floats (32bit)
+    :param transposed: Transposed/not transposed.
+    :type transposed: bool
+
+.. method:: setString(fname, v)
+
+    Sets the value of a string field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: string
+
+.. method:: setNode(fname, v)
+    :no-index:
+
+    Sets the value of a node field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: NodePtr
+
+.. method:: setFieldContainer(fname, v)
+
+    Sets the value of a fieldcontainer field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The value.
+    :type v: FieldContainerPtr
+
+.. method:: setFieldContainerId(fname, v)
+
+    Sets the value of a fieldcontainer field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The FieldContainer id.
+    :type v: unsigned int (32bit)
+
+.. method:: setMBool(fname, v)
+
+    Sets the value of a bool multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of bools
+
+.. method:: setMGLenum(fname, v)
+
+    Sets the value of a GLenum multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of GLenums
+
+.. method:: setMInt8(fname, v)
+
+    Sets the value of an int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of ints (8bit)
+
+.. method:: setMUInt8(fname, v)
+
+    Sets the value of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of unsigned ints (8bit)
+
+.. method:: setMInt16(fname, v)
+
+    Sets the value of an int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of ints (16bit)
+
+.. method:: setMUInt16(fname, v)
+
+    Sets the value of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of unsigned ints (16bit)
+
+.. method:: setMInt32(fname, v)
+
+    Sets the value of an int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of ints (32bit)
+
+.. method:: setMUInt32(fname, v)
+
+    Sets the value of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of unsigned ints (32bit)
+
+.. method:: setMInt64(fname, v)
+
+    Sets the value of an int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of ints (64bit)
+
+.. method:: setMUInt64(fname, v)
+
+    Sets the value of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of unsigned ints (64bit)
+
+.. method:: setMReal32(fname, v)
+
+    Sets the value of a float multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of floats (32bit)
+
+.. method:: setMReal64(fname, v)
+
+    Sets the value of a float multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of floats (64bit)
+
+.. method:: setMString(fname, v)
+
+    Sets the value of a string multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of strings
+
+.. method:: setMFieldContainerId(fname, v)
+
+    Sets the value of a fieldcontainer multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The FieldContainer ids.
+    :type v: list of unsigned ints (32bit)
+
+.. method:: setMFieldContainer(fname, v)
+
+    Sets the value of a fieldcontainer multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The FieldContainerPtrs.
+    :type v: list of FieldContainerPtr
+
+.. method:: setMVec2f(fname, v)
+
+    Sets the value of a Vec2f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Vec2fs
+
+.. method:: setMVec3f(fname, v)
+
+    Sets the value of a Vec3f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Vec3fs
+
+.. method:: setMVec4f(fname, v)
+
+    Sets the value of a Vec4f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Vec4fs
+
+.. method:: setMPnt2f(fname, v)
+
+    Sets the value of a Pnt2f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Pnt2fs
+
+.. method:: setMPnt3f(fname, v)
+
+    Sets the value of a Pnt3f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Pnt3fs
+
+.. method:: setMPnt4f(fname, v)
+
+    Sets the value of a Pnt4f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Pnt4fs
+
+.. method:: setMColor3f(fname, v)
+
+    Sets the value of a Color3f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Color3fs
+
+.. method:: setMColor4f(fname, v)
+
+    Sets the value of a Color4f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param v: The values.
+    :type v: list of Color4fs
+
+.. method:: getBool(fname)
+
+    Returns the value of a bool field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: bool
+
+.. method:: getGLenum(fname)
+
+    Returns the value of a GLenum field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: GLenum
+
+.. method:: getInt8(fname)
+
+    Returns the value of a short field (8bit signed).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: int (8bit)
+
+.. method:: getInt16(fname)
+
+    Returns the value of a short field (16bit signed).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: int (16bit)
+
+.. method:: getUInt8(fname)
+
+    Returns the value of an unsigned short field (8bit unsigned).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: unsigned int (8bit)
+
+.. method:: getUInt16(fname)
+
+    Returns the value of an unsigned short field (16bit unsigned).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: unsigned int (16bit)
+
+.. method:: getInt32(fname)
+
+    Returns the value of an int field (32bit signed).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: int (32bit)
+
+.. method:: getUInt32(fname)
+
+    Returns the value of an unsigned int field (32bit unsigned).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: unsigned int (32bit)
+
+.. method:: getInt64(fname)
+
+    Returns the value of an int field (64bit signed).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: int (64bit)
+
+.. method:: getUInt64(fname)
+
+    Returns the value of an unsigned int field (64bit unsigned).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: unsigned int (64bit)
+
+.. method:: getReal32(fname)
+
+    Returns the value of a float field (32bit).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: float (32bit)
+
+.. method:: getReal64(fname)
+
+    Returns the value of a double field (64bit).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: float (64bit)
+
+.. method:: getTime(fname)
+
+    Returns the value of a time field (64bit).
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: time (float 64bit)
+
+.. method:: getVec(fname, d)
+
+    Returns the value of a vector field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param d: The dimension of the field (d in [2,4]).
+    :type d: int
+    :return: The values.
+    :rtype: list of floats (32bit)
+
+.. method:: getPnt(fname, d)
+
+    Returns the value of a point field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param d: The dimension of the field (d in [2,4]).
+    :type d: int
+    :return: The values.
+    :rtype: list of floats (32bit)
+
+.. method:: getColor(fname, d)
+
+    Returns the value of a color field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :param d: The dimension of the field (d in [3,4]).
+    :type d: int
+    :return: The values.
+    :rtype: list of floats (32bit)
+
+.. method:: getMatrix(fname)
+
+    Returns the value of a matrix field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of floats (32bit)
+
+.. method:: getString(fname)
+
+    Returns the value of a string field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: string
+
+.. method:: getNode(fname)
+    :no-index:
+
+    Returns the value of a node field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: NodePtr
+
+.. method:: getFieldContainer(fname)
+
+    Returns the value of a field container.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The value.
+    :rtype: FieldContainerPtr
+
+.. method:: getAttachment(aname)
+
+    Returns the attachment.
+
+    :param aname: The name of the attachment.
+    :type aname: string
+    :return: The value.
+    :rtype: FieldContainerPtr
+
+.. method:: getFieldContainerID(fname)
+
+    Returns the id of a field container.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The FieldContainer id.
+    :rtype: unsigned int (32bit)
+
+.. method:: getMBool(fname)
+
+    Returns the values of a boolean multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of booleans
+
+.. method:: getMInt8(fname)
+
+    Returns the values of an integer multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of integers (signed 8bit)
+
+.. method:: getMUInt8(fname)
+
+    Returns the values of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of unsigned ints (8bit)
+
+.. method:: getMInt16(fname)
+
+    Returns the values of an integer multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of integers (signed 16bit)
+
+.. method:: getMUInt16(fname)
+
+    Returns the values of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of unsigned ints (16bit)
+
+.. method:: getMInt32(fname)
+
+    Returns the values of an integer multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of integers (signed 32bit)
+
+.. method:: getMUInt32(fname)
+
+    Returns the values of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of unsigned ints (32bit)
+
+.. method:: getMInt64(fname)
+
+    Returns the values of an integer multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of integers (signed 64bit)
+
+.. method:: getMUInt64(fname)
+
+    Returns the values of an unsigned int multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of unsigned ints (64bit)
+
+.. method:: getMReal32(fname)
+
+    Returns the values of a float multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of floats (32bit)
+
+.. method:: getMReal64(fname)
+
+    Returns the values of a float multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of floats (64bit)
+
+.. method:: getMVec2f(fname)
+
+    Returns the values of a Vec2f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Vec2fs
+
+.. method:: getMVec3f(fname)
+
+    Returns the values of a Vec3f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Vec3fs
+
+.. method:: getMVec4f(fname)
+
+    Returns the values of a Vec4f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Vec4fs
+
+.. method:: getMPnt2f(fname)
+
+    Returns the values of a Pnt2f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Pnt2fs
+
+.. method:: getMPnt3f(fname)
+
+    Returns the values of a Pnt3f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Pnt3fs
+
+.. method:: getMPnt4f(fname)
+
+    Returns the values of a Pnt4f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Pnt4fs
+
+.. method:: getMColor3f(fname)
+
+    Returns the values of a Color3f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Color3fs
+
+.. method:: getMColor4f(fname)
+
+    Returns the values of a Color4f multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of Color4fs
+
+.. method:: getMString(fname)
+
+    Returns the values of a string multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of strings
+
+.. method:: getMGLenum(fname)
+
+    Returns the values of a GLenum multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The values.
+    :rtype: list of GLenums
+
+.. method:: getMFieldContainer(fname)
+
+    Returns a FieldContainerPtr multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The FieldContainerPtrs.
+    :rtype: list of FieldContainerPtrs
+
+.. method:: getMFieldContainerId(fname)
+
+    Returns the field container ids of a FieldContainerPtr multi-field.
+
+    :param fname: The name of the field.
+    :type fname: string
+    :return: The FieldContainer ids.
+    :rtype: list of unsigned ints (32bit)

@@ -1,0 +1,198 @@
+----------------
+vrdVariantStates
+----------------
+
+.. py:class:: vrdVariantStates
+
+(Inherits vrdObjectList)
+
+This class gives access to a collection of     vrdVariantStates.
+
+Operations on this list will directly be executed on the underlying data model.
+
+Summary
+=======
+
+Functions:
+    * append(value)
+    * append(values)
+    * at(i) → vrdVariantState
+    * canInsert(value) → bool
+    * clear()
+    * contains(value) → bool
+    * count(value) → integer
+    * data() → List[vrdVariantState]
+    * index(value, start, end) → integer
+    * insert(i, value)
+    * insert(i, values)
+    * move(from, to) → bool
+    * remove(value) → bool
+    * remove(values)
+    * removeAll(value) → integer
+    * removeAt(i) → bool
+    * size() → integer
+
+Functions
+=========
+
+.. py:method:: vrdVariantStates.append(value)
+
+    Appends the value to this list.
+
+    :param value: The value to append.
+    :type value: vrdVariantState
+
+.. py:method:: vrdVariantStates.append(values)
+   :no-index:
+
+    Appends the items of the value list to this list.
+
+    :param values: The values to append.
+    :type values: List[vrdVariantState]
+
+.. py:method:: vrdVariantStates.at(i)
+
+    Gets the value at the given index.
+
+    :param i: The index of the requested value.
+    :type i: integer
+
+    :return: The value at the given index.
+    :rtype: vrdVariantState
+
+.. py:method:: vrdVariantStates.canInsert(value)
+
+    Checks, if the given entry can be inserted.
+
+    :param value:
+    :type value: vrdVariantState
+
+    :return: True, if insert is allowed.
+    :rtype: bool
+
+.. py:method:: vrdVariantStates.clear()
+
+    Removes all items from the list.
+
+.. py:method:: vrdVariantStates.contains(value)
+
+    Checks, if an element is already in the list.
+
+    :param value: The value to search for.
+    :type value: vrdVariantState
+
+    :return: True, if the given value is in this list.
+    :rtype: bool
+
+.. py:method:: vrdVariantStates.count(value)
+
+    Counts the occurrences of a given value.
+
+    :param value: The value to count.
+    :type value: vrdVariantState
+
+    :return: The number of times, the value has been found in the list.
+    :rtype: integer
+
+.. py:method:: vrdVariantStates.data()
+
+    Gets all entries of this list.
+
+    :return: List of elements.
+    :rtype: List[vrdVariantState]
+
+.. py:method:: vrdVariantStates.index(value, start=0, end=-1)
+
+    Returns the index of the given value.
+
+    :param value: The value to search.
+    :type value: vrdVariantState
+
+    :param start: The index to start the search, default is 0.
+    :type start: integer
+
+    :param end: The index to end the search, default is -1 to search until the end.
+    :type end: integer
+
+    :return: The index or -1, if not found.
+    :rtype: integer
+
+.. py:method:: vrdVariantStates.insert(i, value)
+
+    Inserts a value at a given position.
+
+    :param i: The position, starting from 0.
+    :type i: integer
+
+    :param value: The value to be inserted.
+    :type value: vrdVariantState
+
+.. py:method:: vrdVariantStates.insert(i, values)
+   :no-index:
+
+    Inserts values at a given position.
+
+    :param i: The position, starting from 0.
+    :type i: integer
+
+    :param values: The values to be inserted.
+    :type values: List[vrdVariantState]
+
+.. py:method:: vrdVariantStates.move(from, to)
+
+    Moves a value inside the list.
+
+    :param from: The index to move.
+    :type from: integer
+
+    :param to: The destination index.
+    :type to: integer
+
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantStates.remove(value)
+
+    Removes the first occurrence of the given value.
+
+    :param value:
+    :type value: vrdVariantState
+
+    :return: True, if the value has been removed.
+    :rtype: bool
+
+.. py:method:: vrdVariantStates.remove(values)
+   :no-index:
+
+    Removes the given values.
+
+    :param values:
+    :type values: List[vrdVariantState]
+
+.. py:method:: vrdVariantStates.removeAll(value)
+
+    Removes all occurrences of the given value.
+
+    :param value:
+    :type value: vrdVariantState
+
+    :return: The number of values that have been removed.
+    :rtype: integer
+
+.. py:method:: vrdVariantStates.removeAt(i)
+
+    Removes a value from the list.
+
+    :param i: Index of the value to be removed.
+    :type i: integer
+
+    :return: True, if the value has been removed.
+    :rtype: bool
+
+.. py:method:: vrdVariantStates.size()
+
+    Gets the number of elements in this list.
+
+    :return: The number of elements.
+    :rtype: integer
+

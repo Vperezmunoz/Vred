@@ -1,0 +1,10 @@
+------------------
+vrdEnvironmentNode
+------------------
+
+.. py:class:: vrdEnvironmentNode
+
+(Inherits vrdNode)
+
+This class provides access to an environment node.
+

@@ -1,0 +1,27 @@
+MODULE vrRenderQueue (legacy v1 API)
+
+-------------
+vrRenderQueue
+-------------
+
+Contains the functions to use the RenderQueue module.
+
+.. module:: vrRenderQueue
+
+Summary
+=======
+
+Functions:
+    * getActiveJobCount() → int
+    * runAllRenderJobs()
+
+.. function:: runAllRenderJobs()
+
+    Runs all render jobs.
+
+.. function:: getActiveJobCount() → int
+
+    Returns the number of enabled jobs in the queue.
+
+    :return: Number of enabled jobs.
+    :rtype: int

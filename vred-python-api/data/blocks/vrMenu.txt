@@ -1,0 +1,329 @@
+MODULE vrMenu (legacy v1 API)
+
+------
+vrMenu
+------
+
+Creates 3D menus and windows.
+
+.. class:: vrMenu
+
+   Example::
+
+       See also example menu.py
+
+Summary
+=======
+
+Functions:
+    * addCheckBox(text, o, style)
+    * addCheckBox(text, o)
+    * addLabel(text, style)
+    * addLabel(text)
+    * addPushButton(text, o, style)
+    * addPushButton(text, o)
+    * addSeparator()
+    * click()
+    * getClickThroughAlphaThreshold()
+    * getImage(url)
+    * getUrl()
+    * hide()
+    * nextFocus()
+    * prevFocus()
+    * setAlpha(alpha)
+    * setAutoResize(factor)
+    * setClickThroughAlphaThreshold(alpha)
+    * setHtml(url, width, height)
+    * setHtml(url)
+    * setMaterial(mat)
+    * setNode(node)
+    * setPosition2D(x, y, back)
+    * setPosition2D(x, y)
+    * setScale(scale)
+    * setText(id, text, style)
+    * setText(id, text)
+    * setTransform(tx, ty, tz, rx, ry, rz)
+    * setUrl(url, width, height)
+    * setUrl(url)
+    * setWindow(name)
+    * setWindowResize(name, width, height)
+    * show()
+    * toggleShow()
+    * update()
+    * vrMenu_update(name)
+
+.. method:: show()
+    :no-index:
+
+    Shows the menu.
+
+.. method:: hide()
+    :no-index:
+
+    Hides the menu.
+
+.. method:: toggleShow()
+    :no-index:
+
+    Toggles the menu.
+
+.. method:: update()
+
+    Updates the menu.
+
+.. method:: addCheckBox(text, o)
+
+    Adds a checkbox to the menu.
+
+    :param text: The label of the checkbox.
+    :type text: string
+    :param o: The Python Object.
+    :type o: boost::python::object
+
+.. method:: addCheckBox(text, o, style)
+    :no-index:
+
+    Adds a checkbox to the menu.
+
+    :param text: The label of the checkbox.
+    :type text: string
+    :param o: The Python Object.
+    :type o: boost::python::object
+    :param style: Style sheet.
+    :type style: string
+
+.. method:: addPushButton(text, o)
+
+    Adds a push button to the menu.
+
+    :param text: The label of the button.
+    :type text: string
+    :param o: The Python Object.
+    :type o: boost::python::object
+
+.. method:: addPushButton(text, o, style)
+    :no-index:
+
+    Adds a push button to the menu.
+
+    :param text: The label of the button.
+    :type text: string
+    :param o: The Python Object.
+    :type o: boost::python::object
+    :param style: Style sheet.
+    :type style: string
+
+.. method:: addSeparator()
+
+    Adds a separator to the menu.
+
+.. method:: addLabel(text)
+
+    Adds a label to the menu.
+
+    :param text: The label text.
+    :type text: string
+
+.. method:: addLabel(text, style)
+    :no-index:
+
+    Adds a label to the menu.
+
+    :param text: The label text.
+    :type text: string
+    :param style: Style sheet.
+    :type style: string
+
+.. method:: setText(id, text)
+    :no-index:
+
+    Changes the text.
+
+    :param id: ID of the item.
+    :type id: integer
+    :param text: Text.
+    :type text: string
+
+.. method:: setText(id, text, style)
+    :no-index:
+
+    Changes the text.
+
+    :param id: ID of the item.
+    :type id: integer
+    :param text: Text.
+    :type text: string
+    :param style: Style sheet.
+    :type style: string
+
+.. method:: setNode(node)
+    :no-index:
+
+    Maps the menu onto a geometry node.
+
+    :param node: Geometry node.
+    :type node: vrNodePtr
+
+.. method:: setMaterial(mat)
+
+    Maps the menu onto a material.
+
+    :param mat: Material.
+    :type mat: vrMaterialPtr
+
+.. method:: setScale(scale)
+
+    Scales the menu.
+
+    :param scale: The scale factor.
+    :type scale: float
+
+.. method:: setAutoResize(factor)
+
+    Scales the menu depending on the current render window size.
+
+    :param factor: 0 means don't resize. > 0 multiplies the factor with the current render window width.
+    :type factor: float
+
+.. method:: setTransform(tx, ty, tz, rx, ry, rz)
+
+    Sets the translation and rotation of the menu.
+
+    :param tx: The x translation.
+    :type tx: float
+    :param ty: The y translation.
+    :type ty: float
+    :param tz: The z translation.
+    :type tz: float
+    :param rx: The x rotation.
+    :type rx: float
+    :param ry: The y rotation.
+    :type ry: float
+    :param rz: The z rotation.
+    :type rz: float
+
+.. method:: setPosition2D(x, y)
+
+    Sets the menu at a 2D position on the screen.
+
+    :param x: The horizontal position.
+    :type x: integer
+    :param y: The vertical position.
+    :type y: integer
+
+.. method:: setPosition2D(x, y, back)
+    :no-index:
+
+    Sets the menu at a 2D position on the screen.
+
+    :param x: The horizontal position.
+    :type x: integer
+    :param y: The vertical position.
+    :type y: integer
+    :param back: Use as a back plate.
+    :type back: boolean
+
+.. method:: setWindow(name)
+
+    Shows a module window with the provided name instead of a user-defined menu.
+
+    :param name: The name of the module.
+    :type name: string
+
+.. method:: setUrl(url)
+
+    Shows a web browser window with the provided URL instead of a user-defined menu.
+
+    :param url: URL.
+    :type url: string
+
+.. method:: setUrl(url, width, height)
+    :no-index:
+
+    Shows a web browser window with the provided URL instead of a user-defined menu.
+
+    :param url: URL.
+    :type url: string
+    :param width: Width of the web view.
+    :type width: integer
+    :param height: Height of the web view.
+    :type height: integer
+
+.. method:: setHtml(url)
+    :no-index:
+
+    Shows a web browser window with the provided HTML code instead of a user-defined menu.
+
+    :param url: URL.
+    :type url: string
+
+.. method:: setHtml(url, width, height)
+    :no-index:
+
+    Shows a web browser window with the provided HTML code instead of a user-defined menu.
+
+    :param url: URL.
+    :type url: string
+    :param width: Width of the web view.
+    :type width: integer
+    :param height: Height of the web view.
+    :type height: integer
+
+.. method:: setWindowResize(name, width, height)
+
+    Shows a module window with the provided name, resizing it to width times height.
+
+    :param name: The name of the module.
+    :type name: string
+    :param width: The width of the window.
+    :type width: int
+    :param height: The height of the window.
+    :type height: int
+
+.. method:: setAlpha(alpha)
+
+    Sets the transparency of the menu.
+
+    :param alpha: The alpha value in [0.0, 1.0]. 0.0 is fully transparent, 1.0 is fully opaque.
+    :type alpha: float
+
+.. method:: nextFocus()
+
+    Finds the next widget to give the keyboard focus on.
+
+.. method:: prevFocus()
+
+    Finds the previous widget to give the keyboard focus on.
+
+.. method:: click()
+
+    Clicks on the widget with the current focus.
+
+.. method:: setClickThroughAlphaThreshold(alpha)
+
+    Sets the click-through alpha threshold of the menu.
+
+    :param alpha: 0.0 - 1.0.
+    :type alpha: float
+
+.. method:: getClickThroughAlphaThreshold()
+
+    Returns the click-through alpha range value.
+
+.. method:: getImage(url)
+
+    Returns the last clicked image.
+
+    :param url: URL.
+    :type url: string
+
+.. method:: getUrl()
+
+    Returns the last clicked URL.
+
+.. method:: vrMenu_update(name)
+
+    Updates the menu with the name provided.
+
+    :param name: The name of the menu.
+    :type name: string

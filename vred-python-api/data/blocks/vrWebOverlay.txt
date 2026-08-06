@@ -1,0 +1,70 @@
+MODULE vrWebOverlay (legacy v1 API)
+
+------------
+vrWebOverlay
+------------
+
+Creates a 2d frame with html content.
+
+Summary
+=======
+
+Functions:
+    * hide()
+    * setFrame(x, y, w, h)
+    * setOpacity(opacity)
+    * setUrl(url)
+    * show()
+    * toggleShow()
+
+.. class:: vrWebOverlay(url)
+
+   The vrWebOverlay class creates a 2d frame with html content.
+
+   :param url: url to load.
+   :type url: string
+
+.. method:: show()
+    :no-index:
+
+    Shows the frame.
+
+.. method:: hide()
+    :no-index:
+
+    Hides the frame.
+
+.. method:: toggleShow()
+    :no-index:
+
+    Toggles show/hide of the frame.
+
+.. method:: setUrl(url)
+    :no-index:
+
+    Sets the url.
+
+    :param url: url to load.
+    :type url: string
+
+.. method:: setFrame(x, y, w, h)
+    :no-index:
+
+    Sets the frame.
+
+    :param x: x position.
+    :type x: int
+    :param y: y position.
+    :type y: int
+    :param w: width.
+    :type w: int
+    :param h: height.
+    :type h: int
+
+.. method:: setOpacity(opacity)
+    :no-index:
+
+    Sets the opacity of the overlay.
+
+    :param opacity: opacity (0 - 1).
+    :type opacity: float

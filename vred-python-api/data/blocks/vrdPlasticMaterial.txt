@@ -1,0 +1,184 @@
+------------------
+vrdPlasticMaterial
+------------------
+
+.. py:class:: vrdPlasticMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all plastic material properties.
+
+Summary
+=======
+
+Functions:
+    * getBumpTexture() → vrdBumpTexture
+    * getClearcoat() → vrdClearcoat
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getDiffuseTexture() → vrdTexture
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getGlossyColor() → QVector3D
+    * getGlossyColorSpectrum() → vrSpectrum
+    * getGlossyTexture() → vrdTexture
+    * getIncandescence() → vrdIncandescence
+    * getReflectivity() → float
+    * getRoughness() → float
+    * getRoughnessTexture() → vrdRoughnessTexture
+    * getSheen() → vrdSheen
+    * getSubsurfaceScattering() → vrdSubsurfaceScattering
+    * getThinFilm() → vrdThinFilm
+    * setDiffuseColor(value)
+    * setDiffuseColorSpectrum(value)
+    * setGlossyColor(value)
+    * setGlossyColorSpectrum(value)
+    * setReflectivity(v)
+    * setRoughness(roughness)
+
+Functions
+=========
+
+.. py:method:: vrdPlasticMaterial.getBumpTexture()
+
+    Gets access to all properties of the bump texture.
+
+    :return: An vrdBumpTexture object, to read and write access of alls properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdPlasticMaterial.getClearcoat()
+
+    Gets access to all properties of         vrdClearcoat.
+
+    :return: An vrdClearcoat object, to read and write access of alls properties.
+    :rtype: vrdClearcoat
+
+.. py:method:: vrdPlasticMaterial.getDiffuseColor()
+
+    :return: Current diffuse reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdPlasticMaterial.getDiffuseColorSpectrum()
+
+    Gets the diffuse color spectrum.
+
+    :return: The current used spectrum for diffuse color
+    :rtype: vrSpectrum
+
+.. py:method:: vrdPlasticMaterial.getDiffuseTexture()
+
+    Gets access to all properties of the diffuse texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdPlasticMaterial.getDisplacementTexture()
+
+    Gets access to all properties of the displacement texture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdPlasticMaterial.getGlossyColor()
+
+    :return: Current glossy reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdPlasticMaterial.getGlossyColorSpectrum()
+
+    :return: The material's color spectrum for glossy reflections
+    :rtype: vrSpectrum
+
+.. py:method:: vrdPlasticMaterial.getGlossyTexture()
+
+    Gets access to all properties of the glossy texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdPlasticMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdPlasticMaterial.getReflectivity()
+
+    :return: Current intensity of the reflection on the surface.
+    :rtype: float
+
+.. py:method:: vrdPlasticMaterial.getRoughness()
+
+    :return: The current roughness value of this material.
+    :rtype: float
+
+.. py:method:: vrdPlasticMaterial.getRoughnessTexture()
+
+    Gets access to all properties of the roughness texture.
+
+    :return: An vrdRoughnessTexture object, to read and write access of alls properties.
+    :rtype: vrdRoughnessTexture
+
+.. py:method:: vrdPlasticMaterial.getSheen()
+
+    Gets access to all properties of         vrdSheen.
+
+    :return: An vrdSheen object, to read and write access of alls properties.
+    :rtype: vrdSheen
+
+.. py:method:: vrdPlasticMaterial.getSubsurfaceScattering()
+
+    Gets access to all properties of         vrdSubsurfaceScattering.
+
+    :return: An vrdSubsurfaceScattering object, to read and write access of alls properties.
+    :rtype: vrdSubsurfaceScattering
+
+.. py:method:: vrdPlasticMaterial.getThinFilm()
+
+    Gets access to all properties of         vrdThinFilm.
+
+    :return: An vrdThinFilm object, to read and write access of alls properties.
+    :rtype: vrdThinFilm
+
+.. py:method:: vrdPlasticMaterial.setDiffuseColor(value)
+
+    Sets the diffuse reflection color of the material.
+
+    :param value: New diffuse color.
+    :type value: QVector3D
+
+.. py:method:: vrdPlasticMaterial.setDiffuseColorSpectrum(value)
+
+    Sets the diffuse color spectrum.
+
+    :param value: New spectrum for diffuse color
+    :type value: vrSpectrum
+
+.. py:method:: vrdPlasticMaterial.setGlossyColor(value)
+
+    Sets the glossy reflection color of the material.
+
+    :param value: New glossy reflection color
+    :type value: QVector3D
+
+.. py:method:: vrdPlasticMaterial.setGlossyColorSpectrum(value)
+
+    Sets the material's color spectrum for glossy reflections.
+
+    :param value: New color spectrum
+    :type value: vrSpectrum
+
+.. py:method:: vrdPlasticMaterial.setReflectivity(v)
+
+    Controls the intensity of the reflection on the surface. The higher the value, the more the influence from the environment and objects around.
+
+    :param v: New intensity of the reflection on the surface.
+    :type v: float
+
+.. py:method:: vrdPlasticMaterial.setRoughness(roughness)
+
+    Controls the sharpness of the glossy reflections. The higher the value, the rougher the microscopic structure of the surface and more diffuse the reflections. The lower the value, the glossier the material.
+
+    :param roughness: New roughness value for this material.
+    :type roughness: float
+

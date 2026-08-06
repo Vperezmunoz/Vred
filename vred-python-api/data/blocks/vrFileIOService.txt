@@ -1,0 +1,959 @@
+---------------
+vrFileIOService
+---------------
+
+.. py:class:: vrFileIOService
+
+(Inherits vrBaseService)
+
+Summary
+=======
+
+Functions:
+    * abortImport(importId)
+    * abortJobs(jobIds)
+    * checkCadType(file)
+    * enableNewFormat()
+    * exportNodes(file, nodes, synchronousConversion) → integer
+    * getBaseFileSuffix(file) → string
+    * getExportSettings(fileType) → vrdFileExportSettings
+    * getExportSettingsFromPreferences(fileType) → vrdFileExportSettings
+    * getFileName() → string
+    * getFileTypeByFileName(file) → vrCADFileTypes.FileType
+    * getImageReadFilter() → string
+    * getImageWriteFilter() → string
+    * getImportSettings(fileType) → vrdAtfSettings
+    * getImportSettingsFromPreferences(fileType) → vrdAtfSettings
+    * getMaxNumImportProcesses() → integer
+    * getMergeProjectAnnotations() → bool
+    * getProjectMergeSettings() → vrdProjectMergeSettings
+    * getReadFileTypesFilter(mode) → string
+    * getSceneImportSettings() → vrdSceneImportSettings
+    * getSceneImportSettingsFromPreferences() → vrdSceneImportSettings
+    * getStreamName() → string
+    * getVREDDataDir() → string
+    * getVREDDir() → string
+    * getVREDExamplesDir() → string
+    * getVREDFileTypesFilter() → string
+    * getWriteFileTypesFilter(filename, includeExportFormats) → string
+    * hasImportSettings(file) → bool
+    * hasImportSettings(fileType) → bool
+    * hasSmartReferences(file) → bool
+    * importAtfFile(file, parent) → vrdNode
+    * importFiles(files, parent, atfConversionOutputDir, loadConvertedAtfFiles, removeConvertedAtfFiles, loadBehavior) → integer
+    * importMissingFiles(node, removeConvertedAtfFiles) → integer
+    * importPLMXMLFile(file, parent) → vrdNode
+    * inlineImageSequences()
+    * isAtfFile(file) → bool
+    * isConvertedAtfTree(root) → bool
+    * isReadOnly() → bool
+    * isSupportedFile(file) → bool
+    * isVredProject(file) → bool
+    * jobBelongsToImport(jobId, importId) → bool
+    * loadFile(file) → bool
+    * newFile()
+    * reimportNodes(nodes) → List[vrdNode]
+    * saveFile(file) → bool
+    * saveNodes(file, nodes, includeEnvironmentGeometries, filterBSides) → bool
+    * setExportSettings(fileType, settings)
+    * setImportSettings(fileType, settings)
+    * setKey(key)
+    * setMaxNumImportProcesses(value)
+    * setProjectMergeSettings(settings)
+    * setSceneImportSettings(settings)
+    * undoInlineImageSequences()
+    * validateAtfTree(file, root, parent)
+
+Signals:
+    * childFileImportAdded(jobId, parentFile, childFile)
+    * childFileImportFinished(jobId, parentFile, childFile)
+    * childrenFileConversionFinished(jobId, parentFile, durationInSeconds)
+    * conversionFinished(importId, durationInSeconds)
+    * conversionProgressChanged(importId, percent, status)
+    * exportedFile(filename)
+    * fileAddedToLoadQueue(jobId, file)
+    * fileAddedToScene(jobId, file, node)
+    * fileConversionAborted(jobId, file)
+    * fileConversionFailed(jobId, file, description)
+    * fileConversionFinished(jobId, file, state, durationInSeconds)
+    * fileConversionProgressChanged(jobId, file, percent, status)
+    * fileConversionStarted(jobId, file)
+    * fileConversionSucceded(jobId, file)
+    * fileLoadingFailed(jobId, file, description)
+    * fileLoadingFinished(jobId, file, state)
+    * fileLoadingProgressChanged(jobId, file, percent, status)
+    * fileLoadingStarted(jobId, file)
+    * fileTypeReceived(file, fileType)
+    * importFinished(importId, durationInSeconds)
+    * importProgressChanged(importId, percent)
+    * loadedGeometry(filename, nodeid)
+    * newScene()
+    * preNewScene()
+    * preQuit()
+    * progress(p)
+    * project(loading)
+    * projectLoad(filename)
+    * projectLoaded(filename)
+    * projectLoadFinished(filename, success)
+    * projectMerged()
+    * projectReadyToRender()
+    * projectSave(filename)
+    * projectSaved(filename)
+    * savedGeometry(filename)
+    * startingConversion(importId, fileCount)
+    * startingImport(importId, fileCount)
+
+Functions
+=========
+
+.. py:method:: vrFileIOService.abortImport(importId)
+
+    Aborts an import job.
+
+    :param importId: The identifier for the import job
+    :type importId: integer
+
+.. py:method:: vrFileIOService.abortJobs(jobIds)
+
+    Aborts pending or running import or export jobs.
+
+    :param jobIds: The identifiers for the jobs
+    :type jobIds: List[integer]
+
+.. py:method:: vrFileIOService.checkCadType(file)
+
+    Asynchronously starts querying the CAD file type of a file with the given file path. After succesfully querying the type or looking it up in a cache a fileTypeReceived signal is emitted. This might be needed since some file extensions, i.E. .prt, can't be clearly associated with a single file type.
+
+    :param file: The filename of the CAD file
+    :type file: string
+
+.. py:method:: vrFileIOService.enableNewFormat()
+
+    Enables the new file format, which is faster and more secure.
+
+.. py:method:: vrFileIOService.exportNodes(file, nodes, synchronousConversion=False)
+
+    Export nodes to a file, see also         vrFileIOService.exportedFile(filename)
+
+    :param file: The file path
+    :type file: string
+
+    :param nodes: The nodes to be exported
+    :type nodes: List[vrdNode]
+
+    :param synchronousConversion: If True, the function waits until the conversion is finished.
+    :type synchronousConversion: bool
+
+    :return: The identifier of the conversion job or '0' if the export already finished.
+    :rtype: integer
+
+.. py:method:: vrFileIOService.getBaseFileSuffix(file)
+
+    Returns the file extension.
+
+    :param file: The filename
+    :type file: string
+
+    :return: The file extension.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getExportSettings(fileType)
+
+    Gets the current export settings for a given CAD file type.
+
+    :param fileType: The file type for which the export settings should be returned.
+    :type fileType: vrCADFileTypes.FileType
+
+    :return: The export settings.
+    :rtype: vrdFileExportSettings
+
+.. py:method:: vrFileIOService.getExportSettingsFromPreferences(fileType)
+
+    Gets the export settings from preferences.
+
+    :param fileType: The file type for which the export settings should be returned.
+    :type fileType: vrCADFileTypes.FileType
+
+    :return: The export settings from preferences.
+    :rtype: vrdFileExportSettings
+
+.. py:method:: vrFileIOService.getFileName()
+
+    Gets the current file name.
+
+    :return: The file name.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getFileTypeByFileName(file)
+
+    Gets the file type by file name.
+
+    :param file: The filename
+    :type file: string
+
+    :return: The file type for file name.
+    :rtype: vrCADFileTypes.FileType
+
+.. py:method:: vrFileIOService.getImageReadFilter()
+
+    This returns a space separated list of the supported image file types that can be loaded.
+
+    :return: The supported image file types for loading
+    :rtype: string
+
+.. py:method:: vrFileIOService.getImageWriteFilter()
+
+    This returns a space separated list of the the supported image file types that can be saved.
+
+    :return: The supported image file types for saving
+    :rtype: string
+
+.. py:method:: vrFileIOService.getImportSettings(fileType)
+
+    Gets the current import settings for a given CAD file type.
+
+    :param fileType: The file type for which the import settings should be returned.
+    :type fileType: vrCADFileTypes.FileType
+
+    :return: The import settings.
+    :rtype: vrdAtfSettings
+
+.. py:method:: vrFileIOService.getImportSettingsFromPreferences(fileType)
+
+    Gets the import settings from preferences.
+
+    :param fileType: The file type for which the import settings should be returned.
+    :type fileType: vrCADFileTypes.FileType
+
+    :return: The import settings from preferences.
+    :rtype: vrdAtfSettings
+
+.. py:method:: vrFileIOService.getMaxNumImportProcesses()
+
+    Returns the maximum number import processes.
+
+    :return: The maximum number import processes.
+    :rtype: integer
+
+.. py:method:: vrFileIOService.getMergeProjectAnnotations()
+
+    Flag indicates if annotations contained in a project file should be merged after loading.
+
+    :return: The merge annotations flag
+    :rtype: bool
+
+.. py:method:: vrFileIOService.getProjectMergeSettings()
+
+    Gets the project merge settings.
+
+    :return: The current project merge settings.
+    :rtype: vrdProjectMergeSettings
+
+.. py:method:: vrFileIOService.getReadFileTypesFilter(mode)
+
+    Gets the filter for readable file types.
+
+    :param mode:
+    :type mode: vrFileTypes.FileExtensionFilterMode
+
+    :return: The readable file types filter.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getSceneImportSettings()
+
+    Gets the scene current scene import settings.
+
+    :return: The scene import settings.
+    :rtype: vrdSceneImportSettings
+
+.. py:method:: vrFileIOService.getSceneImportSettingsFromPreferences()
+
+    Gets the scene import settings from preferences.
+
+    :return: The scene import settings from preferences.
+    :rtype: vrdSceneImportSettings
+
+.. py:method:: vrFileIOService.getStreamName()
+
+    Gets the current stream name.
+
+    :return: The stream name.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getVREDDataDir()
+
+    Gets the VRED data dir. This is the 'data' subfolder of the base directory.
+
+    :return: The VRED data dir.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getVREDDir()
+
+    Gets the base application directory.
+
+    :return: The base application directory.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getVREDExamplesDir()
+
+    Gets the VRED examples dir. This is the 'examples' subfolder of the base directory.
+
+    :return: The VRED examples dir.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getVREDFileTypesFilter()
+
+    Gets the VRED file types filter.
+
+    :return: The VRED file types filter.
+    :rtype: string
+
+.. py:method:: vrFileIOService.getWriteFileTypesFilter(filename="", includeExportFormats=True)
+
+    Gets the filter for writable file types.
+
+    :param filename: An optional current file name with a file extension
+    :type filename: string
+
+    :param includeExportFormats: If true, add export types
+    :type includeExportFormats: bool
+
+    :return: The writable file types filter.
+    :rtype: string
+
+.. py:method:: vrFileIOService.hasImportSettings(file)
+
+    Determines if there are import settings for a given file.
+
+    :param file: The filename
+    :type file: string
+
+    :return: True if there are import settings, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrFileIOService.hasImportSettings(fileType)
+   :no-index:
+
+    Determines if there are import settings for a given file type.
+
+    :param fileType: The file type
+    :type fileType: vrCADFileTypes.FileType
+
+    :return: True if there are import settings, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrFileIOService.hasSmartReferences(file)
+
+    Queries for a OSB or VPB file if it contains smart references.
+
+    :param file: The filename of the VPB or OSB file
+    :type file: string
+
+    :return: True if file contains smart references
+    :rtype: bool
+
+.. py:method:: vrFileIOService.importAtfFile(file, parent)
+
+    Imports a file with the ATF loader.
+
+    :param file: The file name
+    :type file: string
+
+    :param parent: The parent scene node where the imported file will be attached
+    :type parent: vrdNode
+
+    :return: The converted scene node
+    :rtype: vrdNode
+
+.. py:method:: vrFileIOService.importFiles(files, parent, atfConversionOutputDir="", loadConvertedAtfFiles=True, removeConvertedAtfFiles=True, loadBehavior=True)
+
+    Imports a list of files.
+
+    :param files: The files to import
+    :type files: List[string]
+
+    :param parent: The parent node in the scene tree where these files should be added.
+    :type parent: vrdNode
+
+    :param atfConversionOutputDir: The ATF conversion output dir
+    :type atfConversionOutputDir: string
+
+    :param loadConvertedAtfFiles: True if converted ATF files should be loaded
+    :type loadConvertedAtfFiles: bool
+
+    :param removeConvertedAtfFiles: True if converted ATF files should be deleted
+    :type removeConvertedAtfFiles: bool
+
+    :param loadBehavior: If True and root node of imported VPB file is a reference, mark root node in scenegraph as reference.
+    :type loadBehavior: bool
+
+    :return: The identifier of the import job
+    :rtype: integer
+
+.. py:method:: vrFileIOService.importMissingFiles(node, removeConvertedAtfFiles=True)
+
+    Imports missing files from a scene node.
+
+    :param node: The scene node with unloaded parts
+    :type node: vrdNode
+
+    :param removeConvertedAtfFiles: Remove already converted ATF files
+    :type removeConvertedAtfFiles: bool
+
+    :return: The import id of the new import job for the missing files
+    :rtype: integer
+
+.. py:method:: vrFileIOService.importPLMXMLFile(file, parent)
+
+    Imports a PLMXML file and the files it references.
+
+    :param file: The file name
+    :type file: string
+
+    :param parent: The parent scene node where the imported file will be attached
+    :type parent: vrdNode
+
+    :return: The converted scene node
+    :rtype: vrdNode
+
+.. py:method:: vrFileIOService.inlineImageSequences()
+
+    Inlines all image sequences.
+
+.. py:method:: vrFileIOService.isAtfFile(file)
+
+    Checks if the given file can be imported with ATF.
+
+    :param file: The filename to check
+    :type file: string
+
+    :return: True if the file can be imported, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrFileIOService.isConvertedAtfTree(root)
+
+    Checks if a scene node is a converted ATF tree.
+
+    :param root: The root node of the tree
+    :type root: vrdNode
+
+    :return: True if converted ATF tree, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrFileIOService.isReadOnly()
+
+    :return: True if the current project is read only
+    :rtype: bool
+
+.. py:method:: vrFileIOService.isSupportedFile(file)
+
+    Checks if a given file can be imported.
+
+    :param file: The filename to check
+    :type file: string
+
+    :return: True if supported file, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrFileIOService.isVredProject(file)
+
+    Checks if the given file is a VRED project.
+
+    :param file: The filename to check
+    :type file: string
+
+    :return: True if it's a VRED project, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrFileIOService.jobBelongsToImport(jobId, importId)
+
+    Checks if an import identifier belongs to a given job.
+
+    :param jobId: The job identifier
+    :type jobId: integer
+
+    :param importId: The import identifier
+    :type importId: integer
+
+    :return: True if the import id belongs to the job, False otherwise
+    :rtype: bool
+
+.. py:method:: vrFileIOService.loadFile(file)
+
+    Loads a file.
+
+    :param file: The file to load
+    :type file: string
+
+    :return: True if loading succeeded, false otherwise
+    :rtype: bool
+
+.. py:method:: vrFileIOService.newFile()
+
+    Destroy the current scene and create a new scene with an empty file name.
+
+.. py:method:: vrFileIOService.reimportNodes(nodes)
+
+    Reimports a list of nodes with referenced source files.
+
+    :param nodes: The scene nodes to reimport
+    :type nodes: List[vrdNode]
+
+    :return: List of imported nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrFileIOService.saveFile(file)
+
+    Saves a file.
+
+    :param file: The file to save
+    :type file: string
+
+    :return: True if saving succeeded, false otherwise
+    :rtype: bool
+
+.. py:method:: vrFileIOService.saveNodes(file, nodes, includeEnvironmentGeometries, filterBSides=False)
+
+    Saves a number of nodes to a file.
+
+    :param file: The file path
+    :type file: string
+
+    :param nodes: The nodes to be saved
+    :type nodes: List[vrdNode]
+
+    :param includeEnvironmentGeometries: If True, add environment geometry
+    :type includeEnvironmentGeometries: bool
+
+    :param filterBSides: If True, B-Sides will not be exported
+    :type filterBSides: bool
+
+    :return: True if saving succeeded, false otherwise
+    :rtype: bool
+
+.. py:method:: vrFileIOService.setExportSettings(fileType, settings)
+
+    Sets the file export settings for a given file type.
+
+    :param fileType: The file type
+    :type fileType: vrCADFileTypes.FileType
+
+    :param settings: The settings instance.
+    :type settings: vrdFileExportSettings
+
+.. py:method:: vrFileIOService.setImportSettings(fileType, settings)
+
+    Sets the import settings for a given file type.
+
+    :param fileType: The file type
+    :type fileType: vrCADFileTypes.FileType
+
+    :param settings: The settings instance.
+    :type settings: vrdAtfSettings
+
+.. py:method:: vrFileIOService.setKey(key)
+
+    Sets the key for file encryption.
+
+    :param key: The key
+    :type key: string
+
+.. py:method:: vrFileIOService.setMaxNumImportProcesses(value)
+
+    Sets the maximum number of import processes.
+
+    :param value: The number of import processes
+    :type value: integer
+
+.. py:method:: vrFileIOService.setProjectMergeSettings(settings)
+
+    Sets the project merge settings.
+
+    :param settings: The project merge settings instance.
+    :type settings: vrdProjectMergeSettings
+
+.. py:method:: vrFileIOService.setSceneImportSettings(settings)
+
+    Sets the scene import settings.
+
+    :param settings: The scene import settings instance.
+    :type settings: vrdSceneImportSettings
+
+.. py:method:: vrFileIOService.undoInlineImageSequences()
+
+    Removes all inlined image sequences.
+
+.. py:method:: vrFileIOService.validateAtfTree(file, root, parent)
+
+    :param file:
+    :type file: string
+
+    :param root:
+    :type root: vrdNode
+
+    :param parent:
+    :type parent: vrdNode
+
+Signals
+=======
+
+.. py:method:: vrFileIOService.childFileImportAdded(jobId, parentFile, childFile)
+
+    Emitted when a child CAD file import was added.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param parentFile: The parent file name
+    :type parentFile: string
+
+    :param childFile: The child file name
+    :type childFile: string
+
+.. py:method:: vrFileIOService.childFileImportFinished(jobId, parentFile, childFile)
+
+    Emitted when a child CAD file import has finished.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param parentFile: The parent file name
+    :type parentFile: string
+
+    :param childFile: The child file name
+    :type childFile: string
+
+.. py:method:: vrFileIOService.childrenFileConversionFinished(jobId, parentFile, durationInSeconds)
+
+    Emitted when the conversion of all child CAD files has finished.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param parentFile: The parent file name
+    :type parentFile: string
+
+    :param durationInSeconds: The import duration in seconds
+    :type durationInSeconds: float
+
+.. py:method:: vrFileIOService.conversionFinished(importId, durationInSeconds)
+
+    Emitted when a file conversion job has finished.
+
+    To get notifications for individual files, you can use the fileConversionFinished signal.
+
+    :param importId: The identifier for the import job
+    :type importId: integer
+
+    :param durationInSeconds: The conversion duration in seconds
+    :type durationInSeconds: float
+
+.. py:method:: vrFileIOService.conversionProgressChanged(importId, percent, status)
+
+    Emitted when the progress of the file conversion changes.
+
+    :param importId: The identifier for the current import
+    :type importId: integer
+
+    :param percent: The conversion progress in percent
+    :type percent: integer
+
+    :param status: The conversion status ("Reading", "Converting", Processing"...)
+    :type status: string
+
+.. py:method:: vrFileIOService.exportedFile(filename)
+
+    Emitted after a file has been exported.
+
+    :param filename: The filename that was exported
+    :type filename: string
+
+.. py:method:: vrFileIOService.fileAddedToLoadQueue(jobId, file)
+
+    Emitted when a new CAD file has been added to the load queue.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+.. py:method:: vrFileIOService.fileAddedToScene(jobId, file, node)
+
+    Emitted when a CAD file has been added to the current scene.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param node: The scene node of the added file
+    :type node: vrdNode
+
+.. py:method:: vrFileIOService.fileConversionAborted(jobId, file)
+
+    Emitted when a CAD file conversion has been aborted.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+.. py:method:: vrFileIOService.fileConversionFailed(jobId, file, description)
+
+    Emitted when a CAD file conversion has failed.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param description: Description of the error
+    :type description: string
+
+.. py:method:: vrFileIOService.fileConversionFinished(jobId, file, state, durationInSeconds)
+
+    Emitted when the conversion of a CAD file has finished.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param state: The status of the job
+    :type state: vrCADFileTypes.JobState
+
+    :param durationInSeconds: The loading duration in seconds
+    :type durationInSeconds: float
+
+.. py:method:: vrFileIOService.fileConversionProgressChanged(jobId, file, percent, status)
+
+    Emitted when the progress of a CAD file conversion has changed.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param percent: The conversion progress in percent
+    :type percent: integer
+
+    :param status: status message
+    :type status: string
+
+.. py:method:: vrFileIOService.fileConversionStarted(jobId, file)
+
+    Emitted when the conversion of a CAD file has started.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+.. py:method:: vrFileIOService.fileConversionSucceded(jobId, file)
+
+    Emitted when a CAD file conversion has succeded.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+.. py:method:: vrFileIOService.fileLoadingFailed(jobId, file, description)
+
+    Emitted when loading of an imported CAD file has failed.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param description: Description of the error
+    :type description: string
+
+.. py:method:: vrFileIOService.fileLoadingFinished(jobId, file, state)
+
+    Emitted when loading of an imported CAD file has finished.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param state: The status of the job
+    :type state: vrCADFileTypes.JobState
+
+.. py:method:: vrFileIOService.fileLoadingProgressChanged(jobId, file, percent, status)
+
+    Emitted when the loading progress of an imported CAD file changes.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+    :param percent: The loading progress in percent
+    :type percent: integer
+
+    :param status: status message
+    :type status: string
+
+.. py:method:: vrFileIOService.fileLoadingStarted(jobId, file)
+
+    Emitted when loading of an imported CAD file starts.
+
+    :param jobId: The identifier for the import job
+    :type jobId: integer
+
+    :param file: The file name
+    :type file: string
+
+.. py:method:: vrFileIOService.fileTypeReceived(file, fileType)
+
+    Emitted when a new CAD file type has been received.
+
+    :param file: The file name
+    :type file: string
+
+    :param fileType: The file type
+    :type fileType: vrCADFileTypes.FileType
+
+.. py:method:: vrFileIOService.importFinished(importId, durationInSeconds)
+
+    Emitted when an import job has finished.
+
+    :param importId: The identifier for the current import
+    :type importId: integer
+
+    :param durationInSeconds: The import duration in seconds
+    :type durationInSeconds: float
+
+.. py:method:: vrFileIOService.importProgressChanged(importId, percent)
+
+    Emitted when the import progress is updated.
+
+    :param importId: The identifier for the current import
+    :type importId: integer
+
+    :param percent: The import progress percent
+    :type percent: integer
+
+.. py:method:: vrFileIOService.loadedGeometry(filename, nodeid)
+
+    Emitted after a geometry has been loaded.
+
+    :param filename: The filename of the geometry
+    :type filename: string
+
+    :param nodeid: The node id of the geometry
+    :type nodeid: integer
+
+.. py:method:: vrFileIOService.newScene()
+
+    Emitted after a new scene is created.
+
+.. py:method:: vrFileIOService.preNewScene()
+
+    Emitted before a new scene is created.
+
+.. py:method:: vrFileIOService.preQuit()
+
+    Emitted before VRED is closed.
+
+.. py:method:: vrFileIOService.progress(p)
+
+    Periodically emitted to provide a percentage value of how much of the file has been loaded.
+
+    :param p: Loading progress in percent
+    :type p: integer
+
+.. py:method:: vrFileIOService.project(loading)
+
+    Emitted after a project has been successfully loaded. This signal is sent if loading aborted with an error.
+
+    :param loading: True, on success.
+    :type loading: bool
+
+.. py:method:: vrFileIOService.projectLoad(filename)
+
+    Emitted when project loading starts.
+
+    :param filename: The filename of the loaded project
+    :type filename: string
+
+.. py:method:: vrFileIOService.projectLoaded(filename)
+
+    Emitted after a project has been successfully loaded. This signal is not sent if loading aborted with an error.
+
+    :param filename: The filename of the loaded project
+    :type filename: string
+
+.. py:method:: vrFileIOService.projectLoadFinished(filename, success)
+
+    Emitted after a project has been loaded The signal will always be sent whether loading succeeded or not.
+
+    :param filename: The filename of the loaded project
+    :type filename: string
+
+    :param success: Indicates if loading was successful or not
+    :type success: bool
+
+.. py:method:: vrFileIOService.projectMerged()
+
+    Emitted after a project has been merged.
+
+.. py:method:: vrFileIOService.projectReadyToRender()
+
+    Emitted after a project has been loaded and it is ready to render.
+
+.. py:method:: vrFileIOService.projectSave(filename)
+
+    Signal is emitted when a project is about to be saved.
+
+    :param filename: The filename of the project
+    :type filename: string
+
+.. py:method:: vrFileIOService.projectSaved(filename)
+
+    Signal is emitted when a project has finished saving.
+
+    :param filename: The filename of the project.
+    :type filename: string
+
+.. py:method:: vrFileIOService.savedGeometry(filename)
+
+    Emitted after a geometry has been saved.
+
+    :param filename: The filename of the geometry
+    :type filename: string
+
+.. py:method:: vrFileIOService.startingConversion(importId, fileCount)
+
+    Emitted when file conversion starts.
+
+    :param importId: The identifier for the current import
+    :type importId: integer
+
+    :param fileCount: The file count
+    :type fileCount: integer
+
+.. py:method:: vrFileIOService.startingImport(importId, fileCount)
+
+    Emitted when a file import job is started.
+
+    :param importId: The identifier for the current import
+    :type importId: integer
+
+    :param fileCount: The number of files to be imported
+    :type fileCount: integer
+

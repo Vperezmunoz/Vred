@@ -1,0 +1,206 @@
+----------------
+vrdAreaLightNode
+----------------
+
+.. py:class:: vrdAreaLightNode
+
+(Inherits vrdBaseLightNode)
+
+This is the base class for all area lights. These lights emit light from an entire area in contrast to point lights, which emit light from a single point.
+
+    .. py:class:: QualityMode
+
+        Area light evaluation method in Raytracing.
+
+            .. py:data:: Accurate
+
+                Accurate: An accurate sampling of the light source is used.
+
+            .. py:data:: Approximated
+
+                Approximated: An approximation based on linearly transformed cosines is used.
+
+Summary
+=======
+
+Functions:
+    * getAttenuation() → vrLightTypes.Attenuation
+    * getIlluminateScene() → bool
+    * getInteractiveMode() → vrdAreaLightNode.QualityMode
+    * getInteractiveQuality() → integer
+    * getLightProfile() → vrdLightProfile
+    * getLocalLight() → bool
+    * getPrimaryVisibility() → bool
+    * getShadowMap() → vrdShadowMap
+    * getStillFrameMode() → vrdAreaLightNode.QualityMode
+    * getStillFrameQuality() → integer
+    * getTexture() → vrdLightTexture
+    * getVisibleInReflections() → bool
+    * setAttenuation(attenuation)
+    * setIlluminateScene(illuminateScene)
+    * setInteractiveMode(value)
+    * setInteractiveQuality(quality)
+    * setLocalLight(isLocalLight)
+    * setPrimaryVisibility(visible)
+    * setStillFrameMode(value)
+    * setStillFrameQuality(quality)
+    * setVisibleInReflections(visible)
+
+Functions
+=========
+
+.. py:method:: vrdAreaLightNode.getAttenuation()
+
+    Returns the attenuation mode.
+
+    :return: The attenuation mode.
+    :rtype: vrLightTypes.Attenuation
+
+.. py:method:: vrdAreaLightNode.getIlluminateScene()
+
+    Returns the state of the illuminate scene flag..
+
+    :return: True if illuminate scene is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAreaLightNode.getInteractiveMode()
+
+    Get the value of the interactive quality mode.
+
+    :return: Current value of the interactive quality mode.
+    :rtype: vrdAreaLightNode.QualityMode
+
+.. py:method:: vrdAreaLightNode.getInteractiveQuality()
+
+    Returns the raytracing quality level for the interactive mode.
+
+    :return: The interactive quality level in the interval [0,8].
+    :rtype: integer
+
+.. py:method:: vrdAreaLightNode.getLightProfile()
+
+    Returns the light profile.
+
+    :return: The light profile.
+    :rtype: vrdLightProfile
+
+.. py:method:: vrdAreaLightNode.getLocalLight()
+
+    Returns the state of local lighting.
+
+    :return: True if local light mode is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAreaLightNode.getPrimaryVisibility()
+
+    Returns the state of the primary visibility.
+
+    :return: True if primary visibility is turned on, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAreaLightNode.getShadowMap()
+
+    Gives access to shadow map settings of the light.
+
+    :return: The shadow map settings.
+    :rtype: vrdShadowMap
+
+.. py:method:: vrdAreaLightNode.getStillFrameMode()
+
+    Get the value of the still frame quality mode.
+
+    :return: Current value of the still frame quality mode.
+    :rtype: vrdAreaLightNode.QualityMode
+
+.. py:method:: vrdAreaLightNode.getStillFrameQuality()
+
+    Returns the ratracing still frame quality level.
+
+    :return: The still frame quality level in the interval [0,8].
+    :rtype: integer
+
+.. py:method:: vrdAreaLightNode.getTexture()
+
+    Returns the currently used light texture.
+
+    :return: The light texture.
+    :rtype: vrdLightTexture
+
+.. py:method:: vrdAreaLightNode.getVisibleInReflections()
+
+    Returns if the light is visible in reflections (Raytracing only).
+
+    :return: True if the light is visible in reflections, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAreaLightNode.setAttenuation(attenuation)
+
+    Sets the attenuation mode. Attenuation is the falloff of the light intensity.
+
+    :param attenuation: The attenuation mode.
+    :type attenuation: vrLightTypes.Attenuation
+
+.. py:method:: vrdAreaLightNode.setIlluminateScene(illuminateScene)
+
+    Toggles the illumination of objects on or off.
+
+    If switched off the light will add nothing to the scene. Lens flares are still active.
+
+    :param illuminateScene: True to illuminate the scene, otherwise False.
+    :type illuminateScene: bool
+
+.. py:method:: vrdAreaLightNode.setInteractiveMode(value)
+
+    Defines the computation method used for evaluating the area light in interactive rendering.
+
+    :param value: New value of the interactive quality mode.
+    :type value: vrdAreaLightNode.QualityMode
+
+.. py:method:: vrdAreaLightNode.setInteractiveQuality(quality)
+
+    Sets the raytracing quality level for the interactive mode.
+
+    :param quality: The interactive quality level in the interval [0,8].
+    :type quality: integer
+
+.. py:method:: vrdAreaLightNode.setLocalLight(isLocalLight)
+
+    Enables / disables local lighting.
+
+    If this is enabled and the light is part of a light link set then only the nodes in the light links set will be illuminated.
+
+    :param isLocalLight: True enables local lighting, False disables it.
+    :type isLocalLight: bool
+
+.. py:method:: vrdAreaLightNode.setPrimaryVisibility(visible)
+
+    Sets the primary visibility of the light.
+
+    If this is off the light will not be rendered but it will still emit light into the scene.
+
+    :param visible: True to turn the primary visibility on, False otherwise.
+    :type visible: bool
+
+.. py:method:: vrdAreaLightNode.setStillFrameMode(value)
+
+    Defines the computation method used for evaluating the area light in still frame rendering.
+
+    :param value: New value of the still frame quality mode.
+    :type value: vrdAreaLightNode.QualityMode
+
+.. py:method:: vrdAreaLightNode.setStillFrameQuality(quality)
+
+    Sets the raytracing quality level for still frame rendering.
+
+    :param quality: The still frame quality level in the interval [0,8].
+    :type quality: integer
+
+.. py:method:: vrdAreaLightNode.setVisibleInReflections(visible)
+
+    Sets the visibility in reflections.
+
+    Note: this only works if raytracing is enabled.
+
+    :param visible: True if the light should be visible in reflections, False otherwise.
+    :type visible: bool
+

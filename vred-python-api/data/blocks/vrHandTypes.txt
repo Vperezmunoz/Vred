@@ -1,0 +1,47 @@
+-----------
+vrHandTypes
+-----------
+
+.. py:class:: vrHandTypes
+
+    .. py:class:: HandRole
+
+            .. py:data:: Undefined
+               :no-index:
+
+            .. py:data:: LeftHand
+
+            .. py:data:: RightHand
+
+    .. py:class:: FingerType
+
+            .. py:data:: Thumb
+
+            .. py:data:: Index
+
+            .. py:data:: Middle
+
+            .. py:data:: Ring
+
+            .. py:data:: Pinky
+
+    .. py:class:: HandTrackingGesture
+
+            .. py:data:: NoGesture
+
+            .. py:data:: TapPalmGesture
+
+            .. py:data:: TapToBackOfHandGesture
+
+            .. py:data:: ThreeGesture
+
+            .. py:data:: PointingGesture
+
+            .. py:data:: PinchingGesture
+
+    .. py:class:: HandTrackingType
+
+            .. py:data:: CustomHandTracking
+
+            .. py:data:: VarjoUltraleapHandTracking
+

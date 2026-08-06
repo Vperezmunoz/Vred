@@ -1,0 +1,184 @@
+---------------------------
+vrdIlluminationBakeSettings
+---------------------------
+
+.. py:class:: vrdIlluminationBakeSettings
+
+(Inherits vrdData)
+
+Settings for texture baking with     vrBakeService.bakeToTexture(geometryNodes, illuminationSettings, textureSettings, replaceTextureBake).
+
+Summary
+=======
+
+Functions:
+    * getAmbientOcclusionMaximumDistance() → float
+    * getAmbientOcclusionMinimumDistance() → float
+    * getAmbientOcclusionWeight() → vrBakeTypes.AmbientOcclusionWeight
+    * getColorBleeding() → bool
+    * getDirectIlluminationMode() → vrBakeTypes.DirectIlluminationMode
+    * getIndirectIllumination() → bool
+    * getIndirections() → integer
+    * getLightsLayer() → integer
+    * getMaterialOverride() → bool
+    * getMaterialOverrideColor() → QColor
+    * setAmbientOcclusionMaximumDistance(value)
+    * setAmbientOcclusionMinimumDistance(value)
+    * setAmbientOcclusionWeight(value)
+    * setColorBleeding(value)
+    * setDirectIlluminationMode(value)
+    * setIndirectIllumination(value)
+    * setIndirections(value)
+    * setLightsLayer(value)
+    * setMaterialOverride(value)
+    * setMaterialOverrideColor(value)
+    * vrdIlluminationBakeSettings()
+
+Functions
+=========
+
+.. py:method:: vrdIlluminationBakeSettings.getAmbientOcclusionMaximumDistance()
+
+    :return: The ambient occlusion maximum distance.
+    :rtype: float
+
+.. py:method:: vrdIlluminationBakeSettings.getAmbientOcclusionMinimumDistance()
+
+    :return: The ambient occlusion minimum distance.
+    :rtype: float
+
+.. py:method:: vrdIlluminationBakeSettings.getAmbientOcclusionWeight()
+
+    :return: The ambient occlusion weight mode.
+    :rtype: vrBakeTypes.AmbientOcclusionWeight
+
+.. py:method:: vrdIlluminationBakeSettings.getColorBleeding()
+
+    :return: True if color bleeding should be used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdIlluminationBakeSettings.getDirectIlluminationMode()
+
+    :return: The direct illumination mode.
+    :rtype: vrBakeTypes.DirectIlluminationMode
+
+.. py:method:: vrdIlluminationBakeSettings.getIndirectIllumination()
+
+    :return: True if indirect illumination should be evaluated, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdIlluminationBakeSettings.getIndirections()
+
+    :return: The number of indirections.
+    :rtype: integer
+
+.. py:method:: vrdIlluminationBakeSettings.getLightsLayer()
+
+    :return: The layer index used for baking. See vrdIlluminationBakeSettings.setLightsLayer(value).
+    :rtype: integer
+
+.. py:method:: vrdIlluminationBakeSettings.getMaterialOverride()
+
+    :return: True if a material override should be used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdIlluminationBakeSettings.getMaterialOverrideColor()
+
+    :return: The override material color.
+    :rtype: QColor
+
+.. py:method:: vrdIlluminationBakeSettings.setAmbientOcclusionMaximumDistance(value)
+
+    Sets the ambient occlusion maximum distance.
+
+    Sets the maximum distance of objects to be taken into account for the ambient occlusion calculation.
+
+    :param value: Distance in mm.
+    :type value: float
+
+.. py:method:: vrdIlluminationBakeSettings.setAmbientOcclusionMinimumDistance(value)
+
+    Sets the ambient occlusion minimum distance.
+
+    Sets the minimum distance of objects to be taken into account for the ambient occlusion calculation.
+
+    :param value: Distance in mm.
+    :type value: float
+
+.. py:method:: vrdIlluminationBakeSettings.setAmbientOcclusionWeight(value)
+
+    Sets the ambient occlusion weight mode.
+
+    Sets how the ambient occlusion samples in the hemisphere above the calculation point are weighted.
+
+    :param value: The ambient occlusion weight mode.
+    :type value: vrBakeTypes.AmbientOcclusionWeight
+
+.. py:method:: vrdIlluminationBakeSettings.setColorBleeding(value)
+
+    Sets if color bleeding should be used.
+
+    This affects the indirect illumination. If disabled the indirect illumination result is grayscale.
+
+    :param value: True for using color bleeding, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdIlluminationBakeSettings.setDirectIlluminationMode(value)
+
+    Sets the direct illumination mode.
+
+    This mode defines the kind of data which will be baked.
+
+    :param value: The direct illumination mode.
+    :type value: vrBakeTypes.DirectIlluminationMode
+
+.. py:method:: vrdIlluminationBakeSettings.setIndirectIllumination(value)
+
+    Sets if indirect illumination should be evaluated.
+
+    :param value: True for evaluating indirect illumination, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdIlluminationBakeSettings.setIndirections(value)
+
+    Sets the number of indirections.
+
+    Defines the number of calculated light bounces.
+
+    :param value: Number of indirections.
+    :type value: integer
+
+.. py:method:: vrdIlluminationBakeSettings.setLightsLayer(value)
+
+    Only available for texture baking. Sets if only lights from a specific layer should be baked. By default, all active lights are baked.
+
+    See vrdBaseLightNode.setBakeLayer(layer) to set the layer for light sources, and vrdIncandescence.setBakeLayer(layer) to set the layer for emissive materials (geometry lights).
+
+    :param value: Layer index.               -1 (default) means light layer setting is ignored, i.e. all lights are baked
+              regardless of their layer setting.
+
+              Value >= 0 means only lights with matching layer number are evaluated during baking.
+
+              For baking base and separate lightmap, use layer 0 (base) and 1 (separate illumination).
+    :type value: integer
+
+.. py:method:: vrdIlluminationBakeSettings.setMaterialOverride(value)
+
+    Sets if a global material override should be used.
+
+    If enabled, all geometries will have a global diffuse material override during the bake calculation.
+
+    :param value: True for using a material override, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdIlluminationBakeSettings.setMaterialOverrideColor(value)
+
+    Sets the color of the override material.
+
+    :param value: The color value.
+    :type value: QColor
+
+.. py:method:: vrdIlluminationBakeSettings.vrdIlluminationBakeSettings()
+
+    Default constructor.
+

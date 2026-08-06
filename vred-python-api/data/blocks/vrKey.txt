@@ -1,0 +1,118 @@
+MODULE vrKey (legacy v1 API)
+
+-----
+vrKey
+-----
+
+Contains the functionality to receive key events.
+
+.. class:: vrKey
+
+   The key class is used to define functionality to be called on key presses.
+
+   Example::
+
+       See also example key-action.py and keys.py
+
+Summary
+=======
+
+Functions:
+    * getDescription() → string
+    * getKey()
+    * getLevel()
+    * getModifier()
+    * isEnabled() → bool
+    * pressedModifier(modifier)
+    * setDescription(description)
+    * setEnabled(state)
+
+Static Functions:
+    * getDefaultKeyboardLevel() → int
+    * getKeyboardLevel() → int
+    * setDefaultKeyboardLevel(level)
+    * setKeyboardLevel(level)
+
+.. method:: getKey()
+
+    Returns the key of this object.
+
+    :return: The key.
+    :rtype: integer (unsigned)
+
+.. method:: getModifier()
+
+    Returns the modifier of this object.
+
+    :return: The modifier.
+    :rtype: integer (unsigned)
+
+.. method:: getLevel()
+
+    Returns the level of this object.
+
+    :return: The level.
+    :rtype: integer (unsigned)
+
+.. method:: setEnabled(state)
+
+    Enables or disables the key.
+
+    :param state: The state of the key: On/Off.
+    :type state: bool
+
+.. method:: isEnabled()
+
+    Returns the enabled state of the key.
+
+    :return: The state of the key: On/Off.
+    :rtype: bool
+
+.. method:: setDescription(description)
+
+    Sets a description for what this key event is about.
+
+    :param description: The description text.
+    :type description: string
+
+.. method:: getDescription()
+
+    Returns the description of the key.
+
+    :return: The description text.
+    :rtype: string
+
+.. method:: pressedModifier(modifier)
+
+    SIGNAL is called when a modifier key is pressed.
+
+    :param modifier: The modifiers of the key (AltButton, ControlButton, ShiftButton, and/or Keypad). If you need a combination, combine them with the bit-wise or operator.
+    :type modifier: integer (unsigned)
+
+.. staticmethod:: setKeyboardLevel(level)
+
+    Sets the current keyboard level.
+
+    :param level: The level to set.
+    :type level: integer (32bit)
+
+.. staticmethod:: getKeyboardLevel()
+
+    Returns the current keyboard level.
+
+    :return: The current level.
+    :rtype: integer (32bit)
+
+.. staticmethod:: setDefaultKeyboardLevel(level)
+
+    Sets the default keyboard level. All newly created vrKey objects will only trigger when the appropriate keyboard level is active.
+
+    :param level: The default level to set.
+    :type level: integer (32bit)
+
+.. staticmethod:: getDefaultKeyboardLevel()
+
+    Returns the default keyboard level.
+
+    :return: The default level.
+    :rtype: integer (32bit)

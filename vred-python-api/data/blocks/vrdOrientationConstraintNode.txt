@@ -1,0 +1,14 @@
+----------------------------
+vrdOrientationConstraintNode
+----------------------------
+
+.. py:class:: vrdOrientationConstraintNode
+
+(Inherits vrdConstraintNode)
+
+Orientation constraints control constrained node orientations by using target node orientations. Multiple targets are combined using weighted average calculations.
+
+To obtain the vrdOrientationConstraintObject and configure how transformations are applied from target nodes to constrained nodes, see vrdConstraintNode::getConstrainedObject(vrdNode).
+
+For managing constraints and code examples see     vrConstraintService.
+

@@ -1,0 +1,26 @@
+-------------------
+vrMaterialEntryType
+-------------------
+
+.. py:class:: vrMaterialEntryType
+
+Defines the types of entries in the material tree.
+
+    .. py:data:: Invalid
+       :no-index:
+
+        Invalid entry.
+
+    .. py:data:: Group
+       :no-index:
+
+        A material group.
+
+    .. py:data:: MainMaterial
+
+        A main material.
+
+    .. py:data:: SubMaterial
+
+        A submaterial.
+

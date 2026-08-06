@@ -1,0 +1,123 @@
+--------
+vrdImage
+--------
+
+.. py:class:: vrdImage
+
+(Inherits vrdSceneObject)
+
+Class that gives access to VRED's internal image format.
+
+Summary
+=======
+
+Functions:
+    * getAbsolutePath() → string
+    * getDimension() → QSize
+    * getHeight() → integer
+    * getInline() → bool
+    * getInternal() → bool
+    * getPreview(size) → QImage
+    * getWidth() → integer
+    * hasAlphaChannel() → bool
+    * hasEnvironmentMapLayout() → bool
+    * setInline(value)
+    * toQIcon() → QIcon
+    * toQImage() → QImage
+
+Functions
+=========
+
+.. py:method:: vrdImage.getAbsolutePath()
+
+    Returns the absolute path of the image.
+
+    This returns the absolute path of the image including the file name.
+
+    :return: The absolute path.
+    :rtype: string
+
+.. py:method:: vrdImage.getDimension()
+
+    Gets the dimension of the image.
+
+    This will return width and height of the image as a QSize object.
+
+    :return: The dimension.
+    :rtype: QSize
+
+.. py:method:: vrdImage.getHeight()
+
+    Gets the height of the image.
+
+    :return: The height in pixel.
+    :rtype: integer
+
+.. py:method:: vrdImage.getInline()
+
+    Gets if the image is inlined.
+
+    :return: True if the image is inlined, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdImage.getInternal()
+
+    Some images are managed internally e.g. by the media editor.
+
+    :return: True, if the image is managed internally
+    :rtype: bool
+
+.. py:method:: vrdImage.getPreview(size=96)
+
+    Returns an image preview.
+
+    :param size: The maximum horizontal or vertical resolution
+    :type size: integer
+
+    :return: The preview image as a QImage.
+    :rtype: QImage
+
+.. py:method:: vrdImage.getWidth()
+
+    Gets the width of the image.
+
+    :return: The width in pixel.
+    :rtype: integer
+
+.. py:method:: vrdImage.hasAlphaChannel()
+
+    Determines if the image has an alpha channel.
+
+    :return: True if the image has an alpha channel, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdImage.hasEnvironmentMapLayout()
+
+    Returns if this image can be used as an environment map.
+
+    :return: True if image layout matches.
+    :rtype: bool
+
+.. py:method:: vrdImage.setInline(value)
+
+    Sets if the image will be inlined or not.
+
+    When set to true, the image will keep its whole data when saved e.g. within a project file. Otherwise only a file path string to the reference file is stored. Requirement for latter is that the path is valid and the file exists.
+
+    :param value: True if the image should store its whole data, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdImage.toQIcon()
+
+    Returns the image data as a QIcon.
+
+    :return: The image as a QIcon.
+    :rtype: QIcon
+
+.. py:method:: vrdImage.toQImage()
+
+    Returns the image data as a QImage.
+
+    :return: The image as a QImage.
+    :rtype: QImage
+

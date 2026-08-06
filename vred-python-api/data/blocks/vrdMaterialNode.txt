@@ -1,0 +1,61 @@
+---------------
+vrdMaterialNode
+---------------
+
+.. py:class:: vrdMaterialNode
+
+(Inherits vrdNode)
+
+Class for a node with a material.
+
+In the Scenegraph, this is a Material Group node. In the Material Editor, this node type is used to hold materials in the material graph.
+
+```
+
+     # create a material group node in the Scenegraph:
+     c = vrMaterialService.createMaterial("c", vrMaterialTypes.Chrome)
+     sphere = vrGeometryService.createSphere(vrScenegraphService.getRootNode(), 100)
+     mg = vrScenegraphService.createNode(vrScenegraphTypes.NodeType.MaterialNode)
+     mg.children.append(sphere)
+     mg.setMaterial(c)
+
+Summary
+=======
+
+Functions:
+    * getEnabled() → bool
+    * getMaterial() → vrdMaterial
+    * setEnabled(value)
+    * setMaterial(material)
+
+Functions
+=========
+
+.. py:method:: vrdMaterialNode.getEnabled()
+
+    :return: True, if material override is enabled for this node
+    :rtype: bool
+
+.. py:method:: vrdMaterialNode.getMaterial()
+
+    Returns the material of the node.
+
+    :return: The material of the node.
+    :rtype: vrdMaterial
+
+.. py:method:: vrdMaterialNode.setEnabled(value)
+
+    Enables or disables material override for this node.
+
+    If enabled, all geometries in the sub tree of this node are rendered with the material of this node.
+
+    :param value: If True, material override is enabled.
+    :type value: bool
+
+.. py:method:: vrdMaterialNode.setMaterial(material)
+
+    Sets the material of the node.
+
+    :param material: The new material of the node.
+    :type material: vrdMaterial
+

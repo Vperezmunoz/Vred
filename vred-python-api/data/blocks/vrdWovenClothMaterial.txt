@@ -1,0 +1,397 @@
+---------------------
+vrdWovenClothMaterial
+---------------------
+
+.. py:class:: vrdWovenClothMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all woven cloth material properties.
+
+    .. py:class:: ClothPreset
+
+            .. py:data:: Custom
+               :no-index:
+
+            .. py:data:: CottonJersey
+
+            .. py:data:: CottonTwill31
+
+            .. py:data:: Jeans
+
+            .. py:data:: LinenFine
+
+            .. py:data:: LinenCoarse
+
+            .. py:data:: Nylon
+
+            .. py:data:: Satin
+
+            .. py:data:: Silk
+
+            .. py:data:: TableClothCotton
+
+            .. py:data:: Viscose
+
+    .. py:class:: WeaveType
+
+            .. py:data:: PlainPattern
+
+            .. py:data:: Twill31Pattern
+
+            .. py:data:: Twill51Pattern
+
+            .. py:data:: DenimPattern
+
+            .. py:data:: SatinPattern
+
+            .. py:data:: SilkPattern
+
+    .. py:class:: YarnType
+
+            .. py:data:: StapleYarn
+
+                Staple Yarn simulates yarn that is made up of many tiny threads. Use this type for rough types of clothes such as denim.
+
+            .. py:data:: FilamentYarn
+
+                Filament Yarn simulates yarn that is made up of one single untwisted yarn. Use this type for shiny types of clothes such as silk.
+
+Summary
+=======
+
+Functions:
+    * getBumpTexture() → vrdBumpTexture
+    * getDarkening() → float
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getDiffuseTexture() → vrdTexture
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getExposure() → float
+    * getHighlightWidth() → float
+    * getIncandescence() → vrdIncandescence
+    * getMoireRemoval() → float
+    * getNoiseIntensity() → float
+    * getPresetChoice() → vrdWovenClothMaterial.ClothPreset
+    * getSubsurfaceScattering() → vrdSubsurfaceScattering
+    * getTextureSettings() → vrdTextureSettings
+    * getWarpYarnColor() → QVector3D
+    * getWarpYarnColorSpectrum() → vrSpectrum
+    * getWarpYarnCurvature() → float
+    * getWeaveType() → vrdWovenClothMaterial.WeaveType
+    * getWeftYarnColor() → QVector3D
+    * getWeftYarnColorSpectrum() → vrSpectrum
+    * getWeftYarnCurvature() → float
+    * getYarnTexture() → vrdTexture
+    * getYarnTwistAngle() → float
+    * getYarnType() → vrdWovenClothMaterial.YarnType
+    * setDarkening(v)
+    * setDiffuseColor(value)
+    * setDiffuseColorSpectrum(value)
+    * setExposure(exposure)
+    * setHighlightWidth(v)
+    * setMoireRemoval(v)
+    * setNoiseIntensity(v)
+    * setPresetChoice(v)
+    * setWarpYarnColor(value)
+    * setWarpYarnColorSpectrum(value)
+    * setWarpYarnCurvature(v)
+    * setWeaveType(v)
+    * setWeftYarnColor(value)
+    * setWeftYarnColorSpectrum(value)
+    * setWeftYarnCurvature(v)
+    * setYarnTwistAngle(v)
+    * setYarnType(v)
+
+Functions
+=========
+
+.. py:method:: vrdWovenClothMaterial.getBumpTexture()
+
+    Gets access to all properties of         vrdBumpTexture.
+
+    :return: An vrdBumpTexture object, to read and write access of alls properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdWovenClothMaterial.getDarkening()
+
+    Gets the appearance of the diffuse component.
+
+    :return: Current value of the appearance of the diffuse component.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getDiffuseColor()
+
+    :return: The current diffuse color value
+    :rtype: QVector3D
+
+.. py:method:: vrdWovenClothMaterial.getDiffuseColorSpectrum()
+
+    Gets the diffuse color spectrum.
+
+    :return: The current used spectrum for diffuse color
+    :rtype: vrSpectrum
+
+.. py:method:: vrdWovenClothMaterial.getDiffuseTexture()
+
+    Gets access to all properties of the diffuse texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdWovenClothMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdWovenClothMaterial.getExposure()
+
+    Get the current value for exposure.
+
+    :return: The current value for exposure.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getHighlightWidth()
+
+    Gets the width of the glossy highlight on the yarn segments.
+
+    :return: Current value of the width of the glossy highlight on the yarn segments.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdWovenClothMaterial.getMoireRemoval()
+
+    Gets how softens that moire pattern is.
+
+    :return: The current used value for softness.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getNoiseIntensity()
+
+    Gets a natural noise effect for matte surfaces (staple yarn is recommended).
+
+    :return: The current used value for the natural noise effect.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getPresetChoice()
+
+    :return: Current cloth preset. Will be vrdWovenClothMaterial::ClothPreset::Custom if custom settings have been set in this material.
+    :rtype: vrdWovenClothMaterial.ClothPreset
+
+.. py:method:: vrdWovenClothMaterial.getSubsurfaceScattering()
+
+    Gets access to all properties of         vrdSubsurfaceScattering.
+
+    :return: An vrdSubsurfaceScattering object, to read and write access of alls properties.
+    :rtype: vrdSubsurfaceScattering
+
+.. py:method:: vrdWovenClothMaterial.getTextureSettings()
+
+    Gets access to all properties of         vrdTextureSettings.
+
+    For vrdWovenClothMaterial, the texture mapping type of vrdTextureSettings can be set to either vrTextureTypes.MappingType.UVMapping or vrTextureTypes.MappingType.TriplanarMapping. It influences both how the procedural weaving pattern is mapped on the surface, and the texture mapping of diffuse, glossy, bump and subsurface scattering textures.
+
+    For triplanar mapping, the triplanar settings from the vrdTextureSettings object are used. For UV mapping, the UV repeat and rotate settings from the vrdTextureSettings object are used. Repeat mode is to be set in the individual vrdTexture objects.
+
+    Please note, the repeat, offset and rotate settings in the individual vrdTexture objects are applied in addition to the global texture settings.
+
+    :return: An vrdTextureSettings object, to read and write access of alls properties.
+    :rtype: vrdTextureSettings
+
+.. py:method:: vrdWovenClothMaterial.getWarpYarnColor()
+
+    Gets the color of the vertical (warp) yarn.
+
+    :return: Current color of the vertical (warp) yarn.
+    :rtype: QVector3D
+
+.. py:method:: vrdWovenClothMaterial.getWarpYarnColorSpectrum()
+
+    Gets the color spectrum of the vertical (warp) yarn.
+
+    :return: The current used spectrum for the vertical (warp) yarn.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdWovenClothMaterial.getWarpYarnCurvature()
+
+    Gets the curvature of the vertical (warp) yarn.
+
+    :return: Current curvature of the vertical (warp) yarn.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getWeaveType()
+
+    Gets how the yarn is woven to cloth.
+
+    :return: The current weave type.
+    :rtype: vrdWovenClothMaterial.WeaveType
+
+.. py:method:: vrdWovenClothMaterial.getWeftYarnColor()
+
+    Gets the color of the horizontal (weft) yarn.
+
+    :return: Current color of the horizontal (weft) yarn.
+    :rtype: QVector3D
+
+.. py:method:: vrdWovenClothMaterial.getWeftYarnColorSpectrum()
+
+    Gets the color spectrum of the horizontal (weft) yarn.
+
+    :return: The current used spectrum for the horizontal (weft) yarn.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdWovenClothMaterial.getWeftYarnCurvature()
+
+    Gets the curvature of the horizontal (weft) yarn.
+
+    :return: The current used curvature of the horizontal (weft) yarn.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getYarnTexture()
+
+    Gets access to all properties of the yarn texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdWovenClothMaterial.getYarnTwistAngle()
+
+    Gets the glossiness of the yarn and depends on the choice made in the yarn type.
+
+    :return: The current value of the glossiness of the yarn.
+    :rtype: float
+
+.. py:method:: vrdWovenClothMaterial.getYarnType()
+
+    Gets the glossiness of the yarn.
+
+    :return: The current value of the glossiness of the yarn.
+    :rtype: vrdWovenClothMaterial.YarnType
+
+.. py:method:: vrdWovenClothMaterial.setDarkening(v)
+
+    Controls the appearance of the diffuse component. The default darkening value of 1.0 corresponds with a perfectly diffuse surface. Higher values than 1.0 darken the material, lower values brighten it up.
+
+    :param v: New value of the appearance of the diffuse component.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setDiffuseColor(value)
+
+    Sets the diffuse reflection color of the material. Diffuse reflections can be further controlled with the darkening value.
+
+    :param value:
+    :type value: QVector3D
+
+.. py:method:: vrdWovenClothMaterial.setDiffuseColorSpectrum(value)
+
+    Sets the diffuse color spectrum.
+
+    :param value: New spectrum for diffuse color
+    :type value: vrSpectrum
+
+.. py:method:: vrdWovenClothMaterial.setExposure(exposure)
+
+    Defines the brightness of the glossy component.
+
+    :param exposure: The new used value for exposure.
+    :type exposure: float
+
+.. py:method:: vrdWovenClothMaterial.setHighlightWidth(v)
+
+    Defines the width of the glossy highlight on the yarn segments.
+
+    :param v: New value of the width of the glossy highlight on the yarn segments.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setMoireRemoval(v)
+
+    Softens that moire pattern. The higher the value, the more effective the moire pattern is softened. If too high, any structure is softened and surface information might get lost.
+
+    :param v: The new used value for softness.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setNoiseIntensity(v)
+
+    Sets a natural noise effect for matte surfaces (staple yarn is recommended).
+
+    :param v: The new used value for the natural noise effect.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setPresetChoice(v)
+
+    Sets a handpicked material preset, which is also available in the VRED Example Assets in the Asset Manager. The parameters change automatically when a cloth preset is selected.
+
+    :param v: New index of a handpicked material preset.
+    :type v: vrdWovenClothMaterial.ClothPreset
+
+.. py:method:: vrdWovenClothMaterial.setWarpYarnColor(value)
+
+    Sets the color of the vertical (warp) yarn. It is best practice to use similar colors for warp and weft yarn.
+
+    :param value: New color of the vertical (warp) yarn.
+    :type value: QVector3D
+
+.. py:method:: vrdWovenClothMaterial.setWarpYarnColorSpectrum(value)
+
+    Sets the color spectrum of the vertical (warp) yarn.
+
+    :param value: New spectrum for the vertical (warp) yarn.
+    :type value: vrSpectrum
+
+.. py:method:: vrdWovenClothMaterial.setWarpYarnCurvature(v)
+
+    Defines the curvature of the vertical (warp) yarn.
+
+    :param v: New curvature of the vertical (warp) yarn.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setWeaveType(v)
+
+    Defines how the yarn is woven to cloth.
+
+    :param v: The new weave type.
+    :type v: vrdWovenClothMaterial.WeaveType
+
+.. py:method:: vrdWovenClothMaterial.setWeftYarnColor(value)
+
+    Sets the color of the horizontal (weft) yarn. It is best practice to use similar colors for warp and weft yarn.
+
+    :param value: New color of the horizontal (weft) yarn.
+    :type value: QVector3D
+
+.. py:method:: vrdWovenClothMaterial.setWeftYarnColorSpectrum(value)
+
+    Sets the color spectrum of the horizontal (weft) yarn.
+
+    :param value: New spectrum for the horizontal (weft) yarn.
+    :type value: vrSpectrum
+
+.. py:method:: vrdWovenClothMaterial.setWeftYarnCurvature(v)
+
+    Defines the curvature of the horizontal (weft) yarn.
+
+    :param v: The new curvature of the horizontal (weft) yarn.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setYarnTwistAngle(v)
+
+    Determines the glossiness of the yarn and depends on the choice made in the yarn type.
+
+    :param v: The new value of the glossiness of the yarn.
+    :type v: float
+
+.. py:method:: vrdWovenClothMaterial.setYarnType(v)
+
+    Defines the glossiness of the yarn.
+
+    :param v: The new value of the glossiness of the yarn.
+    :type v: vrdWovenClothMaterial.YarnType
+

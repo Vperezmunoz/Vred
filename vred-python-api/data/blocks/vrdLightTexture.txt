@@ -1,0 +1,214 @@
+---------------
+vrdLightTexture
+---------------
+
+.. py:class:: vrdLightTexture
+
+(Inherits vrdSceneObject)
+
+This class represents a texture that can be projected by a light source into the scene.
+
+This is not available for directional and ray lights.
+
+Summary
+=======
+
+Functions:
+    * getAnisotropy() → float
+    * getConnectRepeatModes() → bool
+    * getFrameOffset() → integer
+    * getImage() → vrdImage
+    * getInlineImageSequence() → bool
+    * getOffset() → QVector2D
+    * getRepeat() → QVector2D
+    * getRepeatModeU() → vrTextureTypes.RepeatMode
+    * getRepeatModeV() → vrTextureTypes.RepeatMode
+    * getRotate() → float
+    * getUseImageSequence() → bool
+    * getUseTexture() → bool
+    * setAnisotropy(anisotropy)
+    * setConnectRepeatModes(connected)
+    * setFrameOffset(offset)
+    * setImage(img)
+    * setInlineImageSequence(use)
+    * setOffset(offset)
+    * setRepeat(repeat)
+    * setRepeatModeU(mode)
+    * setRepeatModeV(mode)
+    * setRotate(rotate)
+    * setUseImageSequence(use)
+    * setUseTexture(s)
+
+Functions
+=========
+
+.. py:method:: vrdLightTexture.getAnisotropy()
+
+    Returns the anisotropy value of the texture.
+
+    :return: The anisotropy value.
+    :rtype: float
+
+.. py:method:: vrdLightTexture.getConnectRepeatModes()
+
+    Returns whether the repeat modes for U and V are connected.
+
+    :return: True if connected, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdLightTexture.getFrameOffset()
+
+    Returns the offset to the image number when using an image sequence.
+
+    :return: Offset
+    :rtype: integer
+
+.. py:method:: vrdLightTexture.getImage()
+
+    Returns the image that is used as a texture.
+
+    :return:
+    :rtype: vrdImage
+
+.. py:method:: vrdLightTexture.getInlineImageSequence()
+
+    Returns if the image sequence is inlined into the vpb file.
+
+    :return: True if inlined, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdLightTexture.getOffset()
+
+    Returns the offset for the UVs.
+
+    :return: The offset for the Uvs.
+    :rtype: QVector2D
+
+.. py:method:: vrdLightTexture.getRepeat()
+
+    Returns the number of repetitions for the UVs.
+
+    :return: The number of repetitions.
+    :rtype: QVector2D
+
+.. py:method:: vrdLightTexture.getRepeatModeU()
+
+    Returns the repeat mode of the texture.
+
+    :return: Repeat mode of the texture.
+    :rtype: vrTextureTypes.RepeatMode
+
+.. py:method:: vrdLightTexture.getRepeatModeV()
+
+    Returns the repeat mode of the texture.
+
+    :return: Repeat mode of the texture.
+    :rtype: vrTextureTypes.RepeatMode
+
+.. py:method:: vrdLightTexture.getRotate()
+
+    Returns the texture rotation.
+
+    :return: The rotation angle in degrees.
+    :rtype: float
+
+.. py:method:: vrdLightTexture.getUseImageSequence()
+
+    Returns if image sequences is used.
+
+    :return: True if image sequence is use
+    :rtype: bool
+
+.. py:method:: vrdLightTexture.getUseTexture()
+
+    Returns whether the light texture is enabled.
+
+    :return: True if enabled, False if disabled.
+    :rtype: bool
+
+.. py:method:: vrdLightTexture.setAnisotropy(anisotropy)
+
+    Sets the anisotropy value of the texture.
+
+    :param anisotropy: The anisotropy value.
+    :type anisotropy: float
+
+.. py:method:: vrdLightTexture.setConnectRepeatModes(connected)
+
+    Connects the repeat modes for U and V.
+
+    :param connected: True to connect the repeat modes, False to disconnect.
+    :type connected: bool
+
+.. py:method:: vrdLightTexture.setFrameOffset(offset)
+
+    Sets an offset to the image number when using an image sequence.
+
+    :param offset: Offset
+    :type offset: integer
+
+.. py:method:: vrdLightTexture.setImage(img)
+
+    Sets the image that should be used as a texture.
+
+    :param img: Image
+    :type img: vrdImage
+
+.. py:method:: vrdLightTexture.setInlineImageSequence(use)
+
+    Inlines the image sequence into the vpb file.
+
+    :param use: If set to true, the image sequence will be inlined
+    :type use: bool
+
+.. py:method:: vrdLightTexture.setOffset(offset)
+
+    Sets the offset for the UVs.
+
+    :param offset: The offset for the UVs.
+    :type offset: QVector2D
+
+.. py:method:: vrdLightTexture.setRepeat(repeat)
+
+    Sets the number of repetitions for the UVs.
+
+    :param repeat: The number of repetitions.
+    :type repeat: QVector2D
+
+.. py:method:: vrdLightTexture.setRepeatModeU(mode)
+
+    Sets the repeat mode of the texture.
+
+    :param mode: Repeat mode of the texture.
+    :type mode: vrTextureTypes.RepeatMode
+
+.. py:method:: vrdLightTexture.setRepeatModeV(mode)
+
+    Sets the repeat mode of the texture.
+
+    :param mode: Repeat mode of the texture.
+    :type mode: vrTextureTypes.RepeatMode
+
+.. py:method:: vrdLightTexture.setRotate(rotate)
+
+    Rotate the texture.
+
+    :param rotate: The rotation angle in degrees.
+    :type rotate: float
+
+.. py:method:: vrdLightTexture.setUseImageSequence(use)
+
+    Use an image sequence.
+
+    Uses an image sequence as a texture. The image name for the sequence will be generated based on the filename and the image number. Use the CurveEditor to animate the image number.
+
+    :param use: True to use image sequence
+    :type use: bool
+
+.. py:method:: vrdLightTexture.setUseTexture(s)
+
+    Enables / disables the usage of the texture.
+
+    :param s: True to enable, False to disable the texture.
+    :type s: bool
+

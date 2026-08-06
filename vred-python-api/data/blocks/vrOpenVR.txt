@@ -1,0 +1,134 @@
+MODULE vrOpenVR (legacy v1 API)
+
+--------
+vrOpenVR
+--------
+
+Summary
+=======
+
+Functions:
+    * getOpenVRFrameTimings() → vrOpenVRFrameTimings
+    * getOpenVRTrackingOrigin() → Pnt3f
+    * getOpenVRTrackingOriginType() → int
+    * resetOpenVRHMDPose()
+    * setOpenVRControllerTracking(s)
+    * setOpenVRHMDForceInterleavedReprojection(s)
+    * setOpenVRHMDMirrorTextureView(viewMode)
+    * setOpenVRHMDTracking(s)
+    * setOpenVRHMDUseHiddenAreaMesh(s)
+    * setOpenVRTracking(s)
+    * setOpenVRTrackingOrigin(position)
+    * setOpenVRTrackingOriginType(originType)
+
+Variables:
+    - Finger_Index = 1
+    - Finger_Middle = 2
+    - Finger_Pinky = 4
+    - Finger_Ring = 3
+    - Finger_Thumb = 0
+    - Hand_Left = 1
+    - Hand_Right = 2
+    - Hand_Undefined = 0
+    - OVRButton_A = 7
+    - OVRButton_ApplicationMenu = 1
+    - OVRButton_Axis0 = 32
+    - OVRButton_Axis1 = 33
+    - OVRButton_Axis2 = 34
+    - OVRButton_Axis3 = 35
+    - OVRButton_Axis4 = 36
+    - OVRButton_DPad_Down = 6
+    - OVRButton_DPad_Left = 3
+    - OVRButton_DPad_Right = 5
+    - OVRButton_DPad_Up = 4
+    - OVRButton_Grip = 2
+    - OVRButton_ProximitySensor = 31
+    - OVRButton_System = 0
+    - Pose_Fist = 1004
+    - Pose_Picking = 1001
+    - Pose_Pointing = 1002
+    - Pose_ThumbsUp = 1003
+    - Visualization_Controller = 0
+    - Visualization_ControllerAndHand = 2
+    - Visualization_Hand = 1
+
+.. method:: setOpenVRTracking(s)
+
+    Windows only: Enables/Disables tracking of OpenVR HMD and controller.
+
+    :param s: On/Off.
+    :type s: bool
+
+.. method:: setOpenVRHMDTracking(s)
+
+    Windows only: Enables/Disables tracking of OpenVR HMD.
+
+    :param s: On/Off.
+    :type s: bool
+
+.. method:: setOpenVRControllerTracking(s)
+
+    Windows only: Enables/Disables tracking of OpenVR controller.
+
+    :param s: On/Off.
+    :type s: bool
+
+.. method:: setOpenVRHMDUseHiddenAreaMesh(s)
+
+    Windows only: Enables/Disables the use of a hidden area mesh to mask out invisible areas in order to reduce shading costs.
+
+    :param s: On/Off.
+    :type s: bool
+
+.. method:: setOpenVRHMDMirrorTextureView(viewMode)
+
+    Windows only: Sets the view to show in the VRED UI while using an OpenVR HMD.
+
+    :param viewMode: Left Eye = 0, Right Eye = 1, Both Eyes = 2. The default is 0.
+    :type viewMode: int
+
+.. method:: setOpenVRHMDForceInterleavedReprojection(s)
+
+    Windows only: Enables/Disables forcing of interleaved reprojection. If enabled, the scene will be rendered with half the frame rate, and every other frame will be interpolated.
+
+    :param s: On/Off.
+    :type s: bool
+
+.. method:: resetOpenVRHMDPose()
+
+    Resets the Seated Zero Pose for Seated tracking mode while OpenVR is running. Execute this command while wearing the HMD and sitting in a comfortable position.
+
+.. method:: setOpenVRTrackingOriginType(originType)
+
+    Windows only: Sets the tracking origin type for OpenVR.
+
+    :param originType: 0 = Seated, 1 = Standing.
+    :type originType: int
+
+.. method:: getOpenVRTrackingOriginType()
+
+    Windows only: Retrieves the tracking origin type for OpenVR.
+
+    :return: 0 = Seated, 1 = Standing (Room Scale).
+    :rtype: int
+
+.. method:: getOpenVRFrameTimings()
+
+    Windows only: Retrieves the frame timings.
+
+    :return: See vrOpenVRFrameTimings documentation for more details.
+    :rtype: vrOpenVRFrameTimings
+
+.. method:: setOpenVRTrackingOrigin(position)
+
+    Sets the tracking reference origin for OpenVR tracking. Use it to correct any offsets in the scene. This function always assumes Y-Up, even if Z-Up is set in the scene.
+
+    :param position: Position offset for the OpenVR tracking.
+    :type position: Pnt3f
+
+.. method:: getOpenVRTrackingOrigin()
+
+    Returns the OpenVR tracking reference origin. Default is (0, 0, 0). Can be changed with setOpenVRTrackingOrigin.
+
+    :return: The OpenVR tracking reference origin.
+    :rtype: Pnt3f

@@ -1,0 +1,100 @@
+--------------------
+vrdAimConstraintNode
+--------------------
+
+.. py:class:: vrdAimConstraintNode
+
+(Inherits vrdConstraintNode)
+
+Aim constraints control constrained node orientations by using target node positions and optional up vector targets. Multiple targets are combined using weighted average calculations.
+
+To obtain the vrdAimConstraintObject and configure how transformations are applied from target nodes to constrained nodes, see vrdConstraintNode::getConstrainedObject(vrdNode).
+
+For managing constraints and code examples see     vrConstraintService.
+
+Summary
+=======
+
+Functions:
+    * addUpVectorTargetNodes(nodes)
+    * clearUpVectorTargetNodes()
+    * getUpVectorTargetNodes() → List[vrdNode]
+    * getUpVectorTargetNodeWeight(node) → float
+    * getUpVectorTargetObject(sceneNode) → vrdUpVectorConstraintObject
+    * getUpVectorTargetObjects() → List[vrdUpVectorConstraintObject]
+    * removeUpVectorTargetNodes(nodes)
+    * setUpVectorTargetNodes(nodes)
+    * setUpVectorTargetNodeWeight(node, weight)
+
+Functions
+=========
+
+.. py:method:: vrdAimConstraintNode.addUpVectorTargetNodes(nodes)
+
+    Adds a list of nodes to up vector targets for the constraint.
+
+    :param nodes: The nodes to add as up vector targets.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdAimConstraintNode.clearUpVectorTargetNodes()
+
+    Clears the set up vector target nodes of the constraint.
+
+.. py:method:: vrdAimConstraintNode.getUpVectorTargetNodes()
+
+    Returns the list of nodes set as up vector targets for the constraint.
+
+    :return: The list of up vector target nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdAimConstraintNode.getUpVectorTargetNodeWeight(node)
+
+    Gets the weight for an up vector target node of the constraint. The node must be referenced in the up vector target nodes list of the constraint.
+
+    :param node: The up vector target node to get the weight for.
+    :type node: vrdNode
+
+    :return: The weight for the up vector target node. If the node is not found, 0.0 is returned.
+    :rtype: float
+
+.. py:method:: vrdAimConstraintNode.getUpVectorTargetObject(sceneNode)
+
+    Returns the up vector target constraint object for a specific scene node.
+
+    :param sceneNode: The scene node to get the constraint object for.
+    :type sceneNode: vrdNode
+
+    :return: The up vector target constraint object for the specified node.
+    :rtype: vrdUpVectorConstraintObject
+
+.. py:method:: vrdAimConstraintNode.getUpVectorTargetObjects()
+
+    Returns all up vector target constraint objects.
+
+    :return: The list of up vector target constraint objects.
+    :rtype: List[vrdUpVectorConstraintObject]
+
+.. py:method:: vrdAimConstraintNode.removeUpVectorTargetNodes(nodes)
+
+    Removes a list of nodes from up vector targets for the constraint.
+
+    :param nodes: The nodes to remove as up vector targets.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdAimConstraintNode.setUpVectorTargetNodes(nodes)
+
+    Sets a list of nodes as up vector targets for the constraint.
+
+    :param nodes: The nodes to set as up vector targets.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdAimConstraintNode.setUpVectorTargetNodeWeight(node, weight)
+
+    Sets the weight for an up vector target node of the constraint. The node must be referenced in the up vector target nodes list of the constraint.
+
+    :param node: The up vector target node to set the weight for.
+    :type node: vrdNode
+
+    :param weight: The weight for the up vector target node.
+    :type weight: float
+

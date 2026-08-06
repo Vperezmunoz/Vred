@@ -1,0 +1,114 @@
+-------------------
+vrdCubeTextureChunk
+-------------------
+
+.. py:class:: vrdCubeTextureChunk
+
+(Inherits vrdTextureChunk)
+
+This class represents a cube texture chunk.
+
+Summary
+=======
+
+Functions:
+    * getNegXImage() → vrdImage
+    * getNegYImage() → vrdImage
+    * getNegZImage() → vrdImage
+    * getPosXImage() → vrdImage
+    * getPosYImage() → vrdImage
+    * getPosZImage() → vrdImage
+    * setNegXImage(image)
+    * setNegYImage(image)
+    * setNegZImage(image)
+    * setPosXImage(image)
+    * setPosYImage(image)
+    * setPosZImage(image)
+
+Functions
+=========
+
+.. py:method:: vrdCubeTextureChunk.getNegXImage()
+
+    Returns the image for the negative X direction for the cube texture.
+
+    :return: The negative x image.
+    :rtype: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.getNegYImage()
+
+    Returns the image for the negative Y direction for the cube texture.
+
+    :return: The negative y image.
+    :rtype: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.getNegZImage()
+
+    Returns the image for the negative Z direction for the cube texture.
+
+    :return: The negative z image.
+    :rtype: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.getPosXImage()
+
+    Returns the image for the positive X direction for the cube texture.
+
+    :return: The x position image.
+    :rtype: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.getPosYImage()
+
+    Returns the image for the positive Y direction for the cube texture.
+
+    :return: The y position image.
+    :rtype: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.getPosZImage()
+
+    Returns the image for the positive Z direction for the cube texture.
+
+    :return: The z position image.
+    :rtype: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.setNegXImage(image)
+
+    Sets the image for the negative X direction for the cube texture.
+
+    :param image: The image
+    :type image: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.setNegYImage(image)
+
+    Sets the image for the negative Y direction for the cube texture.
+
+    :param image: The image
+    :type image: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.setNegZImage(image)
+
+    Sets the image for the negative Z direction for the cube texture.
+
+    :param image: The image
+    :type image: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.setPosXImage(image)
+
+    Sets the image for the positive X direction for the cube texture.
+
+    :param image: The image
+    :type image: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.setPosYImage(image)
+
+    Sets the image for the positive Y direction for the cube texture.
+
+    :param image: The image
+    :type image: vrdImage
+
+.. py:method:: vrdCubeTextureChunk.setPosZImage(image)
+
+    Sets the image for the positive Z direction for the cube texture.
+
+    :param image: The image
+    :type image: vrdImage
+

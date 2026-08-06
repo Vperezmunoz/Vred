@@ -1,0 +1,30 @@
+---------------------------
+vrdGLSLShaderParameterVec2f
+---------------------------
+
+.. py:class:: vrdGLSLShaderParameterVec2f
+
+(Inherits vrdGLSLShaderParameter)
+
+Summary
+=======
+
+Functions:
+    * getValue() → QVector2D
+    * setValue(value)
+
+Functions
+=========
+
+.. py:method:: vrdGLSLShaderParameterVec2f.getValue()
+
+    :return: The two components vector value of the shader parameter.
+    :rtype: QVector2D
+
+.. py:method:: vrdGLSLShaderParameterVec2f.setValue(value)
+
+    Sets the value of the shader parameter.
+
+    :param value: New value.
+    :type value: QVector2D
+

@@ -1,0 +1,37 @@
+--------------
+vrdFindOptions
+--------------
+
+.. py:class:: vrdFindOptions
+
+(Inherits vrdData)
+
+Options for the scene graph search.
+
+Summary
+=======
+
+Functions:
+    * getIncludeComponents() → bool
+    * setIncludeComponents(value)
+    * vrdFindOptions()
+
+Functions
+=========
+
+.. py:method:: vrdFindOptions.getIncludeComponents()
+
+    :return: True, if components are included in the search.
+    :rtype: bool
+
+.. py:method:: vrdFindOptions.setIncludeComponents(value)
+
+    Defines if components are included in the search. By default, components are excluded.
+
+    :param value: True for inluding components, False otherwise
+    :type value: bool
+
+.. py:method:: vrdFindOptions.vrdFindOptions()
+
+    Default constructor.
+

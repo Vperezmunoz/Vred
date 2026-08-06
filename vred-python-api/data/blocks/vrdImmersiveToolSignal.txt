@@ -1,0 +1,58 @@
+----------------------
+vrdImmersiveToolSignal
+----------------------
+
+.. py:class:: vrdImmersiveToolSignal
+
+(Inherits vrdObjectSignal)
+
+Signal object containing actual signals that are sent by the     vrdImmersiveTool.
+
+Summary
+=======
+
+Signals:
+    * checked(tool)
+    * clicked(tool)
+    * unchecked(tool)
+    * viewClosed(tool)
+    * viewOpened(tool)
+
+Signals
+=======
+
+.. py:method:: vrdImmersiveToolSignal.checked(tool)
+
+    Signal emitted when the tool button is switched on.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrdImmersiveToolSignal.clicked(tool)
+
+    Signal is emitted when the tool button is clicked.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrdImmersiveToolSignal.unchecked(tool)
+
+    Signal emitted when the tool button is switched off.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrdImmersiveToolSignal.viewClosed(tool)
+
+    Signal emitted when the tool view is closed.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrdImmersiveToolSignal.viewOpened(tool)
+
+    Signal emitted when the tool view is opened.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+

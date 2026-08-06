@@ -1,0 +1,36 @@
+----------
+vrdGpuInfo
+----------
+
+.. py:class:: vrdGpuInfo
+
+(Inherits vrdObject)
+
+This class is part of     vrGPUService.
+
+Provides access to information about the current GPU.
+
+Summary
+=======
+
+Functions:
+    * getHasMemorySharingSupport() → bool
+    * getName() → string
+
+Functions
+=========
+
+.. py:method:: vrdGpuInfo.getHasMemorySharingSupport()
+
+    Returns whether memory sharing is available on the current GPU.
+
+    :return: The memory sharing support
+    :rtype: bool
+
+.. py:method:: vrdGpuInfo.getName()
+
+    Returns the name of the GPU.
+
+    :return: The name of the GPU
+    :rtype: string
+

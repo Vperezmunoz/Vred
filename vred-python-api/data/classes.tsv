@@ -1,0 +1,690 @@
+Color3f	class	v1	The constructor of the Color3f class.
+Color4f	class	v1	Represents a color with four components: red, green, blue, and alpha.
+Pnt2f	class	v1	Represents a 2D point.
+Pnt3f	class	v1	Represents a 3D point.
+Pnt4f	class	v1	Represents a 4D point.
+StateChunkPtr	class	v1	Base class for vrChunkPtr.
+Vec2f	class	v1	Represents a 2D vector.
+Vec3f	class	v1	Represents a 3D vector.
+Vec4f	class	v1	Represents a 4D vector.
+vrAEBase	class	v1	Base class for all actions and events.
+vrAmbientOcclusion	module	v1	
+vrAnimation	module	v1	Provides functionality to manage animations in VRED.
+vrAnimWidgets	class	v1	Provides methods to interact with animation widgets in VRED.
+vrAnnotation	class	v1	This class is **deprecated**; use vrAnnotationService and vrdAnnotationNode instead.
+vrAnnotationPtr	module	v1	This class is **deprecated**; use vrdAnnotationNode instead.
+vrAnnotationService	service	v2	 [inherits vrBaseService]
+vrAnnotationTypes	class	v2	
+vrAnnotationTypes.ScalingMode	enum	v2	
+vrAssetsModule	module	v1	
+vrAssetsService	service	v2	This service is used to work with assets. [inherits vrBaseService]
+vrBakeService	service	v2	The bake service provides methods for baking illumination to a texture object. [inherits vrBaseService]
+vrBakeTypes	class	v2	Defines which bake data will be used for rendering.
+vrBakeTypes.AmbientOcclusionWeight	enum	v2	Defines how the ambient occlusion samples in the hemisphere above the calculation point are weighted.
+vrBakeTypes.BakeState	enum	v2	Defines the bake state of a node.
+vrBakeTypes.BakeType	enum	v2	Defines which bake data will be used for rendering.
+vrBakeTypes.DenoiserType	enum	v2	Defines which denoiser is used to denoise the lightmap.
+vrBakeTypes.DirectIlluminationMode	enum	v2	Defines the kind of bake data which is generated as well as the mode used for rendering.
+vrBakeTypes.IlluminationQuality	enum	v2	Defines a quality level for the direct and indirect vertex bake sampling (per vertex).
+vrBakeTypes.Renderer	enum	v2	Defines which raytracer should be used for computing the lightmaps.
+vrBakeTypes.SubdivisionQuality	enum	v2	Defines the quality mode which is used for the subdivision calculation. Subdivision smoothes the baking result by subdividing the mesh into smaller triangles.
+vrBakeTypes.UVGeneration	enum	v2	Defines the generation method used for creating Lightmap UV Sets.
+vrCADFileTypes	class	v2	Enum for import file types.
+vrCADFileTypes.FileType	enum	v2	Enum for import file types.
+vrCADFileTypes.JobState	enum	v2	Enum of states a job can have.
+vrCamera	module	v1	Most functions in this module are **deprecated**; use vrCameraService, vrdCameraNode, and vrdViewpointNode instead.
+vrCameraFromAtUp	class	v2	Class that contains from, at and up vector for use with the camera nodes.
+vrCameraService	service	v2	Interface to access cameras and viewpoints in VRED. [inherits vrBaseService]
+vrCameraTypes	class	v2	
+vrCameraTypes.BlendMode	enum	v2	
+vrCameraTypes.BlendModeType	enum	v2	
+vrCameraTypes.CameraAxis	enum	v2	
+vrCameraTypes.CameraCandelaMapping	enum	v2	
+vrCameraTypes.CameraColorspace	enum	v2	
+vrCameraTypes.CameraConstraint	enum	v2	
+vrCameraTypes.CameraEye	enum	v2	
+vrCameraTypes.CameraProjectionMode	enum	v2	
+vrCameraTypes.CameraResponseCurveMode	enum	v2	
+vrCameraTypes.CameraSensorResponse	enum	v2	
+vrCameraTypes.CameraSensorResponseCurveMapping	enum	v2	
+vrCameraTypes.CameraSpace	enum	v2	
+vrCameraTypes.CameraStereoLayout	enum	v2	
+vrCameraTypes.CameraTonemapper	enum	v2	
+vrCameraTypes.CameraTrackType	enum	v2	
+vrCameraTypes.CollisionStructureBuildMethod	enum	v2	
+vrCameraTypes.DepthOfFieldMode	enum	v2	
+vrCameraTypes.DistortionEdgeMode	enum	v2	
+vrCameraTypes.DistortionType	enum	v2	
+vrCameraTypes.FogFalloffMode	enum	v2	
+vrCameraTypes.FovMode	enum	v2	
+vrCameraTypes.GradingLogSpace	enum	v2	
+vrCameraTypes.InteractiveDofQuality	enum	v2	
+vrCameraTypes.PasteOption	enum	v2	
+vrCameraTypes.TurntableDirection	enum	v2	
+vrCameraTypes.VanishingLinesType	enum	v2	
+vrCameraTypes.ViewpointCreationMode	enum	v2	
+vrChunkPtr	class	v1	The constructor of the vrChunkPtr class. There are three valid versions:
+vrClippingModule	module	v1	
+vrCluster	module	v1	
+vrClusterManagerService	service	v2	A service to control cluster manager functions. [inherits vrBaseService]
+vrClusterService	service	v2	A service to control cluster functions. [inherits vrBaseService]
+vrClusterTypes	class	v2	
+vrClusterTypes.JobType	enum	v2	
+vrCollaborationTypes	class	v2	
+vrCollaborationTypes.AvatarType	enum	v2	
+vrCollision	module	v1	Collision detection.
+vrColorDialog	module	v1	Contains the functionality to let the user interactively choose a color.
+vrConnector	module	v1	
+vrConstraints	module	v1	**Deprecated**. Use API v2 vrConstraintService instead.
+vrConstraintService	service	v2	Constraints control object transformations based on other objects. They create dynamic relationships where target nodes control the transformations of constrain [inherits vrBaseService]
+vrConstraintTypes	class	v2	
+vrConstraintTypes.AimMode	enum	v2	
+vrConstraintTypes.UpMode	enum	v2	
+vrController	module	v1	
+vrCubeImages	module	v1	
+vrdAimConstraintNode	class	v2	Aim constraints control constrained node orientations by using target node positions and optional up vector targets. Multiple targets are combined using weighte [inherits vrdConstraintNode]
+vrdAimConstraintObject	class	v2	This constraint object represents constrained nodes in aim constraints ( vrdAimConstraintNode). It defines how target node transformations control the constrain [inherits vrdConstrainedObject]
+vrdAnalyticSettings	class	v2	This class gives access to material settings used in Analytic Rendering mode. See vrdBRDFMaterial.getAnalytic(). [inherits vrdSceneObject]
+vrdAnnotationNode	class	v2	 [inherits vrdNode]
+vrdAreaLightCone	class	v2	This class provides control of the light cone of an area light. [inherits vrdSceneObject]
+vrdAreaLightNode	class	v2	This is the base class for all area lights. These lights emit light from an entire area in contrast to point lights, which emit light from a single point. [inherits vrdBaseLightNode]
+vrdAreaLightNode.QualityMode	enum	v2	Area light evaluation method in Raytracing.
+vrdAtfSettings	class	v2	Encapsulates the configuration properties for a particular vrCADFileTypes.FileType. Some of the properties only have an effect on certain file formats. Please h [inherits vrdData]
+vrdAtfSettings.DataTranslator	enum	v2	
+vrdAtfSettings.FaceterVersion	enum	v2	
+vrdAtfSettings.GridMode	enum	v2	
+vrdAtfSettings.ImporterVersion	enum	v2	
+vrdAtfSettings.ModelState	enum	v2	
+vrdAtfSettings.SmartReferenceBehavior	enum	v2	
+vrdAtfSettings.SourceReferenceBehavior	enum	v2	
+vrdBaseLightNode	class	v2	This class is the base from which all other light nodes are derived from. It contains the functionality that is shared among all lights. [inherits vrdTransformNode]
+vrdBaseLightProfile	class	v2	Class that gives access to MDL's Light profile. [inherits vrdSceneObject]
+vrdBillboardNode	class	v2	This class provides access to a billboard node. [inherits vrdNode]
+vrdBlendChunk	class	v2	This class represents a blend chunk. [inherits vrdMaterialChunk]
+vrdBlendChunk.DstFactor	enum	v2	
+vrdBlendChunk.Equation	enum	v2	
+vrdBlendChunk.SrcFactor	enum	v2	
+vrdBoundingBox	class	v2	Holds an axis aligned bounding box. [inherits vrdData]
+vrdBRDFCommonSettings	class	v2	This class is used for common properties for all BRDF materials. [inherits vrdSceneObject]
+vrdBRDFCommonSettings.LightingMode	enum	v2	
+vrdBRDFCommonSettings.ProjectionSpace	enum	v2	Use local object space for texture mapping.
+vrdBRDFCommonSettings.VrsQuality	enum	v2	
+vrdBRDFMaterial	class	v2	This class is used to handle all BRDF based material properties. [inherits vrdMaterial]
+vrdBrushedMetalMaterial	class	v2	This class is used to handle all brushed metal material properties. [inherits vrdBRDFMaterial]
+vrdBrushedMetalMaterial.MetalType	enum	v2	
+vrdBrushOrientation	class	v2	This class is used for all brush orientation properties of vrdBrushedMetalMaterial. [inherits vrdSceneObject]
+vrdBrushOrientation.BrushAxis	enum	v2	
+vrdBsdfMeasurement	class	v2	Class that gives access to MDL's measured bsdf. [inherits vrdSceneObject]
+vrdBumpTexture	class	v2	This class is used for all bump texture and bump structure properties. [inherits vrdTexture]
+vrdBumpTexture.BumpType	enum	v2	Parallax mapping method.
+vrdButtonState	class	v2	Represents the state of a button on a VR controller. [inherits vrdData]
+vrdCameraBaseNode	class	v2	This class serves as base class for vrdCameraNode and vrdViewpointNode. [inherits vrdTransformNode]
+vrdCameraCollider	class	v2	This class provides access to the camera collision configuration. [inherits vrdSceneObject]
+vrdCameraNode	class	v2	This class represents a camera in VRED. [inherits vrdCameraBaseNode]
+vrdCameraTrackNode	class	v2	This class represents a camera track node. [inherits vrdNode]
+vrdCarbon2DMaterial	class	v2	This class is used to handle all carbon material properties. [inherits vrdBRDFMaterial]
+vrdCarbonMaterial	class	v2	This class is used to handle all carbon material properties. [inherits vrdBRDFMaterial]
+vrdCarbonPattern	class	v2	This class is used for all carbon pattern properties. [inherits vrdSceneObject]
+vrdCarbonPattern.Type	enum	v2	
+vrdCarbonPattern2D	class	v2	This class is used for all 2D carbon pattern properties. [inherits vrdCarbonPattern]
+vrdCarbonPattern3D	class	v2	This class is used for all 3D carbon pattern properties. [inherits vrdCarbonPattern]
+vrdChromeMaterial	class	v2	This class is used to handle all chrome material properties. [inherits vrdBRDFMaterial]
+vrdChromeMaterial.MetalType	enum	v2	
+vrdChunkMaterial	class	v2	This class is used to handle all chunk material properties. [inherits vrdMaterial]
+vrdChunkMaterial.TransparencyMode	enum	v2	
+vrdClearcoat	class	v2	This class is used for clearcoat properties. [inherits vrdSceneObject]
+vrdClearcoat.Type	enum	v2	Off: No clearcoat is used.
+vrdClippingOptions	class	v2	Configuration options for clipping planes in variant sets. [inherits vrdSceneObject]
+vrdClipPlaneNode	class	v2	This class provides access to clip planes. [inherits vrdTransformNode]
+vrdColorCorrection	class	v2	This class is used for the base color correction properties. [inherits vrdSceneObject]
+vrdConstrainedObject	class	v2	This constraint object represents constrained nodes in all constraint types. It defines how target node transformations are applied to constrained nodes and ser [inherits vrdConstraintObject]
+vrdConstraintGroupNode	class	v2	Constraint groups provide organizational structure in the constraint tree, allowing logical grouping of related constraints. [inherits vrdNode]
+vrdConstraintNode	class	v2	Base class for constraint nodes in VRED's constraint system. Provides common functionality for managing constraint relationships between scene nodes. [inherits vrdNode]
+vrdConstraintObject	class	v2	Constraint objects store constraint parameters for individual scene nodes participating in constraints. Each scene node in a constraint has its own constraint o [inherits vrdSceneObject]
+vrdConstraintTargetObject	class	v2	This constraint object represents target nodes in all constraint types. It defines how target nodes contribute their transformations to constraint computation a [inherits vrdConstraintObject]
+vrdCubeTextureChunk	class	v2	This class represents a cube texture chunk. [inherits vrdTextureChunk]
+vrdDecoreSettings	class	v2	Settings for object decoring/optimization. [inherits vrdData]
+vrdDeltaLightNode	class	v2	This is the base class for all delta light types. [inherits vrdBaseLightNode]
+vrdDepthTestChunk	class	v2	This class represents a depth test chunk. [inherits vrdMaterialChunk]
+vrdDepthTestChunk.DepthFunc	enum	v2	
+vrdDeviceAction	class	v2	Represents an action that is part of an interaction. [inherits vrdObject]
+vrdDeviceActionSignal	class	v2	Signal object containing an actual signal that is sent, when the action this object belongs to is triggered. [inherits vrdObjectSignal]
+vrdDeviceInteraction	class	v2	Represents an interaction that can contain several vrdDeviceAction which are triggered by controller events. [inherits vrdObject]
+vrdDeviceMessageData	class	v2	Defines message content for vrImmersiveInteractionService.showControllerMessage(data, rightHand). You can display either a text message or an image message for  [inherits vrdData]
+vrdDirectionalLightNode	class	v2	This class gives access to the properties of a directional light source. [inherits vrdDeltaLightNode]
+vrdDiskLightNode	class	v2	This class gives access to the properties of a disk light source. [inherits vrdAreaLightNode]
+vrdDisplacement	class	v2	This class is used for displacement settings of MaterialX and MDL materials. [inherits vrdSceneObject]
+vrdDisplacement.SilhouetteMode	enum	v2	
+vrdDisplacementTexture	class	v2	This class is used for all displacement texture properties. [inherits vrdTexture]
+vrdDisplacementTexture.DisplacementSilhouetteMode	enum	v2	
+vrdDistanceLODNode	class	v2	This class provides access to a distance LOD node. [inherits vrdNode]
+vrDecoreService	service	v2	Service for object decoring/optimization. [inherits vrBaseService]
+vrdEnvironmentColorCorrection	class	v2	This class is used for color correction properties of vrdEnvironmentMaterial. [inherits vrdColorCorrection]
+vrdEnvironmentMaterial	class	v2	This is the base class for environment materials vrdSphereEnvironmentMaterial, vrdSkylightMaterial, vrdSubstanceEnvironmentMaterial. [inherits vrdMaterial]
+vrdEnvironmentMaterial.GeometryType	enum	v2	
+vrdEnvironmentNode	class	v2	This class provides access to an environment node. [inherits vrdNode]
+vrdEnvironmentRaytracingSettings	class	v2	This class is used for all environment raytracing properties. [inherits vrdSceneObject]
+vrdEnvironmentRaytracingSettings.Shadowing	enum	v2	FullSphere: Generates shadows based on the full environment sphere.
+vrdEnvironmentShadowsAndIllumination	class	v2	This class is used for all environment shadow and illumination properties. [inherits vrdSceneObject]
+vrdEnvironmentSwitchMaterial	class	v2	This class is used to handle all environment switch material properties. [inherits vrdSwitchMaterial]
+vrdEnvironmentTransformation	class	v2	This class is used for all environment transformation properties. [inherits vrdSceneObject]
+vrDeviceInputTypes	class	v2	
+vrDeviceInputTypes.InputActionType	enum	v2	
+vrDeviceInputTypes.InputDeviceType	enum	v2	
+vrDeviceInputTypes.InputSide	enum	v2	
+vrDeviceInputTypes.VRControllerTypes	enum	v2	
+vrDeviceService	service	v2	This service allows the management of VR devices and interactions that are triggered by those devices. It gives access to interaction as well as device objects  [inherits vrBaseService]
+vrdEyeGaze	class	v2	Holds eye gaze data returned by vrHMDService.getEyeGaze(). [inherits vrdData]
+vrdFileExportSettings	class	v2	Keeps surfaces as surfaces, converts surfaces to a mesh, or excludes all surfaces. [inherits vrdData]
+vrdFileExportSettings.SurfaceExportMode	enum	v2	Keeps surfaces as surfaces, converts surfaces to a mesh, or excludes all surfaces.
+vrdFindOptions	class	v2	Options for the scene graph search. [inherits vrdData]
+vrdFlakeLayer	class	v2	This class is used for all flake layer properties. [inherits vrdSceneObject]
+vrdFlipflopCarpaintMaterial	class	v2	This class is used to handle all flipflop material properties. [inherits vrdBRDFMaterial]
+vrdFlipflopFlakeLayer	class	v2	This class is used for all flip flop material layer properties. [inherits vrdSceneObject]
+vrdFoveatedQuality	class	v2	Holds shading quality settings for foveated rendering in VR. See vrHMDService.setFoveatedRenderingCustomQuality(quality). [inherits vrdData]
+vrdGaussianSplatMaterial	class	v2	This class is used to handle all Gaussian splat material properties. This material type must be used in combination with vrdPointCloudNode. [inherits vrdMaterial]
+vrdGeometryNode	class	v2	This class gives low level access to geometry data. It allows to make changes to vertices, normals and texture coordinates. [inherits vrdTransformNode]
+vrdGlassMaterial	class	v2	This class is used to handle all glass material properties. [inherits vrdBRDFMaterial]
+vrdGlassMaterial.DispersionInputType	enum	v2	Defines how the refraction indices for different wavelengths are calculated.
+vrdGlassMaterial.FresnelQuality	enum	v2	Defines the computation method for the fresnel term.
+vrdGlassMaterial.MediumType	enum	v2	
+vrdGLSLShaderChunk	class	v2	This class represents a GLSL shader chunk. [inherits vrdMaterialChunk]
+vrdGLSLShaderParameter	class	v2	 [inherits vrdSceneObject]
+vrdGLSLShaderParameterInt	class	v2	 [inherits vrdGLSLShaderParameter]
+vrdGLSLShaderParameterList	class	v2	 [inherits vrdObjectList]
+vrdGLSLShaderParameterList.ParameterType	enum	v2	
+vrdGLSLShaderParameterMatrix	class	v2	 [inherits vrdGLSLShaderParameter]
+vrdGLSLShaderParameterReal	class	v2	 [inherits vrdGLSLShaderParameter]
+vrdGLSLShaderParameterVec2f	class	v2	 [inherits vrdGLSLShaderParameter]
+vrdGLSLShaderParameterVec3f	class	v2	 [inherits vrdGLSLShaderParameter]
+vrdGLSLShaderParameterVec4f	class	v2	 [inherits vrdGLSLShaderParameter]
+vrdGpuInfo	class	v2	This class is part of vrGPUService. [inherits vrdObject]
+vrdGpuStateInfo	class	v2	This class is part of vrGPUService. [inherits vrdObject]
+vrdGradingLut	class	v2	Class to access primary grading functionality. [inherits vrdSceneObject]
+vrdGradingPrimary	class	v2	Class to access primary grading functionality. [inherits vrdSceneObject]
+vrdGradingRGBMCurve	class	v2	Class to access grading functionality. [inherits vrdSceneObject]
+vrdGradingTone	class	v2	Class to access tone grading functionality. [inherits vrdSceneObject]
+vrdHDRLightStudio	class	v2	This class is used for connecting a VRED environment to HDR Light Studio. [inherits vrdSceneObject]
+vrdHDRLightStudio.LightPaintMode	enum	v2	
+vrdHostSwitchNode	class	v2	This class provides access to a host switch node. [inherits vrdNode]
+vrdIlluminationBakeSettings	class	v2	Settings for texture baking with vrBakeService.bakeToTexture(geometryNodes, illuminationSettings, textureSettings, replaceTextureBake). [inherits vrdData]
+vrdImage	class	v2	Class that gives access to VRED's internal image format. [inherits vrdSceneObject]
+vrdImmersiveMenu	class	v2	VR menu object. [inherits vrdObject]
+vrdImmersiveMenu.MenuConstraint	enum	v2	
+vrdImmersiveMenu.MenuOrigin	enum	v2	
+vrdImmersiveTool	class	v2	VR tool object. [inherits vrdObject]
+vrdImmersiveToolSignal	class	v2	Signal object containing actual signals that are sent by the vrdImmersiveTool. [inherits vrdObjectSignal]
+vrdIncandescence	class	v2	This class is used for all incandescence properties. [inherits vrdSceneObject]
+vrdLayeredMaterial	class	v2	This class represents a Layered material. [inherits vrdMultiMaterial]
+vrdLensFlareEffect	class	v2	 [inherits vrdSceneObject]
+vrdLensFlareElement	class	v2	This is the base class of all lens flare effect classes. The Light Service works with objects of this class, but behind which objects derived from this class ar [inherits vrdSceneObject]
+vrdLensFlareFxElement	class	v2	This class is used for all common properties of vrdLensFlareStar, vrdLensFlareGhost, vrdLensFlareStreak and vrdLensFlareGlow lens flare effect classes. [inherits vrdLensFlareElement]
+vrdLensFlareGhost	class	v2	This class is used for a ghost effect in a ghost line. Ghost are elements that move with the light source. A short introduction can be found under https://help. [inherits vrdLensFlareFxElement]
+vrdLensFlareGhostLine	class	v2	This class is used for collection ghost effects. Objects of this class acts as a container for vrdLensFlareGhost objects. But it is an effect too. This class ha [inherits vrdLensFlareElement]
+vrdLensFlareGlow	class	v2	This class is used for a glowing shape. A short introduction can be found under https://help.autodesk.com/view/VREDPRODUCTS/2020/ENU/?guid=VRED_Lights_About_Len [inherits vrdLensFlareFxElement]
+vrdLensFlareRing	class	v2	 [inherits vrdLensFlareFxElement]
+vrdLensFlareStar	class	v2	This class is used for a sun-like effect, made up of multiple streaks. Use it for things such as street lamps at night, objects with stationary lights, or a lig [inherits vrdLensFlareFxElement]
+vrdLensFlareStreak	class	v2	This class is used for a streaking effect, like what you get when using an anamorphic lens. Use it for things such as street lamps at night, objects with statio [inherits vrdLensFlareFxElement]
+vrdLightLinkSetNode	class	v2	Class for light links defining local lighting. [inherits vrdNode]
+vrdLightmap	class	v2	This class gives access to a lightmap. [inherits vrdSceneObject]
+vrdLightPortalMaterial	class	v2	This class is used for all light portal material properties. [inherits vrdMaterial]
+vrdLightProfile	class	v2	 [inherits vrdSceneObject]
+vrdLightTexture	class	v2	This class represents a texture that can be projected by a light source into the scene. [inherits vrdSceneObject]
+vrdLightTransform	class	v2	This class is used to change or propagate the transformation of a light. [inherits vrdSceneObject]
+vrdLinearGradient	class	v2	Defines a linear gradient and evaluates it. [inherits vrdSceneObject]
+vrdLinearGradientStop	class	v2	Holds the data of a stop of a linear gradient. [inherits vrdData]
+vrdLineChromeMaterial	class	v2	This class is used to handle all chrome material properties. [inherits vrdBRDFMaterial]
+vrdLineChunk	class	v2	The line chunk contains the parameters that are specific set for lines. [inherits vrdMaterialChunk]
+vrdLiveReferenceNode	class	v2	Live Reference node. [inherits vrdReferenceNode]
+vrdMarker	class	v2	Marker. [inherits vrdObject]
+vrdMaterial	class	v2	Base class for all materials. [inherits vrdSceneObject]
+vrdMaterialChunk	class	v2	This is the base class for all material chunks. [inherits vrdSceneObject]
+vrdMaterialChunkList	class	v2	This class is a container for the chunks of a chunk material. [inherits vrdObjectList]
+vrdMaterialChunkList.ChunkType	enum	v2	
+vrdMaterialList	class	v2	This class is used to manage children of a multi material. [inherits vrdObjectList]
+vrdMaterialNode	class	v2	Class for a node with a material. [inherits vrdNode]
+vrdMaterialPoolNode	class	v2	This class provides access to the material pool. [inherits vrdNode]
+vrdMaterialRaytracingSettings	class	v2	This class is used for all material raytracing properties. [inherits vrdSceneObject]
+vrdMaterialRaytracingSettings.IlluminationMode	enum	v2	
+vrdMaterialXMaterial	class	v2	This class is used to handle all MaterialX based material properties. [inherits vrdBRDFMaterial]
+vrdMaterialXMaterial.CompilationType	enum	v2	Defines the method used to compile the material for Raytracing.
+vrdMaterialXProperties	class	v2	This class is used to query information about all attributes of a materialX material. [inherits vrdSceneObject]
+vrdMatrixTransformNode	class	v2	This class provides access to a matrix transform node. [inherits vrdNode]
+vrdMDLMaterial	class	v2	This class is used to handle all MDL module based material properties. [inherits vrdBRDFMaterial]
+vrdMDLMaterial.CompilationType	enum	v2	Defines the method used to compile the material for Raytracing.
+vrdMDLProperties	class	v2	This class is used to query information about all attributes of a mdl material. [inherits vrdSceneObject]
+vrdMeasuredCarpaintMaterial	class	v2	This class is used to handle all measured carpaint material properties. [inherits vrdBRDFMaterial]
+vrdMeasuredMaterial	class	v2	This class is used to handle all measured material properties. [inherits vrdBRDFMaterial]
+vrdMetadata	class	v2	This class gives access to the metadata of an object. [inherits vrdObject]
+vrdMetadataEntry	class	v2	This class gives access to an entry of a vrdMetadataSet. [inherits vrdObject]
+vrdMetadataEntryList	class	v2	This class is used to manage vrdMetadataEntry entries of a vrdMetadataSet. [inherits vrdObjectList]
+vrdMetadataSet	class	v2	This class gives access to the metadata set and metadata entries of an object. [inherits vrdObject]
+vrdMetallicCarpaintMaterial	class	v2	This class is used to handle all metalic paint material properties. [inherits vrdBRDFMaterial]
+vrdMetallicCarpaintMaterial.PaintType	enum	v2	
+vrdMultiMarker	class	v2	Multi Marker. [inherits vrdMarker]
+vrdMultiMaterial	class	v2	This class is the base class for all materials with children. E.g. vrdSwitchMaterial. [inherits vrdMaterial]
+vrdMultiPassMaterial	class	v2	This class represents a multi pass material. [inherits vrdMultiMaterial]
+vrdNode	class	v2	This is the base class for all nodes. [inherits vrdSceneObject]
+vrdNodeInfo	class	v2	Holds statistical information of a node returned by vrScenegraphService.getNodeInfo(nodes). [inherits vrdData]
+vrdNodeList	class	v2	This class gives access to a collection of nodes. [inherits vrdObjectList]
+vrdNPRSettings	class	v2	This class gives access to material settings for non photorealistic rendering (NPR) mode. [inherits vrdSceneObject]
+vrdObject	class	v2	This is the base class for all decoupled objects in VRED.
+vrdObjectList	class	v2	Common interface to provide access to a collection of vrdObjects. [inherits vrdObject]
+vrdObjectSignal	class	v2	Base class for all signal objects. [inherits QObject]
+vrdOCSMaterial	class	v2	This class is used to handle all OCS material properties. [inherits vrdBRDFMaterial]
+vrdOpenGLInfo	class	v2	This class is part of vrGPUService. [inherits vrdObject]
+vrdOpenVDBMaterial	class	v2	This class is used to handle all OpenVDB material properties. [inherits vrdVolumeMaterial]
+vrdOrientationConstraintNode	class	v2	Orientation constraints control constrained node orientations by using target node orientations. Multiple targets are combined using weighted average calculatio [inherits vrdConstraintNode]
+vrdOrientationConstraintObject	class	v2	This constraint object represents constrained nodes in orientation constraints ( vrdOrientationConstraintNode). It defines how target node rotations control the [inherits vrdConstrainedObject]
+vrdParentConstraintNode	class	v2	Parent constraints control constrained nodes by making them behave like children of target nodes. Multiple targets are combined using weighted average calculati [inherits vrdConstraintNode]
+vrdParentConstraintObject	class	v2	This constraint object represents constrained nodes in parent constraints ( vrdParentConstraintNode). It defines how target node transformations control the con [inherits vrdConstrainedObject]
+vrdPerspectiveMatch	class	v2	Class to access camera perspective matching functionality. [inherits vrdSceneObject]
+vrdPhongMaterial	class	v2	This class is used to handle all phong material properties. [inherits vrdBRDFMaterial]
+vrdPhysicsBoxColliderSettings	class	v2	Settings for a box collider, providing a simple rectangular collision volume. [inherits vrdPhysicsColliderSettings]
+vrdPhysicsBoxConfig	class	v2	The configuration class for PhysX box colliders. [inherits vrdPhysicsConfig]
+vrdPhysicsCapsuleColliderSettings	class	v2	The vrdPhysicsCapsuleColliderSettings class represents collider settings for PhysX capsule colliders. [inherits vrdPhysicsColliderSettings]
+vrdPhysicsCapsuleConfig	class	v2	The configuration class for PhysX capsule colliders. [inherits vrdPhysicsConfig]
+vrdPhysicsColliderSettings	class	v2	The vrdPhysicsColliderSettings class represents base collider settings for physics objects. [inherits vrdSceneObject]
+vrdPhysicsConfig	class	v2	The base class for all physics configuration classes. [inherits vrdData]
+vrdPhysicsConvexConfig	class	v2	The configuration class for physics objects produced by convex decomposition. [inherits vrdPhysicsHullConfig]
+vrdPhysicsConvexDecompositionColliderSettings	class	v2	The vrdPhysicsConvexDecompositionColliderSettings class represents collider settings for physics objects produced by convex decomposition. [inherits vrdPhysicsHullColliderSettings]
+vrdPhysicsGroupNode	class	v2	The vrdPhysicsGroupNode class represents a physics group in the scene. [inherits vrdNode]
+vrdPhysicsHullColliderSettings	class	v2	The vrdPhysicsHullColliderSettings class represents collider settings for PhysX convex hull colliders. [inherits vrdPhysicsColliderSettings]
+vrdPhysicsHullConfig	class	v2	The configuration class for PhysX convex hull colliders. [inherits vrdPhysicsConfig]
+vrdPhysicsInfo	class	v2	The vrdPhysicsInfo class represents information about physics collisions between objects. [inherits vrdData]
+vrdPhysicsMaterial	class	v2	The physics material class for handling friction and restitution properties. [inherits vrdObject]
+vrdPhysicsObjectNode	class	v2	The vrdPhysicsObjectNode class represents a physics object in the scene. [inherits vrdNode]
+vrdPhysicsPlaneColliderSettings	class	v2	Settings for a plane collider, typically used as a ground plane. [inherits vrdPhysicsColliderSettings]
+vrdPhysicsPlaneConfig	class	v2	The configuration class for PhysX plane colliders. [inherits vrdPhysicsConfig]
+vrdPhysicsRubberBand	class	v2	The vrdPhysicsRubberBand class exposes parameters for the rubber-band drive behavior used by interactive physics dragging. [inherits vrdObject]
+vrdPhysicsScene	class	v2	The vrdPhysicsScene class represents the physics scene with global physics properties. [inherits vrdObject]
+vrdPhysicsSDFColliderSettings	class	v2	The vrdPhysicsSDFColliderSettings class represents collider settings for PhysX SDF colliders. [inherits vrdPhysicsTrianglesColliderSettings]
+vrdPhysicsSDFConfig	class	v2	The configuration class for PhysX SDF (Signed Distance Field) colliders. [inherits vrdPhysicsTrianglesConfig]
+vrdPhysicsSphereColliderSettings	class	v2	The vrdPhysicsSphereColliderSettings class represents collider settings for PhysX sphere colliders. [inherits vrdPhysicsColliderSettings]
+vrdPhysicsSphereConfig	class	v2	The configuration class for PhysX sphere colliders. [inherits vrdPhysicsConfig]
+vrdPhysicsTrianglesColliderSettings	class	v2	The vrdPhysicsTrianglesColliderSettings class represents collider settings for PhysX triangle colliders. [inherits vrdPhysicsColliderSettings]
+vrdPhysicsTrianglesConfig	class	v2	The configuration class for PhysX triangle collider. [inherits vrdPhysicsConfig]
+vrdPlasticMaterial	class	v2	This class is used to handle all plastic material properties. [inherits vrdBRDFMaterial]
+vrdPointCloudNode	class	v2	Node representing a point cloud and its per-point attributes. [inherits vrdTransformNode]
+vrdPointLightNode	class	v2	This class gives access to the properties of a point light source. [inherits vrdDeltaLightNode]
+vrdPolygonChunk	class	v2	This class represents a polygon chunk. [inherits vrdMaterialChunk]
+vrdPolygonChunk.CullFace	enum	v2	
+vrdPolygonChunk.FillMode	enum	v2	
+vrdPolygonChunk.FrontFace	enum	v2	
+vrdPositionConstraintNode	class	v2	Position constraints control constrained node positions by using target node positions. Multiple targets are combined using weighted average calculations. [inherits vrdConstraintNode]
+vrdPositionConstraintObject	class	v2	This constraint object represents constrained nodes in position constraints ( vrdPositionConstraintNode). It defines how target node positions control the const [inherits vrdConstrainedObject]
+vrdProjectMergeSettings	class	v2	 [inherits vrdData]
+vrdRayFile	class	v2	Interface to ray files. [inherits vrdSceneObject]
+vrdRayFileInfo	class	v2	Interface to ray files. [inherits vrdData]
+vrdRayIntersection	class	v2	Represents an intersection of an ray with a node in the scene. [inherits vrdData]
+vrdRayLightNode	class	v2	Interface for a ray light node. [inherits vrdBaseLightNode]
+vrdRaytracedAmbientOcclusionSettings	class	v2	This class configures the Raytraced Ambient Occlusion in Vulkan rendering mode. [inherits vrdObject]
+vrdRaytracedDiffuseGISettings	class	v2	This class configures the Raytraced Diffuse GI in Vulkan rendering mode. [inherits vrdObject]
+vrdRaytracedEnvironmentShadowsSettings	class	v2	This class configures the Raytraced Environment Shadows in Vulkan rendering mode. [inherits vrdObject]
+vrdRaytracedReflectionsSettings	class	v2	This class configures the Raytraced Reflections in Vulkan rendering mode. [inherits vrdObject]
+vrdRaytracingInfo	class	v2	This class is part of vrGPUService. [inherits vrdObject]
+vrdRectangularLightNode	class	v2	This class gives access to the properties of a rectangular light source. [inherits vrdAreaLightNode]
+vrdReferenceNode	class	v2	Reference node. [inherits vrdTransformNode]
+vrdReflectivePlasticMaterial	class	v2	This class is used to handle all reflexive plastic material properties. [inherits vrdBRDFMaterial]
+vrdReflectivePlasticMaterial.FresnelQuality	enum	v2	
+vrdRenderAnimationInfo	class	v2	 [inherits vrdObject]
+vrdRenderAutomationVariantSetGroup	class	v2	 [inherits vrdObject]
+vrdRenderPasses	class	v2	 [inherits vrdObject]
+vrdRenderSettings	class	v2	Encapsulates the render settings. [inherits vrdObject]
+vrdRenderStatistic	class	v2	 [inherits vrdObject]
+vrdRoughnessTexture	class	v2	This class is used for all roughness texture properties. [inherits vrdTexture]
+vrdRoundedEdges	class	v2	This class is used for all rounded edges properties. [inherits vrdSceneObject]
+vrdRoundedEdges.EdgeMode	enum	v2	
+vrdRoundedEdges.EdgeType	enum	v2	
+vrdSceneImportSettings	class	v2	 [inherits vrdData]
+vrdSceneItemInfo	class	v2	Holds information to show a vrdNode in the scenegraph tree. getTreeItemInfo in vrScenegraphService will create this structure. [inherits vrdData]
+vrdSceneItemInfo.Flags	enum	v2	
+vrdSceneObject	class	v2	This interface represents an object that is part of the scene. [inherits vrdObject]
+vrdSceneplateNode	class	v2	Base class for all scene plate types. [inherits vrdNode]
+vrdScreenSpaceAmbientOcclusionSettings	class	v2	This class configures the Screen Space Ambient Occlusion (SSAO) in OpenGL and Vulkan rendering modes. [inherits vrdObject]
+vrdSessionUser	class	v2	User information for collaboration sessions. [inherits vrdObject]
+vrdShadowMap	class	v2	This class gives access to settings of shadow maps in OpenGL and Vulkan rendering. [inherits vrdSceneObject]
+vrdShadowMaterial	class	v2	This class is used to handle all shadow material properties. [inherits vrdMaterial]
+vrdShadowMaterial.OpacityMode	enum	v2	
+vrdShadowMaterial.ReflectionMode	enum	v2	
+vrdSheen	class	v2	This class is used for sheen properties. [inherits vrdSceneObject]
+vrdSkylightLocation	class	v2	This class is used for location and time zone properties of vrdSkylightMaterial. [inherits vrdSceneObject]
+vrdSkylightMaterial	class	v2	This class is used to handle all skylight material properties. [inherits vrdEnvironmentMaterial]
+vrdSkylightSkyAndSun	class	v2	This class is used for all skylight properties of vrdSkylightMaterial. [inherits vrdSceneObject]
+vrdSkylightSkyAndSun.SkyModel	enum	v2	
+vrdSoundNode	class	v2	This class provides access to access a sound node. [inherits vrdNode]
+vrdSoundNode.ReverbEffect	enum	v2	Reverb effects.
+vrdSoundNode.SpatializeSourceMode	enum	v2	Modes for spatialized source.
+vrdSoundObstructorNode	class	v2	This class provides access a sound obstructor node. [inherits vrdNode]
+vrdSphereEnvironmentMaterial	class	v2	This class is used to handle sphere environment material properties. It is used for image based lighting (IBL) from a user-provided texture. [inherits vrdEnvironmentMaterial]
+vrdSphericalLightNode	class	v2	This class gives access to the properties of a spherical light source. [inherits vrdAreaLightNode]
+vrdSpotLightNode	class	v2	This class gives access to the properties of a spot light source. [inherits vrdPointLightNode]
+vrdStereoSwitchNode	class	v2	Objects of this type represent a stereo switch node. The first child node of a stereo switch is drawn on the left eye channel, the second child node is drawn on [inherits vrdNode]
+vrdSubstanceEnvironmentMaterial	class	v2	This class is used to handle all substance archive based environment material properties. [inherits vrdEnvironmentMaterial]
+vrdSubstanceMaterial	class	v2	This class is used to handle all substance archive based material properties. [inherits vrdBRDFMaterial]
+vrdSubstancePreset	class	v2	This class is used to describe a substance preset. [inherits vrdSceneObject]
+vrdSubstanceProperties	class	v2	This class is used to query information about all attributes of a vrdSubstanceMaterial. [inherits vrdSceneObject]
+vrdSubsurfaceScattering	class	v2	This class is used for all subsurface scattering properties. [inherits vrdSceneObject]
+vrdSubsurfaceScattering.MediumType	enum	v2	
+vrdSubsurfaceScattering.Mode	enum	v2	
+vrdSurfaceNode	class	v2	This is currently a placeholder interface with no functionality. [inherits vrdGeometryNode]
+vrdSVBRDFMaterial	class	v2	this class is used for measured materials of type SVBRDF (spatially varying BRDF). [inherits vrdBRDFMaterial]
+vrdSwitchMaterial	class	v2	This class is used to handle all switch material properties. [inherits vrdMultiMaterial]
+vrdSwitchNode	class	v2	Switch node. [inherits vrdNode]
+vrdTessellationSettings	class	v2	 [inherits vrdData]
+vrdTexture	class	v2	This class is used for all texture properties. [inherits vrdSceneObject]
+vrdTextureBake	class	v2	This class provides functionality for texture bake data of a single geometry node. [inherits vrdSceneObject]
+vrdTextureBakeSettings	class	v2	Settings for texture baking with vrBakeService.bakeToTexture(geometryNodes, illuminationSettings, textureSettings, replaceTextureBake). [inherits vrdData]
+vrdTextureChunk	class	v2	This class represents a texture chunk. [inherits vrdMaterialChunk]
+vrdTextureChunk.InternalFormat	enum	v2	
+vrdTextureChunk.MagFilter	enum	v2	
+vrdTextureChunk.MinFilter	enum	v2	
+vrdTextureChunk.WrapMode	enum	v2	
+vrdTextureSettings	class	v2	This class is used for all texture mapping properties. [inherits vrdSceneObject]
+vrdThinFilm	class	v2	This class is used for thin film properties. [inherits vrdSceneObject]
+vrdTireMaterial	class	v2	This class is used to handle all tire material properties. [inherits vrdBRDFMaterial]
+vrdTireTextureSettings	class	v2	This class is used for all tire material texture properties. [inherits vrdSceneObject]
+vrdTonemapper	class	v2	Class to access tonemapping functionality. [inherits vrdSceneObject]
+vrdTrackedHand	class	v2	Access to tracked hands. [inherits vrdObject]
+vrdTransformLimits	class	v2	 [inherits vrdSceneObject]
+vrdTransformNode	class	v2	Transformation node. [inherits vrdNode]
+vrdTransformNodeVariant	class	v2	Transformation node variant. [inherits vrdSceneObject]
+vrdTransparency	class	v2	This class is used for all transparency properties. [inherits vrdSceneObject]
+vrdTurntable	class	v2	This class provides control over the turntable of a camera. [inherits vrdSceneObject]
+vrdUiEngine	class	v2	This is the base class for engines displaying user interfaces on textures. [inherits vrdObject]
+vrdUnicolorCarpaintMaterial	class	v2	This class is used to handle all unicolor paint material properties. [inherits vrdBRDFMaterial]
+vrdUpVectorConstraintObject	class	v2	This constraint object represents up vector target nodes in aim constraints ( vrdAimConstraintNode). It defines how target node orientations provide the up dire [inherits vrdConstraintTargetObject]
+vrdUVBaseProjectionSettings	class	v2	This is the base class for the UV coordinate projection settings. [inherits vrdData]
+vrdUVCylindricalProjectionSettings	class	v2	Class for cylindrical UV coordinate projection settings. [inherits vrdUVBaseProjectionSettings]
+vrdUVLayoutSettings	class	v2	Holds settings for UV layout (packing of UV islands in the UV space) with Unfold3D. See vrUVService.layout(nodes, settings, uvSet). [inherits vrdData]
+vrdUVOptimizeSettings	class	v2	Holds settings for UV optimize with Unfold3D. See vrUVService.optimize(nodes, settings, uvSet). [inherits vrdData]
+vrdUVPlanarProjectionSettings	class	v2	Class for planar UV coordinate projection settings. [inherits vrdUVBaseProjectionSettings]
+vrdUVSeamSettings	class	v2	Settings for seaming with vrUVService. [inherits vrdData]
+vrdUVTriplanarProjectionSettings	class	v2	Class for triplanar UV coordinate projection settings. [inherits vrdData]
+vrdUVUnfoldSettings	class	v2	Holds settings for UV unfold with Unfold3D. See vrUVService.unfold(nodes, unfoldSettings, layoutSettings, uvSet). [inherits vrdData]
+vrdVariant	class	v2	Provides a mechanism to target and change scene objects. [inherits vrdSceneObject]
+vrdVariantHotKey	class	v2	Hotkey definition for a variant. [inherits vrdData]
+vrdVariantSetGroupNode	class	v2	Node containing a group for variant sets. [inherits vrdNode]
+vrdVariantSetNode	class	v2	Node containing a variant set. [inherits vrdNode]
+vrdVariantSetReferenceNode	class	v2	Node containing a reference to a variant set. [inherits vrdNode]
+vrdVariantState	class	v2	A variant state represents a certain configuration of a variant. [inherits vrdSceneObject]
+vrdVariantStates	class	v2	This class gives access to a collection of vrdVariantStates. [inherits vrdObjectList]
+vrdVarjoRenderSettings	class	v2	Holds render settings for Varjo HMD. Changes to these settings take effect on next activation of Varjo HMD mode. [inherits vrdData]
+vrdVelvetMaterial	class	v2	This class is used to handle all velvet material properties. [inherits vrdBRDFMaterial]
+vrdVertexBake	class	v2	This class provides functionality for vertex bake data of a single geometry. [inherits vrdSceneObject]
+vrdVertexBakeSettings	class	v2	Settings for vertex baking. [inherits vrdData]
+vrdViewpointNode	class	v2	This class represents a viewpoint in VRED. [inherits vrdCameraBaseNode]
+vrdVirtualTouchpadButton	class	v2	Represents a virtual button loacted on a touchpad of an VR controller. This virtual button can be used to split up the touchpad on a VR controller that can be u [inherits vrdData]
+vrdVolumeMaterial	class	v2	Base class for volume materials. [inherits vrdMaterial]
+vrdVolumeNode	class	v2	A node that a volume material can be assigned to. [inherits vrdTransformNode]
+vrdVolumeScatterMaterial	class	v2	This class is used to handle all volume scatter material properties. [inherits vrdVolumeMaterial]
+vrdVolumeScatterMaterial.NoiseMode	enum	v2	There are two noise modes: Off to have a homgenous volume, and FlowNoise which is a continuous volume that animates smoothly.
+vrdVRDevice	class	v2	Represents a VR device like a controller or a tracker. This can be created before the actual device is connected with the system. When a device connects, VRED w [inherits vrdObject]
+vrdVRDeviceSignal	class	v2	Signal object containing actual signals that are sent by the vrdVRDevice. [inherits vrdObjectSignal]
+vrdWebEngine	class	v2	This class represents a web engine. Web engines are used to displpay HTML 5 content on textures. [inherits vrdUiEngine]
+vrdWebEngine.TextureSlotType	enum	v2	
+vrdWovenClothMaterial	class	v2	This class is used to handle all woven cloth material properties. [inherits vrdBRDFMaterial]
+vrdWovenClothMaterial.ClothPreset	enum	v2	
+vrdWovenClothMaterial.WeaveType	enum	v2	
+vrdWovenClothMaterial.YarnType	enum	v2	Staple Yarn simulates yarn that is made up of many tiny threads. Use this type for rough types of clothes such as denim.
+vrdXRayMaterial	class	v2	This class is used to handle all X ray material properties. [inherits vrdBRDFMaterial]
+vrdXRiteMeasuredMaterial	class	v2	This class is used to handle all X-Rite material properties. [inherits vrdSwitchMaterial]
+vrFade	class	v1	vrFade fades the alpha values of objects below the specified node from opaque to full transparency in the first cycle. When the second cycle is executed, it wil
+vrFieldAccess	module	v1	The vrFieldAccess class offers access to any kind of data (fields) inside the scenegraph (regardless if it is a node, a geometry, material, etc.). You get acces
+vrFileDialog	module	v1	Contains the functionality to let the user interactively choose file or directory names.
+vrFileIO	module	v1	
+vrFileIOService	service	v2	 [inherits vrBaseService]
+vrFileTypes	class	v2	
+vrFileTypes.FileExtensionFilterMode	enum	v2	
+vrFileTypes.TextureCompressionMode	enum	v2	Defines the texture compression for osb/vpb export.
+vrFrame	class	v1	
+vrGeometryEditor	module	v1	
+vrGeometryService	service	v2	Interface to create and change geometries. [inherits vrBaseService]
+vrGeometryTypes	class	v2	Primitive type of vrdGeometryNode.
+vrGeometryTypes.DecoreMode	enum	v2	When geometry is determined to be inside another and non-visible, then one of these options are available:
+vrGeometryTypes.DecoreSubObjectMode	enum	v2	Determines how sub-objects are factored in when decoring or correcting face normals.
+vrGeometryTypes.DecoreTransparentObjectMode	enum	v2	Defines how transparent objects are handled when decoring.
+vrGeometryTypes.PrimitiveType	enum	v2	Primitive type of vrdGeometryNode.
+vrGeometryTypes.VisibilityMergeMode	enum	v2	Hidden and visible geometry nodes are merged separately.
+vrGPUService	service	v2	A service to query GPU information. [inherits vrBaseService]
+vrGPUTypes	class	v2	
+vrGPUTypes.OpenGLFeature	enum	v2	
+vrGPUTypes.OpenGLVendor	enum	v2	
+vrGUIService	service	v2	Defines a type of file dialog, e.g. to open/save a texture. [inherits vrBaseService]
+vrGUIService.DialogType	enum	v2	Defines a type of file dialog, e.g. to open/save a texture.
+vrGUIService.ViewCubePosition	enum	v2	Defines the position of the view cube.
+vrGUIService.ViewCubeSize	enum	v2	Defines the size of the view cube.
+vrHandTypes	class	v2	
+vrHandTypes.FingerType	enum	v2	
+vrHandTypes.HandRole	enum	v2	
+vrHandTypes.HandTrackingGesture	enum	v2	
+vrHandTypes.HandTrackingType	enum	v2	
+vrHMDService	service	v2	Gives access to a Virtual Reality HMD (Head-mounted display) like the HTC Vive or Oculus. [inherits vrBaseService]
+vrImagePtr	class	v1	A wrapper class for the OpenSG ImagePtr. See C{vrdImage} in API v2.
+vrImageService	service	v2	Service for vrdImage related functions. [inherits vrBaseService]
+vrImageTypes	class	v2	Options for vrImageService.loadImage(filename, loadType, loadOptions).
+vrImageTypes.LoadOptionsBitmask	enum	v2	Options for vrImageService.loadImage(filename, loadType, loadOptions).
+vrImageTypes.LoadType	enum	v2	Type of image to load with vrImageService.loadImage(filename, loadType, loadOptions).
+vrImageTypes.ShareMode	enum	v2	Enum for image sharing modes.
+vrImmersiveInteractionService	service	v2	This service allows the management of all immersive device interactions that are built into VRED. It contains methods to activate or deactivate these interactio [inherits vrBaseService]
+vrImmersiveInteractionTypes	class	v2	Enum for teleport modes.
+vrImmersiveInteractionTypes.ControlMode	enum	v2	Enum for pointer tool / teleport control mode.
+vrImmersiveInteractionTypes.TeleportGroundMode	enum	v2	Enum for teleport modes.
+vrImmersiveUiService	service	v2	Interface to work with interactive VR windows and tools. [inherits vrBaseService]
+vrInteraction	module	v1	Base class for all interactions.
+vrInteractionModule	module	v1	
+vrInterpolator	module	v1	vrInterpolator
+vrInterpolator	class	v1	Transforms objects.
+vrJoystick	class	v1	Joystick device handler.
+vrKey	class	v1	The key class is used to define functionality to be called on key presses.
+vrLensFlareTypes	class	v2	
+vrLensFlareTypes.ElementShape	enum	v2	
+vrLensFlareTypes.ElementType	enum	v2	
+vrLensFlareTypes.PresetType	enum	v2	
+vrLensFlareTypes.StarShape	enum	v2	
+vrLightLinkSetPtr	class	v1	Note: This module contains global functions which are mapped to the global namespace. They can be used without creating an instance of the class.
+vrLightService	service	v2	Interface to access lights, light sets and lens flares in VRED. [inherits vrBaseService]
+vrLightTypes	class	v2	Sets the falloff of the light intensity.
+vrLightTypes.Attenuation	enum	v2	Sets the falloff of the light intensity.
+vrLightTypes.LightType	enum	v2	
+vrLightTypes.Unit	enum	v2	
+vrLightTypes.VolumeIlluminationMode	enum	v2	Enables lighting on volumes.
+vrLiveReferenceService	service	v2	Interface to access VRED and Alias interoperability data. [inherits vrBaseService]
+vrLiveReferenceTypes	class	v2	
+vrLiveReferenceTypes.SearchOption	enum	v2	
+vrLogService	service	v2	Service that provides access to logging functionality. [inherits vrBaseService]
+vrLogTypes	class	v2	Defines the logging level.
+vrLogTypes.Level	enum	v2	Defines the logging level.
+vrLogTypes.LogType	enum	v2	Defines which message will be logged.
+vrMain	class	v1	
+vrMaterialEditor	module	v1	Most functions in this module are **deprecated**; use API v2 vrMaterialService and vrdMaterial types instead.
+vrMaterialEntry	class	v2	Holds information about an entry in the virtual material tree.
+vrMaterialEntryId	class	v2	Identifies an entry in the material tree. The material tree is formed out of the material pool by expanding all multimaterials as if they were regular nodes. At
+vrMaterialEntryType	enum	v2	Defines the types of entries in the material tree.
+vrMaterialPtr	class	v1	A wrapper class for the OpenSG MaterialPtr.
+vrMaterialService	service	v2	Interface to access materials in VRED. [inherits vrBaseService]
+vrMaterialTypes	class	v2	Defines the type of a material.
+vrMaterialTypes.MaterialType	enum	v2	Defines the type of a material.
+vrMaterialTypes.MergeOptions	enum	v2	Defines options for merging materials.
+vrMathService	service	v2	Math utilities. [inherits vrBaseService]
+vrMeasurement	module	v1	
+vrMenu	class	v1	Example::
+vrMessageService	service	v2	The vrMessageService gives access to messages sent by the VRED application. [inherits vrBaseService]
+vrMetadataService	service	v2	The metadata service provides functions for managing metadata. [inherits vrBaseService]
+vrMetadataTypes	class	v2	Enum for a description of the ways in which metadata sets have changed.
+vrMetadataTypes.ChangeFlag	enum	v2	Enum for a description of the ways in which metadata sets have changed.
+vrMetadataTypes.MatrixOrder	enum	v2	Enum for a description of the way in which matrices are stored.
+vrMetadataTypes.ObjectType	enum	v2	Enum for a description of which object types can have metadata.
+vrMetadataTypes.ValueType	enum	v2	Enum for a description of what type of data an metadata entry contains.
+vrMovieExport	module	v1	
+vrMoviePlayer2	class	v1	**Constructor:**
+vrNodePtr	class	v1	The NodePtr class is a Python representation of a node within the scenegraph. It can be used to alter the existing structure by adding/removing nodes.
+vrNodeService	service	v2	A service that provides helper functions for working with vrdNodes. [inherits vrBaseService]
+vrNodeService.TraverseChoice	enum	v2	Defines the choice for the next traverse iteration.
+vrNodeUtils	module	v1	
+vrObjectService	service	v2	 [inherits vrBaseService]
+vrOculusTouchController	module	v1	**Deprecated**. Use API v2 vrDeviceService, vrdVRDevice and vrdDeviceInteraction instead.
+vrOpenPDM	module	v1	
+vrOpenVR	module	v1	
+vrOpenVRController	class	v1	Proxy class for an OpenVR Controller. Deprecated; use vrDeviceService, vrdVRDevice, and vrdDeviceInteraction instead.
+vrOpenVRFrameTimings	module	v1	The `vrOpenVRFrameTimings` class stores timing information from the OpenVR library that can be queried by calling `getOpenVRFrameTimings()`. The timing informat
+vrOptimize	module	v1	The vrOptimize module allows optimizing the representation of the graphical scene to speed up rendering.
+vrOSGTypes	module	v1	The constructor of the Color3f class.
+vrOSGWidget	module	v1	
+vrPhysicsService	service	v2	The vrPhysicsService class. [inherits vrBaseService]
+vrPhysicsTypes	class	v2	The ColliderShape enum defines the types of physics colliders that can be added to the simulation.
+vrPhysicsTypes.Axis	enum	v2	The Axis enum defines the axes used in physics calculations.
+vrPhysicsTypes.ColliderShape	enum	v2	The ColliderShape enum defines the types of physics colliders that can be added to the simulation.
+vrPhysicsTypes.ColliderType	enum	v2	
+vrPhysicsTypes.ForceMode	enum	v2	The ForceMode enum defines how forces and torques are applied to physics objects. Corresponds to PhysX PxForceMode enum.
+vrPhysicsTypes.LockFlags	enum	v2	
+vrPhysicsTypes.ObjectType	enum	v2	
+vrPhysicsTypes.SolverType	enum	v2	The SolverType enum defines the solver algorithms used for physics constraint resolution.
+vrProgressService	service	v2	Reports the progress of a currently running operation. [inherits vrBaseService]
+vrQObject	class	v1	The vrQObject class provides a Python wrapper for Qt objects.
+vrQueryService	service	v2	The query service provides functions for advanced search with expressions. [inherits vrBaseService]
+vrReferenceService	service	v2	The reference service provides functions for querying and managing reference nodes. Additionally, settings from the preferences can be queried. [inherits vrBaseService]
+vrReferenceTypes	class	v2	
+vrReferenceTypes.ExportLocation	enum	v2	
+vrReferenceTypes.FileState	enum	v2	
+vrReferenceTypes.LoadMode	enum	v2	
+vrReferenceTypes.NotificationMode	enum	v2	
+vrReferenceTypes.State	enum	v2	
+vrReferenceTypes.Type	enum	v2	
+vrRenderLayerModule	module	v1	
+vrRenderQueue	module	v1	
+vrRenderSettings	module	v1	**Deprecated**; use API v2 vrRenderSettingsService and vrdRenderSettings instead.
+vrRenderSettingsService	service	v2	Interface to access render settings in VRED. [inherits vrBaseService]
+vrRenderSettingsTypes	class	v2	
+vrRenderSettingsTypes.AAthresholdQuality	enum	v2	
+vrRenderSettingsTypes.AnimationFormat	enum	v2	
+vrRenderSettingsTypes.AnimationType	enum	v2	
+vrRenderSettingsTypes.ApplyPresetMode	enum	v2	
+vrRenderSettingsTypes.BRDFMode	enum	v2	Defines the behavior of the BRDF Model.
+vrRenderSettingsTypes.DenoiserInput	enum	v2	Defines the input buffers used for the denoiser.
+vrRenderSettingsTypes.DenoiserMode	enum	v2	
+vrRenderSettingsTypes.DenoiserType	enum	v2	If the hardware and driver version support it GPU-based OptiX denoiser will be used; otherwise the Open Image denoiser will be used.
+vrRenderSettingsTypes.DepthMode	enum	v2	
+vrRenderSettingsTypes.ICCProfile	enum	v2	
+vrRenderSettingsTypes.Illuminant	enum	v2	Equal Energy assumes all wavelengths to have equal weight to result in a white color.
+vrRenderSettingsTypes.IlluminationMode	enum	v2	
+vrRenderSettingsTypes.ImageSamplingMode	enum	v2	Uses a fixed number of image samples during stillframe antialiasing for the calculation of an image. Higher values produce a cleaner result, while lower values 
+vrRenderSettingsTypes.MetaDataFlags	enum	v2	Flags to specify which meta data should be embedded in the image file. Available for jpg, png, tif and exr file formats.
+vrRenderSettingsTypes.PhotonMapRefreshMode	enum	v2	Sets how often the photon map is rebuild if final gathering is turned on.
+vrRenderSettingsTypes.PhotonMode	enum	v2	Disables Photon Tracing and uses the default full global illumination algorithm in VRED.
+vrRenderSettingsTypes.PixelFilterType	enum	v2	
+vrRenderSettingsTypes.RealtimeEnvironmentShadowsMode	enum	v2	Real-time environment shadows mode used by rasterization renderers (Vulkan or OpenGL) if enabled.
+vrRenderSettingsTypes.RenderingColorSpace	enum	v2	
+vrRenderSettingsTypes.TransparencyMode	enum	v2	Transparency rendering mode used by rasterization renderers.
+vrRenderSettingsTypes.VolumeEvaluationMode	enum	v2	
+vrRenderTypes	class	v2	
+vrRenderTypes.FoveatedQualityPreset	enum	v2	
+vrRenderTypes.ShadingQuality	enum	v2	
+vrRotationAxisSlide	class	v1	A slide for rotating objects around an arbitrary axis.
+vrRotationSlide	class	v1	A slide for rotating objects.
+vrRoughnessTextureTypes	class	v2	Determine how the values from a roughness texture are mapped to material roughness.
+vrRoughnessTextureTypes.ValueMapping	enum	v2	Determine how the values from a roughness texture are mapped to material roughness.
+vrRoute	module	v1	
+vrRuler	module	v1	
+vrScaleSlide	class	v1	A slide for scaling objects.
+vrScenegraph	module	v1	The vrScenegraph class contains all necessary functions to work in a scenegraph system.
+vrScenegraphService	service	v2	Interface to access the scenegraph in VRED. [inherits vrBaseService]
+vrScenegraphTypes	class	v2	Options for unsharing cloned nodes in the Scenegraph.
+vrScenegraphTypes.Action	enum	v2	
+vrScenegraphTypes.ChangeFlag	enum	v2	
+vrScenegraphTypes.DuplicateOption	enum	v2	Options for how to handle clones nodes inside the duplicated tree.
+vrScenegraphTypes.MirrorMode	enum	v2	
+vrScenegraphTypes.NodeType	enum	v2	
+vrScenegraphTypes.UnshareOption	enum	v2	Options for unsharing cloned nodes in the Scenegraph.
+vrScenegraphTypes.VolumeType	enum	v2	
+vrSceneplateService	service	v2	Base class for all work with scene plate. [inherits vrBaseService]
+vrSceneplateTypes	class	v2	
+vrSceneplateTypes.ContentType	enum	v2	
+vrSceneplateTypes.NodeType	enum	v2	
+vrSceneplateTypes.Position	enum	v2	
+vrSceneplateTypes.RepeatMode	enum	v2	
+vrSceneplateTypes.SizeType	enum	v2	
+vrScript	module	v1	
+vrSelection	class	v1	The vrSelection class is a proxy class to handle selection events. The special signal method `selected` is called when a node is selected.
+vrSequencer	module	v1	Contains the functions to use the sequencer module.
+vrSessionService	service	v2	Interface to work with collaboration sessions. [inherits vrBaseService]
+vrSHLChunkPtr	class	v1	**Deprecated**. Use API v2 vrdGLSLShaderChunk and vrdGLSLShaderParameter types instead.
+vrSlide	class	v1	Base class for slides.
+vrSpacemouseButton	class	v1	The spacemouse button class is responsible to trigger functionality when a spacemouse button is pressed. To use it just create a spacemouse button object and co
+vrSpectrum	class	v2	This class represents a color spectrum.
+vrSpectrum.AnalyticFunction	enum	v2	
+vrSpectrum.SpectraDefines	enum	v2	
+vrSpeech	class	v1	Text to speech
+vrStyleTypes	class	v2	
+vrStyleTypes.ColorTheme	enum	v2	
+vrSubstanceTypes	class	v2	Defines the mode with which a preset is applied to the graph.
+vrSubstanceTypes.PresetApplyMode	enum	v2	Defines the mode with which a preset is applied to the graph.
+vrSurfaceAnalysis	module	v1	
+vrSwitch	class	v1	Switches visibility of objects.
+vrTextureChunkPtr	class	v1	**Deprecated**. Use API v2 vrdTextureChunk instead.
+vrTextureTypes	class	v2	
+vrTextureTypes.Axis	enum	v2	
+vrTextureTypes.MappingType	enum	v2	Determine how 2D textures are applied to objects in a scene.
+vrTextureTypes.RepeatMode	enum	v2	Enum for Texture Repeat Modes.
+vrTextureTypes.TriplanarBlendMode	enum	v2	
+vrTimer	class	v1	The timer class is responsible to call time based functionality. To use it just create a timer object and connect the callback functionality you need.
+vrTouchSensor	class	v1	TouchSensor.
+vrTrackerAnalog	class	v1	The vrTrackerAnalog class is a proxy class to access a tracking analog as defined in the Tracking GUI module. To create a vrTrackerAnalog object for an existing
+vrTrackerBody	class	v1	The vrTrackerBody class is a proxy class to access a tracking body as defined in the Tracking GUI module. To create a vrTrackerBody object for an existing body,
+vrTrackerButton	class	v1	The vrTrackerButton class is a proxy class to access a tracking button as defined in the Tracking GUI module. To create a vrTrackerButton object for an existing
+vrTrackerDial	class	v1	The vrTrackerDial class is a proxy class to access a tracking dial as defined in the Tracking GUI module. To create a vrTrackerDial object for an existing dial,
+vrTrackerSensor	class	v1	The vrTrackerSensor class is the base class for all sensors like bodies, buttons, and dials. You can only access sensors that are already created in the trackin
+vrTransform	module	v1	
+vrTransformHelper	module	v1	
+vrTransformTypes	class	v2	
+vrTransformTypes.Axis	enum	v2	
+vrTransformTypes.EulerRotationOrder	enum	v2	
+vrTransformTypes.VariantValueBitMask	enum	v2	
+vrTranslationSlide	class	v1	A slide for translating objects.
+vrUndoService	service	v2	Service that provides access to undo / redo functionality. [inherits vrBaseService]
+vrUserMimeTypes	class	v2	Contains constants for all user accessible MIME types. Provides methods for extracting and interpreting their data.
+vrUserMimeTypes.DataType	enum	v2	Type of the MIME data.
+vrUVEditor	module	v1	
+vrUVService	service	v2	Service for UV mapping related functions. [inherits vrBaseService]
+vrUVTypes	class	v2	Lists UV sets available in UV Editor and vrUVService.
+vrUVTypes.PostScaleMode	enum	v2	Post-layout scaling mode. A universal scale operation is applied to all involved islands, after packing.
+vrUVTypes.PreRotateMode	enum	v2	Pre-layout rotate mode. Before packing, the islands can be reoriented in a pre-process phase.
+vrUVTypes.PreScaleMode	enum	v2	Pre-layout scaling mode. Before packing, the islands can be rescaled in a pre-process phase.
+vrUVTypes.SeamMode	enum	v2	Selects a generated edges set to open an organic mesh. It tries to detect feature points of the mesh, such as finger tips or toes, links them together, and segm
+vrUVTypes.SnapshotMode	enum	v2	Defines the area to be included in the snapshot image.
+vrUVTypes.SnapshotStyle	enum	v2	Flags for snapshot style.
+vrUVTypes.TileAssignMode	enum	v2	Determines how islands are associated to the available tiles. The tiles are specified with vrdUVLayoutSettings.setTilesU(tilesU) and vrdUVLayoutSettings.setTile
+vrUVTypes.UVProjectionMode	enum	v2	Lists different kinds of projections to create UVs.
+vrUVTypes.UVSet	enum	v2	Lists UV sets available in UV Editor and vrUVService.
+vrVariants	module	v1	Contains functions to capture and activate variant sets.
+vrVariantService	service	v2	 [inherits vrBaseService]
+vrVariantSetPtr	module	v1	**Deprecated**; use API v2 vrdVariantSetNode instead.
+vrVariantSets	class	v1	
+vrVariantStates	class	v2	Contains the built-in states for variants.
+vrVariantTypes	class	v2	Specifies the style of the preview image of a variant.
+vrVariantTypes.CaptureFlag	enum	v2	
+vrVariantTypes.ClippingState	enum	v2	Disable the clipping plane.
+vrVariantTypes.ExecuteFlag	enum	v2	No special execution behavior.
+vrVariantTypes.GroupType	enum	v2	Specifies the type of a variant group.
+vrVariantTypes.PreviewType	enum	v2	Specifies the style of the preview image of a variant.
+vrVariantTypes.SearchMethod	enum	v2	Specifies the method a variant uses to search for target objects.
+vrVariantTypes.StateValidity	enum	v2	The state is valid and can be executed on the target objects.
+vrVariantTypes.TargetType	enum	v2	Specifies the type of objects that are targeted by a variant.
+vrVideoGrab	class	v1	The constructor of the vrVideoGrab class. There are two valid sets of parameters:
+vrViewPoint	class	v1	The constructor of the vrViewPoint class.
+vrVirtualEye	class	v1	The constructor of the vrVirtualEye class.
+vrVredUi	module	v1	Contains some function to access the vred ui widgets.
+vrVRInputDeviceTypes	class	v2	
+vrVRInputDeviceTypes.DeviceCollisionType	enum	v2	
+vrVRInputDeviceTypes.VisualizationMode	enum	v2	
+vrVRMLViewPoints	module	v1	
+vrVrpnTracking	module	v1	
+vrVrpnTrackingService	service	v1	
+vrWebEngineObj	module	v1	**Deprecated**. Use API v2 vrdWebEngine and vrWebEngineService instead.
+vrWebEngineService	service	v2	This service gives access to all web engines in VRED. Web engines created with this service will be visible in the media editor. Web engines used in sceneplates [inherits vrBaseService]
+vrWebOverlay	class	v1	The vrWebOverlay class creates a 2d frame with html content.
+vrWidget	class	v1	The vrWidget class creates a qt gui from a type or a ui xml file.
+vrXRealityTypes	class	v2	
+vrXRealityTypes.MarkerTrackingTypes	enum	v2	
+vrXRealityTypes.MarkerTypes	enum	v2	
+vrXRealityTypes.XRRenderMode	enum	v2	

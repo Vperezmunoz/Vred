@@ -1,0 +1,71 @@
+----------------
+vrTransformTypes
+----------------
+
+.. py:class:: vrTransformTypes
+
+    .. py:class:: EulerRotationOrder
+
+            .. py:data:: XYZ
+               :no-index:
+
+            .. py:data:: XZY
+
+            .. py:data:: YXZ
+
+            .. py:data:: YZX
+
+            .. py:data:: ZXY
+
+            .. py:data:: ZYX
+
+    .. py:class:: Axis
+       :no-index:
+
+            .. py:data:: X
+               :no-index:
+
+            .. py:data:: Y
+               :no-index:
+
+            .. py:data:: Z
+               :no-index:
+
+    .. py:class:: VariantValueBitMask
+
+            .. py:data:: NoTransValue
+
+            .. py:data:: TransXValue
+
+            .. py:data:: TransYValue
+
+            .. py:data:: TransZValue
+
+            .. py:data:: AllTransValues
+
+            .. py:data:: RotXValue
+
+            .. py:data:: RotYValue
+
+            .. py:data:: RotZValue
+
+            .. py:data:: RotXYZValue
+
+            .. py:data:: RotOrderValue
+
+            .. py:data:: AllRotValues
+
+            .. py:data:: ScaleXValue
+
+            .. py:data:: ScaleYValue
+
+            .. py:data:: ScaleZValue
+
+            .. py:data:: AllScaleValues
+
+            .. py:data:: ScalePivotValues
+
+            .. py:data:: RotPivotValues
+
+            .. py:data:: AllTransormationValues
+

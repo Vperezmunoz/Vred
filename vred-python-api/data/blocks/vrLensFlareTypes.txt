@@ -1,0 +1,74 @@
+----------------
+vrLensFlareTypes
+----------------
+
+.. py:class:: vrLensFlareTypes
+
+    .. py:class:: ElementType
+
+            .. py:data:: Ghost
+
+            .. py:data:: GhostLine
+
+            .. py:data:: Glow
+
+            .. py:data:: Ring
+               :no-index:
+
+            .. py:data:: Starburst
+
+            .. py:data:: Streak
+
+    .. py:class:: ElementShape
+
+            .. py:data:: Circle
+
+            .. py:data:: Triangle
+
+            .. py:data:: Quad
+
+            .. py:data:: Pentagon
+
+            .. py:data:: Hexagon
+
+            .. py:data:: Heptagon
+
+            .. py:data:: Octagon
+
+            .. py:data:: Nonagon
+
+            .. py:data:: Decagon
+
+            .. py:data:: Texture
+               :no-index:
+
+    .. py:class:: StarShape
+
+            .. py:data:: Fan
+
+            .. py:data:: Spike
+
+            .. py:data:: Blade
+
+            .. py:data:: Texture
+               :no-index:
+
+    .. py:class:: PresetType
+
+            .. py:data:: Custom
+               :no-index:
+
+            .. py:data:: HeadLampBlueSteel
+
+            .. py:data:: HeadLampRingBurst
+
+            .. py:data:: TailLampRadicalRed
+
+            .. py:data:: TailLampRubyRed
+
+            .. py:data:: SunWarm
+
+            .. py:data:: SunCool
+
+            .. py:data:: StreetLamp
+

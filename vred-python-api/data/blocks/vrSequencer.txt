@@ -1,0 +1,60 @@
+MODULE vrSequencer (legacy v1 API)
+
+-----------
+vrSequencer
+-----------
+
+Contains the functions to use the sequencer module.
+
+Summary
+=======
+
+Functions:
+    * getAllSequencesActionCount()
+    * getSequenceList()
+    * readSequenceXML(file, merge)
+    * runAllSequences()
+    * runSequence(name)
+    * runSequenceHttp(name, url, id)
+
+.. function:: runAllSequences()
+
+    Runs all sequences.
+
+.. function:: runSequence(name)
+
+    Run sequence with a given name.
+
+    :param name: The name of the sequence to run.
+    :type name: string
+
+.. function:: runSequenceHttp(name, url, id)
+
+    Run sequence with a given name. Results will be uploaded tu url
+
+    :param name: The name of the sequence to run.
+    :type name: string
+
+    :param url: The Url where results will be uploaded. This is cancatenated with VRED_PROJECT_DIR definitions (url+dir drive names are removed)
+    :type url: string
+
+    :param id: If provided, the id is send as a leading part in a multipart post
+    :type id: string
+
+.. function:: readSequenceXML(file, merge)
+
+    Read sequences from XML file .
+
+    :param file: The name of the XML file to read.
+    :type file: string
+
+    :param merge: Add or replace the current sequences.
+    :type merge: bool
+
+.. function:: getSequenceList()
+
+    Returns a list of sequences.
+
+.. function:: getAllSequencesActionCount()
+
+    Returns the number of active actions in all sequences.

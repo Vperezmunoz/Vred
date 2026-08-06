@@ -1,0 +1,50 @@
+--------------------------
+vrdVariantSetReferenceNode
+--------------------------
+
+.. py:class:: vrdVariantSetReferenceNode
+
+(Inherits vrdNode)
+
+Node containing a reference to a variant set.
+
+Summary
+=======
+
+Functions:
+    * getReferenceUuid() → QUuid
+    * getVariantSet() → vrdVariantSetNode
+    * isFavorite() → bool
+    * isReadOnly() → bool
+
+Functions
+=========
+
+.. py:method:: vrdVariantSetReferenceNode.getReferenceUuid()
+
+    Gets the UUID of the referenced node.
+
+    :return: QUuid The UUID of the referenced node, or a null UUID if no reference is set.
+    :rtype: QUuid
+
+.. py:method:: vrdVariantSetReferenceNode.getVariantSet()
+
+    Gets the variant set this reference points to.
+
+    :return: vrdVariantSetNode The referenced node, or an invalid node if the reference is broken.
+    :rtype: vrdVariantSetNode
+
+.. py:method:: vrdVariantSetReferenceNode.isFavorite()
+
+    Tells if this reference is marked as favorite.
+
+    :return: bool True if this reference is marked as favorite, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariantSetReferenceNode.isReadOnly()
+
+    Tells if this reference is read-only.
+
+    :return: bool True if it is read-only, false otherwise.
+    :rtype: bool
+

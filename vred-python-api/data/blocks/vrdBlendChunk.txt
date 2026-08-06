@@ -1,0 +1,184 @@
+-------------
+vrdBlendChunk
+-------------
+
+.. py:class:: vrdBlendChunk
+
+(Inherits vrdMaterialChunk)
+
+This class represents a blend chunk.
+
+    .. py:class:: Equation
+
+            .. py:data:: None_
+
+            .. py:data:: Clear
+
+            .. py:data:: And
+
+            .. py:data:: AndReverse
+
+            .. py:data:: Copy
+
+            .. py:data:: AndInverted
+
+            .. py:data:: Noop
+
+            .. py:data:: Xor
+
+            .. py:data:: Or
+
+            .. py:data:: Nor
+
+            .. py:data:: Equiv
+
+            .. py:data:: Invert
+
+            .. py:data:: OrReverse
+
+            .. py:data:: CopyInverted
+
+            .. py:data:: OrInverted
+
+            .. py:data:: Nand
+
+            .. py:data:: Set
+
+    .. py:class:: SrcFactor
+
+            .. py:data:: Zero
+
+            .. py:data:: One
+
+            .. py:data:: SrcColor
+
+            .. py:data:: OneMinusSrcColor
+
+            .. py:data:: DstColor
+
+            .. py:data:: OneMinusDstColor
+
+            .. py:data:: SrcAlpha
+
+            .. py:data:: OneMinusSrcAlpha
+
+            .. py:data:: DstAlpha
+
+            .. py:data:: OneMinusDstAlpha
+
+            .. py:data:: ConstantColor
+
+            .. py:data:: OneMinusConstantColor
+
+            .. py:data:: SrcAlphaSaturate
+
+    .. py:class:: DstFactor
+
+            .. py:data:: Zero
+               :no-index:
+
+            .. py:data:: One
+               :no-index:
+
+            .. py:data:: SrcColor
+               :no-index:
+
+            .. py:data:: OneMinusSrcColor
+               :no-index:
+
+            .. py:data:: DstColor
+               :no-index:
+
+            .. py:data:: OneMinusDstColor
+               :no-index:
+
+            .. py:data:: SrcAlpha
+               :no-index:
+
+            .. py:data:: OneMinusSrcAlpha
+               :no-index:
+
+            .. py:data:: DstAlpha
+               :no-index:
+
+            .. py:data:: OneMinusDstAlpha
+               :no-index:
+
+            .. py:data:: ConstantColor
+               :no-index:
+
+            .. py:data:: OneMinusConstantColor
+               :no-index:
+
+Summary
+=======
+
+Functions:
+    * getColor() → QVector3D
+    * getDstFactor() → vrdBlendChunk.DstFactor
+    * getEquation() → vrdBlendChunk.Equation
+    * getSrcFactor() → vrdBlendChunk.SrcFactor
+    * setColor(value)
+    * setDstFactor(srcFactor)
+    * setEquation(equation)
+    * setSrcFactor(srcFactor)
+
+Functions
+=========
+
+.. py:method:: vrdBlendChunk.getColor()
+
+    This is the constant color used by blend modes *_CONSTANT_*.
+
+    :return: The color value.
+    :rtype: QVector3D
+
+.. py:method:: vrdBlendChunk.getDstFactor()
+
+    The frame buffer pixel is multiplied by the destination factor.Legal values are directly taken from the glBlendFunc() manpage.
+
+    :return: The destination factor.
+    :rtype: vrdBlendChunk.DstFactor
+
+.. py:method:: vrdBlendChunk.getEquation()
+
+    The equation used to combine the two values. Only available where GL_ARB_imaging is supported.See glBlendEquation() for details.
+
+    :return: The equation.
+    :rtype: vrdBlendChunk.Equation
+
+.. py:method:: vrdBlendChunk.getSrcFactor()
+
+    The incoming pixel is multiplied by the source factor. Legal values are directly taken from the glBlendFunc() manpage.
+
+    :return: The source factor.
+    :rtype: vrdBlendChunk.SrcFactor
+
+.. py:method:: vrdBlendChunk.setColor(value)
+
+    This is the constant color used by blend modes *_CONSTANT_*.
+
+    :param value: The color value
+    :type value: QVector3D
+
+.. py:method:: vrdBlendChunk.setDstFactor(srcFactor)
+
+    The frame buffer pixel is multiplied by the destination factor.Legal values are directly taken from the glBlendFunc() manpage.
+
+    :param srcFactor: The source factor
+    :type srcFactor: vrdBlendChunk.DstFactor
+
+.. py:method:: vrdBlendChunk.setEquation(equation)
+
+    The equation used to combine the two values. Only available where GL_ARB_imaging is supported.See glBlendEquation() for details.
+
+    :param equation: The equation
+    :type equation: vrdBlendChunk.Equation
+
+.. py:method:: vrdBlendChunk.setSrcFactor(srcFactor)
+
+    The incoming pixel is multiplied by the source factor. Legal values are directly taken from the glBlendFunc() manpage.
+
+    :param srcFactor: The source factor
+    :type srcFactor: vrdBlendChunk.SrcFactor
+

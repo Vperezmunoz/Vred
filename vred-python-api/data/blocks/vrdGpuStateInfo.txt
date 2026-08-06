@@ -1,0 +1,68 @@
+---------------
+vrdGpuStateInfo
+---------------
+
+.. py:class:: vrdGpuStateInfo
+
+(Inherits vrdObject)
+
+This class is part of     vrGPUService.
+
+Provides access to information about the current GPU state.
+
+Summary
+=======
+
+Functions:
+    * getFreeMemory() → float
+    * getGpuUsage() → integer
+    * getMemoryUsage() → integer
+    * getTemperature() → integer
+    * getTotalMemory() → float
+    * getUsedMemory() → float
+
+Functions
+=========
+
+.. py:method:: vrdGpuStateInfo.getFreeMemory()
+
+    Returns the free memory available on the GPU in megabytes.
+
+    :return: The free memory available on the GPU in megabytes
+    :rtype: float
+
+.. py:method:: vrdGpuStateInfo.getGpuUsage()
+
+    Returns the current usage of the gpu in percent.
+
+    :return: The gpu usage in percentage
+    :rtype: integer
+
+.. py:method:: vrdGpuStateInfo.getMemoryUsage()
+
+    Returns the current memory bandwidth usage of the gpu in percent.
+
+    :return: The memory bandwidth usage in percentage
+    :rtype: integer
+
+.. py:method:: vrdGpuStateInfo.getTemperature()
+
+    Returns the current gpu temperature in degree celcius.
+
+    :return: The current gpu temperature in degree celcius
+    :rtype: integer
+
+.. py:method:: vrdGpuStateInfo.getTotalMemory()
+
+    Returns the total memory available on the GPU in megabytes.
+
+    :return: The total memory available on the GPU in megabytes
+    :rtype: float
+
+.. py:method:: vrdGpuStateInfo.getUsedMemory()
+
+    Returns the used memory on the GPU in megabytes.
+
+    :return: The used memory on the GPU in megabytes
+    :rtype: float
+

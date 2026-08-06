@@ -1,0 +1,113 @@
+Node graphs in VRED
+===================
+
+Terminology
+-----------
+
+This is a short introduction what is meant when this documentation refers to a
+"scene graph" or other module specific "graphs".
+
+When the term "scene graph" is used then it always refers to the main
+scene graph of VRED which contains all scene nodes and can be accessed through
+VRED's Scenegraph module.
+
+Some VRED modules contain an additional node graph. Notable examples are the camera
+editor and the light editor. You can see these graphs in VRED's UI by
+opening those modules. They are on the left side of the UI. The documentation
+refers to those graphs by "modulename" followed "graph". In rare cases, those
+graphs may also be referred to as "internal graph" or "internal tree".
+
+The graph in the light editor is therefore called "light graph" and the graph
+in the camera editor is called "camera graph".
+
+The camera and light graphs exist because they contain objects that are not
+visible in the main scene graph. Both lights and cameras can be grouped with
+special group nodes. These groups only exist in the graph of the module. The
+camera graph also contains camera tracks and
+viewpoint nodes.
+
+Nodes that exist in a module graph (i.e. the light graph or camera graph) are
+collectively referred to as "module nodes", as opposed to nodes in the main
+scene graph.
+
+The distinction between those graphs is important since :ref:`vrdNodes
+<vredvrdNode>` are unique to the graph they were created in. Two vrdNodes from
+different graphs may still refer to the same object, e.g. the same camera, but
+they have different parent nodes. That means hierarchy changing operations
+will have different effects, depending of the vrdNode they are executed on.
+Adding a camera to a group in the main scene graph will not add the camera to
+a group in the camera graph. Both hierarchies exist independent of each other.
+
+Example: A light is a unique entity in VRED. But it appears as a node in the
+main scene graph and as a node in the light graph in the light editor. Both
+nodes are different vrdNode instances but they refer to the same light.
+
+So you must be aware where the nodes you are working with are coming from. The
+main scene graph is usually accessed through the :ref:`vrNodeService
+<vredvrNodeService>`. The graphs in the modules are accessed through their
+services. The vrLightService has methods that give
+access to the nodes in the light graph while the camera nodes in the camera
+graph can be accessed through the vrCameraService.
+
+Example
+-------
+
+Create point light with the name "light1" in the light editor:
+
+```
+
+    lightGraphNode1 = vrLightService.createLight("light1", vrLightTypes.Point)
+
+Then fetch the node again from the light graph:
+
+```
+
+    lightGraphNode2 = vrLightService.findLight("light1")
+
+Or fetch the node from the main scene graph:
+
+```
+
+    sceneGraphNode = vrNodeService.findNode("light1")
+
+`lightGraphNode1` and `lightGraphNode2` are the same vrdNode instance since
+`createLight()` directly returns the node from the light graph.
+
+`sceneGraphNode` however is a different vrdNode instance but calling one of its
+functions that modifies a light property (like e.g. `setIntensity()`) will
+modify the property of the same light. Calling a function accessing the node's
+hierarchy information will have different results. For example calling
+`getParent()` will return the same parent for both `lightGraphNode1` and
+`lightGraphNode2` but a different parent node for `sceneGraphNode`.
+
+Most of the functions in vrNodeService allow you to
+specify the root where the function will start to search for nodes. By using
+the root node of the light graph it is possible to search for node in the
+light graph. These two calls are equivalent and will return the same vrdNode
+instance:
+
+```
+
+    vrLightService.findLight("light1")
+    vrNodeService.findNode("light1", False, False, vrLightService.getLightRoot())
+
+Instead of using `findLight()` or `findNode()`, you can also get corresponding scene graph nodes
+from a module node using vrdNode.getSharedNodes():
+
+```
+
+    moduleNode = vrLightService.findLight("light1")
+    sceneNodes = moduleNode.getSharedNodes()
+
+In our example, `sceneNodes` contains one scene graph node.
+If the light has been cloned and appears multiple times in the scene graph,
+the returned list will contain multiple scene graph nodes.
+
+Vice versa, you can get the module node from a scene graph node using
+vrdBaseLightNode.getModuleNode() for lights,
+or vrdCameraNode.getModuleNode() for cameras:
+
+```
+
+    sceneNode = vrNodeService.findNode("light1")
+    moduleNode = sceneNode.getModuleNode() if sceneNode.isType(vrdBaseLightNode) else None

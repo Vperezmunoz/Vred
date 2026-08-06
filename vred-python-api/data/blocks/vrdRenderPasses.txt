@@ -1,0 +1,800 @@
+---------------
+vrdRenderPasses
+---------------
+
+.. py:class:: vrdRenderPasses
+
+(Inherits vrdObject)
+
+Summary
+=======
+
+Functions:
+    * getAlbedoPass() → bool
+    * getBackgroundColorPass() → bool
+    * getBackplatePass() → bool
+    * getBeautyPass() → bool
+    * getCameraNormalPass() → bool
+    * getCryptoMaterialPass() → bool
+    * getCryptoObjectPass() → bool
+    * getDepthMode() → vrRenderSettingsTypes.DepthMode
+    * getDepthPass() → bool
+    * getDepthRange() → QVector2D
+    * getDiffuseColorPass() → bool
+    * getDiffuseIblIlluminationPass() → bool
+    * getDiffuseIblPass() → bool
+    * getDiffuseIndirectIlluminationPass() → bool
+    * getDiffuseIndirectPass() → bool
+    * getDiffuseLightIlluminationPass() → bool
+    * getDiffuseLightPass() → bool
+    * getExportRenderpasses() → bool
+    * getFogPass() → bool
+    * getFrontplatePass() → bool
+    * getGlossyColorPass() → bool
+    * getGlossyIblIlluminationPass() → bool
+    * getGlossyIblPass() → bool
+    * getGlossyIndirectIlluminationPass() → bool
+    * getGlossyIndirectPass() → bool
+    * getGlossyLightIlluminationPass() → bool
+    * getGlossyLightPass() → bool
+    * getIncandescencePass() → bool
+    * getLensFlarePass() → bool
+    * getMaskPass() → bool
+    * getMaterialIdPass() → bool
+    * getNormalPass() → bool
+    * getOcclusionPass() → bool
+    * getOcclusionRange() → QVector2D
+    * getPositionPass() → bool
+    * getSheenColorPass() → bool
+    * getSheenIlluminationPass() → bool
+    * getSheenPass() → bool
+    * getSpecularColorPass() → bool
+    * getSpecularIndirectIlluminationPass() → bool
+    * getSpecularReflectionPass() → bool
+    * getTranslucencyColorPass() → bool
+    * getTranslucencyIblIlluminationPass() → bool
+    * getTranslucencyIndirectIlluminationPass() → bool
+    * getTranslucencyLightIlluminationPass() → bool
+    * getTranslucencyPass() → bool
+    * getTransparencyColorPass() → bool
+    * getViewVectorPass() → bool
+    * getVolumeColorPass() → bool
+    * setAlbedoPass(albedoPass)
+    * setBackgroundColorPass(backgroundColorPass)
+    * setBackplatePass(backplatePass)
+    * setBeautyPass(beautyPass)
+    * setCameraNormalPass(cameraNormalPass)
+    * setCryptoMaterialPass(cryptoMaterialPass)
+    * setCryptoObjectPass(cryptoObjectPass)
+    * setDepthMode(depthMode)
+    * setDepthPass(depthPass)
+    * setDepthRange(depthRange)
+    * setDiffuseColorPass(diffuseColorPass)
+    * setDiffuseIblIlluminationPass(diffuseIblIlluminationPass)
+    * setDiffuseIblPass(diffuseIblPass)
+    * setDiffuseIndirectIlluminationPass(diffuseIndirectIlluminationPass)
+    * setDiffuseIndirectPass(diffuseIndirectPass)
+    * setDiffuseLightIlluminationPass(diffuseLightIlluminationPass)
+    * setDiffuseLightPass(diffuseLightPass)
+    * setExportRenderpasses(exportRenderPasses)
+    * setFogPass(fogPass)
+    * setFrontplatePass(frontplatePass)
+    * setGlossyColorPass(glossyColorPass)
+    * setGlossyIblIlluminationPass(glossyIblIlluminationPass)
+    * setGlossyIblPass(glossyIblPass)
+    * setGlossyIndirectIlluminationPass(glossyIndirectIlluminationPass)
+    * setGlossyIndirectPass(glossyIndirectPass)
+    * setGlossyLightIlluminationPass(glossyLightIlluminationPass)
+    * setGlossyLightPass(glossyLightPass)
+    * setIncandescencePass(incandescencePass)
+    * setLensFlarePass(lensFlarePass)
+    * setMaskPass(maskPass)
+    * setMaterialIdPass(materialIdPass)
+    * setNormalPass(normalPass)
+    * setOcclusionPass(occlusionPass)
+    * setOcclusionRange(occlusionRange)
+    * setPositionPass(positionPass)
+    * setSheenColorPass(sheenColorPass)
+    * setSheenIlluminationPass(sheenIlluminationPass)
+    * setSheenPass(sheenPass)
+    * setSpecularColorPass(specularColorPass)
+    * setSpecularIndirectIlluminationPass(specularIndirectIlluminationPass)
+    * setSpecularReflectionPass(specularReflectionPass)
+    * setTranslucencyColorPass(translucencyColorPass)
+    * setTranslucencyIblIlluminationPass(translucencyIblIlluminationPass)
+    * setTranslucencyIndirectIlluminationPass(translucencyIndirectIlluminationPass)
+    * setTranslucencyLightIlluminationPass(translucencyLightIlluminationPass)
+    * setTranslucencyPass(translucencyPass)
+    * setTransparencyColorPass(transparencyColorPass)
+    * setViewVectorPass(viewVectorPass)
+    * setVolumeColorPass(volumeColorPass)
+
+Functions
+=========
+
+.. py:method:: vrdRenderPasses.getAlbedoPass()
+
+    Gets the status of the albedo pass.
+
+    :return: True if the albedo pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getBackgroundColorPass()
+
+    Gets the status of the background color pass.
+
+    :return: True if the background color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getBackplatePass()
+
+    Gets the status of the backplate pass.
+
+    :return: True if the backplate pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getBeautyPass()
+
+    Gets the status of the beauty pass.
+
+    :return: True if the beauty pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getCameraNormalPass()
+
+    Gets the status of the camera normal pass.
+
+    :return: True if the camera normal pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getCryptoMaterialPass()
+
+    Gets the status of the crypto material pass.
+
+    :return: True if the crypto material pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getCryptoObjectPass()
+
+    Gets the status of the crypto object pass.
+
+    :return: True if the crypto object pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDepthMode()
+
+    Gets the mode for the depth pass calculation.
+
+    :return: The current depth mode.
+    :rtype: vrRenderSettingsTypes.DepthMode
+
+.. py:method:: vrdRenderPasses.getDepthPass()
+
+    Gets the status of the depth pass.
+
+    :return: True if the depth pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDepthRange()
+
+    Gets the depth range.
+
+    :return: The depth range.
+    :rtype: QVector2D
+
+.. py:method:: vrdRenderPasses.getDiffuseColorPass()
+
+    Gets the status of the diffuse color pass.
+
+    :return: True if the diffuse color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDiffuseIblIlluminationPass()
+
+    Gets the status of the diffuse IBL illumination pass.
+
+    :return: True if the diffuse IBL illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDiffuseIblPass()
+
+    Gets the status of the diffuse IBL pass.
+
+    :return: True if the diffuse IBL pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDiffuseIndirectIlluminationPass()
+
+    Gets the status of the diffuse indirect illumination pass.
+
+    :return: True if the diffuse indirect illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDiffuseIndirectPass()
+
+    Gets the status of the diffuse indirect pass.
+
+    :return: True if the diffuse indirect pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDiffuseLightIlluminationPass()
+
+    Gets the status of the diffuse light illumination pass.
+
+    :return: True if the diffuse light illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getDiffuseLightPass()
+
+    Gets the status of the diffuse light pass.
+
+    :return: True if the diffuse light pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getExportRenderpasses()
+
+    Returns if rendering with renderpasses is activated. All activated renderpasses are rendered and saved at a time.
+
+    :return: True if the render passes are enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getFogPass()
+
+    Gets the status of the fog pass.
+
+    :return: True if the fog pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getFrontplatePass()
+
+    Gets the status of the frontplate pass.
+
+    :return: True if the frontplate pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyColorPass()
+
+    Gets the status of the glossy color pass.
+
+    :return: True if the glossy color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyIblIlluminationPass()
+
+    Gets the status of the glossy IBL illumination pass.
+
+    :return: True if the glossy IBL illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyIblPass()
+
+    Gets the status of the glossy IBL pass.
+
+    :return: True if the glossy IBL pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyIndirectIlluminationPass()
+
+    Gets the status of the glossy indirect illumination pass.
+
+    :return: True if the glossy indirect illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyIndirectPass()
+
+    Gets the status of the glossy indirect pass.
+
+    :return: True if the glossy indirect pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyLightIlluminationPass()
+
+    Gets the status of the glossy light illumination pass.
+
+    :return: True if the glossy light illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getGlossyLightPass()
+
+    Gets the status of the glossy light pass.
+
+    :return: True if the glossy light pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getIncandescencePass()
+
+    Gets the status of the incandescence pass.
+
+    :return: True if the incandescence pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getLensFlarePass()
+
+    Gets the status of the lens flare pass.
+
+    :return: True if the lens flare pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getMaskPass()
+
+    Gets the status of the mask pass.
+
+    :return: True if the mask pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getMaterialIdPass()
+
+    Gets the status of the material ID pass.
+
+    :return: True if the material ID pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getNormalPass()
+
+    Gets the status of the normal pass.
+
+    :return: True if the normal pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getOcclusionPass()
+
+    Gets the status of the occlusion pass.
+
+    :return: True if the occlusion pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getOcclusionRange()
+
+    Gets the occlusion range.
+
+    :return: The occlusion range.
+    :rtype: QVector2D
+
+.. py:method:: vrdRenderPasses.getPositionPass()
+
+    Gets the status of the position pass.
+
+    :return: True if the position pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getSheenColorPass()
+
+    Gets the status of the sheen color pass.
+
+    :return: True if the sheen color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getSheenIlluminationPass()
+
+    Gets the status of the sheen illumination pass.
+
+    :return: True if the sheen illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getSheenPass()
+
+    Gets the status of the sheen pass.
+
+    :return: True if the sheen pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getSpecularColorPass()
+
+    Gets the status of the specular color pass.
+
+    :return: True if the specular color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getSpecularIndirectIlluminationPass()
+
+    Gets the status of the specular indirect illumination pass.
+
+    :return: True if the specular indirect illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getSpecularReflectionPass()
+
+    Gets the status of the specular reflection pass.
+
+    :return: True if the specular reflection pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getTranslucencyColorPass()
+
+    Gets the status of the translucency color pass.
+
+    :return: True if the translucency color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getTranslucencyIblIlluminationPass()
+
+    Gets the status of the translucency IBL illumination pass.
+
+    :return: True if the translucency IBL illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getTranslucencyIndirectIlluminationPass()
+
+    Gets the status of the translucency indirect illumination pass.
+
+    :return: True if the translucency indirect illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getTranslucencyLightIlluminationPass()
+
+    Gets the status of the translucency light illumination pass.
+
+    :return: True if the translucency light illumination pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getTranslucencyPass()
+
+    Gets the status of the translucency pass.
+
+    :return: True if the translucency pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getTransparencyColorPass()
+
+    Gets the status of the transparency color pass.
+
+    :return: True if the transparency color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getViewVectorPass()
+
+    Gets the status of the view vector pass.
+
+    :return: True if the view vector pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.getVolumeColorPass()
+
+    Gets the status of the volume color pass.
+
+    :return: True if the volume color pass is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderPasses.setAlbedoPass(albedoPass)
+
+    Sets the status of the albedo pass.
+
+    :param albedoPass: True to enable the pass, false to disable it.
+    :type albedoPass: bool
+
+.. py:method:: vrdRenderPasses.setBackgroundColorPass(backgroundColorPass)
+
+    Sets the status of the background color pass.
+
+    :param backgroundColorPass: True to enable the pass, false to disable it.
+    :type backgroundColorPass: bool
+
+.. py:method:: vrdRenderPasses.setBackplatePass(backplatePass)
+
+    Sets the status of the backplate pass.
+
+    :param backplatePass: True to enable the pass, false to disable it.
+    :type backplatePass: bool
+
+.. py:method:: vrdRenderPasses.setBeautyPass(beautyPass)
+
+    Sets the status of the beauty pass.
+
+    :param beautyPass: True to enable the beauty pass, false to disable it.
+    :type beautyPass: bool
+
+.. py:method:: vrdRenderPasses.setCameraNormalPass(cameraNormalPass)
+
+    Sets the status of the camera normal pass.
+
+    :param cameraNormalPass: True to enable the pass, false to disable it.
+    :type cameraNormalPass: bool
+
+.. py:method:: vrdRenderPasses.setCryptoMaterialPass(cryptoMaterialPass)
+
+    Sets the status of the crypto material pass.
+
+    :param cryptoMaterialPass: True to enable the pass, false to disable it.
+    :type cryptoMaterialPass: bool
+
+.. py:method:: vrdRenderPasses.setCryptoObjectPass(cryptoObjectPass)
+
+    Sets the status of the crypto object pass.
+
+    :param cryptoObjectPass: True to enable the pass, false to disable it.
+    :type cryptoObjectPass: bool
+
+.. py:method:: vrdRenderPasses.setDepthMode(depthMode)
+
+    Sets the mode for the depth pass calculation.
+
+    :param depthMode: The depth mode to set.
+    :type depthMode: vrRenderSettingsTypes.DepthMode
+
+.. py:method:: vrdRenderPasses.setDepthPass(depthPass)
+
+    Sets the status of the depth pass.
+
+    :param depthPass: True to enable the pass, false to disable it.
+    :type depthPass: bool
+
+.. py:method:: vrdRenderPasses.setDepthRange(depthRange)
+
+    Sets the depth range.
+
+    :param depthRange: The depth range.
+    :type depthRange: QVector2D
+
+.. py:method:: vrdRenderPasses.setDiffuseColorPass(diffuseColorPass)
+
+    Sets the status of the diffuse color pass.
+
+    :param diffuseColorPass: True to enable the pass, false to disable it.
+    :type diffuseColorPass: bool
+
+.. py:method:: vrdRenderPasses.setDiffuseIblIlluminationPass(diffuseIblIlluminationPass)
+
+    Sets the status of the diffuse IBL illumination pass.
+
+    :param diffuseIblIlluminationPass: True to enable the pass, false to disable it.
+    :type diffuseIblIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setDiffuseIblPass(diffuseIblPass)
+
+    Sets the status of the diffuse IBL pass.
+
+    :param diffuseIblPass: True to enable the diffuse IBL pass, false to disable it.
+    :type diffuseIblPass: bool
+
+.. py:method:: vrdRenderPasses.setDiffuseIndirectIlluminationPass(diffuseIndirectIlluminationPass)
+
+    Sets the status of the diffuse indirect illumination pass.
+
+    :param diffuseIndirectIlluminationPass: True to enable the pass, false to disable it.
+    :type diffuseIndirectIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setDiffuseIndirectPass(diffuseIndirectPass)
+
+    Sets the status of the diffuse indirect pass.
+
+    :param diffuseIndirectPass: True to enable the diffuse indirect pass, false to disable it.
+    :type diffuseIndirectPass: bool
+
+.. py:method:: vrdRenderPasses.setDiffuseLightIlluminationPass(diffuseLightIlluminationPass)
+
+    Sets the status of the diffuse light illumination pass.
+
+    :param diffuseLightIlluminationPass: True to enable the pass, false to disable it.
+    :type diffuseLightIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setDiffuseLightPass(diffuseLightPass)
+
+    Sets the status of the diffuse light pass.
+
+    :param diffuseLightPass: True to enable the diffuse light pass, false to disable it.
+    :type diffuseLightPass: bool
+
+.. py:method:: vrdRenderPasses.setExportRenderpasses(exportRenderPasses)
+
+    Activates rendering with renderpasses. All activated renderpasses are rendered and saved at a time.
+
+    :param exportRenderPasses: True to enable the render passes, false to disable them.
+    :type exportRenderPasses: bool
+
+.. py:method:: vrdRenderPasses.setFogPass(fogPass)
+
+    Sets the status of the fog pass.
+
+    :param fogPass: True to enable the pass, false to disable it.
+    :type fogPass: bool
+
+.. py:method:: vrdRenderPasses.setFrontplatePass(frontplatePass)
+
+    Sets the status of the frontplate pass.
+
+    :param frontplatePass: True to enable the pass, false to disable it.
+    :type frontplatePass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyColorPass(glossyColorPass)
+
+    Sets the status of the glossy color pass.
+
+    :param glossyColorPass: True to enable the pass, false to disable it.
+    :type glossyColorPass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyIblIlluminationPass(glossyIblIlluminationPass)
+
+    Sets the status of the glossy IBL illumination pass.
+
+    :param glossyIblIlluminationPass: True to enable the pass, false to disable it.
+    :type glossyIblIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyIblPass(glossyIblPass)
+
+    Sets the status of the glossy IBL pass.
+
+    :param glossyIblPass: True to enable the glossy IBL pass, false to disable it.
+    :type glossyIblPass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyIndirectIlluminationPass(glossyIndirectIlluminationPass)
+
+    Sets the status of the glossy indirect illumination pass.
+
+    :param glossyIndirectIlluminationPass: True to enable the pass, false to disable it.
+    :type glossyIndirectIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyIndirectPass(glossyIndirectPass)
+
+    Sets the status of the glossy indirect pass.
+
+    :param glossyIndirectPass: True to enable the glossy indirect pass, false to disable it.
+    :type glossyIndirectPass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyLightIlluminationPass(glossyLightIlluminationPass)
+
+    Sets the status of the glossy light illumination pass.
+
+    :param glossyLightIlluminationPass: True to enable the pass, false to disable it.
+    :type glossyLightIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setGlossyLightPass(glossyLightPass)
+
+    Sets the status of the glossy light pass.
+
+    :param glossyLightPass: True to enable the glossy light pass, false to disable it.
+    :type glossyLightPass: bool
+
+.. py:method:: vrdRenderPasses.setIncandescencePass(incandescencePass)
+
+    Sets the status of the incandescence pass.
+
+    :param incandescencePass: True to enable the pass, false to disable it.
+    :type incandescencePass: bool
+
+.. py:method:: vrdRenderPasses.setLensFlarePass(lensFlarePass)
+
+    Sets the status of the lens flare pass.
+
+    :param lensFlarePass: True to enable the pass, false to disable it.
+    :type lensFlarePass: bool
+
+.. py:method:: vrdRenderPasses.setMaskPass(maskPass)
+
+    Sets the status of the mask pass.
+
+    :param maskPass: True to enable the pass, false to disable it.
+    :type maskPass: bool
+
+.. py:method:: vrdRenderPasses.setMaterialIdPass(materialIdPass)
+
+    Sets the status of the material ID pass.
+
+    :param materialIdPass: True to enable the pass, false to disable it.
+    :type materialIdPass: bool
+
+.. py:method:: vrdRenderPasses.setNormalPass(normalPass)
+
+    Sets the status of the normal pass.
+
+    :param normalPass: True to enable the pass, false to disable it.
+    :type normalPass: bool
+
+.. py:method:: vrdRenderPasses.setOcclusionPass(occlusionPass)
+
+    Sets the status of the occlusion pass.
+
+    :param occlusionPass: True to enable the pass, false to disable it.
+    :type occlusionPass: bool
+
+.. py:method:: vrdRenderPasses.setOcclusionRange(occlusionRange)
+
+    Sets the occlusion range.
+
+    :param occlusionRange: The occlusion range.
+    :type occlusionRange: QVector2D
+
+.. py:method:: vrdRenderPasses.setPositionPass(positionPass)
+
+    Sets the status of the position pass.
+
+    :param positionPass: True to enable the pass, false to disable it.
+    :type positionPass: bool
+
+.. py:method:: vrdRenderPasses.setSheenColorPass(sheenColorPass)
+
+    Sets the status of the sheen color pass.
+
+    :param sheenColorPass: True to enable the pass, false to disable it.
+    :type sheenColorPass: bool
+
+.. py:method:: vrdRenderPasses.setSheenIlluminationPass(sheenIlluminationPass)
+
+    Sets the status of the sheen illumination pass.
+
+    :param sheenIlluminationPass: True to enable the pass, false to disable it.
+    :type sheenIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setSheenPass(sheenPass)
+
+    Sets the status of the sheen pass.
+
+    :param sheenPass: True to enable the pass, false to disable it.
+    :type sheenPass: bool
+
+.. py:method:: vrdRenderPasses.setSpecularColorPass(specularColorPass)
+
+    Sets the status of the specular color pass.
+
+    :param specularColorPass: True to enable the pass, false to disable it.
+    :type specularColorPass: bool
+
+.. py:method:: vrdRenderPasses.setSpecularIndirectIlluminationPass(specularIndirectIlluminationPass)
+
+    Sets the status of the specular indirect illumination pass.
+
+    :param specularIndirectIlluminationPass: True to enable the pass, false to disable it.
+    :type specularIndirectIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setSpecularReflectionPass(specularReflectionPass)
+
+    Sets the status of the specular reflection pass.
+
+    :param specularReflectionPass: True to enable the pass, false to disable it.
+    :type specularReflectionPass: bool
+
+.. py:method:: vrdRenderPasses.setTranslucencyColorPass(translucencyColorPass)
+
+    Sets the status of the translucency color pass.
+
+    :param translucencyColorPass: True to enable the pass, false to disable it.
+    :type translucencyColorPass: bool
+
+.. py:method:: vrdRenderPasses.setTranslucencyIblIlluminationPass(translucencyIblIlluminationPass)
+
+    Sets the status of the translucency IBL illumination pass.
+
+    :param translucencyIblIlluminationPass: True to enable the pass, false to disable it.
+    :type translucencyIblIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setTranslucencyIndirectIlluminationPass(translucencyIndirectIlluminationPass)
+
+    Sets the status of the translucency indirect illumination pass.
+
+    :param translucencyIndirectIlluminationPass: True to enable the pass, false to disable it.
+    :type translucencyIndirectIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setTranslucencyLightIlluminationPass(translucencyLightIlluminationPass)
+
+    Sets the status of the translucency light illumination pass.
+
+    :param translucencyLightIlluminationPass: True to enable the pass, false to disable it.
+    :type translucencyLightIlluminationPass: bool
+
+.. py:method:: vrdRenderPasses.setTranslucencyPass(translucencyPass)
+
+    Sets the status of the translucency pass.
+
+    :param translucencyPass: True to enable the pass, false to disable it.
+    :type translucencyPass: bool
+
+.. py:method:: vrdRenderPasses.setTransparencyColorPass(transparencyColorPass)
+
+    Sets the status of the transparency color pass.
+
+    :param transparencyColorPass: True to enable the pass, false to disable it.
+    :type transparencyColorPass: bool
+
+.. py:method:: vrdRenderPasses.setViewVectorPass(viewVectorPass)
+
+    Sets the status of the view vector pass.
+
+    :param viewVectorPass: True to enable the pass, false to disable it.
+    :type viewVectorPass: bool
+
+.. py:method:: vrdRenderPasses.setVolumeColorPass(volumeColorPass)
+
+    Sets the status of the volume color pass.
+
+    :param volumeColorPass: True to enable the pass, false to disable it.
+    :type volumeColorPass: bool
+

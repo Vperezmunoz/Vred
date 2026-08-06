@@ -1,0 +1,239 @@
+-----------------------
+vrdTransformNodeVariant
+-----------------------
+
+.. py:class:: vrdTransformNodeVariant
+
+(Inherits vrdSceneObject)
+
+Transformation node variant.
+
+Summary
+=======
+
+Functions:
+    * apply()
+    * getApplyMask() → vrTransformTypes.VariantValueBitMask
+    * getEulerRotationOrder() → vrTransformTypes.EulerRotationOrder
+    * getName() → string
+    * getRotatePivot() → QVector3D
+    * getRotatePivotTranslation() → QVector3D
+    * getRotationAsEuler() → QVector3D
+    * getRotationOrientationAsDirection() → Tuple[QVector3D,vrTransformTypes.Axis]
+    * getRotationOrientationAsEuler() → QVector3D
+    * getScale() → QVector3D
+    * getScalePivot() → QVector3D
+    * getScalePivotTranslation() → QVector3D
+    * getTranslation() → QVector3D
+    * getWorldRotatePivot() → QVector3D
+    * getWorldScalePivot() → QVector3D
+    * getWorldTranslation() → QVector3D
+    * setApplyMask(mask)
+    * setEulerRotationOrder(rotationOrder)
+    * setName(name)
+    * setRotatePivot(rotatePivot)
+    * setRotatePivotTranslation(rotatePivotTranslation)
+    * setRotationAsEuler(rotation)
+    * setRotationOrientationAsDirection(direction)
+    * setRotationOrientationAsEuler(rotationOrientation)
+    * setScale(scale)
+    * setScalePivot(scalePivot)
+    * setScalePivotTranslation(scalePivotTranslation)
+    * setTranslation(translation)
+    * setWorldRotatePivot(rotatePivot)
+    * setWorldScalePivot(scalePivot)
+    * setWorldTranslation(translation)
+
+Functions
+=========
+
+.. py:method:: vrdTransformNodeVariant.apply()
+
+    Applies this variant to the transformation.
+
+.. py:method:: vrdTransformNodeVariant.getApplyMask()
+
+    :return: The bit mask for fields to be applied on select
+    :rtype: vrTransformTypes.VariantValueBitMask
+
+.. py:method:: vrdTransformNodeVariant.getEulerRotationOrder()
+
+    :return: The euler angle rotation order
+    :rtype: vrTransformTypes.EulerRotationOrder
+
+.. py:method:: vrdTransformNodeVariant.getName()
+
+    :return: The name of this transform variant
+    :rtype: string
+
+.. py:method:: vrdTransformNodeVariant.getRotatePivot()
+
+    :return: The rotation pivot point
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getRotatePivotTranslation()
+
+    :return: The rotation pivot translation
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getRotationAsEuler()
+
+    :return: The euler rotation angles in degrees
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getRotationOrientationAsDirection()
+
+    :return: Pair where the first value is the object-space direction vector that the chosen pivot axis points to, and the second value is that pivot axis.
+    :rtype: Tuple[QVector3D, vrTransformTypes.Axis]
+
+.. py:method:: vrdTransformNodeVariant.getRotationOrientationAsEuler()
+
+    :return: The rotation orientation angles in degrees
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getScale()
+
+    :return: The scale vector
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getScalePivot()
+
+    :return: The scale pivot point
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getScalePivotTranslation()
+
+    :return: The scale pivot translation
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getTranslation()
+
+    :return: The translation vector
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getWorldRotatePivot()
+
+    :return: The rotation pivot in world space
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getWorldScalePivot()
+
+    :return: The cale pivot point in world space
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.getWorldTranslation()
+
+    :return: The translation vector in world space
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setApplyMask(mask)
+
+    Sets the bit mask for fields to be applied on select.
+
+    :param mask: The bit mask
+    :type mask: vrTransformTypes.VariantValueBitMask
+
+.. py:method:: vrdTransformNodeVariant.setEulerRotationOrder(rotationOrder)
+
+    Sets the euler rotation order.
+
+    :param rotationOrder: The rotation order
+    :type rotationOrder: vrTransformTypes.EulerRotationOrder
+
+.. py:method:: vrdTransformNodeVariant.setName(name)
+
+    Sets the variant name.
+
+    :param name: The new name
+    :type name: string
+
+.. py:method:: vrdTransformNodeVariant.setRotatePivot(rotatePivot)
+
+    Sets the rotate pivot.
+
+    :param rotatePivot: The rotate pivot
+    :type rotatePivot: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setRotatePivotTranslation(rotatePivotTranslation)
+
+    Sets the rotate pivot translation.
+
+    :param rotatePivotTranslation: The rotate pivot translation
+    :type rotatePivotTranslation: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setRotationAsEuler(rotation)
+
+    Sets the rotation.
+
+    :param rotation: Euler rotation angles in degrees
+    :type rotation: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setRotationOrientationAsDirection(direction)
+
+    Sets the rotation pivot orientation from a direction vector and axis, such that the selected pivot's axis is aligned with the direction vector.
+
+    For example, to change the pivot orientation such that the pivot's Z axis is aligned with the object space vector (1, 1, 1):
+
+```
+
+         variant.setRotationOrientationAsDirection((QVector3D(1, 1, 1), vrTransformTypes.Axis.Z))
+
+    :param direction: Vector: Direction vector in object space coordinates. Does not need to be normalized. Axis: Pivot axis that is aligned with the direction vector.
+    :type direction: Tuple[QVector3D, vrTransformTypes.Axis]
+
+.. py:method:: vrdTransformNodeVariant.setRotationOrientationAsEuler(rotationOrientation)
+
+    Sets the rotation orientation.
+
+    :param rotationOrientation: Euler rotation orientation angles in degrees
+    :type rotationOrientation: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setScale(scale)
+
+    Sets the scaling.
+
+    :param scale: Scale vector
+    :type scale: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setScalePivot(scalePivot)
+
+    Sets the scale pivot.
+
+    :param scalePivot: The scale pivot
+    :type scalePivot: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setScalePivotTranslation(scalePivotTranslation)
+
+    Sets the scale pivot translation.
+
+    :param scalePivotTranslation: The scale pivot translation
+    :type scalePivotTranslation: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setTranslation(translation)
+
+    Sets the translation.
+
+    :param translation: The translation vector
+    :type translation: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setWorldRotatePivot(rotatePivot)
+
+    Sets the rotate pivot in world space.
+
+    :param rotatePivot: The rotate pivot in world space
+    :type rotatePivot: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setWorldScalePivot(scalePivot)
+
+    Sets the scale pivot in world space.
+
+    :param scalePivot: The scale pivot in world space
+    :type scalePivot: QVector3D
+
+.. py:method:: vrdTransformNodeVariant.setWorldTranslation(translation)
+
+    Sets the translation in world space.
+
+    :param translation: Translation in world space
+    :type translation: QVector3D
+

@@ -1,0 +1,50 @@
+---------------
+vrdDeviceAction
+---------------
+
+.. py:class:: vrdDeviceAction
+
+(Inherits vrdObject)
+
+Represents an action that is part of an interaction.
+
+Summary
+=======
+
+Functions:
+    * execute(device)
+    * executeOnTrackedHand(trackedHand)
+    * getName() → string
+    * signal() → Q_SLOTvrdDeviceActionSignal
+
+Functions
+=========
+
+.. py:method:: vrdDeviceAction.execute(device)
+
+    Executes the action.
+
+    :param device: The device that should execute the action
+    :type device: vrdVRDevice
+
+.. py:method:: vrdDeviceAction.executeOnTrackedHand(trackedHand)
+
+    Executes the action.
+
+    :param trackedHand: The hand that should execute the action
+    :type trackedHand: vrdTrackedHand
+
+.. py:method:: vrdDeviceAction.getName()
+
+    Gets the name of the action.
+
+    :return: The name of the action.
+    :rtype: string
+
+.. py:method:: vrdDeviceAction.signal()
+
+    Gets the signal that is sent, when the action is triggered.
+
+    :return: The signal object.
+    :rtype: Q_SLOTvrdDeviceActionSignal
+

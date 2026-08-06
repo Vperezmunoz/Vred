@@ -1,0 +1,126 @@
+-----------------------
+vrdTessellationSettings
+-----------------------
+
+.. py:class:: vrdTessellationSettings
+
+(Inherits vrdData)
+
+Summary
+=======
+
+Functions:
+    * getChordDeviation() → float
+    * getFaceterVersion() → integer
+    * getGridMode() → integer
+    * getMaxChordLength() → float
+    * getNormalTolerance() → float
+    * getStitchingTolerance() → float
+    * getUseStitching() → bool
+    * setChordDeviation(value)
+    * setFaceterVersion(value)
+    * setGridMode(value)
+    * setMaxChordLength(value)
+    * setNormalTolerance(value)
+    * setStitchingTolerance(value)
+    * setUseStitching(value)
+    * vrdTessellationSettings()
+    * ~vrdTessellationSettings()
+
+Functions
+=========
+
+.. py:method:: vrdTessellationSettings.getChordDeviation()
+
+    Returns the chord deviation.
+
+    :return: The chord deviation.
+    :rtype: float
+
+.. py:method:: vrdTessellationSettings.getFaceterVersion()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdTessellationSettings.getGridMode()
+
+    :return:
+    :rtype: integer
+
+.. py:method:: vrdTessellationSettings.getMaxChordLength()
+
+    Returns the maximum chord length.
+
+    :return: The maximum chord length.
+    :rtype: float
+
+.. py:method:: vrdTessellationSettings.getNormalTolerance()
+
+    Returns the normal tolerance.
+
+    :return: The normal tolerance.
+    :rtype: float
+
+.. py:method:: vrdTessellationSettings.getStitchingTolerance()
+
+    Returns the stitching tolerance.
+
+    :return: The stitching tolerance.
+    :rtype: float
+
+.. py:method:: vrdTessellationSettings.getUseStitching()
+
+    Returns whether stitching is enabled or disabled.
+
+    :return: True, if stitching is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTessellationSettings.setChordDeviation(value)
+
+    Sets the maximum deviation between the NURBS surface and the tessellated surface. A low value results in a more accurate polygon model but also increases the number of triangles.
+
+    :param value: The new value for the chord deviation.
+    :type value: float
+
+.. py:method:: vrdTessellationSettings.setFaceterVersion(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdTessellationSettings.setGridMode(value)
+
+    :param value:
+    :type value: integer
+
+.. py:method:: vrdTessellationSettings.setMaxChordLength(value)
+
+    Sets the maximum edge length of the generated polygons. A low value results in a more accurate polygon model but also increases the number of triangles.
+
+    :param value: The new value for the maximum chord length.
+    :type value: float
+
+.. py:method:: vrdTessellationSettings.setNormalTolerance(value)
+
+    Sets the the allowed normal deviation between the normals on the ends of a tessellated edge. A low value results in a more accurate polygon model but also increases the number of triangles.
+
+    :param value: The new value for the normal tolerance.
+    :type value: float
+
+.. py:method:: vrdTessellationSettings.setStitchingTolerance(value)
+
+    Sets the tolerance where two adjacent edges are considered to be touching and where they should be stitched together.
+
+    :param value: The new value for the stitching tolerance.
+    :type value: float
+
+.. py:method:: vrdTessellationSettings.setUseStitching(value)
+
+    Enables or disables stitching of adjacent edges.
+
+    :param value: If True, stitching of adjacent edges is enabled.
+    :type value: bool
+
+.. py:method:: vrdTessellationSettings.vrdTessellationSettings()
+
+.. py:method:: vrdTessellationSettings.~vrdTessellationSettings()
+

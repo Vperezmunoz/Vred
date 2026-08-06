@@ -1,0 +1,251 @@
+-----------------
+vrdConstraintNode
+-----------------
+
+.. py:class:: vrdConstraintNode
+
+(Inherits vrdNode)
+
+Base class for constraint nodes in VRED's constraint system. Provides common functionality for managing constraint relationships between scene nodes.
+
+vrdConstraintNode represents constraint tree organization and general constraint settings. These nodes exist in a separate constraint tree that is managed independently from the main scene graph.
+
+Constraints are relationships that automatically control object transformations based on other objects. They create dynamic linkage where changes to target objects automatically affect constrained objects. Common uses include linking object positions, implementing look-at behaviors, and maintaining spatial relationships during animations.
+
+This is the base class for vrdPositionConstraintNode, vrdOrientationConstraintNode, vrdParentConstraintNode, vrdAimConstraintNode Each specialized type handles constraint-specific logic and parameters
+
+For managing constraints and code examples see     vrConstraintService.
+
+Summary
+=======
+
+Functions:
+    * addConstrainedNodes(nodes, maintainOffset)
+    * addTargetNodes(nodes)
+    * clearConstrainedNode()
+    * clearTargetNodes()
+    * getConstrainedNode() → vrdNode
+    * getConstrainedNodes() → List[vrdNode]
+    * getConstrainedObject(sceneNode) → vrdConstrainedObject
+    * getConstrainedObjects() → List[vrdConstrainedObject]
+    * getDescription() → string
+    * getTargetNodes() → List[vrdNode]
+    * getTargetNodeWeight(node) → float
+    * getTargetObject(sceneNode) → vrdConstraintObject
+    * getTargetObjects() → List[vrdConstraintObject]
+    * getVisualizationScale() → float
+    * getVisualizationVisible() → bool
+    * isActive() → bool
+    * removeConstrainedNodes(nodes)
+    * removeTargetNodes(nodes)
+    * setActive(value)
+    * setConstrainedNode(node, maintainOffset)
+    * setConstrainedNodes(nodes, maintainOffset)
+    * setDescription(value)
+    * setTargetNodes(nodes)
+    * setTargetNodeWeight(node, weight)
+    * setVisualizationScale(value)
+    * setVisualizationVisible(enable)
+
+Functions
+=========
+
+.. py:method:: vrdConstraintNode.addConstrainedNodes(nodes, maintainOffset=True)
+
+    Adds a list of nodes as constrained nodes for the constraint.
+
+    :param nodes: The nodes to add as constrained nodes.
+    :type nodes: List[vrdNode]
+
+    :param maintainOffset: True to maintain the offset of the constrained object.
+    :type maintainOffset: bool
+
+.. py:method:: vrdConstraintNode.addTargetNodes(nodes)
+
+    Adds a list of nodes to targets for the constraint.
+
+    :param nodes: The nodes to add as targets.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdConstraintNode.clearConstrainedNode()
+
+    Clears the constrained object node.
+
+.. py:method:: vrdConstraintNode.clearTargetNodes()
+
+    Clears the set target nodes of the constraint.
+
+.. py:method:: vrdConstraintNode.getConstrainedNode()
+
+    Returns the first node set as the constrained object. (Deprecated, this method is still here for backward compatibility, please use         vrdConstraintNode.getConstrainedNodes().
+
+    :return: The constrained object node.
+    :rtype: vrdNode
+
+.. py:method:: vrdConstraintNode.getConstrainedNodes()
+
+    Returns the list of nodes set as constrained objects.
+
+    :return: The list of constrained object nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdConstraintNode.getConstrainedObject(sceneNode)
+
+    Returns the constrained object for a specific scene node.
+
+    :param sceneNode: The scene node to get the constrained object for.
+    :type sceneNode: vrdNode
+
+    :return: The constrained object for the specified node.
+    :rtype: vrdConstrainedObject
+
+.. py:method:: vrdConstraintNode.getConstrainedObjects()
+
+    Returns all constrained objects.
+
+    :return: The list of constrained objects.
+    :rtype: List[vrdConstrainedObject]
+
+.. py:method:: vrdConstraintNode.getDescription()
+
+    Returns the description of the constraint.
+
+    :return: The description of the constraint.
+    :rtype: string
+
+.. py:method:: vrdConstraintNode.getTargetNodes()
+
+    Returns the list of nodes set as targets for the constraint.
+
+    :return: The list of target nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdConstraintNode.getTargetNodeWeight(node)
+
+    Gets the weight for a target node of the constraint. The node must be referenced in the target nodes list of the constraint.
+
+    :param node: The target node to get the weight for.
+    :type node: vrdNode
+
+    :return: The weight for the target node. If the node is not found, 0.0 is returned.
+    :rtype: float
+
+.. py:method:: vrdConstraintNode.getTargetObject(sceneNode)
+
+    Returns the target constraint object for a specific scene node.
+
+    :param sceneNode: The scene node to get the target object for.
+    :type sceneNode: vrdNode
+
+    :return: The target constraint object for the specified node.
+    :rtype: vrdConstraintObject
+
+.. py:method:: vrdConstraintNode.getTargetObjects()
+
+    Returns all target constraint objects.
+
+    :return: The list of target constraint objects.
+    :rtype: List[vrdConstraintObject]
+
+.. py:method:: vrdConstraintNode.getVisualizationScale()
+
+    Returns the scaling value used for the constraint visualization.
+
+    :return: The visualization scaling value.
+    :rtype: float
+
+.. py:method:: vrdConstraintNode.getVisualizationVisible()
+
+    Queries if the visualization for the constraint has been enabled.
+
+    :return: The visualization visible.
+    :rtype: bool
+
+.. py:method:: vrdConstraintNode.isActive()
+
+    Returns if the constraint is active.
+
+    :return: True if constraint is active, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdConstraintNode.removeConstrainedNodes(nodes)
+
+    Removes a list of nodes as constrained nodes for the constraint.
+
+    :param nodes: The nodes to remove as constrained nodes.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdConstraintNode.removeTargetNodes(nodes)
+
+    Removes a list of nodes from targets for the constraint.
+
+    :param nodes: The nodes to remove as targets.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdConstraintNode.setActive(value)
+
+    Sets the constraint active/deactive.
+
+    :param value: True if active, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdConstraintNode.setConstrainedNode(node, maintainOffset=True)
+
+    Sets a single node as the constrained object. Other constrained nodes will be removed. (Deprecated, this method is still here for backward compatibility, please use         vrdConstraintNode.setConstrainedNodes(nodes, maintainOffset)).
+
+    :param node: The node to set as the constrained object.
+    :type node: vrdNode
+
+    :param maintainOffset: True to maintain the offset of the constrained object.
+    :type maintainOffset: bool
+
+.. py:method:: vrdConstraintNode.setConstrainedNodes(nodes, maintainOffset=True)
+
+    Sets a list of nodes as the constrained objects.
+
+    :param nodes: The nodes to set as the constrained objects.
+    :type nodes: List[vrdNode]
+
+    :param maintainOffset: True to maintain the offset of the constrained object.
+    :type maintainOffset: bool
+
+.. py:method:: vrdConstraintNode.setDescription(value)
+
+    Sets the description of the constraint.
+
+    :param value: The description of the constraint.
+    :type value: string
+
+.. py:method:: vrdConstraintNode.setTargetNodes(nodes)
+
+    Sets a list of nodes as targets for the constraint.
+
+    :param nodes: The nodes to set as targets.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdConstraintNode.setTargetNodeWeight(node, weight)
+
+    Sets the weight for a target node of the constraint. The node must be referenced in the target nodes list of the constraint.
+
+    :param node: The target node to set the weight for.
+    :type node: vrdNode
+
+    :param weight: The weight for the target node.
+    :type weight: float
+
+.. py:method:: vrdConstraintNode.setVisualizationScale(value)
+
+    Sets a scaling value for the constraint visualization.
+
+    :param value: The scaling value (minimum: 0)
+    :type value: float
+
+.. py:method:: vrdConstraintNode.setVisualizationVisible(enable)
+
+    Enables / disables the visualization of the constraint.
+
+    Enabling this will show a visualization of the constraint in the render window.
+
+    :param enable: True to enable the visualization, False to disable.
+    :type enable: bool
+

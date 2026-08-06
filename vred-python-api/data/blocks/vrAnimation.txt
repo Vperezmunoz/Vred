@@ -1,0 +1,68 @@
+MODULE vrAnimation (legacy v1 API)
+
+-----------
+vrAnimation
+-----------
+
+Provides functionality to manage animations in VRED.
+
+Summary
+=======
+
+Functions:
+    * getAnimations() → list of strings
+    * continueAnimation(name)
+    * pauseAnimation(name)
+    * resetAnimation(name)
+    * startAnimation(name)
+    * stopAnimation(name)
+    * toggleAnimation(name)
+
+.. function:: getAnimations() → list of strings
+
+    Returns all animations.
+
+    :return: The names of all the animations.
+    :rtype: list of strings
+
+.. function:: startAnimation(name)
+
+    Starts an animation.
+
+    :param name: The name of the animation.
+    :type name: string
+
+.. function:: stopAnimation(name)
+
+    Stops an animation.
+
+    :param name: The name of the animation.
+    :type name: string
+
+.. function:: pauseAnimation(name)
+
+    Pauses an animation.
+
+    :param name: The name of the animation.
+    :type name: string
+
+.. function:: continueAnimation(name)
+
+    Continues an animation.
+
+    :param name: The name of the animation.
+    :type name: string
+
+.. function:: resetAnimation(name)
+
+    Resets an animation.
+
+    :param name: The name of the animation.
+    :type name: string
+
+.. function:: toggleAnimation(name)
+
+    Toggles an animation.
+
+    :param name: The name of the animation.
+    :type name: string

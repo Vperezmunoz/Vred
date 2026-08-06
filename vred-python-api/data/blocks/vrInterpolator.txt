@@ -1,0 +1,294 @@
+MODULE vrInterpolator (legacy v1 API)
+
+--------------
+vrInterpolator
+--------------
+
+.. module:: vrInterpolator
+
+==============
+vrInterpolator
+==============
+
+.. class:: vrInterpolator
+
+   Transforms objects.
+
+   Examples::
+
+       See also example interpolate.py
+
+Summary
+=======
+
+Constructors:
+    * vrInterpolator()
+    * vrInterpolator(once)
+
+Functions:
+    * add(slice)
+    * add(slice, parallel)
+
+.. method:: add(slice)
+
+    Adds a slide.
+
+    :param slice: The slide.
+    :type slice: vrSlide
+
+.. method:: add(slice, parallel)
+    :no-index:
+
+    Adds a slide.
+
+    :param slice: The slide.
+    :type slice: vrSlide
+    :param parallel: Run the slide in parallel: On/Off (Optional).
+    :type parallel: boolean
+
+.. method:: vrInterpolator()
+    :no-index:
+
+    Default constructor. Transforms objects.
+
+.. method:: vrInterpolator(once)
+    :no-index:
+
+    Constructor with once parameter.
+
+    :param once: If true, the interpolation will not be repeated (Optional).
+    :type once: bool
+
+==================
+vrSlide
+==================
+
+.. class:: vrSlide
+
+   Base class for slides.
+
+Summary
+=======
+
+Constructors:
+    * vrSlide(node, x1, y1, z1, x2, y2, z2, duration)
+    * vrSlide(node, x1, x2, duration)
+
+Functions:
+    * setDuration(duration)
+    * getDuration() → float
+
+.. method:: vrSlide(node, x1, y1, z1, x2, y2, z2, duration)
+    :no-index:
+
+    Creates a three-dimensional slide.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param x1: The starting x coordinate.
+    :type x1: float
+    :param y1: The starting y coordinate.
+    :type y1: float
+    :param z1: The starting z coordinate.
+    :type z1: float
+    :param x2: The ending x coordinate.
+    :type x2: float
+    :param y2: The ending y coordinate.
+    :type y2: float
+    :param z2: The ending z coordinate.
+    :type z2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+.. method:: vrSlide(node, x1, x2, duration)
+    :no-index:
+
+    Creates a one-dimensional slide.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param x1: The starting x coordinate.
+    :type x1: float
+    :param x2: The ending x coordinate.
+    :type x2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+.. method:: setDuration(duration)
+
+    Sets the duration of the slide.
+
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+.. method:: getDuration()
+
+    Returns the duration of the slide.
+
+    :return: The time in seconds.
+    :rtype: float (64bit)
+
+==================
+vrTranslationSlide
+==================
+
+.. class:: vrTranslationSlide
+
+   A slide for translating objects.
+
+Summary
+=======
+
+Constructor:
+    * vrTranslationSlide(node, x1, y1, z1, x2, y2, z2, duration)
+
+.. method:: vrTranslationSlide(node, x1, y1, z1, x2, y2, z2, duration)
+    :no-index:
+
+    The constructor of the vrTranslationSlide class.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param x1: The starting x coordinate.
+    :type x1: float
+    :param y1: The starting y coordinate.
+    :type y1: float
+    :param z1: The starting z coordinate.
+    :type z1: float
+    :param x2: The ending x coordinate.
+    :type x2: float
+    :param y2: The ending y coordinate.
+    :type y2: float
+    :param z2: The ending z coordinate.
+    :type z2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+===============
+vrRotationSlide
+===============
+
+.. class:: vrRotationSlide
+
+   A slide for rotating objects.
+
+Summary
+=======
+
+Constructor:
+    * vrRotationSlide(node, x1, y1, z1, x2, y2, z2, duration)
+
+.. method:: vrRotationSlide(node, x1, y1, z1, x2, y2, z2, duration)
+    :no-index:
+
+    The constructor of the vrRotationSlide class.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param x1: The starting x angle.
+    :type x1: float
+    :param y1: The starting y angle.
+    :type y1: float
+    :param z1: The starting z angle.
+    :type z1: float
+    :param x2: The ending x angle.
+    :type x2: float
+    :param y2: The ending y angle.
+    :type y2: float
+    :param z2: The ending z angle.
+    :type z2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+===================
+vrRotationAxisSlide
+===================
+
+.. class:: vrRotationAxisSlide
+
+   A slide for rotating objects around an arbitrary axis.
+
+Summary
+=======
+
+Constructors:
+    * vrRotationAxisSlide(node, axis, alpha1, alpha2, duration)
+    * vrRotationAxisSlide(node, x1, y1, z1, x2, y2, z2, alpha1, alpha2, duration)
+
+.. method:: vrRotationAxisSlide(node, axis, alpha1, alpha2, duration)
+    :no-index:
+
+    Rotates around an arbitrary axis.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param axis: The axis.
+    :type axis: vrNodePtr
+    :param alpha1: The starting angle.
+    :type alpha1: float
+    :param alpha2: The ending angle.
+    :type alpha2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+.. method:: vrRotationAxisSlide(node, x1, y1, z1, x2, y2, z2, alpha1, alpha2, duration)
+    :no-index:
+
+    Rotates around an arbitrary axis.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param x1: The first x coordinate of the axis.
+    :type x1: float
+    :param y1: The first y coordinate of the axis.
+    :type y1: float
+    :param z1: The first z coordinate of the axis.
+    :type z1: float
+    :param x2: The second x coordinate of the axis.
+    :type x2: float
+    :param y2: The second y coordinate of the axis.
+    :type y2: float
+    :param z2: The second z coordinate of the axis.
+    :type z2: float
+    :param alpha1: The starting angle.
+    :type alpha1: float
+    :param alpha2: The ending angle.
+    :type alpha2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)
+
+============
+vrScaleSlide
+============
+
+.. class:: vrScaleSlide
+
+   A slide for scaling objects.
+
+Summary
+=======
+
+Constructor:
+    * vrScaleSlide(node, x1, y1, z1, x2, y2, z2, duration)
+
+.. method:: vrScaleSlide(node, x1, y1, z1, x2, y2, z2, duration)
+    :no-index:
+
+    The constructor of the vrScaleSlide class.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param x1: The starting x scale.
+    :type x1: float
+    :param y1: The starting y scale.
+    :type y1: float
+    :param z1: The starting z scale.
+    :type z1: float
+    :param x2: The ending x scale.
+    :type x2: float
+    :param y2: The ending y scale.
+    :type y2: float
+    :param z2: The ending z scale.
+    :type z2: float
+    :param duration: The time in seconds.
+    :type duration: float (64bit)

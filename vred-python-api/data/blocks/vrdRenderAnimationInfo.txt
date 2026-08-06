@@ -1,0 +1,48 @@
+----------------------
+vrdRenderAnimationInfo
+----------------------
+
+.. py:class:: vrdRenderAnimationInfo
+
+(Inherits vrdObject)
+
+Summary
+=======
+
+Functions:
+    * getAnimationId() → integer
+    * getEnd() → integer
+    * getFrameStep() → integer
+    * getStart() → integer
+
+Functions
+=========
+
+.. py:method:: vrdRenderAnimationInfo.getAnimationId()
+
+    Gets the animation ID.
+
+    :return: unsigned int The animation ID.
+    :rtype: integer
+
+.. py:method:: vrdRenderAnimationInfo.getEnd()
+
+    Gets the end frame of the animation.
+
+    :return: int The end frame.
+    :rtype: integer
+
+.. py:method:: vrdRenderAnimationInfo.getFrameStep()
+
+    Gets the frame step of the animation.
+
+    :return: int The frame step.
+    :rtype: integer
+
+.. py:method:: vrdRenderAnimationInfo.getStart()
+
+    Gets the start frame of the animation.
+
+    :return: int The start frame.
+    :rtype: integer
+

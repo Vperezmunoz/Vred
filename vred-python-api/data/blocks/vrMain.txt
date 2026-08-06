@@ -1,0 +1,20 @@
+MODULE vrMain (legacy v1 API)
+
+------
+vrMain
+------
+
+.. class:: vrMain
+
+Summary
+=======
+
+Functions:
+    * setStyleSheet(filename)
+
+.. method:: setStyleSheet(filename)
+
+    Loads a Qt style sheet.
+
+    :param filename: The absolute path of the .qss style sheet file.
+    :type filename: string

@@ -1,0 +1,291 @@
+-----------------
+vrdShadowMaterial
+-----------------
+
+.. py:class:: vrdShadowMaterial
+
+(Inherits vrdMaterial)
+
+This class is used to handle all shadow material properties.
+
+    .. py:class:: OpacityMode
+
+            .. py:data:: Transparent
+
+            .. py:data:: Solid
+
+    .. py:class:: ReflectionMode
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: DiffuseOnly
+
+            .. py:data:: GlossyOnly
+
+            .. py:data:: DiffuseGlossy
+
+Summary
+=======
+
+Functions:
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getGlossyColor() → QVector3D
+    * getGlossyColorSpectrum() → vrSpectrum
+    * getOcclusionColor() → QVector3D
+    * getOcclusionColorSpectrum() → vrSpectrum
+    * getOcclusionIntensity() → float
+    * getOpacityMode() → vrdShadowMaterial.OpacityMode
+    * getRaytracing() → vrdMaterialRaytracingSettings
+    * getReflectionMode() → vrdShadowMaterial.ReflectionMode
+    * getReflectivity() → float
+    * getRoughness() → float
+    * getShadowColor() → QVector3D
+    * getShadowColorSpectrum() → vrSpectrum
+    * getSortKey() → integer
+    * getUseBakedShadows() → bool
+    * isVisibleInScreenSpaceRefractions() → bool
+    * setDiffuseColor(value)
+    * setDiffuseColorSpectrum(value)
+    * setGlossyColor(value)
+    * setGlossyColorSpectrum(value)
+    * setOcclusionColor(color)
+    * setOcclusionColorSpectrum(value)
+    * setOcclusionIntensity(v)
+    * setOpacityMode(mode)
+    * setReflectionMode(mode)
+    * setReflectivity(v)
+    * setRoughness(roughness)
+    * setShadowColor(color)
+    * setShadowColorSpectrum(value)
+    * setSortKey(value)
+    * setUseBakedShadows(bakedShadows)
+    * setVisibleInScreenSpaceRefractions(value)
+
+Functions
+=========
+
+.. py:method:: vrdShadowMaterial.getDiffuseColor()
+
+    :return: Current diffuse reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdShadowMaterial.getDiffuseColorSpectrum()
+
+    Gets the diffuse color spectrum.
+
+    :return: The current spectrum for diffuse color
+    :rtype: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.getGlossyColor()
+
+    Gets the current glossy reflection color.
+
+    :return: Value of current glossy reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdShadowMaterial.getGlossyColorSpectrum()
+
+    Get the current material's color spectrum for glossy reflections.
+
+    :return: Current color spectrum
+    :rtype: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.getOcclusionColor()
+
+    Gets the color of the pre-calculated ambient occlusion or environment shadows.
+
+    :return: Current set value of the color of the pre-calculated ambient occlusion or environment shadows.
+    :rtype: QVector3D
+
+.. py:method:: vrdShadowMaterial.getOcclusionColorSpectrum()
+
+    Gets the color spectrum of the pre-calculated ambient occlusion or environment shadows.
+
+    :return: The current used color spectrum of the pre-calculated ambient occlusion or environment shadows
+    :rtype: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.getOcclusionIntensity()
+
+    Gets the intensity of shadowed areas.
+
+    :return: Current value of the intensity of shadowed areas.
+    :rtype: float
+
+.. py:method:: vrdShadowMaterial.getOpacityMode()
+
+    Gets the mode used for opacity. Choose from Transparent or Solid.
+
+    :return: Current used mode for opacity.
+    :rtype: vrdShadowMaterial.OpacityMode
+
+.. py:method:: vrdShadowMaterial.getRaytracing()
+
+    Gets access to raytracing settings of this material.
+
+    :return: A vrdMaterialRaytracingSettings object to read and write all properties.
+    :rtype: vrdMaterialRaytracingSettings
+
+.. py:method:: vrdShadowMaterial.getReflectionMode()
+
+    Gets the reflection mode.
+
+    :return: Current value of the used reflection mode.
+    :rtype: vrdShadowMaterial.ReflectionMode
+
+.. py:method:: vrdShadowMaterial.getReflectivity()
+
+    Gets the intensity of the reflection on the surface.
+
+    :return: Current used intensity of the reflection on the surface.
+    :rtype: float
+
+.. py:method:: vrdShadowMaterial.getRoughness()
+
+    :return: The current roughness value for glossy reflections on this material.
+    :rtype: float
+
+.. py:method:: vrdShadowMaterial.getShadowColor()
+
+    Gets the color for shadows from light sources.
+
+    :return: Current used value of the color for shadows from light sources.
+    :rtype: QVector3D
+
+.. py:method:: vrdShadowMaterial.getShadowColorSpectrum()
+
+    Gets the color spectrum for shadows from light sources.
+
+    :return: The current used color spectrum for shadows from light sources.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.getSortKey()
+
+    :return: Current sort key of the shadow material for OpenGL.
+    :rtype: integer
+
+.. py:method:: vrdShadowMaterial.getUseBakedShadows()
+
+    Gets if the shadow material should use baked shadows instead of the output of real-time environment shadows (SSAO, RTAO, RT Environment Shadows) in rasterization.
+
+    :return: True if the baked shadows are used, false if real-time computed shadows are used.
+    :rtype: bool
+
+.. py:method:: vrdShadowMaterial.isVisibleInScreenSpaceRefractions()
+
+    :return: If shadow material is visible in screen space refractions.
+    :rtype: bool
+
+.. py:method:: vrdShadowMaterial.setDiffuseColor(value)
+
+    Sets the diffuse reflection color. Only has an effect if current ReflectionMode is set to a mode supporting diffuse.
+
+    :param value: New diffuse color.
+    :type value: QVector3D
+
+.. py:method:: vrdShadowMaterial.setDiffuseColorSpectrum(value)
+
+    Sets the diffuse color spectrum.
+
+    :param value: New spectrum for diffuse color
+    :type value: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.setGlossyColor(value)
+
+    Sets the color for glossy reflections. Only has an effect if current ReflectionMode is set to a mode supporting glossy.
+
+    :param value: New glossy reflection color
+    :type value: QVector3D
+
+.. py:method:: vrdShadowMaterial.setGlossyColorSpectrum(value)
+
+    Sets the material's color spectrum for glossy reflections.
+
+    :param value: New glossy color spectrum
+    :type value: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.setOcclusionColor(color)
+
+    Sets the color of the pre-calculated ambient occlusion or environment shadows.
+
+    :param color: New value of color of the pre-calculated ambient occlusion or environment shadows
+    :type color: QVector3D
+
+.. py:method:: vrdShadowMaterial.setOcclusionColorSpectrum(value)
+
+    Sets the color spectrum of the pre-calculated ambient occlusion or environment shadows.
+
+    :param value: New color spectrum of the pre-calculated ambient occlusion or environment shadows
+    :type value: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.setOcclusionIntensity(v)
+
+    Sets the intensity of shadowed areas.
+
+    :param v: New value of the intensity of shadowed areas.
+    :type v: float
+
+.. py:method:: vrdShadowMaterial.setOpacityMode(mode)
+
+    Sets the mode used for opacity. Choose from Transparent or Solid.
+
+    :param mode: New used mode for opacity.
+    :type mode: vrdShadowMaterial.OpacityMode
+
+.. py:method:: vrdShadowMaterial.setReflectionMode(mode)
+
+    Sets the reflection mode. Choose from glossy, diffuse, or a mix of both.
+
+    :param mode: New value of the used reflection mode.
+    :type mode: vrdShadowMaterial.ReflectionMode
+
+.. py:method:: vrdShadowMaterial.setReflectivity(v)
+
+    Controls the intensity of the reflection on the surface. The higher the value, the more the influence from the environment and objects around.
+
+    :param v: New intensity of the reflection on the surface.
+    :type v: float
+
+.. py:method:: vrdShadowMaterial.setRoughness(roughness)
+
+    Controls the sharpness of the glossy reflections. The higher the value, the rougher the microscopic structure of the surface and more diffuse the reflections.
+
+    :param roughness: New value of roughness for this material.
+    :type roughness: float
+
+.. py:method:: vrdShadowMaterial.setShadowColor(color)
+
+    Sets the color for shadows from light sources.
+
+    :param color: New value of the color for shadows from light sources.
+    :type color: QVector3D
+
+.. py:method:: vrdShadowMaterial.setShadowColorSpectrum(value)
+
+    Sets the color spectrum for shadows from light sources.
+
+    :param value: New color spectrum for shadows from light sources.
+    :type value: vrSpectrum
+
+.. py:method:: vrdShadowMaterial.setSortKey(value)
+
+    Changes the order in which transparent materials are rendered in OpenGL when the Transparency Mode is set to Object Sorting. Transparent surfaces with the same sort key are sorted back to front.
+
+    :param value: New sort key value.
+    :type value: integer
+
+.. py:method:: vrdShadowMaterial.setUseBakedShadows(bakedShadows)
+
+    Sets if the shadow material should use baked shadows instead of the output of real-time environment shadows (SSAO, RTAO, RT Environment Shadows) in rasterization.
+
+    :param bakedShadows: True to use the baked shadows, false to use real-time computed shadows.
+    :type bakedShadows: bool
+
+.. py:method:: vrdShadowMaterial.setVisibleInScreenSpaceRefractions(value)
+
+    Allows to control if the material is visible in screen space refractions. If turned on, the shadow material will be visible in screen space refractions but transparent objects behind the shadow material might not be sorted correctly. If turned off, the shadow material will not be visible in screen space refractions but transparent objects behind the shadow material will appear in the correct order. Screen space refractions are only supported in Vulkan rendering mode.
+
+    :param value: Visibility of shadow material in screen space refractions.
+    :type value: bool
+

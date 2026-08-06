@@ -1,0 +1,38 @@
+---------------
+vrObjectService
+---------------
+
+.. py:class:: vrObjectService
+
+(Inherits vrBaseService)
+
+Summary
+=======
+
+Signals:
+    * propertyChanged(obj, name)
+
+Signals
+=======
+
+.. py:method:: vrObjectService.propertyChanged(obj, name)
+
+    This signal is sent everytime a property of a         vrdObject is changed.
+
+    To get changes for specific properties the user has to connect to this signal and filter out properties by comparing the name parameter. This signal expects a unicode string (which is the default string in Python 3).
+
+    This example will connect to this signal and print out every property change as it happens. The propertyname is a Python unicode string.
+
+```
+
+         def propertyChanged(obj, propertyName):
+            print("object name: {}, property name: {}".format(obj.getName(), propertyName))
+
+         vrObjectService.propertyChanged.connect(propertyChanged)
+
+    :param obj: The vrdObject which has a changed property.
+    :type obj: vrdObject
+
+    :param name: The name of the changed property.
+    :type name: string
+

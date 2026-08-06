@@ -1,0 +1,176 @@
+MODULE vrVrpnTracking (legacy v1 API)
+
+--------------
+vrVrpnTracking
+--------------
+
+Summary
+=======
+
+Classes:
+    * vrTrackerSensor(name, type)
+    * vrTrackerBody(name)
+    * vrTrackerButton(name)
+    * vrTrackerAnalog(name)
+    * vrTrackerDial(name)
+    * vrSelection(node)
+
+Methods:
+    * vrSelection.getNode()
+    * vrSelection.selected()
+    * vrTrackerAnalog.getValue()
+    * vrTrackerAnalog.setSensorId(id)
+    * vrTrackerBody.getNode()
+    * vrTrackerBody.setNode(name)
+    * vrTrackerButton.isPressed()
+    * vrTrackerButton.pressed()
+    * vrTrackerButton.released()
+    * vrTrackerDial.getValue()
+    * vrTrackerSensor.getName()
+    * vrTrackerSensor.getType()
+    * vrTrackerSensor.setEnabled(state)
+    * vrTrackerSensor.setSensorId(id)
+
+.. class:: vrTrackerSensor(name, type)
+
+    The vrTrackerSensor class is the base class for all sensors like bodies, buttons, and dials. You can only access sensors that are already created in the tracking module, meaning you cannot create new sensors with the Python API. All objects constructed with the Python API work as proxy objects to access the VRED internal tracking sensors.
+
+    This class is only a base class and should not be instantiated directly. Use vrTrackerButton, vrTrackerDial, vrTrackerAnalog, or vrTrackerBody instead.
+
+    :param name: The name of the sensor.
+    :type name: string
+    :param type: The type of the sensor.
+    :type type: string
+
+.. method:: setSensorId(id)
+
+    Sets a specific sensor ID to the sensor. This is used for further identification.
+
+    :param id: The ID of the sensor.
+    :type id: int
+
+.. method:: setEnabled(state)
+    :no-index:
+
+    Enables the sensor.
+
+    :param state: Sensor state: On/Off.
+    :type state: bool
+
+.. method:: getType()
+    :no-index:
+
+    Returns the type of this sensor. Possible types are "Body", "Dial", "Button", and "Analog".
+
+    :return: The type of the sensor.
+    :rtype: string
+
+.. method:: getName()
+    :no-index:
+
+    Returns the name of this sensor.
+
+    :return: The name of the sensor.
+    :rtype: string
+
+.. class:: vrTrackerBody(name)
+
+    The vrTrackerBody class is a proxy class to access a tracking body as defined in the Tracking GUI module. To create a vrTrackerBody object for an existing body, pass its name as the only parameter to its constructor. The name is a user-definable string set in the tracking GUI in VRED.
+
+    :param name: The name of the tracking body.
+    :type name: string
+
+.. method:: setNode(name)
+    :no-index:
+
+    Sets the name of the node connected to this body. The tracking system will update the transformation matrix of the node. Only transform nodes can be attached to a body.
+
+    :param name: The name of the node.
+    :type name: string
+
+.. method:: getNode()
+    :no-index:
+
+    Returns the name of the node connected to this body.
+
+    :return: The name of the node.
+    :rtype: string
+
+.. class:: vrTrackerButton(name)
+
+    The vrTrackerButton class is a proxy class to access a tracking button as defined in the Tracking GUI module. To create a vrTrackerButton object for an existing button, pass its name as the only parameter to its constructor. The name is a user-definable string set in the tracking GUI in VRED.
+
+    :param name: The name of the button.
+    :type name: string
+
+.. method:: isPressed()
+
+    Returns true if the button is pressed.
+
+    :return: True if the button is pressed, false otherwise.
+    :rtype: bool
+
+.. method:: pressed()
+
+    SIGNAL is called when the button is pressed.
+
+.. method:: released()
+
+    SIGNAL is called when the button is released.
+
+.. class:: vrTrackerAnalog(name)
+
+    The vrTrackerAnalog class is a proxy class to access a tracking analog as defined in the Tracking GUI module. To create a vrTrackerAnalog object for an existing analog, pass its name as the only parameter to its constructor. The name is a user-definable string set in the tracking GUI in VRED.
+
+    :param name: The name of the analog.
+    :type name: string
+
+.. method:: setSensorId(id)
+    :no-index:
+
+    Sets a specific sensor ID to the analog. This is used for further identification.
+
+    :param id: The ID of the sensor.
+    :type id: int
+
+.. method:: getValue()
+    :no-index:
+
+    Returns the current value of the analog.
+
+    :return: The value of the analog.
+    :rtype: float (64bit)
+
+.. class:: vrTrackerDial(name)
+
+    The vrTrackerDial class is a proxy class to access a tracking dial as defined in the Tracking GUI module. To create a vrTrackerDial object for an existing dial, pass its name as the only parameter to its constructor. The name is a user-definable string set in the tracking GUI in VRED.
+
+    :param name: The name of the dial.
+    :type name: string
+
+.. method:: getValue()
+    :no-index:
+
+    Returns the current value of the dial.
+
+    :return: The value of the dial.
+    :rtype: float (64bit)
+
+.. class:: vrSelection(node)
+
+    The vrSelection class is a proxy class to handle selection events. The special signal method `selected` is called when a node is selected.
+
+    :param node: The node.
+    :type node: vrNodePtr
+
+.. method:: getNode()
+    :no-index:
+
+    Returns the node.
+
+    :return: The node.
+    :rtype: vrNodePtr
+
+.. method:: selected()
+
+    SIGNAL is called when the node is selected.

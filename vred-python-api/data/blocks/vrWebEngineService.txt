@@ -1,0 +1,220 @@
+------------------
+vrWebEngineService
+------------------
+
+.. py:class:: vrWebEngineService
+
+(Inherits vrBaseService)
+
+This service gives access to all web engines in VRED. Web engines created with this service will be visible in the media editor. Web engines used in sceneplates will be directly created with the sceneplate. Sceneplate web engines can be accessed with this service but not deleted.
+
+Note: This service can also manage the groups in the Media Editor. These groups have no unique names so the user is responsible to create unique ones if he wants to work on them with the scripting API. All functions that take a group name as parameter will take the first one they find with the given name.
+
+This is an example on how to create a web engine and assign to an object:
+
+```
+
+     #create a geometry in the scene to assign a web engine
+     box = createBox(1000, 1000, 1000, 2, 2, 2, 1, 1, 1)
+
+     #create a web engine with a given url
+     webEngine = vrWebEngineService.createWebEngine("autodeskEngine")
+     webEngine.setTextureSlot(vrdWebEngine.TextureSlotType.Diffuse)
+     webEngine.setUrl("www.autodesk.com")
+
+     #assign web engine to the box material
+     webEngine.setMaterial(box.getMaterial())
+
+Summary
+=======
+
+Functions:
+    * anyWebEngineHasFocus() → bool
+    * createGroup(name, parentGroup)
+    * createWebEngine(name, group) → vrdWebEngine
+    * getWebEngine(name) → vrdWebEngine
+    * getWebEngines() → List[vrdWebEngine]
+    * isInteractionEnabled() → bool
+    * reloadAllWebEngines()
+    * removeGroup(name) → bool
+    * removeWebEngine(webengine) → bool
+    * renameGroup(oldName, newName)
+    * reparentGroup(name, newParentName)
+    * reparentWebEngine(webengine, newParentName)
+    * setInteractionEnabled(enable)
+
+Signals:
+    * groupCreated(name)
+    * groupRemoved(name)
+    * structureChanged()
+    * urlChanged(webengine, url)
+    * webEngineCreated(webengine)
+    * webEngineRemoved(webengine)
+
+Functions
+=========
+
+.. py:method:: vrWebEngineService.anyWebEngineHasFocus()
+
+    Return true if any web engine has the input focus.
+
+    :return: True if any engine has the focus, False othewise.
+    :rtype: bool
+
+.. py:method:: vrWebEngineService.createGroup(name, parentGroup="")
+
+    Creates a group in the Media Editor.
+
+    :param name: The name of the new group
+    :type name: string
+
+    :param parentGroup: The name of the parent group (optional)
+    :type parentGroup: string
+
+.. py:method:: vrWebEngineService.createWebEngine(name, group="")
+
+    Creates a web engine.
+
+    If the group parameter is specified, the web engine will be attached to the group in the Media Editor with the given name.
+
+    :param name: The name of the web engine.
+    :type name: string
+
+    :param group: The group in the media editor to place the web engine (optional)
+    :type group: string
+
+    :return: The created web engine.
+    :rtype: vrdWebEngine
+
+.. py:method:: vrWebEngineService.getWebEngine(name)
+
+    Gets a web engine by name.
+
+    If multiple engines with the same name exist, it will return just one of them. Web engines used in sceneplates have the same name as its sceneplate.
+
+    :param name: The name of the web engine
+    :type name: string
+
+    :return: The web engine.
+    :rtype: vrdWebEngine
+
+.. py:method:: vrWebEngineService.getWebEngines()
+
+    Returns a list of all the web engines in VRED.
+
+    :return: A list of web engines.
+    :rtype: List[vrdWebEngine]
+
+.. py:method:: vrWebEngineService.isInteractionEnabled()
+
+    Returns true if interaction with web engines is enabled.
+
+    :return: True if interaction is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrWebEngineService.reloadAllWebEngines()
+
+    Triggers a reload on all web engines in VRED.
+
+.. py:method:: vrWebEngineService.removeGroup(name)
+
+    Removes a group in the Media Editor.
+
+    :param name: The name of the group.
+    :type name: string
+
+    :return: True if the group has been removed, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrWebEngineService.removeWebEngine(webengine)
+
+    Removes a web engine.
+
+    :param webengine: The web engine to remove. Web engines used in sceneplates will not be removed with this. They will be removed with their sceneplate.
+    :type webengine: vrdWebEngine
+
+    :return: True if successful, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrWebEngineService.renameGroup(oldName, newName)
+
+    Rename a group in the Media Editor.
+
+    :param oldName: The current name of the group
+    :type oldName: string
+
+    :param newName: The new name of the group
+    :type newName: string
+
+.. py:method:: vrWebEngineService.reparentGroup(name, newParentName)
+
+    Move a group in the Media Editor to a different parent.
+
+    :param name: The name of the group to move
+    :type name: string
+
+    :param newParentName: The name of the new parent group. If the name is an empty string, the group will be moved to the top level.
+    :type newParentName: string
+
+.. py:method:: vrWebEngineService.reparentWebEngine(webengine, newParentName)
+
+    Move a web engine to a different group in the Media Editor.
+
+    :param webengine: The web engine to move.
+    :type webengine: vrdWebEngine
+
+    :param newParentName: The name of the new parent group. If the name is an empty string, the web engine will be moved to the top level.
+    :type newParentName: string
+
+.. py:method:: vrWebEngineService.setInteractionEnabled(enable)
+
+    Enables or disables the interaction with all web engines in the scene.
+
+    :param enable: True to enable, False to disable interaction.
+    :type enable: bool
+
+Signals
+=======
+
+.. py:method:: vrWebEngineService.groupCreated(name)
+
+    Signal is sent when a new group has been created.
+
+    :param name: The name of the new group
+    :type name: string
+
+.. py:method:: vrWebEngineService.groupRemoved(name)
+
+    Signals that a group has been removed.
+
+    :param name: The name of the removed group.
+    :type name: string
+
+.. py:method:: vrWebEngineService.structureChanged()
+
+    Signal is sent when any structural change on the graph in the media editor has been made through the service.
+
+.. py:method:: vrWebEngineService.urlChanged(webengine, url)
+
+    Signal is sent when the url of the web has been changed.
+
+    :param webengine: The web engine.
+    :type webengine: vrdWebEngine
+
+    :param url: The new url.
+    :type url: string
+
+.. py:method:: vrWebEngineService.webEngineCreated(webengine)
+
+    Signal is sent when a new web engine has been created.
+
+    :param webengine: The created web engine.
+    :type webengine: vrdWebEngine
+
+.. py:method:: vrWebEngineService.webEngineRemoved(webengine)
+
+    Signal is sent when a web engine has been removed.
+
+    :param webengine: The name of the removed web engine.
+    :type webengine: string
+

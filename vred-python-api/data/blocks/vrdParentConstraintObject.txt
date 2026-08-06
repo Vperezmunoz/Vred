@@ -1,0 +1,114 @@
+-------------------------
+vrdParentConstraintObject
+-------------------------
+
+.. py:class:: vrdParentConstraintObject
+
+(Inherits vrdConstrainedObject)
+
+This constraint object represents constrained nodes in parent constraints (    vrdParentConstraintNode). It defines how target node transformations control the constrained node as if the constrained node were a child of the targets. To obtain this object, see vrdConstraintNode::getConstrainedObject(vrdNode).
+
+Summary
+=======
+
+Functions:
+    * getEulerRotationOffset() → QVector3D
+    * getMaintainOffset() → bool
+    * getScalingOffset() → QVector3D
+    * getTranslationOffset() → QVector3D
+    * getUseWorldSpaceConstrainedSystem() → bool
+    * getUseWorldSpaceTargetSystem() → bool
+    * setEulerRotationOffset(eulerRotation)
+    * setMaintainOffset(maintain)
+    * setScalingOffset(scalingOffset)
+    * setTranslationOffset(translation)
+    * setUseWorldSpaceConstrainedSystem(use)
+    * setUseWorldSpaceTargetSystem(use)
+
+Functions
+=========
+
+.. py:method:: vrdParentConstraintObject.getEulerRotationOffset()
+
+    Returns the euler rotation offset applied to the constraint result. Only applied when maintain offset is disabled.
+
+    :return: The rotation offset in euler angles (degrees).
+    :rtype: QVector3D
+
+.. py:method:: vrdParentConstraintObject.getMaintainOffset()
+
+    Returns whether the current offset is maintained.
+
+    :return: True if offset is maintained, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdParentConstraintObject.getScalingOffset()
+
+    Returns the scaling offset applied to the constraint result. Only applied when maintain offset is disabled.
+
+    :return: The scaling offset values for X, Y, Z axes.
+    :rtype: QVector3D
+
+.. py:method:: vrdParentConstraintObject.getTranslationOffset()
+
+    Returns the translation offset applied to the constraint result. Only applied when maintain offset is disabled.
+
+    :return: The translation offset in world units.
+    :rtype: QVector3D
+
+.. py:method:: vrdParentConstraintObject.getUseWorldSpaceConstrainedSystem()
+
+    Returns whether world space coordinate system is used for constrained nodes.
+
+    :return: True if world space is used, False if local space is used.
+    :rtype: bool
+
+.. py:method:: vrdParentConstraintObject.getUseWorldSpaceTargetSystem()
+
+    Returns whether world space coordinate system is used for target nodes.
+
+    :return: True if world space is used, False if local space is used.
+    :rtype: bool
+
+.. py:method:: vrdParentConstraintObject.setEulerRotationOffset(eulerRotation)
+
+    Sets additional euler rotation offset applied to the constraint result. Only applied when maintain offset is disabled.
+
+    :param eulerRotation: The rotation offset in euler angles (degrees).
+    :type eulerRotation: QVector3D
+
+.. py:method:: vrdParentConstraintObject.setMaintainOffset(maintain)
+
+    Sets whether to maintain the current offset when applying the constraint.
+
+    :param maintain: True to maintain offset, False to ignore current offset.
+    :type maintain: bool
+
+.. py:method:: vrdParentConstraintObject.setScalingOffset(scalingOffset)
+
+    Sets scaling offset applied to the constraint result. Only applied when maintain offset is disabled.
+
+    :param scalingOffset: The scaling offset values for X, Y, Z axes.
+    :type scalingOffset: QVector3D
+
+.. py:method:: vrdParentConstraintObject.setTranslationOffset(translation)
+
+    Sets additional translation offset applied to the constraint result. Only applied when maintain offset is disabled.
+
+    :param translation: The translation offset in world units.
+    :type translation: QVector3D
+
+.. py:method:: vrdParentConstraintObject.setUseWorldSpaceConstrainedSystem(use)
+
+    Sets whether to use world space coordinate system for constrained nodes.
+
+    :param use: True to use world space, False to use local space.
+    :type use: bool
+
+.. py:method:: vrdParentConstraintObject.setUseWorldSpaceTargetSystem(use)
+
+    Sets whether to use world space coordinate system for target nodes.
+
+    :param use: True to use world space, False to use local space.
+    :type use: bool
+

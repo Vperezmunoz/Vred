@@ -1,0 +1,213 @@
+----------
+vrdVariant
+----------
+
+.. py:class:: vrdVariant
+
+(Inherits vrdSceneObject)
+
+Provides a mechanism to target and change scene objects.
+
+A variant targets one or more objects in the scene. The target objects are resolved based on the properties searchMethod and targetType. The search method defines how the target objects are found (e.g. by name). The target type acts as a filter on the found objects and restricts them to a specific type (see vrVariantTypes.TargetType).
+
+A variant can change its target objects by executing a state on it. Depending on the target(s), different states are available. For example, a variant targeting a node can have a state for setting its visibility on or off, while a variant targeting a material switch can have states for selecting different sub-materials.
+
+Also, there are a number of built-in states that are available through vrVariantStates. Some of them are special control states that allow for more complex interactions (e.g. cycling through the available states).
+
+Summary
+=======
+
+Functions:
+    * execute(state)
+    * getAvailableStates() → List[string]
+    * getCurrentState() → List[string]
+    * getDefaultState() → string
+    * getSearchMethod() → vrVariantTypes.SearchMethod
+    * getTargetName() → string
+    * getTargetQuery() → string
+    * getTargetQueryKey() → string
+    * getTargetQuerySet() → string
+    * getTargetQueryTag() → string
+    * getTargetType() → vrVariantTypes.TargetType
+    * getTargetUUID() → QUuid
+    * hasTarget() → bool
+    * resolveTargets() → List[vrdSceneObject]
+    * setSearchMethod(method)
+    * setTargetName(name)
+    * setTargetObject(targetObject, searchMethod)
+    * setTargetQuery(expression)
+    * setTargetQueryKey(key)
+    * setTargetQuerySet(set)
+    * setTargetQueryTag(tag)
+    * setTargetType(type)
+    * setTargetUUID(uuid)
+
+Functions
+=========
+
+.. py:method:: vrdVariant.execute(state)
+
+    Executes a specific state for this variant.
+
+    :param state: The state to execute.
+    :type state: string
+
+.. py:method:: vrdVariant.getAvailableStates()
+
+    Gets the list of available states for this variant.
+
+    :return: A list with states that can be executed on this variant.
+    :rtype: List[string]
+
+.. py:method:: vrdVariant.getCurrentState()
+
+    Gets the state of every target object.
+
+    :return: The current state of the target objects.
+    :rtype: List[string]
+
+.. py:method:: vrdVariant.getDefaultState()
+
+    Gets the default state of this variant.
+
+    Normally, the default state will be the state the first target object is currently in. In case its current state is empty, the default state will be one of the available states that can be set on the targets.
+
+    :return: The default state.
+    :rtype: string
+
+.. py:method:: vrdVariant.getSearchMethod()
+
+    Gets the search method used to find target objects.
+
+    :return: The search method enum value indicating how targets are located.
+    :rtype: vrVariantTypes.SearchMethod
+
+.. py:method:: vrdVariant.getTargetName()
+
+    Gets the name of the target object(s).
+
+    :return: The target name string used for object identification.
+    :rtype: string
+
+.. py:method:: vrdVariant.getTargetQuery()
+
+    Gets the query expression used to find target objects.
+
+    :return: The query expression string used for complex target selection.
+    :rtype: string
+
+.. py:method:: vrdVariant.getTargetQueryKey()
+
+    Extracts the key from the target query.
+
+    :return: QString The key specified in the target query.
+    :rtype: string
+
+.. py:method:: vrdVariant.getTargetQuerySet()
+
+    Extracts the metadata set name value from the target query.
+
+    :return: QString The metadata set name specified in the target query.
+    :rtype: string
+
+.. py:method:: vrdVariant.getTargetQueryTag()
+
+    Extracts the tag from the target query.
+
+    :return: QString The tag specified in the target query.
+    :rtype: string
+
+.. py:method:: vrdVariant.getTargetType()
+
+    Gets the target type for this variant.
+
+    :return: The target type enum value indicating what kind of objects this variant targets.
+    :rtype: vrVariantTypes.TargetType
+
+.. py:method:: vrdVariant.getTargetUUID()
+
+    Gets the UUID of the target object.
+
+    :return: The target UUID string for unique object identification.
+    :rtype: QUuid
+
+.. py:method:: vrdVariant.hasTarget()
+
+    Checks if this variant has a valid target.
+
+    :return: True if the variant has a target that can be found, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdVariant.resolveTargets()
+
+    Resolves the target objects for this variant.
+
+    :return: A list of objects that match the variant's target criteria.
+    :rtype: List[vrdSceneObject]
+
+.. py:method:: vrdVariant.setSearchMethod(method)
+
+    Sets the search method used to find target objects.
+
+    :param method: The search method to use for locating target objects.
+    :type method: vrVariantTypes.SearchMethod
+
+.. py:method:: vrdVariant.setTargetName(name)
+
+    Sets the name of the target object(s).
+
+    :param name: The target name to set for object identification.
+    :type name: string
+
+.. py:method:: vrdVariant.setTargetObject(targetObject, searchMethod=vrVariantTypes.SearchMethod.Uuid)
+
+    Sets the target object for this variant.
+
+    :param targetObject: The target object to set.
+    :type targetObject: vrdSceneObject
+
+    :param searchMethod: The search method to use for locating the target object.
+    :type searchMethod: vrVariantTypes.SearchMethod
+
+.. py:method:: vrdVariant.setTargetQuery(expression)
+
+    Sets the query expression used to find target objects.
+
+    :param expression: The query expression to set for complex target selection.
+    :type expression: string
+
+.. py:method:: vrdVariant.setTargetQueryKey(key)
+
+    Sets the target query with the given key.
+
+    :param key: The metadata key to use in the query.
+    :type key: string
+
+.. py:method:: vrdVariant.setTargetQuerySet(set)
+
+    Sets the target query with the given metadata set name.
+
+    :param set: The metadata set name to use in the query.
+    :type set: string
+
+.. py:method:: vrdVariant.setTargetQueryTag(tag)
+
+    Sets the target query with the given tag.
+
+    :param tag: The tag to use in the query.
+    :type tag: string
+
+.. py:method:: vrdVariant.setTargetType(type)
+
+    Sets the target type for this variant.
+
+    :param type: The target type to set, determining what kind of objects this variant will affect.
+    :type type: vrVariantTypes.TargetType
+
+.. py:method:: vrdVariant.setTargetUUID(uuid)
+
+    Sets the UUID of the target object.
+
+    :param uuid: The target UUID to set for unique object identification.
+    :type uuid: QUuid
+

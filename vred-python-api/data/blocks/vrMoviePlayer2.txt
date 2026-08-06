@@ -1,0 +1,234 @@
+MODULE vrMoviePlayer2 (legacy v1 API)
+
+--------------
+vrMoviePlayer2
+--------------
+
+.. class:: vrMoviePlayer2
+
+   **Constructor:**
+
+   .. method:: __init__(mat: vrMaterialPtr, filename: str)
+
+      :param mat: The material to map the movie to.
+      :type mat: vrMaterialPtr
+      :param filename: The name of the movie file.
+      :type filename: str
+
+   .. method:: __init__(node1: vrNodePtr, filename: str, yuv: bool = False)
+      :no-index:
+
+      :param node1: The node to map the movie to.
+      :type node1: vrNodePtr
+      :param filename: The name of the movie file.
+      :type filename: str
+      :param yuv: True for YUV video, false otherwise (Optional). Default is False.
+      :type yuv: bool
+
+   .. method:: __init__(node1: vrNodePtr, node2: vrNodePtr, filename: str, yuv: bool = False)
+      :no-index:
+
+      :param node1: The node to map the movie to.
+      :type node1: vrNodePtr
+      :param node2: The second node to map the second (right) stereo channel to (Optional).
+      :type node2: vrNodePtr
+      :param filename: The name of the movie file.
+      :type filename: str
+      :param yuv: True for YUV video, false otherwise (Optional). Default is False.
+      :type yuv: bool
+
+Summary
+=======
+
+Functions:
+    * disableChromaKeying()
+    * disableFillColor()
+    * disableLuminanceKeying()
+    * disableSaturationKeying()
+    * enableChromaKeying(value, blendStart, blendEnd)
+    * enableFillColor(red, green, blue, alpha)
+    * enableLuminanceKeying(value, blendStart, blendEnd)
+    * enableSaturationKeying(value, blendStart, blendEnd)
+    * getDroppedFrames() → int
+    * getDuration() → float
+    * getFrameCount() → int
+    * getFrameNumber() → int
+    * getPlaybackSpeed() → float
+    * getPosition() → float
+    * setFrameNumber(fn)
+    * setLoop(state)
+    * setOpacity(opacity)
+    * setPausedFrameNumber(fn)
+    * setPlay(state)
+    * setPlaybackSpeed(r)
+    * setPosition(t)
+    * setTransform(x, y, xscale, yscale)
+
+.. method:: setOpacity(opacity: float)
+
+    Sets the opacity of the movie.
+
+    :param opacity: The opacity in the range 0 (fully transparent) to 1 (fully opaque).
+    :type opacity: float
+
+.. method:: enableFillColor(red: float, green: float, blue: float, alpha: float)
+
+    Sets the fill color for keying on the movie.
+
+    :param red: The red component in the range 0 to 1.
+    :type red: float
+    :param green: The green component in the range 0 to 1.
+    :type green: float
+    :param blue: The blue component in the range 0 to 1.
+    :type blue: float
+    :param alpha: The alpha component in the range 0 to 1.
+    :type alpha: float
+
+.. method:: disableFillColor()
+
+    Disables the fill color and only blends the alpha channel.
+
+.. method:: enableChromaKeying(value: float, blendStart: float, blendEnd: float)
+
+    Enables Chroma keying on the movie.
+
+    :param value: The keying hue value in the range 0 to 360.
+    :type value: float
+    :param blendStart: The start offset for the beginning of the edge blending in the range 0 to 1.
+    :type blendStart: float
+    :param blendEnd: The end offset for the end of the edge blending in the range 0 to 1.
+    :type blendEnd: float
+
+.. method:: disableChromaKeying()
+
+    Disables Chroma keying on the movie.
+
+.. method:: enableLuminanceKeying(value: float, blendStart: float, blendEnd: float)
+
+    Enables Luminance keying on the movie.
+
+    :param value: The keying luminance value in the range 0 to 1.
+    :type value: float
+    :param blendStart: The start offset for the beginning of the edge blending in the range 0 to 1.
+    :type blendStart: float
+    :param blendEnd: The end offset for the end of the edge blending in the range 0 to 1.
+    :type blendEnd: float
+
+.. method:: disableLuminanceKeying()
+
+    Disables Luminance keying on the movie.
+
+.. method:: enableSaturationKeying(value: float, blendStart: float, blendEnd: float)
+
+    Enables Saturation keying on the movie.
+
+    :param value: The keying saturation value in the range 0 to 1.
+    :type value: float
+    :param blendStart: The start offset for the beginning of the edge blending in the range 0 to 1.
+    :type blendStart: float
+    :param blendEnd: The end offset for the end of the edge blending in the range 0 to 1.
+    :type blendEnd: float
+
+.. method:: disableSaturationKeying()
+
+    Disables Saturation keying on the movie.
+
+.. method:: setLoop(state: bool)
+
+    Sets repeat mode.
+
+    :param state: Repeat mode: Enable/Disable.
+    :type state: bool
+
+.. method:: setPlay(state: bool)
+
+    Toggles between play and pause.
+
+    :param state: Play/Pause movie.
+    :type state: bool
+
+.. method:: setPosition(t: float)
+    :no-index:
+
+    Set movie position.
+
+    :param t: The time in seconds.
+    :type t: float
+
+.. method:: getPosition() -> float
+    :no-index:
+
+    Returns the movie position.
+
+    :return: The time in seconds.
+    :rtype: float
+
+.. method:: getDuration() -> float
+
+    Returns the movie duration.
+
+    :return: The time in seconds.
+    :rtype: float
+
+.. method:: getFrameNumber() -> int
+
+    Returns the current frame number.
+
+    :return: The frame number.
+    :rtype: int
+
+.. method:: setFrameNumber(fn: int)
+
+    Sets the current frame number.
+
+    :param fn: The frame number.
+    :type fn: int
+
+.. method:: setPausedFrameNumber(fn: int)
+
+    Sets the current frame number and pauses the movie.
+
+    :param fn: The frame number.
+    :type fn: int
+
+.. method:: getFrameCount() -> int
+
+    Gets the frame count.
+
+    :return: The frame count.
+    :rtype: int
+
+.. method:: getDroppedFrames() -> int
+
+    Returns the number of dropped frames.
+
+    :return: The number of dropped frames.
+    :rtype: int
+
+.. method:: setPlaybackSpeed(r: float)
+
+    Sets the playback speed of the movie.
+
+    :param r: The speed factor (1.0 is the original speed).
+    :type r: float
+
+.. method:: getPlaybackSpeed() -> float
+
+    Returns playback speed of the movie.
+
+    :return: The speed factor (1.0 is the original speed).
+    :rtype: float
+
+.. method:: setTransform(x: float, y: float, xscale: float, yscale: float)
+    :no-index:
+
+    Transforms the movie.
+
+    :param x: The position on the x-axis.
+    :type x: float
+    :param y: The position on the y-axis.
+    :type y: float
+    :param xscale: The scale factor on the x-axis.
+    :type xscale: float
+    :param yscale: The scale factor on the y-axis.
+    :type yscale: float

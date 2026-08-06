@@ -1,0 +1,111 @@
+MODULE vrVideoGrab (legacy v1 API)
+
+-----------
+vrVideoGrab
+-----------
+
+Maps a video stream from a tv card or webcam on a node.
+
+Example::
+
+    See also example videograb.py
+
+Summary
+=======
+
+Constructors:
+    * vrVideoGrab(node, parameter)
+    * vrVideoGrab(node, parameter, xres, yres)
+    * vrVideoGrab(material, parameter)
+    * vrVideoGrab(material, parameter, xres, yres)
+
+Methods:
+    * setFrame(x0, y0, x1, y1)
+    * setTransform(x, y, xscale, yscale)
+    * setUpdateDuration(duration)
+
+.. class:: vrVideoGrab(node, parameter)
+
+    The constructor of the vrVideoGrab class. There are two valid sets of parameters:
+
+    vrVideoGrab(node, parameter)
+
+    :param node: The node to map the video to.
+    :type node: vrNodePtr
+    :param parameter: The device name or device index number.
+    :type parameter: string
+
+.. class:: vrVideoGrab(node, parameter, xres, yres)
+    :no-index:
+
+    The constructor of the vrVideoGrab class. There are two valid sets of parameters:
+
+    vrVideoGrab(node, parameter, xres, yres)
+
+    :param node: The node to map the video to.
+    :type node: vrNodePtr
+    :param parameter: The device name or device index number.
+    :type parameter: string
+    :param xres: The x resolution of the video (Optional). Default is the given video resolution.
+    :type xres: integer
+    :param yres: The y resolution of the video (Optional). Default is the given video resolution.
+    :type yres: integer
+
+.. class:: vrVideoGrab(material, parameter)
+    :no-index:
+
+    The constructor of the vrVideoGrab class. There are two valid sets of parameters:
+
+    :param material: The material to map the video to.
+    :type node: vrMaterialPtr
+    :param parameter: The device name or device index number.
+    :type parameter: string
+
+.. class:: vrVideoGrab(material, parameter, xres, yres)
+    :no-index:
+
+    The constructor of the vrVideoGrab class. There are two valid sets of parameters:
+
+    :param material: The material to map the video to.
+    :type node: vrMaterialPtr
+    :param parameter: The device name or device index number.
+    :type parameter: string
+    :param xres: The x resolution of the video (Optional). Default is the given video resolution.
+    :type xres: integer
+    :param yres: The y resolution of the video (Optional). Default is the given video resolution.
+    :type yres: integer
+
+.. method:: setTransform(x, y, xscale, yscale)
+    :no-index:
+
+    Transforms the video.
+
+    :param x: The x position.
+    :type x: float
+    :param y: The y position.
+    :type y: float
+    :param xscale: The x scale.
+    :type xscale: float
+    :param yscale: The y scale.
+    :type yscale: float
+
+.. method:: setFrame(x0, y0, x1, y1)
+    :no-index:
+
+    Sets the frame rectangle of the displayed movie.
+
+    :param x0: The x0 position.
+    :type x0: integer
+    :param y0: The y0 position.
+    :type y0: integer
+    :param x1: The x1 position.
+    :type x1: integer
+    :param y1: The y1 position.
+    :type y1: integer
+
+.. method:: setUpdateDuration(duration)
+
+    Sets the movie update duration.
+
+    :param duration: The duration in seconds.
+    :type duration: float (64bit)

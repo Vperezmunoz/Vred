@@ -1,0 +1,14 @@
+-------------------------------
+vrdPhysicsPlaneColliderSettings
+-------------------------------
+
+.. py:class:: vrdPhysicsPlaneColliderSettings
+
+(Inherits vrdPhysicsColliderSettings)
+
+Settings for a plane collider, typically used as a ground plane.
+
+A plane collider is an "endless" flat surface: it stretches endlessly in width and depth and splits space into two half-spaces (the side above and the side below the plane). Plane colliders are the recommended choice for ground floors, because there are no edges to fall past and objects cannot slip through due to the collider being too small.
+
+In VRED, the plane is defined from the source node's transformation only (position and rotation); the node's geometry and scale do not affect the resulting collider. In most cases, a simple group node placed at the origin is sufficient to create a ground plane. Plane colliders are only supported for static objects. The plane automatically orients based on your scene's up-mode (Y-up or Z-up), with the "below" side pointing downward.
+

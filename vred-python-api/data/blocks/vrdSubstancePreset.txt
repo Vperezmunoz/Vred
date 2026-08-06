@@ -1,0 +1,42 @@
+------------------
+vrdSubstancePreset
+------------------
+
+.. py:class:: vrdSubstancePreset
+
+(Inherits vrdSceneObject)
+
+This class is used to describe a substance preset.
+
+Summary
+=======
+
+Functions:
+    * getImportPath() → string
+    * getName() → string
+    * setName(name)
+
+Functions
+=========
+
+.. py:method:: vrdSubstancePreset.getImportPath()
+
+    Gets the preset XML path.
+
+    :return: Preset XML path
+    :rtype: string
+
+.. py:method:: vrdSubstancePreset.getName()
+
+    Gets the preset name.
+
+    :return: Current preset name
+    :rtype: string
+
+.. py:method:: vrdSubstancePreset.setName(name)
+
+    Sets the preset name.
+
+    :param name: New preset name
+    :type name: string
+

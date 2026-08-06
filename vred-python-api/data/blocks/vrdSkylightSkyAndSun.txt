@@ -1,0 +1,121 @@
+--------------------
+vrdSkylightSkyAndSun
+--------------------
+
+.. py:class:: vrdSkylightSkyAndSun
+
+(Inherits vrdSceneObject)
+
+This class is used for all skylight properties of     vrdSkylightMaterial.
+
+    .. py:class:: SkyModel
+
+            .. py:data:: Artistic
+               :no-index:
+
+            .. py:data:: Realistic
+
+Summary
+=======
+
+Functions:
+    * getGroundColor() → QVector3D
+    * getSkyModel() → vrdSkylightSkyAndSun.SkyModel
+    * getSkyTurbidity() → float
+    * getSunScale() → float
+    * getSunVisibleInSpecularReflections() → bool
+    * getUseMirroredSkyAsGround() → bool
+    * setGroundColor(value)
+    * setSkyModel(value)
+    * setSkyTurbidity(value)
+    * setSunScale(value)
+    * setSunVisibleInSpecularReflections(value)
+    * setUseMirroredSkyAsGround(value)
+
+Functions
+=========
+
+.. py:method:: vrdSkylightSkyAndSun.getGroundColor()
+
+    Gets the color for the single-colored ground in the lower hemisphere if Use Mirrored Sky as Ground is not active.
+
+    :return: The current color for the ground.
+    :rtype: QVector3D
+
+.. py:method:: vrdSkylightSkyAndSun.getSkyModel()
+
+    Queries the used sky model.
+
+    :return: The current sky model.
+    :rtype: vrdSkylightSkyAndSun.SkyModel
+
+.. py:method:: vrdSkylightSkyAndSun.getSkyTurbidity()
+
+    Gets the amount of haze in the atmosphere.
+
+    :return: Current used value for the amount of haze in the atmosphere.
+    :rtype: float
+
+.. py:method:: vrdSkylightSkyAndSun.getSunScale()
+
+    Gets the size of the sun.
+
+    :return: Current used value for the size of the sun.
+    :rtype: float
+
+.. py:method:: vrdSkylightSkyAndSun.getSunVisibleInSpecularReflections()
+
+    Queries whether the sun of this skylight material is visible in all specular reflections in the scene.
+
+    :return: whether the sun of this skylight material is visible in all specular reflections in the scene.
+    :rtype: bool
+
+.. py:method:: vrdSkylightSkyAndSun.getUseMirroredSkyAsGround()
+
+    Queries if the upper hemisphere is mirrored.
+
+    :return: Current state.
+    :rtype: bool
+
+.. py:method:: vrdSkylightSkyAndSun.setGroundColor(value)
+
+    Sets the color for the single-colored ground in the lower hemisphere if Use Mirrored Sky as Ground is not active.
+
+    :param value: The new color for the ground.
+    :type value: QVector3D
+
+.. py:method:: vrdSkylightSkyAndSun.setSkyModel(value)
+
+    Choose between two different sky models: Realistic and Artistic. The artistic sky model produces more reddish and colorful skies, especially for sunrise/sunsets.
+
+    :param value: The new sky model.
+    :type value: vrdSkylightSkyAndSun.SkyModel
+
+.. py:method:: vrdSkylightSkyAndSun.setSkyTurbidity(value)
+
+    Controls the amount of haze in the atmosphere. Low values correspond to a clear sky. The default value of 3.0 is a clear sky in a temperate climate. The maximum value of 10.0 yields a hazy sky.
+
+    :param value: New value for the amount of haze in the atmosphere.
+    :type value: float
+
+.. py:method:: vrdSkylightSkyAndSun.setSunScale(value)
+
+    Controls the size of the sun. The default value 1.0 corresponds to the actual size of the sun, seen from the earth. The sun is drawn as a filled circle within the sky environment. Increase the sun scale to get softer shadows with raytracing.
+
+    :param value: New value for the size of the sun.
+    :type value: float
+
+.. py:method:: vrdSkylightSkyAndSun.setSunVisibleInSpecularReflections(value)
+
+    Defines whether the sun of this skylight material is visible in all specular reflections in the scene, for example, on clear coat.
+
+    :param value: State whether the sun of this skylight material is visible in all specular reflections in the scene.
+    :type value: bool
+
+.. py:method:: vrdSkylightSkyAndSun.setUseMirroredSkyAsGround(value)
+
+    Uses the mirrored upper hemisphere (sky without sun) as the lower hemisphere (ground). If disabled, a uniform colored ground is used, see         vrdSkylightSkyAndSun.setGroundColor(value).
+
+    :param value: New state.
+    :type value: bool
+

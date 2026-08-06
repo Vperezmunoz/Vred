@@ -1,0 +1,38 @@
+-----------------
+vrdRaytracingInfo
+-----------------
+
+.. py:class:: vrdRaytracingInfo
+
+(Inherits vrdObject)
+
+This class is part of     vrGPUService.
+
+Provides access to information about the GPU used for raytracing.
+
+Summary
+=======
+
+Functions:
+    * getDriverVersion() → List[integer]
+    * isGPURTSupported() → bool
+
+Functions
+=========
+
+.. py:method:: vrdRaytracingInfo.getDriverVersion()
+
+    Gets the driver version of the GPU.
+
+    On linux this only works for NVidia hardware with nvidia-smi installed in $PATH.
+
+    :return: The driver version.
+    :rtype: List[integer]
+
+.. py:method:: vrdRaytracingInfo.isGPURTSupported()
+
+    Determines if GPU raytracing is supported.
+
+    :return: True if GPU raytracing supported, False otherwise.
+    :rtype: bool
+

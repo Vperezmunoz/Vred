@@ -1,0 +1,27 @@
+MODULE vrRoute (legacy v1 API)
+
+-------
+vrRoute
+-------
+
+Summary
+=======
+
+Functions:
+    * createRoute(fromNodename, fromFieldname, toNodename, toFieldname)
+
+.. method:: createRoute(fromNodename, fromFieldname, toNodename, toFieldname)
+
+    Creates a route between two nodes: "from" and "to".
+
+    :param fromNodename: The name of the node "from".
+    :type fromNodename: string
+
+    :param fromFieldname: The name of the field "from".
+    :type fromFieldname: string
+
+    :param toNodename: The name of the node "to".
+    :type toNodename: string
+
+    :param toFieldname: The name of the field "to".
+    :type toFieldname: string

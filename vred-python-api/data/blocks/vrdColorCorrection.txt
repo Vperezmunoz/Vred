@@ -1,0 +1,76 @@
+------------------
+vrdColorCorrection
+------------------
+
+.. py:class:: vrdColorCorrection
+
+(Inherits vrdSceneObject)
+
+This class is used for the base color correction properties.
+
+The color correction base class.
+
+Summary
+=======
+
+Functions:
+    * getBrightness() → float
+    * getContrast() → float
+    * getHueShift() → float
+    * getSaturation() → float
+    * setBrightness(value)
+    * setContrast(contrast)
+    * setHueShift(value)
+    * setSaturation(saturation)
+
+Functions
+=========
+
+.. py:method:: vrdColorCorrection.getBrightness()
+
+    :return: Current value of brightness
+    :rtype: float
+
+.. py:method:: vrdColorCorrection.getContrast()
+
+    :return: Contrast value
+    :rtype: float
+
+.. py:method:: vrdColorCorrection.getHueShift()
+
+    :return: Current hue shift in degrees
+    :rtype: float
+
+.. py:method:: vrdColorCorrection.getSaturation()
+
+    :return: Saturation value
+    :rtype: float
+
+.. py:method:: vrdColorCorrection.setBrightness(value)
+
+    Sets brightness. Default value is 1.0.
+
+    :param value: New value of brightness
+    :type value: float
+
+.. py:method:: vrdColorCorrection.setContrast(contrast)
+
+    Shifts the content's light and dark color values. Default value is 1.0. Higher values create brighter highlights and darker shadows.
+
+    :param contrast: New contrast value.
+    :type contrast: float
+
+.. py:method:: vrdColorCorrection.setHueShift(value)
+
+    Shifts all content colors uniformly through the hue color range. Default value is 0.0.
+
+    :param value: Floating value in degrees
+    :type value: float
+
+.. py:method:: vrdColorCorrection.setSaturation(saturation)
+
+    Shifts the content's color intensity. Default value is 1.0. Higher values produce vivid colors. Lower values produce dull grayer colors.
+
+    :param saturation: Saturation
+    :type saturation: float
+

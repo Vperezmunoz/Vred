@@ -1,0 +1,1657 @@
+MODULE vrRenderSettings (legacy v1 API)
+
+----------------
+vrRenderSettings
+----------------
+
+**Deprecated**; use API v2 vrRenderSettingsService and vrdRenderSettings instead.
+
+Summary
+=======
+
+Functions:
+    * addPreset(name)
+    * applyPreset(name)
+    * clearRenderVariantSetGroups()
+    * disableRaytracingOverrides()
+    * generateRayFile(filename, numPhotons, maxDepth)
+    * getBrdfMode() → int
+    * getDenoiseAlpha() → bool
+    * getDenoiseFilter() → unsigned int
+    * getDenoiseFilterThreshold() → double
+    * getDenoiserModel() → unsigned int
+    * getDenoiserType() → int
+    * getEnableDenoiseFilter() → bool
+    * getIlluminant() → int
+    * getNURBSRaytracing() → bool
+    * getOptimizationMode() → unsigned int
+    * getRasterizationMode() → int
+    * getRaytracingAAImageFilterHeight() → float
+    * getRaytracingAAImageFilterType() → int
+    * getRaytracingAAImageFilterWidth() → float
+    * getRaytracingAAThresholdQuality() → int
+    * getRaytracingClampingEnable() → bool
+    * getRaytracingClampValue() → float
+    * getRaytracingCores() → int
+    * getRaytracingFinalGatherRadius() → float
+    * getRaytracingImageSamples() → int
+    * getRaytracingInteractiveFinalGatherQuality() → int
+    * getRaytracingInteractiveIBLQuality() → int
+    * getRaytracingInteractivePhotonCount() → int
+    * getRaytracingInteractiveQuality() → int
+    * getRaytracingInteractiveQualityMode() → int
+    * getRaytracingInteractiveTextureSharpness() → float
+    * getRaytracingInteractiveTraceDepth() → int
+    * getRaytracingLightEvaluationThreshold() → float
+    * getRaytracingMode() → int
+    * getRaytracingPhotonLookupCount() → int
+    * getRaytracingPhotonMapFreezeMode() → int
+    * getRaytracingPhotonMapRefreshMode() → int
+    * getRaytracingPhotonMode() → int
+    * getRaytracingPhotonRadius() → float
+    * getRaytracingPhotonUseAutomaticRadius() → bool
+    * getRaytracingSampleOffset() → int
+    * getRaytracingSamplesThreshold() → int
+    * getRaytracingStillFrameFinalGatherQuality() → int
+    * getRaytracingStillFrameIBLQuality() → int
+    * getRaytracingStillFramePhotonCount() → int
+    * getRaytracingStillFrameQuality() → int
+    * getRaytracingStillFrameQualityMode() → int
+    * getRaytracingStillFrameSupersampling() → int
+    * getRaytracingStillFrameTextureSharpness() → float
+    * getRaytracingStillFrameTraceDepth() → int
+    * getRaytracingUseHighQualityTextureFiltering() → bool
+    * getRaytracingUseFinalGatherForGlossy() → bool
+    * getRenderAlpha() → bool
+    * getRenderAnimation() → bool
+    * getRenderAnimationClip() → string
+    * getRenderAnimationClips() → list
+    * getRenderAnimationFormat() → int
+    * getRenderAnimationType() → int
+    * getRenderBackgroundColor() → Vec3f
+    * getRenderFilename() → string
+    * getRenderFps() → int
+    * getRenderFrameStep() → int
+    * getRenderICCProfile() → int
+    * getRenderingColorspace() → unsigned int
+    * getRenderMetaDataFlags() → int
+    * getRenderOutputFilenames() → list
+    * getRenderPasses() → list
+    * getRenderPixelHeight() → float
+    * getRenderPixelPerInch() → float
+    * getRenderPixelWidth() → float
+    * getRenderPNGQuality() → unsigned int
+    * getRenderPremultiply() → bool
+    * getRenderPrintHeight() → float
+    * getRenderPrintWidth() → float
+    * getRenderRegionEndX() → int
+    * getRenderRegionEndY() → int
+    * getRenderRegionStartX() → int
+    * getRenderRegionStartY() → int
+    * getRenderStartFrame() → int
+    * getRenderStopFrame() → int
+    * getRenderSupersampling() → int
+    * getRenderTimeInSeconds() → int
+    * getRenderTonemapHDR() → bool
+    * getRenderUseClipRange() → bool
+    * getRenderVariantSetGroups() → list
+    * getRenderVariantSets(groupName) → list
+    * getRenderView()
+    * getSpectralRaytracing() → bool
+    * getUseInfiniteRenderInViewport() → bool
+    * getUseRenderPasses() → bool
+    * getUseRenderRegion() → bool
+    * getUseRenderTimeLimit() → bool
+    * getUseRenderVariantSets() → bool
+    * getUseRenderViewFromVariantSets() → bool
+    * removeRenderVariantSetGroup(groupName)
+    * setActiveGPUMask(mask)
+    * setBrdfMode(mode)
+    * setClusterTileRendering(on)
+    * setDenoiseAlpha(denoiseAlpha)
+    * setDenoiseFilter(filterType)
+    * setDenoiseFilterThreshold(value)
+    * setDenoiserInput(type)
+    * setDenoiserModel(model)
+    * setDenoiserType(denoiserType)
+    * setEnableDenoiseFilter(on)
+    * setIlluminant(illuminant)
+    * setMaxClusterTileSize(tilesize)
+    * setNURBSRaytracing(on)
+    * setOptimizationMode(mode)
+    * setRasterizationMode(mode)
+    * setRaytracingAAAdaptiveSamples(samples)
+    * setRaytracingAAImageFilter(id, width, height)
+    * setRaytracingAAInitialSamples(samples)
+    * setRaytracingAAThreshold(threshold)
+    * setRaytracingAAThresholdQuality(threshold)
+    * setRaytracingCausticPhotonRadius(radius)
+    * setRaytracingClampingEnable(state)
+    * setRaytracingClampValue(value)
+    * setRaytracingCores(numCores)
+    * setRaytracingDOFEnable(state)
+    * setRaytracingFinalGathering(quality)
+    * setRaytracingFinalGatherRadius(radius)
+    * setRaytracingImageSamples(samples)
+    * setRaytracingIndirectPhotonRadius(radius)
+    * setRaytracingInteractiveFinalGatherQuality(quality)
+    * setRaytracingInteractiveIBLQuality(quality)
+    * setRaytracingInteractivePhotonCount(count)
+    * setRaytracingInteractiveQuality(quality)
+    * setRaytracingInteractiveQualityMode(mode)
+    * setRaytracingInteractiveTextureSharpness(sharpness)
+    * setRaytracingInteractiveTraceDepth(depth)
+    * setRaytracingLightEvaluationThreshold(threshold)
+    * setRaytracingMode(mode)
+    * setRaytracingMotionBlurEnable(state)
+    * setRaytracingNURBSEpsilon(epsilon)
+    * setRaytracingNURBSMaxDepthCurve(depth)
+    * setRaytracingNURBSMaxDepthSurface(depth)
+    * setRaytracingNURBSMinDepthCurve(depth)
+    * setRaytracingNURBSMinDepthSurface(depth)
+    * setRaytracingNURBSNewtonEpsilon(epsilon)
+    * setRaytracingNURBSThresholdCurve(threshold)
+    * setRaytracingNURBSThresholdSurface(threshold)
+    * setRaytracingNURBSUsePreclassification(enable)
+    * setRaytracingPhotonLookupCount(count)
+    * setRaytracingPhotonMapFreezeMode(mode)
+    * setRaytracingPhotonMapRefreshMode(mode)
+    * setRaytracingPhotonMode(mode)
+    * setRaytracingPhotonRadius(radius)
+    * setRaytracingPhotonUseAutomaticRadius(on)
+    * setRaytracingRenderer(mode)
+    * setRaytracingRenderRegion(xBegin, xEnd, yBegin, yEnd)
+    * setRaytracingSampleOffset(offset)
+    * setRaytracingSamplesThreshold(samples)
+    * setRaytracingStillFrameFinalGatherQuality(quality)
+    * setRaytracingStillFrameIBLQuality(quality)
+    * setRaytracingStillFramePhotonCount(count)
+    * setRaytracingStillFrameQuality(quality)
+    * setRaytracingStillFrameQualityMode(mode)
+    * setRaytracingStillFrameSupersampling(factor)
+    * setRaytracingStillFrameTextureSharpness(sharpness)
+    * setRaytracingStillFrameTraceDepth(depth)
+    * setRaytracingUseHighQualityTextureFiltering(enable)
+    * setRaytracingUseFinalGatherForGlossy(enable)
+    * setRenderAlpha(state)
+    * setRenderAnimation(state)
+    * setRenderAnimationClip(clipname)
+    * setRenderAnimationFormat(format)
+    * setRenderAnimationType(type)
+    * setRenderBackgroundColor(r, g, b)
+    * setRenderCurrentView()
+    * setRenderFilename(filename)
+    * setRenderFps(fps)
+    * setRenderFrameStep(step)
+    * setRenderICCProfile(state)
+    * setRenderingColorspace(renderingColorspace)
+    * setRenderMetaDataFlags(flags)
+    * setRenderPasses(passes)
+    * setRenderPixelResolution(pixelWidth, pixelHeight, pixelsPerInch)
+    * setRenderPNGQuality(quality)
+    * setRenderPremultiply(state)
+    * setRenderPrintResolution(printWidth, printHeight, pixelsPerInch)
+    * setRenderRegionEndX(endX)
+    * setRenderRegionEndY(endY)
+    * setRenderRegionStartX(startX)
+    * setRenderRegionStartY(startY)
+    * setRenderStartFrame(frame)
+    * setRenderStopFrame(frame)
+    * setRenderSupersampling(state)
+    * setRenderTimeInSeconds(timeInSeconds)
+    * setRenderTonemapHDR(state)
+    * setRenderUseClipRange(enable)
+    * setRenderVariantSets(groupName, variantSetNames)
+    * setRenderView(viewName)
+    * setSpectralRaytracing(on)
+    * setUseInfiniteRenderInViewport(state)
+    * setUseRaySplitting(on)
+    * setUseRenderPasses(state)
+    * setUseRenderRegion(state)
+    * setUseRenderTimeLimit(state)
+    * setUseRenderVariantSets(state)
+    * setUseRenderViewFromVariantSets(state)
+    * setUseTwoSampleImportanceSampling(on)
+    * startRenderToFile(alwaysOverride)
+
+.. method:: getRenderView()
+
+    Returns the name of the active view.
+
+    :return: Name of the view.
+    :rtype: string
+
+.. method:: setRenderCurrentView()
+
+    Sets the view to use the current position.
+
+.. method:: setRenderView(viewName)
+
+    Sets the view with the given name.
+
+    :param viewName: Name of the view to be used.
+    :type viewName: string
+
+.. method:: getRenderOutputFilenames()
+
+    Returns all filenames that will be created when rendering is started, i.e., when using multiple viewpoints, animation frames, or variant sets.
+
+    :return: All names of files to be created.
+    :rtype: list
+
+.. method:: setRenderVariantSets(groupName, variantSetNames)
+
+    Sets the variant sets that should be used for the group.
+
+    :param groupName: Name of the variant set group.
+    :type groupName: string
+    :param variantSetNames: List of variant set names.
+    :type variantSetNames: list
+
+.. method:: getRenderVariantSets(groupName)
+
+    Returns the names of the variant sets used in this group.
+
+    :param groupName: Name of the variant set group.
+    :type groupName: string
+    :return: List of variant set names.
+    :rtype: list
+
+.. method:: clearRenderVariantSetGroups()
+
+    Removes all variant set groups.
+
+.. method:: removeRenderVariantSetGroup(groupName)
+
+    Removes a variant set group.
+
+    :param groupName: Name of the variant set group to be removed.
+    :type groupName: string
+
+.. method:: getRenderVariantSetGroups()
+
+    Returns the names of all variant set groups used in the render settings.
+
+    :return: List of group names.
+    :rtype: list
+
+.. method:: setUseRenderViewFromVariantSets(state)
+
+    Enables using views in variant sets, i.e., applying a variant set may also change the view.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getUseRenderViewFromVariantSets()
+
+    Returns whether views can be changed by selecting variant sets.
+
+    :return: True/False.
+    :rtype: bool
+
+.. method:: setUseRenderVariantSets(state)
+
+    Enables rendering of variant sets.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getUseRenderVariantSets()
+
+    Returns whether variant sets are used when rendering images.
+
+    :return: True/False.
+    :rtype: bool
+
+.. method:: setRenderPrintResolution(printWidth, printHeight, pixelsPerInch)
+
+    Sets the print resolution.
+
+    :param printWidth: The width of the image in centimeters.
+    :type printWidth: float
+    :param printHeight: The height of the image in centimeters.
+    :type printHeight: float
+    :param pixelsPerInch: The number of pixels per inch.
+    :type pixelsPerInch: float
+
+.. method:: getRenderPrintWidth()
+
+    Returns the width of the image in centimeters.
+
+    :return: The width of the image.
+    :rtype: float
+
+.. method:: getRenderPrintHeight()
+
+    Returns the height of the image in centimeters.
+
+    :return: The height of the image.
+    :rtype: float
+
+.. method:: getRenderPixelPerInch()
+
+    Returns the number of pixels per inch.
+
+    :return: Pixels per inch.
+    :rtype: float
+
+.. method:: setRenderPixelResolution(pixelWidth, pixelHeight, pixelsPerInch)
+
+    Sets the pixel resolution.
+
+    :param pixelWidth: The width of the image in pixels.
+    :type pixelWidth: float
+    :param pixelHeight: The height of the image in pixels.
+    :type pixelHeight: float
+    :param pixelsPerInch: The number of pixels per inch.
+    :type pixelsPerInch: float
+
+.. method:: getRenderPixelWidth()
+
+    Returns the width of the image in pixels.
+
+    :return: The width of the image in pixels.
+    :rtype: float
+
+.. method:: getRenderPixelHeight()
+
+    Returns the height of the image in pixels.
+
+    :return: The height of the image in pixels.
+    :rtype: float
+
+.. method:: setRenderFilename(filename)
+
+    Sets the filename to render to.
+
+    :param filename: The filename.
+    :type filename: string
+
+.. method:: getRenderFilename()
+
+    Returns the current image filename.
+
+    :return: The filename of the image to render to.
+    :rtype: string
+
+.. method:: setUseRenderRegion(state)
+
+    Enables region rendering.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getUseRenderRegion()
+
+    Returns whether the render region is active or not.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRenderRegionStartX(startX)
+
+    Sets the left x-coordinate of the render region.
+
+    :param startX: Pixel coordinate.
+    :type startX: int
+
+.. method:: getRenderRegionStartX()
+
+    Returns the left x-coordinate of the render region.
+
+    :return: xStart.
+    :rtype: int
+
+.. method:: setRenderRegionStartY(startY)
+
+    Sets the upper y-coordinate of the render region.
+
+    :param startY: Pixel coordinate.
+    :type startY: int
+
+.. method:: getRenderRegionStartY()
+
+    Returns the upper y-coordinate of the render region.
+
+    :return: yStart.
+    :rtype: int
+
+.. method:: setRenderRegionEndX(endX)
+
+    Sets the right x-coordinate of the render region.
+
+    :param endX: Pixel coordinate.
+    :type endX: int
+
+.. method:: getRenderRegionEndX()
+
+    Returns the right x-coordinate of the render region.
+
+    :return: xEnd.
+    :rtype: int
+
+.. method:: setRenderRegionEndY(endY)
+
+    Sets the top y-coordinate of the render region.
+
+    :param endY: Pixel coordinate.
+    :type endY: int
+
+.. method:: getRenderRegionEndY()
+
+    Returns the top y-coordinate of the render region.
+
+    :return: yEnd.
+    :rtype: int
+
+.. method:: setRenderSupersampling(state)
+
+    Enables antialiasing.
+
+    :param state: 0=Off, Else=On.
+    :type state: int
+
+.. method:: getRenderSupersampling()
+
+    Gets the image supersampling setting.
+
+    :return: on/off.
+    :rtype: int
+
+.. method:: setRenderTonemapHDR(state)
+
+    Enables tonemapping when rendering to an HDR image format.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getRenderTonemapHDR()
+
+    Returns whether the image should be tonemapped when rendering to an HDR image format.
+
+    :return: on/off.
+    :rtype: bool
+
+.. method:: setRenderPremultiply(state)
+
+    Enables premultiplied alpha.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getRenderPremultiply()
+
+    Returns whether premultiplied alpha should be used.
+
+    :return: on/off.
+    :rtype: bool
+
+.. method:: setRenderAlpha(state)
+
+    Enables export of images with an alpha channel.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getRenderAlpha()
+
+    Returns whether an alpha should be exported.
+
+    :return: on/off.
+    :rtype: bool
+
+.. method:: setRenderICCProfile(state)
+
+    Sets the ICC Profile to use when writing to a file.
+
+    :param state: ICC profile ID.
+    :type state: int
+
+.. method:: getRenderICCProfile()
+
+    Returns the ICC Profile ID.
+
+    :return: ID.
+    :rtype: int
+
+.. method:: setRenderBackgroundColor(r, g, b)
+
+    Sets the background color.
+
+    :param r: The red background color.
+    :type r: float
+    :param g: The green background color.
+    :type g: float
+    :param b: The blue background color.
+    :type b: float
+
+.. method:: getRenderBackgroundColor()
+
+    Returns the background color.
+
+    :return: A vector with r, g, and b values.
+    :rtype: Vec3f
+
+.. method:: setUseRenderPasses(state)
+
+    Enables export of render passes when rendering to a file.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getUseRenderPasses()
+
+    Returns whether the render passes export is active or not.
+
+    :return: on/off.
+    :rtype: bool
+
+.. method:: setRenderPasses(passes)
+
+    Sets the active render passes by passing a list of pass names.
+
+    :param passes: List of pass names.
+    :type passes: list
+
+.. method:: getRenderPasses()
+
+    Returns the names of the current active render passes.
+
+    :return: Render passes.
+    :rtype: list
+
+.. method:: setRenderMetaDataFlags(flags)
+
+    Sets the type of metadata to be embedded in a file.
+
+    :param flags: Bitmask for the metadata to embed.
+    :type flags: int
+
+.. method:: getRenderMetaDataFlags()
+
+    Returns the metadata flags bitmask.
+
+    :return: Flags.
+    :rtype: int
+
+.. method:: setRenderAnimation(state)
+
+    Enables rendering of an animation sequence.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getRenderAnimation()
+
+    Returns whether animation export is turned on or off.
+
+    :return: true/false.
+    :rtype: bool
+
+.. method:: setRenderAnimationFormat(format)
+
+    Sets the output format.
+
+    :param format: 0=Images, 1=Movie.
+    :type format: int
+
+.. method:: getRenderAnimationFormat()
+
+    Returns the output format.
+
+    :return: Format.
+    :rtype: int
+
+.. method:: setRenderAnimationType(type)
+
+    Sets the type of the animation to render.
+
+    :param type: 0=Clip, 1=Timeline.
+    :type type: int
+
+.. method:: getRenderAnimationType()
+
+    Returns the type of the animation to render.
+
+    :return: Format.
+    :rtype: int
+
+.. method:: setRenderAnimationClip(clipname)
+
+    Sets the name of the clip to render.
+
+    :param clipname: Name of the clip.
+    :type clipname: string
+
+.. method:: getRenderAnimationClip()
+
+    Returns the name of the clip to render.
+
+    :return: Clip name.
+    :rtype: string
+
+.. method:: getRenderAnimationClips()
+
+    Returns the names of the available clips in a scene.
+
+    :return: Clip names.
+    :rtype: list
+
+.. method:: setRenderUseClipRange(enable)
+
+    Uses the range of the chosen clip instead of the start and stop frame range.
+
+    :param enable: On/Off.
+    :type enable: bool
+
+.. method:: getRenderUseClipRange()
+
+    Returns whether the clip range should be used.
+
+    :return: true/false.
+    :rtype: bool
+
+.. method:: setRenderStartFrame(frame)
+
+    Sets the start frame for rendering and animation.
+
+    :param frame: Start frame.
+    :type frame: int
+
+.. method:: getRenderStartFrame()
+
+    Returns the start frame for rendering an animation.
+
+    :return: Frame.
+    :rtype: int
+
+.. method:: setRenderStopFrame(frame)
+
+    Sets the stop frame for rendering and animation.
+
+    :param frame: Stop frame.
+    :type frame: int
+
+.. method:: getRenderStopFrame()
+
+    Returns the stop frame for rendering an animation.
+
+    :return: Frame.
+    :rtype: int
+
+.. method:: setRenderFrameStep(step)
+
+    Sets the frame step for rendering and animation.
+
+    :param step: Frame step.
+    :type step: int
+
+.. method:: getRenderFrameStep()
+
+    Returns the frame step for rendering and animation.
+
+    :return: Step.
+    :rtype: int
+
+.. method:: setRenderFps(fps)
+
+    Sets the frames per second for rendering and animation.
+
+    :param fps: Frames per second.
+    :type fps: int
+
+.. method:: getRenderFps()
+
+    Returns the frames per second for rendering and animation.
+
+    :return: FPS.
+    :rtype: int
+
+.. method:: startRenderToFile(alwaysOverride)
+
+    Starts rendering to file using the current render settings.
+
+    :param alwaysOverride: If true, files will be overwritten without warning.
+    :type alwaysOverride: bool
+
+.. method:: setRaytracingCores(numCores)
+
+    Sets the number of cores to use for raytracing.
+
+    :param numCores: The number of cores in [0, 1024].
+    :type numCores: int
+
+.. method:: getRaytracingCores()
+
+    Returns the number of cores to be used during raytracing.
+
+    :return: Number of cores.
+    :rtype: int
+
+.. method:: setRaytracingImageSamples(samples)
+
+    Sets the number of anti-aliasing samples.
+
+    :param samples: The total number of image samples.
+    :type samples: int
+
+.. method:: getRaytracingImageSamples()
+
+    Returns the number of anti-aliasing samples.
+
+    :return: Number of image samples.
+    :rtype: int
+
+.. method:: setRaytracingSamplesThreshold(samples)
+
+    Sets the samples threshold. With this sample number, the rendering gets updated.
+
+    :param samples: Sample number.
+    :type samples: int
+
+.. method:: getRaytracingSamplesThreshold()
+
+    Returns the samples threshold.
+
+    :return: Sample number.
+    :rtype: int
+
+.. method:: setRenderTimeInSeconds(timeInSeconds)
+
+    Sets the maximum render time in seconds.
+
+    :param timeInSeconds: Time in seconds.
+    :type timeInSeconds: int
+
+.. method:: getRenderTimeInSeconds()
+
+    Returns the maximum render time in seconds.
+
+    :return: Time in seconds.
+    :rtype: int
+
+.. method:: setUseRenderTimeLimit(state)
+
+    Enables rendering up to the maximum render time.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getUseRenderTimeLimit()
+
+    Returns whether the render time limit is used.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRaytracingInteractiveQualityMode(mode)
+
+    Sets the interactive quality mode for raytracing.
+
+    :param mode: The quality mode in [-1, 3].
+    :type mode: int
+
+.. method:: getRaytracingInteractiveQualityMode()
+
+    Returns the interactive quality mode in use.
+
+    :return: Quality mode.
+    :rtype: int
+
+.. method:: setRaytracingInteractiveQuality(quality)
+
+    Sets the interactive quality level for raytracing.
+
+    :param quality: The quality level in [0, 4].
+    :type quality: int
+
+.. method:: getRaytracingInteractiveQuality()
+
+    Returns the interactive quality level in use.
+
+    :return: Quality level.
+    :rtype: int
+
+.. method:: setRaytracingStillFrameQualityMode(mode)
+
+    Sets the still frame quality mode for raytracing.
+
+    :param mode: The quality mode in [-1, 3].
+    :type mode: int
+
+.. method:: getRaytracingStillFrameQualityMode()
+
+    Returns the still frame quality mode in use.
+
+    :return: Quality mode.
+    :rtype: int
+
+.. method:: setRaytracingStillFrameQuality(quality)
+
+    Sets the still frame reflection/refraction quality level for raytracing.
+
+    :param quality: The quality level in [0, 4].
+    :type quality: int
+
+.. method:: getRaytracingStillFrameQuality()
+
+    Returns the still frame reflection/refraction quality level in use.
+
+    :return: Quality level.
+    :rtype: int
+
+.. method:: setRaytracingInteractiveTraceDepth(depth)
+
+    Sets the interactive trace depth for raytracing.
+
+    :param depth: The maximum trace depth.
+    :type depth: int
+
+.. method:: getRaytracingInteractiveTraceDepth()
+
+    Returns the interactive trace depth in use.
+
+    :return: Trace depth.
+    :rtype: int
+
+.. method:: setRaytracingStillFrameTraceDepth(depth)
+
+    Sets the still frame trace depth for raytracing.
+
+    :param depth: The maximum trace depth.
+    :type depth: int
+
+.. method:: getRaytracingStillFrameTraceDepth()
+
+    Returns the still frame trace depth in use.
+
+    :return: Trace depth.
+    :rtype: int
+
+.. method:: setRaytracingPhotonMode(mode)
+
+    Sets the photon mapping mode to use.
+
+    :param mode: The photon mapping mode: 0 = off, 1 = indirect only, 2 = indirect + caustics.
+    :type mode: int
+
+.. method:: getRaytracingPhotonMode()
+
+    Returns the photon mode.
+
+    :return: Photon mode.
+    :rtype: int
+
+.. method:: setRaytracingInteractivePhotonCount(count)
+
+    Sets the number of photons emitted during interactive rendering.
+
+    :param count: The number of photons.
+    :type count: int
+
+.. method:: getRaytracingInteractivePhotonCount()
+
+    Returns the interactive photon count.
+
+    :return: Photon count.
+    :rtype: int
+
+.. method:: setRaytracingStillFramePhotonCount(count)
+
+    Sets the number of photons emitted during still frame rendering.
+
+    :param count: The number of photons.
+    :type count: int
+
+.. method:: getRaytracingStillFramePhotonCount()
+
+    Returns the still frame photon count.
+
+    :return: Photon count.
+    :rtype: int
+
+.. method:: setRaytracingPhotonLookupCount(count)
+
+    Sets the minimum number of photons that need to be collected during a photon lookup.
+
+    :param count: The number of photons to be collected.
+    :type count: int
+
+.. method:: getRaytracingPhotonLookupCount()
+
+    Returns the photon lookup count.
+
+    :return: Photon count.
+    :rtype: int
+
+.. method:: setRaytracingPhotonUseAutomaticRadius(on)
+
+    Sets whether the photon radius should be estimated automatically or not.
+
+    :param on: The state of the automatic photon radius calculation.
+    :type on: bool
+
+.. method:: getRaytracingPhotonUseAutomaticRadius()
+
+    Returns the enable state of the automatic photon radius calculation.
+
+    :return: Automatic photon radius calculation state.
+    :rtype: bool
+
+.. method:: setRaytracingFinalGatherRadius(radius)
+
+    Sets the final gather radius.
+
+    :param radius: The final gather radius.
+    :type radius: float
+
+.. method:: getRaytracingFinalGatherRadius()
+
+    Returns the final gather lookup radius.
+
+    :return: Lookup radius.
+    :rtype: float
+
+.. method:: setRaytracingUseFinalGatherForGlossy(enable)
+
+    Turns use of final gather map for glossy reflections on or off.
+
+    :param enable: Final gather glossy lookup: On/Off.
+    :type enable: bool
+
+.. method:: getRaytracingUseFinalGatherForGlossy()
+
+    Returns whether the final gather map should be used for glossy reflections.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRaytracingPhotonMapRefreshMode(mode)
+
+    Sets the final gathering refresh mode.
+
+    :param mode: The refresh mode: 0 = refresh photon map on each image sample, 1 = refresh the photon map only when necessary.
+    :type mode: int
+
+.. method:: getRaytracingPhotonMapRefreshMode()
+
+    Returns the final gathering refresh mode.
+
+    :return: Refresh mode.
+    :rtype: int
+
+.. method:: setRaytracingPhotonMapFreezeMode(mode)
+
+    Sets the freeze mode for updating the photon map.
+
+    :param mode: The freeze mode: 0 = update photon map as normal, 1 = freeze the updating of photon map.
+    :type mode: int
+
+.. method:: getRaytracingPhotonMapFreezeMode()
+
+    Gets the freeze mode for updating the photon map.
+
+    :return: Freeze mode.
+    :rtype: int
+
+.. method:: setRaytracingPhotonRadius(radius)
+
+    Sets the photon lookup radius.
+
+    :param radius: The photon lookup radius.
+    :type radius: float
+
+.. method:: getRaytracingPhotonRadius()
+
+    Returns the photon lookup radius.
+
+    :return: Lookup radius.
+    :rtype: float
+
+.. method:: setRaytracingSampleOffset(offset)
+
+    Sets the offset for the pixel sampling ID (advanced feature).
+
+    :param offset: The offset.
+    :type offset: int
+
+.. method:: getRaytracingSampleOffset()
+
+    Returns the sample offset to start the rendering.
+
+    :return: Sample offset.
+    :rtype: int
+
+.. method:: setRaytracingInteractiveTextureSharpness(sharpness)
+
+    Sets the sharpness factor for texture sampling in interactive mode (advanced feature).
+
+    :param sharpness: The sharpness factor.
+    :type sharpness: float
+
+.. method:: getRaytracingInteractiveTextureSharpness()
+
+    Returns the sharpness scale factor for texture sampling during interactive mode.
+
+    :return: Sharpness.
+    :rtype: float
+
+.. method:: setRaytracingStillFrameTextureSharpness(sharpness)
+
+    Sets the sharpness factor for texture sampling during still frame rendering (advanced feature).
+
+    :param sharpness: The sharpness factor.
+    :type sharpness: float
+
+.. method:: getRaytracingStillFrameTextureSharpness()
+
+    Returns the sharpness scale factor for texture sampling during still frame mode.
+
+    :return: Sharpness.
+    :rtype: float
+
+.. method:: setRaytracingLightEvaluationThreshold(threshold)
+
+    Sets the threshold used for culling lights in the [0.0, 1.0] range.
+
+    :param threshold: The threshold value.
+    :type threshold: float
+
+.. method:: getRaytracingLightEvaluationThreshold()
+
+    Returns the threshold used for culling lights.
+
+    :return: Threshold.
+    :rtype: float
+
+.. method:: setRaytracingRenderer(mode)
+
+    Internal function to set the raytracing renderer.
+
+    :param mode: Renderer mode.
+    :type mode: int
+
+.. method:: setSpectralRaytracing(on)
+
+    Sets spectral raytracing on or off.
+
+    :param on: On/Off switch.
+    :type on: bool
+
+.. method:: getSpectralRaytracing()
+
+    Returns whether spectral raytracing is on or off.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRaytracingMode(mode)
+
+    Sets the raytracing mode. See examples/snippets/setRenderer for how to switch the active renderer.
+
+    :param mode: 0 = CPU, 1 = GPU.
+    :type mode: int
+
+.. method:: getRaytracingMode()
+
+    Returns the raytracing mode.
+
+    :return: Mode.
+    :rtype: int
+
+.. method:: setRasterizationMode(mode)
+
+    Sets the rasterization mode. See examples/snippets/setRenderer for how to switch the active renderer.
+
+    :param mode: 0 = OpenGL, 1 = Vulkan.
+    :type mode: int
+
+.. method:: getRasterizationMode()
+
+    Returns the rasterization mode.
+
+    :return: Mode.
+    :rtype: int
+
+.. method:: setActiveGPUMask(mask)
+
+    Sets the bitmask for GPUs to use for GPU raytracing. This must be set before GPU raytracing is activated.
+
+    :param mask: Bitmask for the active GPUs.
+    :type mask: unsigned int
+
+.. method:: setUseRaySplitting(on)
+
+    Enables ray splitting for glass and car paint materials.
+
+    :param on: True or False.
+    :type on: bool
+
+.. method:: setDenoiserType(denoiserType)
+
+    Sets the denoiser type to use.
+
+    :param denoiserType: 0 = OptiX/Auto, 1 = Open Image Denoise.
+    :type denoiserType: int
+
+.. method:: getDenoiserType()
+
+    Returns the denoiser type used.
+
+    :return: Denoiser type.
+    :rtype: int
+
+.. method:: setRenderingColorspace(renderingColorspace)
+
+    Sets the rendering colorspace to use.
+
+    :param renderingColorspace: 0 = scene-linear Rec.709, 1 = ACEScg, 2 = DCI P3-D65, 3 = scene-linear Rec.2020.
+    :type renderingColorspace: unsigned int
+
+.. method:: getRenderingColorspace()
+
+    Returns the rendering colorspace used.
+
+    :return: Rendering colorspace.
+    :rtype: unsigned int
+
+.. method:: setOptimizationMode(mode)
+
+    Sets the optimization strategy to use for GPU raytracing.
+
+    :param mode: 0 = prefer performance, 1 = optimize memory usage.
+    :type mode: unsigned int
+
+.. method:: getOptimizationMode()
+
+    Returns the optimization strategy used in GPU raytracing.
+
+    :return: Optimization mode.
+    :rtype: unsigned int
+
+.. method:: setUseInfiniteRenderInViewport(state)
+
+    Enables infinite rendering in the renderview.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getUseInfiniteRenderInViewport()
+
+    Returns whether infinite rendering in renderview is on or off.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRaytracingAAThresholdQuality(threshold)
+
+    Sets the adaptive antialiasing quality level.
+
+    :param threshold: The threshold quality level in [0, 5].
+    :type threshold: int
+
+.. method:: getRaytracingAAThresholdQuality()
+
+    Returns the adaptive antialiasing quality level.
+
+    :return: Threshold quality level.
+    :rtype: int
+
+.. method:: setRaytracingAAImageFilter(id, width, height)
+
+    Sets the pixel filter to use during stillframe antialiasing.
+
+    :param id: The filter id in [0, 9]: (Box, Triangle, Gaussian, Mitchell, Lanczos, BSpline, Catmull-Rom, Sharp Triangle, Sharp Gaussian, Sharp BSpline).
+    :type id: int
+    :param width: The filter width in [0.5, 5.0].
+    :type width: float
+    :param height: The filter height in [0.5, 5.0].
+    :type height: float
+
+.. method:: getRaytracingAAImageFilterType()
+
+    Returns the pixel filter type in use.
+
+    :return: Pixel filter type id.
+    :rtype: int
+
+.. method:: getRaytracingAAImageFilterWidth()
+
+    Returns the width of the pixel filter in use.
+
+    :return: Pixel filter width.
+    :rtype: float
+
+.. method:: getRaytracingAAImageFilterHeight()
+
+    Returns the height of the pixel filter in use.
+
+    :return: Pixel filter height.
+    :rtype: float
+
+.. method:: setRaytracingClampingEnable(state)
+
+    Enables output value clamping.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getRaytracingClampingEnable()
+
+    Returns whether clamping is enabled or disabled.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRaytracingClampValue(value)
+
+    Sets the reflection clamping for raytracing.
+
+    :param value: The clamping value.
+    :type value: float
+
+.. method:: getRaytracingClampValue()
+
+    Returns the clamping value.
+
+    :return: Clamping value.
+    :rtype: float
+
+.. method:: setRaytracingInteractiveIBLQuality(quality)
+
+    Sets the interactive IBL sampling quality level for raytracing.
+
+    :param quality: The quality level in [0, 4].
+    :type quality: int
+
+.. method:: getRaytracingInteractiveIBLQuality()
+
+    Returns the interactive IBL quality level in use.
+
+    :return: Quality level.
+    :rtype: int
+
+.. method:: setRaytracingStillFrameIBLQuality(quality)
+
+    Sets the still frame IBL sampling quality level for raytracing.
+
+    :param quality: The quality level in [0, 4].
+    :type quality: int
+
+.. method:: getRaytracingStillFrameIBLQuality()
+
+    Returns the still frame IBL quality level in use.
+
+    :return: Quality level.
+    :rtype: int
+
+.. method:: setRaytracingInteractiveFinalGatherQuality(quality)
+
+    Sets the interactive final gathering quality to use.
+
+    :param quality: The final gather quality: 0 = off, 1 = 1, 2 = 4, 3 = 8, 4 = 16 Final Gather rays per sample.
+    :type quality: int
+
+.. method:: getRaytracingInteractiveFinalGatherQuality()
+
+    Returns the interactive final gather quality level.
+
+    :return: Quality level.
+    :rtype: int
+
+.. method:: setRaytracingStillFrameFinalGatherQuality(quality)
+
+    Sets the still frame final gathering quality to use.
+
+    :param quality: The final gather quality: 0 = off, 1 = 1, 2 = 4, 3 = 8, 4 = 16 Final Gather rays per sample.
+    :type quality: int
+
+.. method:: getRaytracingStillFrameFinalGatherQuality()
+
+    Returns the still frame final gather quality level.
+
+    :return: Quality level.
+    :rtype: int
+
+.. method:: setRaytracingNURBSEpsilon(epsilon)
+
+    Sets the self-intersection tolerance for NURBS raytracing.
+
+    :param epsilon: The tolerance value.
+    :type epsilon: float
+
+.. method:: setRaytracingNURBSNewtonEpsilon(epsilon)
+
+    Sets the newton iteration tolerance for NURBS raytracing.
+
+    :param epsilon: The tolerance value.
+    :type epsilon: float
+
+.. method:: setRaytracingNURBSMinDepthSurface(depth)
+
+    Sets the minimum subdivision depth of the acceleration data structure for the NURBS raytracing.
+
+    :param depth: The minimum depth.
+    :type depth: int
+
+.. method:: setRaytracingNURBSMaxDepthSurface(depth)
+
+    Sets the maximum subdivision depth of the acceleration data structure for the NURBS raytracing.
+
+    :param depth: The maximum depth.
+    :type depth: int
+
+.. method:: setRaytracingNURBSThresholdSurface(threshold)
+
+    Sets the surface curvature threshold for NURBS raytracing.
+
+    :param threshold: The threshold.
+    :type threshold: float
+
+.. method:: setRaytracingNURBSMinDepthCurve(depth)
+
+    Sets the minimum subdivision depth of the trimming curves.
+
+    :param depth: The minimum depth.
+    :type depth: int
+
+.. method:: setRaytracingNURBSMaxDepthCurve(depth)
+
+    Sets the maximum subdivision depth of the trimming curves.
+
+    :param depth: The maximum depth.
+    :type depth: int
+
+.. method:: setRaytracingNURBSThresholdCurve(threshold)
+
+    Sets the curvature threshold for trimming curves.
+
+    :param threshold: The threshold.
+    :type threshold: float
+
+.. method:: setDenoiserInput(type)
+
+    Enables the use of the albedo buffer when the deep learning denoiser is enabled.
+
+    :param type: 0 = color only, 1 = color and albedo, 2 = color, albedo and normal.
+    :type type: int
+
+.. method:: setUseTwoSampleImportanceSampling(on)
+
+    Enables use of two samples for multiple importance sampling.
+
+    :param on: True or False.
+    :type on: bool
+
+.. method:: setMaxClusterTileSize(tilesize)
+
+    Sets the maximum size of a tile for GPU clustering.
+
+    :param tilesize: Tile size, must be between 32 and 256.
+    :type tilesize: int
+
+.. method:: setClusterTileRendering(on)
+
+    Allows to disable tile rendering for testing.
+
+    :param on: If on, tiles are rendered.
+    :type on: bool
+
+.. method:: setIlluminant(illuminant)
+
+    Sets illuminant to be used as white for spectral raytracing. The XYZ-Illuminant does not convert the rendered image to RGB but outputs the XYZ values instead.
+
+    :param illuminant: 0 = Equal Energy, 1 = D65, 2 = XYZ.
+    :type illuminant: int
+
+.. method:: getIlluminant()
+
+    Returns the illuminant id used.
+
+    :return: Illuminant id.
+    :rtype: int
+
+.. method:: setRaytracingUseHighQualityTextureFiltering(enable)
+
+    Enables high quality anisotropic texture filtering. This can slow down rendering performance.
+
+    :param enable: On/Off.
+    :type enable: bool
+
+.. method:: getRaytracingUseHighQualityTextureFiltering()
+
+    Returns whether anisotropic texture filtering is allowed or not.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setRaytracingStillFrameSupersampling(factor)
+
+    Enables supersampling for still frame rendering. This requires factor * factor times more memory for the framebuffer.
+
+    :param factor: Still frame supersampling factor. 1 is off.
+    :type factor: int
+
+.. method:: getRaytracingStillFrameSupersampling()
+
+    Returns the still frame supersampling factor.
+
+    :return: Supersampling factor.
+    :rtype: int
+
+.. method:: setNURBSRaytracing(on)
+
+    Sets NURBS raytracing on or off. If off, the tessellated meshes will be used during raytracing. If on, the NURBS surfaces will be traced directly.
+
+    :param on: On/Off switch.
+    :type on: bool
+
+.. method:: getNURBSRaytracing()
+
+    Returns whether NURBS raytracing is on or off.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setBrdfMode(mode)
+
+    Sets the BRDF mode.
+
+    :param mode: 0 = Ver. 6.0x and below, 1 = Ver. 2014 and above, 2 = Energy Preserving GGX.
+    :type mode: int
+
+.. method:: disableRaytracingOverrides()
+
+    Disables the raytracing override settings in all materials.
+
+.. method:: setRaytracingRenderRegion(xBegin, xEnd, yBegin, yEnd)
+
+    Sets the active render region in relative coordinates.
+
+    :param xBegin: The relative x start coordinate in [0.0, 1.0].
+    :type xBegin: float
+    :param xEnd: The relative x end coordinate in [0.0, 1.0].
+    :type xEnd: float
+    :param yBegin: The relative y start coordinate in [0.0, 1.0].
+    :type yBegin: float
+    :param yEnd: The relative y end coordinate in [0.0, 1.0].
+    :type yEnd: float
+
+.. method:: setRenderPNGQuality(quality)
+
+    Sets the compression level for PNG images. Valid values range from 0 to 9. Default is 1.
+
+    :param quality: Compression level.
+    :type quality: unsigned int
+
+.. method:: getRenderPNGQuality()
+
+    Returns the current quality for writing PNG files.
+
+    :return: Compression level.
+    :rtype: unsigned int
+
+.. method:: generateRayFile(filename, numPhotons, maxDepth)
+
+    Generates a rayfile in ASCII format. Apply a diffuse black material to every object that is not supposed to reflect any light. Rays are stored on each diffuse hit.
+
+    :param filename: The output filename for the generated rayfile.
+    :type filename: string
+    :param numPhotons: The number of photons to trace.
+    :type numPhotons: unsigned int
+    :param maxDepth: The maximum number of bounces a photon can take.
+    :type maxDepth: unsigned int
+
+.. method:: addPreset(name)
+
+    Add preset to Render Queue.
+
+    :param name: The name of the preset.
+    :type name: string
+
+.. method:: applyPreset(name)
+
+    Apply preset in Render Queue.
+
+    :param name: The name of the preset.
+    :type name: string
+
+.. method:: setDenoiseFilter(filterType)
+
+    Sets the denoise filter to use for raytracing.
+
+    :param filterType: 0 = Off, 2 = AI Denoiser stillframe only, 3 = AI Denoiser Always.
+    :type filterType: unsigned int
+
+.. method:: getDenoiseFilter()
+
+    Returns the denoise filter used.
+
+    :return: Filter type.
+    :rtype: unsigned int
+
+.. method:: setDenoiserModel(model)
+
+    Sets the denoiser model to use.
+
+    :param model: 0 = Default model, 1 = Lightmap model if available, 2 = AOV model if available.
+    :type model: unsigned int
+
+.. method:: getDenoiserModel()
+
+    Returns the denoiser model used.
+
+    :return: Model.
+    :rtype: unsigned int
+
+.. method:: setDenoiseAlpha(denoiseAlpha)
+
+    Sets whether to denoise the alpha channel or not.
+
+    :param denoiseAlpha: True: denoise the alpha channel, False: just copy the alpha channel.
+    :type denoiseAlpha: bool
+
+.. method:: getDenoiseAlpha()
+
+    Returns whether to denoise the alpha channel or not.
+
+    :return: Denoise the alpha channel.
+    :rtype: bool
+
+.. method:: setRaytracingAAInitialSamples(samples)
+
+    Deprecated. This function is no longer used.
+
+    :param samples: Sample number.
+    :type samples: int
+
+.. method:: setRaytracingAAAdaptiveSamples(samples)
+
+    Deprecated. This function is no longer used.
+
+    :param samples: Sample number.
+    :type samples: int
+
+.. method:: setRaytracingAAThreshold(threshold)
+
+    Deprecated. This function is no longer used.
+
+    :param threshold: The threshold value.
+    :type threshold: float
+
+.. method:: setRaytracingMotionBlurEnable(state)
+
+    Deprecated. Motion Blur is always on on a global level.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: setRaytracingDOFEnable(state)
+
+    Deprecated. Depth of Field is always on on a global level.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: setRaytracingFinalGathering(quality)
+
+    Deprecated. Use setRaytracingInteractiveFinalGatherQuality and setRaytracingStillFrameFinalGatherQuality instead.
+
+    :param quality: The final gather quality: 0 = off, 1 = 1, 2 = 4, 3 = 8, 4 = 16 Final Gather rays per sample.
+    :type quality: int
+
+.. method:: setRaytracingCausticPhotonRadius(radius)
+
+    Deprecated. Use setRaytracingPhotonRadius instead.
+
+    :param radius: The caustic photon lookup radius.
+    :type radius: float
+
+.. method:: setRaytracingIndirectPhotonRadius(radius)
+
+    Deprecated. Sets the indirect photon lookup radius.
+
+    :param radius: The indirect photon lookup radius.
+    :type radius: float
+
+.. method:: setRaytracingNURBSUsePreclassification(enable)
+
+    Deprecated. Enables trimming curve pre-classification.
+
+    :param enable: On/Off.
+    :type enable: bool
+
+.. method:: setEnableDenoiseFilter(on)
+
+    Deprecated. Use setDenoiseFilter instead.
+
+    :param on: On/Off switch.
+    :type on: bool
+
+.. method:: getEnableDenoiseFilter()
+
+    Deprecated. Use getDenoiseFilter instead.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setDenoiseFilterThreshold(value)
+
+    Deprecated. This function does nothing.
+
+    :param value: The threshold value.
+    :type value: double
+
+.. method:: getDenoiseFilterThreshold()
+
+    Deprecated. This function does nothing.
+
+    :return: The threshold value.
+    :rtype: double
+
+.. method:: getBrdfMode()
+
+    Deprecated. Returns the currently active BRDF mode.
+
+    :return: 0 = Ver. 6.0x and below, 1 = Ver. 2014 and above, 2 = Energy Preserving GGX.
+    :rtype: int

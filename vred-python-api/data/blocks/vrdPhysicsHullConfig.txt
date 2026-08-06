@@ -1,0 +1,74 @@
+--------------------
+vrdPhysicsHullConfig
+--------------------
+
+.. py:class:: vrdPhysicsHullConfig
+
+(Inherits vrdPhysicsConfig)
+
+The configuration class for PhysX convex hull colliders.
+
+Summary
+=======
+
+Functions:
+    * getMergeGeometries() → bool
+    * getPreprocessGeometry() → bool
+    * getUseBoundingBox() → bool
+    * setMergeGeometries(enable)
+    * setPreprocessGeometry(enable)
+    * setUseBoundingBox(enable)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsHullConfig.getMergeGeometries()
+
+    Check if geometries are merged before creating convex hulls.
+
+    :return: True if geometries are merged, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsHullConfig.getPreprocessGeometry()
+
+    Check if the geometry is preprocessed before creating the convex hull.
+
+    :return: True if the geometry is preprocessed, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsHullConfig.getUseBoundingBox()
+
+    Check if the bounding box of the geometry is used to create the convex hull.
+
+    :return: True if the bounding box is used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsHullConfig.setMergeGeometries(enable)
+
+    Set whether to merge geometries before creating hulls.
+
+    If this is enabled, all child geometries of the node will be merged into a single geometry before creating the hull. Otherwise a separate convex hull will be created for each child geometry.
+
+    The default value is 'true'.
+
+    :param enable: True to merge geometries, False otherwise.
+    :type enable: bool
+
+.. py:method:: vrdPhysicsHullConfig.setPreprocessGeometry(enable)
+
+    Set whether to preprocess the geometry before creating the convex hull.
+
+    :param enable: True to preprocess the geometry, False otherwise.
+    :type enable: bool
+
+.. py:method:: vrdPhysicsHullConfig.setUseBoundingBox(enable)
+
+    Set whether to use the bounding box of the geometry to create the convex hull.
+
+    This is an optimization that can be used to speed up the creation of convex hulls. If precise hulls are not required, this can be enabled to create a convex hull that matches an object oriented bounding box of the geometry. This can be used as a replacement for the normal PhysX box collider since it also works with geometies that are mirrored with a negative scaling factor. This has no effect on convex decomposition.
+
+    The default value is 'false'.
+
+    :param enable: True to use the bounding box, False otherwise.
+    :type enable: bool
+

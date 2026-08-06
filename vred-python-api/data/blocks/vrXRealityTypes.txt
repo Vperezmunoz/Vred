@@ -1,0 +1,30 @@
+---------------
+vrXRealityTypes
+---------------
+
+.. py:class:: vrXRealityTypes
+
+    .. py:class:: XRRenderMode
+
+            .. py:data:: FullScene
+
+            .. py:data:: ModelOnly
+
+            .. py:data:: SeethroughBackground
+
+            .. py:data:: SeethroughOnly
+
+    .. py:class:: MarkerTypes
+
+            .. py:data:: Undefined
+               :no-index:
+
+            .. py:data:: VarjoMarker
+
+    .. py:class:: MarkerTrackingTypes
+
+            .. py:data:: Static
+               :no-index:
+
+            .. py:data:: Predicted
+

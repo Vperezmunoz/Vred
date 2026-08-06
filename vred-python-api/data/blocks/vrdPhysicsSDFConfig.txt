@@ -1,0 +1,42 @@
+-------------------
+vrdPhysicsSDFConfig
+-------------------
+
+.. py:class:: vrdPhysicsSDFConfig
+
+(Inherits vrdPhysicsTrianglesConfig)
+
+The configuration class for PhysX SDF (Signed Distance Field) colliders.
+
+SDF colliders are used for dynamic and kinematic objects with complex non-convex geometries. They provide high-quality collision detection for detailed meshes that would be expensive or inaccurate to represent with convex decomposition.
+
+SDF configs inherit mesh reduction capabilities from triangles config since SDF creation benefits from the same mesh optimization techniques.
+
+Summary
+=======
+
+Functions:
+    * getResolution() → integer
+    * setResolution(resolution)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsSDFConfig.getResolution()
+
+    Get the SDF resolution.
+
+    :return: The SDF resolution.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsSDFConfig.setResolution(resolution)
+
+    Set the SDF resolution.
+
+    Higher resolutions provide more accurate collision detection but require more memory and cooking time. Values can range from 8 to 128.
+
+    Default value is 64.
+
+    :param resolution: The resolution of the SDF grid (must be > 0).
+    :type resolution: integer
+

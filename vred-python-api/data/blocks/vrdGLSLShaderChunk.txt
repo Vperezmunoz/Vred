@@ -1,0 +1,77 @@
+------------------
+vrdGLSLShaderChunk
+------------------
+
+.. py:class:: vrdGLSLShaderChunk
+
+(Inherits vrdMaterialChunk)
+
+This class represents a GLSL shader chunk.
+
+Summary
+=======
+
+Functions:
+    * getFragmentProgram() → string
+    * getGeometryProgram() → string
+    * getVertexProgram() → string
+    * setFragmentProgram(program)
+    * setGeometryProgram(program)
+    * setVertexProgram(program)
+
+Instance Variables:
+    * parameters → vrdGLSLShaderParameterList
+
+Functions
+=========
+
+.. py:method:: vrdGLSLShaderChunk.getFragmentProgram()
+
+    Returns the fragment program.
+
+    :return: The fragment program.
+    :rtype: string
+
+.. py:method:: vrdGLSLShaderChunk.getGeometryProgram()
+
+    Returns the geometry program.
+
+    :return: The geometry program.
+    :rtype: string
+
+.. py:method:: vrdGLSLShaderChunk.getVertexProgram()
+
+    Returns the vertex program.
+
+    :return: The vertex program.
+    :rtype: string
+
+.. py:method:: vrdGLSLShaderChunk.setFragmentProgram(program)
+
+    Sets the fragment program.
+
+    :param program: The fragment program
+    :type program: string
+
+.. py:method:: vrdGLSLShaderChunk.setGeometryProgram(program)
+
+    Sets the geometry program.
+
+    :param program: The geometry program
+    :type program: string
+
+.. py:method:: vrdGLSLShaderChunk.setVertexProgram(program)
+
+    Sets the vertex program.
+
+    :param program: The vertex program
+    :type program: string
+
+Instance Variables
+==================
+
+.. py:attribute:: parameters
+    :type: vrdGLSLShaderParameterList
+
+    Access the list of shader parameters.
+

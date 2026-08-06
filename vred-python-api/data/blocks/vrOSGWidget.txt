@@ -1,0 +1,2568 @@
+MODULE vrOSGWidget (legacy v1 API)
+
+-----------
+vrOSGWidget
+-----------
+
+.. module:: vrOSGWidget
+
+Summary
+=======
+
+Functions:
+    * adaptZeroParallaxDistance(index)
+    * addRenderOverlay(name, width=None, height=None)
+    * cancelAntialiasing()
+    * compressTextures()
+    * clearRecordedStatistics(index)
+    * createBackplate()
+    * createRenderWindow()
+    * createScreenshot(filename)
+    * destroyRenderWindow(index)
+    * deleteBackplate()
+    * enableAntialiasing(state)
+    * enableBackplates(state, index)
+    * enableBackplates(state)
+    * enableFrontplates(state, index)
+    * enableFrontplates(state)
+    * enablePowerwall(window, state) → bool
+    * enableRaytracing(state)
+    * enableRaytracingDownscale(state)
+    * enableRender(state)
+    * enableRenderRegion(state)
+    * enableDrawAction(index, state)
+    * enableHeadlight(switch)
+    * enableSceneplates(state, index)
+    * enableSceneplates(state)
+    * enableStereo(window, state, passive, mode, es, zp) → bool
+    * getAntialiasingEnabled() → bool
+    * getAspect() → float
+    * getAt(index) → Pnt3f
+    * getCamNode(index) → vrNodePtr
+    * getAuxiliaryNodesVisibleDuringAntialiasing() → bool
+    * getAverageFPS() → float
+    * getBackplatesEnabled() → bool
+    * getBackplatesEnabled(index) → bool
+    * getBackplateMaterial() → vrMaterialPtr
+    * getInternalBackplateMaterial() → vrMaterialPtr
+    * getCameraPivotAlwaysVisible() → bool
+    * getCameraPivotVisible() → bool
+    * getDepthPeeling() → bool
+    * getDepthPeelingLayers() → int
+    * getDLSSQuality() → int
+    * getDollySpeed() → float
+    * getDLSSMaxPhaseCount() → int
+    * setDLSSMaxPhaseCount(frameCount)
+    * resetDLSSHistory()
+    * getFar() → float
+    * getFov() → float
+    * getFPS() → float
+    * getFrom(index) → Pnt3f
+    * getFrontplatesEnabled() → bool
+    * getFrontplatesEnabled(index) → bool
+    * getGenlockingFrameCount() → int
+    * getHeightAboveGround(index, node) → float
+    * getHeightAboveGround(index) → float
+    * getIdleWaitTime() → float
+    * getInteractionMode() → int
+    * getLastPickingMaterial() → vrMaterialPtr
+    * getLastPickingNode() → vrNodePtr
+    * getLastPickingPosition() → Pnt3f
+    * getLightmapGPUTextureCompression() → bool
+    * getMotionFactor() → float
+    * getMouseButtonPreventsIdle() → bool
+    * getMousePosition(index) → list[int]
+    * getNavigationPivot(index) → Pnt3f
+    * getNavigationSpeedMode() → int
+    * getPanningSpeed() → float
+    * getNear() → float
+    * getNodeMaterial(node) → vrMaterialPtr
+    * getOculusRiftTrackingOrigin() → Pnt3f
+    * getOculusRiftTrackingOriginType() → int
+    * getRaytracingEnabled() → bool
+    * getRaytracingDownscaleFactor() → int
+    * getRenderRoot(index) → vrNodePtr
+    * getRenderRoots(index) → list[vrNodePtr]
+    * getRenderWindowCount() → int
+    * getRoll(index) → float
+    * getRenderWindowHeight(index) → int
+    * getRenderWindowWidth(index) → int
+    * getSAAWindow() → int
+    * getSceneIntersection(index, rayOrigin, rayDirection) → tuple
+    * getSceneIntersection(index, xCoord, yCoord) → tuple
+    * getSceneplatesEnabled(index) → bool
+    * getSceneplatesEnabled() → bool
+    * getSeparateBakeColor() → Color3f
+    * getSeparateBakeIntensity() → float
+    * getShadowMapUpdates() → bool
+    * getShadowPlane(rootNode, shadowPlaneNameRegexp) → vrNodePtr
+    * getShowASides() → bool
+    * getShowBSides() → bool
+    * getSuperSampling() → bool
+    * getSuperSamplingQuality() → int
+    * getUp(index) → Vec3f
+    * getUseBake(flag) → bool
+    * getUseBindless() → bool
+    * getUserNode(index) → vrNodePtr
+    * getUseCommandList() → bool
+    * getUserCameraMatrix(userId, cameraName) → list[float]
+    * getUserCameraMatrix(userId, windowId) → list[float]
+    * getUserMatrix(userId) → list[float]
+    * getUseMulticastSLI() → bool
+    * getUsePivotBasedPanning() → bool
+    * getUseSinglePassStereo() → bool
+    * getUseVariableRateShading() → bool
+    * getVariableRateShadingMode() → int
+    * getVariableRateShadingQuality() → int
+    * getViewAt(index) → Pnt3f
+    * getViewRay(index, x, y) → tuple
+    * hideBanner()
+    * isDLSSSupported() → bool
+    * isIdle() → bool
+    * isRaytracingDownscaleEnabled() → bool
+    * moveRenderWindow(index, xPos, yPos)
+    * moveStatistic(x, y)
+    * refreshAllGLObjects()
+    * reinitializeAllGLObjects()
+    * resetGenlockingFrameCount()
+    * resetHMDPose()
+    * resetIsolateView(index)
+    * resetNodeMaterial(node)
+    * resetNodeMaterials()
+    * resetOculusRiftOrientation()
+    * resetRenderRoots()
+    * resizeRenderWindow(index, width, height)
+    * setActiveRenderPass(passID, index)
+    * setAllGradientBackgrounds(colors, intervals)
+    * setGradientBackground(index, colors, intervals)
+    * setCameraBeacon(index, node)
+    * setAllNavigationsEnabled(state)
+    * setAnalyticRendering(state)
+    * setAORendering(state)
+    * setAOShadowsVisible(state)
+    * setAspect(aspect)
+    * setAt(index, point)
+    * setAuxiliaryNodesVisibleDuringAntialiasing(state)
+    * setAutoFrustum(state)
+    * setBackplate(state, index)
+    * setBackplate(state)
+    * setBackfaceCulling(state)
+    * setCameraConstraint(camera_constraint, min_dist=None)
+    * setCameraHeightAboveGround(index, relativeHeight, groundNode)
+    * setCameraHeightAboveGround(index, relativeHeight, keepAt)
+    * setCameraHeightAboveGround(index, relativeHeight)
+    * setCameraPanning(x, y)
+    * setCameraPivotAlwaysVisible(state)
+    * setCameraPivotVisible(state)
+    * setCameraRotation(x, y)
+    * setCameraScale(x, y, z)
+    * setCameraZoom(distance)
+    * setCameraZUp(state)
+    * setClusterCameraConnection(state)
+    * setCPUProfiling(state)
+    * setDefaultCameraBeacons()
+    * setCorrectDoubleSidedLighting(state)
+    * setDepthOnlyPass(state)
+    * setDepthPeeling(state)
+    * setDepthPeelingLayers(layers)
+    * setDetailedGPUProfiling(state)
+    * setDiscontinuityRendering(state)
+    * setDisplayMode(mode)
+    * setDistance(index, distance)
+    * setDLSSQuality(quality)
+    * setDollySpeed(scalefactor)
+    * setDoubleSidedLighting(state)
+    * setEvaluateClipping(state)
+    * setEyeSeparation(index, separation)
+    * setFaceNormalRendering(state)
+    * setFar(far)
+    * setFixedRenderWindowSize(width, height)
+    * setFlyMode(switch)
+    * setForceTransparentObjectSelection(state)
+    * setFov(fov)
+    * setFreezeOcclusionCulling(state)
+    * setFrom(index, point)
+    * setFromAtUp(index, from, at, up)
+    * setFrustum(index, left, right, bottom, top)
+    * setFrustumCulling(state)
+    * setGenlocking(state)
+    * setGrainSize(size)
+    * setHighQualityAntialiasing(state)
+    * setIdleWaitTime(seconds)
+    * setIndirectRendering(state)
+    * setInteractionMode(mode)
+    * setIsolateView(index, roots)
+    * setKeepRaytracingStructure(state)
+    * setLightmapGPUTextureCompression(state)
+    * setLocalLights(state)
+    * setMotionFactor(factor)
+    * setMouseButtonPreventsIdle(state)
+    * setNavMode(mode)
+    * setNavOrbitMode(enabled)
+    * setNear(near)
+    * setMono(index, state)
+    * setNavigationSpeedMode(mode)
+    * setNodeMaterial(node, mat)
+    * setOculusRiftTracking(state)
+    * setOculusRiftTrackingOrigin(position)
+    * setOculusRiftTrackingOriginType(originType)
+    * setOculusRiftHmdCaps(caps)
+    * setOcclusionCulling(state)
+    * setOcclusionCullingMode(mode)
+    * setOpenGLDebugging(state)
+    * setPivot(index, point)
+    * setPostprocessAntialiasingMode(mode)
+    * setPowerwallWindow(window, width, height, distance)
+    * setPrecomputedRendering(state)
+    * setProfilingInterval(seconds)
+    * setProfilingPruningLimit(milliseconds)
+    * setRealisticRendering(state)
+    * setRenderFullscreen(state)
+    * setRenderQuality(quality)
+    * setRenderRegion(on, startX, startY, endX, endY)
+    * setRenderRoot(index, root)
+    * setRenderRoots(index, roots)
+    * setRenderWindowDocked(index, state)
+    * setRoll(index, roll)
+    * setRaytracingDownscaleFactor(factor)
+    * setPanningSpeed(scalefactor)
+    * setSAAWindow(id)
+    * setScreenspaceAO(state)
+    * setSelectionMode(mode)
+    * setSeparateBakeColor(color)
+    * setSeparateBakeIntensity(intensity)
+    * setShadow(state)
+    * setShadowMapUpdates(state)
+    * setShadeTileSize(size)
+    * setShowABSides(showASides, showBSides)
+    * setSnapshotFrame(state, width, height)
+    * setSortTrans(state)
+    * setSpaceMouseHeight(height)
+    * setSpaceMousePivotMode(mode)
+    * setSpaceMouseTwoAxis(state)
+    * setSpaceMouseViewMode(mode)
+    * setSpecTexLighting(state)
+    * setStillDOF(state, radius, focaldistance=None)
+    * setSuperSampling(state)
+    * setSuperSamplingOnCameraMovement(state)
+    * setSuperSamplingQuality(quality)
+    * setTransformNodeSelectionPressed(node)
+    * setTransformNodeSelectionReleased(node)
+    * setTwoSidedLighting(state)
+    * setTextureCompression(state)
+    * setUp(index, vector)
+    * setUseBake(flag, state)
+    * setUseCommandList(state)
+    * setUseLastDrawTree(state)
+    * setUserMatrix(userId, matrix)
+    * setUseSpaceMouseHeight(state)
+    * setUseBindless(state)
+    * setUseMulticastSLI(state)
+    * setUsePivotBasedPanning(state)
+    * setUseSinglePassStereo(state)
+    * setUseVariableRateShading(state)
+    * setViewportCamera(index, cameraNode)
+    * setVSyncInterval(interval)
+    * setVariableRateShadingMode(mode)
+    * setVariableRateShadingQuality(quality)
+    * setVolumeDrawing(state)
+    * setWireframe(state)
+    * setWireframeSelection(state)
+    * setZeroParallaxDistance(index, distance)
+    * setZWriteTrans(state)
+    * showBanner(text, t=None, bcolor=None, width=None, height=None)
+    * showADSKLogo(state)
+    * showInitialView()
+    * showCoordinateSystem(switch)
+    * showProgressCursor(state)
+    * showStatistic(switch)
+    * showViewCube(state)
+    * showVRECLogo(state)
+    * showOculusRiftPerformanceHUD(state)
+    * showPIVRLogo(state)
+    * showWholeScene()
+    * startStatisticsRecording(index)
+    * subRenderOverlay(name)
+    * stopStatisticsRecording(index)
+    * toggleFullscreen(index, multiDisplayFullscreen)
+    * toggleRaytracing(state)
+    * updateAllMGLW()
+    * updateAllMGLWAll()
+    * writeRecordedStatistics(index, path)
+    * zoomTo(node, use_at)
+    * zoomTo(node)
+
+Variables:
+    - ALBEDO_LAYER = 33
+    - BACKGROUND_MATERIAL_COLOR_LAYER = 16
+    - BACKPLATE_LAYER = 30
+    - BEAUTY_PASS = 0
+    - CAMERA_NORMAL_LAYER = 46
+    - DEPTH_LAYER = 35
+    - DIFFUSE_IBL_ILLUMINATION_LAYER = 17
+    - DIFFUSE_IBL_LAYER = 2
+    - DIFFUSE_INDIRECT_ILLUMINATION_LAYER = 23
+    - DIFFUSE_INDIRECT_LIGHT_LAYER = 9
+    - DIFFUSE_LIGHT_COLOR_LAYER = 3
+    - DIFFUSE_LIGHT_ILLUMINATION_LAYER = 20
+    - DIFFUSE_MATERIAL_COLOR_LAYER = 11
+    - ENV_OCCLUSION_LAYER = 32
+    - FOG_LAYER = 28
+    - FRONTPLATE_LAYER = 31
+    - GLOSSY_IBL_ILLUMINATION_LAYER = 18
+    - GLOSSY_IBL_LAYER = 4
+    - GLOSSY_INDIRECT_ILLUMINATION_LAYER = 24
+    - GLOSSY_INDIRECT_LIGHT_LAYER = 10
+    - GLOSSY_LIGHT_COLOR_LAYER = 5
+    - GLOSSY_LIGHT_ILLUMINATION_LAYER = 21
+    - GLOSSY_MATERIAL_COLOR_LAYER = 12
+    - INCANDESCENCE_LAYER = 8
+    - LENS_FLARE_LAYER = 29
+    - MASK_LAYER = 43
+    - MATERIAL_ID_LAYER = 42
+    - NORMAL_LAYER = 34
+    - OcclusionCullingAccurate = 0
+    - OcclusionCullingFast = 1
+    - OcclusionHierarchicalMultiFrame = 0
+    - OcclusionMultiFrame = 0
+    - OcclusionStopAndWait = 0
+    - POSITION_LAYER = 44
+    - SPECULAR_IBL_LAYER = 6
+    - SPECULAR_INDIRECT_ILLUMINATION_LAYER = 25
+    - SPECULAR_MATERIAL_COLOR_LAYER = 13
+    - SPECULAR_REFLECTION_LAYER = 6
+    - TRANSLUCENCY_IBL_ILLUMINATION_LAYER = 19
+    - TRANSLUCENCY_INDIRECT_ILLUMINATION_LAYER = 26
+    - TRANSLUCENCY_LAYER = 7
+    - TRANSLUCENCY_LIGHT_ILLUMINATION_LAYER = 22
+    - TRANSLUCENCY_MATERIAL_COLOR_LAYER = 14
+    - TRANSPARENCY_MATERIAL_COLOR_LAYER = 15
+    - VIEW_VECTOR_LAYER = 45
+    - VOLUME_COLOR_LAYER = 27
+    - VR_BAKED_BASE_ILLUMINATION = 2
+    - VR_BAKED_SEPARATE_ILLUMINATION = 4
+    - VR_BAKED_SHADOWS = 1
+    - VR_DISPLAY_HDR10 = 5
+    - VR_DISPLAY_OCULUS_RIFT = 1
+    - VR_DISPLAY_OPEN_VR = 4
+    - VR_DISPLAY_OPEN_XR = 9
+    - VR_DISPLAY_SIM2_HDR = 3
+    - VR_DISPLAY_SONY_10BIT = 2
+    - VR_DISPLAY_STANDARD = 0
+    - VR_DISPLAY_VARJO = 8
+    - VR_DLSS_BALANCED = 3
+    - VR_DLSS_OFF = 0
+    - VR_DLSS_PERFORMANCE = 2
+    - VR_DLSS_QUALITY = 4
+    - VR_DLSS_ULTRA_PERFORMANCE = 5
+    - VR_DLSS_DLAA = 6
+    - VR_DOWNSCALE_FACTOR_HIGH = 8
+    - VR_DOWNSCALE_FACTOR_LOW = 2
+    - VR_DOWNSCALE_FACTOR_MEDIUM = 4
+    - VR_QUALITY_ANALYTIC_HIGH = 2
+    - VR_QUALITY_ANALYTIC_LOW = 1
+    - VR_QUALITY_NPR = 32
+    - VR_QUALITY_RAYTRACING = 16
+    - VR_QUALITY_REALISTIC_HIGH = 8
+    - VR_QUALITY_REALISTIC_LOW = 4
+    - VR_SELECT_ADJACENT = 4
+    - VR_SELECT_BY_MATERIAL = 3
+    - VR_SELECT_COMPONENT = 1
+    - VR_SELECT_GROUP = 2
+    - VR_SELECT_OBJECT = 0
+    - VR_SS_QUALITY_HIGH = 8
+    - VR_SS_QUALITY_LOW = 2
+    - VR_SS_QUALITY_MEDIUM = 4
+    - VR_SS_QUALITY_OFF = 0
+    - VR_SS_QUALITY_ON = 1
+    - VR_SS_QUALITY_ULTRA_HIGH = 16
+    - VR_STEREO_5VIEWS = 6
+    - VR_STEREO_BLUEYELLOW = 2
+    - VR_STEREO_DOUBLEBUFFER = 0
+    - VR_STEREO_GREENMAGENTA = 3
+    - VR_STEREO_HORIZONTALINTERLACED = 4
+    - VR_STEREO_LEFT_EYE = 2
+    - VR_STEREO_REDCYAN = 1
+    - VR_STEREO_RIGHT_EYE = 3
+    - VR_STEREO_SPLIT_LEFT_RIGHT = 1
+    - VR_STEREO_SPLIT_TOP_BOTTOM = 0
+    - VR_STEREO_VERTICALINTERLACED = 5
+
+.. method:: setViewportCamera(index, cameraNode)
+
+    Sets the active camera for the given render window to the camera of the given camera node.
+
+    :param index: The index of the render window (-1 for the focused widget).
+    :type index: integer
+    :param cameraNode: The camera node.
+    :type cameraNode: vrNodePtr
+
+.. method:: createRenderWindow()
+
+    Creates a new render window.
+
+.. method:: destroyRenderWindow(index)
+
+    Destroys a render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+
+.. method:: moveRenderWindow(index, xPos, yPos)
+
+    Moves a render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param xPos: The x position.
+    :type xPos: integer
+    :param yPos: The y position.
+    :type yPos: integer
+
+.. method:: resizeRenderWindow(index, width, height)
+
+    Resizes a render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param width: The width.
+    :type width: integer
+    :param height: The height.
+    :type height: integer
+
+.. method:: setFixedRenderWindowSize(width, height)
+
+    Sets a fixed size for the main render window. Pass -1, -1 for dynamic resolution.
+
+    :param width: The width.
+    :type width: integer
+    :param height: The height.
+    :type height: integer
+
+.. method:: setFrom(index, point)
+
+    Sets the camera "from" point.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param point: The "from" point.
+    :type point: Pnt3f
+
+.. method:: setAt(index, point)
+
+    Sets the camera "at" point.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param point: The "at" point.
+    :type point: Pnt3f
+
+.. method:: setUp(index, vector)
+
+    Sets the camera "up" vector.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param vector: The "up" vector.
+    :type vector: Vec3f
+
+.. method:: setRoll(index, roll)
+
+    Sets the navigator roll.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param roll: The roll.
+    :type roll: float
+
+.. method:: setPivot(index, point)
+
+    Sets the navigator rotation pivot.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param point: The rotation pivot.
+    :type point: Pnt3f
+
+.. method:: setFromAtUp(index, from, at, up)
+
+    Sets the camera "from", "at", and "up" parameters.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param from: The "from" point.
+    :type from: Pnt3f
+    :param at: The "at" point.
+    :type at: Pnt3f
+    :param up: The "up" vector.
+    :type up: Vec3f
+
+.. method:: getNavigationPivot(index) → Pnt3f
+
+    Returns the navigation pivot.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :return: The navigation pivot.
+    :rtype: Pnt3f
+
+.. method:: getFrom(index) → Pnt3f
+
+    Returns the "from" point of the camera.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :return: The "from" point.
+    :rtype: Pnt3f
+
+.. method:: getAt(index) → Pnt3f
+
+    Returns the "at" point of the camera.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :return: The "at" point.
+    :rtype: Pnt3f
+
+.. method:: getUp(index) → Vec3f
+
+    Returns the "up" vector of the camera.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :return: The "up" vector.
+    :rtype: Vec3f
+
+.. method:: setDistance(index, distance)
+
+    Sets the camera distance.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param distance: The distance to set.
+    :type distance: float
+
+.. method:: getHeightAboveGround(index) → float
+
+    Returns the height of the camera above the ground.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :return: The height above the ground.
+    :rtype: float
+
+.. method:: getHeightAboveGround(index, node) → float
+
+    Returns the height above the ground.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param node: The ground node.
+    :type node: NodePtr
+    :return: The height above the ground.
+    :rtype: float
+
+.. method:: setCameraHeightAboveGround(index, relativeHeight)
+
+    Set camera "relativeHeight" above the ground
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param height: The relative height.
+    :type height: float
+
+.. method:: setCameraHeightAboveGround(index, relativeHeight, keepAt)
+    :no-index:
+
+    Set camera "relativeHeight" above the ground.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param height: The relative height.
+    :type height: float
+    :param keepAt: If true, the at point is not changed.
+    :type keepAt: bool
+
+.. method:: setCameraHeightAboveGround(index, relativeHeight, groundNode)
+    :no-index:
+
+    Set camera "relativeHeight" above the ground. Primarily checking for the ground plane specified (if it has a Shadow material)
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: integer
+    :param height: The relative height.
+    :type height: float
+    :param groundNode: The ground node.
+    :type groundNode: NodePtr
+
+.. method:: getShadowPlane(rootNode, shadowPlaneNameRegexp) → vrNodePtr
+
+    Returns the shadow plane node matching the given regular expression.
+
+    :param rootNode: The root node.
+    :type rootNode: vrNodePtr
+    :param shadowPlaneNameRegexp: The regular expression for the shadow plane name.
+    :type shadowPlaneNameRegexp: string
+    :return: The shadow plane node.
+    :rtype: vrNodePtr
+
+.. method:: showWholeScene()
+
+    Displays the entire scene.
+
+.. method:: zoomTo(node)
+
+    Zooms to node.
+
+    :param node: The node.
+    :type node: NodePtr
+
+.. method:: zoomTo(node, use_at)
+    :no-index:
+
+    Zooms to node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param use_at: use at.
+    :type use_at: bool
+
+.. method:: updateAllMGLW()
+
+    Updates all render widgets.
+
+.. method:: updateAllMGLWAll()
+
+    Updates all render widgets (all MGLW).
+
+.. method:: compressTextures()
+
+    Deprecated. Compresses all the textures.
+
+.. method:: createBackplate()
+
+    **Deprecated.**
+
+    Creates a backplate.
+
+.. method:: deleteBackplate()
+
+    **Deprecated.**
+
+    Deletes the backplate.
+
+.. method:: enableDrawAction(index, state)
+
+    Enables or disables the draw action for the given render window.
+
+    :param index: The index of the render window.
+    :type index: int
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: enableHeadlight(switch)
+
+    Enables or disables the headlight.
+
+    :param switch: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: int
+
+.. method:: getBackplateMaterial() → vrMaterialPtr
+
+    **Deprecated.**
+
+    Returns the backplate material.
+
+    :return: The backplate material.
+    :rtype: vrMaterialPtr
+
+.. method:: getCamNode(index) → vrNodePtr
+
+    Returns the camera node for the given render window.
+
+    :param index: The index of the render window (-1 for the main widget).
+    :type index: int
+    :return: The camera node.
+    :rtype: vrNodePtr
+
+.. method:: getRoll(index) → float
+
+    Returns the navigator roll.
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: int
+    :return: The roll.
+    :rtype: float
+
+.. method:: getUserNode(index) → vrNodePtr
+
+    **Deprecated.** Please use get/setUserMatrix instead.
+
+    Returns the user node for the given render window.
+
+    :param index: The index of the render window.
+    :type index: int
+    :return: The user node.
+    :rtype: vrNodePtr
+
+.. method:: getViewAt(index) → Pnt3f
+
+    Returns the view "at" point (same as getAt).
+
+    :param index: The index of the render widget (-1 for the main widget).
+    :type index: int
+    :return: The "at" point.
+    :rtype: Pnt3f
+
+.. method:: moveStatistic(x, y)
+
+    Moves the statistic overlay.
+
+    :param x: The x position.
+    :type x: int
+    :param y: The y position.
+    :type y: int
+
+.. method:: setCameraBeacon(index, beacon)
+
+    **Deprecated.** Move the camera node instead.
+
+    Sets the camera beacon for the given render window.
+
+    :param index: The index of the render window.
+    :type index: int
+    :param beacon: The beacon node.
+    :type beacon: NodePtr
+
+.. method:: setDefaultCameraBeacons()
+
+    **Deprecated.** Move the camera node instead.
+
+    Sets the default camera beacons.
+
+.. method:: setMono(index, state)
+
+    Sets mono (non-stereo) mode for the given render window.
+
+    :param index: The index of the render window.
+    :type index: int
+    :param state: Mono on/off.
+    :type state: bool
+
+.. method:: showADSKLogo(state)
+
+    Shows or hides the Autodesk logo.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: showCoordinateSystem(switch)
+
+    Sets display of the render coordinate systems.
+
+    :param switch: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: int
+
+.. method:: showStatistic(switch)
+
+    Sets display of the render statistic.
+
+    :param switch: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: int
+
+.. method:: showVRECLogo(state)
+
+    Shows or hides the VREC logo.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: getInternalBackplateMaterial() → vrMaterialPtr
+
+    **Deprecated.** Returns the internal backplate material.
+
+    :return: The internal backplate material.
+    :rtype: vrMaterialPtr
+
+.. method:: resetOculusRiftOrientation()
+
+    Resets the tracking origin according to the current headset location and sets the yaw orientation to the current headset yaw value. In 'Standing' mode, the tracking origin is set to the position on the floor below the HMD.
+
+.. method:: setOculusRiftHmdCaps(caps)
+
+    Deprecated.
+
+    :param caps: The HMD capabilities mask.
+    :type caps: unsigned int
+
+.. method:: showOculusRiftPerformanceHUD(mode)
+
+    Sets the Oculus Rift performance HUD.
+
+    :param mode: The mode to set: 0 = off, 1 = summary, 2 = latency timer, 3 = app rendering timer, 4 = composer rendering timer, 5 = version info.
+    :type mode: int
+
+.. method:: showPIVRLogo(state)
+
+    Enable/disable Autodesk logo.
+
+    :param state: Show logo: On/Off.
+    :type state: bool
+
+.. method:: setGradientBackground(index, colors, intervals)
+
+    Sets a gradient background for the specified render widget.
+
+    :param index: The index of the render widget.
+    :type index: integer
+    :param colors: A list of colors for the gradient.
+    :type colors: list of Color3f
+    :param intervals: A list of intervals for the gradient.
+    :type intervals: list of float
+
+.. method:: setAllGradientBackgrounds(colors, intervals)
+
+    Sets a gradient background for all render widgets.
+
+    :param colors: A list of colors for the gradient.
+    :type colors: list of Color3f
+    :param intervals: A list of intervals for the gradient.
+    :type intervals: list of float
+
+.. method:: setRenderQuality(quality)
+
+    Sets the render quality.
+
+    :param quality: The render quality: VR_QUALITY_ANALYTIC_LOW, VR_QUALITY_ANALYTIC_HIGH, VR_QUALITY_REALISTIC_LOW, VR_QUALITY_REALISTIC_HIGH, VR_QUALITY_RAYTRACING, VR_QUALITY_NPR.
+    :type quality: integer
+
+.. method:: getRenderWindowWidth(index) → int
+
+    Returns the render window width.
+
+    :param index: The render window index.
+    :type index: integer
+    :return: The render window width.
+    :rtype: int
+
+.. method:: getRenderWindowHeight(index) → int
+
+    Returns the render window height.
+
+    :param index: The render window index.
+    :type index: integer
+    :return: The render window height.
+    :rtype: int
+
+.. method:: setWireframe(state)
+
+    Sets wireframe rendering mode.
+
+    :param state: Wireframe rendering mode: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type state: integer
+
+.. method:: getLastPickingNode() → vrNodePtr
+
+    Returns the last picked node.
+
+    :return: The last picked node.
+    :rtype: vrNodePtr
+
+.. method:: getLastPickingPosition() → Pnt3f
+
+    Returns the last picked position.
+
+    :return: The last picked position.
+    :rtype: Pnt3f
+
+.. method:: getLastPickingMaterial() → vrMaterialPtr
+
+    Returns the last picked material.
+
+    :return: The last picked material.
+    :rtype: vrMaterialPtr
+
+.. method:: createScreenshot(filename)
+
+    Creates a screenshot of the render window and writes it to an image file.
+
+    :param filename: The path of the image file.
+    :type filename: string
+
+.. method:: resetHMDPose()
+
+    Resets the tracking to the current pose of the headset while using an HMD display mode.
+
+.. method:: setDisplayMode(mode)
+
+    Sets the display mode.
+
+    :param mode: Display mode: VR_DISPLAY_STANDARD, VR_DISPLAY_OCULUS_RIFT, VR_DISPLAY_OPEN_VR, VR_DISPLAY_HDR10, etc.
+    :type mode: unsigned int
+
+.. method:: setIdleWaitTime(seconds)
+
+    Sets the time window in which an idle state is detected if no further activity occurs.
+    VRED_IDLE_MSG is sent when idle state change is detected.
+    The message for state = False is always sent immediately when activity is detected.
+
+    :param seconds: Idle wait time in seconds.
+    :type seconds: float
+
+.. method:: getIdleWaitTime() → float
+
+    Returns the idle wait time in seconds.
+
+    :return: Idle wait time in seconds.
+    :rtype: float
+
+.. method:: isIdle() → bool
+
+    Returns whether the render window is currently idle or not.
+
+    :return: True if idle, False otherwise.
+    :rtype: bool
+
+.. method:: setMouseButtonPreventsIdle(state)
+
+    Sets whether holding a mouse button pressed in the render window without triggering changes prevents the idle state from being sent via VRED_MSG_IDLE.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getMouseButtonPreventsIdle() → bool
+
+    Returns whether holding a mouse button pressed in the render window without triggering changes prevents the idle state from being sent via VRED_MSG_IDLE.
+
+    :return: On/Off.
+    :rtype: bool
+
+.. method:: setUseLastDrawTree(state)
+
+    Re-use old draw tree.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: setRenderFullscreen(state)
+
+    Maximizes/minimizes the render widget.
+
+    :param state: Render widget: maximize/minimize.
+    :type state: bool
+
+.. method:: toggleFullscreen(index, multiDisplayFullscreen)
+
+    Switches between fullscreen and normal mode.
+
+    :param index: Render widget index.
+    :type index: integer
+    :param multiDisplayFullscreen: Switch fullscreen over multi displays.
+    :type multiDisplayFullscreen: bool
+
+.. method:: enableRender(state)
+
+    Sets rendering state.
+
+    :param state: Rendering: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type state: boolean
+
+.. method:: enableAntialiasing(state)
+
+    Sets anti-aliasing.
+
+    :param state: Anti-aliasing: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type state: integer
+
+.. method:: getAntialiasingEnabled() → bool
+
+    Checks if anti-aliasing is enabled.
+
+    :return: True if anti-aliasing is enabled.
+    :rtype: bool
+
+.. method:: setDLSSQuality(quality)
+
+    Sets the deep learning supersampling quality.
+
+    :param quality: VR_DLSS_OFF, VR_DLSS_PERFORMANCE, VR_DLSS_BALANCED, VR_DLSS_QUALITY, VR_DLSS_ULTRA_PERFORMANCE, VR_DLSS_DLAA.
+    :type quality: integer
+
+.. method:: getDLSSQuality() → int
+
+    Returns the current deep learning supersampling quality.
+
+    :return: DLSS Quality: VR_DLSS_OFF, VR_DLSS_PERFORMANCE, VR_DLSS_BALANCED, VR_DLSS_QUALITY, VR_DLSS_ULTRA_PERFORMANCE, VR_DLSS_DLAA.
+    :rtype: integer
+
+.. method:: setDLSSMaxPhaseCount(frameCount)
+
+    Sets the number of frames DLSS renders before going idle.
+
+    :param frameCount: The number of frames. The minimum value is 72.
+    :type frameCount: integer
+
+.. method:: getDLSSMaxPhaseCount() → int
+
+    Returns the number of frames DLSS renders before going idle.
+
+    :return: frameCount: The number of frames.
+    :rtype: integer
+
+.. method:: resetDLSSHistory()
+
+    Resets the DLSS history and restarts accumulation. This can be required when switching variants.
+
+.. method:: setCameraPivotVisible(state)
+
+    Enable/disable display of the camera pivot during navigation.
+
+    :param state: Show pivot: On/Off.
+    :type state: bool
+
+.. method:: getCameraPivotVisible() → bool
+
+    Returns the visibility state of the camera pivot during navigation.
+
+    :return: The camera pivot visibility during navigation.
+    :rtype: bool
+
+.. method:: setAuxiliaryNodesVisibleDuringAntialiasing(state)
+
+    Enable/disable display of auxiliary nodes during antialiasing.
+
+    :param state: Show auxiliary nodes: On/Off.
+    :type state: bool
+
+.. method:: getAuxiliaryNodesVisibleDuringAntialiasing() → bool
+
+    Returns the visibility state of the auxiliary nodes during antialiasing.
+
+    :return: The visibility of auxiliary nodes during antialiasing.
+    :rtype: bool
+
+.. method:: setWireframeSelection(state)
+
+    Sets wireframe selection mode.
+
+    :param state: true, false.
+    :type state: int
+
+.. method:: cancelAntialiasing()
+
+    Cancels the still anti-aliasing.
+
+.. method:: setPostprocessAntialiasingMode(mode)
+
+    Enables/Disables postprocessing antialiasing.
+
+    :param mode: 0 = Off, 1 = On.
+    :type mode: unsigned int
+
+.. method:: setOculusRiftTracking(state)
+
+    Windows only: Enables/Disables tracking of the Oculus Rift.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: setOculusRiftTrackingOriginType(originType)
+
+    Windows only: Sets the tracking origin type for the Oculus Rift.
+
+    :param originType: 0 = Seated, 1 = Standing.
+    :type originType: int
+
+.. method:: getOculusRiftTrackingOriginType() → int
+
+    Windows only: Retrieves the tracking origin type for the Oculus Rift.
+
+    :return: 0 = Seated, 1 = Standing.
+    :rtype: int
+
+.. method:: setOculusRiftTrackingOrigin(position)
+
+    Sets the tracking reference origin for Oculus Rift tracking. Use it to correct any offsets in the scene.
+
+    :param position: Position offset for the Oculus tracking.
+    :type position: Pnt3f
+
+.. method:: getOculusRiftTrackingOrigin() → Pnt3f
+
+    Returns the Oculus Rift tracking reference origin.
+
+    :return: The Oculus Rift tracking reference origin.
+    :rtype: Pnt3f
+
+.. method:: setCameraPivotAlwaysVisible(state)
+
+    Enable/disable display of the camera pivot while not navigating.
+
+    :param state: Show pivot: On/Off.
+    :type state: bool
+
+.. method:: getCameraPivotAlwaysVisible() → bool
+
+    Returns the visibility state of the camera pivot while not navigating.
+
+    :return: The camera pivot visibility while not navigating.
+    :rtype: bool
+
+.. method:: setRenderWindowDocked(index, state)
+
+    Docks a render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param state: Docked: On/Off.
+    :type state: boolean
+
+.. method:: getRenderWindowCount() → int
+
+    Returns the number of render windows.
+
+    :return: The number of render windows.
+    :rtype: int
+
+.. method:: setNear(near)
+
+    Sets the near clipping plane.
+
+    :param near: The distance to the near plane.
+    :type near: float
+
+.. method:: getNear() → float
+
+    Gets the near clipping plane.
+
+    :return: The distance to the near plane.
+    :rtype: float
+
+.. method:: setFar(far)
+
+    Sets the far clipping plane.
+
+    :param far: The distance to the far plane.
+    :type far: float
+
+.. method:: getFar() → float
+
+    Gets the far clipping plane.
+
+    :return: The distance to the far plane.
+    :rtype: float
+
+.. method:: setFov(fov)
+
+    Sets the field of view.
+
+    :param fov: The field of view value.
+    :type fov: float
+
+.. method:: getFov() → float
+
+    Gets the field of view.
+
+    :return: The field of view value.
+    :rtype: float
+
+.. method:: setAspect(aspect)
+
+    Sets the aspect ratio.
+
+    :param aspect: The aspect ratio.
+    :type aspect: float
+
+.. method:: getAspect() → float
+
+    Gets the aspect ratio.
+
+    :return: The aspect ratio.
+    :rtype: float
+
+.. method:: setRenderRoot(index, root)
+
+    Sets the render root for a specific render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param root: The render root node.
+    :type root: vrNodePtr
+
+.. method:: getRenderRoot(index) → vrNodePtr
+
+    Gets the render root for a specific render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :return: The render root node.
+    :rtype: vrNodePtr
+
+.. method:: setRenderRoots(index, roots)
+
+    Sets multiple render roots for a specific render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param roots: A list of render root nodes.
+    :type roots: list[vrNodePtr]
+
+.. method:: getRenderRoots(index) → list[vrNodePtr]
+
+    Gets the list of render roots for a specific render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :return: A list of render root nodes.
+    :rtype: list[vrNodePtr]
+
+.. method:: setIsolateView(index, roots)
+
+    Sets the isolate view on the provided objects for a specific render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param roots: A list of nodes to isolate.
+    :type roots: list[vrNodePtr]
+
+.. method:: resetIsolateView(index)
+
+    Resets the isolate view for a specific render window.
+
+    :param index: The index of the render window.
+    :type index: integer
+
+.. method:: setActiveRenderPass(passID, index)
+
+    Sets the active render pass for a specific render window.
+
+    :param passID: The render pass ID.
+    :type passID: integer
+    :param index: The index of the render window.
+    :type index: integer
+
+.. method:: resetRenderRoots()
+
+    Resets all render roots to their default state.
+
+.. method:: refreshAllGLObjects()
+
+    Refreshes all existing OpenGL objects.
+
+.. method:: reinitializeAllGLObjects()
+
+    Reinitializes all OpenGL objects to improve rendering performance.
+
+.. method:: setNavigationSpeedMode(mode)
+
+    Sets the navigator speed mode for two-axis and trackball navigation modes.
+
+    :param mode: 0 = unconstrained, 1 = limited, 2 = linear.
+    :type mode: int
+
+.. method:: getNavigationSpeedMode() → int
+
+    Gets the navigator speed mode.
+
+    :return: The navigation speed mode.
+    :rtype: int
+
+.. method:: setDollySpeed(scalefactor)
+
+    Sets the scale factor for the navigator dolly speed.
+
+    :param scalefactor: Dolly speed scaling factor.
+    :type scalefactor: float
+
+.. method:: getDollySpeed() → float
+
+    Gets the scale factor of the navigator dolly speed.
+
+    :return: The dolly speed scaling factor.
+    :rtype: float
+
+.. method:: setPanningSpeed(scalefactor)
+
+    Sets the scale factor for the navigator panning speed when pivot-based panning or linear navigation is turned on.
+
+    :param scalefactor: Panning speed scaling factor.
+    :type scalefactor: float
+
+.. method:: getPanningSpeed() → float
+
+    Gets the scale factor of the navigator panning speed.
+
+    :return: The panning speed scaling factor.
+    :rtype: float
+
+.. method:: setUsePivotBasedPanning(state)
+
+    Sets the navigator panning mode to be based on the pivot.
+
+    :param state: True uses the distance to the pivot to base the panning speed on; False uses the distance to the picked position for panning.
+    :type state: bool
+
+.. method:: getUsePivotBasedPanning() → bool
+
+    Gets the panning mode of the navigator.
+
+    :return: True if pivot-based panning is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setInteractionMode(mode)
+
+    Sets the interaction mode.
+
+    :param mode: 0 = VRED mode, 1 = Alias mode, 2 = Maya mode.
+    :type mode: int
+
+.. method:: getInteractionMode() → int
+
+    Gets the interaction mode.
+
+    :return: The interaction mode.
+    :rtype: int
+
+.. method:: setRenderRegion(on, startX, startY, endX, endY)
+
+    Sets render region parameters.
+
+    :param on: Enable/Disable render region.
+    :type on: bool
+    :param startX: Render region start x position.
+    :type startX: int
+    :param startY: Render region start y position.
+    :type startY: int
+    :param endX: Render region end x position.
+    :type endX: int
+    :param endY: Render region end y position.
+    :type endY: int
+
+.. method:: enableRenderRegion(state)
+
+    Enables or disables region rendering.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setShadow(state)
+
+    Sets shadow state.
+
+    :param state: Enable/Disable shadows.
+    :type state: bool
+
+.. method:: setShadowMapUpdates(state)
+
+    Enables or disables updates to the shadow map.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getShadowMapUpdates() → bool
+
+    Returns whether shadow map updates are enabled or disabled.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setCameraRotation(x, y)
+
+    Rotates the camera.
+
+    :param x: The rotation angle around the up vector.
+    :type x: float
+    :param y: The rotation angle around the right vector.
+    :type y: float
+
+.. method:: setCameraPanning(x, y)
+
+    Pans the camera.
+
+    :param x: The horizontal panning.
+    :type x: float
+    :param y: The vertical panning.
+    :type y: float
+
+.. method:: setCameraZoom(distance)
+
+    Zooms the camera.
+
+    :param distance: The distance to move from the "at" point.
+    :type distance: float
+
+.. method:: setCameraScale(x, y, z)
+
+    Scales the camera, e.g., for vertical flipping (1, -1, 1).
+
+    :param x: The horizontal scale.
+    :type x: float
+    :param y: The vertical scale.
+    :type y: float
+    :param z: The depth scale.
+    :type z: float
+
+.. method:: setKeepRaytracingStructure(state)
+
+    Enables or disables keeping of the raytracing structure.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setSpaceMouseHeight(height)
+
+    Sets a fixed height in spacemouse mode.
+
+    :param height: The height.
+    :type height: float
+
+.. method:: setUseSpaceMouseHeight(state)
+
+    Sets whether a fixed height is used or not in spacemouse mode.
+
+    :param state: Fixed height: On/Off.
+    :type state: bool
+
+.. method:: setSpaceMouseTwoAxis(state)
+
+    Sets the two-axis mode for the spacemouse.
+
+    :param state: Two-axis mode: On/Off.
+    :type state: bool
+
+.. method:: setSpaceMouseViewMode(mode)
+
+    Sets the spacemouse view mode.
+
+    :param mode: View mode: 0 = camera, 1 = object.
+    :type mode: int
+
+.. method:: setSpaceMousePivotMode(mode)
+
+    Sets the spacemouse pivot mode.
+
+    :param mode: Pivot mode: 0 = camera, 1 = object, 2 = focus distance, 3 = standard VRED at.
+    :type mode: int
+
+.. method:: setSAAWindow(id)
+
+    Sets the still anti-aliasing window. -1 means use the window with focus.
+
+    :param id: The window ID.
+    :type id: int
+
+.. method:: getSAAWindow() → int
+
+    Returns the still anti-aliasing window.
+
+    :return: The still anti-aliasing window ID.
+    :rtype: int
+
+.. method:: setShowABSides(showASides, showBSides)
+
+    Enable or disable the rendering of A and B sides.
+
+    :param showASides: Render A sides.
+    :type showASides: bool
+    :param showBSides: Render B sides.
+    :type showBSides: bool
+
+.. method:: getShowASides() → bool
+
+    Returns the state of the A side rendering flag.
+
+    :return: Whether rendering of A sides is enabled or not.
+    :rtype: bool
+
+.. method:: getShowBSides() → bool
+
+    Returns the state of the B side rendering flag.
+
+    :return: Whether rendering of B sides is enabled or not.
+    :rtype: bool
+
+.. method:: setBackplate(state)
+
+    Deprecated. See enableBackplates(state)
+
+    :param state: Enable/Disable
+    :type state: bool
+
+.. method:: setBackplate(state, index)
+    :no-index:
+
+    Deprecated. See enableBackplates(state, index)
+
+    :param state: Enable/Disable
+    :type state: bool
+    :param index: Index of render window.
+    :type index: integer
+
+.. method:: enableBackplates(state)
+
+    Enables or disables backplate rendering for the active render window.
+    See also  enableSceneplates(state) for the global switch if sceneplates should be rendered at all.
+
+    :param state: Switch backplate rendering on or off.
+    :type state: bool
+
+.. method:: enableBackplates(state, index)
+    :no-index:
+
+    Enables or disables backplate rendering for the given render window.
+    See also enableSceneplates(state, index) for the global switch if sceneplates should be rendered at all.
+
+    :param state: Switch backplate rendering on or off.
+    :type state: bool
+    :param index: Index of render window.
+    :type index: integer
+
+.. method:: getBackplatesEnabled() → bool
+
+    Returns if backplate rendering is enabled for the active render window.
+    See also getSceneplatesEnabled() for the global switch if sceneplates should be rendered at all.
+
+    :return: The state of backplate rendering (enabled or disabled)
+    :rtype: bool
+
+.. method:: getBackplatesEnabled(index) → bool
+
+    Returns if backplate rendering is enabled for the given render window.
+    See also getSceneplatesEnabled(index) for the global switch if sceneplates should be rendered at all.
+
+    :param index: Index of render window.
+    :type index: integer
+    :return: The state of backplate rendering (enabled or disabled)
+    :rtype: bool
+
+.. method:: enableFrontplates(state)
+
+    Enables or disables frontplate rendering for the active render window.
+    See also enableSceneplates(state) for the global switch if sceneplates should be rendered at all.
+
+    :param state: Switch frontplate rendering on or off.
+    :type state: bool
+
+.. method:: enableFrontplates(state, index)
+    :no-index:
+
+    Enables or disables frontplate rendering for the given render window.
+    See also enableSceneplates(state, index) for the global switch if sceneplates should be rendered at all.
+
+    :param state: Switch frontplate rendering on or off.
+    :type state: bool
+    :param index: Index of render window.
+    :type index: integer
+
+.. method:: getFrontplatesEnabled() → bool
+
+    Returns if frontplate rendering is enabled for the active render window.
+    See also getSceneplatesEnabled() for the global switch if sceneplates should be rendered at all.
+
+    :return: The state of frontplate rendering (enabled or disabled)
+    :rtype: bool
+
+.. method:: getFrontplatesEnabled(index) → bool
+
+    Returns if frontplate rendering is enabled for the given render window.
+    See also getSceneplatesEnabled(index) for the global switch if sceneplates should be rendered at all.
+
+    :param index: Index of render window.
+    :type index: integer
+    :return: The state of frontplate rendering (enabled or disabled)
+    :rtype: bool
+
+.. method:: enableSceneplates(state)
+
+    Enables or disables sceneplate rendering for the active render window.
+    This works as a master-off for all sceneplate types, e.g. in order to render frontplates, sceneplate and frontplate rendering has to be enabled.
+    See also enableFrontplates(state) and enableBackplates(state).
+
+    :param state: Switch sceneplates rendering on or off.
+    :type state: bool
+
+.. method:: enableSceneplates(state, index)
+    :no-index:
+
+    Enables or disables sceneplate rendering for the given render window.
+    This works as a master-off for all sceneplate types, e.g. in order to render frontplates, sceneplate and frontplate rendering has to be enabled.
+    See also enableFrontplates(state, index) and enableBackplates(state, index).
+
+    :param state: Switch sceneplates rendering on or off.
+    :type state: bool
+    :param index: Index of render window.
+    :type index: integer
+
+.. method:: getSceneplatesEnabled() → bool
+
+    Returns if sceneplate rendering is enabled for the active render window.
+    This works as a master-off for all sceneplate types, e.g. in order to render frontplates, sceneplate and frontplate rendering has to be enabled.
+    See also getFrontplatesEnabled() and getBackplatesEnabled().
+
+    :return: The state of sceneplate rendering (enabled or disabled)
+    :rtype: bool
+
+.. method:: getSceneplatesEnabled(index) → bool
+
+    Returns if sceneplate rendering is enabled for the given render window.
+    This works as a master-off for all sceneplate types, e.g. in order to render frontplates, sceneplate and frontplate rendering has to be enabled.
+    See also getFrontplatesEnabled() and getBackplatesEnabled().
+
+    :param index: Index of render window.
+    :type index: integer
+    :return: The state of sceneplate rendering (enabled or disabled)
+    :rtype: bool
+
+.. method:: setSuperSampling(state)
+
+    Enables or disables super sampling (Realtime Antialiasing).
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getSuperSampling() → bool
+
+    Checks if super sampling is enabled (Realtime Antialiasing).
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setSuperSamplingQuality(quality)
+
+    Sets the super sampling quality (Realtime Antialiasing). Note: To enable Realtime Antialiasing, you must also call setSuperSampling(True).
+
+    :param quality: Quality level: VR_SS_QUALITY_LOW, VR_SS_QUALITY_MEDIUM, VR_SS_QUALITY_HIGH, VR_SS_QUALITY_ULTRA_HIGH.
+    :type quality: int
+
+.. method:: getSuperSamplingQuality() → int
+
+    Returns the current Realtime Antialiasing quality.
+
+    :return: Super sampling quality.
+    :rtype: int
+
+.. method:: setSuperSamplingOnCameraMovement(state)
+
+    Enables or disables super sampling (Realtime Antialiasing) on camera movements.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setHighQualityAntialiasing(state)
+
+    Enables or disables high-quality antialiasing.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setRealisticRendering(state)
+
+    Enables or disables realistic rendering. If nothing else is chosen, this is the default rendering mode.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setAnalyticRendering(state)
+
+    Enables or disables analytic rendering.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setFaceNormalRendering(state)
+
+    Enables or disables face normal rendering.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setDiscontinuityRendering(state)
+
+    Enables or disables surface analysis rendering.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setClusterCameraConnection(state)
+
+    Sets the connection of the cameras in a cluster.
+
+    :param state: Camera connection: Enable/Disable.
+    :type state: bool
+
+.. method:: setCameraConstraint(camera_constraint, min_dist=None)
+
+    Sets the camera constraint and optionally the minimum distance.
+
+    :param camera_constraint: The constraint node.
+    :type camera_constraint: NodePtr
+    :param min_dist: The minimum distance (Optional).
+    :type min_dist: float
+
+.. method:: setSelectionMode(mode)
+
+    Sets the selection mode.
+
+    :param mode: Selection mode: VR_SELECT_COMPONENT, VR_SELECT_OBJECT, VR_SELECT_GROUP, VR_SELECT_BY_MATERIAL, VR_SELECT_ADJACENT.
+    :type mode: unsigned int
+
+.. method:: setForceTransparentObjectSelection(state)
+
+    Enables or disables the selection of objects with a 100% transparent material in the render window.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: addRenderOverlay(name, width=None, height=None)
+
+    Adds a render overlay.
+
+    :param name: The name of the overlay.
+    :type name: string
+    :param width: The width of the overlay (Optional).
+    :type width: int
+    :param height: The height of the overlay (Optional).
+    :type height: int
+
+.. method:: subRenderOverlay(name)
+
+    Removes a render overlay.
+
+    :param name: The name of the overlay.
+    :type name: string
+
+.. method:: getSceneIntersection(index, rayOrigin, rayDirection) → tuple
+    Returns the intersection of the given ray with the scene.
+
+    :param index:  The index of the render window (-1 for the main render window) in which the intersection should be computed.
+    :type index: int
+    :param rayOrigin: Origin of the ray in world coordinates.
+    :type rayOrigin: Pnt3f
+    :param rayDirection: Direction vector of the ray in world coordinates.
+    :type rayDirection: Vec3f
+    :return: intersection result (hit object, intersection point in world coordinates, intersection normal in world coordinates and uv coordinates).
+    :rtype: tuple of vrNodePtr, Pnt3f, Vec3f, Vec2f
+
+.. method:: getSceneIntersection(index, xCoord, yCoord) → tuple
+    Returns the intersection of the given pixel coordinates with the scene.
+
+    :param index:  The index of the render window (-1 for the main render window) in which the intersection should be computed.
+    :type index: int
+    :param xCoord: x-coordinate in pixels, (0,0) is in the upper left corner of the render window.
+    :type xCoord: int
+    :param yCoord: y-coordinate in pixels, (0,0) is in the upper left corner of the render window.
+    :type yCoord: int
+    :return: intersection result (hit object, intersection point in world coordinates, intersection normal in world coordinates and uv coordinates).
+    :rtype: tuple of vrNodePtr, Pnt3f, Vec3f, Vec2f
+
+.. method:: getMousePosition(index) → list[int]
+
+    Returns the current pixel coordinates of the mouse over the given render window.
+
+    :param index: The index of the render window (-1 for the main render window).
+    :type index: int
+    :return: Pixel coordinates, range: 0..width, 0..height of the render window. [-1, -1] if the mouse is not over the render window.
+    :rtype: list[int]
+
+.. method:: getFPS() → float
+
+    Returns the current number of frames per second.
+
+    :return: The frames per second.
+    :rtype: float
+
+.. method:: getAverageFPS() → float
+
+    Returns the average number of frames per second.
+
+    :return: The average frames per second.
+    :rtype: float
+
+.. method:: setUseBake(flag, state)
+
+    Enables or disables individual baking components to be used by 3D rendering. This applies to both vertex and texture baking. By default, all components are on.
+
+    :param flag: VR_BAKED_SHADOWS, VR_BAKED_BASE_ILLUMINATION, or VR_BAKED_SEPARATE_ILLUMINATION.
+    :type flag: unsigned int
+    :param state: True or 1 to enable, False or 0 to disable, -1 or SWITCH_TOGGLE to toggle.
+    :type state: int
+
+.. method:: getUseBake(flag) → bool
+
+    Returns whether individual baking components are enabled to be used by 3D rendering.
+
+    :param flag: VR_BAKED_SHADOWS, VR_BAKED_BASE_ILLUMINATION, or VR_BAKED_SEPARATE_ILLUMINATION.
+    :type flag: unsigned int
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setSeparateBakeColor(color)
+
+    Sets the color multiplier for the baked separate illumination in 3D rendering. Default is white.
+
+    :param color: The color multiplier.
+    :type color: Color3f
+
+.. method:: getSeparateBakeColor() → Color3f
+
+    Returns the color multiplier for the baked separate illumination in 3D rendering.
+
+    :return: The color multiplier.
+    :rtype: Color3f
+
+.. method:: setSeparateBakeIntensity(intensity)
+
+    Sets the intensity multiplier for the baked separate illumination in 3D rendering. Default is 1.0.
+
+    :param intensity: The intensity multiplier.
+    :type intensity: float
+
+.. method:: getSeparateBakeIntensity() → float
+
+    Returns the intensity multiplier for the baked separate illumination in 3D rendering.
+
+    :return: The intensity multiplier.
+    :rtype: float
+
+.. method:: setLightmapGPUTextureCompression(state)
+
+    Enables or disables GPU texture compression for lightmaps to reduce memory consumption on the GPU for OpenGL rendering. Currently, only separate lightmaps are compressed. Default is on. Disable in case you see compression artifacts in 3D rendering.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getLightmapGPUTextureCompression() → bool
+
+    Returns whether GPU texture compression is enabled for lightmaps in OpenGL rendering.
+
+    :return: Enable state.
+    :rtype: bool
+
+.. method:: setDepthPeeling(state)
+
+    Enables or disables depth peeling in OpenGL. Default is off in OpenGL. Vulkan always uses depth peeling.
+
+    :param state: Depth peeling: On/Off.
+    :type state: bool
+
+.. method:: getDepthPeeling() → bool
+
+    Returns whether depth peeling is enabled in rasterization (OpenGL, Vulkan). Vulkan always uses depth peeling.
+
+    :return: Depth peeling: On/Off.
+    :rtype: bool
+
+.. method:: setDepthPeelingLayers(layers)
+
+    Sets the number of layers to peel for depth peeling in rasterization (OpenGL, Vulkan).
+
+    :param layers: The number of layers.
+    :type layers: int
+
+.. method:: getDepthPeelingLayers() → int
+
+    Returns the number of layers that are peeled for depth peeling in rasterization (OpenGL, Vulkan).
+
+    :return: The number of layers.
+    :rtype: int
+
+.. method:: setOcclusionCulling(state)
+
+    Enables or disables occlusion culling.
+
+    :param state: Occlusion culling: On/Off.
+    :type state: int
+
+.. method:: setOcclusionCullingMode(mode)
+
+    Sets the occlusion culling mode (experimental).
+
+    :param mode: Occlusion culling mode: OcclusionCullingAccurate or 0, OcclusionCullingFast or 1.
+    :type mode: int
+
+.. method:: setFrustumCulling(state)
+
+    Enables or disables frustum culling.
+
+    :param state: Frustum culling: On/Off.
+    :type state: int
+
+.. method:: setAutoFrustum(state)
+
+    Enables or disables auto frustum.
+
+    :param state: Auto frustum: On/Off.
+    :type state: int
+
+.. method:: setVolumeDrawing(state)
+
+    Enables or disables volume drawing mode.
+
+    :param state: Volume drawing mode: On/Off.
+    :type state: int
+
+.. method:: setBackfaceCulling(state)
+
+    Enables or disables backface culling for the entire scene.
+
+    :param state: Backface culling: On/Off.
+    :type state: int
+
+.. method:: setRaytracingDownscaleFactor(factor)
+
+    Sets the raytracing downscale factor.
+
+    :param factor: Factor: VR_DOWNSCALE_FACTOR_LOW, VR_DOWNSCALE_FACTOR_MEDIUM, VR_DOWNSCALE_FACTOR_HIGH.
+    :type factor: unsigned int
+
+.. method:: getRaytracingDownscaleFactor() → int
+
+    Returns the raytracing downscale factor.
+
+    :return: The raytracing downscale factor.
+    :rtype: int
+
+.. method:: enableRaytracingDownscale(state)
+
+    Enables or disables raytracing downscale.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: isRaytracingDownscaleEnabled() → bool
+
+    Checks if raytracing downscale is enabled.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setEvaluateClipping(state)
+
+    Enables or disables clipping plane evaluation in OpenGL. Default is on.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setTextureCompression(state)
+
+    Sets the OpenGL texture compression state.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: isDLSSSupported() → bool
+
+    Returns whether deep learning supersampling (DLSS) is supported.
+
+    :return: True if supported, False otherwise.
+    :rtype: bool
+
+.. method:: setOpenGLDebugging(state)
+
+    Enables or disables OpenGL debugging. This currently only works on Nvidia Quadro hardware.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setCPUProfiling(state)
+
+    Enables or disables basic CPU function profiling. Output will only be written to the console.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setUseMulticastSLI(state)
+
+    Enables or disables the use of multicast SLI for stereo rendering if present.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getUseMulticastSLI() → bool
+
+    Returns whether multicast SLI is enabled for stereo rendering.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setUseSinglePassStereo(state)
+
+    Enables or disables the use of single-pass stereo rendering if supported.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getUseSinglePassStereo() → bool
+
+    Returns whether single-pass stereo rendering is enabled.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setUseBindless(state)
+
+    Enables or disables the use of bindless graphics extension if available.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getUseBindless() → bool
+
+    Returns whether bindless graphics is enabled.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setFreezeOcclusionCulling(state)
+
+    Freezes the current state of occlusion culling for debugging purposes.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: setVSyncInterval(interval)
+
+    Sets the V-Sync swap interval.
+
+    :param interval: 0 disables V-Sync, 1 enables V-Sync, -1 enables adaptive V-Sync.
+    :type interval: int
+
+.. method:: setProfilingInterval(seconds)
+
+    Sets the measuring interval for CPU profiling.
+
+    :param seconds: Measuring interval in seconds.
+    :type seconds: float
+
+.. method:: setProfilingPruningLimit(milliseconds)
+
+    Sets a pruning limit for CPU profiling. Functions requiring less time than the limit will be filtered.
+
+    :param milliseconds: Pruning limit in milliseconds.
+    :type milliseconds: float
+
+.. method:: startStatisticsRecording(index)
+
+    Starts recording statistical data for the given render window.
+
+    :param index: The index of the render window (-1 for the focused window).
+    :type index: int
+
+.. method:: stopStatisticsRecording(index)
+
+    Stops recording statistical data for the given render window.
+
+    :param index: The index of the render window (-1 for the focused window).
+    :type index: int
+
+.. method:: setVariableRateShadingMode(mode)
+
+    Sets the shading rate mode.
+
+    :param mode: 0 = Screen & Materials, 1 = Materials, 2 = Foveated.
+    :type mode: int
+
+.. method:: getVariableRateShadingMode() → int
+
+    Returns the current shading rate mode.
+
+    :return: The shading rate mode.
+    :rtype: int
+
+.. method:: setVariableRateShadingQuality(quality)
+
+    Sets a predefined shading quality for uniform and foveated rendering.
+
+    :param quality: 0 = Native, 1 = Coarse 2x2, 2 = Coarse 4x4, 3 = Super-sampling 2x, 4 = Super-sampling 4x, 5 = Super-sampling 8x, 6 = Foveated.
+    :type quality: int
+
+.. method:: getVariableRateShadingQuality() → int
+
+    Returns the current shading quality.
+
+    :return: The shading quality.
+    :rtype: int
+
+.. method:: setMotionFactor(factor)
+
+    Sets the motion factor.
+
+    :param factor: The motion factor.
+    :type factor: float
+
+.. method:: getMotionFactor() → float
+
+    Returns the current motion factor.
+
+    :return: The current motion factor.
+    :rtype: float
+
+.. method:: setNavMode(mode)
+
+    Switches between different navigation modes.
+
+    :param mode: The navigation mode: 0 = NavigatorTrackball, 1 = NavigatorFly, 2 = NavigatorWalk, 3 = NavigatorAxis, 4 = NavigatorOrientation, 5 = Disable Navigation.
+    :type mode: integer
+
+.. method:: setNavOrbitMode(enabled)
+
+    Sets navigation orbit mode to on/off.
+
+    :param enabled: True or False.
+    :type enabled: bool
+
+.. method:: setFlyMode(switch)
+
+    Switches between virtual trackball and fly navigation.
+
+    :param switch: Fly mode: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: integer
+
+.. method:: setAllNavigationsEnabled(state)
+
+    Activates navigation for all MGLW.
+
+    :param state: Navigation: On/Off.
+    :type state: bool
+
+.. method:: setSortTrans(switch)
+
+    Sets transparent sorting.
+
+    :param switch: Transparent sorting: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: integer
+
+.. method:: setZWriteTrans(switch)
+
+    Sets Z write transparency.
+
+    :param switch: Z write transparency: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: integer
+
+.. method:: setLocalLights(switch)
+
+    Sets local light source mode.
+
+    :param switch: Local light source mode: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: integer
+
+.. method:: setFrustum(switch, left, right, bottom, top)
+
+    Sets the camera frustum.
+
+    :param switch: Frustum culling: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type switch: integer
+    :param left: The left value.
+    :type left: float
+    :param right: The right value.
+    :type right: float
+    :param bottom: The bottom value.
+    :type bottom: float
+    :param top: The top value.
+    :type top: float
+
+.. method:: setTransformNodeSelectionPressed(node)
+
+    Selects a transform node by mouse press event.
+
+    :param node: The node to select as a transform node.
+    :type node: NodePtr
+
+.. method:: setTransformNodeSelectionReleased(node)
+
+    Deselects a transform node by mouse release event.
+
+    :param node: The node to deselect.
+    :type node: NodePtr
+
+.. method:: setStillDOF(state, radius, focaldistance=None)
+
+    Enables depth of field.
+
+    :param state: Depth of field: On/Off.
+    :type state: bool
+    :param radius: The radius.
+    :type radius: float
+    :param focaldistance: The focal distance (optional).
+    :type focaldistance: float
+
+.. method:: setSnapshotFrame(state, width, height)
+
+    Shows a snapshot frame. When switched on, changes offline render resolution in the Render Settings module.
+
+    :param state: Snapshot frame: On/Off.
+    :type state: bool
+    :param width: The width.
+    :type width: int
+    :param height: The height.
+    :type height: int
+
+.. method:: showViewCube(state)
+
+    Shows the view cube.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: showProgressCursor(state)
+
+    Shows the progress cursor.
+
+    :param state: On/Off.
+    :type state: bool
+
+.. method:: setCameraZUp(state)
+
+    Sets the camera Z-up orientation.
+
+    :param state: Camera Z-up: Enable/Disable.
+    :type state: bool
+
+.. method:: showInitialView()
+
+    Shows the initial view.
+
+.. method:: setGenlocking(state)
+
+    Enables or disables genlocking.
+
+    :param state: Genlocking: On/Off.
+    :type state: bool
+
+.. method:: getGenlockingFrameCount() → int
+
+    Returns the current genlocking frame count.
+
+    :return: The frame count.
+    :rtype: int
+
+.. method:: setEyeSeparation(index, separation)
+
+    Sets the eye separation factor for stereo rendering.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param separation: The eye separation factor.
+    :type separation: float
+
+.. method:: setZeroParallaxDistance(index, distance)
+
+    Sets the zero parallax distance for stereo rendering.
+
+    :param index: The index of the render window.
+    :type index: integer
+    :param distance: The zero parallax distance.
+    :type distance: float
+
+.. method:: adaptZeroParallaxDistance(index)
+
+    Automatically adjusts the zero parallax distance for stereo rendering.
+
+    :param index: The index of the render window.
+    :type index: integer
+
+.. method:: enableStereo(window, state, passive, mode, es, zp) → bool
+
+    Enables stereo rendering.
+
+    :param window: The index of the render window.
+    :type window: integer
+    :param state: Stereo: On/Off.
+    :type state: boolean
+    :param passive: Passive stereo: On/Off.
+    :type passive: boolean
+    :param mode: The stereo mode.
+    :type mode: integer
+    :param es: The eye separation factor.
+    :type es: float
+    :param zp: The zero parallax distance.
+    :type zp: float
+    :return: True on success, False otherwise.
+    :rtype: bool
+
+.. method:: enablePowerwall(window, state) → bool
+
+    Enables local powerwall mode.
+
+    :param window: The index of the render window.
+    :type window: integer
+    :param state: Powerwall mode: Enable/Disable.
+    :type state: boolean
+    :return: True on success, False otherwise.
+    :rtype: bool
+
+.. method:: setPowerwallWindow(window, width, height, distance)
+
+    Sets the size of the virtual powerwall window in world coordinates.
+
+    :param window: The index of the render window.
+    :type window: integer
+    :param width: The width of the virtual view window.
+    :type width: float
+    :param height: The height of the virtual view window.
+    :type height: float
+    :param distance: The distance of the viewer from the view window.
+    :type distance: float
+
+.. method:: showBanner(text, t=None, bcolor=None, width=None, height=None)
+
+    Shows a banner on all render widgets.
+
+    :param text: The text to display.
+    :type text: string
+    :param t: The transparency (optional).
+    :type t: float
+    :param bcolor: The background color (optional).
+    :type bcolor: unsigned int
+    :param width: The banner width (optional).
+    :type width: int
+    :param height: The banner height (optional).
+    :type height: int
+
+.. method:: hideBanner()
+
+    Hides the banner.
+
+.. method:: clearRecordedStatistics(index)
+
+    Deletes all recorded statistics of the given render window.
+
+    :param index: The index of the render window (-1 for the focused window).
+    :type index: integer
+
+.. method:: writeRecordedStatistics(index, path)
+
+    Writes all recorded statistics of the given render window to a CSV file.
+
+    :param index: The index of the render window (-1 for the focused window).
+    :type index: integer
+    :param path: The path to the folder where the file should be stored.
+    :type path: string
+
+.. method:: setUseVariableRateShading(state)
+
+    Enables or disables variable rate shading.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getUseVariableRateShading() → bool
+
+    Returns whether variable rate shading is enabled.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setDetailedGPUProfiling(state)
+
+    Enables or disables detailed GPU profiling. Turning this on will have a large performance impact but provides more detailed measurements.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: resetGenlockingFrameCount()
+
+    Resets the genlocking frame count.
+
+.. method:: setDepthOnlyPass(state)
+
+    Enables or disables the depth-only pass state. If enabled, the scene is rendered without shaders first to fill the depth buffer and then again to execute the shaders on the visible pixels.
+
+    :param state: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type state: int
+
+.. method:: setUseCommandList(state)
+
+    Deprecated: Command lists are not supported.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getUseCommandList() → bool
+
+    Deprecated: Command lists are not supported.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setCorrectDoubleSidedLighting(state)
+
+    Deprecated.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setDoubleSidedLighting(state)
+
+    Deprecated.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setTwoSidedLighting(state)
+
+    Deprecated.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setSpecTexLighting(state)
+
+    Deprecated.
+
+    :param state: Enable/Disable.
+    :type state: int
+
+.. method:: setShadeTileSize(size)
+
+    Deprecated.
+
+    :param size: Tile size.
+    :type size: int
+
+.. method:: setGrainSize(size)
+
+    Deprecated.
+
+    :param size: Grain size.
+    :type size: int
+
+.. method:: toggleRaytracing(state)
+
+    Toggles raytracing on/off. Same as enableRaytracing.
+
+    See examples/snippets/setRenderer for how to switch the active renderer.
+
+    :param state: Enable Raytracing: On/Off. True: raytracing, False: rasterization.
+    :type state: bool
+
+.. method:: enableRaytracing(state)
+
+    Enables or disables raytracing. This is the same as toggleRaytracing.
+
+    See examples/snippets/setRenderer for how to switch the active renderer.
+
+    :param state: Enable Raytracing: On/Off. True: raytracing, False: rasterization.
+    :type state: bool
+
+.. method:: getRaytracingEnabled() → bool
+
+    Checks, if raytracing is enabled.
+
+    :return: True if raytracing is enabled.
+    :rtype: bool
+
+.. method:: setAORendering(state)
+
+    Enables or disables ambient occlusion rendering.
+
+    :param state: Ambient occlusion rendering: On/Off
+    :type state: bool
+
+.. method:: setAOShadowsVisible(state)
+
+    Enables or disables ambient occlusion shadows for rasterization (OpenGL, Vulkan).
+
+    :param state: Ambient occlusion shadows: On/Off
+    :type state: bool
+
+.. method:: setScreenspaceAO(state)
+
+    Enables or disables screen space ambient occlusion in rasterization (OpenGL, Vulkan). Default is off.
+
+    :param state: 1: use screen space AO. 0: Use precomputed AO, -1: toggle state.
+    :type state: int
+
+.. method:: setIndirectRendering(state)
+
+    Deprecated. Enables or disables precomputed illumination renderin
+
+    :param state: Precomputed illumination rendering: On/Off.
+    :type state: bool
+
+.. method:: setPrecomputedRendering(state)
+
+    Enables or disables precomputed illumination rendering.
+
+    :param state: Precomputed illumination rendering: On/Off.
+    :type state: bool
+
+.. method:: setNodeMaterial(node, material)
+
+    Sets a temporary override for the material a node uses for rendering in OpenGL. Use resetNodeMaterial to reset the override to its original state.
+
+    :param node: The node
+    :type node: NodePtr
+    :param material: The material
+    :type material: MaterialPtr
+
+.. method:: getNodeMaterial(node) → MaterialPtr
+
+    Returns the temporary override material a node uses in OpenGL.
+
+    :param node: The node
+    :type node: NodePtr
+    :return: The material
+    :rtype: MaterialPtr
+
+.. method:: resetNodeMaterial(node)
+
+    Resets the temporary node material override.
+
+    :param node: The node
+    :type node: NodePtr
+
+.. method:: resetNodeMaterials()
+
+    Resets all temporary node material overrides.
+
+.. method:: getUserMatrix() → list[float]
+
+    Gets the user projection transform matrix (column-wise).
+
+    :return: The user projection transform matrix.
+    :rtype: list[float]
+
+.. method:: setUserMatrix(id, matrix)
+
+    Sets the user projection transform matrix (column-wise).
+
+    :param id: The ID of the render window.
+    :type id: int
+    :param matrix: The user projection transform matrix.
+    :type matrix: list[float]
+
+.. method:: getUserCameraMatrix(userId, cameraName) → list[float]
+
+    Gets the user projection camera world matrix (column-wise).
+
+    :param userId: The tracking user id.
+    :type userId: int
+    :param cameraName: The name of the camera.
+    :type cameraName: string
+    :return: The user camera transform matrix.
+    :rtype: list[float]
+
+.. method:: getUserCameraMatrix(userId, windowId) → list[float]
+
+    Gets the user projection camera world matrix (column-wise).
+
+    :param userId: The tracking user id.
+    :type userId: int
+    :param windowId: The render window index.
+    :type windowId: int
+    :return: The user projection camera world matrix.
+    :rtype: list[float]
+
+.. method:: getViewRay(index, xCoord, yCoord) → tuple
+
+    Returns a ray that starts at the active camera and goes through the pixel at the given coordinates (x, y) in the render window.
+
+    :param index: The index of the render window (-1 for the main render window).
+    :type index: int
+    :param x:  x-coordinate in pixels, (0,0) is in the upper left corner of the render window.
+    :type x: int
+    :param y: The y-coordinate in pixels, (0,0) is in the upper left corner of the render window.
+    :type y: int
+    :return: ray origin and direction in world coordinates.
+    :rtype: tuple of Pnt3f and Vec3f

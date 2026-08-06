@@ -1,0 +1,98 @@
+---------------------
+vrdLensFlareFxElement
+---------------------
+
+.. py:class:: vrdLensFlareFxElement
+
+(Inherits vrdLensFlareElement)
+
+This class is used for all common properties of     vrdLensFlareStar, vrdLensFlareGhost, vrdLensFlareStreak and vrdLensFlareGlow lens flare effect classes.
+
+Summary
+=======
+
+Functions:
+    * getColor() → QVector3D
+    * getFeather() → float
+    * getIntensity() → float
+    * getRotation() → float
+    * getSize() → float
+    * setColor(tint)
+    * setFeather(blurring)
+    * setIntensity(intensity)
+    * setRotation(rotation)
+    * setSize(size)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareFxElement.getColor()
+
+    Get the color of this effect.
+
+    :return: Color of this effect
+    :rtype: QVector3D
+
+.. py:method:: vrdLensFlareFxElement.getFeather()
+
+    Get the fade out value.
+
+    :return: Fade out value
+    :rtype: float
+
+.. py:method:: vrdLensFlareFxElement.getIntensity()
+
+    Get current intensity.
+
+    :return: Current intensity of this effect
+    :rtype: float
+
+.. py:method:: vrdLensFlareFxElement.getRotation()
+
+    Get current used rotation value.
+
+    :return: Rotation value
+    :rtype: float
+
+.. py:method:: vrdLensFlareFxElement.getSize()
+
+    Get the current used effect size.
+
+    :return: Current used effect size
+    :rtype: float
+
+.. py:method:: vrdLensFlareFxElement.setColor(tint)
+
+    Use to change the color of the lens flare. If the light already has an assigned color, this color will be mixed with it.
+
+    :param tint: New color of this effect
+    :type tint: QVector3D
+
+.. py:method:: vrdLensFlareFxElement.setFeather(blurring)
+
+    Lets the effect fade towards the edge. Value of 0.0 deactivates the effect.
+
+    :param blurring:
+    :type blurring: float
+
+.. py:method:: vrdLensFlareFxElement.setIntensity(intensity)
+
+    Makes the effect more or less intense.
+
+    :param intensity: New intensity
+    :type intensity: float
+
+.. py:method:: vrdLensFlareFxElement.setRotation(rotation)
+
+    Rotate the effect on light ray axis.
+
+    :param rotation: New rotation value
+    :type rotation: float
+
+.. py:method:: vrdLensFlareFxElement.setSize(size)
+
+    Set the effect size, must be positive.
+
+    :param size: Effect size
+    :type size: float
+

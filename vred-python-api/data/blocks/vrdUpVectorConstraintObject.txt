@@ -1,0 +1,10 @@
+---------------------------
+vrdUpVectorConstraintObject
+---------------------------
+
+.. py:class:: vrdUpVectorConstraintObject
+
+(Inherits vrdConstraintTargetObject)
+
+This constraint object represents up vector target nodes in aim constraints (    vrdAimConstraintNode). It defines how target node orientations provide the up direction to influence the constrained node's rotation calculation. Obtain this object using vrdConstraintNode::getUpVectorTargetObject(vrdNode).
+

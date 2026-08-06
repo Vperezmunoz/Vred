@@ -1,0 +1,67 @@
+---------------
+vrAssetsService
+---------------
+
+.. py:class:: vrAssetsService
+
+(Inherits vrBaseService)
+
+This service is used to work with assets.
+
+Summary
+=======
+
+Functions:
+    * loadGeometriesByUUID(uuids, parentNode) → List[vrdNode]
+    * loadMetadataSetsByUUID(uuids) → List[vrdMetadataSet]
+    * loadSceneplatesByUUID(uuids, parentNode) → List[vrdNode]
+
+Signals:
+    * assetsChanged()
+
+Functions
+=========
+
+.. py:method:: vrAssetsService.loadGeometriesByUUID(uuids, parentNode=vrdNode())
+
+    Loads geometry assets with the given asset UUIDs and adds them to the scene.
+
+    :param uuids: List of asset UUIDs. You can lookup the UUID of an asset in its xml file.
+    :type uuids: List[string]
+
+    :param parentNode: Parent node to which the asset nodes are added. If not given, nodes will be added to the scenegraph root node.
+    :type parentNode: vrdNode
+
+    :return: The created asset root nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrAssetsService.loadMetadataSetsByUUID(uuids)
+
+    Loads metadata sets with the given asset UUIDs and adds them to the scene.
+
+    :param uuids: List of asset UUIDs. You can lookup the UUID of an asset in its xml file.
+    :type uuids: List[string]
+
+    :return: The created metadata sets
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrAssetsService.loadSceneplatesByUUID(uuids, parentNode=vrdNode())
+
+    Loads sceneplate assets with the given asset UUIDs and adds them to the scene.
+
+    :param uuids: List of asset UUIDs. You can lookup the UUID of an asset in its xml file.
+    :type uuids: List[string]
+
+    :param parentNode: Parent node to which the asset nodes are added. If not given, nodes will be added to the sceneplate root node.
+    :type parentNode: vrdNode
+
+    :return: The created sceneplate asset nodes
+    :rtype: List[vrdNode]
+
+Signals
+=======
+
+.. py:method:: vrAssetsService.assetsChanged()
+
+    This signal is emitted after any changes to assets.
+

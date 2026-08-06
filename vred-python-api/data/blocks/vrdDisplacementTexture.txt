@@ -1,0 +1,103 @@
+----------------------
+vrdDisplacementTexture
+----------------------
+
+.. py:class:: vrdDisplacementTexture
+
+(Inherits vrdTexture)
+
+This class is used for all displacement texture properties.
+
+To load an image for a displacement texture, use:
+
+```
+
+     image = vrImageService.loadImage(filename, vrImageTypes.LoadType.Displacement)
+     # Set as displacement texture for a material
+     plastic = vrMaterialService.findMaterial("Plastic")
+     plastic.getDisplacementTexture().setImage(image)
+     plastic.getDisplacementTexture().setUseTexture(True)
+     plastic.getDisplacementTexture().setDisplacementHeight(10.0)
+
+    .. py:class:: DisplacementSilhouetteMode
+
+            .. py:data:: NoOpenGLSilhouettes
+               :no-index:
+
+            .. py:data:: AccurateOpenGLSilhouettes
+               :no-index:
+
+Summary
+=======
+
+Functions:
+    * getDisplacementEdgeLengthVulkan() → float
+    * getDisplacementHeight() → float
+    * getDisplacementOffset() → float
+    * getDisplacementSilhouetteMode() → vrdDisplacementTexture.DisplacementSilhouetteMode
+    * setDisplacementEdgeLengthVulkan(edgeLength)
+    * setDisplacementHeight(height)
+    * setDisplacementOffset(offset)
+    * setDisplacementSilhouetteMode(mode)
+
+Functions
+=========
+
+.. py:method:: vrdDisplacementTexture.getDisplacementEdgeLengthVulkan()
+
+    Gets displacement edge length for Vulkan.
+
+    :return: Current used value for edge length
+    :rtype: float
+
+.. py:method:: vrdDisplacementTexture.getDisplacementHeight()
+
+    Gets height.
+
+    :return: Current used height
+    :rtype: float
+
+.. py:method:: vrdDisplacementTexture.getDisplacementOffset()
+
+    :return: Current offset value. See vrdDisplacementTexture.setDisplacementOffset(offset) for details.
+    :rtype: float
+
+.. py:method:: vrdDisplacementTexture.getDisplacementSilhouetteMode()
+
+    :return: Current silhouette mode mode for OpenGL rendering
+    :rtype: vrdDisplacementTexture.DisplacementSilhouetteMode
+
+.. py:method:: vrdDisplacementTexture.setDisplacementEdgeLengthVulkan(edgeLength)
+
+    Sets the target edge length in scene units for displacement tessellation in Vulkan.
+
+    Low values will result in a finer surface structure at the price of a lower performance. Triangles will be tessellated until the edge length is reached. The minimum edge length is limited by the maximum tessellation level provided by the GPU.
+
+    :param edgeLength: New value for edge length
+    :type edgeLength: float
+
+.. py:method:: vrdDisplacementTexture.setDisplacementHeight(height)
+
+    Sets the scaling factor for displacement maps.
+
+    :param height: New height
+    :type height: float
+
+.. py:method:: vrdDisplacementTexture.setDisplacementOffset(offset)
+
+    Sets the reference value for zero displacement.
+
+    This value controls which texture values cause inward or outward displacement:
+
+    Texture values == offset: no displacement. Texture values < offset: displacement along the negative normal direction (inward). Texture values > offset: displacement along the positive normal direction (outward).
+
+    :param offset: New value for offset
+    :type offset: float
+
+.. py:method:: vrdDisplacementTexture.setDisplacementSilhouetteMode(mode)
+
+    Sets silhouette mode for OpenGL rendering.
+
+    :param mode: New silhouette mode mode
+    :type mode: vrdDisplacementTexture.DisplacementSilhouetteMode
+

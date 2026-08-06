@@ -1,0 +1,554 @@
+-----------
+vrUVService
+-----------
+
+.. py:class:: vrUVService
+
+(Inherits vrBaseService)
+
+Service for UV mapping related functions.
+
+New UVs can be created for a geometry by unfolding (flattening) with vrUVService.unfold(nodes, unfoldSettings, layoutSettings, uvSet), or with a projection method, vrUVService.applyPlanarProjection(nodes, settings, uvSet), vrUVService.applyCylindricalProjection(nodes, settings, uvSet), or vrUVService.applyTriplanarProjection(nodes, settings, uvSet).
+
+To run a function on a shell geometry, pass the shell geometry node to the function, do not include its surface nodes in the list.
+
+Find a list of geometry nodes (shells and meshes) in the Scenegraph with a function like this:
+
+```
+
+     def findGeos(root):
+         return vrNodeService.findNodes(lambda node: node.isType(vrdGeometryNode), vrdFindOptions(), root)
+
+     # Example usage:
+     geos = findGeos(vrNodeService.findNode("Body38"))
+
+     # unfold using default settings
+     vrUVService.unfold(geos, vrdUVUnfoldSettings(), vrdUVLayoutSettings())
+
+Please note, for shell geometries, functions     vrUVService.unfold(nodes, unfoldSettings, layoutSettings, uvSet), vrUVService.layout(nodes, settings, uvSet), vrUVService.optimize(nodes, settings, uvSet) and vrUVService.sewAllIslands(nodes, onlyBordersBetweenIslands, uvSet) respect the current A/B-side render mode, as does the UV Editor module. That means those functions process only A-side surfaces of a shell in A-side render mode (default), but no B-side surfaces. Hidden surfaces of a shell are skipped when processing the shell node.
+
+Summary
+=======
+
+Functions:
+    * applyCylindricalProjection(nodes, settings, uvSet)
+    * applyPlanarProjection(nodes, settings, uvSet)
+    * applyTriplanarProjection(nodes, settings, uvSet)
+    * applyTriplanarProjectionAndLayout(nodes, settings, layoutSettings, uvSet)
+    * applyWorldScale(nodes, uvSet)
+    * cutAlongSeams(nodes, settings, uvSet)
+    * cylindricalProjectionFitSize(nodes, settings, uvSet)
+    * getCylindricalProjectionDefaultSettings(nodes, textureWidth, textureHeight) → vrdUVCylindricalProjectionSettings
+    * getPlanarProjectionDefaultSettings(nodes, textureWidth, textureHeight) → vrdUVPlanarProjectionSettings
+    * getProjectionMode(node, uvSet) → vrUVTypes.UVProjectionMode
+    * getTriplanarProjectionDefaultSettings(nodes, textureWidth, textureHeight) → vrdUVTriplanarProjectionSettings
+    * hasCylindricalProjectionSettings(node, uvSet) → bool
+    * hasPlanarProjectionSettings(node, uvSet) → bool
+    * hasTriplanarProjectionSettings(node, uvSet) → bool
+    * layout(nodes, settings, uvSet)
+    * optimize(nodes, settings, uvSet)
+    * planarProjectionFitSize(nodes, settings, uvSet)
+    * readCylindricalProjectionSettings(node, uvSet) → vrdUVCylindricalProjectionSettings
+    * readPlanarProjectionSettings(node, uvSet) → vrdUVPlanarProjectionSettings
+    * readTriplanarProjectionSettings(node, uvSet) → vrdUVTriplanarProjectionSettings
+    * rotateUV(geometryNodes, center, angleDegree, uvSet)
+    * saveUVSnapshot(nodes, path, width, height, uvSet, style, mode, customSpace)
+    * scaleUV(nodes, center, uScale, vScale, uvSet)
+    * sewAllIslands(nodes, onlyBordersBetweenIslands, uvSet)
+    * translateUV(nodes, du, dv, uvSet)
+    * triplanarProjectionFitSize(nodes, settings, uvSet)
+    * unfold(nodes, unfoldSettings, layoutSettings, uvSet)
+
+Functions
+=========
+
+.. py:method:: vrUVService.applyCylindricalProjection(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a cylindrical projection to a list of geometry nodes. Existing UVs are overwritten.
+
+    The settings are stored in the node and can be fetched again later with readCylindricalProjectionSettings.
+
+    :param nodes: The nodes to apply the projection.
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The cylindrical projection settings to use.
+    :type settings: vrdUVCylindricalProjectionSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.applyPlanarProjection(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a planar projection to a list of geometry nodes. Existing UVs are overwritten.
+
+    The 3d world-space positions of the vertices are projected into UV space.
+
+    The settings are stored in the node and can be fetched again later with readPlanarProjectionSettings.
+
+    :param nodes: The nodes to apply the projection.
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The planar projection settings to use.
+    :type settings: vrdUVPlanarProjectionSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.applyTriplanarProjection(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a triplanar projection to a list of geometry nodes. Existing UVs are overwritten.
+
+    The settings are stored in the node and can be fetched again later with readTriplanarProjectionSettings.
+
+    :param nodes: The nodes to apply the projection.
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The triplanar projection settings to use.
+    :type settings: vrdUVTriplanarProjectionSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.applyTriplanarProjectionAndLayout(nodes, settings, layoutSettings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a triplanar projection to a list of geometry nodes and packs the UV islands into UV space according to the provided layout settings. Existing UVs are overwritten.
+
+    The settings are stored in the node and can be fetched again later with readTriplanarProjectionSettings.
+
+    :param nodes: The nodes to apply the projection.
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The triplanar projection settings to use.
+    :type settings: vrdUVTriplanarProjectionSettings
+
+    :param layoutSettings: Settings used to pack the projected UV islands into UV space.
+    :type layoutSettings: vrdUVLayoutSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.applyWorldScale(nodes, uvSet=vrUVTypes.MaterialUVSet)
+
+    Scales the UV coordinates according to the average triangle area in scene units. Use in combination with         vrdTexture.setUseTextureSize(s) to get a real world scaling of your textures.
+
+    :param nodes: The nodes to apply the UV scaling to.
+    :type nodes: List[vrdGeometryNode]
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.cutAlongSeams(nodes, settings, uvSet)
+
+    Does a cut with the given seam settings on the given nodes.
+
+    Example of organic cut:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         settings = vrdUVSeamSettings()
+         settings.setMode(vrUVTypes.SeamMode.Organic)
+         settings.setOrganicUsePipesCutter(True)
+         settings.setOrganicSegmentationAmount(0)
+         vrUVService.cutAlongSeams(geometryNodes, settings, vrUVTypes.UVSet.MaterialUVSet)
+
+    Example of manufactured cut:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         settings = vrdUVSeamSettings()
+         settings.setMode(vrUVTypes.SeamMode.Manufactured)
+         settings.setManufacturedAngle(45)
+         settings.setManufacturedAreaRatio(0.5)
+         vrUVService.cutAlongSeams(geometryNodes, settings, vrUVTypes.UVSet.MaterialUVSet)
+
+    Example of baking cut:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         settings = vrdUVSeamSettings()
+         settings.setMode(vrUVTypes.SeamMode.Baking)
+         settings.setBakingAngle(45)
+         settings.setBakingSizeOfMinPatch(0)
+         vrUVService.cutAlongSeams(geometryNodes, settings, vrUVTypes.UVSet.MaterialUVSet)
+
+    :param nodes: The list of nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: Settings to use for the seaming
+    :type settings: vrdUVSeamSettings
+
+    :param uvSet: The UV set to work on (MaterialUVSet for the material UVs or LightmapUVSet for the lightmap UVs).
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.cylindricalProjectionFitSize(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a cylindrical projection and adjusts the projection size to the given list of nodes.
+
+    :param nodes: The geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The cylindrical projection settings to use.
+    :type settings: vrdUVCylindricalProjectionSettings
+
+    :param uvSet: The uv set to work on.
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.getCylindricalProjectionDefaultSettings(nodes, textureWidth, textureHeight)
+
+    Gets default settings for a cylindrical projection for a list of geometry nodes based on their overall bounding box and the specified texture resolution.
+
+    The texture resolution (parameter textureWidth and textureHeight) is used to setup a projection that matches the texture aspect ratio.
+
+    :param nodes: The geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param textureWidth: The texture width used for aspect ratio calculation.
+    :type textureWidth: integer
+
+    :param textureHeight: The texture height used for aspect ratio calculation.
+    :type textureHeight: integer
+
+    :return: The cylindrical projection settings.
+    :rtype: vrdUVCylindricalProjectionSettings
+
+.. py:method:: vrUVService.getPlanarProjectionDefaultSettings(nodes, textureWidth, textureHeight)
+
+    Gets default settings for a planar projection for a given list of geometry nodes based on their overall bounding box and the specified texture resolution.
+
+    The texture resolution (parameter textureWidth and textureHeight) is used to setup a projection that matches the texture aspect ratio.
+
+    :param nodes: The geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param textureWidth: The texture width used for aspect ratio calculation.
+    :type textureWidth: integer
+
+    :param textureHeight: The texture height used for aspect ratio calculation.
+    :type textureHeight: integer
+
+    :return: The planar projection settings.
+    :rtype: vrdUVPlanarProjectionSettings
+
+.. py:method:: vrUVService.getProjectionMode(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Gets the kind of projection that was last applied to the node to create UV coordinates.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: The projection mode.
+    :rtype: vrUVTypes.UVProjectionMode
+
+.. py:method:: vrUVService.getTriplanarProjectionDefaultSettings(nodes, textureWidth, textureHeight)
+
+    Gets default settings for a triplanar projection for a list of geometry nodes based on their bounding box center and the specified texture resolution.
+
+    The texture resolution (parameter textureWidth and textureHeight) is used to setup a projection that matches the texture aspect ratio.
+
+    :param nodes: The geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param textureWidth: The texture width used for aspect ratio calculation.
+    :type textureWidth: integer
+
+    :param textureHeight: The texture height used for aspect ratio calculation.
+    :type textureHeight: integer
+
+    :return: The triplanar projection settings.
+    :rtype: vrdUVTriplanarProjectionSettings
+
+.. py:method:: vrUVService.hasCylindricalProjectionSettings(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Determines if a node has settings for a cylindrical projection.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: True if the node has settings for cylindrical projection, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrUVService.hasPlanarProjectionSettings(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Determines if a node has settings for a planar projection.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: True if the node has settings for planar projection, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrUVService.hasTriplanarProjectionSettings(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Determines if a node has settings for a triplanar projection.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: True if the node has settings for triplanar projection, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrUVService.layout(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    For each geometry, packs its UV islands into a box in UV space. (By default, into [0,1]x[0,1].) UV islands are scaled, rotated and moved according to the provided settings so they all fit into the box without overlapping.
+
+    The packing is done separately for each geometry in the input list. This function only works on geometries that have UVs. Degenerate triangles are removed from the input geometry.
+
+    To run layout on a shell geometry, pass the shell geometry node to this function, do not include the surface nodes in the list. Layout packs all islands of the shell so they do not overlap. When passing surface nodes in the list, the UVs of each surface are layouted individually and occupy maximum UV space in the specified box.
+
+    :param nodes: Geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: Settings used to layout the islands
+    :type settings: vrdUVLayoutSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.optimize(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    For each geometry, reduces distortions in the UV layout. This function only works on geometries that have UVs.
+
+    Degenerate triangles are removed from the input geometry.
+
+    :param nodes: Geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: Settings used to optimize the UVs
+    :type settings: vrdUVOptimizeSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.planarProjectionFitSize(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a planar projection and adjusts the projection size to the given list of nodes.
+
+    :param nodes: The geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The planar projection settings to use.
+    :type settings: vrdUVPlanarProjectionSettings
+
+    :param uvSet: The uv set to work on.
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.readCylindricalProjectionSettings(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Reads settings that have been attached to the node when applying a cylindrical projection.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: The cylindrical projection settings.
+    :rtype: vrdUVCylindricalProjectionSettings
+
+.. py:method:: vrUVService.readPlanarProjectionSettings(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Reads settings that have been attached to the node when applying a planar projection.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: The planar projection settings.
+    :rtype: vrdUVPlanarProjectionSettings
+
+.. py:method:: vrUVService.readTriplanarProjectionSettings(node, uvSet=vrUVTypes.MaterialUVSet)
+
+    Reads settings that have been attached to the node when applying a triplanar projection.
+
+    :param node: The node to query.
+    :type node: vrdGeometryNode
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+    :return: The triplanar projection settings.
+    :rtype: vrdUVTriplanarProjectionSettings
+
+.. py:method:: vrUVService.rotateUV(geometryNodes, center, angleDegree, uvSet)
+
+    Rotate the UVs of the given nodes around the given center.
+
+    Example of rotating all material UVs 90 degrees:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         center = QVector2D(0.5,0.5)
+         angle = 90
+         vrUVService.rotateUV(geometryNodes, center, angle, vrUVTypes.UVSet.MaterialUVSet)
+
+    :param geometryNodes: The list of geometry nodes
+    :type geometryNodes: List[vrdGeometryNode]
+
+    :param center: Center of scaling
+    :type center: QVector2D
+
+    :param angleDegree: Rotation angle in degree
+    :type angleDegree: float
+
+    :param uvSet: The UV set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.saveUVSnapshot(nodes, path, width=1024, height=1024, uvSet=vrUVTypes.MaterialUVSet, style=vrUVTypes.SnapshotStyle.ShowWireframe, mode=vrUVTypes.SnapshotMode.ZeroToOneSpace, customSpace=QVector4D())
+
+    Saves a snapshot of the UV layout as image file.
+
+    Note: If width and height are different in ZeroToOneSpace mode, then the output image will be distorted.
+
+    Example:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         vrUVService.saveUVSnapshot(geometryNodes,
+                                    "c:/vred-snapshots/uv.png",
+                                    512, 512,
+                                    vrUVTypes.UVSet.MaterialUVSet,
+                                    vrUVTypes.ShowBorders | vrUVTypes.ShowWireframe)
+
+    :param nodes: The list of nodes to include in the snapshot.
+    :type nodes: List[vrdNode]
+
+    :param path: The full path where the image should be saved (e.g. 'c:/uv.png').
+    :type path: string
+
+    :param width: The width of the image in pixels (default 1024).
+    :type width: integer
+
+    :param height: The height of the image in pixels (default 1024).
+    :type height: integer
+
+    :param uvSet: The UV set to capture (MaterialUVSet for the material UVs or LightmapUVSet for the lightmap UVs).
+    :type uvSet: vrUVTypes.UVSet
+
+    :param style: Defines the style of the exported snapshot, Bitmask created from vrUVTypes.SnapshotStyle.
+    :type style: integer
+
+    :param mode: The snapshot mode defines the area to be included in the image. 'ZeroToOneSpace' captures the area from 0 to 1 in UV coordinates. 'Boundingbox' will capture the entire object.
+    :type mode: vrUVTypes.SnapshotMode
+
+    :param customSpace: UV space to use for shapshot (min U, max U, min V, max V). Only used if mode is set to vrUVTypes::SnapshotMode::CustomSpace.
+    :type customSpace: QVector4D
+
+.. py:method:: vrUVService.scaleUV(nodes, center, uScale, vScale, uvSet)
+
+    Scale the UVs of the given nodes using the given center.
+
+    Example of flipping all material UVs:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         center = QVector2D(0.5,0.5)
+         uScale = -1
+         vScale = 1
+         vrUVService.scaleUV(geometryNodes, center, uScale, vScale, vrUVTypes.UVSet.MaterialUVSet)
+
+    :param nodes: The list of nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param center: Center of scaling
+    :type center: QVector2D
+
+    :param uScale: Scale factor for u value
+    :type uScale: float
+
+    :param vScale: Scale factor for v value
+    :type vScale: float
+
+    :param uvSet: The UV set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.sewAllIslands(nodes, onlyBordersBetweenIslands, uvSet=vrUVTypes.MaterialUVSet)
+
+    For each geometry, sews all islands that are adjacent in 3D.
+
+    :param nodes: Geometry nodes for which all islands will be sewed. The sewing will be done per node.
+    :type nodes: List[vrdGeometryNode]
+
+    :param onlyBordersBetweenIslands: Set to True to only sew neighboring islands, but no internal cuts within an island. Set to False to additionally sew internal cuts within an island if there are any.
+    :type onlyBordersBetweenIslands: bool
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.translateUV(nodes, du, dv, uvSet)
+
+    Translates the UVs of the given nodes.
+
+    Example of translating all material UVs:
+
+```
+
+         geometryNodes = [vrNodeService.findNode("Box")]
+         du = 0.2
+         dv = 0.2
+         vrUVService.translateUV(geometryNodes, du, dv, vrUVTypes.UVSet.MaterialUVSet)
+
+    :param nodes: The list of nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param du: Translation along u
+    :type du: float
+
+    :param dv: Translation along v
+    :type dv: float
+
+    :param uvSet: The UV set to work on
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.triplanarProjectionFitSize(nodes, settings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Applies a triplanar projection and adjusts the projection size to the given list of nodes.
+
+    :param nodes: The geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param settings: The triplanar projection settings to use.
+    :type settings: vrdUVTriplanarProjectionSettings
+
+    :param uvSet: The uv set to work on.
+    :type uvSet: vrUVTypes.UVSet
+
+.. py:method:: vrUVService.unfold(nodes, unfoldSettings, layoutSettings, uvSet=vrUVTypes.MaterialUVSet)
+
+    Compute unfolded UV coordinates for the given geometry nodes.
+
+    For each geometry, its coordinates are unfolded and packed into UV space according to the provided layout settings. Unfolding is done with Unfold3D. Any existing UV coordinates are overwritten. The input geometry does not need to have UVs. UVs are created from scratch based on the 3D data of the geometry. Degenerate triangles are removed from the input geometry.
+
+    To run unfold on a shell geometry, pass the shell geometry node to this function, do not include the surface nodes in the list. When passing surface nodes to unfold, the surfaces are unfolded individually.
+
+    :param nodes: Geometry nodes
+    :type nodes: List[vrdGeometryNode]
+
+    :param unfoldSettings: Settings used to unfold the UVs
+    :type unfoldSettings: vrdUVUnfoldSettings
+
+    :param layoutSettings: Settings used to pack the unfolded UV islands into UV space.
+    :type layoutSettings: vrdUVLayoutSettings
+
+    :param uvSet: The uv set to work on
+    :type uvSet: vrUVTypes.UVSet
+

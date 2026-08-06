@@ -1,0 +1,503 @@
+--------------
+vrLightService
+--------------
+
+.. py:class:: vrLightService
+
+(Inherits vrBaseService)
+
+Interface to access lights, light sets and lens flares in VRED.
+
+This is the basic interface to access, create or delete lights, light sets and lens flares. It also provides functionality to access the light graph by using vrLightService.getLightRoot().
+
+            See also: scenegraphs
+
+Here are some examples on how to work with lights:
+
+```
+
+     # add a group node
+     groupNode = vrLightService.createLightGroup("group node")
+
+     # create a point light below the group
+     pointLight = vrLightService.createLight("point light", vrLightTypes.LightType.Point, groupNode)
+
+     # find a light node in the main scene graph
+     pointLight = vrNodeService.findNode("point light")
+
+     # find a light node in the light graph
+     pointLight = vrLightService.findLight("point light")
+
+     # copy lens flares from pointLightNode1 to pointLightNode2
+     # this creates an actual copy of the vrdLensFlareEffect and stores it
+     vrLightService.copyLensFlare(pointLightNode1.getLensFlareEffect())
+     vrLightService.pasteLensFlare([pointLightNode2])
+
+     # delete the pointlight and the group
+     vrNodeService.removeNode([pointLight, groupNode])
+
+Summary
+=======
+
+Functions:
+    * convertLight(lightNode, lightType)
+    * convertLights(nodes, lightType)
+    * copyLensFlare(effect)
+    * copyLensFlareElements(elements)
+    * copyLensFlareGhosts(ghosts)
+    * copyLights(nodes)
+    * createLight(name, type, parent) → vrdNode
+    * createLightGroup(name, parent) → vrdNode
+    * createLightGroup(name, nodes) → vrdNode
+    * createLightLinkSet(name) → vrdLightLinkSetNode
+    * duplicateLensFlareElements(light, elements)
+    * duplicateLensFlareGhosts(ghostLine, ghosts)
+    * duplicateLights(nodes)
+    * findLight(name) → vrdNode
+    * findLights(name) → List[vrdNode]
+    * getAllLights(sceneGraph) → List[vrdNode]
+    * getHeadlight() → vrdBaseLightNode
+    * getLightLinksRoot() → vrdNode
+    * getLightRoot() → vrdNode
+    * getLightsClipboard() → List[vrdNode]
+    * getSelectedLensFlareElements() → List[vrdLensFlareElement]
+    * getSelectedLensFlareGhosts() → List[vrdLensFlareGhost]
+    * getSelectedNodes() → List[vrdNode]
+    * hasCopiedGhosts() → bool
+    * hasCopiedLensFlareEffect() → bool
+    * hasCopiedLensFlareElements() → bool
+    * isHeadLight(light) → bool
+    * isLightsClipboardEmpty() → bool
+    * loadLights(paths) → List[vrdNode]
+    * pasteLensFlare(lights)
+    * pasteLensFlareElements(light)
+    * pasteLensFlareGhosts(ghostLine)
+    * pasteLights(targetNodes)
+    * removeLightLinkSets(nodes)
+    * removeLights(nodes)
+    * saveLights(nodes, path) → bool
+    * setSelectedLensFlareElements(elements)
+    * setSelectedLensFlareGhosts(ghosts)
+    * setSelectedNodes(nodes)
+    * validateLights()
+
+Signals:
+    * lensFlareElementSelectionChanged(elements)
+    * lensFlareGhostSelectionChanged(ghosts)
+    * lightLinkSetsChanged()
+    * lightsConverted(lightIds)
+    * lightsStateChanged()
+    * lightsValidated()
+    * nodesAdded(nodes)
+    * nodesChanged(nodes)
+    * nodeSelectionChanged(nodes)
+    * nodesRemoved(nodes)
+
+Functions
+=========
+
+.. py:method:: vrLightService.convertLight(lightNode, lightType)
+
+    Converts a light node to a light of another type. Note: This will invalidate this node object.
+
+    :param lightNode: The light node that will be converted.
+    :type lightNode: vrdNode
+
+    :param lightType: The type to which the node will be converted.
+    :type lightType: vrLightTypes.LightType
+
+.. py:method:: vrLightService.convertLights(nodes, lightType)
+
+    Converts light nodes to lights of another type. Note: This will invalidate these node objects.
+
+    :param nodes: The light nodes that will be converted.
+    :type nodes: List[vrdNode]
+
+    :param lightType: The type to which the nodes will be converted.
+    :type lightType: vrLightTypes.LightType
+
+.. py:method:: vrLightService.copyLensFlare(effect)
+
+    Adds a lens flare effect to the copy buffer.
+
+    :param effect: The lens flare effect that is added to the clipboard to be copied.
+    :type effect: vrdLensFlareEffect
+
+.. py:method:: vrLightService.copyLensFlareElements(elements)
+
+    Add lens flares to the copy buffer.
+
+    :param elements: All lens flares we wish to copy
+    :type elements: List[vrdLensFlareElement]
+
+.. py:method:: vrLightService.copyLensFlareGhosts(ghosts)
+
+    Copy all ghosts to copy buffer.
+
+    :param ghosts: List of all ghosts to copy
+    :type ghosts: List[vrdLensFlareGhost]
+
+.. py:method:: vrLightService.copyLights(nodes)
+
+    Copy all given light nodes from light graph to the clipboard. The clipboard is cleared each time before a new copy.
+
+    :param nodes: List of all light nodes to copy
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.createLight(name, type, parent=vrdNode())
+
+    Create a new light node in light graph.
+
+    Directional: Directional light type
+    Point: Point light type
+    Spot: Spot light type
+    Rectangular: Rectangular light type
+    Disk: Disk light type
+    Spherical: Spherical light type
+    Ray: Ray light type
+
+    :param name: Name of the new light node
+    :type name: string
+
+    :param type: Light type
+    :type type: vrLightTypes.LightType
+
+    :param parent: This node contains the new create light node as a child. Parent node must be a group node in light graph. So it must be the light graph root or one descendant child group. If the parameter is omitted, the light root will be used.
+    :type parent: vrdNode
+
+    :return: The newly created and added light node from the light graph.
+    :rtype: vrdNode
+
+.. py:method:: vrLightService.createLightGroup(name, parent=vrdNode())
+
+    Create a new light group.
+
+    :param name: Name of the new light group node
+    :type name: string
+
+    :param parent: The new group node will be attached to this node. The parent node must be a node in light graph. So it must be the light graph root or one of its child groups. If this parameter is omitted, the light graph root will be used.
+    :type parent: vrdNode
+
+    :return: The newly created group node
+    :rtype: vrdNode
+
+.. py:method:: vrLightService.createLightGroup(name, nodes)
+   :no-index:
+
+    Create a new light group out of some lights.
+
+    :param name: Name of the light group node
+    :type name: string
+
+    :param nodes: The light nodes that will be part of the new group. The group will be a child of the common parent of the nodes in the light graph. If the nodes do not have a common parent, the group will be a child of the light graph root node.
+    :type nodes: List[vrdNode]
+
+    :return: The newly created and added light group node
+    :rtype: vrdNode
+
+.. py:method:: vrLightService.createLightLinkSet(name="")
+
+    Create a new light link set.
+
+    :param name: of the light link set. If the name is omitted, a new unique name will be automatically generated.
+    :type name: string
+
+    :return: New created light link set A vrLightService.lightLinkSetsChanged() signal will be emitted
+    :rtype: vrdLightLinkSetNode
+
+.. py:method:: vrLightService.duplicateLensFlareElements(light, elements)
+
+    Duplicates lens flare elements of a light and adds them to the same light.
+
+    :param light: The light of which some lens flare elements are duplicated
+    :type light: vrdPointLightNode
+
+    :param elements: The elements that should be duplicated. Note that these elements need to be elements of the given light, otherwise they will be ignored.
+    :type elements: List[vrdLensFlareElement]
+
+.. py:method:: vrLightService.duplicateLensFlareGhosts(ghostLine, ghosts)
+
+    Duplicates lens flare ghosts of a ghost line and adds them to the same ghost line.
+
+    :param ghostLine: The ghost line of which some ghosts are duplicated
+    :type ghostLine: vrdLensFlareGhostLine
+
+    :param ghosts: The ghosts that should be duplicated. Note that these ghosts need to be ghosts of the given ghost line otherwise they will be ignored.
+    :type ghosts: List[vrdLensFlareGhost]
+
+.. py:method:: vrLightService.duplicateLights(nodes)
+
+    Duplicate all given light nodes from light graph. The duplicated nodes will be added under the same parent as the original node.
+
+    :param nodes: List of all light nodes to duplicate
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.findLight(name)
+
+    Find a light node with a given name in the light graph.
+
+    :param name: Name of the searched light node
+    :type name: string
+
+    :return: Light node. May be null, if no light node with this name can be found.
+    :rtype: vrdNode
+
+.. py:method:: vrLightService.findLights(name)
+
+    Find all light nodes with a given name.
+
+    :param name: Name of the searched light nodes The lights will be searched for in the light graph.
+    :type name: string
+
+    :return: List of light nodes. May be empty, if no light nodes with this name can be found.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrLightService.getAllLights(sceneGraph)
+
+    Return all light nodes.
+
+    :param sceneGraph: If true, collect the nodes from the scene graph if false use the light graph
+    :type sceneGraph: bool
+
+    :return: All light nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrLightService.getHeadlight()
+
+    Returns the head light node.
+
+    :return: head light node
+    :rtype: vrdBaseLightNode
+
+.. py:method:: vrLightService.getLightLinksRoot()
+
+    Returns the root node of light sets, that contains all light sets.
+
+    :return: Root node of light sets tree
+    :rtype: vrdNode
+
+.. py:method:: vrLightService.getLightRoot()
+
+    Returns the root node of lights, that contains all lights and lens flares.
+
+    :return: Root node of light graph
+    :rtype: vrdNode
+
+.. py:method:: vrLightService.getLightsClipboard()
+
+    :return: The list of light nodes from the clipboard.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrLightService.getSelectedLensFlareElements()
+
+    Get the selected lens flare elements.
+
+    :return: The selected lens flare elements
+    :rtype: List[vrdLensFlareElement]
+
+.. py:method:: vrLightService.getSelectedLensFlareGhosts()
+
+    Gets currently selected ghosts.
+
+    :return: The currently selected ghosts.
+    :rtype: List[vrdLensFlareGhost]
+
+.. py:method:: vrLightService.getSelectedNodes()
+
+    Returns all current selected light nodes from internal buffer.
+
+    :return: List of all current selected light nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrLightService.hasCopiedGhosts()
+
+    Check if ghost elements are available in clipboard.
+
+    :return: True, if ghost elements are available in clipboard
+    :rtype: bool
+
+.. py:method:: vrLightService.hasCopiedLensFlareEffect()
+
+    Checks is a lens flare effect is available in the clipboard.
+
+    :return: True, if a lens flare effect is available in the clipboard
+    :rtype: bool
+
+.. py:method:: vrLightService.hasCopiedLensFlareElements()
+
+    Check if lens flare elements are available in clipboard.
+
+    :return: True, if lens flare elements are available in clipboard
+    :rtype: bool
+
+.. py:method:: vrLightService.isHeadLight(light)
+
+    Check if the given node is the head light node.
+
+    :param light:
+    :type light: vrdBaseLightNode
+
+    :return: True, if the given node is the head light node
+    :rtype: bool
+
+.. py:method:: vrLightService.isLightsClipboardEmpty()
+
+    Check if light nodes are available in clipboard.
+
+    :return: True, if clipboard is empty
+    :rtype: bool
+
+.. py:method:: vrLightService.loadLights(paths)
+
+    load lights from OpenSG Binary Geometry or VRED Project Binary file
+
+    :param paths: Full file paths of binary files
+    :type paths: List[string]
+
+    :return: all new added light nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrLightService.pasteLensFlare(lights)
+
+    Pastes a lens flare effect from the copy buffer to one or more lights.
+
+    :param lights: The lights the lens flare effect should be copied to.
+    :type lights: List[vrdPointLightNode]
+
+.. py:method:: vrLightService.pasteLensFlareElements(light)
+
+    Pastes lens flare elements from the clipboard to a light.
+
+    :param light: The light the lens flare elements should be copied to.
+    :type light: vrdPointLightNode
+
+.. py:method:: vrLightService.pasteLensFlareGhosts(ghostLine)
+
+    Paste all ghosts from copy buffer to a ghost line.
+
+    :param ghostLine: Ghost line to which the ghosts will be pasted.
+    :type ghostLine: vrdLensFlareGhostLine
+
+.. py:method:: vrLightService.pasteLights(targetNodes)
+
+    Paste all given light nodes from clipboard to the graph. The clipboard content is kept unchanged.
+
+    :param targetNodes: The target nodes where nodes should be pasted to.
+    :type targetNodes: List[vrdNode]
+
+.. py:method:: vrLightService.removeLightLinkSets(nodes)
+
+    Remove light link sets.
+
+    :param nodes: List of all light link sets to remove A vrLightService.lightLinkSetsChanged() signal will be emitted
+    :type nodes: List[vrdLightLinkSetNode]
+
+.. py:method:: vrLightService.removeLights(nodes)
+
+    Remove all given light nodes from light graph.
+
+    :param nodes: List of all light nodes to remove
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.saveLights(nodes, path)
+
+    Collects all lights recursively in the given nodes and saves them as a OpenSG Binary Geometry file.
+
+    :param nodes: List of light nodes to store
+    :type nodes: List[vrdNode]
+
+    :param path: Full file path of osg file, must containing osg suffix
+    :type path: string
+
+    :return: True, if file was successfully stored
+    :rtype: bool
+
+.. py:method:: vrLightService.setSelectedLensFlareElements(elements)
+
+    Set all selected lens flare elements.
+
+    :param elements: List of all lens flare elements that should be selected.
+    :type elements: List[vrdLensFlareElement]
+
+.. py:method:: vrLightService.setSelectedLensFlareGhosts(ghosts)
+
+    Set selected ghosts. All currently selected ghosts will be reset to not select. A         vrLightService.lensFlareGhostSelectionChanged(ghosts) signal will be emitted.
+
+    :param ghosts: List of ghosts that will be selected.
+    :type ghosts: List[vrdLensFlareGhost]
+
+.. py:method:: vrLightService.setSelectedNodes(nodes)
+
+    Set all selected light nodes. All current selected nodes will be reset to not select. Almost all commands of light service works on selected nodes. A         vrLightService.nodeSelectionChanged(nodes) signal will be emitted.
+
+    :param nodes: List of all current selected light nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.validateLights()
+
+    Validates if all lights in the scene graph have a corresponding light in the light graph and vice versa. Lights without a valid parent will be removed. A         vrLightService.lightsValidated() signal will be emitted.
+
+Signals
+=======
+
+.. py:method:: vrLightService.lensFlareElementSelectionChanged(elements)
+
+    Signal will be emitted if selection buffer of lens flare elements was changed.
+
+    :param elements: All current selected lens flare elements
+    :type elements: List[vrdLensFlareElement]
+
+.. py:method:: vrLightService.lensFlareGhostSelectionChanged(ghosts)
+
+    Signal will be emitted if the list of selected ghost was changed.
+
+    :param ghosts: The new list of all selected ghosts
+    :type ghosts: List[vrdLensFlareGhost]
+
+.. py:method:: vrLightService.lightLinkSetsChanged()
+
+    Signal will be emitted if light link set are added or removed.
+
+.. py:method:: vrLightService.lightsConverted(lightIds)
+
+    Signal that will be emitted when lights are converted to different light types.
+
+    :param lightIds: The object ids of the lights that have been converted.
+    :type lightIds: List[integer]
+
+.. py:method:: vrLightService.lightsStateChanged()
+
+    Signal is emitted when then on/off state of any light changes in either the light graph or the scene graph.
+
+.. py:method:: vrLightService.lightsValidated()
+
+    Signal that is send after lights have been validated.
+
+.. py:method:: vrLightService.nodesAdded(nodes)
+
+    Signal will be emitted if light nodes was added.
+
+    :param nodes: New created light nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.nodesChanged(nodes)
+
+    Signal will be emitted if light nodes was changed.
+
+    :param nodes: All changed light nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.nodeSelectionChanged(nodes)
+
+    Signal will be emitted if selection buffer of light nodes was changed.
+
+    :param nodes: All current selected light nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrLightService.nodesRemoved(nodes)
+
+    Signal will be emitted if light nodes was removed.
+
+    :param nodes: All removed light nodes
+    :type nodes: List[vrdNode]
+

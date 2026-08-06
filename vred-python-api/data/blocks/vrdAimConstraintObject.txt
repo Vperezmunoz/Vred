@@ -1,0 +1,66 @@
+----------------------
+vrdAimConstraintObject
+----------------------
+
+.. py:class:: vrdAimConstraintObject
+
+(Inherits vrdConstrainedObject)
+
+This constraint object represents constrained nodes in aim constraints (    vrdAimConstraintNode). It defines how target node transformations control the constrained node's rotation to make it look toward the targets. To obtain this object, see vrdConstraintNode::getConstrainedObject(vrdNode).
+
+Summary
+=======
+
+Functions:
+    * getAimMode() → vrConstraintTypes.AimMode
+    * getUpMode() → vrConstraintTypes.UpMode
+    * getUseRotationOrientation() → bool
+    * setAimMode(mode)
+    * setUpMode(mode)
+    * setUseRotationOrientation(use)
+
+Functions
+=========
+
+.. py:method:: vrdAimConstraintObject.getAimMode()
+
+    Returns the current aim mode of the constraint.
+
+    :return: The aim mode used for constraint computation.
+    :rtype: vrConstraintTypes.AimMode
+
+.. py:method:: vrdAimConstraintObject.getUpMode()
+
+    Returns the current up mode of the constraint.
+
+    :return: The up mode used for constraint computation.
+    :rtype: vrConstraintTypes.UpMode
+
+.. py:method:: vrdAimConstraintObject.getUseRotationOrientation()
+
+    Returns whether rotation orientation is used.
+
+    :return: True if rotation orientation is used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAimConstraintObject.setAimMode(mode)
+
+    Sets the aim mode for the constraint.
+
+    :param mode: The aim mode to use for constraint computation.
+    :type mode: vrConstraintTypes.AimMode
+
+.. py:method:: vrdAimConstraintObject.setUpMode(mode)
+
+    Sets the up mode for the constraint.
+
+    :param mode: The up mode to use for constraint computation.
+    :type mode: vrConstraintTypes.UpMode
+
+.. py:method:: vrdAimConstraintObject.setUseRotationOrientation(use)
+
+    Sets whether to use rotation orientation.
+
+    :param use: True to use rotation orientation, False otherwise.
+    :type use: bool
+

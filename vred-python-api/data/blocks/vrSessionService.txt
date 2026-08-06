@@ -1,0 +1,747 @@
+----------------
+vrSessionService
+----------------
+
+.. py:class:: vrSessionService
+
+(Inherits vrBaseService)
+
+Interface to work with collaboration sessions.
+
+Summary
+=======
+
+Functions:
+    * abortProgress()
+    * addNodeSync(node)
+    * blockSync(commandTypeName)
+    * checkSessionLink(passwd, sessionLink) → bool
+    * createSessionLink(server, passwd) → string
+    * getDefaultAvatarHeadFile(type) → string
+    * getDefaultAvatarLeftHandFile(type) → string
+    * getDefaultAvatarRightHandFile(type) → string
+    * getDefaultAvatarTorsoFile(type) → string
+    * getDefaultAvatarType() → vrCollaborationTypes.AvatarType
+    * getDefaultColors() → Dict[string,QColor]
+    * getPauseSync() → bool
+    * getRemoteUsers() → List[vrdSessionUser]
+    * getSessionLink() → string
+    * getShowSceneDownloadWarning() → bool
+    * getShowSceneUploadWarning() → bool
+    * getSyncCommandNames() → List[string]
+    * getUser() → vrdSessionUser
+    * getUsers() → List[vrdSessionUser]
+    * isConnected() → bool
+    * isJoinCompleted() → bool
+    * isMicrophoneMute() → bool
+    * isSpatialAudio() → bool
+    * isSpeakerMute() → bool
+    * isUserAutoColor() → bool
+    * join(sessionLink, userName, color, roomName, passwd, forceVersion)
+    * leave()
+    * muteOtherUsers()
+    * muteUsers(users)
+    * removeNodeSync(node)
+    * sendPython(command, commandId)
+    * setAudioEnabled(value)
+    * setAvatarProximityOpaqueDistance(value)
+    * setAvatarProximityTransparentDistance(value)
+    * setAvatarSafetyOpaqueDistance(value)
+    * setAvatarSafetyTransparentDistance(value)
+    * setDefaultAvatarHeadFile(type, fileName)
+    * setDefaultAvatarLeftHandFile(type, fileName)
+    * setDefaultAvatarRightHandFile(type, fileName)
+    * setDefaultAvatarTorsoFile(type, fileName)
+    * setDefaultAvatarType(type)
+    * setMicrophoneLevel(value)
+    * setMicrophoneMute(value)
+    * setPauseSync(value)
+    * setPointerToolActive(on)
+    * setPointerVisible(value)
+    * setRoom(room)
+    * setShowSceneDownloadWarning(value)
+    * setShowSceneUploadWarning(value)
+    * setSpatialAudio(value)
+    * setSpeakerLevel(value)
+    * setSpeakerMute(value)
+    * setUserColor(userColor)
+    * setUserName(userName)
+    * showDesktopAvatar(on)
+    * spectate(on, userId)
+    * stopForAll()
+    * syncNode(node)
+    * toPythonString(matrix) → string
+    * toPythonString(vector2d) → string
+    * toPythonString(vector3d) → string
+    * toPythonString(node) → string
+    * toPythonString(material) → string
+    * toPythonString(nodes) → string
+    * unblockSync(commandTypeName)
+    * uploadScene()
+    * uploadScenePath(path)
+
+Signals:
+    * joinFailed(message, wrongVersion)
+    * microphoneMuted(value)
+    * pointerToolActiveChanged(on)
+    * progressChanged(action, progress)
+    * progressFinished()
+    * receivedSessionConfig(config)
+    * requestSceneDownload(reject)
+    * sessionJoined()
+    * sessionLeft()
+    * speakerMuted(value)
+    * spectateChanged(on, userId)
+    * statusChanged()
+    * userArrives(user)
+    * userLeaves(user)
+
+Functions
+=========
+
+.. py:method:: vrSessionService.abortProgress()
+
+    Aborts a running project file upload or download.
+
+.. py:method:: vrSessionService.addNodeSync(node)
+
+    Transformation and visibility changes will by synchronized for all registered nodes This node sync is only used in python and does not affect transformations that are triggered by the transformation module or variant sets. By default functions like setTransformNodeXXXX are not synced automatically. Adding a node sync will send all changes, independent from the source of the change, to all connected users.
+
+    :param node: to be synchronized
+    :type node: vrdNode
+
+.. py:method:: vrSessionService.blockSync(commandTypeName="")
+
+    Calling blockSync, blocks all synchronizations to other users.
+
+```
+
+         vrSessionService.blockSync()
+         # nothing will be synchronized here
+         vrSessionService.unblockSync()
+
+    :param commandTypeName: command to be blocked or empty to block all. This can be used for example to switch on a variant or variant set in python without synchronizing this with other users. To get a list of all currently available commands, use vrSessionService.getSyncCommandNames()
+    :type commandTypeName: string
+
+.. py:method:: vrSessionService.checkSessionLink(passwd, sessionLink)
+
+    Checks if the password is valid.
+
+    :param passwd: Password to check
+    :type passwd: string
+
+    :param sessionLink: Session connection string
+    :type sessionLink: string
+
+    :return: True, if password is correct
+    :rtype: bool
+
+.. py:method:: vrSessionService.createSessionLink(server, passwd)
+
+    Creates a connection string from the hostname and a password.
+
+    :param server: Host name or IP address
+    :type server: string
+
+    :param passwd: Password that should be used to secure the session
+    :type passwd: string
+
+    :return: A string that can be used to join a session
+    :rtype: string
+
+.. py:method:: vrSessionService.getDefaultAvatarHeadFile(type)
+
+    Gets the default avatar head file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :return: Path to the head file used as default
+    :rtype: string
+
+.. py:method:: vrSessionService.getDefaultAvatarLeftHandFile(type)
+
+    Gets the default avatar left hand file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :return: Path to the left hand file used as default
+    :rtype: string
+
+.. py:method:: vrSessionService.getDefaultAvatarRightHandFile(type)
+
+    Gets the default avatar right hand file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :return: Path to the right hand file used as default
+    :rtype: string
+
+.. py:method:: vrSessionService.getDefaultAvatarTorsoFile(type)
+
+    Gets the default avatar torso file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :return: Path to the torso file used as default
+    :rtype: string
+
+.. py:method:: vrSessionService.getDefaultAvatarType()
+
+    Gets the default avatar type for collaboration sessions.
+
+    :return: Avatar type (Default, CustomVred or Copresence)
+    :rtype: vrCollaborationTypes.AvatarType
+
+.. py:method:: vrSessionService.getDefaultColors()
+
+    :return: Returns a map of default avatar color names and colors
+    :rtype: Dict[string,QColor]
+
+.. py:method:: vrSessionService.getPauseSync()
+
+    Get the current pause state
+
+    :return: True, if synchronization is paused
+    :rtype: bool
+
+.. py:method:: vrSessionService.getRemoteUsers()
+
+    :return: A list of all other users without the local user
+    :rtype: List[vrdSessionUser]
+
+.. py:method:: vrSessionService.getSessionLink()
+
+    Returns the connection string of the collaboration session.
+
+    :return: The hostname/id session string
+    :rtype: string
+
+.. py:method:: vrSessionService.getShowSceneDownloadWarning()
+
+    :return: True, a massage box on scene download will be displayed
+    :rtype: bool
+
+.. py:method:: vrSessionService.getShowSceneUploadWarning()
+
+    :return: True, a massage box on scene upload will be displayed
+    :rtype: bool
+
+.. py:method:: vrSessionService.getSyncCommandNames()
+
+    Get all known command type names. These names can be used in blockSync and unblockSync.
+
+    :return: A list of all known command type names
+    :rtype: List[string]
+
+.. py:method:: vrSessionService.getUser()
+
+    :return: Information about the local user
+    :rtype: vrdSessionUser
+
+.. py:method:: vrSessionService.getUsers()
+
+    :return: A list of all connected users
+    :rtype: List[vrdSessionUser]
+
+.. py:method:: vrSessionService.isConnected()
+
+    Checks whether vred is connected to a collaboration session.
+
+    :return: True, if connected
+    :rtype: bool
+
+.. py:method:: vrSessionService.isJoinCompleted()
+
+    Checks whether the connection has been established.
+
+    :return: True, if join operation completed
+    :rtype: bool
+
+.. py:method:: vrSessionService.isMicrophoneMute()
+
+    Get microphone muted state.
+
+    :return: true, if microphone is muted
+    :rtype: bool
+
+.. py:method:: vrSessionService.isSpatialAudio()
+
+    Get spatioal audio setting.
+
+    :return: true, if spatial audio is enabled
+    :rtype: bool
+
+.. py:method:: vrSessionService.isSpeakerMute()
+
+    Get speaker muted state.
+
+    :return: true, if speaker is muted
+    :rtype: bool
+
+.. py:method:: vrSessionService.isUserAutoColor()
+
+    :return: True, if auto color was selected or transparent passed to setUsetColor
+    :rtype: bool
+
+.. py:method:: vrSessionService.join(sessionLink, userName="", color=Qt.transparent, roomName="", passwd="", forceVersion=False)
+
+    Joins an existing or creates a new vr collaboration sesson.
+
+```
+
+         # example function call
+         vrSessionService.join("localhost", userName="user1",
+             color=PySide6.QtGui.Qt.transparent,  roomName="",
+             passwd="", forceVersion=False)
+
+    :param sessionLink: Session connection string
+    :type sessionLink: string
+
+    :param userName: Name used for the Avatar
+    :type userName: string
+
+    :param color: Avatar color. If transparent (0,0,0,0), use automatic default color
+    :type color: QColor
+
+    :param roomName: Safety avatars are displayed for users in the same physical room
+    :type roomName: string
+
+    :param passwd: Password for secured sessions
+    :type passwd: string
+
+    :param forceVersion: If true, stops the session and creates a new session for the current vred version.
+    :type forceVersion: bool
+
+.. py:method:: vrSessionService.leave()
+
+    Leaves the collaboration session.
+
+.. py:method:: vrSessionService.muteOtherUsers()
+
+    Mutes all other users.
+
+.. py:method:: vrSessionService.muteUsers(users)
+
+    Mutes the given users.
+
+    :param users: List of users to mute
+    :type users: List[vrdSessionUser]
+
+.. py:method:: vrSessionService.removeNodeSync(node)
+
+    Remove node from synchronization. Like addNodeSync, this does not have an effect on changes triggered by variant sets and other interactively triggered transformations.
+
+    :param node: stop synchronizing this node
+    :type node: vrdNode
+
+.. py:method:: vrSessionService.sendPython(command, commandId="")
+
+    Sends a python command to all users including the sender.
+
+    The given python command is executed in the sender's VRED instance and sent to all connected users asynchronously. All commands will arrive in the same order on all connected clients. Commands should not contain references to local python variables. If nodes should be referenced, getUniquePath and findUniquePath can be used. For example, to move a node that is assigned to a local python variable n, the following command can be used.
+
+```
+
+         cmd = "setTransformNodeTranslation({},20,0,1600,True)"
+             .format(vrSessionService.toPythonString(n))
+         vrSessionService.sendPython(cmd)
+
+    The command ID is used to merge multiple changes to the same target. If a user connects a session later, the last command for each commandID is executed on connect. For example if the above command should merge all transformaton changes to the node n:
+
+```
+
+         stateId = "Transform/" + getUniquePath(n)
+         vrSessionService.sendPython(cmd,stateId)
+
+    :param command: The python command to send.
+    :type command: string
+
+    :param commandId: For the same commandId, only the last command is synchronized
+    :type commandId: string
+
+.. py:method:: vrSessionService.setAudioEnabled(value)
+
+    Enables audio communication.
+
+    :param value: If true, audio communication is enabled
+    :type value: bool
+
+.. py:method:: vrSessionService.setAvatarProximityOpaqueDistance(value)
+
+    Changes the distance from which avatars are opaque.
+
+    :param value: Distance in mm
+    :type value: float
+
+.. py:method:: vrSessionService.setAvatarProximityTransparentDistance(value)
+
+    Changes the distance from which avatars become fully transparent.
+
+    :param value: Distance in mm
+    :type value: float
+
+.. py:method:: vrSessionService.setAvatarSafetyOpaqueDistance(value)
+
+    Changes the distance to fade safety avatars.
+
+    :param value: Distance in mm
+    :type value: float
+
+.. py:method:: vrSessionService.setAvatarSafetyTransparentDistance(value)
+
+    Changes distance to hide safety avatars.
+
+    :param value: Distance in mm
+    :type value: float
+
+.. py:method:: vrSessionService.setDefaultAvatarHeadFile(type, fileName)
+
+    Sets the default avatar head file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :param fileName: Path to the head file to use as default
+    :type fileName: string
+
+.. py:method:: vrSessionService.setDefaultAvatarLeftHandFile(type, fileName)
+
+    Sets the default avatar left hand file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :param fileName: Path to the left hand file to use as default
+    :type fileName: string
+
+.. py:method:: vrSessionService.setDefaultAvatarRightHandFile(type, fileName)
+
+    Sets the default avatar right hand file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :param fileName: Path to the right hand file to use as default
+    :type fileName: string
+
+.. py:method:: vrSessionService.setDefaultAvatarTorsoFile(type, fileName)
+
+    Sets the default avatar torso file for the specified avatar type.
+
+    :param type: Avatar type (Default, CustomVred or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+    :param fileName: Path to the torso file to use as default
+    :type fileName: string
+
+.. py:method:: vrSessionService.setDefaultAvatarType(type)
+
+    Sets the default avatar type for collaboration sessions.
+
+    :param type: Avatar type (Default or Copresence)
+    :type type: vrCollaborationTypes.AvatarType
+
+.. py:method:: vrSessionService.setMicrophoneLevel(value)
+
+    Adjusts microphone level.
+
+    :param value: Amplificaton 0 - 1
+    :type value: float
+
+.. py:method:: vrSessionService.setMicrophoneMute(value)
+
+    Mutes the microphone.
+
+    :param value: If true, microphone is disabled
+    :type value: bool
+
+.. py:method:: vrSessionService.setPauseSync(value)
+
+    Pause synchronizaiton.
+
+    :param value: It True, synchronization is paused
+    :type value: bool
+
+.. py:method:: vrSessionService.setPointerToolActive(on)
+
+    Activates the pointing tool.
+
+    :param on: If True, tool is active
+    :type on: bool
+
+.. py:method:: vrSessionService.setPointerVisible(value)
+
+    Makes the pointing tool visible for all other users.
+
+    :param value: If True, tool is visible
+    :type value: bool
+
+.. py:method:: vrSessionService.setRoom(room)
+
+    Changes the room name, used for safety avatar visualization.
+
+    :param room:
+    :type room: string
+
+.. py:method:: vrSessionService.setShowSceneDownloadWarning(value)
+
+    Enable or disable massage box on scene download.
+
+    :param value: True, show the message box
+    :type value: bool
+
+.. py:method:: vrSessionService.setShowSceneUploadWarning(value)
+
+    Enable or disable massage box on scene upload.
+
+    :param value: True, show the message box
+    :type value: bool
+
+.. py:method:: vrSessionService.setSpatialAudio(value)
+
+    Enables 3D sound for collaboration audio communications.
+
+    :param value: True, enables 3D audio
+    :type value: bool
+
+.. py:method:: vrSessionService.setSpeakerLevel(value)
+
+    Adjusts speaker volume.
+
+    :param value: Amplificaton 0 - 1
+    :type value: float
+
+.. py:method:: vrSessionService.setSpeakerMute(value)
+
+    Mutes the speaker.
+
+    :param value: If true, speaker is disabled
+    :type value: bool
+
+.. py:method:: vrSessionService.setUserColor(userColor)
+
+    Change the user color.
+
+    :param userColor: Avatar color. If transparent (0,0,0,0), use automatic default color
+    :type userColor: QColor
+
+.. py:method:: vrSessionService.setUserName(userName)
+
+    Changes the user name.
+
+    :param userName:
+    :type userName: string
+
+.. py:method:: vrSessionService.showDesktopAvatar(on)
+
+    Toggles how the local user is shown in desktop mode to the other users, either as tablet (default) or as avatar.
+
+    :param on: True, show as avatar. False, show as tablet
+    :type on: bool
+
+.. py:method:: vrSessionService.spectate(on, userId=0)
+
+    Turns spectator mode on or off.
+
+    :param on: If True, enables spectator mode
+    :type on: bool
+
+    :param userId: The spectator mode is enabled for the user with this id
+    :type userId: integer
+
+.. py:method:: vrSessionService.stopForAll()
+
+    Stops the collaboration session for all connected users.
+
+.. py:method:: vrSessionService.syncNode(node)
+
+    Synchronize position and visibility with all other users.
+
+    :param node: synchronize this node
+    :type node: vrdNode
+
+.. py:method:: vrSessionService.toPythonString(matrix)
+
+    Convert matrix to a python string that can used in sendPython.
+
+    :param matrix: the value to be encoded
+    :type matrix: QMatrix4x4
+
+    :return: A string representaton of the given matrix
+    :rtype: string
+
+.. py:method:: vrSessionService.toPythonString(vector2d)
+   :no-index:
+
+    Convert vector to a python string that can used in sendPython.
+
+    :param vector2d: the value to be encoded
+    :type vector2d: QVector2D
+
+    :return: A string representation of the given vector
+    :rtype: string
+
+.. py:method:: vrSessionService.toPythonString(vector3d)
+   :no-index:
+
+    Convert vector to a python string that can used in sendPython.
+
+    :param vector3d: the value to be encoded
+    :type vector3d: QVector3D
+
+    :return: A string representation of the given vector
+    :rtype: string
+
+.. py:method:: vrSessionService.toPythonString(node)
+   :no-index:
+
+    Convert a node to a python string that can used in sendPython.
+
+    :param node: to be encoded
+    :type node: vrdNode
+
+    :return: A string encoded reference to the node
+    :rtype: string
+
+.. py:method:: vrSessionService.toPythonString(material)
+   :no-index:
+
+    Convert a material to a python string that can used in sendPython.
+
+    :param material: to be encoded
+    :type material: vrdMaterial
+
+    :return: A string encoded reference to the material
+    :rtype: string
+
+.. py:method:: vrSessionService.toPythonString(nodes)
+   :no-index:
+
+    Convert a list of nodes to a python string that can used in sendPython.
+
+    :param nodes: a list of nodes to be encoded
+    :type nodes: List[vrdNode]
+
+    :return: A string encoded reference to all nodes
+    :rtype: string
+
+.. py:method:: vrSessionService.unblockSync(commandTypeName="")
+
+    Calling unblockSync resumes synchronizations to other users.
+
+    :param commandTypeName: command to be blocked or empty to block all
+    :type commandTypeName: string
+
+.. py:method:: vrSessionService.uploadScene()
+
+    Sends the current project in the memory to all connected users.
+
+.. py:method:: vrSessionService.uploadScenePath(path)
+
+    Sends the path of the project to be loaded to all users.
+
+    :param path: The filename of the project to be uploaded
+    :type path: string
+
+Signals
+=======
+
+.. py:method:: vrSessionService.joinFailed(message, wrongVersion)
+
+    The join operation has failed.
+
+    :param message: An error message
+    :type message: string
+
+    :param wrongVersion: If True, the connection failed because the VRED version does not match
+    :type wrongVersion: bool
+
+.. py:method:: vrSessionService.microphoneMuted(value)
+
+    Microphone has been muted or unmuted.
+
+    :param value: If true, microphone has been muted
+    :type value: bool
+
+.. py:method:: vrSessionService.pointerToolActiveChanged(on)
+
+    The pointing tool has been activated.
+
+    :param on: If True, tool is active
+    :type on: bool
+
+.. py:method:: vrSessionService.progressChanged(action, progress)
+
+    Project upload or download progress has changed.
+
+    :param action: Description of the current activity
+    :type action: string
+
+    :param progress: Progress in the range 0 - 100
+    :type progress: integer
+
+.. py:method:: vrSessionService.progressFinished()
+
+    Project upload or download operatrion has been completed.
+
+.. py:method:: vrSessionService.receivedSessionConfig(config)
+
+    A session configuration has been double clicked or dropped to the VRED window.
+
+    :param config: Configuration file
+    :type config: string
+
+.. py:method:: vrSessionService.requestSceneDownload(reject)
+
+    A collaboration session has been left.
+
+    :param reject: If set to True, the download is aborted
+    :type reject: bool
+
+.. py:method:: vrSessionService.sessionJoined()
+
+    A collaboration session has been joined.
+
+.. py:method:: vrSessionService.sessionLeft()
+
+    A collaboration session has been left.
+
+.. py:method:: vrSessionService.speakerMuted(value)
+
+    Speaker has been muted or unmuted.
+
+    :param value: If true, speaker has been muted
+    :type value: bool
+
+.. py:method:: vrSessionService.spectateChanged(on, userId)
+
+    Spectator mode has been changed.
+
+    :param on: If True, spectator mode has been enabled
+    :type on: bool
+
+    :param userId: ID of the user to look at
+    :type userId: integer
+
+.. py:method:: vrSessionService.statusChanged()
+
+    Connection status or other user properties have been changed.
+
+.. py:method:: vrSessionService.userArrives(user)
+
+    A new user has joined the session.
+
+    :param user: Arrived user
+    :type user: vrdSessionUser
+
+.. py:method:: vrSessionService.userLeaves(user)
+
+    A user has left the session.
+
+    :param user: User that has left
+    :type user: vrdSessionUser
+

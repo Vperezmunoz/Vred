@@ -1,0 +1,58 @@
+-----------------
+vrdPointLightNode
+-----------------
+
+.. py:class:: vrdPointLightNode
+
+(Inherits vrdDeltaLightNode)
+
+This class gives access to the properties of a point light source.
+
+Summary
+=======
+
+Functions:
+    * getAttenuation() → vrLightTypes.Attenuation
+    * getLensFlareEffect() → vrdLensFlareEffect
+    * getLightProfile() → vrdLightProfile
+    * getTexture() → vrdLightTexture
+    * setAttenuation(attenuation)
+
+Functions
+=========
+
+.. py:method:: vrdPointLightNode.getAttenuation()
+
+    Returns the falloff of the light intensity.
+
+    :return: Attenuation type
+    :rtype: vrLightTypes.Attenuation
+
+.. py:method:: vrdPointLightNode.getLensFlareEffect()
+
+    Returns the lens flare effect.
+
+    :return:
+    :rtype: vrdLensFlareEffect
+
+.. py:method:: vrdPointLightNode.getLightProfile()
+
+    Returns the light profile.
+
+    :return:
+    :rtype: vrdLightProfile
+
+.. py:method:: vrdPointLightNode.getTexture()
+
+    Returns the light texture.
+
+    :return:
+    :rtype: vrdLightTexture
+
+.. py:method:: vrdPointLightNode.setAttenuation(attenuation)
+
+    Sets the falloff of the light intensity.
+
+    :param attenuation: Attenuation type
+    :type attenuation: vrLightTypes.Attenuation
+

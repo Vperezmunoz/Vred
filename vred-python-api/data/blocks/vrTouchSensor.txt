@@ -1,0 +1,46 @@
+MODULE vrTouchSensor (legacy v1 API)
+
+-------------
+vrTouchSensor
+-------------
+
+TouchSensor.
+
+Summary
+=======
+
+Classes:
+    * vrTouchSensor
+
+Functions:
+    * triggerTouchSensor(name)
+
+.. class:: vrTouchSensor(node)
+
+    TouchSensor.
+
+    The constructor of the vrTouchSensor class.
+
+    :param node: The touch sensor scene graph node.
+    :type node: NodePtr
+
+    .. method:: setEnabled(state)
+
+        Enables or disables the TouchSensor.
+
+        :param state: TouchSensor: On/Off.
+        :type state: bool
+
+    .. method:: isEnabled()
+
+        Returns the enabled state of the TouchSensor.
+
+        :return: TouchSensor: On/Off.
+        :rtype: bool
+
+.. function:: triggerTouchSensor(name)
+
+    Triggers a touch sensor.
+
+    :param name: The name of the touch sensor.
+    :type name: string

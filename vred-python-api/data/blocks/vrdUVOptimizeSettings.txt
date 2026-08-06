@@ -1,0 +1,116 @@
+---------------------
+vrdUVOptimizeSettings
+---------------------
+
+.. py:class:: vrdUVOptimizeSettings
+
+(Inherits vrdData)
+
+Holds settings for UV optimize with Unfold3D. See     vrUVService.optimize(nodes, settings, uvSet).
+
+Summary
+=======
+
+Functions:
+    * getAngleVsDistanceConservation() → float
+    * getIterations() → integer
+    * getMapSize() → integer
+    * getPower() → integer
+    * getPreventBorderIntersections() → bool
+    * getPreventTriangleFlips() → bool
+    * getRoomSpace() → integer
+    * setAngleVsDistanceConservation(conservation)
+    * setIterations(iterations)
+    * setMapSize(mapSize)
+    * setPower(power)
+    * setPreventBorderIntersections(prevent)
+    * setPreventTriangleFlips(prevent)
+    * setRoomSpace(roomSpace)
+
+Functions
+=========
+
+.. py:method:: vrdUVOptimizeSettings.getAngleVsDistanceConservation()
+
+    :return: value in [0..1], 0.0 for angle conservation, 1.0 for distance conservation
+    :rtype: float
+
+.. py:method:: vrdUVOptimizeSettings.getIterations()
+
+    :return: Number of optimize iterations.
+    :rtype: integer
+
+.. py:method:: vrdUVOptimizeSettings.getMapSize()
+
+    :return: Map size value in pixels used by anti-border self intersection.
+    :rtype: integer
+
+.. py:method:: vrdUVOptimizeSettings.getPower()
+
+    :return: power value between 0 (no effect) and 100 (maximal effect).
+    :rtype: integer
+
+.. py:method:: vrdUVOptimizeSettings.getPreventBorderIntersections()
+
+    :return: Whether anti-border self intersection is enabled.
+    :rtype: bool
+
+.. py:method:: vrdUVOptimizeSettings.getPreventTriangleFlips()
+
+    :return: Whether anti-triangle flip is enabled.
+    :rtype: bool
+
+.. py:method:: vrdUVOptimizeSettings.getRoomSpace()
+
+    :return: Room space value in pixels used by anti-border self intersection.
+    :rtype: integer
+
+.. py:method:: vrdUVOptimizeSettings.setAngleVsDistanceConservation(conservation)
+
+    Set the strength of angular vs. distance optimization, minimizing stretching and angular errors in your UV map.
+
+    :param conservation: 0.0 for angle conservation, 1.0 for distance conservation
+    :type conservation: float
+
+.. py:method:: vrdUVOptimizeSettings.setIterations(iterations)
+
+    Set the number of Optimize iterations being calculated.
+
+    :param iterations: Number of optimize iterations. 0 disables Optimize.
+    :type iterations: integer
+
+.. py:method:: vrdUVOptimizeSettings.setMapSize(mapSize)
+
+    Sets the texture map size for room space used by anti-border self intersection.
+
+    :param mapSize: Map size in pixels
+    :type mapSize: integer
+
+.. py:method:: vrdUVOptimizeSettings.setPower(power)
+
+    Mix (blend) original UVs with optimized UVs.
+
+    :param power: value in [0..100]. Set to 0 for no effect, 100 for maximal effect.
+    :type power: integer
+
+.. py:method:: vrdUVOptimizeSettings.setPreventBorderIntersections(prevent)
+
+    Activate the anti-border self intersection algorithm. The room space parameter is taken into account for this. See         vrdUVOptimizeSettings.setRoomSpace(roomSpace).
+
+    :param prevent:
+    :type prevent: bool
+
+.. py:method:: vrdUVOptimizeSettings.setPreventTriangleFlips(prevent)
+
+    Activate the anti-triangle flip algorithm.
+
+    :param prevent:
+    :type prevent: bool
+
+.. py:method:: vrdUVOptimizeSettings.setRoomSpace(roomSpace)
+
+    Sets the room space in pixels, in relation to the map size set with setMapSize. The room space is the minimum space allowed between borders within one island for the anti-border self intersection algorithm. This setting only has an effect if the anti-border self intersection is enabled with         vrdUVOptimizeSettings.setPreventBorderIntersections(prevent). Avoid large values, because it can slow down the unfold calculations and create distortion.
+
+    :param roomSpace: Room space value in pixels.
+    :type roomSpace: integer
+

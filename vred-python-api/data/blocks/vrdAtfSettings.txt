@@ -1,0 +1,872 @@
+--------------
+vrdAtfSettings
+--------------
+
+.. py:class:: vrdAtfSettings
+
+(Inherits vrdData)
+
+Encapsulates the configuration properties for a particular     vrCADFileTypes.FileType. Some of the properties only have an effect on certain file formats. Please have a look at the import dialog that changes its content with respect to the vrCADFileTypes.FileType of the imported files.
+
+    .. py:class:: SourceReferenceBehavior
+
+            .. py:data:: CreateNoReference
+
+            .. py:data:: CreateSourceReference
+
+    .. py:class:: SmartReferenceBehavior
+
+            .. py:data:: KeepSmartReference
+
+            .. py:data:: RemoveSmartReference
+
+    .. py:class:: ImporterVersion
+
+            .. py:data:: Lightweight
+
+            .. py:data:: Legacy
+
+    .. py:class:: DataTranslator
+
+            .. py:data:: LegacyDataTranslator
+
+            .. py:data:: NewDataTranslator
+
+    .. py:class:: ModelState
+
+            .. py:data:: Primary
+
+            .. py:data:: LastActive
+
+    .. py:class:: FaceterVersion
+
+            .. py:data:: FaceterV1
+
+            .. py:data:: FaceterV2
+
+    .. py:class:: GridMode
+
+            .. py:data:: GridInteriorAndGridToEdges
+
+            .. py:data:: GridInterior
+
+            .. py:data:: GridToEdges
+
+            .. py:data:: GridNone
+
+Summary
+=======
+
+Functions:
+    * getChordDeviation() → float
+    * getCreateLayerGroups() → bool
+    * getDataTranslator() → DataTranslator
+    * getFaceterGridMode() → GridMode
+    * getFaceterVersion() → FaceterVersion
+    * getFixSurfaceOrientation() → bool
+    * getFlushTransformations() → bool
+    * getImportAnimations() → bool
+    * getImportAsSmartReference() → bool
+    * getImportAssociativeMeshes() → bool
+    * getImportCameras() → bool
+    * getImportColors() → bool
+    * getImportCoordSystems() → bool
+    * getImportCurves() → bool
+    * getImportEmptyLayers() → bool
+    * getImporterVersion() → ImporterVersion
+    * getImportGroupMaterials() → bool
+    * getImportInvisibleCurves() → bool
+    * getImportInvisibleInstances() → bool
+    * getImportInvisibleMeshes() → bool
+    * getImportInvisibleSurfaces() → bool
+    * getImportLayerFolders() → bool
+    * getImportLights() → bool
+    * getImportMeshes() → bool
+    * getImportMeshLODs() → integer
+    * getImportMetadata() → bool
+    * getImportReferencedFiles() → bool
+    * getImportSurfaces() → bool
+    * getImportSwitchMaterials() → bool
+    * getImportTemplateGeometries() → bool
+    * getImportTextures() → bool
+    * getImportVariants() → bool
+    * getJtToolkit() → integer
+    * getKeepNurbs() → bool
+    * getMaxChordLength() → float
+    * getMergeGeometries() → bool
+    * getMergeSubReferenceMaterials() → bool
+    * getModelState() → ModelState
+    * getNormalTolerance() → float
+    * getReduceKeyframes() → bool
+    * getRemoveEmptyGroups() → bool
+    * getSmartReferenceBehavior() → SmartReferenceBehavior
+    * getSourceReferenceBehavior() → SourceReferenceBehavior
+    * getStitchingTolerance() → float
+    * getUnshareNodes() → bool
+    * getUseHealStitch() → bool
+    * getUseLegacyLoader() → bool
+    * getUseStitching() → bool
+    * setChordDeviation(chordDeviation)
+    * setCreateLayerGroups(create)
+    * setDataTranslator(translator)
+    * setFaceterGridMode(gridMode)
+    * setFaceterVersion(version)
+    * setFixSurfaceOrientation(fix)
+    * setFlushTransformations(flush)
+    * setImportAnimations(import)
+    * setImportAsSmartReference(create)
+    * setImportAssociativeMeshes(import)
+    * setImportCameras(import)
+    * setImportColors(import)
+    * setImportCoordSystems(import)
+    * setImportCurves(import)
+    * setImportEmptyLayers(import)
+    * setImporterVersion(version)
+    * setImportGroupMaterials(import)
+    * setImportInvisibleCurves(import)
+    * setImportInvisibleInstances(import)
+    * setImportInvisibleMeshes(import)
+    * setImportInvisibleSurfaces(import)
+    * setImportLayerFolders(import)
+    * setImportLights(import)
+    * setImportMeshes(import)
+    * setImportMeshLODs(lodOption)
+    * setImportMetadata(import)
+    * setImportReferencedFiles(import)
+    * setImportSurfaces(import)
+    * setImportSwitchMaterials(import)
+    * setImportTemplateGeometries(import)
+    * setImportTextures(import)
+    * setImportVariants(import)
+    * setJtToolkit(toolkit)
+    * setKeepNurbs(keep)
+    * setMaxChordLength(chordLength)
+    * setMergeGeometries(merge)
+    * setMergeSubReferenceMaterials(optimize)
+    * setModelState(state)
+    * setNormalTolerance(tolerance)
+    * setReduceKeyframes(reduce)
+    * setRemoveEmptyGroups(remove)
+    * setSmartReferenceBehavior(behavior)
+    * setSourceReferenceBehavior(behavior)
+    * setStitchingTolerance(tolerance)
+    * setUnshareNodes(unshare)
+    * setUseHealStitch(value)
+    * setUseLegacyLoader(useLegacy)
+    * setUseStitching(stitch)
+    * vrdAtfSettings()
+    * vrdAtfSettings(other)
+
+Functions
+=========
+
+.. py:method:: vrdAtfSettings.getChordDeviation()
+
+    Get maximum deviation of tessellated mesh to the NURBS surface in mm.
+
+    :return: Maximum chord deviation in mm.
+    :rtype: float
+
+.. py:method:: vrdAtfSettings.getCreateLayerGroups()
+
+    Query if creating group nodes from layer information is enabled..
+
+    :return: True if creating group nodes from layer information is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getDataTranslator()
+
+    Deprecated: Method is still here for backwards compatibility.
+
+    :return: Always returns NewDataTranslator
+    :rtype: DataTranslator
+
+.. py:method:: vrdAtfSettings.getFaceterGridMode()
+
+    Query the grid mode to use for tessellation. Grid Interior and Grid to Edges: The grid is applied to the interior of the surface and extended to the edges of the surface, Grid Interior: The grid is applied to the interior of the surface, Grid to Edges: The grid is extended to the edges of the surface, None: No grid is used.
+
+    :return: Grid mode.
+    :rtype: GridMode
+
+.. py:method:: vrdAtfSettings.getFaceterVersion()
+
+    Query which Faceter version is used for tessellation.
+
+    :return: Faceter version.
+    :rtype: FaceterVersion
+
+.. py:method:: vrdAtfSettings.getFixSurfaceOrientation()
+
+    Query if orienting surface normals is enabled.
+
+    :return: True if fixing of surface orientation is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getFlushTransformations()
+
+    Query if transformations should be flushed into the vertex coordinates.
+
+    :return: True if flushing of transformations is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportAnimations()
+
+    Query if import of animations for USD is enabled.
+
+    :return: True if import of animations is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportAsSmartReference()
+
+    Query if smart references should be created for imported vpb files.
+
+    :return: True if smart references should be created for vpb files otherwise False.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportAssociativeMeshes()
+
+    Query if import of associative meshes is enabled.
+
+    :return: True if import of associative meshes is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportCameras()
+
+    Query if import of cameras is enabled.
+
+    :return: True if import of cameras is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportColors()
+
+    Query if import of colors for 3MF data is enabled.
+
+    :return: True if import of colors is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportCoordSystems()
+
+    Query if import of coordinate system nodes is enabled.
+
+    :return: True if import of coordinate systems is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportCurves()
+
+    Query if import of curves and poly lines is enabled.
+
+    :return: True if import of curves and poly lines is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportEmptyLayers()
+
+    Query if import of empty layers is enabled.
+
+    :return: True if import of empty layers is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImporterVersion()
+
+    Query which importer is used. Currently only available for Catia V5 and Jt.
+
+    :return: Enum specifying which importer version to use. Currently only affects Catia V5 and Jt import. Lightweight selects optimized geometry and topology translation. Legacy should only be selected if issues like corrupted geometry should arise.
+    :rtype: ImporterVersion
+
+.. py:method:: vrdAtfSettings.getImportGroupMaterials()
+
+    Query if import of materials applied to group nodes like part, assembly or instance is enabled.
+
+    :return: True if import of materials applied to group nodes is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportInvisibleCurves()
+
+    Query if import of curves and poly lines, that are invisible in CAD data, is enabled.
+
+    Note: Only has an effect if import of surfaces is enabled.
+
+    :return: True if import of invisible curves and poly lines is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportInvisibleInstances()
+
+    Query if import of invisible instance nodes is enabled.
+
+    :return: True if import of invisible instance nodes is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportInvisibleMeshes()
+
+    Query if import of polygon meshes, that are invisible in the CAD file, is enabled.
+
+    Note: Only has an effect if import of surfaces is enabled.
+
+    :return: True if import of invisible polygon meshes is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportInvisibleSurfaces()
+
+    Query if import of surfaces, that are invisible in the CAD file, is enabled.
+
+    Note: Only has an effect if import of surfaces is enabled.
+
+    :return: True if import of invisible surfaces is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportLayerFolders()
+
+    Query if import of layer hierarchies is enabled.
+
+    :return: True if import of layer folders is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportLights()
+
+    Query if import of light sources is enabled.
+
+    :return: True if import of lights is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportMeshes()
+
+    Query if import of polygon meshes is enabled.
+
+    :return: True if import of polygon meshes is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportMeshLODs()
+
+    Query which mesh LODs should be imported.
+
+    0 - Import all mesh LODs
+
+    1 - Import only mesh with lowest LOD
+
+    2 - Import only mesh with highest LOD
+
+    :return: The selected LOD option
+    :rtype: integer
+
+.. py:method:: vrdAtfSettings.getImportMetadata()
+
+    Query if import of metadata is enabled.
+
+    :return: True if import of metadata is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportReferencedFiles()
+
+    Query if import of part files referenced by an assembly is enabled.
+
+    :return: True if import of part files is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportSurfaces()
+
+    Query if import of surfaces is enabled.
+
+    :return: True if import of surfaces is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportSwitchMaterials()
+
+    Query if import of switch shaders for Alias is enabled.
+
+    :return: True if import of switch shaders from Alias files is enabled, False otherwise. If disabled only the active choice of switch shaders is imported.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportTemplateGeometries()
+
+    Query if import of template geometries is enabled.
+
+    :return: True if import of template geometries is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportTextures()
+
+    Query if import of textures for 3MF data is enabled.
+
+    :return: True if import of textures is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getImportVariants()
+
+    Query if import of variants is enabled.
+
+    :return: True if import of variants is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getJtToolkit()
+
+    Query which Jt toolkit is used for import.
+
+    0 - Parasolid
+
+    1 - Jt Open
+
+    :return: The selected Jt toolkit option
+    :rtype: integer
+
+.. py:method:: vrdAtfSettings.getKeepNurbs()
+
+    Query if NURBS data should be kept alongside with tessellation result.
+
+    :return: True if NURBS data should be kept, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getMaxChordLength()
+
+    Get maximum length of a triangle edge in mm.
+
+    :return: Maximum chord length in mm.
+    :rtype: float
+
+.. py:method:: vrdAtfSettings.getMergeGeometries()
+
+    Query if tessellated meshes of adjacent NURBS surfaces with same material should be merged.
+
+    :return: True if merging of surfaces is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getMergeSubReferenceMaterials()
+
+    Query if duplicate materials, referenced in different files, should be merged into one single material. Materials with same name and identical properties are regarded as duplicates.
+
+    :return: True if duplicate referenced materials shouild be merged otherwise False.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getModelState()
+
+    Query which Inventor model state should be imported.
+
+    :return: Primary (Default) or Last Active model state.
+    :rtype: ModelState
+
+.. py:method:: vrdAtfSettings.getNormalTolerance()
+
+    Get the normal tolerance of adjacent triangles in degrees.
+
+    :return: Normal tolerance in degrees.
+    :rtype: float
+
+.. py:method:: vrdAtfSettings.getReduceKeyframes()
+
+    Query if reducing the number of keyframes is enabled.
+
+    :return: True if reducing the number of keyframes is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getRemoveEmptyGroups()
+
+    Query if groups without children should be removed.
+
+    :return: True if removing empty groups is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getSmartReferenceBehavior()
+
+    Query how references to VRED native files are treated in import.
+
+    :return: Enum specifying if smart references found in an imported file should be kept or removed.
+    :rtype: SmartReferenceBehavior
+
+.. py:method:: vrdAtfSettings.getSourceReferenceBehavior()
+
+    Query how references to files of import file types are treated in import.
+
+    :return: Enum specifying if source references should be created for file references found in the imported files or if no reference nodes at all should be created.
+    :rtype: SourceReferenceBehavior
+
+.. py:method:: vrdAtfSettings.getStitchingTolerance()
+
+    Get the stitching tolerance of adjacent edges in mm.
+
+    :return: Stitiching tolerance in mm
+    :rtype: float
+
+.. py:method:: vrdAtfSettings.getUnshareNodes()
+
+    Query if shared node instances should be converted to independent nodes.
+
+    :return: True if conversion of instances is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getUseHealStitch()
+
+    :return:
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getUseLegacyLoader()
+
+    Option has no effect anymore. All legacy loaders are retired.
+
+    :return: Always returns false.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.getUseStitching()
+
+    Query if stitching is enabled.
+
+    :return: True if stitching is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdAtfSettings.setChordDeviation(chordDeviation)
+
+    Set maximum allowed distance from the NURBS surface to the tessellated surface in mm. Lower values result in more accurate polygon models but also increase the number of triangles.
+
+    :param chordDeviation: Maximum chord deviation in mm.
+    :type chordDeviation: float
+
+.. py:method:: vrdAtfSettings.setCreateLayerGroups(create)
+
+    Enable / Disable creation of group nodes for objects organized in layers. In case the parents of the objects in one layer have different transformations this might cause an unexpected scenegraph structure since it is required to preserve the transformations.
+
+    :param create: True if creation of layer groups should be enabled, False otherwise.
+    :type create: bool
+
+.. py:method:: vrdAtfSettings.setDataTranslator(translator)
+
+    Deprecated: Method is still here for backwards compatibility. Does not have any effect anymore.
+
+    :param translator: Enum specifying which data translator to use. Currently only affects Catia V5 and V4, NX, Solidedge and Solidworks import. NewDataTranslator selects optimized geometry and topology translation. LegacyDataTranslator should only be selected if issues like corrupted geometry should arise.
+    :type translator: DataTranslator
+
+.. py:method:: vrdAtfSettings.setFaceterGridMode(gridMode)
+
+    Select the grid mode to use for tessellation. Grid Interior and Grid to Edges: The grid is applied to the interior of the surface and extended to the edges of the surface, Grid Interior: The grid is applied to the interior of the surface, Grid to Edges: The grid is extended to the edges of the surface, None: No grid is used.
+
+    :param gridMode: Grid mode.
+    :type gridMode: GridMode
+
+.. py:method:: vrdAtfSettings.setFaceterVersion(version)
+
+    Select which Faceter version should be used for tessellation.
+
+    :param version: Faceter version.
+    :type version: FaceterVersion
+
+.. py:method:: vrdAtfSettings.setFixSurfaceOrientation(fix)
+
+    Enable orienting the normals of all surfaces, so they point in the same general direction.
+
+    :param fix: True if fixing of surface orientation should be enabled, False otherwise.
+    :type fix: bool
+
+.. py:method:: vrdAtfSettings.setFlushTransformations(flush)
+
+    Enable / Disable moving transformation data of the scene graph hierarchy to the vertices. This means, that every transformation node will contain only a unit matrix.
+
+    :param flush: True if flushing of transformations should be enabled, False otherwise.
+    :type flush: bool
+
+.. py:method:: vrdAtfSettings.setImportAnimations(import)
+
+    Enable import of animations from USD data.
+
+    :param import: True to enable import of animations, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportAsSmartReference(create)
+
+    Determine if smart references should be created for imported vpb files.
+
+    :param create: True if smart references should be created for vpb files otherwise False.
+    :type create: bool
+
+.. py:method:: vrdAtfSettings.setImportAssociativeMeshes(import)
+
+    Enable import of meshes associated with the surfaces.
+
+    :param import: True to enable import of associative meshes, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportCameras(import)
+
+    Enable import of cameras from CAD data. (Only Alias wire files)
+
+    :param import: True to enable import of cameras, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportColors(import)
+
+    Enable import of colors from 3MF data. Note: This might split the mesh into multiple parts.
+
+    :param import: True to enable import of colors, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportCoordSystems(import)
+
+    Enable import of coordinate system nodes from CAD data.
+
+    :param import: True to enable import of coordinate systems, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportCurves(import)
+
+    Enable import of curves and poly lines from CAD files.
+
+    :param import: True to enable import of curves and poly lines, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportEmptyLayers(import)
+
+    Enable import of empty layers. (Only Alias wire files)
+
+    :param import: True to enable import of empty layers, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImporterVersion(version)
+
+    Select which importer to use. Currently only available for Catia V5 and Jt.
+
+    :param version: Enum specifying which importer version to use. Currently only affects Catia V5 and Jt import. Lightweight selects optimized geometry and topology translation. Legacy should only be selected if issues like corrupted geometry should arise.
+    :type version: ImporterVersion
+
+.. py:method:: vrdAtfSettings.setImportGroupMaterials(import)
+
+    Enable import of materials applied to group nodes like part, assembly or instance. If enabled, an additional MaterialGroup node is created for each of these materials. If disabled, simply discard these materials.
+
+    :param import: True to enable import of materials applied to group nodes, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportInvisibleCurves(import)
+
+    Enable import of curves and poly lines, that are invisible in the CAD data.
+
+    Note: Only has an effect if import of curves and poly lines is enabled.
+
+    :param import: True to enable import of invisible curves and poly lines, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportInvisibleInstances(import)
+
+    Enable import of invisible instance nodes instead of excluding them.
+
+    :param import: True to enable import of invisible instance nodes, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportInvisibleMeshes(import)
+
+    Enable import of polygon meshes, that are invisible in the CAD file.
+
+    Note: Only has an effect if import of polygon meshes is enabled.
+
+    :param import: True to import invisible polygon meshes, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportInvisibleSurfaces(import)
+
+    Enable import of NURBS surfaces, that are invisible in the CAD file.
+
+    Note: Only has an effect if import of surfaces is enabled.
+
+    :param import: True to enable import of invisible surfaces, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportLayerFolders(import)
+
+    Enable import of layer hierarchies. (Only Alias wire files)
+
+    :param import: True to enable import of layer folders, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportLights(import)
+
+    Enable import of light sources from CAD data. (Only Alias wire files)
+
+    :param import: True to enable import of lights, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportMeshes(import)
+
+    Enable import of polygon meshes.
+
+    :param import: True to enable import of polygon meshes, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportMeshLODs(lodOption)
+
+    Select which mesh LODs should be imported.
+
+    0 - Import all mesh LODs
+
+    1 - Import only mesh with lowest LOD
+
+    2 - Import only mesh with highest LOD
+
+    :param lodOption:
+    :type lodOption: integer
+
+.. py:method:: vrdAtfSettings.setImportMetadata(import)
+
+    Enable import of metadata from CAD data.
+
+    :param import: True to enable import of metadata, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportReferencedFiles(import)
+
+    Enable import of part files referenced by an assembly. If option is disabled a file reference node is created that can be used to import the referenced part later.
+
+    :param import: True to enable import of part files, False to only create file reference nodes.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportSurfaces(import)
+
+    Enable import of NURBS surfaces.
+
+    :param import: True to enable import of surfaces, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportSwitchMaterials(import)
+
+    Enable import of switch shaders from Alias data.
+
+    :param import: True to enable import of switch shaders from Alias files, False to disable. If disabled only the active choice of switch shaders is imported.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportTemplateGeometries(import)
+
+    Enable import of template geometries instead of excluding them. (Only Alias wire files)
+
+    :param import: True to enable import of template geometries, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportTextures(import)
+
+    Enable import of textures from 3MF data.
+
+    :param import: True to enable import of textures, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setImportVariants(import)
+
+    Enable import of variants from CAD data. (Only Alias wire files)
+
+    :param import: True to enable import of variants, False to disable.
+    :type import: bool
+
+.. py:method:: vrdAtfSettings.setJtToolkit(toolkit)
+
+    Select which Jt toolkit should be used for import.
+
+    0 - Parasolid
+
+    1 - Jt Open
+
+    :param toolkit:
+    :type toolkit: integer
+
+.. py:method:: vrdAtfSettings.setKeepNurbs(keep)
+
+    Enable / disable keeping NURBS data instead of deleting it. This option will increase memory usage.
+
+    :param keep: True if empty groups should be removed.
+    :type keep: bool
+
+.. py:method:: vrdAtfSettings.setMaxChordLength(chordLength)
+
+    Set maximum length of a triangle edge in mm. Lower values result in more accurate polygon models but also increase the number of triangles.
+
+    :param chordLength: Maximum chord length in mm.
+    :type chordLength: float
+
+.. py:method:: vrdAtfSettings.setMergeGeometries(merge)
+
+    Enable / disable merging adjacent surfaces with same material into shells.
+
+    :param merge: True if surfaces should be merged.
+    :type merge: bool
+
+.. py:method:: vrdAtfSettings.setMergeSubReferenceMaterials(optimize)
+
+    Determine if duplicate materials, referenced in different files, should be merged into one single material. Materials with same name and identical properties are regarded as duplicates.
+
+    :param optimize: True if duplicate referenced materials shouild be merged otherwise False.
+    :type optimize: bool
+
+.. py:method:: vrdAtfSettings.setModelState(state)
+
+    Select which Inventor model state should be imported.
+
+    :param state: Primary (Default) or Last Active model state.
+    :type state: ModelState
+
+.. py:method:: vrdAtfSettings.setNormalTolerance(tolerance)
+
+    Set the normal tolerance of adjacent triangles in degrees. Lower values result in more accurate polygon models but also increase the number of triangles.
+
+    :param tolerance: Stitiching tolerance in mm.
+    :type tolerance: float
+
+.. py:method:: vrdAtfSettings.setReduceKeyframes(reduce)
+
+    Enable reducing the number of keyframes by removing adjacent keyframes with identical value.
+
+    :param reduce: True if number of keyframes should be reduced, False otherwise.
+    :type reduce: bool
+
+.. py:method:: vrdAtfSettings.setRemoveEmptyGroups(remove)
+
+    Enable / disable removing of groups without children.
+
+    :param remove: True if empty groups should be removed.
+    :type remove: bool
+
+.. py:method:: vrdAtfSettings.setSmartReferenceBehavior(behavior)
+
+    Determine how references to VRED native files are treated in import.
+
+    :param behavior: Enum specifying if smart references found in imported file should be kept or removed
+    :type behavior: SmartReferenceBehavior
+
+.. py:method:: vrdAtfSettings.setSourceReferenceBehavior(behavior)
+
+    Determine how references to files of import file types are treated in import.
+
+    :param behavior: Enum specifying if source references should be created for file references found in the imported files or if no reference nodes at all should be created.
+    :type behavior: SourceReferenceBehavior
+
+.. py:method:: vrdAtfSettings.setStitchingTolerance(tolerance)
+
+    Set tolerance in mm where two adjacent edges are considered to be touching and where they should be stitched together.
+
+    :param tolerance: Stitiching tolerance in mm.
+    :type tolerance: float
+
+.. py:method:: vrdAtfSettings.setUnshareNodes(unshare)
+
+    Enable / Disable conversion of shared node instances to independent nodes.
+
+    :param unshare: True if unsharing nodes should be enabled, False otherwise.
+    :type unshare: bool
+
+.. py:method:: vrdAtfSettings.setUseHealStitch(value)
+
+    :param value:
+    :type value: bool
+
+.. py:method:: vrdAtfSettings.setUseLegacyLoader(useLegacy)
+
+    Option has no effect anymore. All legacy loaders are retired.
+
+    :param useLegacy: Option has no effect anymore.
+    :type useLegacy: bool
+
+.. py:method:: vrdAtfSettings.setUseStitching(stitch)
+
+    Enable / disable stitching of adjacent edges.
+
+    :param stitch: True to enable stitching, False to disable.
+    :type stitch: bool
+
+.. py:method:: vrdAtfSettings.vrdAtfSettings()
+
+    Default constructor.
+
+.. py:method:: vrdAtfSettings.vrdAtfSettings(other)
+   :no-index:
+
+    :param other:
+    :type other: vrdAtfSettings
+

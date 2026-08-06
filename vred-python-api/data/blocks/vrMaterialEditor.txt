@@ -1,0 +1,271 @@
+MODULE vrMaterialEditor (legacy v1 API)
+
+----------------
+vrMaterialEditor
+----------------
+
+Most functions in this module are **deprecated**; use API v2 vrMaterialService and vrdMaterial types instead.
+
+Summary
+=======
+
+Functions:
+    * applyEnvToAllMaterials(mat, name)
+    * applyEnvToAllMaterials(mat)
+    * applyEnvToSelectedNodes(mat, nodes)
+    * applySubstancePresetByIndex(mat, index)
+    * applySubstancePresetByName(mat, name)
+    * applySubstancePresetWithDefaultOutputSizeByIndex(mat, index)
+    * applySubstancePresetWithDefaultOutputSizeByName(mat, name)
+    * clearSubstancePresetCache()
+    * deleteMaterials(nodes)
+    * enableSubstancePresetCache(enabled)
+    * getSelectedMaterials() → list
+    * getSubstanceArchivePath(mat) → string
+    * getSubstancePresets(mat) → list
+    * importMaterialLibraryAndApply(filename)
+    * loadMeasurement(mat, measurementFilePath)
+    * loadSubstanceArchive(mat, archiveFilePath)
+    * loadSubstancePresets(mat, presetsFilePath)
+    * selectMaterial(mat)
+    * selectMaterialByIndex(i)
+    * selectMaterialByName(name)
+    * selectMaterialByNode(id)
+    * selectMaterials(mats)
+    * setMaterialAmbientColor(index, hue, saturation, value)
+    * setMaterialDiffuseColor(index, hue, saturation, value)
+    * setMeasuredCarpaintGlossyAsDiffuseLobes(mat, lobes)
+    * undeleteMaterials(nodes)
+    * updateMaterials()
+    * updateSubstanceMaterial(mat)
+
+.. method:: selectMaterialByIndex(i)
+
+    Selects a material by index.
+
+    :param i: The index.
+    :type i: unsigned integer
+
+.. method:: selectMaterialByNode(id)
+
+    Selects a material by node id.
+
+    :param id: The node id.
+    :type id: unsigned integer
+
+.. method:: selectMaterialByName(name)
+
+    Selects a material by name.
+
+    :param name: The name.
+    :type name: string
+
+.. method:: selectMaterial(mat)
+
+    Selects a material by material id or material pointer.
+
+    :param mat: The pointer to the material or the material id.
+    :type mat: MaterialPtr or unsigned integer
+
+.. method:: selectMaterials(mats)
+
+    Selects multiple materials by a list of material pointers.
+
+    :param mats: The material pointers.
+    :type mats: list of vrMaterialPtrs
+
+.. method:: getSelectedMaterials()
+
+    Returns a list of the selected materials of the group view.
+
+    :return: The list of selected materials.
+    :rtype: list of vrMaterialPtrs
+
+.. method:: setMaterialAmbientColor(index, hue, saturation, value)
+
+    Sets ambient color of a SimpleMaterial or ChunkMaterial by material index.
+
+    :param index: The index of the material.
+    :type index: unsigned integer
+    :param hue: Hue.
+    :type hue: integer
+    :param saturation: Saturation.
+    :type saturation: integer
+    :param value: Value.
+    :type value: integer
+
+.. method:: setMaterialDiffuseColor(index, hue, saturation, value)
+
+    Sets diffuse color of a SimpleMaterial or ChunkMaterial by material index.
+
+    :param index: The index of the material.
+    :type index: unsigned integer
+    :param hue: Hue.
+    :type hue: integer
+    :param saturation: Saturation.
+    :type saturation: integer
+    :param value: Value.
+    :type value: integer
+
+.. method:: setMeasuredCarpaintGlossyAsDiffuseLobes(mat, lobes)
+
+    Sets which glossy lobes of a measured carpaint AXF material are handled as diffuse when rendering with render passes.
+
+    :param mat: The measured material container.
+    :type mat: vrMaterialPtr
+    :param lobes: The number of lobes considered to be diffuse. Default is 0 so only the real diffuse channel is used for the diffuse pass.
+    :type lobes: unsigned integer
+
+.. method:: updateMaterials()
+
+    Updates the material list.
+
+.. method:: applyEnvToSelectedNodes(mat, nodes)
+
+    Applies an environment material to selected nodes.
+
+    :param mat: The pointer to the environment material.
+    :type mat: MaterialPtr
+    :param nodes: List of nodes.
+    :type nodes: list of NodePtr
+
+.. method:: applyEnvToAllMaterials(mat)
+
+    Deprecated: Use vrMaterialService.applyEnvironmentToAllMaterials(environment, name) in API v2.
+
+    Applies an environment material to all materials.
+
+    :param mat: The pointer to the environment material.
+    :type mat: MaterialPtr
+
+.. method:: applyEnvToAllMaterials(mat, mat_name)
+    :no-index:
+
+    Deprecated: Use vrMaterialService.applyEnvironmentToAllMaterials(environment, name) in API v2.
+
+    Applies an environment material to all materials.
+
+    :param mat: The pointer to the environment material.
+    :type mat: MaterialPtr
+    :param mat_name: Replace only environment materials with this name.
+    :type mat_name: string
+
+.. method:: undeleteMaterials(nodes)
+
+    Restores materials from trash.
+
+    :param nodes: List of MaterialGroup or Group nodes in trash.
+    :type nodes: list of NodePtr
+
+.. method:: deleteMaterials(nodes)
+
+    Deletes materials or material groups.
+
+    :param nodes: List of MaterialGroup or Group nodes.
+    :type nodes: list of NodePtr
+
+.. method:: importMaterialLibraryAndApply(filename)
+
+    Loads the specified material library from an .osb file and applies it to the scene.
+
+    :param filename: The path to the material library.
+    :type filename: string
+
+.. method:: loadMeasurement(mat, measurementFilePath)
+
+    Loads a measurement file to the given material.
+
+    :param mat: The pointer to the material. This needs to be an XRiteMeasuredMaterial or OCSMaterial.
+    :type mat: MaterialPtr
+    :param measurementFilePath: The path to the measurement file.
+    :type measurementFilePath: string
+
+.. method:: applySubstancePresetByIndex(mat, index)
+
+    Applies an existing substance preset to the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :param index: The index of the preset. A list of presets can be queried with getSubstancePresets().
+    :type index: integer
+
+.. method:: applySubstancePresetByName(mat, name)
+
+    Applies an existing substance preset to the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :param name: The name of the preset. A list of presets can be queried with getSubstancePresets().
+    :type name: string
+
+.. method:: enableSubstancePresetCache(enabled)
+
+    Enables caching of preset render results. Switching presets will get faster but more memory and disk space is required.
+
+    :param enabled: Enables or disables the caching.
+    :type enabled: bool
+
+.. method:: clearSubstancePresetCache()
+
+    Clears the substance preset cache.
+
+.. method:: loadSubstanceArchive(mat, archiveFilePath)
+
+    Loads a substance archive to the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :param archiveFilePath: The path to a substance archive.
+    :type archiveFilePath: string
+
+.. method:: loadSubstancePresets(mat, presetsFilePath)
+
+    Loads a substance presets file to the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :param presetsFilePath: The path to a substance presets file.
+    :type presetsFilePath: string
+
+.. method:: applySubstancePresetWithDefaultOutputSizeByIndex(mat, index)
+
+    Applies an existing substance preset with default output size to the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :param index: The index of the preset. A list of presets can be queried with getSubstancePresets().
+    :type index: integer
+
+.. method:: applySubstancePresetWithDefaultOutputSizeByName(mat, name)
+
+    Applies an existing substance preset with default output size to the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :param name: The name of the preset. A list of presets can be queried with getSubstancePresets().
+    :type name: string
+
+.. method:: getSubstancePresets(mat)
+
+    Returns the list of presets contained in the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :return: The list of presets.
+    :rtype: list
+
+.. method:: getSubstanceArchivePath(mat)
+
+    Returns the path to the substance archive contained in the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr
+    :return: The path to the substance archive.
+    :rtype: string
+
+.. method:: updateSubstanceMaterial(mat)
+
+    Triggers an update of the given substance material.
+
+    :param mat: The pointer to the material. This needs to be a SubstanceMaterial.
+    :type mat: MaterialPtr

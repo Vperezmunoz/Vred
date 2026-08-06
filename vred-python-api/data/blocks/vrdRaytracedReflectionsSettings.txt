@@ -1,0 +1,74 @@
+-------------------------------
+vrdRaytracedReflectionsSettings
+-------------------------------
+
+.. py:class:: vrdRaytracedReflectionsSettings
+
+(Inherits vrdObject)
+
+This class configures the Raytraced Reflections in Vulkan rendering mode.
+
+Raytraced Reflections uses GPU accelerated ray-tracing to compute glossy and specular reflections on materials.
+
+Because it uses GPU accelerated ray-tracing, it is only available on those graphic cards with ray-tracing support.
+
+Example:
+
+```
+
+     renderSettings = vrRenderSettingsService.getSettings()
+     renderSettings.setUseRaytracedReflections(True)
+     renderSettings.getRaytracedReflectionSettings().setTransparencyLayers(8)
+
+Summary
+=======
+
+Functions:
+    * getReflectGaussianSplats() → bool
+    * getReflectVolumes() → bool
+    * getTransparencyLayers() → integer
+    * setReflectGaussianSplats(value)
+    * setReflectVolumes(value)
+    * setTransparencyLayers(value)
+
+Functions
+=========
+
+.. py:method:: vrdRaytracedReflectionsSettings.getReflectGaussianSplats()
+
+    :return: True if the reflection of gaussian splats is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRaytracedReflectionsSettings.getReflectVolumes()
+
+    :return: True if the reflection of volumes is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRaytracedReflectionsSettings.getTransparencyLayers()
+
+    :return: The maximum number of transparent surfaces that can be intersected by a reflection ray.
+    :rtype: integer
+
+.. py:method:: vrdRaytracedReflectionsSettings.setReflectGaussianSplats(value)
+
+    Enables/Disables the reflection of gaussian splats in the raytraced reflections.
+
+    :param value: True to enable the reflection of gaussian splats, false to disable it.
+    :type value: bool
+
+.. py:method:: vrdRaytracedReflectionsSettings.setReflectVolumes(value)
+
+    Enables/Disables the reflection of volumes in the raytraced reflections.
+
+    :param value: True to enable the reflection of volumes, false to disable it.
+    :type value: bool
+
+.. py:method:: vrdRaytracedReflectionsSettings.setTransparencyLayers(value)
+
+    Sets the maximum number of transparent surfaces that can be intersected by a reflection ray, from front to back.
+
+    Any surfaces behind the specified number of intersections will not be visible in the reflections. Note that fully transparent surfaces are also counted as intersections, and a single transparent object can produce multiple intersections.
+
+    :param value: The maximum number of transparency layers.
+    :type value: integer
+

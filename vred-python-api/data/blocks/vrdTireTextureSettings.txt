@@ -1,0 +1,183 @@
+----------------------
+vrdTireTextureSettings
+----------------------
+
+.. py:class:: vrdTireTextureSettings
+
+(Inherits vrdSceneObject)
+
+This class is used for all tire material texture properties.
+
+Summary
+=======
+
+Functions:
+    * getAnisotropy() → float
+    * getBlendPosition() → float
+    * getMappingCenter() → QVector3D
+    * getMappingRotate() → QVector3D
+    * getMarkingsScale() → float
+    * getMarkingsSize() → float
+    * getProfileRepeat() → float
+    * getProfileWidth() → float
+    * getRepeatUV() → QVector2D
+    * getRotationAxis() → vrTextureTypes.Axis
+    * setAnisotropy(v)
+    * setBlendPosition(v)
+    * setMappingCenter(v)
+    * setMappingRotate(v)
+    * setMarkingsScale(v)
+    * setMarkingsSize(v)
+    * setProfileRepeat(v)
+    * setProfileWidth(v)
+    * setRepeatUV(v)
+    * setRotationAxis(v)
+    * setValuesFromObject()
+
+Functions
+=========
+
+.. py:method:: vrdTireTextureSettings.getAnisotropy()
+
+    Gets the texture filter quality for the tire image textures. A value of 1 sets the lowest quality and 16 is the highest quality.
+
+    :return: The current value for the texture filter quality for the image texture.
+    :rtype: float
+
+.. py:method:: vrdTireTextureSettings.getBlendPosition()
+
+    Gets the marking and profile texture blend position.
+
+    :return: The current value for the marking and profile texture blend position.
+    :rtype: float
+
+.. py:method:: vrdTireTextureSettings.getMappingCenter()
+
+    Gets the tire projection center.
+
+    :return: The current value for tire projection center.
+    :rtype: QVector3D
+
+.. py:method:: vrdTireTextureSettings.getMappingRotate()
+
+    Gets the tire projection rotation when using Custom rotation axis.
+
+    :return: Euler rotation angles in degrees (XYZ rotation order).
+    :rtype: QVector3D
+
+.. py:method:: vrdTireTextureSettings.getMarkingsScale()
+
+    Gets the texture scale value for the marking texture.
+
+    :return: The current value for the texture scale.
+    :rtype: float
+
+.. py:method:: vrdTireTextureSettings.getMarkingsSize()
+
+    Gets the texture size value for the marking texture.
+
+    :return: The current value for the texture scale.
+    :rtype: float
+
+.. py:method:: vrdTireTextureSettings.getProfileRepeat()
+
+    Gets the texture scale value for the profile texture.
+
+    :return: The current value for the texture scale.
+    :rtype: float
+
+.. py:method:: vrdTireTextureSettings.getProfileWidth()
+
+    Gets the texture scale value for the profile texture.
+
+    :return: The current value for the texture scale.
+    :rtype: float
+
+.. py:method:: vrdTireTextureSettings.getRepeatUV()
+
+    Gets the U and V repetition of the profile texture.
+
+    :return: The current value for the U and V repetition of the profile texture.
+    :rtype: QVector2D
+
+.. py:method:: vrdTireTextureSettings.getRotationAxis()
+
+    Gets the rotation axis.
+
+    :return: Current rotation axis.
+    :rtype: vrTextureTypes.Axis
+
+.. py:method:: vrdTireTextureSettings.setAnisotropy(v)
+
+    Sets the texture filter quality for the tire image textures. A value of 1 sets the lowest quality and 16 is the highest quality.
+
+    :param v: The new value for the texture filter quality for the image texture.
+    :type v: float
+
+.. py:method:: vrdTireTextureSettings.setBlendPosition(v)
+
+    Sets the marking and profile texture blend position.
+
+    :param v: The new value for the marking and profile texture blend position.
+    :type v: float
+
+.. py:method:: vrdTireTextureSettings.setMappingCenter(v)
+
+    Sets the tire projection center. To center the projection pivot automatically, use setValuesFromObject.
+
+    :param v: The new value for projection center.
+    :type v: QVector3D
+
+.. py:method:: vrdTireTextureSettings.setMappingRotate(v)
+
+    Sets the tire projection rotation when using Custom rotation axis.
+
+    :param v: Euler angles in degrees (XYZ rotation order).
+    :type v: QVector3D
+
+.. py:method:: vrdTireTextureSettings.setMarkingsScale(v)
+
+    Sets the texture scale value for the marking texture.
+
+    :param v: The new value for the texture scale.
+    :type v: float
+
+.. py:method:: vrdTireTextureSettings.setMarkingsSize(v)
+
+    Sets the texture size value for the marking texture.
+
+    :param v: The new value for the texture scale.
+    :type v: float
+
+.. py:method:: vrdTireTextureSettings.setProfileRepeat(v)
+
+    Sets the texture scale value for the profile texture.
+
+    :param v: The new value for the texture scale.
+    :type v: float
+
+.. py:method:: vrdTireTextureSettings.setProfileWidth(v)
+
+    Sets the texture width value for the profile texture.
+
+    :param v: The new value for the texture scale.
+    :type v: float
+
+.. py:method:: vrdTireTextureSettings.setRepeatUV(v)
+
+    Sets the U and V repetition of the profile texture.
+
+    :param v: The new value for the U and V repetition of the profile texture.
+    :type v: QVector2D
+
+.. py:method:: vrdTireTextureSettings.setRotationAxis(v)
+
+    Sets the rotation axis.
+
+    :param v: New rotation axis.
+    :type v: vrTextureTypes.Axis
+
+.. py:method:: vrdTireTextureSettings.setValuesFromObject()
+
+    Attempts to guess the correct Rotation Axis, Center, Markings Size, and Profile Width from the bounding box of the object selected in scene graph.
+

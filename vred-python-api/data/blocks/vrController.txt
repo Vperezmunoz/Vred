@@ -1,0 +1,527 @@
+MODULE vrController (legacy v1 API)
+
+------------
+vrController
+------------
+
+.. module:: vrController
+
+Summary
+=======
+
+Functions:
+    * addExtProcWindow(exe_name, window_name)
+    * addModule(name, menu)
+    * centerMainWindow()
+    * changeScenegraph()
+    * clearUndoStack()
+    * closeStreams()
+    * crashVred(type)
+    * destroyScene()
+    * enableSimulation(state)
+    * geterrno() → int
+    * getIdleTime() → int
+    * getPresenterMode() → bool
+    * getSimulationTime() → float
+    * getUnitScale() → float
+    * getVredBuildDate() → string
+    * getVredDisplayVersionYear() → string
+    * getVredVersion() → string
+    * getVredVersions() → string
+    * getVredVersionYear() → string
+    * getVRender() → bool
+    * getVServerImagePath() → string
+    * getVServerState() → int
+    * getSupportedVideoEncoders() → list
+    * hideModule(name)
+    * isViewer() → bool
+    * newScene()
+    * reseterrno()
+    * setEnvironmentVariable(name, value)
+    * setLogEnabled(s)
+    * setNewSceneCB(fp)
+    * setPresenterMode(s)
+    * setRenderUpdateEnabled(state)
+    * setShowQuickActionBars(state)
+    * setShowSurfaceAnalysisModule(show)
+    * setUnitScale(scale)
+    * setViewerActiveXFixedHeight(height)
+    * setViewerActiveXFixedWidth(width)
+    * setViewerActiveXWidth(width)
+    * setVREDPresenterWebViewFixedHeight(height)
+    * setVREDPresenterWebViewFixedWidth(width)
+    * setVREDPresenterWebViewWidth(width)
+    * setVRender(state)
+    * setVServerImagePath(path)
+    * setVServerState(state)
+    * setWIMergeCommands()
+    * showLicenseDialog()
+    * showModule(name)
+    * showToolBars(state)
+    * subModule(name)
+    * terminateVred()
+    * togglePresenterMode()
+    * updateRender(force=False)
+    * updateRenderNoOCC(force=False)
+    * updateScene()
+    * updateTouchSensors()
+    * vred_click(x, y)
+    * vred_mousedown(x, y)
+    * vred_mouseup(x, y)
+    * vred_swipemove(x, y)
+    * vredLoop(count)
+    * vrLogError(nr, text)
+    * vrLogError(text)
+    * vrLogInfo(nr, text)
+    * vrLogInfo(text)
+    * vrLogWarning(nr, text)
+    * vrLogWarning(text)
+    * writeTerminalOutput(filename)
+
+.. function:: setNewSceneCB(fp)
+
+    Sets a Python callback function which is called before executing newScene.
+
+    :param fp: The Python function.
+    :type fp: function pointer
+
+.. function:: newScene()
+
+    Creates a new scene and destroys the current scene.
+
+.. function:: destroyScene()
+
+    Destroys the current scene.
+
+.. function:: updateScene()
+
+    Calculates new near/far clipping plane and new camera position.
+
+.. function:: updateRender(force=False)
+
+    Redraws the render widget.
+
+    :param force: Set true to update the render widget immediately, false otherwise (Optional). Default is false.
+    :type force: bool
+
+.. function:: updateRenderNoOCC(force=False)
+
+    Redraws the render widget. This function is obsolete, use updateRender instead.
+
+    :param force: Set true to update the render widget immediately, false otherwise (Optional). Default is false.
+    :type force: bool
+
+.. function:: setRenderUpdateEnabled(state)
+
+    Enables or disables the main render window update.
+
+    :param state: Main render window update: On/Off.
+    :type state: bool
+
+.. function:: getSimulationTime() → float
+
+    Returns the simulation time in seconds.
+
+    :return: The simulation time.
+    :rtype: float (64bit)
+
+.. function:: changeScenegraph()
+
+    Emits a scenegraph changed message.
+
+.. function:: enableSimulation(state)
+
+    Enables/disables global simulation.
+
+    :param state: Global simulation: On/Off.
+    :type state: bool
+
+.. function:: showToolBars(state)
+
+    Shows or hides the main window toolbars.
+
+    :param state: Main window toolbars: -1 = Toggle, 0 = Off, 1 = On.
+    :type state: integer
+
+.. function:: isViewer() → bool
+
+    Returns true when running VREDPresenter.
+
+    :return: true for viewer.
+    :rtype: bool
+
+.. function:: setViewerActiveXWidth(width)
+
+    Changes the width of the VREDPresenter webview widget.
+
+    :param width: The width in pixels.
+    :type width: int (32bit)
+
+.. function:: setViewerActiveXFixedWidth(width)
+
+    Changes the width of the VREDPresenter webview widget and disables horizontal resizing.
+
+    :param width: The width in pixels.
+    :type width: int (32bit)
+
+.. function:: setViewerActiveXFixedHeight(height)
+
+    Changes the height of the VREDPresenter webview widget and disables vertical resizing.
+
+    :param height: The height in pixels.
+    :type height: int (32bit)
+
+.. function:: getSupportedVideoEncoders() → list
+
+    Return a list of supported video encoders.
+
+    :return: list of encoders.
+    :rtype: list of string
+
+.. function:: setLogEnabled(s)
+
+    Enable or disable terminal logging.
+
+    :param s: state true or false.
+    :type s: bool
+
+.. function:: setVREDPresenterWebViewWidth(width)
+
+    Changes the width of the VREDPresenter webview widget.
+
+    :param width: The width in pixels.
+    :type width: int (32bit)
+
+.. function:: setVREDPresenterWebViewFixedWidth(width)
+
+    Changes the width of the VREDPresenter webview widget and disables horizontal resizing.
+
+    :param width: The width in pixels.
+    :type width: int (32bit)
+
+.. function:: setVREDPresenterWebViewFixedHeight(height)
+
+    Changes the height of the VREDPresenter webview widget and disables vertical resizing.
+
+    :param height: The height in pixels.
+    :type height: int (32bit)
+
+.. function:: terminateVred()
+
+    Terminates VRED.
+
+.. function:: crashVred(type)
+
+    Crashes VRED.
+
+    :param type: The type of crash.
+    :type type: int
+
+.. function:: getVredVersion() → string
+
+    Returns the VRED version number.
+
+    :return: Version number.
+    :rtype: string
+
+.. function:: getVredVersions() → string
+
+    Returns the VRED version number.
+
+    :return: Version number.
+    :rtype: string
+
+.. function:: getVredVersionYear() → string
+
+    Returns the VRED year version.
+
+    :return: Year number.
+    :rtype: string
+
+.. function:: getVredDisplayVersionYear() → string
+
+    Returns the VRED display year version.
+
+    :return: Year number.
+    :rtype: string
+
+.. function:: getVredBuildDate() → string
+
+    Returns the VRED build date.
+
+    :return: The VRED build date.
+    :rtype: string
+
+.. function:: vredLoop(count)
+
+    Calls the internal timer loop n times.
+
+    :param count: The number of calls.
+    :type count: unsigned int (32bit)
+
+.. function:: setUnitScale(scale)
+
+    Sets the unit scale factor.
+
+    :param scale: The scale factor. 1.0 for mm, 10.0 for cm and 1000.0 for m.
+    :type scale: float
+
+.. function:: getUnitScale() → float
+
+    Returns the unit scale factor.
+
+    :return: The scale factor.
+    :rtype: float
+
+.. function:: setVServerImagePath(path)
+
+    Sets the VServer image path.
+
+    :param path: The image path.
+    :type path: string
+
+.. function:: getVServerImagePath() → string
+
+    Returns the VServer image path.
+
+    :return: The VServer image path.
+    :rtype: string
+
+.. function:: setVServerState(state)
+
+    Sets the VServer state.
+
+    :param state: The VServer state.
+    :type state: int
+
+.. function:: getVServerState() → int
+
+    Returns the VServer state.
+
+    :return: The VServer state.
+    :rtype: int
+
+.. function:: setEnvironmentVariable(name, value)
+
+    Sets an environment variable.
+
+    :param name: The name of the variable.
+    :type name: string
+    :param value: The value of the variable.
+    :type value: string
+
+.. function:: setVRender(state)
+
+    Enables VRender mode.
+
+    :param state: The VRender mode: On/Off.
+    :type state: bool
+
+.. function:: getVRender() → bool
+
+    Returns the state of the VRender mode.
+
+    :return: The state of the VRender mode.
+    :rtype: bool
+
+.. function:: getIdleTime() → int
+
+    Returns the idle time.
+
+    :return: The idle time.
+    :rtype: int
+
+.. function:: writeTerminalOutput(filename)
+
+    Writes the terminal output as HTML.
+
+    :param filename: The absolute path of the .html file.
+    :type filename: string
+
+.. function:: addExtProcWindow(exe_name, window_name)
+
+    Adds an external process window on top of the render window.
+
+    :param exe_name: The name of the executable.
+    :type exe_name: string
+    :param window_name: The name of the window.
+    :type window_name: string
+
+.. function:: setShowQuickActionBars(state)
+
+    Shows or hides all quick action bars.
+
+    :param state: Visible state.
+    :type state: bool
+
+.. function:: setShowSurfaceAnalysisModule(show)
+
+    Shows or hides the Surface Analysis module in VREDPresenter.
+
+    :param show: Show/hide Surface Analysis module.
+    :type show: bool
+
+.. function:: setPresenterMode(s)
+
+    Enables VRED's presentation mode. Only hotkeys from the Variants Sets module will work in this mode.
+
+    :param s: Enable/disable.
+    :type s: bool
+
+.. function:: getPresenterMode() → bool
+
+    Returns true if VRED's presentation mode is currently enabled, otherwise false.
+
+    :return: Presentation mode state.
+    :rtype: bool
+
+.. function:: togglePresenterMode()
+
+    Toggles VRED's presentation mode state.
+
+.. function:: clearUndoStack()
+
+    Clears the undo/redo stack.
+
+.. function:: showLicenseDialog()
+
+    Shows the license dialog.
+
+.. function:: vred_mousedown(x, y)
+
+    Simulates a mouse button-down event for the left mouse button.
+
+    :param x: X coordinate.
+    :type x: int
+    :param y: Y coordinate.
+    :type y: int
+
+.. function:: vred_mouseup(x, y)
+
+    Simulates a mouse button-up event for the left mouse button.
+
+    :param x: X coordinate.
+    :type x: int
+    :param y: Y coordinate.
+    :type y: int
+
+.. function:: vred_click(x, y)
+
+    Deprecated.
+
+.. function:: vred_swipemove(x, y)
+
+    Simulates a mouse button move event for the left mouse button.
+
+    :param x: X coordinate.
+    :type x: int
+    :param y: Y coordinate.
+    :type y: int
+
+.. function:: closeStreams()
+
+    Closes all open VRED streams.
+
+.. function:: setWIMergeCommands()
+
+    Merges duplicated Python commands.
+
+.. function:: reseterrno()
+
+    Resets the errno variable.
+
+.. function:: geterrno() → int
+
+    Returns the errno value.
+
+    :return: The errno value.
+    :rtype: int
+
+.. function:: addModule(name, menu)
+
+    Adds a custom Python module plugin.
+
+    :param name: Name of the module.
+    :type name: string
+    :param menu: Name of the menu where the plugin is inserted.
+    :type menu: string
+
+.. function:: subModule(name)
+
+    Removes a custom Python module plugin.
+
+    :param name: Name of the module.
+    :type name: string
+
+.. function:: showModule(name)
+
+    Shows a custom Python module plugin.
+
+    :param name: Name of the module.
+    :type name: string
+
+.. function:: hideModule(name)
+
+    Hides a custom Python module plugin.
+
+    :param name: Name of the module.
+    :type name: string
+
+.. function:: updateTouchSensors()
+
+    Updates the touch sensor user interface.
+
+.. function:: centerMainWindow()
+
+    Centers the main window on the screen.
+
+.. function:: vrLogInfo(text)
+
+    Displays a message of type info in the log window (below the render window).
+
+    :param text: The text to display.
+    :type text: string
+
+.. function:: vrLogInfo(nr, text)
+    :no-index:
+
+    Displays a message of type info in the log window (below the render window).
+
+    :param nr: The error number.
+    :type nr: integer
+    :param text: The text to display.
+    :type text: string
+
+.. function:: vrLogWarning(text)
+
+    Displays a message of type warning in the log window (below the render window).
+
+    :param text: The text to display.
+    :type text: string
+
+.. function:: vrLogWarning(nr, text)
+    :no-index:
+
+    Displays a message of type warning in the log window (below the render window).
+
+    :param nr: The error number.
+    :type nr: integer
+    :param text: The text to display.
+    :type text: string
+
+.. function:: vrLogError(text)
+
+    Displays a message of type error in the log window (below the render window).
+
+    :param text: The text to display.
+    :type text: string
+
+.. function:: vrLogError(nr, text)
+    :no-index:
+
+    Displays a message of type error in the log window (below the render window).
+
+    :param nr: The error number.
+    :type nr: integer
+    :param text: The text to display.
+    :type text: string

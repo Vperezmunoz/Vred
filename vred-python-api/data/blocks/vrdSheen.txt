@@ -1,0 +1,106 @@
+--------
+vrdSheen
+--------
+
+.. py:class:: vrdSheen
+
+(Inherits vrdSceneObject)
+
+This class is used for sheen properties.
+
+Summary
+=======
+
+Functions:
+    * getColor() → QVector3D
+    * getColorSpectrum() → vrSpectrum
+    * getEnabled() → bool
+    * getRoughness() → float
+    * getTexture() → vrdTexture
+    * getWeight() → float
+    * setColor(value)
+    * setColorSpectrum(value)
+    * setEnabled(enabled)
+    * setRoughness(value)
+    * setWeight(value)
+
+Functions
+=========
+
+.. py:method:: vrdSheen.getColor()
+
+    Gets the color of the sheen.
+
+    :return: Current used value of sheen color.
+    :rtype: QVector3D
+
+.. py:method:: vrdSheen.getColorSpectrum()
+
+    Gets the spectrum of the sheen color.
+
+    :return: The current used spectrum for sheen color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdSheen.getEnabled()
+
+    Returns the current sheen state.
+
+    :return: True if sheen is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSheen.getRoughness()
+
+    Gets value of sheen roughness.
+
+    :return: Current value of sheen roughness.
+    :rtype: float
+
+.. py:method:: vrdSheen.getTexture()
+
+    Gets access to all properties of         vrdTexture for the sheen color texture.
+
+    :return: All properties of vrdTexture for the sheen color texture.
+    :rtype: vrdTexture
+
+.. py:method:: vrdSheen.getWeight()
+
+    Gets the weight of the sheen layer.
+
+    :return: Current used value for the weight
+    :rtype: float
+
+.. py:method:: vrdSheen.setColor(value)
+
+    Sets the color of the sheen.
+
+    :param value: New value of sheen color.
+    :type value: QVector3D
+
+.. py:method:: vrdSheen.setColorSpectrum(value)
+
+    Sets the spectrum of the sheen color.
+
+    :param value: New spectrum for sheen color
+    :type value: vrSpectrum
+
+.. py:method:: vrdSheen.setEnabled(enabled)
+
+    Enables / disables sheen.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrdSheen.setRoughness(value)
+
+    Controls the variations of the sheen fibers. The higher the value, the more random the micro fibers of the microscopic structure of the surface. The lower the value, the more regular the micro fibers of the microscopic structure of the surface.
+
+    :param value: New value for sheen roughness.
+    :type value: float
+
+.. py:method:: vrdSheen.setWeight(value)
+
+    Sets the weight of the sheen layer.
+
+    :param value: New value for the weight
+    :type value: float
+

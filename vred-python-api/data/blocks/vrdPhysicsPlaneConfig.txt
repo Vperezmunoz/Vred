@@ -1,0 +1,31 @@
+---------------------
+vrdPhysicsPlaneConfig
+---------------------
+
+.. py:class:: vrdPhysicsPlaneConfig
+
+(Inherits vrdPhysicsConfig)
+
+The configuration class for PhysX plane colliders.
+
+Summary
+=======
+
+Functions:
+    * vrdPhysicsPlaneConfig()
+    * vrdPhysicsPlaneConfig(other)
+    * ~vrdPhysicsPlaneConfig()
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsPlaneConfig.vrdPhysicsPlaneConfig()
+
+.. py:method:: vrdPhysicsPlaneConfig.vrdPhysicsPlaneConfig(other)
+   :no-index:
+
+    :param other:
+    :type other: vrdPhysicsPlaneConfig
+
+.. py:method:: vrdPhysicsPlaneConfig.~vrdPhysicsPlaneConfig()
+

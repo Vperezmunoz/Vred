@@ -1,0 +1,179 @@
+--------------------
+vrdMaterialXMaterial
+--------------------
+
+.. py:class:: vrdMaterialXMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all MaterialX based material properties.
+
+    .. py:class:: CompilationType
+
+        Defines the method used to compile the material for Raytracing.
+
+            .. py:data:: InstanceCompilation
+
+                The material is compiled and optimized specifically for its current attribute values. Any MaterialX attribute change (e.g. color) triggers a recompile. Initial material compilation is usually faster with InstanceCompilation than with ClassCompilation.
+
+            .. py:data:: ClassCompilation
+
+                The material is compiled with its attributes as runtime parameters. Changing MaterialX attributes (e.g. colors) does not trigger a recompile, making interactive editing faster at the cost of lower render performance. Initial material compilation usually takes longer with ClassCompilation than with InstanceCompilation.
+
+Summary
+=======
+
+Functions:
+    * getActiveAttributeGroups() → List[vrdAttributeGroup]
+    * getActiveMaterialName() → string
+    * getActiveMaterialProperty(parameterId) → QVariant
+    * getCompilationType() → vrdMaterialXMaterial.CompilationType
+    * getMaterialIndex() → integer
+    * getPath() → string
+    * getProperties() → vrdMaterialXProperties
+    * getUseCutoutTransparency() → bool
+    * getUseScreenSpaceRefractions() → bool
+    * hasData() → bool
+    * isDataValid() → bool
+    * loadMaterial(path, index) → bool
+    * resetMaterial()
+    * setActiveMaterialProperty(parameterId, value)
+    * setCompilationType(compilationType)
+    * setUseCutoutTransparency(value)
+    * setUseScreenSpaceRefractions(value)
+
+Functions
+=========
+
+.. py:method:: vrdMaterialXMaterial.getActiveAttributeGroups()
+
+    Gets access to all vrdAttributeGroup objects.
+
+    :return: All vrdAttributeGroup objects
+    :rtype: List[vrdAttributeGroup]
+
+.. py:method:: vrdMaterialXMaterial.getActiveMaterialName()
+
+    Gets the name of the active material.
+
+    :return: The name of the material.
+    :rtype: string
+
+.. py:method:: vrdMaterialXMaterial.getActiveMaterialProperty(parameterId)
+
+    Query the value of a MaterialX property in the active material.
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :return: The value for this property
+    :rtype: QVariant
+
+.. py:method:: vrdMaterialXMaterial.getCompilationType()
+
+    Gets the material compilation type. See         vrdMaterialXMaterial.CompilationType for more information.
+
+    :return: The current compilation type.
+    :rtype: vrdMaterialXMaterial.CompilationType
+
+.. py:method:: vrdMaterialXMaterial.getMaterialIndex()
+
+    Gets the index of the material in the MaterialX Document. For the first material it is zero.
+
+    :return: The index of the loaded material.
+    :rtype: integer
+
+.. py:method:: vrdMaterialXMaterial.getPath()
+
+    Get the path of the underlying MaterialX Document.
+
+    :return: The path of the underlying MaterialX Document.
+    :rtype: string
+
+.. py:method:: vrdMaterialXMaterial.getProperties()
+
+    Returns a list of all properties.
+
+    :return: The list of all properties.
+    :rtype: vrdMaterialXProperties
+
+.. py:method:: vrdMaterialXMaterial.getUseCutoutTransparency()
+
+    :return: If cutout transparency is used.
+    :rtype: bool
+
+.. py:method:: vrdMaterialXMaterial.getUseScreenSpaceRefractions()
+
+    :return: If screen space refractions are used.
+    :rtype: bool
+
+.. py:method:: vrdMaterialXMaterial.hasData()
+
+    Check if a MaterialX Document was successfully loaded.
+
+    :return: True, if MaterialX data is available.
+    :rtype: bool
+
+.. py:method:: vrdMaterialXMaterial.isDataValid()
+
+    Check if a MaterialX Document is valid.
+
+    :return: True, if MaterialX data is valid.
+    :rtype: bool
+
+.. py:method:: vrdMaterialXMaterial.loadMaterial(path, index)
+
+    Load a MaterialX to this material.
+
+    :param path: The path for the MaterialX Document.
+    :type path: string
+
+    :param index: The index of the material in the MaterialX Document to load.
+    :type index: integer
+
+    :return: True, if the MaterialX was successfully loaded.
+    :rtype: bool
+
+.. py:method:: vrdMaterialXMaterial.resetMaterial()
+
+    Resets a material to its default state.
+
+.. py:method:: vrdMaterialXMaterial.setActiveMaterialProperty(parameterId, value)
+
+    Sets a MaterialX property for the active material.
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :param value: New value for the property
+    :type value: QVariant
+
+.. py:method:: vrdMaterialXMaterial.setCompilationType(compilationType)
+
+    Sets the material compilation type. See         vrdMaterialXMaterial.CompilationType for more information.
+
+    :param compilationType: The new compilation type.
+    :type compilationType: vrdMaterialXMaterial.CompilationType
+
+.. py:method:: vrdMaterialXMaterial.setUseCutoutTransparency(value)
+
+    Enables cutout transparency for the material.
+
+    Useful for rendering materials with opacity masks, such as foliage or grates.
+
+    When enabled, transparency is handled in a binary way: opacity values less than or equal to 0.5 are treated as fully transparent, while values above 0.5 are treated as opaque.
+
+    Cutout enables the opaque parts of the material to cast shadows in the rasterizer. It also allows proper sorting in OpenGL in 'Object Sorting' transparency mode, and can improve raytracing performance when rendering foliage or similar scenes.
+
+    This option does not affect glass-like transmission behavior.
+
+    :param value: New state.
+    :type value: bool
+
+.. py:method:: vrdMaterialXMaterial.setUseScreenSpaceRefractions(value)
+
+    Enable or disable the use of screen space refractions (only supported in Vulkan rendering mode).
+
+    :param value: New state.
+    :type value: bool
+

@@ -1,0 +1,541 @@
+MODULE vrOptimize (legacy v1 API)
+
+----------
+vrOptimize
+----------
+
+The vrOptimize module allows optimizing the representation of the graphical scene to speed up rendering.
+
+Example::
+
+    See also example optimize.py
+
+Summary
+=======
+
+Functions:
+    * cleanupGroupNodes(root_node)
+    * cleanupGroupNodes(root_node, recursive)
+    * createMultiMaterials(root_node)
+    * createOcTree(root_node)
+    * flushMaterialGroups(root_node)
+    * flushMaterialGroups(root_node, remove_node)
+    * flushRotations(root_node)
+    * flushScales(root_node)
+    * flushSelectedTransformation(node)
+    * flushTexGen(root_node)
+    * flushTexTransform(root_node)
+    * flushTransformations(root_node)
+    * flushTransformationsKeepFaceNormals(root_node)
+    * flushTranslations(root_node)
+    * measureCacheEfficiency(root_node, cache_size)
+    * mergeGeometry(root_node)
+    * optimizeGeometry(root_node)
+    * optimizeGeometry(root_node, strips, fans, stitches)
+    * optimizeIndices(root_node)
+    * optimizeMaterials(root_node)
+    * optimizeMaterials(root_node, keep_unreferenced)
+    * optimizeTree(options)
+    * optimizeTree(root_node, options)
+    * removeAnimations(root_node)
+    * removeBSides(root_node)
+    * removeDegPolys(root_node)
+    * removeEmptyGeometries(root_node)
+    * removeEmptyShells(root_node)
+    * removeFrozenTextureTransforms(root_node)
+    * removeIdentityTransforms(root_node)
+    * removeInvalidTexCoords(root_node)
+    * removeLimits(root_node)
+    * removeLines(root_node)
+    * removeLODNodes(root_node)
+    * removeMaterialGroups(root_node)
+    * removeMetadata(root_node)
+    * removeNURBS(root_node)
+    * removePoints(root_node)
+    * removeSwitchNodes(root_node)
+    * removeTransformNodesWithNoChildren(root_node)
+    * removeTransformVariants(root_node)
+    * removeUnusedMaterials()
+    * separateGeoProperties(root_node)
+    * shareGeometries(root_node)
+    * shareGeometries(root_node, checkWorldMatrix)
+    * shareImages()
+    * sharePtrs(root_node, types)
+    * sortIndices(root_node)
+    * tipsifyIndices(root_node)
+    * tipsifyIndices(root_node, cache_size)
+    * triangulate(root_node, recreateAllProperties)
+    * unflushMaterialGroups(root_node)
+    * unifyVertices(root_node)
+    * verifyGeometry(root_node)
+
+Variables:
+    - OptimizeCleanUpGroupNodes = 8
+    - OptimizeCreateFans = 256
+    - OptimizeCreateStitches = 512
+    - OptimizeCreateStrips = 128
+    - OptimizeDeepTriangulate = 16384
+    - OptimizeFlushMaterialGroupNodes = 16
+    - OptimizeFlushSelectedTransformation = 1152921504606846976
+    - OptimizeFlushTexGen = 131072
+    - OptimizeFlushTexTransform = 262144
+    - OptimizeFlushTransformationNodes = 4
+    - OptimizeFlushTransformationNodesKeepFaceNormals = 562949953421312
+    - OptimizeFlushTransformationRotations = 36028797018963968
+    - OptimizeFlushTransformationScales = 72057594037927936
+    - OptimizeFlushTransformationTranslations = 18014398509481984
+    - OptimizeIndices = 140737488355328
+    - OptimizeMaterials = 64
+    - OptimizeMergeGeometryNodes = 2
+    - OptimizeNothing = 1
+    - OptimizeOctree = 524288
+    - OptimizeReduction16BitIndices = 17179869184
+    - OptimizeReduction16BitLengths = 34359738368
+    - OptimizeReductionByteNormals = 8589934592
+    - OptimizeRemoveAnimations = 65536
+    - OptimizeRemoveBSides = 9007199254740992
+    - OptimizeRemoveDegPolys = 32768
+    - OptimizeRemoveEmptyGeometries = 274877906944
+    - OptimizeRemoveEmptyGroupNodes = 137438953472
+    - OptimizeRemoveEmptyShells = 549755813888
+    - OptimizeRemoveFileInfo = 4503599627370496
+    - OptimizeRemoveFrozenTextureTransforms = 4611686018427387904
+    - OptimizeRemoveLODs = 1024
+    - OptimizeRemoveLODsKeepWorst = 1125899906842624
+    - OptimizeRemoveLines = 4096
+    - OptimizeRemoveMaterialGroupNodes = 68719476736
+    - OptimizeRemoveMetadata = 2251799813685248
+    - OptimizeRemovePoints = 2048
+    - OptimizeRemoveSwitches = 4294967296
+    - OptimizeRemoveTexCoord1 = 8388608
+    - OptimizeRemoveTexCoord2 = 16777216
+    - OptimizeRemoveTexCoord3 = 33554432
+    - OptimizeRemoveTexCoord4 = 67108864
+    - OptimizeRemoveTextureCoordinates = 8388608
+    - OptimizeRemoveTextureCoordinates1 = 16777216
+    - OptimizeRemoveTextureCoordinates2 = 33554432
+    - OptimizeRemoveTextureCoordinates3 = 67108864
+    - OptimizeRemoveTextureCoordinates4 = 4398046511104
+    - OptimizeRemoveTextureCoordinates5 = 8796093022208
+    - OptimizeRemoveTextureCoordinates6 = 17592186044416
+    - OptimizeRemoveTextureCoordinates7 = 35184372088832
+    - OptimizeRemoveTransformVariants = 2305843009213693952
+    - OptimizeRemoveVertexColor = 2097152
+    - OptimizeRemoveVertexNormals = 1048576
+    - OptimizeRemoveVertexSecondaryColor = 4194304
+    - OptimizeShareBlendChunks = 2147483648
+    - OptimizeShareGeometries = 134217728
+    - OptimizeShareGeometryProperties = 268435456
+    - OptimizeShareMaterials = 536870912
+    - OptimizeShareTextures = 1073741824
+    - OptimizeSortIndices = 2199023255552
+    - OptimizeTriangulate = 8192
+    - OptimizeUnflushMaterialGroupNodes = 1099511627776
+    - OptimizeUnifyVertices = 32
+    - RemoveIdentityTransforms = 70368744177664
+    - RemoveInvalidTexCoords = 281474976710656
+
+.. method:: createMultiMaterials(root_node)
+
+    Create multi-materials for a given subgraph.
+
+    :param root_node: The root node of the subgraph to create multi-materials for.
+    :type root_node: NodePtr
+
+.. method:: removePoints(root_node)
+
+    Remove point geometries from the scene representation.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeLines(root_node)
+
+    Remove line geometries from the scene representation.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeLODNodes(root_node)
+
+    Remove LOD nodes. Removes the lower resolution children of all LOD nodes and keeps only the highest resolution LOD within the scene. Rendering performance may drop but the model will utilize less memory.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeSwitchNodes(root_node)
+
+    Remove Switch nodes from a given subgraph.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeNURBS(root_node)
+
+    Remove the NURBS information of the selected Node hierarchy. All surfaces and shell nodes are converted to meshes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: sharePtrs(root_node, types)
+
+    Share pointers. Eliminates all duplicate entities from the scene and replaces them with references. Saves a lot of memory.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param types: The list of types e.g. TextureChunk, Image.
+    :type types: list of strings
+
+.. method:: flushTransformations(root_node)
+
+    Flush transformations. All transformations will be applied to the geometry nodes on the lowest level of the selected sub-tree. Afterwards, all transform nodes will be identity transforms.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: flushTransformationsKeepFaceNormals(root_node)
+
+    Flush transformations. All transformations will be applied to the geometry nodes on the lowest level of the selected sub-tree. Afterwards, all transform nodes will be identity transforms. Doesn't change the face normals for mirror transform parents.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: flushTranslations(root_node)
+
+    Moves translation-related transform information of the selected sub-tree to the geometry nodes on the lowest level.
+
+    :param root_node: The root node of the sub-tree.
+    :type root_node: NodePtr
+
+.. method:: flushRotations(root_node)
+
+    Moves rotation-related transform information of the selected sub-tree to the geometry nodes on the lowest level.
+
+    :param root_node: The root node of the sub-tree.
+    :type root_node: NodePtr
+
+.. method:: flushScales(root_node)
+
+    Moves scale-related transform information of the selected sub-tree to the geometry nodes on the lowest level.
+
+    :param root_node: The root node of the sub-tree.
+    :type root_node: NodePtr
+
+.. method:: flushSelectedTransformation(node)
+
+    Moves transformation of the selected node to the geometry nodes on the lowest level.
+
+    :param node: The node to be flushed.
+    :type node: NodePtr
+
+.. method:: flushTexGen(root_node)
+
+    Flush gen funcs. All TexGenChunks will be removed and appropriate texture coordinates will be calculated.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: flushTexTransform(root_node)
+
+    Flush texture transformations. All texture transformations will be multiplied onto the texture coordinates and deleted afterwards.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeDegPolys(root_node)
+
+    Degenerated Polygons (covering an area of size 0) will be removed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: flushMaterialGroups(root_node)
+
+    The materials of a MaterialGroup will be flushed into the underlying geometries and the MaterialGroups will be transformed into group nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: flushMaterialGroups(root_node, remove_node)
+    :no-index:
+
+    The materials of a MaterialGroup will be flushed into the underlying geometries and the MaterialGroups will be transformed into group nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param remove_node: If true, the MaterialGroup nodes will be removed.
+    :type remove_node: bool
+
+.. method:: unflushMaterialGroups(root_node)
+
+    The materials within a geometry will be removed, instead a MaterialGroup with the material will be placed above.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeMaterialGroups(root_node)
+
+    Remove material groups.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeEmptyGeometries(root_node)
+
+    Removes empty geometry nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeEmptyShells(root_node)
+
+    Removes empty shell nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeIdentityTransforms(root_node)
+
+    Removes identity Transforms. This command is deprecated and doesn't do anything.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: triangulate(root_node, recreateAllProperties)
+
+    Triangulate the geometries. The resulting geometry is no longer optimized for the graphics card.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param recreateAllProperties: If true, this method recreates all properties. Otherwise, it generates only new indices, types, and lengths.
+    :type recreateAllProperties: bool
+
+.. method:: createOcTree(root_node)
+
+    Transform all geometries by an octree structure. Not necessary on today's graphic cards.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: optimizeMaterials(root_node)
+
+    Optimize the specified scenegraph by using as few materials as possible.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: optimizeMaterials(root_node, keep_unreferenced)
+    :no-index:
+
+    Optimize the specified scenegraph by using as few materials as possible.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param keep_unreferenced: If true, unreferenced materials will be kept.
+    :type keep_unreferenced: bool
+
+.. method:: removeUnusedMaterials()
+
+    Removes unused materials.
+
+.. method:: shareGeometries(root_node)
+
+    Shares equal geometry nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: shareGeometries(root_node, checkWorldMatrix)
+    :no-index:
+
+    Shares equal geometry nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param checkWorldMatrix: If true, the world matrix will be checked for equality.
+    :type checkWorldMatrix: bool
+
+.. method:: mergeGeometry(root_node)
+
+    Merges geometry nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: unifyVertices(root_node)
+
+    Optimize the geometry by creating shared indices and removing unused and double coords, colors, and texcoords. Speeds up rendering and saves memory.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: separateGeoProperties(root_node)
+
+    Separate shared geometry properties.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: verifyGeometry(root_node)
+
+    Verifies geometry nodes.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: optimizeGeometry(root_node)
+
+    Optimizes geometry to speed up rendering. Stripes and fans are optimized primitives that can be rendered much faster by your graphics hardware.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: optimizeGeometry(root_node, strips, fans, stitches)
+    :no-index:
+
+    Optimizes geometry to speed up rendering. Stripes and fans are optimized primitives that can be rendered much faster by your graphics hardware.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param strips: Strips: On/Off (Optional).
+    :type strips: bool
+    :param fans: Fans: On/Off (Optional).
+    :type fans: bool
+    :param stitches: Stitches: On/Off (Optional).
+    :type stitches: bool
+
+.. method:: sortIndices(root_node)
+
+    Sort indices to improve render speed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: optimizeIndices(root_node)
+
+    Optimize indices to improve render speed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: tipsifyIndices(root_node)
+
+    Optimize indices to improve render speed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: tipsifyIndices(root_node, cache_size)
+    :no-index:
+
+    Optimize indices to improve render speed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param cache_size: The cache size in [12,inf[.
+    :type cache_size: integer
+
+.. method:: measureCacheEfficiency(root_node, cache_size)
+
+    Measures the cache efficiency. 1.0 means one vertex calculation per triangle.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param cache_size: The cache size in [12,inf[.
+    :type cache_size: integer
+    :return: The cache efficiency in [0.5,3.0].
+    :rtype: float
+
+.. method:: cleanupGroupNodes(root_node)
+
+    Cleanup group nodes. Empty group nodes or group nodes with a single child will be removed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: cleanupGroupNodes(root_node, recursive)
+    :no-index:
+
+    Cleanup group nodes. Empty group nodes or group nodes with a single child will be removed.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param recursive: Recursive: On/Off (Optional).
+    :type recursive: bool
+
+.. method:: removeInvalidTexCoords(root_node)
+
+    Remove invalid texture coordinates.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: shareImages()
+
+    Share images.
+
+.. method:: removeTransformNodesWithNoChildren(root_node)
+
+    Removes all transform nodes with no children.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeTransformVariants(root_node)
+
+    Removes all transform variants from nodes in the selected sub-tree.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeFrozenTextureTransforms(root_node)
+
+    Removes all frozen world space texture transforms from nodes in the selected sub-tree.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeAnimations(root_node)
+
+    Removes all animations from nodes in the selected sub-tree.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeMetadata(root_node)
+
+    Removes all metadata from nodes in the selected sub-tree.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeBSides(root_node)
+
+    Removes all geometries that are set to B-side from the selected sub-tree.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: removeLimits(root_node)
+
+    Removes all limits.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+
+.. method:: optimizeTree(options)
+
+    Optimizes the scenegraph by applying specified optimization functions.
+
+    :param options: Options.
+    :type options: integer
+
+.. method:: optimizeTree(root_node, options)
+    :no-index:
+
+    Optimizes only a specified subgraph by applying specified optimization functions.
+
+    :param root_node: The root node of the subgraph to be optimized.
+    :type root_node: NodePtr
+    :param options: Options.
+    :type options: integer

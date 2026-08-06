@@ -1,0 +1,100 @@
+-------------------
+vrdSkylightLocation
+-------------------
+
+.. py:class:: vrdSkylightLocation
+
+(Inherits vrdSceneObject)
+
+This class is used for location and time zone properties of     vrdSkylightMaterial.
+
+Summary
+=======
+
+Functions:
+    * calculateSunPosition(date, time) → QVector2D
+    * getClosestCity() → string
+    * getLatitude() → float
+    * getLongitude() → float
+    * getTimeZone() → float
+    * getUseDaylightSavingTime() → bool
+    * setLatitude(value)
+    * setLongitude(value)
+    * setTimeZone(value)
+    * setUseDaylightSavingTime(value)
+
+Functions
+=========
+
+.. py:method:: vrdSkylightLocation.calculateSunPosition(date, time)
+
+    Calulcate the sun position at a given time for this location.
+
+    :param date: Date Determines the sun path. The sun position is computed from Local Time, Date, and Location. Sets the date.
+    :type date: QDate
+
+    :param time: Time Determines the sun path. The sun position is computed from Local Time, Date, and Location. Sets the time.
+    :type time: QTime
+
+    :return: A vector (sunZenithAngle 0 to 180 where >90 is below horizon, sunAzimuthAngle 0 to 360 where 0 is south)
+    :rtype: QVector2D
+
+.. py:method:: vrdSkylightLocation.getClosestCity()
+
+    Gets the name the city closest to the given geographic coordinates and uses this city's current time zone.
+
+    :return: Name the city closest to the given geographic coordinates
+    :rtype: string
+
+.. py:method:: vrdSkylightLocation.getLatitude()
+
+    :return: The current geographic latitudinal coordinate in decimal degrees.
+    :rtype: float
+
+.. py:method:: vrdSkylightLocation.getLongitude()
+
+    :return: The current geographic longitudinal coordinate in decimal degrees.
+    :rtype: float
+
+.. py:method:: vrdSkylightLocation.getTimeZone()
+
+    Gets the time zone as time difference to UTC (Coordinated Universal Time) in decimal hours. It is estimated automatically from the given geographic coordinates.
+
+    :return: Current time zone.
+    :rtype: float
+
+.. py:method:: vrdSkylightLocation.getUseDaylightSavingTime()
+
+    Queries daylight saving time state.
+
+    :return: Current state of daylight saving time.
+    :rtype: bool
+
+.. py:method:: vrdSkylightLocation.setLatitude(value)
+
+    Sets the location to the geographic latitudinal coordinate in decimal degrees.
+
+    :param value: Latitude in decimal degrees, from -90 to +90.
+    :type value: float
+
+.. py:method:: vrdSkylightLocation.setLongitude(value)
+
+    Sets the location to the geographic longitudinal coordinate in decimal degrees.
+
+    :param value: Longitude in decimal degrees, from -180 to +180.
+    :type value: float
+
+.. py:method:: vrdSkylightLocation.setTimeZone(value)
+
+    Sets the time zone using the time difference to UTC (Coordinated Universal Time) in decimal hours. Please note, changing longitude, latitude or daylight saving flag will update the time zone with an estimated time zone value.
+
+    :param value: New time zone.
+    :type value: float
+
+.. py:method:: vrdSkylightLocation.setUseDaylightSavingTime(value)
+
+    Enables/disables daylight saving time. Specify whether there is daylight saving time at the current location on the current date because this information is not retrieved automatically.
+
+    :param value: New state of daylight saving time.
+    :type value: bool
+

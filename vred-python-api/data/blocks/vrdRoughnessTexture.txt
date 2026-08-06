@@ -1,0 +1,150 @@
+-------------------
+vrdRoughnessTexture
+-------------------
+
+.. py:class:: vrdRoughnessTexture
+
+(Inherits vrdTexture)
+
+This class is used for all roughness texture properties.
+
+To load an image for a roughness texture, use:
+
+```
+
+     image = vrImageService.loadImage(filename, vrImageTypes.LoadType.RawData)
+     material.getRoughnessTexture().setImage(image)
+     material.getRoughnessTexture().setUseTexture(True)
+
+Summary
+=======
+
+Functions:
+    * getMaximumRoughness() → float
+    * getMaximumRoughnessU() → float
+    * getMaximumRoughnessV() → float
+    * getMinimumRoughness() → float
+    * getMinimumRoughnessU() → float
+    * getMinimumRoughnessV() → float
+    * getRoughnessMapType() → vrRoughnessTextureTypes.ValueMapping
+    * setMaximumRoughness(maximumRoughness)
+    * setMaximumRoughnessU(maximumRoughness)
+    * setMaximumRoughnessV(maximumRoughness)
+    * setMinimumRoughness(minimumRoughness)
+    * setMinimumRoughnessU(minimumRoughness)
+    * setMinimumRoughnessV(minimumRoughness)
+    * setRoughnessMapType(mapping)
+    * supportsMaximumRoughnessV() → bool
+    * supportsMinimumRoughnessV() → bool
+
+Functions
+=========
+
+.. py:method:: vrdRoughnessTexture.getMaximumRoughness()
+
+    Gets the roughness value in U direction to which a texture value of 1 is mapped. Note: this function does the same as calling         vrdRoughnessTexture.getMaximumRoughnessU()
+
+    :return: Current value for the roughness value to which a texture value of 1 is mapped.
+    :rtype: float
+
+.. py:method:: vrdRoughnessTexture.getMaximumRoughnessU()
+
+    Gets the roughness value in U direction to which a texture value of 1 is mapped.
+
+    :return: Current value for the roughness value to which a texture value of 1 is mapped.
+    :rtype: float
+
+.. py:method:: vrdRoughnessTexture.getMaximumRoughnessV()
+
+    Gets the roughness value in V direction to which a texture value of 1 is mapped. If the material does not support this setting, it returns         vrdRoughnessTexture.getMaximumRoughnessU().
+
+    :return: Current value for the roughness value to which a texture value of 1 is mapped.
+    :rtype: float
+
+.. py:method:: vrdRoughnessTexture.getMinimumRoughness()
+
+    Gets the roughness value in U direction to which a texture value of 0 is mapped. Note: this function does the same as calling         vrdRoughnessTexture.getMinimumRoughnessU()
+
+    :return: Current value for the roughness value to which a texture value of 0 is mapped.
+    :rtype: float
+
+.. py:method:: vrdRoughnessTexture.getMinimumRoughnessU()
+
+    Gets the roughness value in U direction to which a texture value of 0 is mapped.
+
+    :return: Current value for the roughness value to which a texture value of 0 is mapped.
+    :rtype: float
+
+.. py:method:: vrdRoughnessTexture.getMinimumRoughnessV()
+
+    Gets the roughness value in V direction to which a texture value of 0 is mapped. If the material does not support this setting, it returns         vrdRoughnessTexture.getMinimumRoughnessU().
+
+    :return: Current value for the roughness value to which a texture value of 0 is mapped.
+    :rtype: float
+
+.. py:method:: vrdRoughnessTexture.getRoughnessMapType()
+
+    Returns the current roughness texture value map type.
+
+    :return: Current roughness texture value map type
+    :rtype: vrRoughnessTextureTypes.ValueMapping
+
+.. py:method:: vrdRoughnessTexture.setMaximumRoughness(maximumRoughness)
+
+    Sets the roughness value in U direction to which a texture value of 1 is mapped. Note: this function does the same as calling         vrdRoughnessTexture.setMaximumRoughnessU(maximumRoughness)
+
+    :param maximumRoughness: New value for the roughness value to which a texture value of 1 is mapped.
+    :type maximumRoughness: float
+
+.. py:method:: vrdRoughnessTexture.setMaximumRoughnessU(maximumRoughness)
+
+    Sets the roughness value in U direction to which a texture value of 1 is mapped.
+
+    :param maximumRoughness: New value for the roughness value to which a texture value of 1 is mapped.
+    :type maximumRoughness: float
+
+.. py:method:: vrdRoughnessTexture.setMaximumRoughnessV(maximumRoughness)
+
+    Sets the roughness value in V direction to which a texture value of 1 is mapped. Call         vrdRoughnessTexture.supportsMaximumRoughnessV() to query if this material supports this setting.
+
+    :param maximumRoughness: New value for the roughness value to which a texture value of 1 is mapped.
+    :type maximumRoughness: float
+
+.. py:method:: vrdRoughnessTexture.setMinimumRoughness(minimumRoughness)
+
+    Sets the roughness value in U direction to which a texture value of 0 is mapped. Note: this function does the same as calling         vrdRoughnessTexture.setMinimumRoughnessU(minimumRoughness)
+
+    :param minimumRoughness: New value for the roughness value to which a texture value of 0 is mapped.
+    :type minimumRoughness: float
+
+.. py:method:: vrdRoughnessTexture.setMinimumRoughnessU(minimumRoughness)
+
+    Sets the roughness value in U direction to which a texture value of 0 is mapped.
+
+    :param minimumRoughness: New value for the roughness value to which a texture value of 0 is mapped.
+    :type minimumRoughness: float
+
+.. py:method:: vrdRoughnessTexture.setMinimumRoughnessV(minimumRoughness)
+
+    Sets the roughness value in V direction to which a texture value of 0 is mapped. Call         vrdRoughnessTexture.supportsMinimumRoughnessV() to query if this material supports this setting.
+
+    :param minimumRoughness: New value for the roughness value to which a texture value of 0 is mapped.
+    :type minimumRoughness: float
+
+.. py:method:: vrdRoughnessTexture.setRoughnessMapType(mapping)
+
+    Sets the mapping of the texture values to roughness values.
+
+    :param mapping: Roughness map type to set. Available modes are Linear and Legacy
+    :type mapping: vrRoughnessTextureTypes.ValueMapping
+
+.. py:method:: vrdRoughnessTexture.supportsMaximumRoughnessV()
+
+    :return: True if maximum roughness V can be changed for this texture, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdRoughnessTexture.supportsMinimumRoughnessV()
+
+    :return: True if minimum roughness V can be changed for this texture, False otherwise
+    :rtype: bool
+

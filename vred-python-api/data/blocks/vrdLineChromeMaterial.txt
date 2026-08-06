@@ -1,0 +1,88 @@
+---------------------
+vrdLineChromeMaterial
+---------------------
+
+.. py:class:: vrdLineChromeMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all chrome material properties.
+
+Summary
+=======
+
+Functions:
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getLineWidth() → float
+    * getReflectionColor() → QVector3D
+    * getRoughness() → float
+    * getUseRoughness() → bool
+    * setLineWidth(width)
+    * setReflectionColor(color)
+    * setRoughness(roughness)
+    * setUseRoughness(use)
+
+Functions
+=========
+
+.. py:method:: vrdLineChromeMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdLineChromeMaterial.getLineWidth()
+
+    Gets the thickness of the lines drawn.
+
+    :return: The current used thickness of the lines drawn.
+    :rtype: float
+
+.. py:method:: vrdLineChromeMaterial.getReflectionColor()
+
+    Get the currently used chrome reflection color.
+
+    :return: The currently used chrome reflection color.
+    :rtype: QVector3D
+
+.. py:method:: vrdLineChromeMaterial.getRoughness()
+
+    :return: The current value of roughness for this material.
+    :rtype: float
+
+.. py:method:: vrdLineChromeMaterial.getUseRoughness()
+
+    Gets if glossy reflections controlled by roughness value are enabled for this material.
+
+    :return: The current enable or disable roughness state.
+    :rtype: bool
+
+.. py:method:: vrdLineChromeMaterial.setLineWidth(width)
+
+    Sets the thickness of the lines drawn.
+
+    :param width: The new thickness of the lines drawn.
+    :type width: float
+
+.. py:method:: vrdLineChromeMaterial.setReflectionColor(color)
+
+    Sets the chrome reflection color. When the chrome reflection is colored, reflected objects are also colored.
+
+    :param color: New chrome reflection color.
+    :type color: QVector3D
+
+.. py:method:: vrdLineChromeMaterial.setRoughness(roughness)
+
+    Sets the roughness of the material. The higher the roughness value, the blurrier the reflection. Use Roughness must be enabled.
+
+    :param roughness: New value of roughness for this material.
+    :type roughness: float
+
+.. py:method:: vrdLineChromeMaterial.setUseRoughness(use)
+
+    Enable or disable the use glossy reflections controlled by roughness value for this material. When disabled, specular reflections are used.
+
+    :param use: Set the new enable or disable state.
+    :type use: bool
+

@@ -1,0 +1,70 @@
+MODULE vrVrpnTrackingService (legacy v1 API)
+
+---------------------
+vrVrpnTrackingService
+---------------------
+
+Summary
+=======
+
+Functions:
+    * getFreezeTracking()
+    * isTracking()
+    * loadTrackingConfig(file)
+    * setBodyRelativeToNavigator(name, value)
+    * setFreezeTracking(state)
+    * setTrackingUnitScale(scale)
+    * startTracking()
+    * stopTracking()
+
+.. function:: loadTrackingConfig(file)
+
+    Load tracking configuration from file.
+
+    :param file: Config file path.
+    :type file: string
+
+.. function:: startTracking()
+
+    Enables the tracking.
+
+.. function:: stopTracking()
+
+    Disables the tracking.
+
+.. function:: isTracking()
+
+    Returns true if tracking is currently enabled.
+
+    :return: True if the tracking is enabled, false otherwise.
+    :rtype: bool
+
+.. function:: setFreezeTracking(state)
+
+    Freeze tracking.
+
+    :param state: The state of the tracking: Freeze/Unfreeze.
+    :type state: bool
+
+.. function:: getFreezeTracking()
+
+    Returns Freeze tracking state.
+
+    :return: True if the tracking is frozen, false otherwise.
+    :rtype: bool
+
+.. function:: setTrackingUnitScale(scale)
+
+    Set tracking unit scale, default is 1000. vrpn delivers the data always in meter and we use mm.
+
+    :param scale: The tracking unit scale.
+    :type scale: float (32bit)
+
+.. function:: setBodyRelativeToNavigator(name, value)
+
+    Sets body transformation relative to navigator.
+
+    :param name: Body name.
+    :type name: string
+    :param value: True if relative, False otherwise.
+    :type value: bool

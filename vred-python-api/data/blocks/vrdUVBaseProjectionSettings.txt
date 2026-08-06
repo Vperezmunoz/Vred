@@ -1,0 +1,131 @@
+---------------------------
+vrdUVBaseProjectionSettings
+---------------------------
+
+.. py:class:: vrdUVBaseProjectionSettings
+
+(Inherits vrdData)
+
+This is the base class for the UV coordinate projection settings.
+
+Derived classes:     vrdUVCylindricalProjectionSettings and vrdUVPlanarProjectionSettings.
+
+Summary
+=======
+
+Functions:
+    * getKeepAspectRatio() → bool
+    * getProjectionCenter() → QVector3D
+    * getProjectionRotation() → QVector3D
+    * getProjectionScale() → QVector3D
+    * getTextureOffset() → QVector2D
+    * getTextureScale() → QVector2D
+    * getTextureSize() → QSizeF
+    * print()
+    * setKeepAspectRatio(keepAspectRatio)
+    * setProjectionCenter(center)
+    * setProjectionRotation(rotation)
+    * setProjectionScale(scale)
+    * setTextureOffset(offset)
+    * setTextureScale(scale)
+    * setTextureSize(size)
+
+Functions
+=========
+
+.. py:method:: vrdUVBaseProjectionSettings.getKeepAspectRatio()
+
+    :return: The Keep Aspect Ratio flag. See vrdUVBaseProjectionSettings.setKeepAspectRatio(keepAspectRatio) for an explanation.
+    :rtype: bool
+
+.. py:method:: vrdUVBaseProjectionSettings.getProjectionCenter()
+
+    :return: Get center of the projection in 3d world space.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVBaseProjectionSettings.getProjectionRotation()
+
+    :return: Get projection rotation angles in degrees. See vrdUVBaseProjectionSettings.setProjectionRotation(rotation) for an explanation.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVBaseProjectionSettings.getProjectionScale()
+
+    :return: Projection scale used by cylindrical projection. See vrdUVBaseProjectionSettings.setProjectionScale(scale) for an explanation.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVBaseProjectionSettings.getTextureOffset()
+
+    :return: Offset of the projection plane, for Planar projection.
+    :rtype: QVector2D
+
+.. py:method:: vrdUVBaseProjectionSettings.getTextureScale()
+
+    :return: Scale factor of the projection plane, for Planar projection. See vrdUVBaseProjectionSettings.setTextureScale(scale).
+    :rtype: QVector2D
+
+.. py:method:: vrdUVBaseProjectionSettings.getTextureSize()
+
+    Get projection plane size in scene units used by Planar projection. See         vrdUVBaseProjectionSettings.setTextureSize(size).
+
+    :return: Size in scene units
+    :rtype: QSizeF
+
+.. py:method:: vrdUVBaseProjectionSettings.print()
+
+    Debug print of settings.
+
+.. py:method:: vrdUVBaseProjectionSettings.setKeepAspectRatio(keepAspectRatio)
+
+    Set the Keep Aspect Ratio flag. This flag has no influence on the projection calculation itself but is only used as an indicator by the GUI and manipulator whether sizes and scales should be kept at their current aspect ratio.
+
+    :param keepAspectRatio: The flag
+    :type keepAspectRatio: bool
+
+.. py:method:: vrdUVBaseProjectionSettings.setProjectionCenter(center)
+
+    :param center: Center of the projection in 3d world space.
+    :type center: QVector3D
+
+.. py:method:: vrdUVBaseProjectionSettings.setProjectionRotation(rotation)
+
+    Set projection rotation angles.
+
+    For Cylindrical mapping, this controls the orientation of the cylinder axis. The angles are Euler angles (rotation order xyz). When all rotation angles are zero, the axis goes along the world Y axis.
+
+    For Planar mapping, the first two values define the orientation of the plane in 3D, the third value defines the rotation in 2D around the plane normal.
+
+    :param rotation: Projection rotation angles in degrees.
+    :type rotation: QVector3D
+
+.. py:method:: vrdUVBaseProjectionSettings.setProjectionScale(scale)
+
+    Set projection scale used by cylindrical projection.
+
+    The y scale value scales the cylinder along its main axis (changes its height). The unscaled cylinder height is 1.0. So if the cylinder height should be 1000 scene units, set the y scale to 1000.
+
+    X and Z scale values scale the base of the cylinder. The base cylinder radius is 1.0. To have a regular cylinder with a circular base and diameter of 200 scene units, set X and Z to 100.0. Keep X and Z scale at identical values for a circular base. With unequal X and Z values, the cylinder base is stretched to an ellipse.
+
+    :param scale: (x,y,z) scale values
+    :type scale: QVector3D
+
+.. py:method:: vrdUVBaseProjectionSettings.setTextureOffset(offset)
+
+    For Planar projection, set an offset to shift the projection from the center within the projection plane.
+
+    :param offset: Offset in scene units
+    :type offset: QVector2D
+
+.. py:method:: vrdUVBaseProjectionSettings.setTextureScale(scale)
+
+    For Planar projection, set scale factor of the projection plane. To determine the final size of the texture projection, this scale is multiplied by the base size,         vrdUVBaseProjectionSettings.setTextureSize(size).
+
+    :param scale: Scale factor
+    :type scale: QVector2D
+
+.. py:method:: vrdUVBaseProjectionSettings.setTextureSize(size)
+
+    Set base Projection plane size used by Planar projection. This base size is further scaled with the scale factor set by         vrdUVBaseProjectionSettings.setTextureScale(scale).
+
+    :param size: Size in scene units
+    :type size: QSizeF
+

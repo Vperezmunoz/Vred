@@ -1,0 +1,134 @@
+MODULE vrAEBase (legacy v1 API)
+
+--------
+vrAEBase
+--------
+
+Contains the base functionality of all action and event classes.
+
+.. class:: vrAEBase
+
+   Base class for all actions and events.
+
+   The vrAEBase class's purpose is to add custom behavior that needs to be updated every frame or receive events to VRED. For example, all the interpolation classes are derived from this class. Simply derive from this class and overload the loop-method like the following example does.
+
+   Example::
+
+       See also example key-action.py, render.py, and frame.py
+
+Summary
+=======
+
+Functions:
+    * addLoop()
+    * callAllConnected()
+    * connect(o, arg1=None, arg2=None) → bool
+    * connectSignal(signal, slot, arg1=None, arg2=None) → bool
+    * emitSignal(signal, arg1=None, arg2=None)
+    * getModuleName() → string
+    * isActive() → bool
+    * loop()
+    * recEvent(state)
+    * removeConnections()
+    * setActive(state)
+    * setUpdateGUIEnabled(state)
+    * subLoop()
+
+.. method:: recEvent(state)
+
+    This method is called when an event occurs.
+
+    :param state: The state: SWITCH_ON, SWITCH_OFF, SWITCH_TOGGLE.
+    :type state: integer
+
+.. method:: loop()
+
+    This method is called every render frame when the object has been added to the global event loop with addLoop(). Add functionality that has to be updated every frame within this method.
+
+.. method:: addLoop()
+
+    Adds this object to the global behavior loop. Now the loop-function will be called once every render frame (when the object is active).
+
+.. method:: subLoop()
+
+    Subtracts this object from the global behavior loop. Its loop-function will no longer be called every render frame.
+
+.. method:: setActive(state)
+
+    Sets the state of an action or event.
+
+    :param state: The state: SWITCH_TOGGLE, SWITCH_ON, SWITCH_OFF, true, false.
+    :type state: integer
+
+.. method:: isActive()
+
+    Returns the activation state of this object.
+
+    :return: The state: Active/Inactive.
+    :rtype: bool
+
+.. method:: setUpdateGUIEnabled(state)
+
+    Enables GUI updates.
+
+    :param state: The state: Enabled/Disabled.
+    :type state: boolean
+
+.. method:: connect(o, arg1=None, arg2=None)
+
+    Connects various callback functions with this object. There are three methods to connect something to this object:
+
+    - connect(o): Connects this object with a Python function or a Python command string.
+    - connect(o, arg1): Connects this object to a Python function with a single parameter or to a class with a recEvent method and a toggle state.
+    - connect(o, arg1, arg2): Connects this object to a Python function with two parameters.
+
+    Returns true on success, false otherwise.
+
+    :param o: The Python function, Python object, or Python command string.
+    :type o: boost::python::object
+    :param arg1: The first optional parameter.
+    :type arg1: boost::python::object
+    :param arg2: The second optional parameter.
+    :type arg2: boost::python::object
+    :return: Success/Failure.
+    :rtype: bool
+
+.. method:: callAllConnected()
+
+    All actions connected to this object will be called.
+
+.. method:: connectSignal(signal, slot, arg1=None, arg2=None)
+
+    Connects a special signal method with various callback functions.
+
+    Returns true on success, false otherwise.
+
+    :param signal: The name of the signal method.
+    :type signal: string
+    :param slot: The slot function.
+    :type slot: boost::python::object
+    :param arg1: The first optional parameter.
+    :type arg1: boost::python::object
+    :param arg2: The second optional parameter.
+    :type arg2: boost::python::object
+    :return: Success/Failure.
+    :rtype: bool
+
+.. method:: emitSignal(signal, arg1=None, arg2=None)
+
+    Emits a signal, if you want to implement your own signal method.
+
+    :param signal: The name of the signal method.
+    :type signal: string
+    :param arg1: The first optional parameter.
+    :type arg1: boost::python::object
+    :param arg2: The second optional parameter.
+    :type arg2: boost::python::object
+
+.. method:: removeConnections()
+
+    Removes all connections from this object.
+
+.. method:: getModuleName()
+
+    Returns the module name of this object.

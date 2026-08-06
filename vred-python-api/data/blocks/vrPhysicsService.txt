@@ -1,0 +1,724 @@
+----------------
+vrPhysicsService
+----------------
+
+.. py:class:: vrPhysicsService
+
+(Inherits vrBaseService)
+
+The     vrPhysicsService class.
+
+This class provides access to the physics simulation in VRED. It allows adding, removing, and manipulating physics objects in the simulation.
+
+This is an experimental feature and is subject to change in future releases. For now, it is only available for collision detection and not for actual physics simulations.
+
+There are three types of physics objects that can be added to the simulation: Kinematic, Dynamic, and Static. A kinematic object is a physics object that is not affected by forces but can be controlled manually by the user. Only convex shapes are supported for kinematic objects, which means no triangle meshes can be used. A dynamic object is a physics object that is affected by forces and can interact with other objects in the simulation. It cannot be manually moved. Dynamic objects are currently not used in VRED. A static object is a physics object that is not affected by forces and can't be moved manually or by other objects or the user. The only valid configuration for a static object is the triangle mesh configuration.
+
+Some notes on using this service:
+
+At this moment, only convex shapes are really supported. So the best case is to use convex hulls. Triangle meshes are only partly supported. They can be used for static objects but not for moving objects. That means they must not be moved in any way in VRED after they have been added to the physics simulation or their collision shape will be out of sync with the actual object. PhysX is also very strict about the tessellation of the triangle meshes. If the tessellation is not good enough, they can cause problems or even errors.
+
+For complex objects, convex decomposition can be used, which breaks down the object into multiple smaller convex shapes. The library used for that is v-hacd (https://github.com/kmammou/v-hacd). Almost all parameters of the library can be set in the vrdPhysicsConfig object to fine-tune the decomposition process.
+
+The collision shapes of the objects are currently not visualized in VRED. They can be visualized in the NVidia PhysX Visual Debugger which can be connected to the physics simulation using the connectDebugger(host, port) function. The debugger must be started on the same machine as VRED before the connection can be established. The debugger can be downloaded from the NVidia website (https://developer.nvidia.com/nvidia-physx-visual-debugger).
+
+Please also note that there is currently no detection if a child node of a registered node is moved or removed. If there are structural changes in the scene graph for a registered node, the node should be removed and then re-added to the physics simulation. It is not possible to add a node to the physics simulation for which a parent node is already registered. This is detected and results in an error when trying to add the node.
+
+Summary
+=======
+
+Functions:
+    * addDynamicObject(node, config) → bool
+    * addKinematicObject(node, config) → bool
+    * addStaticObject(node, config) → bool
+    * clearCollisionData(node) → bool
+    * clearFilters()
+    * connectDebugger(host, port)
+    * createGroup(name, parent) → vrdPhysicsGroupNode
+    * createPhysicsObject(sceneNode, colliderType, colliderShape, parent) → vrdPhysicsObjectNode
+    * deregisterNodeFilter(node)
+    * deregisterNodePairFilter(node1, node2)
+    * disconnectDebugger()
+    * duplicateGroups(groups) → List[vrdNode]
+    * getContactPointVisualizationPoolSize() → integer
+    * getContactPointVisualizationScaling() → float
+    * getDynamicColliderColor() → QColor
+    * getDynamicObjects() → List[vrdNode]
+    * getKinematicColliderColor() → QColor
+    * getKinematicObjects() → List[vrdNode]
+    * getPhysicsObject(node, checkParents) → vrdPhysicsObjectNode
+    * getPhysicsUpdateFrequency() → integer
+    * getResetTransformOnRemove() → bool
+    * getRootNode() → vrdPhysicsGroupNode
+    * getRubberBand() → vrdPhysicsRubberBand
+    * getScene() → vrdPhysicsScene
+    * getSelection() → List[vrdObject]
+    * getStaticColliderColor() → QColor
+    * getStaticObjects() → List[vrdNode]
+    * groupNodes(nodes) → vrdNode
+    * hasCollisionData(node) → bool
+    * hasPhysicsObject(node) → bool
+    * isActive() → bool
+    * isColliderVisualizationEnabled() → bool
+    * isCollisionHighlightingEnabled() → bool
+    * isContactPointVisualizationEnabled() → bool
+    * isPaused() → bool
+    * registerNodeFilter(node)
+    * registerNodePairFilter(node1, node2)
+    * removeAllObjects()
+    * removeEmptyGroups()
+    * removeObject(node) → bool
+    * restoreCollisionData(node) → bool
+    * setActive(state)
+    * setContactPointVisualizationPoolSize(size)
+    * setContactPointVisualizationScaling(scale)
+    * setDynamicColliderColor(color)
+    * setKinematicColliderColor(color)
+    * setPaused(paused)
+    * setPhysicsHighPrecision()
+    * setPhysicsPowerSaving()
+    * setPhysicsStandard()
+    * setPhysicsUpdateFrequency(hz)
+    * setResetTransformOnRemove(enabled)
+    * setSelection(objects)
+    * setStaticColliderColor(color)
+    * showColliders(show)
+    * showCollisions(show)
+    * showContactPoints(show)
+    * storeCollisionData(node) → bool
+
+Signals:
+    * activeStateChanged(active)
+    * colliderVisualizationStateChanged(enabled)
+    * collisionContinues(info)
+    * collisionStarted(info)
+    * collisionStopped(info)
+    * contactPointVisualizationEnabledChanged(enabled)
+    * pausedStateChanged(paused)
+    * physicsObjectsChanged()
+    * selectionChanged(objects)
+    * showColisionEnabledChanged(enabled)
+
+Functions
+=========
+
+.. py:method:: vrPhysicsService.addDynamicObject(node, config)
+
+    Adds a dynamic object to the physics simulation.
+
+    A dynamic object is a physics object that is affected by forces and can interact with other objects in the simulation. It cannot be moved manually. Valid configurations are vrdPhysicsHullConfig and vrdPhysicsConvexConfig.
+
+    :param node: The node to add.
+    :type node: vrdNode
+
+    :param config: The configuration for the object.
+    :type config: vrdPhysicsConfig
+
+    :return: True if the object was added successfully, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.addKinematicObject(node, config)
+
+    Adds a kinematic object to the physics simulation.
+
+    A kinematic object is a physics object that is not affected by forces but can interact with other objects in the simulation and can be moved manually (manipulator, script, etc.). Valid configurations are vrdPhysicsHullConfig and vrdPhysicsConvexConfig.
+
+    :param node: The node to add.
+    :type node: vrdNode
+
+    :param config: The configuration for the object.
+    :type config: vrdPhysicsConfig
+
+    :return: True if the object was added successfully, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.addStaticObject(node, config)
+
+    Adds a static object to the physics simulation.
+
+    A static object is a physics object that is not affected by forces and can't be moved manually or by other objects. The only valid configuration for a static object is the triangle mesh configuration, see vrdPhysicsTrianglesConfig.
+
+    :param node: The node to add.
+    :type node: vrdNode
+
+    :param config: The configuration for the object.
+    :type config: vrdPhysicsConfig
+
+    :return: True if the object was added successfully, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.clearCollisionData(node)
+
+    Clears collider data for a node.
+
+    :param node: The node for which collider data should be cleared.
+    :type node: vrdNode
+
+    :return: Always False. Calling this method will emit an error log stating it is deprecated and does nothing.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.clearFilters()
+
+    Clears all node filters from the physics simulation.
+
+    This function clears all node filters from the physics simulation. All nodes will be able to collide with each other after this function is called.
+
+.. py:method:: vrPhysicsService.connectDebugger(host="127.0.0.1", port=5425)
+
+    Connects the physics debugger.
+
+    This function connects the NVidia PhysX Visual Debugger to the physics simulation. The debugger must have been started before this function is called.
+
+    :param host: The host address of the debugger (default: 127.0.0.1)
+    :type host: string
+
+    :param port: The port of the debugger (default: 5425)
+    :type port: integer
+
+.. py:method:: vrPhysicsService.createGroup(name, parent=vrdPhysicsGroupNode())
+
+    Creates a new physics group in the physics editor hierarchy.
+
+    This function creates a new physics group node with the specified name. Physics groups are used to organize physics objects in a hierarchical structure within the physics editor. The group name will be automatically made unique if a group with the same name already exists. The created group is automatically added as a child of the specified parent group.
+
+    :param name: The name for the new physics group.
+    :type name: string
+
+    :param parent: The parent physics group to add the new group to. If not specified or invalid, the root node will be used as parent.
+    :type parent: vrdPhysicsGroupNode
+
+    :return: The created physics group node, or an invalid node if creation failed.
+    :rtype: vrdPhysicsGroupNode
+
+.. py:method:: vrPhysicsService.createPhysicsObject(sceneNode, colliderType, colliderShape, parent=vrdPhysicsGroupNode())
+
+    Creates a physics object from a scene node with specified collider type and shape.
+
+    This function creates a physics object node in the physics editor hierarchy from an existing scene node. The physics object will use the specified collider type (Kinematic, Dynamic, or Static) and collider shape (Box, Sphere, Capsule, Plane, ConvexHull, etc.). The created physics object is automatically added as a child of the specified parent group.
+
+    :param sceneNode: The scene node to create a physics object from.
+    :type sceneNode: vrdNode
+
+    :param colliderType: The collider type (Kinematic, Dynamic, or Static).
+    :type colliderType: vrPhysicsTypes.ColliderType
+
+    :param colliderShape: The collider shape to use for collision detection.
+    :type colliderShape: vrPhysicsTypes.ColliderShape
+
+    :param parent: The parent physics group to add the object to. If not specified or invalid, the root node will be used as parent.
+    :type parent: vrdPhysicsGroupNode
+
+    :return: The created physics object node, or an invalid node if creation failed.
+    :rtype: vrdPhysicsObjectNode
+
+.. py:method:: vrPhysicsService.deregisterNodeFilter(node)
+
+    Deregisters a node filter from the physics simulation.
+
+    This function deregisters a node filter from the physics simulation. The node will be able to collide with other nodes after this function is called.
+
+    :param node: The node to deregister.
+    :type node: vrdNode
+
+.. py:method:: vrPhysicsService.deregisterNodePairFilter(node1, node2)
+
+    Deregisters a node pair filter from the physics simulation.
+
+    This function deregisters a node pair filter from the physics simulation. The nodes will be able to collide with each other after this function is called.
+
+    :param node1: The first node in the pair.
+    :type node1: vrdNode
+
+    :param node2: The second node in the pair.
+    :type node2: vrdNode
+
+.. py:method:: vrPhysicsService.disconnectDebugger()
+
+    Disconnects the physics debugger.
+
+    This function disconnects the NVidia PhysX Visual Debugger from the physics simulation.
+
+.. py:method:: vrPhysicsService.duplicateGroups(groups)
+
+    Duplicates the given group hierarchy. Note: Only groups without physics objects can be duplicated.
+
+    :param groups: The groups to be duplicated
+    :type groups: List[vrdNode]
+
+    :return: The duplicated groups.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrPhysicsService.getContactPointVisualizationPoolSize()
+
+    Gets the current contact point visualization pool size.
+
+    :return: The current pool size (maximum number of contact points that can be visualized).
+    :rtype: integer
+
+.. py:method:: vrPhysicsService.getContactPointVisualizationScaling()
+
+    Gets the current contact point visualization scaling factor.
+
+    :return: The current scaling factor for contact point spheres.
+    :rtype: float
+
+.. py:method:: vrPhysicsService.getDynamicColliderColor()
+
+    Gets the color used to visualize dynamic colliders.
+
+    :return: The color used for dynamic colliders.
+    :rtype: QColor
+
+.. py:method:: vrPhysicsService.getDynamicObjects()
+
+    Gets all dynamic objects in the physics simulation.
+
+    :return: List of all dynamic objects in the simulation.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrPhysicsService.getKinematicColliderColor()
+
+    Gets the color used to visualize kinematic colliders.
+
+    :return: The color used for kinematic colliders.
+    :rtype: QColor
+
+.. py:method:: vrPhysicsService.getKinematicObjects()
+
+    Gets all kinematic objects in the physics simulation.
+
+    :return: List of all kinematic objects in the simulation.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrPhysicsService.getPhysicsObject(node, checkParents=False)
+
+    Get the physics object associated with a scene node.
+
+    :param node: The scene node to get the physics object for.
+    :type node: vrdNode
+
+    :param checkParents: If true, the function will also check if a parent node is registered and will return the corresponding physics object.
+    :type checkParents: bool
+
+    :return: The vrdPhysicsObjectNode object that represents the scene node.
+    :rtype: vrdPhysicsObjectNode
+
+.. py:method:: vrPhysicsService.getPhysicsUpdateFrequency()
+
+    Gets the current physics update frequency.
+
+    This function returns the current frequency at which the physics simulation is being updated.
+
+    :return: The current update frequency in Hertz.
+    :rtype: integer
+
+.. py:method:: vrPhysicsService.getResetTransformOnRemove()
+
+    Gets whether to reset the transform of the object when it is removed from the simulation.
+
+    :return: True if the transform is reset when the object is removed from the simulation, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.getRootNode()
+
+    Gets the root node of the physics simulation.
+
+    This function returns the root node of the physics simulation.
+
+    :return: The root node of the physics simulation.
+    :rtype: vrdPhysicsGroupNode
+
+.. py:method:: vrPhysicsService.getRubberBand()
+
+    Get the rubber-band interaction settings object.
+
+    Returns the rubber-band object that controls the behavior of interactive physics dragging, including acceleration limits, damping, and visualization options.
+
+    :return: The global vrdPhysicsRubberBand object.
+    :rtype: vrdPhysicsRubberBand
+
+.. py:method:: vrPhysicsService.getScene()
+
+    Get the global physics scene object.
+
+    Returns the physics scene object that controls global physics settings such as gravity, time multiplier, solver configuration, and default collider shapes.
+
+    :return: The global vrdPhysicsScene object.
+    :rtype: vrdPhysicsScene
+
+.. py:method:: vrPhysicsService.getSelection()
+
+    Gets the current selection of physics objects.
+
+    The selection can contain objects of type         vrdPhysicsObjectNode and vrdPhysicsGroupNode, as well as vrdPhysicsScene.
+
+    :return: List of objects corresponding to currently selected physics objects.
+    :rtype: List[vrdObject]
+
+.. py:method:: vrPhysicsService.getStaticColliderColor()
+
+    Gets the color used to visualize static colliders.
+
+    :return: The color used for static colliders.
+    :rtype: QColor
+
+.. py:method:: vrPhysicsService.getStaticObjects()
+
+    Gets all static objects in the physics simulation.
+
+    :return: List of all static objects in the simulation.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrPhysicsService.groupNodes(nodes)
+
+    Places all given nodes into a new group.
+
+    :param nodes: The nodes to be grouped
+    :type nodes: List[vrdNode]
+
+    :return: The new group. It is located at the common parent
+    :rtype: vrdNode
+
+.. py:method:: vrPhysicsService.hasCollisionData(node)
+
+    Checks if collider data is available for a node.
+
+    :param node: The node to check.
+    :type node: vrdNode
+
+    :return: Always False. Calling this method will emit an error log stating it is deprecated and does nothing.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.hasPhysicsObject(node)
+
+    Checks if a node is registered in the physics simulation.
+
+    :param node: The node to check.
+    :type node: vrdNode
+
+    :return: True if the node is registered, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.isActive()
+
+    Returns if the simulation is currently active.
+
+    :return: The active state.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.isColliderVisualizationEnabled()
+
+    Checks if collider visualization is currently enabled.
+
+    :return: True if collider visualization is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.isCollisionHighlightingEnabled()
+
+    Checks if collision highlighting is currently enabled.
+
+    :return: True if collision highlighting is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.isContactPointVisualizationEnabled()
+
+    Checks if contact point visualization is currently enabled.
+
+    :return: True if contact point visualization is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.isPaused()
+
+    Returns if the simulation is currently paused.
+
+    :return: The paused state.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.registerNodeFilter(node)
+
+    Registers a node filter for the physics simulation.
+
+    This function registers a node filter for the physics simulation. The node filter is used to specify a node that should not collide with any other node. Can be used to temporarily disable collisions for a node without removing it from the simulation.
+
+    :param node: The node to filter.
+    :type node: vrdNode
+
+.. py:method:: vrPhysicsService.registerNodePairFilter(node1, node2)
+
+    Registers a node pair filter for the physics simulation.
+
+    This function registers a node pair filter for physics simulation. The node pair filter is used to specify a pair of nodes that should not collide with each other.
+
+    :param node1: The first node in the pair.
+    :type node1: vrdNode
+
+    :param node2: The second node in the pair.
+    :type node2: vrdNode
+
+.. py:method:: vrPhysicsService.removeAllObjects()
+
+    Removes all objects from the physics simulation.
+
+.. py:method:: vrPhysicsService.removeEmptyGroups()
+
+    Removes all empty physics groups from the physics hierarchy.
+
+    This function recursively traverses the entire physics hierarchy starting from the root node and removes all physics groups that have no children. This is useful for cleaning up the physics editor tree structure after physics objects have been removed.
+
+.. py:method:: vrPhysicsService.removeObject(node)
+
+    Removes an object from the physics simulation.
+
+    :param node: The node to remove.
+    :type node: vrdNode
+
+    :return: True if the object was removed successfully, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.restoreCollisionData(node)
+
+    Restores collider/collision data for a node.
+
+    :param node: The node to restore collider/collision data for.
+    :type node: vrdNode
+
+    :return: Always False. Calling this method will emit an error log stating it is deprecated and does nothing.
+    :rtype: bool
+
+.. py:method:: vrPhysicsService.setActive(state)
+
+    Sets the active state of the simulation.
+
+    If the simulation is active, physics objects will be updated in the simulation when they are moved.
+
+    :param state: False to deactivate the simulation, True to activate it.
+    :type state: bool
+
+.. py:method:: vrPhysicsService.setContactPointVisualizationPoolSize(size)
+
+    Sets the size of the contact point visualization pool.
+
+    This function configures the maximum number of contact points that can be visualized simultaneously. The pool is pre-allocated for performance reasons. A larger pool size allows more contact points to be displayed but uses more memory.
+
+    Note: Changing the pool size will reinitialize the contact point visualization system. This should be done before enabling contact point visualization or when no contacts are currently being visualized.
+
+    :param size: The pool size (number of contact point spheres to pre-allocate). Valid range: 64-4096. Default: 256.
+    :type size: integer
+
+.. py:method:: vrPhysicsService.setContactPointVisualizationScaling(scale)
+
+    Sets the scaling factor for contact point visualization spheres.
+
+    This function sets the size of the spheres used to visualize contact points. Larger values make contact points more visible, smaller values provide more precision. The base sphere radius is 0.5 units, which is multiplied by this scaling factor.
+
+    :param scale: The scaling factor for contact point spheres.
+    :type scale: float
+
+.. py:method:: vrPhysicsService.setDynamicColliderColor(color)
+
+    Sets the color used to visualize dynamic colliders.
+
+    This function sets the color for rendering dynamic collider shapes when collider visualization is enabled.
+
+    :param color: The color to use for dynamic colliders.
+    :type color: QColor
+
+.. py:method:: vrPhysicsService.setKinematicColliderColor(color)
+
+    Sets the color used to visualize kinematic colliders.
+
+    This function sets the color for rendering kinematic collider shapes when collider visualization is enabled.
+
+    :param color: The color to use for kinematic colliders.
+    :type color: QColor
+
+.. py:method:: vrPhysicsService.setPaused(paused)
+
+    Sets the paused state of the simulation.
+
+    When paused, the physics simulation stops updating but maintains current object positions. Objects added while paused are captured with their current transformation. Pausing is automatically reset when setActive(false) is called.
+
+    :param paused: True to pause the simulation, False to unpause it.
+    :type paused: bool
+
+.. py:method:: vrPhysicsService.setPhysicsHighPrecision()
+
+    Sets physics performance to high precision mode.
+
+    Equivalent to setPhysicsUpdateFrequency(120). Provides smooth timing with moderate CPU overhead. Suitable for robotics, scientific simulations, and applications requiring high precision.
+
+.. py:method:: vrPhysicsService.setPhysicsPowerSaving()
+
+    Sets physics performance to power saving mode.
+
+    Equivalent to setPhysicsUpdateFrequency(30). Reduces CPU usage for simple collision detection scenarios and battery-powered applications. May cause occasional physics step accumulation.
+
+.. py:method:: vrPhysicsService.setPhysicsStandard()
+
+    Sets physics performance to standard mode (default).
+
+    Equivalent to setPhysicsUpdateFrequency(60). Provides the best balance of accuracy and performance for most applications.
+
+.. py:method:: vrPhysicsService.setPhysicsUpdateFrequency(hz)
+
+    Sets the physics update frequency.
+
+    IMPORTANT: This does NOT change the physics simulation rate, which is always exactly 60Hz. This controls how often we check if enough time has accumulated to run a physics step.
+
+    DEFAULT: 60Hz (optimal balance of accuracy and performance)
+
+    Timer frequency vs Physics behavior:
+
+    240Hz: Very smooth timing, high CPU overhead, research/validation use120Hz: Smooth timing, moderate overhead, high-precision simulation60Hz+: Optimal range, minimal timer overhead (DEFAULT)30-59Hz: May cause occasional missed steps, acceptable for simple collision<30Hz: Will cause multiple physics steps per timer call, basic scenarios only
+
+    Performance presets (recommended):
+
+    vrPhysicsService.setPhysicsHighPrecision() - 120Hz for robotics, scientific applicationsvrPhysicsService.setPhysicsStandard() - 60Hz for most applications (DEFAULT)vrPhysicsService.setPhysicsPowerSaving() - 30Hz for simple collision, battery optimization
+
+    :param hz: Update frequency in Hertz. Valid range: 10-240Hz. Invalid values default to 60Hz.
+    :type hz: integer
+
+.. py:method:: vrPhysicsService.setResetTransformOnRemove(enabled)
+
+    Sets whether to reset the transform of the object when it is removed from the simulation.
+
+    :param enabled: True to reset the transform when the object is removed from the simulation, False to keep it.
+    :type enabled: bool
+
+.. py:method:: vrPhysicsService.setSelection(objects)
+
+    Sets the selection of physics objects.
+
+    The selection can contain objects of type
+
+    :param objects: List of objects corresponding to selected physics objects.
+    :type objects: List[vrdObject]
+
+.. py:method:: vrPhysicsService.setStaticColliderColor(color)
+
+    Sets the color used to visualize static colliders.
+
+    This function sets the color for rendering static collider shapes when collider visualization is enabled.
+
+    :param color: The color to use for static colliders.
+    :type color: QColor
+
+.. py:method:: vrPhysicsService.showColliders(show)
+
+    Shows or hides the visualization of PhysX collision shapes.
+
+    This function enables or disables the visualization of PhysX collision shapes in the renderer. When enabled, collision shapes are rendered with a special material similar to wireframe mode, allowing users to see the physics geometry used for collision detection.
+
+    :param show: True to show collider visualizations, False to hide them.
+    :type show: bool
+
+.. py:method:: vrPhysicsService.showCollisions(show)
+
+    Shows or hides the visualization of colliding objects through material highlighting.
+
+    This function enables or disables the highlighting of colliding objects in the renderer. When enabled, objects that are currently colliding are rendered with a red override material to visually indicate collision states. The highlighting uses reference counting to handle cases where a single object collides with multiple other objects simultaneously.
+
+    :param show: True to show collision highlighting, False to hide it.
+    :type show: bool
+
+.. py:method:: vrPhysicsService.showContactPoints(show)
+
+    Shows or hides the visualization of contact points between colliding objects.
+
+    This function enables or disables the visualization of contact points in the renderer. When enabled, contact points are rendered as small yellow spheres at the locations where physics objects touch during collisions.
+
+    :param show: True to show contact point visualizations, False to hide them.
+    :type show: bool
+
+.. py:method:: vrPhysicsService.storeCollisionData(node)
+
+    Stores collider/collision data for a node.
+
+    :param node: The node to store collider/collision data for.
+    :type node: vrdNode
+
+    :return: Always False. Calling this method will emit an error log stating it is deprecated and does nothing.
+    :rtype: bool
+
+Signals
+=======
+
+.. py:method:: vrPhysicsService.activeStateChanged(active)
+
+    :param active:
+    :type active: bool
+
+.. py:method:: vrPhysicsService.colliderVisualizationStateChanged(enabled)
+
+    Signals that the collider visualization state has changed.
+
+    This signal is emitted when collider visualization is enabled or disabled.
+
+    :param enabled: True if collider visualization is now enabled, False if disabled.
+    :type enabled: bool
+
+.. py:method:: vrPhysicsService.collisionContinues(info)
+
+    Signals that a collision is continuing.
+
+    This signal is emitted when a collision between two objects is still ongoing.
+
+    :param info: The physics information related to the collision. Contains the colliding nodes and their root nodes.
+    :type info: vrdPhysicsInfo
+
+.. py:method:: vrPhysicsService.collisionStarted(info)
+
+    Signals that a collision has started.
+
+    This signal is emitted when a collision between two objects is detected.
+
+    :param info: The physics information related to the collision. Contains the colliding nodes and their root nodes.
+    :type info: vrdPhysicsInfo
+
+.. py:method:: vrPhysicsService.collisionStopped(info)
+
+    Signals that a collision has stopped.
+
+    This signal is emitted when a collision between two objects has stopped.
+
+    :param info: The physics information related to the collision. Contains the formerly colliding nodes and their root nodes.
+    :type info: vrdPhysicsInfo
+
+.. py:method:: vrPhysicsService.contactPointVisualizationEnabledChanged(enabled)
+
+    Signal emitted when the contact point visualization state changes.
+
+    This signal is emitted whenever the visualization state is successfully changed via . It allows other components to react to the change in visualization status.vrPhysicsService.showContactPoints()
+
+    :param enabled: True if contact point visualization is now enabled, False otherwise.
+    :type enabled: bool
+
+.. py:method:: vrPhysicsService.pausedStateChanged(paused)
+
+    :param paused:
+    :type paused: bool
+
+.. py:method:: vrPhysicsService.physicsObjectsChanged()
+
+    Signals that physics objects have been added or removed.
+
+    This signal is emitted when kinematic, static, or dynamic objects are added to or removed from the physics simulation.
+
+.. py:method:: vrPhysicsService.selectionChanged(objects)
+
+    Signal emitted when the physics module selection changes.
+
+    This signal is emitted when the selection of physics objects is updated via the vrPhysicsService.setSelection(objects) method.
+
+    :param objects: List of objects corresponding to the new selection.
+    :type objects: List[vrdObject]
+
+.. py:method:: vrPhysicsService.showColisionEnabledChanged(enabled)
+
+    Signal emitted when the collision visualization state changes.
+
+    This signal is emitted whenever the visualization state for collisions is successfully changed. It allows other components to react to the change in the collision visualization status.
+
+    :param enabled: True if collision visualization is now enabled, False otherwise.
+    :type enabled: bool
+

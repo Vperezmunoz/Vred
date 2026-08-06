@@ -1,0 +1,45 @@
+----------------------
+vrdSubstanceProperties
+----------------------
+
+.. py:class:: vrdSubstanceProperties
+
+(Inherits vrdSceneObject)
+
+This class is used to query information about all attributes of a     vrdSubstanceMaterial.
+
+```
+
+     # Query a substance material by name
+     substanceMat = vrMaterialService.findMaterial("MaterialName")
+
+     # Get the update class to query substance material properties
+     properties = substanceMat.getProperties()
+
+     # Create an empty object and fill it with dynamic properties
+     obj = PySide6.QtCore.QObject()
+     properties.update(obj, 0)
+
+     # Dump all property names. This are the names of all substance attributes.
+     for propertyName in obj.dynamicPropertyNames():
+           print(propertyName)
+
+Summary
+=======
+
+Functions:
+    * update(obj, envMatObjectId)
+
+Functions
+=========
+
+.. py:method:: vrdSubstanceProperties.update(obj, envMatObjectId)
+
+    Fill a QObject with dynamic properties. The dynamic properties of the object correspond to the Substance attributes. All property IDs can be determined via the list of names of all dynamic properties. The type and value of the Substance attribute can be determined by querying the property.
+
+    :param obj: Fill a QObject with dynamic properties.
+    :type obj: QObject
+
+    :param envMatObjectId: For a substance environment material, pass the object ID of the environment material (not the texture generator)
+    :type envMatObjectId: integer
+

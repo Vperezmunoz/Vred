@@ -1,0 +1,415 @@
+-----------------
+vrMetadataService
+-----------------
+
+.. py:class:: vrMetadataService
+
+(Inherits vrBaseService)
+
+The metadata service provides functions for managing metadata.
+
+Summary
+=======
+
+Functions:
+    * addTags(objects, tags)
+    * assignSets(metadataSets, objects)
+    * copyEntries(entries)
+    * copySets(metadataSets)
+    * createSet(name, objects) → vrdMetadataSet
+    * deleteSets(metadataSets)
+    * duplicateSets(metadataSets) → List[vrdMetadataSet]
+    * findSets(name) → List[vrdMetadataSet]
+    * getActiveStringLibraryIndex() → integer
+    * getAllKeys() → List[string]
+    * getAllSets() → List[vrdMetadataSet]
+    * getAllShareableSets() → List[vrdMetadataSet]
+    * getAllTags() → List[string]
+    * getEntriesClipboard() → List[vrdMetadataEntry]
+    * getMaterialTags() → Dict[string,List[]]
+    * getMetadata(object) → vrdMetadata
+    * getObjectsWithMetadata(type) → List[vrdSceneObject]
+    * getObjectsWithTag(tag) → List[vrdSceneObject]
+    * getScenegraphTags() → Dict[string,List[]]
+    * getSelection() → List[vrdObject]
+    * getSetsClipboard() → List[vrdMetadataSet]
+    * getStringLibraries() → List[string]
+    * getTags(objects) → List[string]
+    * getUniqueSetName(name) → string
+    * hasMetadata(object) → bool
+    * hasTag(object, tag) → bool
+    * isEntriesClipboardEmpty() → bool
+    * isSetsClipboardEmpty() → bool
+    * loadSets(filePath, objects) → List[vrdMetadataSet]
+    * pasteEntries(metadataSets)
+    * pasteSets(objects)
+    * removeSets(metadataSets, objects)
+    * removeTags(objects, tags)
+    * renameTag(oldName, newTagName)
+    * renameTag(object, oldName, newName)
+    * saveSets(metadataSets, filePath) → bool
+    * setActiveStringLibraryIndex(index)
+    * setSelection(objects)
+    * setStringLibraries(libraries)
+
+Signals:
+    * activeStringLibraryIndexChanged(index)
+    * metadataChanged(changes)
+    * selectionChanged(objects)
+    * stringLibrariesChanged(libraries)
+
+Functions
+=========
+
+.. py:method:: vrMetadataService.addTags(objects, tags)
+
+    Add tags to given scene objects.
+
+    :param objects: The target objects.
+    :type objects: List[vrdSceneObject]
+
+    :param tags: The tag names that should be added.
+    :type tags: List[string]
+
+.. py:method:: vrMetadataService.assignSets(metadataSets, objects)
+
+    Assigns given metadata sets to given objects if not already assigned.
+
+    :param metadataSets: List of metadata sets.
+    :type metadataSets: List[vrdMetadataSet]
+
+    :param objects: List of scene objects.
+    :type objects: List[vrdSceneObject]
+
+.. py:method:: vrMetadataService.copyEntries(entries)
+
+    Copies a list of entries to the metadata entries clipboard.
+
+    The clipboard is cleared each time before a new copy.
+
+    :param entries: The entries to copy.
+    :type entries: List[vrdMetadataEntry]
+
+.. py:method:: vrMetadataService.copySets(metadataSets)
+
+    Copies a list of metadata sets to the metadata sets clipboard.
+
+    The clipboard is cleared each time before a new copy.
+
+    :param metadataSets: The metadata sets to copy.
+    :type metadataSets: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.createSet(name, objects=List[vrdSceneObject])
+
+    Creates an empty metadata set.
+
+    :param name: The name of the new set.
+    :type name: string
+
+    :param objects: Optional list of objects the new set should be assigned to.
+    :type objects: List[vrdSceneObject]
+
+    :return: The created set.
+    :rtype: vrdMetadataSet
+
+.. py:method:: vrMetadataService.deleteSets(metadataSets)
+
+    Deletes existing metadata sets.
+
+    This will remove each set from all objects it was assigned to.
+
+    :param metadataSets: The sets to be deleted.
+    :type metadataSets: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.duplicateSets(metadataSets)
+
+    Duplicates existing metadata sets with all data.
+
+    :param metadataSets: The sets to be duplicated.
+    :type metadataSets: List[vrdMetadataSet]
+
+    :return: The duplicated metadata sets.
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.findSets(name)
+
+    Searches for metadata sets by name.
+
+    :param name: The name.
+    :type name: string
+
+    :return: All metadata sets with the given name. Empty list if not found.
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.getActiveStringLibraryIndex()
+
+    :return: The index of the active string library.
+    :rtype: integer
+
+.. py:method:: vrMetadataService.getAllKeys()
+
+    :return: A list of all keys in the scene.
+    :rtype: List[string]
+
+.. py:method:: vrMetadataService.getAllSets()
+
+    :return: A list of all metadata sets (including objects sets) in the scene.
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.getAllShareableSets()
+
+    :return: A list of all shareable metadata sets in the scene. Does not include object sets.
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.getAllTags()
+
+    :return: A list of all tags in the scene.
+    :rtype: List[string]
+
+.. py:method:: vrMetadataService.getEntriesClipboard()
+
+    :return: The list of entries from the metadata entries clipboard.
+    :rtype: List[vrdMetadataEntry]
+
+.. py:method:: vrMetadataService.getMaterialTags()
+
+    :return: A list of all tags in the Material Editor.
+    :rtype: Dict[string,List[]]
+
+.. py:method:: vrMetadataService.getMetadata(object)
+
+    Gets all metadata from an object.
+
+    :param object: The object to check
+    :type object: vrdObject
+
+    :return: All metadata from this object
+    :rtype: vrdMetadata
+
+.. py:method:: vrMetadataService.getObjectsWithMetadata(type=vrMetadataTypes.ObjectType.All)
+
+    :param type: Type of the objects that should be returned.
+    :type type: vrMetadataTypes.ObjectType
+
+    :return: All objects with the given type which contain any metadata.
+    :rtype: List[vrdSceneObject]
+
+.. py:method:: vrMetadataService.getObjectsWithTag(tag)
+
+    :param tag: The tag name to query.
+    :type tag: string
+
+    :return: All objects which have the tag assigned.
+    :rtype: List[vrdSceneObject]
+
+.. py:method:: vrMetadataService.getScenegraphTags()
+
+    :return: A list of all tags in the Scenegraph. The list also includes the nodes a tag is assigned to. Since shared nodes have identical tags, the list only includes the first node of it. If you need a complete list with all shared nodes you can use the getSharedNodes() function of vrdNode.
+    :rtype: Dict[string,List[]]
+
+.. py:method:: vrMetadataService.getSelection()
+
+    :return: All objects currently selected in the metadata editor
+    :rtype: List[vrdObject]
+
+.. py:method:: vrMetadataService.getSetsClipboard()
+
+    :return: The list of metadata sets from the metadata sets clipboard.
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.getStringLibraries()
+
+    :return: The list of string library file paths.
+    :rtype: List[string]
+
+.. py:method:: vrMetadataService.getTags(objects)
+
+    :param objects: Scene objects
+    :type objects: List[vrdSceneObject]
+
+    :return: Tag names from a list of objects.
+    :rtype: List[string]
+
+.. py:method:: vrMetadataService.getUniqueSetName(name)
+
+    Gets a unique name for a metadata set.
+
+    :param name: The name candidate.
+    :type name: string
+
+    :return: A unique name based on the candidate.
+    :rtype: string
+
+.. py:method:: vrMetadataService.hasMetadata(object)
+
+    Check, if the given node has metadata assigned.
+
+    :param object: The object to check
+    :type object: vrdSceneObject
+
+    :return: True, if metadata exists
+    :rtype: bool
+
+.. py:method:: vrMetadataService.hasTag(object, tag)
+
+    :param object: The object.
+    :type object: vrdSceneObject
+
+    :param tag: The tag name.
+    :type tag: string
+
+    :return: True if the object contains the given tag, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrMetadataService.isEntriesClipboardEmpty()
+
+    :return: True if the metadata entries clipboard is empty, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrMetadataService.isSetsClipboardEmpty()
+
+    :return: True if the metadata sets clipboard is empty, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrMetadataService.loadSets(filePath, objects={})
+
+    Read metadata sets from a JSON file, send metadataChanged when file was successfully read.
+
+    :param filePath: File path of a JSON file
+    :type filePath: string
+
+    :param objects: (Optional) Scene objects the loaded sets should be assigned to.
+    :type objects: List[vrdSceneObject]
+
+    :return: The loaded metadata sets
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.pasteEntries(metadataSets)
+
+    Pastes the entries from the metadata entries clipboard to given sets.
+
+    The clipboard content is kept unchanged.
+
+    :param metadataSets: The target metadata sets.
+    :type metadataSets: List[vrdMetadataSet]
+
+.. py:method:: vrMetadataService.pasteSets(objects)
+
+    Pastes the metadata sets from the metadata sets clipboard to given objects.
+
+    The clipboard content is kept unchanged.
+
+    :param objects: The target objects.
+    :type objects: List[vrdSceneObject]
+
+.. py:method:: vrMetadataService.removeSets(metadataSets, objects)
+
+    Removes the given metadata sets from the given objects if existing.
+
+    :param metadataSets: List of metadata sets.
+    :type metadataSets: List[vrdMetadataSet]
+
+    :param objects: List of scene objects.
+    :type objects: List[vrdSceneObject]
+
+.. py:method:: vrMetadataService.removeTags(objects, tags)
+
+    Remove tags from objects.
+
+    :param objects: The target objects.
+    :type objects: List[vrdSceneObject]
+
+    :param tags: The tag names that should be removed.
+    :type tags: List[string]
+
+.. py:method:: vrMetadataService.renameTag(oldName, newTagName)
+
+    Rename existing tag.
+
+    :param oldName: The old tag name.
+    :type oldName: string
+
+    :param newTagName: The new tag name.
+    :type newTagName: string
+
+.. py:method:: vrMetadataService.renameTag(object, oldName, newName)
+   :no-index:
+
+    Rename existing tag on a specific object.
+
+    :param object: The object.
+    :type object: vrdSceneObject
+
+    :param oldName: The old tag name.
+    :type oldName: string
+
+    :param newName: The new tag name.
+    :type newName: string
+
+.. py:method:: vrMetadataService.saveSets(metadataSets, filePath)
+
+    Save given metadata sets in a JSON file.
+
+    :param metadataSets: The metadata objects to save
+    :type metadataSets: List[vrdMetadataSet]
+
+    :param filePath: File path of a JSON file
+    :type filePath: string
+
+    :return: True, if file was successfully saved
+    :rtype: bool
+
+.. py:method:: vrMetadataService.setActiveStringLibraryIndex(index)
+
+    Sets the index of the active string library.
+
+    The active index indicates to which library new values are written.
+
+    :param index: The index of the string libraries. A valid index for the list of string libraries should match the following constraint: 0 <= index < size of list.
+    :type index: integer
+
+.. py:method:: vrMetadataService.setSelection(objects)
+
+    Selects a list of objects in the metadata editor.
+
+    :param objects: A list of metadata sets and/or scene objects
+    :type objects: List[vrdObject]
+
+.. py:method:: vrMetadataService.setStringLibraries(libraries)
+
+    Sets the file paths used for the key and value string completion.
+
+    :param libraries: The string library file paths.
+    :type libraries: List[string]
+
+Signals
+=======
+
+.. py:method:: vrMetadataService.activeStringLibraryIndexChanged(index)
+
+    This signal is emitted when the active string library index was changed.
+
+    :param index: The new active string library index.
+    :type index: integer
+
+.. py:method:: vrMetadataService.metadataChanged(changes=vrMetadataTypes.AllChanged)
+
+    This signal is emitted when metadata sets were created or deleted, assigned to objects or removed from objects, when tags are changed or assigned.
+
+    :param changes:
+    :type changes: vrMetadataTypes.ChangeFlag
+
+.. py:method:: vrMetadataService.selectionChanged(objects)
+
+    Signal will be sent if the selection in the metadata editor has changed.
+
+    :param objects: All selected objects
+    :type objects: List[vrdObject]
+
+.. py:method:: vrMetadataService.stringLibrariesChanged(libraries)
+
+    This signal is emitted when the string library paths were changed.
+
+    :param libraries: The new library file paths.
+    :type libraries: List[string]
+

@@ -1,0 +1,45 @@
+---------------------
+vrdLensFlareGhostLine
+---------------------
+
+.. py:class:: vrdLensFlareGhostLine
+
+(Inherits vrdLensFlareElement)
+
+This class is used for collection ghost effects. Objects of this class acts as a container for     vrdLensFlareGhost objects. But it is an effect too. This class has a name and if becomes inactive, all ghosts of this line becomes inactive.
+
+Summary
+=======
+
+Functions:
+    * createGhost(distance) → vrdLensFlareGhost
+    * getGhosts() → List[vrdLensFlareGhost]
+    * removeGhosts(ghosts)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareGhostLine.createGhost(distance=0.0)
+
+    A new ghost will be created for this line. The new ghost object has default properties. A 'ghost' property signal is emitted for the line object.
+
+    :param distance: Distance between the ghost and the light on the ghost line in a range between -5.0 and 5.0.
+    :type distance: float
+
+    :return: The new created ghost
+    :rtype: vrdLensFlareGhost
+
+.. py:method:: vrdLensFlareGhostLine.getGhosts()
+
+    Get a list of all ghost of this line.
+
+    :return: All ghosts of this line
+    :rtype: List[vrdLensFlareGhost]
+
+.. py:method:: vrdLensFlareGhostLine.removeGhosts(ghosts)
+
+    Remove some ghosts of this line. It will be checked, if the given ghosts are in this line. A 'ghost' property signal is emitted for the line object. But this only happens when ghosts have been removed. If the parameter list was empty, the signal is not sent. If the ghosts were not in this line, the signal will not be sent either.
+
+    :param ghosts: All ghost to be removed from this line
+    :type ghosts: List[vrdLensFlareGhost]
+

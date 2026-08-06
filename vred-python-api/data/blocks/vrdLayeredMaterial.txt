@@ -1,0 +1,10 @@
+------------------
+vrdLayeredMaterial
+------------------
+
+.. py:class:: vrdLayeredMaterial
+
+(Inherits vrdMultiMaterial)
+
+This class represents a Layered material.
+

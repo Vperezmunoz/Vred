@@ -1,0 +1,176 @@
+--------------------
+vrdDeviceMessageData
+--------------------
+
+.. py:class:: vrdDeviceMessageData
+
+(Inherits vrdData)
+
+Defines message content for     vrImmersiveInteractionService.showControllerMessage(data, rightHand). You can display either a text message or an image message for a VR controller.
+
+Use it like this:
+
+```
+
+     md = vrdDeviceMessageData()
+     md.setText("Message text")
+     vrImmersiveInteractionService.showControllerMessage(md, True)
+
+Summary
+=======
+
+Functions:
+    * getBackgroundColor() → QVector3D
+    * getFontSize() → integer
+    * getForegroundColor() → QVector3D
+    * getFrameSize() → float
+    * getImageDpi() → integer
+    * getImagePath() → string
+    * getPosition() → QVector3D
+    * getRotation() → QVector3D
+    * getText() → string
+    * getUseImage() → bool
+    * setBackgroundColor(color)
+    * setFontSize(value)
+    * setForegroundColor(color)
+    * setFrameSize(value)
+    * setImageDpi(dpi)
+    * setImagePath(path)
+    * setPosition(position)
+    * setRotation(eulerRotation)
+    * setText(text)
+    * setUseImage(value)
+    * vrdDeviceMessageData()
+    * vrdDeviceMessageData(data)
+
+Functions
+=========
+
+.. py:method:: vrdDeviceMessageData.getBackgroundColor()
+
+    :return: The background color in RGB
+    :rtype: QVector3D
+
+.. py:method:: vrdDeviceMessageData.getFontSize()
+
+    :return: The font size
+    :rtype: integer
+
+.. py:method:: vrdDeviceMessageData.getForegroundColor()
+
+    :return: The foreground color in RGB
+    :rtype: QVector3D
+
+.. py:method:: vrdDeviceMessageData.getFrameSize()
+
+    :return: The frame size
+    :rtype: float
+
+.. py:method:: vrdDeviceMessageData.getImageDpi()
+
+    :return: The dots per inch
+    :rtype: integer
+
+.. py:method:: vrdDeviceMessageData.getImagePath()
+
+    :return: The image file path
+    :rtype: string
+
+.. py:method:: vrdDeviceMessageData.getPosition()
+
+    :return: The position of the message
+    :rtype: QVector3D
+
+.. py:method:: vrdDeviceMessageData.getRotation()
+
+    :return: The orientation of the message in euler angles in degrees
+    :rtype: QVector3D
+
+.. py:method:: vrdDeviceMessageData.getText()
+
+    :return: The message text
+    :rtype: string
+
+.. py:method:: vrdDeviceMessageData.getUseImage()
+
+    :return: True, if an image is used
+    :rtype: bool
+
+.. py:method:: vrdDeviceMessageData.setBackgroundColor(color)
+
+    Set the background color for the message.
+
+    :param color: Color in RGB [0..255]
+    :type color: QVector3D
+
+.. py:method:: vrdDeviceMessageData.setFontSize(value)
+
+    Set the font size for the message text.
+
+    :param value: Size of the font
+    :type value: integer
+
+.. py:method:: vrdDeviceMessageData.setForegroundColor(color)
+
+    Set the foreground color (e.g. text) for the message.
+
+    :param color: Color in RGB [0..255]
+    :type color: QVector3D
+
+.. py:method:: vrdDeviceMessageData.setFrameSize(value)
+
+    Set the frame size (outline width) of the message rectangle.
+
+    :param value: Frame size
+    :type value: float
+
+.. py:method:: vrdDeviceMessageData.setImageDpi(dpi)
+
+    Set the dpi for the image.
+
+    :param dpi: Dots per inch
+    :type dpi: integer
+
+.. py:method:: vrdDeviceMessageData.setImagePath(path)
+
+    Set a path to an image file. See         vrdDeviceMessageData.setUseImage(value).
+
+    :param path: File path to an image
+    :type path: string
+
+.. py:method:: vrdDeviceMessageData.setPosition(position)
+
+    Set the position of the message.
+
+    :param position: 3D position in local device space
+    :type position: QVector3D
+
+.. py:method:: vrdDeviceMessageData.setRotation(eulerRotation)
+
+    Set the orientation of the message.
+
+    :param eulerRotation: Rotation in euler angles in degrees
+    :type eulerRotation: QVector3D
+
+.. py:method:: vrdDeviceMessageData.setText(text)
+
+    Set the message text.
+
+    :param text: Text of the message
+    :type text: string
+
+.. py:method:: vrdDeviceMessageData.setUseImage(value)
+
+    Set if an image instead of text is used.
+
+    :param value: If True, an image is used
+    :type value: bool
+
+.. py:method:: vrdDeviceMessageData.vrdDeviceMessageData()
+
+.. py:method:: vrdDeviceMessageData.vrdDeviceMessageData(data)
+   :no-index:
+
+    :param data:
+    :type data: vrdDeviceMessageData
+

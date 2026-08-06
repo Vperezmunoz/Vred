@@ -1,0 +1,260 @@
+MODULE vrOpenVRFrameTimings (legacy v1 API)
+
+---------------------
+vrOpenVRFrameTimings
+---------------------
+
+The `vrOpenVRFrameTimings` class stores timing information from the OpenVR library that can be queried by calling `getOpenVRFrameTimings()`. The timing information always refers to the last rendered frame.
+
+Summary
+=======
+
+Functions:
+    * getClientFrameInterval() → Real32
+    * getCompositorIdleCpu() → Real32
+    * getCompositorRenderCpu() → Real32
+    * getCompositorRenderGpu() → Real32
+    * getCompositorRenderStart() → Real32
+    * getCompositorUpdateEnd() → Real32
+    * getCompositorUpdateStart() → Real32
+    * getFrameId() → UInt32
+    * getFrameIndex() → UInt32
+    * getNewFrameReady() → Real32
+    * getNewPosesReady() → Real32
+    * getNumDroppedFrames() → UInt32
+    * getNumFramePresents() → UInt32
+    * getNumMisPresented() → UInt32
+    * getPostSubmitCpu() → Real32
+    * getPostSubmitGpu() → Real32
+    * getPresentCallCpu() → Real32
+    * getPreSubmitGpu() → Real32
+    * getMulticastCopyTimeCpu() → Real32
+    * getRenderTimeCpu() → Real32
+    * getReprojectionFlag() → UInt32
+    * getSubmitCpu() → Real32
+    * getSubmitFrameTime() → Real32
+    * getSystemTimeInSeconds() → Real64
+    * getTimeBetweenRenderCpu() → Real32
+    * getTimeBetweenSubmitCpu() → Real32
+    * getTimeBetweenWaitGetPosesCpu() → Real32
+    * getTotalRenderGpu() → Real32
+    * getWaitForPresentCpu() → Real32
+    * getWaitGetPosesCalled() → Real32
+    * getWaitGetPosesCpu() → Real32
+
+.. method:: getFrameId()
+
+    Returns the index of the current frame.
+
+    :return: The current frame id.
+    :rtype: UInt32
+
+.. method:: getFrameIndex()
+
+    Returns the current frame index.
+
+    :return: The current frame index.
+    :rtype: UInt32
+
+.. method:: getNumFramePresents()
+
+    Returns the number of times this frame was presented.
+
+    :return: The number of times this frame was presented.
+    :rtype: UInt32
+
+.. method:: getNumMisPresented()
+
+    Returns the number of times this frame was presented on a vsync other than it was originally predicted to.
+
+    :return: The number of times this frame was mispresented.
+    :rtype: UInt32
+
+.. method:: getNumDroppedFrames()
+
+    Returns the number of additional times the previous frame was scanned out.
+
+    :return: The number of additional times the previous frame was scanned out.
+    :rtype: UInt32
+
+.. method:: getReprojectionFlag()
+
+    Returns whether the frame was reprojected or not.
+
+    :return: The reprojection state.
+    :rtype: UInt32
+
+.. method:: getSystemTimeInSeconds()
+
+    Returns the absolute time reference for comparing frames. This aligns with the vsync that running start is relative to.
+
+    :return: The absolute system time reference in seconds.
+    :rtype: Real64
+
+.. method:: getPreSubmitGpu()
+
+    Returns the time spent rendering the scene.
+
+    :return: The time spent rendering the scene in milliseconds.
+    :rtype: Real32
+
+.. method:: getPostSubmitGpu()
+
+    Returns the additional time spent rendering by the application (e.g., companion window).
+
+    :return: The additional rendering time in milliseconds.
+    :rtype: Real32
+
+.. method:: getTotalRenderGpu()
+
+    Returns the time between work submitted immediately after present (ideally vsync) until the end of compositor-submitted work.
+
+    :return: The total GPU render time in milliseconds.
+    :rtype: Real32
+
+.. method:: getCompositorRenderGpu()
+
+    Returns the time spent performing distortion correction, rendering chaperone, overlays, etc.
+
+    :return: The compositor rendering time in milliseconds.
+    :rtype: Real32
+
+.. method:: getCompositorRenderCpu()
+
+    Returns the time spent on the CPU submitting the above work for this frame.
+
+    :return: The time spent on the CPU in milliseconds.
+    :rtype: Real32
+
+.. method:: getCompositorIdleCpu()
+
+    Returns the time spent waiting for running start (application could have used this much more time).
+
+    :return: The time spent waiting for running start in milliseconds.
+    :rtype: Real32
+
+.. method:: getClientFrameInterval()
+
+    Returns the time between calls to WaitGetPoses.
+
+    :return: The time between calls to WaitGetPoses in milliseconds.
+    :rtype: Real32
+
+.. method:: getPresentCallCpu()
+
+    Returns the time blocked on the call to present (usually 0.0, but can go long).
+
+    :return: The present call time in milliseconds.
+    :rtype: Real32
+
+.. method:: getWaitForPresentCpu()
+
+    Returns the time spent spin-waiting for the frame index to change (not near-zero indicates wait object failure).
+
+    :return: The time waiting for the next frame in milliseconds.
+    :rtype: Real32
+
+.. method:: getSubmitFrameTime()
+
+    Returns the time spent in IVRCompositor::Submit (not near-zero indicates driver issue).
+
+    :return: The time spent submitting the current frame in milliseconds.
+    :rtype: Real32
+
+.. method:: getWaitGetPosesCalled()
+
+    Returns the timestamp when WaitGetPoses was called relative to the global system time.
+
+    :return: The timestamp in milliseconds.
+    :rtype: Real32
+
+.. method:: getNewPosesReady()
+
+    Returns the timestamp when a new pose was ready relative to the global system time.
+
+    :return: The timestamp in milliseconds.
+    :rtype: Real32
+
+.. method:: getNewFrameReady()
+
+    Returns the timestamp when a new frame was ready relative to the global system time.
+
+    :return: The timestamp in milliseconds.
+    :rtype: Real32
+
+.. method:: getCompositorUpdateStart()
+
+    Returns the timestamp when the compositor update was started relative to the global system time.
+
+    :return: The timestamp in milliseconds.
+    :rtype: Real32
+
+.. method:: getCompositorUpdateEnd()
+
+    Returns the timestamp when the compositor update was finished relative to the global system time.
+
+    :return: The timestamp in milliseconds.
+    :rtype: Real32
+
+.. method:: getCompositorRenderStart()
+
+    Returns the timestamp when the compositor started rendering relative to the global system time.
+
+    :return: The timestamp in milliseconds.
+    :rtype: Real32
+
+.. method:: getSubmitCpu()
+
+    Returns the CPU time for doing the submit calls for both eyes.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getPostSubmitCpu()
+
+    Returns the CPU time from completing the submit calls.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getTimeBetweenSubmitCpu()
+
+    Returns the CPU time passed between two calls to submit.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getTimeBetweenWaitGetPosesCpu()
+
+    Returns the CPU time passed between two calls to WaitGetPoses.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getWaitGetPosesCpu()
+
+    Returns the CPU time for WaitGetPoses.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getTimeBetweenRenderCpu()
+
+    Returns the CPU time passed between the rendering of two frames.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getMulticastCopyTimeCpu()
+
+    Returns the CPU time required to copy buffers from one GPU to the other if multicast SLI is enabled. The time is undefined otherwise.
+
+    :return: The time in milliseconds.
+    :rtype: Real32
+
+.. method:: getRenderTimeCpu()
+
+    Returns the complete CPU render time measured from binding the first eye buffer to completing the second eye and creating the mirror texture.
+
+    :return: The time in milliseconds.
+    :rtype: Real32

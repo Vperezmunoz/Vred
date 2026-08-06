@@ -1,0 +1,302 @@
+---------------------
+vrRenderSettingsTypes
+---------------------
+
+.. py:class:: vrRenderSettingsTypes
+
+    .. py:class:: TransparencyMode
+       :no-index:
+
+        Transparency rendering mode used by rasterization renderers.
+
+            .. py:data:: ObjectSorting
+               :no-index:
+
+            .. py:data:: DepthPeeling
+               :no-index:
+
+    .. py:class:: RealtimeEnvironmentShadowsMode
+
+        Real-time environment shadows mode used by rasterization renderers (Vulkan or OpenGL) if enabled.
+
+            .. py:data:: Off
+               :no-index:
+
+                No real-time environment shadows.
+
+            .. py:data:: ScreenSpaceAmbientOcclusion
+
+                See           vrdScreenSpaceAmbientOcclusionSettings.
+
+            .. py:data:: RaytracedAmbientOcclusion
+
+                Only supported by Vulkan renderer. See           vrdRaytracedAmbientOcclusionSettings.
+
+            .. py:data:: RaytracedEnvironmentShadows
+
+                Only supported by Vulkan renderer. See           vrdRaytracedEnvironmentShadowsSettings.
+
+            .. py:data:: RaytracedDiffuseGI
+
+                Only supported by Vulkan renderer. See           vrdRaytracedDiffuseGISettings.
+
+    .. py:class:: AnimationFormat
+
+            .. py:data:: RenderAsImages
+
+            .. py:data:: RenderAsMovie
+
+    .. py:class:: DepthMode
+
+            .. py:data:: Standard
+
+            .. py:data:: Linear
+               :no-index:
+
+            .. py:data:: NormalizedLinear
+
+            .. py:data:: NormalizedLinearReversed
+
+    .. py:class:: PhotonMode
+
+            .. py:data:: Off
+               :no-index:
+
+                Disables Photon Tracing and uses the default full global illumination algorithm in VRED.
+
+            .. py:data:: Indirect
+
+                Indirect Only - Uses Photon Tracing to calculate the indirect illumination (all the inter-reflected light) in a scene. This is the most common mode.
+
+            .. py:data:: IndirectAndCaustics
+
+                Caustics + Indirect - Uses Photon Tracing to calculate indirect illumination and caustics due to specular materials in a scene. Important for transparent and semi-transparent objects, such as glass or water in a pool, where light bounces off these surfaces and also illuminates them.
+
+    .. py:class:: PhotonMapRefreshMode
+
+        Sets how often the photon map is rebuild if final gathering is turned on.
+
+            .. py:data:: OnEachSample
+
+                Updates the photon map for each image sample. You should use this setting if you have animated objects in your scene since the photon count may be to low otherwise causing flickering.
+
+            .. py:data:: OnSceneChange
+
+                Only updates the photonmap if the scene changes. If used with caustics, the caustic map is still rebuild for each image sample. Use this setting for fastest renderspeed in scenes where only the camera changes.
+
+    .. py:class:: ICCProfile
+
+            .. py:data:: CurrentSettings
+
+            .. py:data:: sRGB_IEC_61966_21
+
+            .. py:data:: AdobeRGB_98
+
+            .. py:data:: MonitorICCProfile
+
+            .. py:data:: ImageICCProfile
+
+    .. py:class:: Illuminant
+
+            .. py:data:: EqualEnergy
+
+                Equal Energy assumes all wavelengths to have equal weight to result in a white color.
+
+            .. py:data:: D65
+
+                D65 assumes a D65 illuminant to be white.
+
+    .. py:class:: DenoiserMode
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: DeepLearningStillframe
+
+            .. py:data:: DeepLearningAlways
+
+    .. py:class:: AnimationType
+
+            .. py:data:: Clip
+
+            .. py:data:: Timeline
+
+    .. py:class:: VolumeEvaluationMode
+
+            .. py:data:: RayMarching
+
+            .. py:data:: MultiScattering
+
+    .. py:class:: AAthresholdQuality
+
+            .. py:data:: PrewiewQuality
+
+            .. py:data:: LowQuality
+
+            .. py:data:: MediumQuality
+
+            .. py:data:: HighQuality
+
+            .. py:data:: UltraHighQuality
+
+            .. py:data:: HighestQuality
+
+    .. py:class:: IlluminationMode
+       :no-index:
+
+            .. py:data:: Precomputed
+               :no-index:
+
+            .. py:data:: PrecomputedAndReflections
+               :no-index:
+
+            .. py:data:: PrecomputedAndShadows
+               :no-index:
+
+            .. py:data:: PrecomputedAndIBL
+               :no-index:
+
+            .. py:data:: FullGlobalIllumination
+               :no-index:
+
+    .. py:class:: RenderingColorSpace
+
+            .. py:data:: LinearRec709_sRGB
+
+            .. py:data:: ACEScg
+
+            .. py:data:: LinearP3_D65
+
+            .. py:data:: LinearRec2020
+
+    .. py:class:: PixelFilterType
+
+            .. py:data:: Box
+               :no-index:
+
+            .. py:data:: Triangle
+               :no-index:
+
+            .. py:data:: Gaussian
+
+            .. py:data:: MitchellNetravali
+
+            .. py:data:: Lancsoz
+
+            .. py:data:: BSpline
+
+            .. py:data:: CatmullRom
+
+            .. py:data:: SharpTriangle
+
+            .. py:data:: SharpGaussian
+
+            .. py:data:: SharpBSpine
+
+    .. py:class:: BRDFMode
+
+        Defines the behavior of the BRDF Model.
+
+            .. py:data:: Ver_6_below
+
+                (Deprecated) Version 6.0x and below handled diffuse and glossy terms separately which caused dark edges on geometries especially when using a non-white glossy color. Use the Ver. 6.0x and below setting for compatibility reasons.
+
+            .. py:data:: Ver_2014_above
+
+                (Deprecated) In version 2014 and above, the diffuse and glossy terms interact to ensure a better energy conserving behavior. Dark edges on geometries are reduced and non-white glossy colors don´t darken the diffuse term. Use the 2014 and above setting for compatibility reasons.
+
+            .. py:data:: EnergyPreservingGGX
+
+                Energy Preserving GGX conserves and preserves the energy, especially for high roughness values. This ensures that no energy is added when evaluating the lighting. Use Energy Preserving GGX for new scenes and a better match to reality.
+
+    .. py:class:: DenoiserInput
+
+        Defines the input buffers used for the denoiser.
+
+            .. py:data:: ColorOnly
+
+            .. py:data:: ColorAlbedo
+
+            .. py:data:: ColorAlbedoNormal
+
+    .. py:class:: ImageSamplingMode
+
+            .. py:data:: ImageSampleCount
+
+                Uses a fixed number of image samples during stillframe antialiasing for the calculation of an image. Higher values produce a cleaner result, while lower values reduce the render time. A value of 128 is a recommended starting point, in general, but may be too low for interior scenes with full global illumination.
+
+            .. py:data:: TimeLimit
+
+                Uses a maximum time for rendering a single image.
+
+    .. py:class:: DenoiserType
+       :no-index:
+
+            .. py:data:: OptixDenoiser
+               :no-index:
+
+                If the hardware and driver version support it GPU-based OptiX denoiser will be used; otherwise the Open Image denoiser will be used.
+
+            .. py:data:: OpenImageDenoiser
+               :no-index:
+
+                Always uses the Open Image denoiser. If available a GPU-based denoising will be done, otherwise the CPU-based denoiser will be used.
+
+    .. py:class:: ApplyPresetMode
+
+            .. py:data:: ApplyAll
+
+            .. py:data:: IgnoreSpectralFlag
+
+            .. py:data:: IgnoreGpuFlag
+
+            .. py:data:: IgnoreFileName
+
+            .. py:data:: IgnoreClipName
+
+            .. py:data:: IgnoreVariantSets
+
+            .. py:data:: IgnoreSceneSpecific
+
+    .. py:class:: MetaDataFlags
+
+        Flags to specify which meta data should be embedded in the image file. Available for jpg, png, tif and exr file formats.
+
+            .. py:data:: None_
+               :no-index:
+
+                Do not include meta data.
+
+            .. py:data:: ActiveCameraSettings
+
+                Embed current camera settings as meta data in the image file.
+
+            .. py:data:: NodeVisibilities
+
+                Embed all scenegraph node visibilities as meta data in the rendering.
+
+            .. py:data:: SwitchNodeStates
+
+                Embeds all switch node choice states as metadata.
+
+            .. py:data:: ImageSettings
+
+            .. py:data:: AnimationSettings
+
+            .. py:data:: RenderPasses
+
+            .. py:data:: RaytracingSettings
+
+            .. py:data:: GeneralRenderSettings
+
+                Embed current render settings as meta data in the image file.
+
+            .. py:data:: SwitchMaterialStates
+
+                Embeds all switch material choice states as metadata.
+
+            .. py:data:: All
+               :no-index:
+
+                Embeds all the metadata.
+

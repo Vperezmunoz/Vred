@@ -1,0 +1,192 @@
+----------------
+vrdSceneItemInfo
+----------------
+
+.. py:class:: vrdSceneItemInfo
+
+(Inherits vrdData)
+
+Holds information to show a     vrdNode in the scenegraph tree. getTreeItemInfo in vrScenegraphService will create this structure.
+
+    .. py:class:: Flags
+
+            .. py:data:: HasMetadata
+
+            .. py:data:: HasAnimation
+
+            .. py:data:: HasTransformVariant
+
+            .. py:data:: HasTouchSensor
+
+            .. py:data:: HasAnnotation
+
+            .. py:data:: HasLiveReference
+
+            .. py:data:: HasConstraint
+
+            .. py:data:: HasLimits
+
+            .. py:data:: HasPhysics
+
+Summary
+=======
+
+Functions:
+    * getDisplayText() → string
+    * getFlags() → Flags
+    * getHasFileInfo() → bool
+    * getIcon() → QIcon
+    * getIsChecked() → bool
+    * getIsEditable() → bool
+    * getIsImplicitShared() → bool
+    * getIsShared() → bool
+    * getIsSynchronized() → bool
+    * getIsVisible() → bool
+    * getNode() → vrdNode
+    * setDisplayText(displayText)
+    * setFlags(value)
+    * setHasFileInfo(value)
+    * setIcon(icon)
+    * setIsChecked(checked)
+    * setIsEditable(value)
+    * setIsImplicitShared(value)
+    * setIsShared(value)
+    * setIsSynchronized(value)
+    * setIsVisible(visible)
+    * setNode(node)
+
+Functions
+=========
+
+.. py:method:: vrdSceneItemInfo.getDisplayText()
+
+    :return: The node text
+    :rtype: string
+
+.. py:method:: vrdSceneItemInfo.getFlags()
+
+    :return: Flags shown in the column extension view
+    :rtype: Flags
+
+.. py:method:: vrdSceneItemInfo.getHasFileInfo()
+
+    :return: True, if node has a file info attached
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getIcon()
+
+    :return: The node icon
+    :rtype: QIcon
+
+.. py:method:: vrdSceneItemInfo.getIsChecked()
+
+    :return: True, if item's checkbox is checked
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getIsEditable()
+
+    :return: True, if node is editable
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getIsImplicitShared()
+
+    :return: True, if child of a shared node
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getIsShared()
+
+    :return: True, if node is shared
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getIsSynchronized()
+
+    :return: True, if synchronized root of a shared tree
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getIsVisible()
+
+    :return: True, if node and all its parents are visible
+    :rtype: bool
+
+.. py:method:: vrdSceneItemInfo.getNode()
+
+    :return: The node
+    :rtype: vrdNode
+
+.. py:method:: vrdSceneItemInfo.setDisplayText(displayText)
+
+    Sets the display text.
+
+    :param displayText: The text shown in the tree
+    :type displayText: string
+
+.. py:method:: vrdSceneItemInfo.setFlags(value)
+
+    Sets the flags for the column extension.
+
+    :param value: The flags valid for this node
+    :type value: Flags
+
+.. py:method:: vrdSceneItemInfo.setHasFileInfo(value)
+
+    Sets the file info state.
+
+    :param value: True, if the node has file info attached
+    :type value: bool
+
+.. py:method:: vrdSceneItemInfo.setIcon(icon)
+
+    Sets the icon.
+
+    :param icon: An icon that is displayed in the tree
+    :type icon: QIcon
+
+.. py:method:: vrdSceneItemInfo.setIsChecked(checked)
+
+    Sets the checked state.
+
+    :param checked: True, if the node is checked in the tree
+    :type checked: bool
+
+.. py:method:: vrdSceneItemInfo.setIsEditable(value)
+
+    Sets the nodes editable state.
+
+    :param value: True, if node is editable
+    :type value: bool
+
+.. py:method:: vrdSceneItemInfo.setIsImplicitShared(value)
+
+    Sets the implicit shared state.
+
+    :param value: True, if node is implicit shared
+    :type value: bool
+
+.. py:method:: vrdSceneItemInfo.setIsShared(value)
+
+    Sets the shared state.
+
+    :param value: True, if node is shared
+    :type value: bool
+
+.. py:method:: vrdSceneItemInfo.setIsSynchronized(value)
+
+    Sets the synchronized state.
+
+    :param value: True, if the node is synchronized
+    :type value: bool
+
+.. py:method:: vrdSceneItemInfo.setIsVisible(visible)
+
+    Sets the visible state.
+
+    :param visible: True, if the node is visible
+    :type visible: bool
+
+.. py:method:: vrdSceneItemInfo.setNode(node)
+
+    Sets the node.
+
+    :param node: The node
+    :type node: vrdNode
+

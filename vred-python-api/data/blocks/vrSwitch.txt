@@ -1,0 +1,39 @@
+MODULE vrSwitch (legacy v1 API)
+
+--------
+vrSwitch
+--------
+
+Switches visibility of objects.
+
+Example::
+
+    See also example switch.py
+
+Summary
+=======
+
+Classes:
+    * vrSwitch
+
+.. class:: vrSwitch(node)
+.. class:: vrSwitch(nodes)
+    :no-index:
+
+    Switches visibility of objects.
+
+    Example::
+
+        See also example switch.py
+
+    The constructor of the vrSwitch class. There are two valid parameters:
+
+        vrSwitch(node): Creates a vrSwitch object for one node.
+
+        vrSwitch(nodes): Creates a vrSwitch object for multiple nodes.
+
+    :param node: The node.
+    :type node: vrNodePtr
+
+    :param nodes: A list of nodes.
+    :type nodes: list of vrNodePtrs

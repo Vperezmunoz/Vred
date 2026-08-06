@@ -1,0 +1,568 @@
+MODULE vrOculusTouchController (legacy v1 API)
+
+-----------------------
+vrOculusTouchController
+-----------------------
+
+.. module:: vrOculusTouchController
+
+**Deprecated**. Use API v2 vrDeviceService, vrdVRDevice and vrdDeviceInteraction instead.
+
+Summary
+=======
+
+Functions:
+    * button0IsPressed()
+    * button0IsTouched()
+    * button0Pressed()
+    * button0Released()
+    * button0Touched()
+    * button0Untouched()
+    * button1IsPressed()
+    * button1IsTouched()
+    * button1Pressed()
+    * button1Released()
+    * button1Touched()
+    * button1Untouched()
+    * controllerMoved()
+    * getControllerNode() → vrNodePtr
+    * getHandRole() → int
+    * getHandTriggerRatio() → float
+    * getThumbstickPosition() → Vec2f
+    * getTriggerRatio() → float
+    * getVisualizationMode() → int
+    * getWorldMatrix() → list
+    * handPoseStarted(poseId)
+    * handPoseStopped(poseId)
+    * handRoleChanged(role)
+    * handTouchContinues(touchedNodeId, fingerId)
+    * handTouchStarted(touchedNodeId, fingerId)
+    * handTouchStopped(touchedNode, fingerId)
+    * handTriggerChanged(value)
+    * handTriggerIsPressed()
+    * handTriggerPressed()
+    * handTriggerReleased()
+    * isButton0Pressed() → bool
+    * isButton0Touched() → bool
+    * isButton1Pressed() → bool
+    * isButton1Touched() → bool
+    * isHandAnimationEnabled() → bool
+    * isHandInteractionEnabled() → bool
+    * isHandPoseActive(poseId) → bool
+    * isHandTouchPointVisualizationEnabled() → bool
+    * isHandTriggerPressed() → bool
+    * isThumbRestTouched() → bool
+    * isThumbstickPressed() → bool
+    * isThumbstickTouched() → bool
+    * isTriggerPressed() → bool
+    * isTriggerTouched() → bool
+    * isVisible() → bool
+    * pickNode() → vrNodePtr
+    * pickNodeEx() → tuple
+    * pickNodeWithFinger(fingerId) → tuple
+    * setCustomPickingDirection(origin, direction, color)
+    * setHandAnimationEnabled(enabled)
+    * setHandInteractionEnabled(enabled)
+    * setHandTouchPointVisualizationEnabled(enabled)
+    * setPickingAxis(axis)
+    * setVisible(visible)
+    * setVisualizationMode(mode)
+    * showPickingAxis(axis)
+    * thumbRestIsTouched()
+    * thumbRestTouched()
+    * thumbRestUntouched()
+    * thumbstickChanged(position)
+    * thumbstickIsPressed()
+    * thumbstickIsTouched()
+    * thumbstickPressed()
+    * thumbstickReleased()
+    * thumbstickTouched()
+    * thumbstickUntouched()
+    * triggerChanged(value)
+    * triggerHapticPulse(axis, duration)
+    * triggerIsPressed()
+    * triggerIsTouched()
+    * triggerPressed()
+    * triggerReleased()
+    * triggerTouched()
+    * triggerUntouched()
+    * triggerVibration(frequency, amplitude)
+
+Variables:
+    - Finger_Thumb = 0
+    - Finger_Index = 1
+    - Finger_Middle = 2
+    - Finger_Ring = 3
+    - Finger_Pinky = 4
+    - Hand_Left = 1
+    - Hand_Right = 2
+    - Hand_Undefined = 0
+    - Pose_Picking = 1001
+    - Pose_Pointing = 1002
+    - Pose_ThumbsUp = 1003
+    - Pose_Fist = 1004
+    - Visualization_Controller = 0
+    - Visualization_Hand = 1
+    - Visualization_ControllerAndHand = 2
+
+.. method:: controllerMoved()
+
+    SIGNAL is called constantly when the controller moves.
+
+.. method:: button0Pressed()
+
+    SIGNAL is emitted when the X or A button is pressed.
+
+.. method:: button0Released()
+
+    SIGNAL is emitted when the X or A button is released.
+
+.. method:: button0IsPressed()
+
+    SIGNAL is emitted while the X or A button is pressed down.
+
+.. method:: isButton0Pressed()
+
+    Returns the pressed state of the X or A button.
+
+    :return: The button press state.
+    :rtype: bool
+
+.. method:: button0Touched()
+
+    SIGNAL is emitted when the X or A button is touched.
+
+.. method:: button0Untouched()
+
+    SIGNAL is emitted when the X or A button is untouched.
+
+.. method:: button0IsTouched()
+
+    SIGNAL is emitted while the X or A button is touched.
+
+.. method:: isButton0Touched()
+
+    Returns the touch state of the X or A button.
+
+    :return: The button touch state.
+    :rtype: bool
+
+.. method:: button1Pressed()
+
+    SIGNAL is emitted when the Y or B button is pressed.
+
+.. method:: button1Released()
+
+    SIGNAL is emitted when the Y or B button is released.
+
+.. method:: button1IsPressed()
+
+    SIGNAL is emitted while the Y or B button is pressed down.
+
+.. method:: isButton1Pressed()
+
+    Returns the pressed state of the Y or B button.
+
+    :return: The button press state.
+    :rtype: bool
+
+.. method:: button1Touched()
+
+    SIGNAL is emitted when the Y or B button is touched.
+
+.. method:: button1Untouched()
+
+    SIGNAL is emitted when the Y or B button is untouched.
+
+.. method:: button1IsTouched()
+
+    SIGNAL is emitted while the Y or B button is touched.
+
+.. method:: isButton1Touched()
+
+    Returns the touch state of the Y or B button.
+
+    :return: The button touch state.
+    :rtype: bool
+
+.. method:: thumbstickPressed()
+
+    SIGNAL is emitted when the thumbstick is pressed.
+
+.. method:: thumbstickReleased()
+
+    SIGNAL is emitted when the thumbstick is released.
+
+.. method:: thumbstickIsPressed()
+
+    SIGNAL is emitted while the thumbstick is pressed down.
+
+.. method:: isThumbstickPressed()
+
+    Returns the pressed state of the thumbstick.
+
+    :return: The button press state.
+    :rtype: bool
+
+.. method:: thumbstickTouched()
+
+    SIGNAL is emitted when the thumbstick button is touched.
+
+.. method:: thumbstickUntouched()
+
+    SIGNAL is emitted when the thumbstick button is untouched.
+
+.. method:: thumbstickIsTouched()
+
+    SIGNAL is emitted while the thumbstick button is touched.
+
+.. method:: isThumbstickTouched()
+
+    Returns the touch state of the thumbstick button.
+
+    :return: The button touch state.
+    :rtype: bool
+
+.. method:: thumbstickChanged(position)
+
+    SIGNAL is called when the position on the thumbstick changed.
+
+    :param position: The position on the thumbstick.
+    :type position: tuple with 2 entries
+
+.. method:: getThumbstickPosition()
+
+    Returns the current position on the thumbstick.
+
+    :return: The current position on the thumbstick.
+    :rtype: Vec2f
+
+.. method:: triggerPressed()
+
+    SIGNAL is emitted when the trigger button is pressed.
+
+.. method:: triggerReleased()
+
+    SIGNAL is emitted when the trigger button is released.
+
+.. method:: triggerIsPressed()
+
+    SIGNAL is emitted while the trigger button is pressed down.
+
+.. method:: isTriggerPressed()
+
+    Returns the pressed state of the trigger button.
+
+    :return: The button press state.
+    :rtype: bool
+
+.. method:: triggerTouched()
+
+    SIGNAL is emitted when the trigger button is touched.
+
+.. method:: triggerUntouched()
+
+    SIGNAL is emitted when the trigger button is untouched.
+
+.. method:: triggerIsTouched()
+
+    SIGNAL is emitted while the trigger button is touched.
+
+.. method:: isTriggerTouched()
+
+    Returns the touch state of the trigger button.
+
+    :return: The button touch state.
+    :rtype: bool
+
+.. method:: triggerChanged(value)
+
+    SIGNAL is called when the value of the trigger is changed.
+
+    :param value: The trigger value in the range of 0.0 - 1.0.
+    :type value: float
+
+.. method:: getTriggerRatio()
+
+    Returns the current value of the trigger.
+
+    :return: The current value of the trigger in the range of 0.0 - 1.0.
+    :rtype: float
+
+.. method:: handTriggerPressed()
+
+    SIGNAL is emitted when the hand trigger button (grip button) is pressed.
+
+.. method:: handTriggerReleased()
+
+    SIGNAL is emitted when the hand trigger button (grip button) is released.
+
+.. method:: handTriggerIsPressed()
+
+    SIGNAL is emitted while the hand trigger button (grip button) is pressed down.
+
+.. method:: isHandTriggerPressed()
+
+    Returns the pressed state of the hand trigger button (grip button).
+
+    :return: The button press state.
+    :rtype: bool
+
+.. method:: handTriggerChanged(value)
+
+    SIGNAL is called when the value of the hand trigger button (grip button) is changed.
+
+    :param value: The hand trigger value in the range of 0.0 - 1.0.
+    :type value: float
+
+.. method:: getHandTriggerRatio()
+
+    Returns the current ratio of the hand trigger (grip button).
+
+    :return: The current value of the hand trigger in the range of 0.0 - 1.0.
+    :rtype: float
+
+.. method:: thumbRestTouched()
+
+    SIGNAL is emitted when the thumb rest is touched.
+
+    IMPORTANT: This is not implemented anymore as of VRED 2022.1.
+
+.. method:: thumbRestUntouched()
+
+    SIGNAL is emitted when the thumb rest is untouched.
+
+    IMPORTANT: This is not implemented anymore as of VRED 2022.1.
+
+.. method:: thumbRestIsTouched()
+
+    SIGNAL is emitted while the thumb rest is touched.
+
+    IMPORTANT: This is not implemented anymore as of VRED 2022.1.
+
+.. method:: isThumbRestTouched()
+
+    Returns the touch state of the thumb rest.
+
+    IMPORTANT: This is not implemented anymore as of VRED 2022.1.
+
+    :return: The touch state.
+    :rtype: bool
+
+.. method:: getControllerNode()
+
+    Returns the controller node.
+
+    :return: The controller node.
+    :rtype: vrNodePtr
+
+.. method:: setVisible(visible)
+
+    Sets the visibility of the visualization (geometry or hands) of this controller.
+
+    :param visible: Visibility state.
+    :type visible: bool
+
+.. method:: isVisible()
+
+    Gets the visibility of the visualization (geometry or hands) of this controller. The default is 'not visible'.
+
+    :return: The visibility.
+    :rtype: bool
+
+.. method:: setVisualizationMode(mode)
+
+    Sets how the controller should be visualized (controller geometry or hands).
+
+    :param mode: Visualization_Controller or Visualization_Hand.
+    :type mode: int
+
+.. method:: getVisualizationMode()
+
+    Gets whether the controller geometry or hands are displayed. The default value is 'Hand'.
+
+    :return: Visualization_Controller or Visualization_Hand.
+    :rtype: int
+
+.. method:: setPickingAxis(axis)
+
+    Sets the axis used for picking on this controller.
+
+    :param axis: The axis used for picking. Valid values are 0 for the X-Axis, 1 for the Y-Axis, 2 for the Z-Axis, and 3 for the custom pick direction.
+    :type axis: unsigned int
+
+.. method:: setCustomPickingDirection(origin, direction, color)
+
+    Sets a custom axis for picking on this controller.
+
+    :param origin: The origin of the picking ray.
+    :type origin: Pnt3f
+    :param direction: The direction of the picking ray.
+    :type direction: Vec3f
+    :param color: The color of the picking ray visualization.
+    :type color: Vec3f
+
+.. method:: showPickingAxis(axis)
+
+    Shows the picking axis on this controller.
+
+    :param axis: On/off state.
+    :type axis: bool
+
+.. method:: pickNode()
+
+    Performs a selection along the picking axis of the controller and returns the nearest node along the picking ray.
+
+    :return: The hit node.
+    :rtype: vrNodePtr
+
+.. method:: pickNodeEx()
+
+    Performs a selection along the picking axis of the controller and returns the nearest node along the picking ray.
+
+    :return: The hit node, position, normal, uv.
+    :rtype: tuple<vrNodePtr, Pnt3f, Vec3f, Pnt2f>
+
+.. method:: pickNodeWithFinger(fingerId)
+
+    Performs a selection with a ray emanating from the finger tip and returns the nearest node along the picking ray.
+
+    This method can only be used in hand visualization mode.
+
+    :param fingerId: Finger to pick with. Value can be Finger_Thumb, Finger_Index, Finger_Middle, Finger_Ring, Finger_Pinky.
+    :type fingerId: unsigned int
+    :return: The hit node, position, normal, uv.
+    :rtype: tuple<vrNodePtr, Pnt3f, Vec3f, Pnt2f>
+
+.. method:: getHandRole()
+
+    Gets whether this controller is left or right hand.
+
+    :return: Hand_Left, Hand_Right, or Hand_Undefined.
+    :rtype: int
+
+.. method:: handRoleChanged(role)
+
+    SIGNAL is called when the hand role has changed, after the hand model has been loaded.
+
+    :param role: Hand_Left, Hand_Right, or Hand_Undefined.
+    :type role: int
+
+.. method:: handPoseStarted(poseId)
+
+    SIGNAL is called when a hand pose is detected in Hand visualization mode.
+
+    :param poseId: Pose_Pointing, Pose_Picking, Pose_ThumbsUp, or Pose_Fist.
+    :type poseId: int
+
+.. method:: handPoseStopped(poseId)
+
+    SIGNAL is called when a hand pose stops in Hand visualization mode.
+
+    :param poseId: Pose_Pointing, Pose_Picking, Pose_ThumbsUp, or Pose_Fist.
+    :type poseId: int
+
+.. method:: isHandPoseActive(poseId)
+
+    Returns whether the user performs a specific hand pose.
+
+    :param poseId: Pose_Pointing, Pose_Picking, Pose_ThumbsUp, or Pose_Fist.
+    :type poseId: int
+    :return: True if the pose is active, False otherwise.
+    :rtype: bool
+
+.. method:: handTouchStarted(touchedNodeId, fingerId)
+
+    SIGNAL is called when a finger of this controller's hand has touched a node in the scene that was made interactable with setNodeInteractableInVR(node, True).
+
+    :param touchedNodeId: ID of the touched scenegraph node. Create the node object with vrNodePtr(id).
+    :type touchedNodeId: unsigned int
+    :param fingerId: Which finger touches the node. Value can be Finger_Thumb, Finger_Index, Finger_Middle, Finger_Ring, Finger_Pinky.
+    :type fingerId: unsigned int
+
+.. method:: handTouchContinues(touchedNodeId, fingerId)
+
+    SIGNAL is called when the finger continues touching the node.
+
+    :param touchedNodeId: ID of the touched scenegraph node.
+    :type touchedNodeId: unsigned int
+    :param fingerId: Which finger touches the node.
+    :type fingerId: unsigned int
+
+.. method:: handTouchStopped(touchedNode, fingerId)
+
+    SIGNAL is called when the finger stops touching the node.
+
+    :param touchedNode: ID of the touched scenegraph node.
+    :type touchedNode: unsigned int
+    :param fingerId: Which finger touched the node.
+    :type fingerId: unsigned int
+
+.. method:: setHandInteractionEnabled(enabled)
+
+    Enables or disables the interaction with Web engines and Touch sensors in Hand visualization mode.
+
+    :param enabled: True to enable, False to disable.
+    :type enabled: bool
+
+.. method:: isHandInteractionEnabled()
+
+    Gets whether the interaction with Web engines and Touch sensors is enabled in Hand visualization mode. Default is 'on'.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setHandAnimationEnabled(enabled)
+
+    Enables or disables transformation of finger joints when the user presses or touches buttons in Hand visualization mode.
+
+    :param enabled: True to enable, False to disable.
+    :type enabled: bool
+
+.. method:: isHandAnimationEnabled()
+
+    Gets whether the finger joints are transformed when the user presses or touches buttons in Hand visualization mode. Default is 'on'.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setHandTouchPointVisualizationEnabled(enabled)
+
+    Enables or disables visualization of the touch point in Hand visualization mode.
+
+    :param enabled: True to enable, False to disable.
+    :type enabled: bool
+
+.. method:: isHandTouchPointVisualizationEnabled()
+
+    Gets whether the visualization of the touch point in Hand visualization mode is enabled. Default is 'on'.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: getWorldMatrix()
+
+    Returns the world space transformation matrix of the controller.
+
+    :return: The 4 x 4 matrix consisting of 16 floats.
+    :rtype: list of floats (32bit)
+
+.. method:: triggerVibration(frequency, amplitude)
+
+    Triggers a vibration on the controller.
+
+    IMPORTANT: Beginning with VRED 2022.1, OpenVR is used, and the parameters won't have any effect. The function will generate a single haptic pulse regardless of its parameters. The function triggerHapticPulse() can be used as an alternative as it maps directly to the OpenVR API.
+
+    :param frequency: The frequency of the vibration. Supported values are: 0.0 (disabled), 0.5, and 1.0.
+    :type frequency: float
+    :param amplitude: The amplitude of the vibration. Must be between 0.0 and 1.0.
+    :type amplitude: float
+
+.. method:: triggerHapticPulse(axis, duration)
+
+    Triggers a haptic pulse on the controller.
+
+    :param axis: The axis to trigger the pulse on.
+    :type axis: unsigned int
+    :param duration: The duration of the pulse in microseconds.
+    :type duration: unsigned int

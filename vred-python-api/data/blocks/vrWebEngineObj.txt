@@ -1,0 +1,60 @@
+MODULE vrWebEngineObj (legacy v1 API)
+
+--------------
+vrWebEngineObj
+--------------
+
+**Deprecated**. Use API v2 vrdWebEngine and vrWebEngineService instead.
+
+Summary
+=======
+
+Functions:
+    * hasWebEngineFocus()
+    * isWebEngineInteractionEnabled()
+    * sendToWebEngine(name, event, data)
+    * setWebEngineInteractionEnabled(enabled)
+
+.. function:: sendToWebEngine(name, event, data)
+
+    Deprecated. Use `vrdWebEngine.sendEvent()` instead.
+
+    Sends a custom event to a web engine.
+
+    Note: There was a necessary change in how the 'data' parameter is handled internally in VRED 2021.3.
+    'Data' is now no longer quoted. If you rely on this, please set the content of data in quotes when calling this function.
+    For more details, please see the 'Custom Javascript events in Webengines' example in the API V2 documentation.
+
+    :param name: The name of the web engine.
+    :type name: string
+    :param event: The name of the user event.
+    :type event: string
+    :param data: The string data.
+    :type data: string
+
+.. function:: hasWebEngineFocus()
+
+    Deprecated. Use `vrWebEngineService.anyWebEngineHasFocus()` instead.
+
+    Returns true if a web engine has the focus.
+
+    :return: True if a web engine has focus, false otherwise.
+    :rtype: bool
+
+.. function:: setWebEngineInteractionEnabled(enabled)
+
+    Deprecated. Use `vrWebEngineService.setInteractionEnabled()` instead.
+
+    Enables or disables the interaction with all web engines in the scene.
+
+    :param enabled: Enabled/disabled.
+    :type enabled: bool
+
+.. function:: isWebEngineInteractionEnabled()
+
+    Deprecated. Use `vrWebEngineService.isInteractionEnabled()` instead.
+
+    Returns true if interaction with web engines is enabled.
+
+    :return: True if interaction is enabled, false otherwise.
+    :rtype: bool

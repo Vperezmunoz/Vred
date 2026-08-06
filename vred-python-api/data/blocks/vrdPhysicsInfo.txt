@@ -1,0 +1,96 @@
+--------------
+vrdPhysicsInfo
+--------------
+
+.. py:class:: vrdPhysicsInfo
+
+(Inherits vrdData)
+
+The     vrdPhysicsInfo class represents information about physics collisions between objects.
+
+This class inherits from vrdData and provides methods to access information about the colliding nodes. It contains two sets of nodes, the colliding nodes and their root nodes. The colliding nodes are the nodes that are in contact with each other, while the root nodes are the topmost nodes in the scene graph that contain the colliding nodes. Usually, the root nodes are the nodes, that have been registered in the physics service as physics objects.
+
+When using merged collision shapes like a convex hull that is constructed for an entire subtree of nodes (which is the default), the root nodes are identical to the colliding nodes. So in general, the root nodes are only different from the colliding nodes when using individual collision shapes for each node.
+
+The class also contains information about the contact points, contact normals, contact distances, and contact impulses of the collision. The indices of these lists correspond to each other, that means for example the first contact point in the list of contact points corresponds to the first contact normal in the list of contact normals and so on.
+
+Summary
+=======
+
+Functions:
+    * getCollidingNode1() → vrdNode
+    * getCollidingNode2() → vrdNode
+    * getCollidingRootNode1() → vrdNode
+    * getCollidingRootNode2() → vrdNode
+    * getContactDistances() → List[float]
+    * getContactImpulses() → List[QVector3D]
+    * getContactNormals() → List[QVector3D]
+    * getContactPoints() → List[QVector3D]
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsInfo.getCollidingNode1()
+
+    Returns the first colliding node.
+
+    :return: The first colliding node.
+    :rtype: vrdNode
+
+.. py:method:: vrdPhysicsInfo.getCollidingNode2()
+
+    Returns the second colliding node.
+
+    :return: The second colliding node.
+    :rtype: vrdNode
+
+.. py:method:: vrdPhysicsInfo.getCollidingRootNode1()
+
+    Returns the root node of the first colliding node.
+
+    :return: The root node of the first colliding node.
+    :rtype: vrdNode
+
+.. py:method:: vrdPhysicsInfo.getCollidingRootNode2()
+
+    Returns the root node of the second colliding node.
+
+    :return: The root node of the second colliding node.
+    :rtype: vrdNode
+
+.. py:method:: vrdPhysicsInfo.getContactDistances()
+
+    Returns the contact distances of the collision.
+
+    The distance between the two objects at the contact point. If the distance is negative, the objects are penetrating each other.
+
+    :return: The contact distances of the collision.
+    :rtype: List[float]
+
+.. py:method:: vrdPhysicsInfo.getContactImpulses()
+
+    Returns the contact impulses of the collision.
+
+    The impulse applied to the objects at the contact point. Note: impulses are currently all zero since objects are not moved by forces.
+
+    :return: The contact impulses of the collision.
+    :rtype: List[QVector3D]
+
+.. py:method:: vrdPhysicsInfo.getContactNormals()
+
+    Returns the contact normals of the collision.
+
+    The normal of the contacting surfaces. The normal direction points from the second object to the first object.
+
+    :return: The contact normals of the collision.
+    :rtype: List[QVector3D]
+
+.. py:method:: vrdPhysicsInfo.getContactPoints()
+
+    Returns the contact points of the collision.
+
+    Contact points are the points between the two objects where the collision occurs. Coordinates are in world space.
+
+    :return: The contact points of the collision.
+    :rtype: List[QVector3D]
+

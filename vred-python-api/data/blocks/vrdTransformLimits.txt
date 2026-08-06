@@ -1,0 +1,516 @@
+------------------
+vrdTransformLimits
+------------------
+
+.. py:class:: vrdTransformLimits
+
+(Inherits vrdSceneObject)
+
+Summary
+=======
+
+Functions:
+    * getUseEulerRotationLimits() → bool
+    * getUseMaxXEulerRotationLimit() → bool
+    * getUseMaxXScalingLimit() → bool
+    * getUseMaxXTranslationLimit() → bool
+    * getUseMaxYEulerRotationLimit() → bool
+    * getUseMaxYScalingLimit() → bool
+    * getUseMaxYTranslationLimit() → bool
+    * getUseMaxZEulerRotationLimit() → bool
+    * getUseMaxZScalingLimit() → bool
+    * getUseMaxZTranslationLimit() → bool
+    * getUseMinXEulerRotationLimit() → bool
+    * getUseMinXScalingLimit() → bool
+    * getUseMinXTranslationLimit() → bool
+    * getUseMinYEulerRotationLimit() → bool
+    * getUseMinYScalingLimit() → bool
+    * getUseMinYTranslationLimit() → bool
+    * getUseMinZEulerRotationLimit() → bool
+    * getUseMinZScalingLimit() → bool
+    * getUseMinZTranslationLimit() → bool
+    * getUseScalingLimits() → bool
+    * getUseTranslationLimits() → bool
+    * getXEulerRotationLimit() → QVector2D
+    * getXScalingLimit() → QVector2D
+    * getXTranslationLimit() → QVector2D
+    * getYEulerRotationLimit() → QVector2D
+    * getYScalingLimit() → QVector2D
+    * getYTranslationLimit() → QVector2D
+    * getZEulerRotationLimit() → QVector2D
+    * getZScalingLimit() → QVector2D
+    * getZTranslationLimit() → QVector2D
+    * isDefault() → bool
+    * setUseEulerRotationLimits(use)
+    * setUseMaxXEulerRotationLimit(use)
+    * setUseMaxXScalingLimit(use)
+    * setUseMaxXTranslationLimit(use)
+    * setUseMaxYEulerRotationLimit(use)
+    * setUseMaxYScalingLimit(use)
+    * setUseMaxYTranslationLimit(use)
+    * setUseMaxZEulerRotationLimit(use)
+    * setUseMaxZScalingLimit(use)
+    * setUseMaxZTranslationLimit(use)
+    * setUseMinXEulerRotationLimit(use)
+    * setUseMinXScalingLimit(use)
+    * setUseMinXTranslationLimit(use)
+    * setUseMinYEulerRotationLimit(use)
+    * setUseMinYScalingLimit(use)
+    * setUseMinYTranslationLimit(use)
+    * setUseMinZEulerRotationLimit(use)
+    * setUseMinZScalingLimit(use)
+    * setUseMinZTranslationLimit(use)
+    * setUseScalingLimits(use)
+    * setUseTranslationLimits(use)
+    * setXEulerRotationLimit(angle)
+    * setXScalingLimit(scaling)
+    * setXTranslationLimit(translation)
+    * setYEulerRotationLimit(angle)
+    * setYScalingLimit(scaling)
+    * setYTranslationLimit(translation)
+    * setZEulerRotationLimit(angle)
+    * setZScalingLimit(scaling)
+    * setZTranslationLimit(translation)
+
+Functions
+=========
+
+.. py:method:: vrdTransformLimits.getUseEulerRotationLimits()
+
+    Checks if euler rotation limits are enabled for any axis.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxXEulerRotationLimit()
+
+    Checks if the maximum euler rotation limit for the x-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxXScalingLimit()
+
+    Checks if the maximum scaling limit for the x-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxXTranslationLimit()
+
+    Checks if the maximum translation limit for the x-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxYEulerRotationLimit()
+
+    Checks if the maximum euler rotation limit for the y-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxYScalingLimit()
+
+    Checks if the maximum scaling limit for the y-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxYTranslationLimit()
+
+    Checks if the maximum translation limit for the y-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxZEulerRotationLimit()
+
+    Checks if the maximum euler rotation limit for the z-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxZScalingLimit()
+
+    Checks if the maximum scaling limit for the z-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMaxZTranslationLimit()
+
+    Checks if the maximum translation limit for the z-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinXEulerRotationLimit()
+
+    Checks if the minimum euler rotation limit for the x-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinXScalingLimit()
+
+    Checks if the minimum scaling limit for the x-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinXTranslationLimit()
+
+    Checks if the minimum translation limit for the x-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinYEulerRotationLimit()
+
+    Checks if the minimum euler rotation limit for the y-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinYScalingLimit()
+
+    Checks if the minimum scaling limit for the y-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinYTranslationLimit()
+
+    Checks if the minimum translation limit for the y-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinZEulerRotationLimit()
+
+    Checks if the minimum euler rotation limit for the z-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinZScalingLimit()
+
+    Checks if the minimum scaling limit for the z-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseMinZTranslationLimit()
+
+    Checks if the minimum translation limit for the z-axis is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseScalingLimits()
+
+    Checks if scaling limits are enabled for any axis.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getUseTranslationLimits()
+
+    Checks if translation limits are enabled for any axis.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.getXEulerRotationLimit()
+
+    Gets the minimum and maximum euler rotation limits for the x-axis.
+
+    :return: QVector2D(min, max) euler rotation limits in degrees.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getXScalingLimit()
+
+    Gets the minimum and maximum scaling limits for the x-axis.
+
+    :return: QVector2D(min, max) scaling limits.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getXTranslationLimit()
+
+    Gets the minimum and maximum translation limits for the x-axis.
+
+    :return: QVector2D(min, max) translation limits.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getYEulerRotationLimit()
+
+    Gets the minimum and maximum euler rotation limits for the y-axis.
+
+    :return: QVector2D(min, max) euler rotation limits in degrees.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getYScalingLimit()
+
+    Gets the minimum and maximum scaling limits for the y-axis.
+
+    :return: QVector2D(min, max) scaling limits.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getYTranslationLimit()
+
+    Gets the minimum and maximum translation limits for the y-axis.
+
+    :return: QVector2D(min, max) translation limits.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getZEulerRotationLimit()
+
+    Gets the minimum and maximum euler rotation limits for the z-axis.
+
+    :return: QVector2D(min, max) euler rotation limits in degrees.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getZScalingLimit()
+
+    Gets the minimum and maximum scaling limits for the z-axis.
+
+    :return: QVector2D(min, max) scaling limits.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.getZTranslationLimit()
+
+    Gets the minimum and maximum translation limits for the z-axis.
+
+    :return: QVector2D(min, max) translation limits.
+    :rtype: QVector2D
+
+.. py:method:: vrdTransformLimits.isDefault()
+
+    Transform limits are created on demand.
+
+    :return: True if specific limits have been defined for this object, i.e., the method may return True even if all limits are disabled.
+    :rtype: bool
+
+.. py:method:: vrdTransformLimits.setUseEulerRotationLimits(use)
+
+    Enables or disables euler rotation limits for all axes.
+
+    :param use: True to enable, false to disable euler rotation limits.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxXEulerRotationLimit(use)
+
+    Enables or disables the maximum euler rotation limit for the x-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxXScalingLimit(use)
+
+    Enables or disables the maximum scaling limit for the x-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxXTranslationLimit(use)
+
+    Enables or disables the maximum translation limit for the x-axis.
+
+    Only effective if translation limits are enabled.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxYEulerRotationLimit(use)
+
+    Enables or disables the maximum euler rotation limit for the y-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxYScalingLimit(use)
+
+    Enables or disables the maximum scaling limit for the y-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxYTranslationLimit(use)
+
+    Enables or disables the maximum translation limit for the y-axis.
+
+    Only effective if translation limits are enabled.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxZEulerRotationLimit(use)
+
+    Enables or disables the maximum euler rotation limit for the z-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxZScalingLimit(use)
+
+    Enables or disables the maximum scaling limit for the z-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMaxZTranslationLimit(use)
+
+    Enables or disables the maximum translation limit for the z-axis.
+
+    Only effective if translation limits are enabled.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinXEulerRotationLimit(use)
+
+    Enables or disables the minimum euler rotation limit for the x-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinXScalingLimit(use)
+
+    Enables or disables the minimum scaling limit for the x-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinXTranslationLimit(use)
+
+    Enables or disables the minimum translation limit for the x-axis.
+
+    Only effective if translation limits are enabled.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinYEulerRotationLimit(use)
+
+    Enables or disables the minimum euler rotation limit for the y-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinYScalingLimit(use)
+
+    Enables or disables the minimum scaling limit for the y-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinYTranslationLimit(use)
+
+    Enables or disables the minimum translation limit for the y-axis.
+
+    Only effective if translation limits are enabled.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinZEulerRotationLimit(use)
+
+    Enables or disables the minimum euler rotation limit for the z-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinZScalingLimit(use)
+
+    Enables or disables the minimum scaling limit for the z-axis.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseMinZTranslationLimit(use)
+
+    Enables or disables the minimum translation limit for the z-axis.
+
+    Only effective if translation limits are enabled.
+
+    :param use: True to enable, false to disable.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseScalingLimits(use)
+
+    Enables or disables scaling limits for all axes.
+
+    :param use: True to enable, false to disable scaling limits.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setUseTranslationLimits(use)
+
+    Enables or disables translation limits for all axes.
+
+    :param use: True to enable, false to disable translation limits.
+    :type use: bool
+
+.. py:method:: vrdTransformLimits.setXEulerRotationLimit(angle)
+
+    Sets the minimum and maximum euler rotation limits for the x-axis.
+
+    :param angle: QVector2D(min, max) euler rotation limits in degrees.
+    :type angle: QVector2D
+
+.. py:method:: vrdTransformLimits.setXScalingLimit(scaling)
+
+    Sets the minimum and maximum scaling limits for the x-axis.
+
+    :param scaling: QVector2D(min, max) scaling limits.
+    :type scaling: QVector2D
+
+.. py:method:: vrdTransformLimits.setXTranslationLimit(translation)
+
+    Sets the minimum and maximum translation limits for the x-axis.
+
+    :param translation: QVector2D(min, max) translation limits.
+    :type translation: QVector2D
+
+.. py:method:: vrdTransformLimits.setYEulerRotationLimit(angle)
+
+    Sets the minimum and maximum euler rotation limits for the y-axis.
+
+    :param angle: QVector2D(min, max) euler rotation limits in degrees.
+    :type angle: QVector2D
+
+.. py:method:: vrdTransformLimits.setYScalingLimit(scaling)
+
+    Sets the minimum and maximum scaling limits for the y-axis.
+
+    :param scaling: QVector2D(min, max) scaling limits.
+    :type scaling: QVector2D
+
+.. py:method:: vrdTransformLimits.setYTranslationLimit(translation)
+
+    Sets the minimum and maximum translation limits for the y-axis.
+
+    :param translation: QVector2D(min, max) translation limits.
+    :type translation: QVector2D
+
+.. py:method:: vrdTransformLimits.setZEulerRotationLimit(angle)
+
+    Sets the minimum and maximum euler rotation limits for the z-axis.
+
+    :param angle: QVector2D(min, max) euler rotation limits in degrees.
+    :type angle: QVector2D
+
+.. py:method:: vrdTransformLimits.setZScalingLimit(scaling)
+
+    Sets the minimum and maximum scaling limits for the z-axis.
+
+    :param scaling: QVector2D(min, max) scaling limits.
+    :type scaling: QVector2D
+
+.. py:method:: vrdTransformLimits.setZTranslationLimit(translation)
+
+    Sets the minimum and maximum translation limits for the z-axis.
+
+    :param translation: QVector2D(min, max) translation limits.
+    :type translation: QVector2D
+

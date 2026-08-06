@@ -1,0 +1,177 @@
+---------------
+vrMaterialTypes
+---------------
+
+.. py:class:: vrMaterialTypes
+
+    .. py:class:: MaterialType
+
+        Defines the type of a material.
+
+            .. py:data:: Invalid
+               :no-index:
+
+                Invalid material type.
+
+            .. py:data:: Phong
+
+                Phong material.
+
+            .. py:data:: Plastic
+
+                Plastic material.
+
+            .. py:data:: ReflectivePlastic
+
+                Reflective plastic material.
+
+            .. py:data:: Chrome
+
+                Chrome material.
+
+            .. py:data:: LineChrome
+
+                Line chrome material.
+
+            .. py:data:: BrushedMetal
+
+                Brushed metal material.
+
+            .. py:data:: UnicolorCarpaint
+
+                Unicolor carpaint material.
+
+            .. py:data:: MetallicCarpaint
+
+                Metallic carpaint material.
+
+            .. py:data:: FlipflopCarpaint
+
+                Flipflop carpaint material.
+
+            .. py:data:: Glass
+
+                Glass material.
+
+            .. py:data:: XRay
+
+                XRay material.
+
+            .. py:data:: Carbon
+
+                Carbon material.
+
+            .. py:data:: Carbon2D
+
+                Carbon 2D material.
+
+            .. py:data:: Tire
+
+                Tire material.
+
+            .. py:data:: Velvet
+
+                Velvet material.
+
+            .. py:data:: WovenCloth
+
+                Woven cloth material.
+
+            .. py:data:: Substance
+
+                Substance material.
+
+            .. py:data:: XRite
+
+                X-Rite material.
+
+            .. py:data:: OCS
+
+                OCS material.
+
+            .. py:data:: Shadow
+
+                Shadow material.
+
+            .. py:data:: LightPortal
+
+                Light portal material.
+
+            .. py:data:: MultiPass
+
+                Multipass material.
+
+            .. py:data:: Layered
+
+                Layered material.
+
+            .. py:data:: Switch
+
+                Switch material.
+
+            .. py:data:: SphereEnvironment
+
+                Sphere environment material.
+
+            .. py:data:: Skylight
+
+                Skylight material.
+
+            .. py:data:: EnvironmentSwitch
+
+                Environment switch material.
+
+            .. py:data:: SubstancePanorama
+
+                Substance panorama material.
+
+            .. py:data:: MDL
+
+                MDL material.
+
+            .. py:data:: MaterialX
+
+                MaterialX material.
+
+            .. py:data:: VolumeScatter
+
+                Volume scatter material.
+
+            .. py:data:: OpenVDBVolume
+
+                OpenVDB material.
+
+            .. py:data:: Chunk
+
+                Chunk material.
+
+            .. py:data:: GaussianSplat
+               :no-index:
+
+                Gaussian splat material.
+
+    .. py:class:: MergeOptions
+
+        Defines options for merging materials.
+
+            .. py:data:: Default
+               :no-index:
+
+                Default: compare name and skip Switch materials and merge all other material types including X-Rite. Compare all properties including inactive properties.
+
+            .. py:data:: IgnoreName
+
+                Do not compare the name of the material, i.e., materials with different names can be merged. NOTE: Merging materials with different names might break existing variant sets with material variants, as these are name-based.
+
+            .. py:data:: IncludeSwitchMaterials
+
+                Also merge Switch materials. When not setting this option, switch materials are excluded from the merge operation.
+
+            .. py:data:: ExcludeXRiteMaterials
+
+                Do not merge X-Rite materials. When setting this option, X-Rite materials are excluded from the merge operation.
+
+            .. py:data:: IgnoreInactiveProperties
+
+                Do not compare inactive properties of the material, i.e. materials with different inactive properties can be merged. Inactive properties are settings for features that are turned off in the material, e.g. clearcoat properties when the clearcoat is disabled, or texture settings when the texture is disabled or no image is loaded for it. By default all properties including inactive properties are compared.
+

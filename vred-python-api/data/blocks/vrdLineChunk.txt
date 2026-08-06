@@ -1,0 +1,50 @@
+------------
+vrdLineChunk
+------------
+
+.. py:class:: vrdLineChunk
+
+(Inherits vrdMaterialChunk)
+
+The line chunk contains the parameters that are specific set for lines.
+
+Summary
+=======
+
+Functions:
+    * getSmooth() → bool
+    * getWidth() → integer
+    * setSmooth(smooth)
+    * setWidth(width)
+
+Functions
+=========
+
+.. py:method:: vrdLineChunk.getSmooth()
+
+    Returns if line should be smoothed.
+
+    :return: True, if smooth rendering is enabled
+    :rtype: bool
+
+.. py:method:: vrdLineChunk.getWidth()
+
+    Returns the width of the line in pixels.
+
+    :return: Width in pixels
+    :rtype: integer
+
+.. py:method:: vrdLineChunk.setSmooth(smooth)
+
+    Sets if the line should be smoothed.
+
+    :param smooth: True to use smooth rendering
+    :type smooth: bool
+
+.. py:method:: vrdLineChunk.setWidth(width)
+
+    Sets the width of the line in pixels.
+
+    :param width: Width in pixels
+    :type width: integer
+

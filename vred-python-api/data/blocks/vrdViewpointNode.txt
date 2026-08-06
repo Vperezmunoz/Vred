@@ -1,0 +1,142 @@
+----------------
+vrdViewpointNode
+----------------
+
+.. py:class:: vrdViewpointNode
+
+(Inherits vrdCameraBaseNode)
+
+This class represents a viewpoint in VRED.
+
+A viewpoint is essentially a camera. Therefore it is derived from     vrdCameraBaseNode. When a viewpoint is activated, its values are copied into the currently active camera. For that reason it is not possible to query which is the 'active' viewpoint.
+
+Summary
+=======
+
+Functions:
+    * activate(disableTransition, blockForAnimation)
+    * createPreview(force)
+    * getOverrideTrackSettings() → bool
+    * getPreview() → vrdImage
+    * getShowInVRMenu() → bool
+    * getTrackFadeInDurationOverride() → float
+    * getTrackPauseDurationOverride() → float
+    * getTrackTransitionDurationOverride() → float
+    * hasPreview() → bool
+    * removePreview()
+    * setOverrideTrackSettings(enable)
+    * setShowInVRMenu(value)
+    * setTrackFadeInDurationOverride(value)
+    * setTrackPauseDurationOverride(value)
+    * setTrackTransitionDurationOverride(value)
+
+Functions
+=========
+
+.. py:method:: vrdViewpointNode.activate(disableTransition=False, blockForAnimation=False)
+
+    Activates the viewpoint.
+
+    Activating the viewpoint copies its values into the active camera.
+
+    :param disableTransition: True to disable transition animations. The default is False to have transitions enabled.
+    :type disableTransition: bool
+
+    :param blockForAnimation: When setting this to True, this function will block until the transition animation is finished. The default (False) is to return immediately. If disableTransition is set to True, this parameter has no effect.
+    :type blockForAnimation: bool
+
+.. py:method:: vrdViewpointNode.createPreview(force=False)
+
+    Create a preview for the viewpoint.
+
+    :param force: Force creating a new preview in case there is already an existing one.
+    :type force: bool
+
+.. py:method:: vrdViewpointNode.getOverrideTrackSettings()
+
+    Returns if overriding of camera track settings is enabled.
+
+    :return: True if overriding of camera track settings is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdViewpointNode.getPreview()
+
+    Returns the viewpoint preview image.
+
+    :return: The preview image
+    :rtype: vrdImage
+
+.. py:method:: vrdViewpointNode.getShowInVRMenu()
+
+    Check, if this viewpoint is visible in VR Menu.
+
+    :return: True, if visible in VR Menu.
+    :rtype: bool
+
+.. py:method:: vrdViewpointNode.getTrackFadeInDurationOverride()
+
+    Returns the override for the fade in duration of the camera track.
+
+    :return: The fade in duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdViewpointNode.getTrackPauseDurationOverride()
+
+    Returns the override for the pause duration of the camera track.
+
+    :return: The pause duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdViewpointNode.getTrackTransitionDurationOverride()
+
+    Returns the override for the transition duration of the camera track.
+
+    :return: The transition duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdViewpointNode.hasPreview()
+
+    Checks if the viewpoint has a preview image.
+
+    :return: True if it has a preview, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdViewpointNode.removePreview()
+
+    Removes the current preview for the viewpoint.
+
+.. py:method:: vrdViewpointNode.setOverrideTrackSettings(enable)
+
+    Enables / disables overriding of camera track settings.
+
+    :param enable: True to enable override track settings, False to disable.
+    :type enable: bool
+
+.. py:method:: vrdViewpointNode.setShowInVRMenu(value)
+
+    Set visiblility of this viewpoint in VR Menu.
+
+    :param value: If True, this viewpoint is visible.
+    :type value: bool
+
+.. py:method:: vrdViewpointNode.setTrackFadeInDurationOverride(value)
+
+    Sets the override for the fade in duration of the camera track.
+
+    :param value: The fade in duration in seconds.
+    :type value: float
+
+.. py:method:: vrdViewpointNode.setTrackPauseDurationOverride(value)
+
+    Sets the override for the pause duration of the camera track.
+
+    :param value: The pause duration in seconds.
+    :type value: float
+
+.. py:method:: vrdViewpointNode.setTrackTransitionDurationOverride(value)
+
+    Sets the override for the transition duration of the camera track.
+
+    :param value: The transition duration in seconds.
+    :type value: float
+

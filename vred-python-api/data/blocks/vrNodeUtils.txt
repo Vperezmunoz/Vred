@@ -1,0 +1,654 @@
+MODULE vrNodeUtils (legacy v1 API)
+
+-----------
+vrNodeUtils
+-----------
+
+The get/set TransformNode functions are **deprecated**; use vrdTransformNode instead.
+
+.. module:: vrNodeUtils
+
+Summary
+=======
+
+Functions:
+    * addFaceNormals(root_node=None)
+    * cacheVBO(node=None)
+    * calcFaceNormalRepresentation(length)
+    * calcFaceNormals(root_node=None)
+    * calcNormalAndBitangent(root_node, textureUnit, tangentTarget, binormalTarget)
+    * calcSecondaryColorRepresentation(length)
+    * calcVertexColorRepresentation(length)
+    * calcVertexNormalRepresentation(length)
+    * calcVertexNormals(root_node=None, angle=None)
+    * convertAllToComponentTransform(root_node)
+    * convertAllToTransform(root_node)
+    * createAttachment(typeString)
+    * createBox(size_x, size_y, size_z, res_x, res_y, res_z, red, green, blue, alpha=None)
+    * createCone(height, radius, sides, create_side, create_bottom, red, green, blue)
+    * createCylinder(height, radius, sides, create_side, create_top, create_bottom, red, green, blue)
+    * createEnvBox(size, res_x, res_y, res_z, red, green, blue, transparency, texture)
+    * createLatLongSphere(latres, longres, radius, red, green, blue)
+    * createLine(ax, ay, az, bx, by, bz, red, green, blue)
+    * createMipmaps()
+    * createPlane(size_x, size_y, res_x, res_y, red, green, blue)
+    * createShellNodes(node)
+    * createSphere(resolution, radius, red, green, blue)
+    * degToRad(degrees)
+    * downscaleTextures(factor)
+    * findLargestGeometry(max_tris_limit)
+    * getBoundingBoxCenter(node, worldSpace)
+    * getMirroredNodes(root_node, invert=False)
+    * getTransformNodeEulerRotationOrder(node)
+    * getTransformNodeRotatePivot(node, worldSpace)
+    * getTransformNodeRotatePivotTranslation(node)
+    * getTransformNodeRotation(node)
+    * getTransformNodeRotationOrientation(node)
+    * getTransformNodeScale(node)
+    * getTransformNodeScalePivot(node, worldSpace)
+    * getTransformNodeScalePivotTranslation(node)
+    * getTransformNodeShear(node)
+    * getTransformNodeTranslation(node, worldSpace)
+    * isBSide(node)
+    * normalizeNormals(root_node)
+    * normalizeSurfaces(node)
+    * offsetAlongNormal(node, offset)
+    * optimizeTextures()
+    * optimizeShellSurfaces(node)
+    * removeUnreferencedNodes(node)
+    * setDisplayList(node=None, enable)
+    * setGeometryType(nodes, geoTypes)
+    * setIsVRNode(node, isVRNode)
+    * setTexturesPriority(priority)
+    * setToBSide(node_or_nodes, isBSide)
+    * setTransformNodeEulerRotationOrder(node, rotationOrder)
+    * setTransformNodeRotatePivot(node, x, y, z, worldSpace)
+    * setTransformNodeRotatePivotTranslation(node, x, y, z)
+    * setTransformNodeRotation(node, x, y, z)
+    * setTransformNodeRotationOrientation(node, x, y, z)
+    * setTransformNodeScale(node, x, y, z)
+    * setTransformNodeScalePivot(node, x, y, z, worldSpace)
+    * setTransformNodeScalePivotTranslation(node, x, y, z)
+    * setTransformNodeShear(node, xy, xz, yz)
+    * setTransformNodeTranslation(node, x, y, z, worldSpace)
+    * setVBO(node=None, enable)
+    * swapFaceNormals(root_node)
+    * swapNormals(root_node)
+    * swapVertexNormals(root_node)
+    * unshareCores(node)
+    * updateAmbientOcclusionData(root_node)
+
+.. function:: createLine(ax, ay, az, bx, by, bz, red, green, blue)
+
+    Creates a line from point a to point b in a given RGB color.
+
+    :param ax: The x component of point a.
+    :type ax: float
+    :param ay: The y component of point a.
+    :type ay: float
+    :param az: The z component of point a.
+    :type az: float
+    :param bx: The x component of point b.
+    :type bx: float
+    :param by: The y component of point b.
+    :type by: float
+    :param bz: The z component of point b.
+    :type bz: float
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :return: A pointer to the line.
+    :rtype: vrNodePtr
+
+.. function:: createPlane(size_x, size_y, res_x, res_y, red, green, blue)
+
+    Creates a plane object of size x/y in a given RGB color.
+
+    :param size_x: The size in dimension x.
+    :type size_x: float
+    :param size_y: The size in dimension y.
+    :type size_y: float
+    :param res_x: The resolution in dimension x for the subdivision.
+    :type res_x: int
+    :param res_y: The resolution in dimension y for the subdivision.
+    :type res_y: int
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :return: A pointer to the plane.
+    :rtype: vrNodePtr
+
+.. function:: createBox(size_x, size_y, size_z, res_x, res_y, res_z, red, green, blue, alpha=None)
+
+    Creates a box object of size x/y/z in a given RGB color.
+
+    :param size_x: The size in dimension x.
+    :type size_x: float
+    :param size_y: The size in dimension y.
+    :type size_y: float
+    :param size_z: The size in dimension z.
+    :type size_z: float
+    :param res_x: The resolution in dimension x for the subdivision.
+    :type res_x: int
+    :param res_y: The resolution in dimension y for the subdivision.
+    :type res_y: int
+    :param res_z: The resolution in dimension z for the subdivision.
+    :type res_z: int
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :param alpha: The alpha value in [0.0, 1.0] (Optional).
+    :type alpha: float
+    :return: A pointer to the box.
+    :rtype: vrNodePtr
+
+.. function:: createEnvBox(size, res_x, res_y, res_z, red, green, blue, transparency, texture)
+
+    Creates a box with an environment texture.
+
+    :param size: The size of the box.
+    :type size: float
+    :param res_x: The resolution in dimension x for the subdivision.
+    :type res_x: int
+    :param res_y: The resolution in dimension y for the subdivision.
+    :type res_y: int
+    :param res_z: The resolution in dimension z for the subdivision.
+    :type res_z: int
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :param transparency: The transparency of the material in [0.0, 1.0].
+    :type transparency: float
+    :param texture: The name of the texture file.
+    :type texture: str
+    :return: A pointer to the box.
+    :rtype: vrNodePtr
+
+.. function:: createCylinder(height, radius, sides, create_side, create_top, create_bottom, red, green, blue)
+
+    Creates a cylinder, or parts of it, in a given size and color.
+
+    :param height: The height of the cylinder.
+    :type height: float
+    :param radius: The radius of the cylinder.
+    :type radius: float
+    :param sides: The number of elements the side consists of.
+    :type sides: int
+    :param create_side: Creation of side geometry: On/Off.
+    :type create_side: bool
+    :param create_top: Creation of top geometry: On/Off.
+    :type create_top: bool
+    :param create_bottom: Creation of bottom geometry: On/Off.
+    :type create_bottom: bool
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :return: A pointer to the cylinder.
+    :rtype: vrNodePtr
+
+.. function:: createCone(height, radius, sides, create_side, create_bottom, red, green, blue)
+
+    Creates a cone, or parts of it, in a given size and color.
+
+    :param height: The height of the cone.
+    :type height: float
+    :param radius: The bottom radius of the cone.
+    :type radius: float
+    :param sides: The number of elements the side consists of.
+    :type sides: int
+    :param create_side: Creation of side geometry: On/Off.
+    :type create_side: bool
+    :param create_bottom: Creation of bottom geometry: On/Off.
+    :type create_bottom: bool
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :return: A pointer to the cone.
+    :rtype: vrNodePtr
+
+.. function:: createSphere(resolution, radius, red, green, blue)
+
+    Creates a sphere in a given size and color.
+
+    :param resolution: The resolution (subdivision) of the sphere.
+    :type resolution: int
+    :param radius: The radius of the sphere.
+    :type radius: float
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :return: A pointer to the sphere.
+    :rtype: vrNodePtr
+
+.. function:: createLatLongSphere(latres, longres, radius, red, green, blue)
+
+    Creates a sphere in a given size and color, with two different resolutions.
+
+    :param latres: The latitudinal resolution.
+    :type latres: int
+    :param longres: The longitudinal resolution.
+    :type longres: int
+    :param radius: The radius.
+    :type radius: float
+    :param red: The red component of color in [0.0, 1.0].
+    :type red: float
+    :param green: The green component of color in [0.0, 1.0].
+    :type green: float
+    :param blue: The blue component of color in [0.0, 1.0].
+    :type blue: float
+    :return: A pointer to the sphere.
+    :rtype: vrNodePtr
+
+.. function:: degToRad(degrees)
+
+    Converts degrees to radians.
+
+    :param degrees: The value in degrees.
+    :type degrees: float
+    :return: The value in radians.
+    :rtype: float
+
+.. function:: optimizeTextures()
+
+    Optimizes memory usage of textures. Will often lead to significant savings while maintaining quality.
+
+.. function:: createAttachment(typeString)
+
+    Creates a new attachment of a given type.
+
+    :param typeString: The type of the attachment.
+    :type typeString: string
+    :return: The created attachment.
+    :rtype: FieldContainerPtr
+
+.. function:: convertAllToComponentTransform(root_node)
+
+    Converts all Transform nodes of a given subgraph to VRML-ComponentTransform nodes.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: NodePtr
+
+.. function:: convertAllToTransform(root_node)
+
+    Converts all Component transform nodes of a given subgraph to normal transform nodes.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: NodePtr
+
+.. function:: calcVertexNormals(root_node=None, angle=None)
+
+    Calculates new and smooth vertex normals. There are three functions to generate vertex normals
+
+    calcVertexNormals() Calculates new vertex normals for the complete scene.
+
+    calcVertexNormals(angle) Calculates new vertex normals for the complete scene with respect to dihedral angle.
+
+    calcVertexNormals(root_node, angle) Calculates new vertex normals for a given subgraph with respect to dihedral angle.
+
+    :param root_node: The root node of the subgraph (Optional).
+    :type root_node: NodePtr
+    :param angle: The angle in degrees (Optional).
+    :type angle: float
+
+.. function:: calcFaceNormals(root_node=None)
+
+    Calculates new vertex normals based on face normals. There are two functions to generate them
+
+    calcFaceNormals() Calculates new normals for the complete scene.
+
+    calcFaceNormals(root_node) Calculates new normals for a given subgraph.
+
+    :param root_node: The root node of the subgraph (Optional).
+    :type root_node: NodePtr
+
+.. function:: addFaceNormals(root_node=None)
+
+    See calcFaceNormals with the exception that the calculation is only performed for geometries without normals. There are two functions to generate them
+
+    addFaceNormals() Adds face normals for the complete scene.
+
+    addFaceNormals(root_node) Adds face normals for a given subgraph.
+
+    :param root_node: The root node of the subgraph (Optional).
+    :type root_node: NodePtr
+
+.. function:: swapNormals(root_node)
+
+    Swaps the orientation of face and vertex normals. There are two functions to swap them
+
+    swapNormals(root_node) swaps the normals for the complete scene.
+
+    swapNormals(root_nodes) swaps the normals for a given subgraph.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: NodePtr or list of vrNodePtrs
+
+.. function:: normalizeNormals(root_node)
+
+    Recalculates the vertex normals to have unit length. There are two functions to calculate them
+
+    normalizeNormals(root_node) normalize the normals for the complete scene.
+
+    normalizeNormals(root_nodes) normalize the normals for a given subgraph.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: NodePtr or list of vrNodePtrs
+
+.. function:: offsetAlongNormal(node, offset)
+
+    Offsets the geometry's vertices along the vertex normal.
+
+    :param node: The node to offset.
+    :type node: vrNodePtr
+    :param offset: The offset amount.
+    :type offset: float
+
+.. function:: getMirroredNodes(root_node, invert=False)
+
+    Returns all mirrored geometry nodes.
+
+    :param root_node: The root node.
+    :type root_node: NodePtr
+    :param invert: Inversion: Enable/Disable (Optional).
+    :type invert: bool
+    :return: The nodes.
+    :rtype: list of vrNodePtrs
+
+.. function:: calcFaceNormalRepresentation(length)
+
+    Creates visualization geometry for face normals.
+
+    :param length: The length of the created lines.
+    :type length: float
+
+.. function:: calcVertexNormalRepresentation(length)
+
+    Creates visualization geometry for vertex normals.
+
+    :param length: The length of the created lines.
+    :type length: float
+
+.. function:: calcVertexColorRepresentation(length)
+
+    Creates visualization geometry for vertex colors.
+
+    :param length: The length of the created lines.
+    :type length: float
+
+.. function:: calcSecondaryColorRepresentation(length)
+
+    Creates visualization geometry for secondary vertex colors.
+
+    :param length: The length of the created lines.
+    :type length: float
+
+.. function:: calcNormalAndBitangent(root_node, textureUnit, tangentTarget, binormalTarget)
+
+    Calculates tangents and binormals depending on vertex normals and texture coordinates.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: vrNodePtr
+    :param textureUnit: Texture unit.
+    :type textureUnit: int
+    :param tangentTarget: Tangent target.
+    :type tangentTarget: int
+    :param binormalTarget: Binormal target.
+    :type binormalTarget: int
+
+.. function:: updateAmbientOcclusionData(root_node)
+
+    Fixes ambient occlusion calculations from old VRED versions.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: vrNodePtr
+
+.. function:: setDisplayList(node=None, enable)
+
+    Enables or disables usage of display lists for rendering.
+
+    :param node: The root node of the subgraph (Optional).
+    :type node: NodePtr
+    :param enable: Enable or disable display lists.
+    :type enable: bool
+
+.. function:: setVBO(node=None, enable)
+
+    Enables or disables usage of vertex buffer objects for rendering.
+
+    :param node: The root node of the subgraph (Optional).
+    :type node: NodePtr
+    :param enable: Enable or disable VBOs.
+    :type enable: bool
+
+.. function:: cacheVBO(node=None)
+
+    Rebuilds all vertex buffer objects for the whole scene or the given subtree node.
+
+    :param node: The root node of the subgraph (Optional).
+    :type node: NodePtr
+
+.. function:: downscaleTextures(factor)
+
+    Downscale all textures within the scene.
+
+    :param factor: The factor to downscale textures with.
+    :type factor: int
+
+.. function:: createMipmaps()
+
+    Creates mipmaps for all textures.
+
+.. function:: setTexturesPriority(priority)
+
+    Changes the priority of all textures.
+
+    :param priority: The priority value in [0.0, 1.0].
+    :type priority: float
+
+.. function:: findLargestGeometry(max_tris_limit)
+
+    Returns the largest geometry with the number of triangles smaller than max_tris_limit.
+
+    :param max_tris_limit: The maximum number of triangles.
+    :type max_tris_limit: int
+    :return: The node pointer to the largest geometry.
+    :rtype: NodePtr
+
+.. function:: unshareCores(node)
+
+    Removes core sharing.
+
+    :param node: The root node.
+    :type node: NodePtr
+
+.. function:: removeUnreferencedNodes(node)
+
+    Removes unreferenced nodes.
+
+    :param node: The root node.
+    :type node: NodePtr
+
+.. function:: createShellNodes(node) → bool
+
+    Converts groups to shell nodes if all children are surfaces.
+
+    :param node: The node to start conversion.
+    :type node: NodePtr
+    :return: True if a shell node was created.
+    :rtype: bool
+
+.. function:: optimizeShellSurfaces(node)
+
+    Reduces memory consumption of Shell Surfaces by removing their names and optimizing some additional data.
+
+    :param node: The root node.
+    :type node: NodePtr
+
+.. function:: normalizeSurfaces(root_node)
+
+    Normalizes the knot vector of surfaces. This is required for NURBS raytracing and should be usually done on import.
+
+    :param root_node: The root node of the subgraph.
+    :type root_node: vrNodePtr
+
+.. function:: getBoundingBoxCenter(node, worldSpace) → Vec3f
+
+    Gets the center of the object bounding volume.
+
+    :param node: The node from which to get the center.
+    :type node: NodePtr
+    :param worldSpace: Gets the center in world space (true) or local space (false).
+    :type worldSpace: bool
+    :return: A vector with x, y and z coordinates.
+    :rtype: Vec3f
+
+.. function:: setIsVRNode(node, isVRNode)
+
+    Sets the node to be a VR node.
+
+    :param node: The node to set the VR Node flag.
+    :type node: NodePtr
+    :param isVRNode: The VR node on/off flag.
+    :type isVRNode: bool
+
+.. function:: setGeometryType(nodes, geoTypes)
+
+    Sets the geometry types for a list of nodes.
+
+    :param nodes: The nodes.
+    :type nodes: list of vrNodePtr
+    :param geoTypes: The list of geometry types.
+    :type geoTypes: list of int
+
+.. function:: isBSide(node) → bool
+
+    Queries the B-Side flag of a node.
+
+    :param node: The node to check the B-Side flag.
+    :type node: NodePtr
+    :return: True if node is B-Side, False if node is A-Side.
+    :rtype: bool
+
+.. function:: setToBSide(node_or_nodes, isBSide)
+
+    Sets the B-Side flag for the given node(s).
+
+    :param node_or_nodes: The node or list of nodes.
+    :type node_or_nodes: NodePtr or list of vrNodePtr
+    :param isBSide: The B-Side on/off flag.
+    :type isBSide: bool
+
+.. function:: swapVertexNormals(root_node)
+
+    Swaps the orientation of vertex normals for the given node(s).
+
+    :param root_node: The root node or list of nodes.
+    :type root_node: NodePtr or list of vrNodePtr
+
+.. function:: swapFaceNormals(root_node)
+
+    Swaps the orientation of face normals for the given node(s).
+
+    :param root_node: The root node or list of nodes.
+    :type root_node: NodePtr or list of vrNodePtr
+
+.. function:: getTransformNodeEulerRotationOrder(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the Euler rotation order of the transform node.
+
+.. function:: getTransformNodeRotatePivot(node, worldSpace)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the rotate pivot.
+
+.. function:: getTransformNodeRotatePivotTranslation(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the rotate pivot translation.
+
+.. function:: getTransformNodeRotation(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the rotation (Euler angles).
+
+.. function:: getTransformNodeRotationOrientation(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the rotation orientation.
+
+.. function:: getTransformNodeScale(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the scale.
+
+.. function:: getTransformNodeScalePivot(node, worldSpace)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the scale pivot.
+
+.. function:: getTransformNodeScalePivotTranslation(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the scale pivot translation.
+
+.. function:: getTransformNodeShear(node)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the shear.
+
+.. function:: getTransformNodeTranslation(node, worldSpace)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Returns the translation.
+
+.. function:: setTransformNodeEulerRotationOrder(node, rotationOrder)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the Euler rotation order.
+
+.. function:: setTransformNodeRotatePivot(node, x, y, z, worldSpace)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the rotate pivot.
+
+.. function:: setTransformNodeRotatePivotTranslation(node, x, y, z)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the rotate pivot translation.
+
+.. function:: setTransformNodeRotation(node, x, y, z)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the rotation (Euler angles).
+
+.. function:: setTransformNodeRotationOrientation(node, x, y, z)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the rotation orientation.
+
+.. function:: setTransformNodeScale(node, x, y, z)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the scale.
+
+.. function:: setTransformNodeScalePivot(node, x, y, z, worldSpace)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the scale pivot.
+
+.. function:: setTransformNodeScalePivotTranslation(node, x, y, z)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the scale pivot translation.
+
+.. function:: setTransformNodeShear(node, xy, xz, yz)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the shear.
+
+.. function:: setTransformNodeTranslation(node, x, y, z, worldSpace)
+
+    **Deprecated.** Use vrdTransformNode in API v2. Sets the translation.

@@ -1,0 +1,158 @@
+-----------
+vrBakeTypes
+-----------
+
+.. py:class:: vrBakeTypes
+
+    .. py:class:: BakeType
+
+        Defines which bake data will be used for rendering.
+
+            .. py:data:: None_
+               :no-index:
+
+                No bake data used.
+
+            .. py:data:: Vertex
+
+                Vertex bake data used.
+
+            .. py:data:: Texture
+               :no-index:
+
+                Texture bake data used.
+
+    .. py:class:: BakeState
+
+        Defines the bake state of a node.
+
+            .. py:data:: None_
+               :no-index:
+
+                There is no bake data.
+
+            .. py:data:: Valid
+
+                There is valid bake data for rendering.
+
+            .. py:data:: Cleared
+
+                Rendering bake data was cleared, but last used settings still exist.
+
+    .. py:class:: DirectIlluminationMode
+
+        Defines the kind of bake data which is generated as well as the mode used for rendering.
+
+            .. py:data:: AmbientOcclusion
+
+                Ambient Occlusion data is generated/used.
+
+            .. py:data:: Shadows
+
+                Shadow data is generated/used.
+
+            .. py:data:: LightAndShadows
+
+                Light and shadow data is generated/used.
+
+            .. py:data:: Light
+
+                Separate illumination data from specific light sources (excluding environment) is generated/used.
+
+    .. py:class:: IlluminationQuality
+
+        Defines a quality level for the direct and indirect vertex bake sampling (per vertex).
+
+            .. py:data:: Preview
+
+                8×8 (hemisphere) samples for both, direct and indirect illumination calculation.
+
+            .. py:data:: Low
+
+                16×16 (hemisphere) samples for both, direct and indirect illumination calculation.
+
+            .. py:data:: Medium
+               :no-index:
+
+                32×32 (hemisphere) samples for direct and 24x24 samples for indirect illumination calculation.
+
+            .. py:data:: High
+
+                48x48 (hemisphere) samples for direct and 32x32 samples for indirect illumination calculation.
+
+            .. py:data:: Highest
+
+                64x64 (hemisphere) samples for direct and 48x48 samples for indirect illumination calculation.
+
+            .. py:data:: UltraHigh
+
+                128×128 hemisphere samples (only valid for direct illumination calculation).
+
+    .. py:class:: AmbientOcclusionWeight
+
+        Defines how the ambient occlusion samples in the hemisphere above the calculation point are weighted.
+
+            .. py:data:: Uniform
+
+                All ambient occlusion samples have the same weight.
+
+            .. py:data:: Cosine
+               :no-index:
+
+                Ambient occlusion samples in the direction of the surface normal have more influence on the result.
+
+    .. py:class:: UVGeneration
+
+        Defines the generation method used for creating Lightmap UV Sets.
+
+            .. py:data:: TriplanarAndLayout
+
+                The triplanar projection mode and settings for the UV Editor "Layout" tab (except island and tile padding) are used for creating the Lightmap UV Sets.
+
+            .. py:data:: UnfoldAndLayout
+
+                The current settings from the UV Editor in the “Unfold” and “Layout” tabs (except island and tile padding) are used for creating the Lightmap UV Sets.
+
+    .. py:class:: SubdivisionQuality
+
+        Defines the quality mode which is used for the subdivision calculation. Subdivision smoothes the baking result by subdividing the mesh into smaller triangles.
+
+            .. py:data:: Low
+               :no-index:
+
+                Subdivides up to two times, if the difference in intensities between the vertices of an edge is above the intensity threshold.
+
+            .. py:data:: Medium
+               :no-index:
+
+                Subdivides up to two times, if the difference in intensities between the vertices of an edge, or the edge midpoint of the triangle edge, is above the intensity threshold.
+
+            .. py:data:: High
+               :no-index:
+
+                Subdivides up to four times, if the difference in intensities between the vertices of an edge, or the edge midpoint, is above the intensity threshold.
+
+    .. py:class:: Renderer
+
+        Defines which raytracer should be used for computing the lightmaps.
+
+            .. py:data:: CPURaytracing
+
+                The CPU raytracer is used for computing the lightmaps.
+
+            .. py:data:: GPURaytracing
+
+                The GPU raytracer is used for computing the lightmaps.
+
+    .. py:class:: DenoiserType
+
+        Defines which denoiser is used to denoise the lightmap.
+
+            .. py:data:: GPU
+
+                GPU Denoising is used if supported.
+
+            .. py:data:: CPU
+
+                CPU Denoising is used.
+

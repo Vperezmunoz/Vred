@@ -1,0 +1,262 @@
+---------------
+vrdPhysicsScene
+---------------
+
+.. py:class:: vrdPhysicsScene
+
+(Inherits vrdObject)
+
+The     vrdPhysicsScene class represents the physics scene with global physics properties.
+
+This class provides access to global physics scene settings such as gravity and time controls. It serves as the interface for managing physics scene-wide parameters.
+
+Summary
+=======
+
+Functions:
+    * getDefaultDynamicColliderShape() → vrPhysicsTypes.ColliderShape
+    * getDefaultKinematicColliderShape() → vrPhysicsTypes.ColliderShape
+    * getDefaultPositionIterations() → integer
+    * getDefaultStaticColliderShape() → vrPhysicsTypes.ColliderShape
+    * getDefaultVelocityIterations() → integer
+    * getDynamicManipulationAllowed() → bool
+    * getGravityVector() → QVector3D
+    * getSolverArticulationBatchSize() → integer
+    * getSolverBatchSize() → integer
+    * getSolverType() → vrPhysicsTypes.SolverType
+    * getTimeMultiplier() → float
+    * isCcdEnabled() → bool
+    * isGravityEnabled() → bool
+    * setCcdEnabled(enabled)
+    * setDefaultDynamicColliderShape(shape)
+    * setDefaultKinematicColliderShape(shape)
+    * setDefaultPositionIterations(positionIterations)
+    * setDefaultStaticColliderShape(shape)
+    * setDefaultVelocityIterations(velocityIterations)
+    * setDynamicManipulationAllowed(enabled)
+    * setGravityEnabled(enabled)
+    * setGravityVector(gravityVector)
+    * setSolverArticulationBatchSize(articulationBatchSize)
+    * setSolverBatchSize(batchSize)
+    * setSolverType(solverType)
+    * setTimeMultiplier(multiplier)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsScene.getDefaultDynamicColliderShape()
+
+    Gets the default dynamic collider shape for the physics simulation.
+
+    :return: The default dynamic collider shape.
+    :rtype: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsScene.getDefaultKinematicColliderShape()
+
+    Gets the default kinematic collider shape for the physics simulation.
+
+    :return: The default kinematic collider shape.
+    :rtype: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsScene.getDefaultPositionIterations()
+
+    Gets the current default position iterations.
+
+    :return: The current default position iterations
+    :rtype: integer
+
+.. py:method:: vrdPhysicsScene.getDefaultStaticColliderShape()
+
+    Gets the default static collider shape for the physics simulation.
+
+    :return: The default static collider shape.
+    :rtype: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsScene.getDefaultVelocityIterations()
+
+    Gets the current default velocity iterations.
+
+    :return: The current default velocity iterations
+    :rtype: integer
+
+.. py:method:: vrdPhysicsScene.getDynamicManipulationAllowed()
+
+    Checks if dynamic object manipulation is currently allowed.
+
+    :return: True if dynamic manipulation is allowed, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsScene.getGravityVector()
+
+    Gets the current gravity vector from the physics simulation.
+
+    This function retrieves the current gravity vector from the physics simulation. The gravity vector is returned in world coordinates. Units: meters per second squared (m/s^2).
+
+    :return: The current gravity vector as QVector3D in world coordinates.
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsScene.getSolverArticulationBatchSize()
+
+    Gets the current solver articulation batch size for the physics simulation.
+
+    :return: The current solver articulation batch size
+    :rtype: integer
+
+.. py:method:: vrdPhysicsScene.getSolverBatchSize()
+
+    Gets the current solver batch size for the physics simulation.
+
+    :return: The current solver batch size
+    :rtype: integer
+
+.. py:method:: vrdPhysicsScene.getSolverType()
+
+    Gets the current solver type for the physics simulation.
+
+    :return: The current solver type
+    :rtype: vrPhysicsTypes.SolverType
+
+.. py:method:: vrdPhysicsScene.getTimeMultiplier()
+
+    Gets the current time multiplier for physics simulation.
+
+    :return: The current time multiplier (1.0 = normal speed).
+    :rtype: float
+
+.. py:method:: vrdPhysicsScene.isCcdEnabled()
+
+    Checks if scene-level CCD is currently enabled in the physics simulation.
+
+    :return: True if scene-level CCD is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsScene.isGravityEnabled()
+
+    Checks if gravity is currently enabled in the physics simulation.
+
+    :return: True if gravity is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsScene.setCcdEnabled(enabled)
+
+    Enables or disables CCD (Continuous Collision Detection) for the physics scene.
+
+    This function enables or disables scene-level CCD in the physics simulation. CCD helps prevent fast-moving objects from tunneling through other objects. Note: Changes to scene-level CCD take effect the next time the physics scene is created.
+
+    :param enabled: True to enable scene-level CCD, False to disable it.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsScene.setDefaultDynamicColliderShape(shape)
+
+    Sets the default dynamic collider shape for the physics simulation.
+
+    :param shape: The default dynamic collider shape.
+    :type shape: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsScene.setDefaultKinematicColliderShape(shape)
+
+    Sets the default kinematic collider shape for the physics simulation.
+
+    :param shape: The default kinematic collider shape.
+    :type shape: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsScene.setDefaultPositionIterations(positionIterations)
+
+    Sets the default position iterations for the adaptive solver system.
+
+    This controls how many position correction iterations the solver performs by default. The adaptive system will use 100% of this value for fast-moving objects and 75% for slow objects. Higher values provide better contact resolution but cost more performance.
+
+    :param positionIterations: The default position iterations (default: 16, typical range: 4-32)
+    :type positionIterations: integer
+
+.. py:method:: vrdPhysicsScene.setDefaultStaticColliderShape(shape)
+
+    Sets the default static collider shape for the physics simulation.
+
+    :param shape: The default static collider shape.
+    :type shape: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsScene.setDefaultVelocityIterations(velocityIterations)
+
+    Sets the default velocity iterations for the adaptive solver system.
+
+    This controls how many velocity correction iterations the solver performs by default. The adaptive system will use 100% of this value for fast-moving objects and 75% for slow objects. Higher values provide better constraint resolution but cost more performance.
+
+    :param velocityIterations: The default velocity iterations (default: 8, typical range: 2-16)
+    :type velocityIterations: integer
+
+.. py:method:: vrdPhysicsScene.setDynamicManipulationAllowed(enabled)
+
+    Enables or disables dynamic object manipulation during simulation.
+
+    When enabled, allows dynamic physics objects to be manipulated with the transform manipulator during simulation by temporarily treating them as kinematic objects during the manipulation process. This prevents the physics simulation from immediately overriding user-applied transforms.
+
+    :param enabled: True to allow dynamic object manipulation, False to disable it.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsScene.setGravityEnabled(enabled)
+
+    Enables or disables gravity in the physics simulation.
+
+    This function enables or disables gravity in the physics simulation. By default, gravity is disabled. When enabled, gravity is automatically set based on the coordinate system:
+
+    Z-up coordinate system: gravity points down the Z-axis (0, 0, -9.81)Y-up coordinate system: gravity points down the Y-axis (0, -9.81, 0)
+
+    :param enabled: True to enable gravity, False to disable it.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsScene.setGravityVector(gravityVector)
+
+    Sets a custom gravity vector for the physics simulation.
+
+    This function sets a custom gravity vector for the physics simulation. The gravity vector is specified in world coordinates. Setting a non-zero gravity vector will automatically enable gravity in the simulation. The gravity is always given in m/s^2.
+
+    :param gravityVector: The gravity vector as QVector3D in world coordinates.
+    :type gravityVector: QVector3D
+
+.. py:method:: vrdPhysicsScene.setSolverArticulationBatchSize(articulationBatchSize)
+
+    Sets the solver articulation batch size for the physics simulation.
+
+    This controls batch processing for articulated bodies (joints, chains). Smaller values provide better accuracy for complex mechanical systems.
+
+    Note: Changes take effect the next time the physics scene is created.
+
+    :param articulationBatchSize: The articulation batch size (default: 8)
+    :type articulationBatchSize: integer
+
+.. py:method:: vrdPhysicsScene.setSolverBatchSize(batchSize)
+
+    Sets the solver batch size for the physics simulation.
+
+    This controls how many constraints are processed together in each solver iteration.
+
+    Smaller batches (4-16): Better accuracy, more CPU overheadLarger batches (32-128): Better performance, less accurate contact resolution
+
+    Note: Changes take effect the next time the physics scene is created.
+
+    :param batchSize: The solver batch size (default: 64)
+    :type batchSize: integer
+
+.. py:method:: vrdPhysicsScene.setSolverType(solverType)
+
+    Sets the solver type for the physics simulation.
+
+    This function sets the solver type used by PhysX for contact resolution:
+
+    PGS (Projected Gauss-Seidel): Better for accuracy but less stable with many objectsTGS (Temporal Gauss-Seidel): Better for stability and performance with many objects
+
+    Note: Changes take effect the next time the physics scene is created.
+
+    :param solverType: The solver type (default: TGS)
+    :type solverType: vrPhysicsTypes.SolverType
+
+.. py:method:: vrdPhysicsScene.setTimeMultiplier(multiplier)
+
+    Sets the time multiplier for physics simulation.
+
+    This function allows slowing down or speeding up the physics simulation. A value of 1.0 represents normal speed, 0.5 represents half speed, 2.0 represents double speed. The minimum allowed value is 0.01 (1% speed).
+
+    :param multiplier: The time multiplier (minimum 0.01, default 1.0).
+    :type multiplier: float
+
