@@ -23,6 +23,11 @@ Documents\Autodesk\VRED-<version>\ScriptPlugins\
 ```
 
 - The **folder name becomes the menu entry**: `Scripts ▸ MyPlugin`.
+- **`Documents` may be redirected to OneDrive.** On a managed corporate machine the real
+  path is `%USERPROFILE%\OneDrive - <Company>\Documents\Autodesk\...`, and
+  `C:\Users\<user>\Documents` may not exist at all. Creating the literal
+  `Documents\Autodesk\...` path silently produces a second, non-synced tree that VRED
+  never reads. Check which one exists before writing anything.
 - Keep the `vr<FolderName>.py` naming. It is the convention that demonstrably loads; don't
   experiment with alternatives inside a deliverable a customer will install.
 - The folder must sit *directly* in `ScriptPlugins`. Unzipping carelessly produces
@@ -68,6 +73,37 @@ except ImportError:
     pass
 ```
 
+**v2 services are injected as bare names; v1 modules are not.** `vrHMDService`,
+`vrVariantService`, `vrFileIOService` and friends are already in the namespace, but
+`vrOSGWidget`, `vrController` and the rest of the legacy flat API must be imported:
+
+```python
+import vrOSGWidget      # NameError without this, however "global" it looks
+```
+
+This is the trap behind a plugin that runs but reports nothing: `vrOSGWidget.getFPS()`
+inside a `try/except` raises `NameError`, the handler returns a default, and you get a
+panel full of `0.0` with no error anywhere. Autodesk's own Innoactive plugin imports
+`vrOSGWidget` / `vrController` explicitly while using `vrCameraService` bare — that split
+is the rule, not a style choice.
+
+**Never write a bare `except` that returns a default from a VRED call.** Report the
+exception the first time it happens and return a sentinel the UI can render as `n/a`:
+
+```python
+def read_fps():
+    try:
+        return float(vrOSGWidget.getFPS())
+    except Exception as exc:
+        _report("getFPS", exc)   # print once to the terminal, show in the panel
+        return None
+```
+
+A silently-swallowed `NameError` is indistinguishable from a genuine zero, and in a VR
+tool you only find out after putting the headset on. Give any panel a **live readout of
+the raw values it is reading** (frame rate, render mode, whether the HMD is active). It
+turns "the numbers are wrong" into a one-glance diagnosis without entering VR.
+
 ## Gotchas that cost real time
 
 **`setTexture`, not `setTextureSlot`.** Autodesk's own `class_vrWebEngineService` example
@@ -103,6 +139,22 @@ intensity instead.
 **No verified selection-changed signal.** Poll `vrNodeService.getSelectedNodes()` on a
 `QtCore.QTimer` (750 ms is fine — it's one cheap call).
 
+**A script plugin's module is not importable from other VRED script scopes.** A variant
+set's Script field, or the Terminal, cannot rely on `import vrMyPlugin` finding your
+module. Publish the entry points into `builtins` at import time and call them bare:
+
+```python
+import builtins
+builtins.vredFpsSetContext = set_context   # variant set script: vredFpsSetContext("Interior")
+```
+
+**Prefer a real signal over asking the user to embed a script.** Before designing around
+"the user pastes a line into each variant set", search the API for the event —
+`vrVariantService.variantSetExecuted(variantSetNode)` fires on every variant set
+execution and hands you the node, so context tracking needs no authored scripts at all.
+`py vredapi.py class <Service>` lists signals alongside methods; a targeted `find` for
+`activated|changed` often misses them.
+
 **Reuse engines and materials by name** rather than piling up duplicates on every run:
 check `getWebEngine(name)` / `findMaterial(name)` first.
 
@@ -134,6 +186,28 @@ if (window.vred && vred.executePython) {
   vred.executePython("print('[webengine] " + String(msg).replace(/'/g, '') + "')");
 }
 ```
+
+## Measuring VR performance
+
+- **Frame rate:** `vrOSGWidget.getFPS()` / `getAverageFPS()` (v1 — import the module).
+  `getAverageFPS()` averages since VRED launched, not since your session began, so build
+  your own accumulator sampling `getFPS()` on a `QtCore.QTimer` (250 ms) if you want a
+  per-session figure.
+- **Session boundaries:** `vrHMDService.isHmdActive()` and the
+  `hmdStatusChanged(active)` signal; `vrImmersiveInteractionService` exposes both under
+  the same names. This covers OpenXR headsets driven by third-party runtimes (Innoactive
+  Spatial Runtime, Apple Vision Pro) — nothing plugin-specific is needed.
+- **DLSS:** `vrOSGWidget.getDLSSQuality()` returns one of the module constants
+  `VR_DLSS_OFF / _PERFORMANCE / _BALANCED / _QUALITY / _ULTRA_PERFORMANCE / _DLAA`, gated
+  by `isDLSSSupported()`. The numeric values aren't documented — resolve them off the
+  module with `getattr(vrOSGWidget, "VR_DLSS_QUALITY", None)` rather than hardcoding, and
+  don't collapse the mode to a bool if you want to tell Quality from Performance.
+- **No OpenXR frame timings.** `vrOpenVRFrameTimings` (dropped frames, reprojection,
+  GPU/CPU split) is OpenVR-only; there is no OpenXR equivalent, so an OpenXR headset gives
+  you frame rate and nothing deeper.
+- **VRED's own benchmark CSV:** `vrOSGWidget.startStatisticsRecording(index)` /
+  `stopStatisticsRecording` / `writeRecordedStatistics(index, folder)` (`index=-1` is the
+  focused window) — worth reaching for when `getFPS()` isn't enough.
 
 ## Long-running work
 

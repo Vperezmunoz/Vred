@@ -60,6 +60,11 @@ Full list: `py vredapi.py classes --kind service`.
   write new code against it. Index rows for v1 are tagged `[v1]`.
 - Many v1 functions are exposed as bare globals in VRED's terminal; v2 services are injected
   as bare names too, so `import` is optional inside VRED but harmless.
+- **Inside a script plugin the rule is stricter: v2 services are injected as bare names,
+  v1 modules are not.** `vrOSGWidget`, `vrController` and the other legacy modules need a
+  real `import vrOSGWidget`; without it every call raises `NameError`, which a defensive
+  `try/except` will happily convert into a plausible-looking zero. See the
+  `vred-script-plugin` skill.
 - `vrd*` classes are handles to scene objects. Test with `isValid()`; a stale handle after a
   scene reload silently does nothing.
 - Enum values live on `*Types` classes, e.g. `vrMaterialTypes.MaterialType.Phong`,
@@ -67,6 +72,11 @@ Full list: `py vredapi.py classes --kind service`.
   of `AttributeError` in VRED scripts.
 - Overloads share one name: `find` may show several `findNodes(...)` rows. Match parameter
   count and types to the one you want; VRED resolves by arity and type.
+- **Signals are indexed like methods, and `find` misses them.** A guess such as
+  `find "[Vv]iewpoint.*activ"` returns nothing while
+  `vrVariantService.variantSetExecuted(variantSetNode)` sits in the index the whole time.
+  Before concluding "no signal exists, poll instead", run `class <Service>` and read the
+  tail of the listing, where the signals are grouped.
 - **Inherited members are listed on the class that defines them**, not on the subclass.
   `vrdNode` shows `[inherits vrdSceneObject]`, so `vrdNode.isValid()` is real but only turns
   up under `class vrdSceneObject`. If a member seems missing, walk up the inheritance line
@@ -92,3 +102,8 @@ py build_index.py "C:\Program Files\Autodesk\VREDPro-2027\doc\_sources"
 
 `py vredapi.py meta` reports the build the current index was made from. Regenerate after
 installing a new VRED so signatures match what the user is actually running.
+
+**Internal version vs marketing year.** Installs are named `VREDPro-19.1` while the product
+is sold as VRED 2027.1 (`VREDPro-19.0` = 2027, `18.2` = 2026.2). An index reporting `19.1`
+*is* the 2027.1 documentation — don't warn that it might be stale, and don't go looking for
+a `VREDPro-2027` folder.
