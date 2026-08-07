@@ -72,6 +72,12 @@ Full list: `py vredapi.py classes --kind service`.
   of `AttributeError` in VRED scripts.
 - Overloads share one name: `find` may show several `findNodes(...)` rows. Match parameter
   count and types to the one you want; VRED resolves by arity and type.
+- **When a docstring says "see examples/snippets/X", go read it.**
+  `vrRenderSettings.setRaytracingMode` points at `snippets_setRenderer`, and that snippet
+  holds the only written-down mapping of renderer names to the two-call
+  `getRaytracingEnabled()` + `getRasterizationMode()`/`getRaytracingMode()` combination.
+  `py vredapi.py examples <regex>` first — the indexed name carries a `snippets_` prefix,
+  so `example setRenderer` fails while `example snippets_setRenderer` works.
 - **Signals are indexed like methods, and `find` misses them.** A guess such as
   `find "[Vv]iewpoint.*activ"` returns nothing while
   `vrVariantService.variantSetExecuted(variantSetNode)` sits in the index the whole time.

@@ -202,6 +202,36 @@ if (window.vred && vred.executePython) {
   by `isDLSSSupported()`. The numeric values aren't documented — resolve them off the
   module with `getattr(vrOSGWidget, "VR_DLSS_QUALITY", None)` rather than hardcoding, and
   don't collapse the mode to a bool if you want to tell Quality from Performance.
+- **Which renderer is active** takes two calls, and there is no `getRenderMode()`.
+  `vrOSGWidget.getRaytracingEnabled()` picks the pair, then the mode index names it —
+  the inverse of the shipped `examples/snippets/setRenderer` script
+  (`py vredapi.py example snippets_setRenderer`), which is the only place this mapping is
+  written down:
+
+  ```python
+  if vrOSGWidget.getRaytracingEnabled():
+      mode = vrRenderSettings.getRaytracingMode()      # 0 CPU, 1 GPU raytracing
+  else:
+      mode = vrRenderSettings.getRasterizationMode()   # 0 OpenGL, 1 Vulkan
+  ```
+
+  `vrRenderSettings` is another v1 module — import it.
+- **Vulkan raytracing toggles** hang off `vrRenderSettingsService.getSettings()`:
+  `getUseRaytracedReflections() -> bool`, and `getRealtimeEnvironmentShadowsMode()`
+  returning `vrRenderSettingsTypes.RealtimeEnvironmentShadowsMode`
+  (`Off`, `ScreenSpaceAmbientOcclusion`, `RaytracedAmbientOcclusion`,
+  `RaytracedEnvironmentShadows`, `RaytracedDiffuseGI`). Only the `Raytraced*` values need
+  Vulkan; SSAO also applies under OpenGL. Both readings are meaningless while a raytracing
+  renderer is active — gate on the engine and report `n/a` rather than a stale `Off`.
+- **Hardware, for attributing a benchmark:** `vrGPUService.gpuInfo()` (`getName()`),
+  `gpuStateInfo()` (total/free/used MB, usage %, temperature), `openGLInfo()` (vendor,
+  renderer, GL version, driver version as an int list) and `raytracingInfo()`
+  (`isGPURTSupported()`). VRED's own build is `vrController.getVredVersion()` /
+  `getVredVersionYear()` — a v1 module again. For the headset,
+  `vrHMDService.getActiveOpenXRRuntimeName()` / `getActiveOpenXRSystemName()` name the
+  runtime and device ("Innoactive Spatial Runtime" / "Apple Vision Pro"). CPU and RAM have
+  no VRED API: use `platform`, `os.cpu_count()` and `ctypes` `GlobalMemoryStatusEx`
+  instead of adding a `psutil` dependency.
 - **No OpenXR frame timings.** `vrOpenVRFrameTimings` (dropped frames, reprojection,
   GPU/CPU split) is OpenVR-only; there is no OpenXR equivalent, so an OpenXR headset gives
   you frame rate and nothing deeper.
