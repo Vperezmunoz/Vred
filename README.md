@@ -12,6 +12,9 @@ Offline lookup for the full VRED Python API (690 classes, 8779 members, 152 ship
 ### [vred-script-plugin](vred-script-plugin/)
 Practical guide to building, installing, and debugging VRED Python script plugins — Scripts-menu panels, PySide6 UI, materials, and Web Engine video/HTML textures. Documents behavior that Autodesk's own docs get wrong, established by testing against a real VRED build.
 
+### [vred-vlm-review](vred-vlm-review/)
+How to build an AI design-review copilot on VRED: an in-VRED capture trigger (camera settle or variant set) plus an external Python worker that sends the on-screen render to a vision-language model and returns a critique as a carousel card and an in-scene frontplate HUD. Covers the sceneplate API, capturing without re-rendering, swapping between cloud and local VLM backends, and stopping the model from repeating itself.
+
 ### [customer-shareable-package](customer-shareable-package/)
 Checklist and conventions for turning a working local tool into something you can hand to a customer, partner, or colleague — scrubbing personal paths, bundling dependencies with their licenses, README structure, and verifying the shipped artifact instead of the source.
 

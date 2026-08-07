@@ -7,7 +7,9 @@ description: Build, install, debug or test an Autodesk VRED Python script plugin
 
 For exact API signatures, enum spellings and shipped example scripts, query the
 `vred-python-api` skill (`py vredapi.py find …`) instead of guessing — this page only
-covers the behaviour the reference docs get wrong.
+covers the behaviour the reference docs get wrong. For screen-space HUD overlays
+(sceneplates), external frame capture, or wiring a vision model to the live view, see
+`vred-vlm-review`.
 
 Working knowledge for VRED 19.x (PySide6-era). Several items below contradict Autodesk's
 own documentation — they were established by trial against a real VRED build, so trust them
@@ -138,6 +140,19 @@ intensity instead.
 
 **No verified selection-changed signal.** Poll `vrNodeService.getSelectedNodes()` on a
 `QtCore.QTimer` (750 ms is fine — it's one cheap call).
+
+**In a Script Editor script, poll with `vrTimer`, not `addLoop`.** `addLoop` starves
+VRED's UI thread. `vrTimer` takes its interval in *seconds* — `vrTimer(1.0 / 10)` for
+10 Hz — and needs `setActive(True)` before it runs.
+
+```python
+timer = vrTimer(1.0 / 10)
+timer.connect(watcher.tick)
+timer.setActive(True)          # to stop: timer.setActive(False)
+```
+
+A plugin panel is already inside Qt's event loop, so use `QtCore.QTimer` there; `vrTimer`
+is for the Terminal and Script Editor, where there is no widget to hang a timer off.
 
 **A script plugin's module is not importable from other VRED script scopes.** A variant
 set's Script field, or the Terminal, cannot rely on `import vrMyPlugin` finding your
