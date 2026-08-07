@@ -1,0 +1,12 @@
+# Claude Code local state: worktrees, session data, local settings
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
