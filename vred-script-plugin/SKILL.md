@@ -127,6 +127,10 @@ rejects the v1 `vrMaterialPtr` that `node.getMaterial()` can return on older geo
 
 **Colours want `QVector3D`,** not tuples — `setDiffuseColor`, `Incandescence.setColor`.
 
+**`QVector3D` has no copy-constructor overload in this VRED's bundled PySide6.**
+`QtGui.QVector3D(other_vector)` raises `TypeError: called with wrong argument types`. Build
+from components: `QtGui.QVector3D(v.x(), v.y(), v.z())`.
+
 **VRED does not tick "Use Texture" for you.** After assigning, set
 `tex.setUseTexture(True)` on both the diffuse and incandescence textures, and
 `setMappingType(vrTextureTypes.MappingType.UVMapping)` where supported — Web Engine
@@ -238,6 +242,88 @@ if (window.vred && vred.executePython) {
 - **VRED's own benchmark CSV:** `vrOSGWidget.startStatisticsRecording(index)` /
   `stopStatisticsRecording` / `writeRecordedStatistics(index, folder)` (`index=-1` is the
   focused window) — worth reaching for when `getFPS()` isn't enough.
+
+## Lights are two independent node graphs, not one
+
+A VRED light is one logical entity but exposes **two separate `vrdNode` hierarchies** with
+independent parent/children: the main scene graph node (what the viewport, Scenegraph
+panel, and `vrNodeService`/`vrScenegraphService` see) and the light-graph "module" node
+(what the Light Editor and `vrLightService` see). Grouping, reparenting, or cloning one
+does **not** affect the other — this is the root cause behind most "light vanished /
+unselectable / not grouped" bugs.
+
+```python
+from vrKernelServices import vrdBaseLightNode
+
+def is_light(node):
+    return node.isType(vrdBaseLightNode)   # robust across either graph's handle
+
+def to_scene_node(node):
+    """A selection made in the Light Editor hands you the light-graph node. Scene graph
+    ops (cloneNodes, createNode, getParent) need the scene graph node instead."""
+    if not is_light(node):
+        return node
+    shared = node.getModuleNode().getSharedNodes()
+    return shared[0] if shared else node
+```
+
+Symptoms this explains:
+- Lights disappear from the render window and Scenegraph, remain only in the Light
+  Editor, and neither the lights nor a light group built from them can be selected or
+  zoomed to: scene-graph code was handed a light-graph node (or vice versa) and built a
+  hierarchy in the wrong graph.
+- A tool that dedupes a multi-select by `node.getPath()` double-counts a light selected in
+  both the viewport and the Light Editor: key on the *light-graph* path
+  (`node.getModuleNode().getPath()`) for anything typed as a light, not the raw handle's
+  own path.
+- Cloning a light from a Light-Editor selection produces a clone visible only in the Light
+  Editor, not the Scenegraph: `vrScenegraphService.cloneNodes` clones within whatever graph
+  the input node belongs to, so normalize with `to_scene_node()` before calling it.
+
+## Linked (shared-data) copies vs independent duplicates
+
+For "editing one copy should update all of them" (an array/grid of instances, not
+independent duplicates), use `vrScenegraphService.cloneNodes(nodes)` with transformable
+clone roots enabled, not `vrLightService.duplicateLights()` /
+`vrScenegraphService.duplicateNodes()` (which produce fully independent, unlinked data).
+
+```python
+was = vrScenegraphService.getTransformableCloneRootEnabled()
+vrScenegraphService.setTransformableCloneRootEnabled(True)   # each clone gets its own
+try:                                                          # transform; data still shared
+    clone = vrScenegraphService.cloneNodes([node])[0]
+finally:
+    vrScenegraphService.setTransformableCloneRootEnabled(was)
+```
+
+`setTransformableCloneRootEnabled` only works when the cloned node is a genuine
+transform-root type (geometry qualifies). **A light node does not** — cloning it directly
+still shares the transform too, so every "linked" clone collapses onto the same position.
+Work around it by wrapping the light in a private carrier `TransformNode`, and cloning the
+carrier instead — the light itself (child of the carrier) stays the one shared/linked
+entity, while each carrier clone gets its own independent position:
+
+```python
+carrier = vrScenegraphService.createNode(vrScenegraphTypes.NodeType.TransformNode, parent, name)
+carrier.children.append(light_scene_node)
+# clone `carrier` per grid cell (with transformable clone roots enabled) and set
+# translation on each carrier clone's own transform, not the light's.
+```
+
+Reparent nodes into a group with `group.children.append(node_or_list)` — `vrdNode.children`
+is a mutable `vrdNodeList` property, not a method-only API.
+
+## Batching several operations into one undo step
+
+```python
+vrUndoService.beginMultiCommand("Create Array")
+try:
+    ...  # any number of scene graph edits
+finally:
+    vrUndoService.endMultiCommand()
+```
+
+Wrap the whole loop, not each iteration — otherwise Ctrl+Z only undoes the last node.
 
 ## Long-running work
 
