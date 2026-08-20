@@ -243,6 +243,26 @@ if (window.vred && vred.executePython) {
   `stopStatisticsRecording` / `writeRecordedStatistics(index, folder)` (`index=-1` is the
   focused window) — worth reaching for when `getFPS()` isn't enough.
 
+### Analyzing a custom FPS logger's tab-separated output
+
+A logger built around the calls above (columns: Timestamp, Context, Engine, DLSS,
+RT Reflections, Env Shadows, Avg/Min/Max FPS, Duration, Samples) has recurring shapes
+worth checking before charting it:
+
+- **First row is often `Context = Unknown`.** It's the sample taken before the first
+  context switch fires — discard it, don't average it in.
+- **The same settings combo gets logged more than once** in one session (repeat runs,
+  or a context revisited later). Average duplicate rows for the same
+  Context/DLSS/RT-Reflections/Env-Shadows combo into one value rather than charting
+  each run as its own bar.
+- **The Env Shadows label can drift between sessions** (e.g. `SSAO` vs plain `Off` for
+  the disabled state) — normalize before joining logs from different sessions, or a
+  chart silently splits one state into two.
+- **A log can be missing entire combos** that a same-resolution session logged
+  elsewhere. If a complete grid is required anyway, infer the missing cell as that
+  table's own overall average and mark it clearly (hatch/asterisk + tooltip) — never
+  silently backfill a number that looks as trustworthy as a measured one.
+
 ## Lights are two independent node graphs, not one
 
 A VRED light is one logical entity but exposes **two separate `vrdNode` hierarchies** with
