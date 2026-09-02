@@ -342,6 +342,7 @@ vrdSceneItemInfo.Flags	enum	v2
 vrdSceneObject	class	v2	This interface represents an object that is part of the scene. [inherits vrdObject]
 vrdSceneplateNode	class	v2	Base class for all scene plate types. [inherits vrdNode]
 vrdScreenSpaceAmbientOcclusionSettings	class	v2	This class configures the Screen Space Ambient Occlusion (SSAO) in OpenGL and Vulkan rendering modes. [inherits vrdObject]
+vrdScriptPluginInfo	class	v2	Class representing information about a VRED script plugin. [inherits vrdData]
 vrdSessionUser	class	v2	User information for collaboration sessions. [inherits vrdObject]
 vrdShadowMap	class	v2	This class gives access to settings of shadow maps in OpenGL and Vulkan rendering. [inherits vrdSceneObject]
 vrdShadowMaterial	class	v2	This class is used to handle all shadow material properties. [inherits vrdMaterial]
@@ -450,7 +451,7 @@ vrGPUService	service	v2	A service to query GPU information. [inherits vrBaseServ
 vrGPUTypes	class	v2	
 vrGPUTypes.OpenGLFeature	enum	v2	
 vrGPUTypes.OpenGLVendor	enum	v2	
-vrGUIService	service	v2	Defines a type of file dialog, e.g. to open/save a texture. [inherits vrBaseService]
+vrGUIService	service	v2	Access GUI related information and access icons used in the user interface. [inherits vrBaseService]
 vrGUIService.DialogType	enum	v2	Defines a type of file dialog, e.g. to open/save a texture.
 vrGUIService.ViewCubePosition	enum	v2	Defines the position of the view cube.
 vrGUIService.ViewCubeSize	enum	v2	Defines the size of the view cube.
@@ -540,6 +541,8 @@ vrPhysicsTypes.ForceMode	enum	v2	The ForceMode enum defines how forces and torqu
 vrPhysicsTypes.LockFlags	enum	v2	
 vrPhysicsTypes.ObjectType	enum	v2	
 vrPhysicsTypes.SolverType	enum	v2	The SolverType enum defines the solver algorithms used for physics constraint resolution.
+vrPlatformService	service	v2	Exposes platform and application information like paths, DPI, and icons. [inherits vrBaseService]
+vrPluginService	service	v2	Interface to manage plugins in VRED. [inherits vrBaseService]
 vrProgressService	service	v2	Reports the progress of a currently running operation. [inherits vrBaseService]
 vrQObject	class	v1	The vrQObject class provides a Python wrapper for Qt objects.
 vrQueryService	service	v2	The query service provides functions for advanced search with expressions. [inherits vrBaseService]
@@ -657,7 +660,7 @@ vrUVTypes.TileAssignMode	enum	v2	Determines how islands are associated to the av
 vrUVTypes.UVProjectionMode	enum	v2	Lists different kinds of projections to create UVs.
 vrUVTypes.UVSet	enum	v2	Lists UV sets available in UV Editor and vrUVService.
 vrVariants	module	v1	Contains functions to capture and activate variant sets.
-vrVariantService	service	v2	 [inherits vrBaseService]
+vrVariantService	service	v2	Interface to access variant sets and variant set groups. [inherits vrBaseService]
 vrVariantSetPtr	module	v1	**Deprecated**; use API v2 vrdVariantSetNode instead.
 vrVariantSets	class	v1	
 vrVariantStates	class	v2	Contains the built-in states for variants.

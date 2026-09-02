@@ -344,6 +344,7 @@ vrdSceneItemInfo.Flags	vrdSceneItemInfo
 vrdSceneObject	vrdSceneObject
 vrdSceneplateNode	vrdSceneplateNode
 vrdScreenSpaceAmbientOcclusionSettings	vrdScreenSpaceAmbientOcclusionSettings
+vrdScriptPluginInfo	vrdScriptPluginInfo
 vrdSessionUser	vrdSessionUser
 vrdShadowMap	vrdShadowMap
 vrdShadowMaterial	vrdShadowMaterial
@@ -540,6 +541,8 @@ vrPhysicsTypes.ForceMode	vrPhysicsTypes
 vrPhysicsTypes.LockFlags	vrPhysicsTypes
 vrPhysicsTypes.ObjectType	vrPhysicsTypes
 vrPhysicsTypes.SolverType	vrPhysicsTypes
+vrPlatformService	vrPlatformService
+vrPluginService	vrPluginService
 vrProgressService	vrProgressService
 vrQObject	vrQObject
 vrQueryService	vrQueryService

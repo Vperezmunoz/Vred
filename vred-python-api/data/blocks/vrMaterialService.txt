@@ -20,7 +20,7 @@ Some examples how to work with materials:
      groupNode = vrMaterialService.createMaterialGroup()
 
      # create a plastic material and add it to the group
-     mat = vrMaterialService.createMaterial("plasticmat", vrMaterialTypes.Plastic, groupNode)
+     mat = vrMaterialService.createMaterial("plasticmat", vrMaterialTypes.MaterialType.Plastic, groupNode)
 
      # search for a material by name
      mat = vrMaterialService.findMaterial("plasticmat")
@@ -73,6 +73,7 @@ Functions:
     * getGroupPath(node) → List[string]
     * getImportMetadata(type) → bool
     * getMaterialFromId(materialId) → vrdMaterial
+    * getMaterialIdPassColors() → Dict[integer,QVector3D]
     * getMaterialNodes(root) → List[vrdMaterialNode]
     * getMaterialRoot() → vrdNode
     * getMaterials(root) → List[vrdMaterial]
@@ -436,6 +437,13 @@ Functions
 
     :return: The material from identifier.
     :rtype: vrdMaterial
+
+.. py:method:: vrMaterialService.getMaterialIdPassColors()
+
+    Returns a map of material IDs and their corresponding colors. These are the colors used in the material ID render pass. See also         vrdMaterialRaytracingSettings.setMaterialId(value)
+
+    :return: A map of material IDs and their corresponding colors.
+    :rtype: Dict[integer,QVector3D]
 
 .. py:method:: vrMaterialService.getMaterialNodes(root=vrdNode())
 

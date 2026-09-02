@@ -76,6 +76,7 @@ Functions:
     * getConstraintsForNode(node) → List[vrdConstraintNode]
     * getNodesUsedInConstraints() → List[vrdNode]
     * getSelection() → List[vrdNode]
+    * groupNodes(nodes) → vrdNode
     * isNodeUsedInConstraints(node) → bool
     * pasteNodes(parent) → List[vrdNode]
     * setSelection(nodes)
@@ -286,6 +287,16 @@ Functions
 
     :return: All nodes currently selected in the constraint editor
     :rtype: List[vrdNode]
+
+.. py:method:: vrConstraintService.groupNodes(nodes)
+
+    Places all given nodes into a new group.
+
+    :param nodes: The nodes to be grouped
+    :type nodes: List[vrdNode]
+
+    :return: The new group. It is located at the common parent
+    :rtype: vrdNode
 
 .. py:method:: vrConstraintService.isNodeUsedInConstraints(node)
 

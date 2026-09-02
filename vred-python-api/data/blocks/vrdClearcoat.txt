@@ -178,14 +178,14 @@ Functions
 
 .. py:method:: vrdClearcoat.setReflectivity(value)
 
-    Sets the clearcoat reflective intensity. It defines the amount of light reflected at normal incidence. The higher the value, the more reflective the surface.
+    Sets the clearcoat reflective intensity. It defines the amount of light reflected at normal incidence. The higher the value, the more reflective the surface. Realistic values are around 0.04-0.08.
 
     :param value: New value for clearcoat reflective intensity.
     :type value: float
 
 .. py:method:: vrdClearcoat.setRefractionIndex(value)
 
-    Sets the clearcoat index of refraction.
+    Sets the clearcoat index of refraction. Realistic values are around 1.4-1.6.
 
     :param value: New value for clearcoat refraction index.
     :type value: float

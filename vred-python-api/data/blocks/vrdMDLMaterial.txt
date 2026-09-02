@@ -44,6 +44,7 @@ Functions:
     * hasModuleData() → bool
     * isModuleValid() → bool
     * loadModule(path) → bool
+    * loadModuleFromString(data, moduleName) → bool
     * resetMaterial()
     * setActiveMaterialIndex(index)
     * setActiveMaterialProperty(parameterId, value)
@@ -167,6 +168,19 @@ Functions
 
     :param path: The path for the MDL module file.
     :type path: string
+
+    :return: True, if the MDL module was successfully loaded.
+    :rtype: bool
+
+.. py:method:: vrdMDLMaterial.loadModuleFromString(data, moduleName="data.mdl")
+
+    Load a MDL module from a string.
+
+    :param data: The MDL module data as a string.
+    :type data: string
+
+    :param moduleName: The name of the MDL module.
+    :type moduleName: string
 
     :return: True, if the MDL module was successfully loaded.
     :rtype: bool

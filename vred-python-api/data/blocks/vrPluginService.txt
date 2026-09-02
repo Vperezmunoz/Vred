@@ -1,0 +1,52 @@
+---------------
+vrPluginService
+---------------
+
+.. py:class:: vrPluginService
+
+(Inherits vrBaseService)
+
+Interface to manage plugins in VRED.
+
+This service provides functions to manage plugins in VRED, including reloading script plugins and retrieving a list of available script plugins.
+
+Summary
+=======
+
+Functions:
+    * getScriptPluginInfo(name) → vrdScriptPluginInfo
+    * getScriptPluginInfos() → List[vrdScriptPluginInfo]
+    * getScriptPluginNames() → List[string]
+    * reloadScriptPlugins()
+
+Functions
+=========
+
+.. py:method:: vrPluginService.getScriptPluginInfo(name)
+
+    Get information about a specific python script plugin by name.
+
+    :param name:
+    :type name: string
+
+    :return:
+    :rtype: vrdScriptPluginInfo
+
+.. py:method:: vrPluginService.getScriptPluginInfos()
+
+    Get information about all python script plugins.
+
+    :return:
+    :rtype: List[vrdScriptPluginInfo]
+
+.. py:method:: vrPluginService.getScriptPluginNames()
+
+    Get a list of all python script plugins.
+
+    :return:
+    :rtype: List[string]
+
+.. py:method:: vrPluginService.reloadScriptPlugins()
+
+    Reload all python script plugins.
+

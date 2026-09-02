@@ -1,7 +1,7 @@
 # Allowing to configure the VR menu
 # source: VRMenuSetupModule.html
 
-from PySide6 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui, QtQuickWidgets
 from shiboken6 import wrapInstance
 from vrKernelServices import vrdImmersiveMenu
 
@@ -17,11 +17,17 @@ class VRSetupMenu(QtCore.QObject):
         self.settings = QtCore.QSettings("Autodesk","VRED")
         QtCore.QTimer.singleShot(1, self.init)
         self.menuName = QtCore.QCoreApplication.translate("QVRDockWindowManager","Scripts")
+        self.m_qmlMenu = None
+        self.m_quickWidget = None
     def init(self):
         self.createMenu()
         vrFileIOService.newScene.connect(self.updateMenu)
         vrFileIOService.projectLoaded.connect(self.onProjectLoaded)
     def __del__(self):
+        if self.m_qmlMenu is not None:
+            vrImmersiveUiService.deleteMenu(self.m_qmlMenu)
+            self.m_qmlMenu = None
+            self.m_quickWidget = None
         self.destroyMenu()
     def createToolsActions(self,tools,internal):
         for tool in tools:
@@ -72,6 +78,11 @@ class VRSetupMenu(QtCore.QObject):
         showVRMenuAction.setChecked(False)
         showVRMenuAction.toggled.connect(self.showVRMenu)
         self.menu.addAction(showVRMenuAction)
+        showCircularMenuAction = QtGui.QAction("Show Circular Menu", self.mw)
+        showCircularMenuAction.setCheckable(True)
+        showCircularMenuAction.setChecked(False)
+        showCircularMenuAction.toggled.connect(self.showCircularMenu)
+        self.menu.addAction(showCircularMenuAction)
         for action in self.mw.menuBar().actions():
             if action.text() == self.menuName:
                 scriptMenu = action.menu()
@@ -119,6 +130,8 @@ class VRSetupMenu(QtCore.QObject):
         menuIconBar.setTranslation(0,400,-150)
         menuIconBar.setRotation(0,0,0)
         menuIconBar.setOrigin(vrdImmersiveMenu.MenuOrigin.ORIGIN_CAMERA)
+    def showCircularMenu(self,checked):
+        vrImmersiveUiService.showCircularMenu(checked)
 
 menuSetup = VRSetupMenu()
 

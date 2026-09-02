@@ -74,6 +74,8 @@ Use services to find existing scene objects, create new objects, delete objects,
 * Logging: class_vrLogService
 * Render Settings: class_vrRenderSettingsService
 * Variant Sets: class_vrVariantService
+* Application information: class_vrPlatformService
+* Script plugins: class_vrPluginService
 
 Call service functions through an object that has the same name as the service class. For example:
 
@@ -85,18 +87,21 @@ All service objects (`vrCameraService`, `vrImmersiveUiService`, etc.)
 are injected by VRED as built-in names and are available without an import statement
 in the Script Editor and in script plugins.
 
-.. caution::
-   Do **not** import services from `vrKernelServices`
-   (i.e. do **not** use `from vrKernelServices import vrCameraService`).
-   Such an import statement would shadow the service's singleton object by the class,
-   and any method call would raise an `unbound method … needs an argument` error.
+You may import services when needed (helper modules, VS Code, or explicit style), for example:
+
+```
+
+    from vrKernelServices import *
+    from vrKernelServices import vrVariantService
+
+Imports are optional because VRED injects the same singletons at startup. In VRED versions before 2027.2, imports of services were not allowed
+and would have caused a runtime error.
 
 Object and enum types (`vrdNode`, `vrScenegraphTypes`, etc.)
 are also preloaded by VRED into the Script Editor and, since VRED 2027,
 into the main module of script plugins, so they can be used there without an import statement.
-Unlike services, importing types from `vrKernelServices` is safe.
-In helper modules imported by a script plugin, import types explicitly,
-e.g. `from vrKernelServices import vrScenegraphTypes`.
+In helper modules imported by a script plugin, import what you need explicitly,
+e.g. `from vrKernelServices import vrScenegraphTypes` or `from vrKernelServices import *`.
 
 Function calls
 --------------

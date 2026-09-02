@@ -49,6 +49,7 @@ Functions:
     * getCameraPivotVisible() → bool
     * getDepthPeeling() → bool
     * getDepthPeelingLayers() → int
+    * getDepthShouldIncludeTransparentObjects() → bool
     * getDLSSQuality() → int
     * getDollySpeed() → float
     * getDLSSMaxPhaseCount() → int
@@ -165,6 +166,7 @@ Functions:
     * setDepthOnlyPass(state)
     * setDepthPeeling(state)
     * setDepthPeelingLayers(layers)
+    * setDepthShouldIncludeTransparentObjects(state)
     * setDetailedGPUProfiling(state)
     * setDiscontinuityRendering(state)
     * setDisplayMode(mode)
@@ -1865,6 +1867,20 @@ Variables:
 
     :return: The number of layers.
     :rtype: int
+
+.. method:: getDepthShouldIncludeTransparentObjects() → bool
+
+    Returns if depth render output should include transparent objects.
+
+    :return: True if depth render output should include transparent objects, False to exclude them.
+    :rtype: bool
+
+.. method:: setDepthShouldIncludeTransparentObjects(state)
+
+    Enables or disables depth render output including transparent objects.
+
+    :param state: True to include transparent objects in depth render output, False to exclude them.
+    :type state: bool
 
 .. method:: setOcclusionCulling(state)
 

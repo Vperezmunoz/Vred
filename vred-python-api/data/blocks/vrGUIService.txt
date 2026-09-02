@@ -6,6 +6,8 @@ vrGUIService
 
 (Inherits vrBaseService)
 
+Access GUI related information and access icons used in the user interface.
+
     .. py:class:: DialogType
 
         Defines a type of file dialog, e.g. to open/save a texture.
@@ -73,6 +75,8 @@ Summary
 Functions:
     * addMainWindowToolBar(toolbar)
     * getFileDialogPath(type) → string
+    * getIcon(name) → QIcon
+    * getIconNames() → List[string]
     * getViewCubeOpacity() → float
     * getViewCubePosition() → vrGUIService.ViewCubePosition
     * getViewCubeSize() → vrGUIService.ViewCubeSize
@@ -114,6 +118,23 @@ Functions
 
     :return: Path
     :rtype: string
+
+.. py:method:: vrGUIService.getIcon(name)
+
+    Returns the icon with the given name.
+
+    :param name: The icon name. Use vrGUIService.getIconNames() to retrieve available icon names.
+    :type name: string
+
+    :return: The QIcon object corresponding to the specified icon name.
+    :rtype: QIcon
+
+.. py:method:: vrGUIService.getIconNames()
+
+    Get a list of all known iconnames The list might change from Version to Version.
+
+    :return: A list of all known icon names.
+    :rtype: List[string]
 
 .. py:method:: vrGUIService.getViewCubeOpacity()
 
