@@ -15,6 +15,9 @@ Practical guide to building, installing, and debugging VRED Python script plugin
 ### [customer-shareable-package](customer-shareable-package/)
 Checklist and conventions for turning a working local tool into something you can hand to a customer, partner, or colleague — scrubbing personal paths, bundling dependencies with their licenses, README structure, and verifying the shipped artifact instead of the source.
 
+### [vred-perf-comparison](vred-perf-comparison/)
+Build a one-pager HTML/PDF comparing two VRED FPS perf-test logs (e.g. regular rendering vs. static foveation) — matching scenarios across logs, collapsing repeat runs into weighted means, and laying out a print-ready single-page report.
+
 ## Using these skills
 
 Clone this repo (or a subset of it) into your Claude Code skills directory, e.g.:
