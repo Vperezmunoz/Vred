@@ -28,6 +28,12 @@ git clone --branch skills-repo https://github.com/Vperezmunoz/Vred.git skills
 
 Claude Code picks up any `SKILL.md` it finds under the configured skills path and loads a skill automatically when the task matches its description, or on explicit request (e.g. `/vred-python-api`).
 
+## Private skills
+
+Two further skills are cloned into this same folder from separate **private** repositories and
+are gitignored here. They hold internal and personal information and must never be committed to
+this repository, which is public.
+
 ## Branch note
 
 This content lives on the `skills-repo` branch. `main` in this repository is an unrelated project (WASD navigation / SoundEmitter) — don't merge the two.

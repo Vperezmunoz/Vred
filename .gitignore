@@ -10,3 +10,9 @@ __pycache__/
 .idea/
 Thumbs.db
 Desktop.ini
+
+# Private skills — kept in separate PRIVATE repos, cloned in place here.
+# This repo is PUBLIC. Never commit these: they hold colleagues' names,
+# job titles, LinkedIn URLs and named customer contacts.
+/autodesk-automotive-org/
+/internal-brief-page/
