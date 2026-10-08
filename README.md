@@ -14,5 +14,14 @@ Each folder is one tool, with its own README covering install and use.
 | [WASD Navigation](WASD%20Navigation/) | Game-style WASD flythrough navigation in the viewport, with an on-screen status plate | Script Editor |
 | [SoundEmitter](SoundEmitter/) | Plays a sound file from a variant set | Variant set Script field |
 
+## Claude Code skills for VRED
+
+Skills for building on VRED with Claude Code (offline Python API lookup, script plugins, design-review tooling) live on version branches. Pick the one matching your install:
+
+| Your VRED | Branch |
+| --- | --- |
+| 2027.1 (VREDPro-19.1) | [vred-2027.1](https://github.com/Vperezmunoz/Vred/tree/vred-2027.1) |
+| 2027.2 (VREDPro-19.2) | [vred-2027.2](https://github.com/Vperezmunoz/Vred/tree/vred-2027.2) |
+
 These are personal, community-contributed scripts — not Autodesk products, and not
 supported by Autodesk.
