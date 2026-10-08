@@ -61,8 +61,6 @@ These environment variables are VRED-specific.
        **Other value**: Disables CUDA Memory Pool Support.
    * - `VRED_DISABLE_IDLE_LICENSE`
      - **Any value**: Disables the license release on idle.
-   * - `VRED_DISABLE_ASSISTANT`
-     - **1**: Disables the VRED Assistant.
    * - `VRED_DISABLE_ONLINE_STORES`
      - **Any value**: Disables the use of online stores in the main window. No UI will be shown.
    * - `VRED_DISABLE_SHARED_VIEWS`

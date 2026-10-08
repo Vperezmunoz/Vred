@@ -40,7 +40,7 @@ Functions:
     * hasImportSettings(fileType) → bool
     * hasSmartReferences(file) → bool
     * importAtfFile(file, parent) → vrdNode
-    * importFiles(files, parent, atfConversionOutputDir, loadConvertedAtfFiles, removeConvertedAtfFiles, loadBehavior, convertSceneUp) → integer
+    * importFiles(files, parent, atfConversionOutputDir, loadConvertedAtfFiles, removeConvertedAtfFiles, loadBehavior) → integer
     * importMissingFiles(node, removeConvertedAtfFiles) → integer
     * importPLMXMLFile(file, parent) → vrdNode
     * inlineImageSequences()
@@ -365,7 +365,7 @@ Functions
     :return: The converted scene node
     :rtype: vrdNode
 
-.. py:method:: vrFileIOService.importFiles(files, parent, atfConversionOutputDir="", loadConvertedAtfFiles=True, removeConvertedAtfFiles=True, loadBehavior=True, convertSceneUp=True)
+.. py:method:: vrFileIOService.importFiles(files, parent, atfConversionOutputDir="", loadConvertedAtfFiles=True, removeConvertedAtfFiles=True, loadBehavior=True)
 
     Imports a list of files.
 
@@ -386,9 +386,6 @@ Functions
 
     :param loadBehavior: If True and root node of imported VPB file is a reference, mark root node in scenegraph as reference.
     :type loadBehavior: bool
-
-    :param convertSceneUp: True if the imported ATF scene should be converted to the current scene up vector.
-    :type convertSceneUp: bool
 
     :return: The identifier of the import job
     :rtype: integer

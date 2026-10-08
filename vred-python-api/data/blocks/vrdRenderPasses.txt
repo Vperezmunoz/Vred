@@ -10,7 +10,6 @@ Summary
 =======
 
 Functions:
-    * clearPasses()
     * getAlbedoPass() → bool
     * getBackgroundColorPass() → bool
     * getBackplatePass() → bool
@@ -29,7 +28,6 @@ Functions:
     * getDiffuseLightIlluminationPass() → bool
     * getDiffuseLightPass() → bool
     * getExportRenderpasses() → bool
-    * getExportRenderpassesInVulkan() → bool
     * getFogPass() → bool
     * getFrontplatePass() → bool
     * getGlossyColorPass() → bool
@@ -79,7 +77,6 @@ Functions:
     * setDiffuseLightIlluminationPass(diffuseLightIlluminationPass)
     * setDiffuseLightPass(diffuseLightPass)
     * setExportRenderpasses(exportRenderPasses)
-    * setExportRenderpassesInVulkan(enabled)
     * setFogPass(fogPass)
     * setFrontplatePass(frontplatePass)
     * setGlossyColorPass(glossyColorPass)
@@ -114,10 +111,6 @@ Functions:
 
 Functions
 =========
-
-.. py:method:: vrdRenderPasses.clearPasses()
-
-    Disables all render passes by setting each pass to false.
 
 .. py:method:: vrdRenderPasses.getAlbedoPass()
 
@@ -243,11 +236,6 @@ Functions
     Returns if rendering with renderpasses is activated. All activated renderpasses are rendered and saved at a time.
 
     :return: True if the render passes are enabled, false otherwise.
-    :rtype: bool
-
-.. py:method:: vrdRenderPasses.getExportRenderpassesInVulkan()
-
-    :return: Additional flag to export supported render passes in Vulkan. See vrdRenderPasses.setExportRenderpassesInVulkan(enabled) for more information.
     :rtype: bool
 
 .. py:method:: vrdRenderPasses.getFogPass()
@@ -592,17 +580,6 @@ Functions
 
     :param exportRenderPasses: True to enable the render passes, false to disable them.
     :type exportRenderPasses: bool
-
-.. py:method:: vrdRenderPasses.setExportRenderpassesInVulkan(enabled)
-
-    The Vulkan renderer supports a subset of the render passes for offline rendering. This flag allows to export these passes in Vulkan. By default, it is disabled. To export passes in Vulkan, both this flag and the general export renderpasses flag must be enabled.
-
-    Currently supported passes, in addition to beauty, are: material ID, normal, depth (Standard mode). Unsupported passes are not written. If no supported pass is enabled, the beauty pass is written as fallback.
-
-    Please note that the pass image is not anti-aliased for auxiliary passes.
-
-    :param enabled: True to enable export of supported passes in Vulkan, false to disable them.
-    :type enabled: bool
 
 .. py:method:: vrdRenderPasses.setFogPass(fogPass)
 

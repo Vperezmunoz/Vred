@@ -15,7 +15,6 @@ Functions:
     * createImage(source) → vrdImage
     * getShareMode() → vrImageTypes.ShareMode
     * loadImage(filename, loadType, loadOptions) → vrdImage
-    * loadImage(image, path, loadType, loadOptions) → vrdImage
     * readImageInformation(filename) → string
     * releaseImage(image)
     * reuseImage(source) → vrdImage
@@ -57,26 +56,6 @@ Functions
     :type loadOptions: integer
 
     :return: The image. By default, existing images from the scene are reused and returned by this function if they have the same data as the loaded image.
-    :rtype: vrdImage
-
-.. py:method:: vrImageService.loadImage(image, path="image.png", loadType=vrImageTypes.LoadType.Default, loadOptions=0)
-   :no-index:
-
-    Loads an image from a QImage.
-
-    :param image: The QImage to load
-    :type image: QImage
-
-    :param path: (Optional) The path of the image to show in the UI. If not specified, "image.png" is used.
-    :type path: string
-
-    :param loadType: (Optional) The type of image to load
-    :type loadType: vrImageTypes.LoadType
-
-    :param loadOptions: (Optional) Bitmask created from vrImageTypes.LoadOptionsBitmask
-    :type loadOptions: integer
-
-    :return: The loaded image
     :rtype: vrdImage
 
 .. py:method:: vrImageService.readImageInformation(filename)

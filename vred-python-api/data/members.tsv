@@ -337,7 +337,6 @@ vrConstraintService	getConstraints()	method	v2	List[vrdConstraintNode]	Returns a
 vrConstraintService	getConstraintsForNode(node)	method	v2	List[vrdConstraintNode]	Returns all constraints that are connected to the given node.
 vrConstraintService	getNodesUsedInConstraints()	method	v2	List[vrdNode]	Returns all nodes that are used in constraints.
 vrConstraintService	getSelection()	method	v2	List[vrdNode]	returns All nodes currently selected in the constraint editor
-vrConstraintService	groupNodes(nodes)	method	v2	vrdNode	Places all given nodes into a new group.
 vrConstraintService	isNodeUsedInConstraints(node)	method	v2	bool	This is a quick way to find out if a node is used in any constraint.
 vrConstraintService	pasteNodes(parent)	method	v2	List[vrdNode]	Paste constraints from the internal copy buffer.
 vrConstraintService	setSelection(nodes)	method	v2		Selects a list of nodes in the constraint editor.
@@ -450,7 +449,7 @@ vrFileIOService	hasImportSettings(file)	method	v2	bool	Determines if there are i
 vrFileIOService	hasImportSettings(fileType)	method	v2	bool	Determines if there are import settings for a given file type.
 vrFileIOService	hasSmartReferences(file)	method	v2	bool	Queries for a OSB or VPB file if it contains smart references.
 vrFileIOService	importAtfFile(file, parent)	method	v2	vrdNode	Imports a file with the ATF loader.
-vrFileIOService	importFiles(files, parent, atfConversionOutputDir="", loadConvertedAtfFiles=True, removeConvertedAtfFiles=True, loadBehavior=True, convertSceneUp=True)	method	v2	integer	Imports a list of files.
+vrFileIOService	importFiles(files, parent, atfConversionOutputDir="", loadConvertedAtfFiles=True, removeConvertedAtfFiles=True, loadBehavior=True)	method	v2	integer	Imports a list of files.
 vrFileIOService	importMissingFiles(node, removeConvertedAtfFiles=True)	method	v2	integer	Imports missing files from a scene node.
 vrFileIOService	importPLMXMLFile(file, parent)	method	v2	vrdNode	Imports a PLMXML file and the files it references.
 vrFileIOService	inlineImageSequences()	method	v2		Inlines all image sequences.
@@ -548,8 +547,6 @@ vrGUIService.ViewCubeSize	Normal	data	v2
 vrGUIService.ViewCubeSize	Large	data	v2		
 vrGUIService	addMainWindowToolBar(toolbar)	method	v2		Adds a toolbar to the main window and also adds an entry to the Toolbar menu.
 vrGUIService	getFileDialogPath(type)	method	v2	string	Returns the path that is used as an initial path for file dialogs for the given type.
-vrGUIService	getIcon(name)	method	v2	QIcon	Returns the icon with the given name.
-vrGUIService	getIconNames()	method	v2	List[string]	Get a list of all known iconnames The list might change from Version to Version.
 vrGUIService	getViewCubeOpacity()	method	v2	float	returns The view cube opacity
 vrGUIService	getViewCubePosition()	method	v2	vrGUIService.ViewCubePosition	returns The view cube position
 vrGUIService	getViewCubeSize()	method	v2	vrGUIService.ViewCubeSize	returns The view cube size
@@ -666,7 +663,6 @@ vrHandTypes.HandTrackingType	VarjoUltraleapHandTracking	data	v2
 vrImageService	createImage(source=vrdImage())	method	v2	vrdImage	Creates an empty image.
 vrImageService	getShareMode()	method	v2	vrImageTypes.ShareMode	Returns the current share mode for images.
 vrImageService	loadImage(filename, loadType=vrImageTypes.LoadType.Default, loadOptions=0)	method	v2	vrdImage	Loads an image.
-vrImageService	loadImage(image, path="image.png", loadType=vrImageTypes.LoadType.Default, loadOptions=0)	method	v2	vrdImage	Loads an image from a QImage.
 vrImageService	readImageInformation(filename)	method	v2	string	Reads an image information.
 vrImageService	releaseImage(image)	method	v2		In case a loaded image is not needed, this method can be used to release (remove) it. Images only need to be released if they are never passed to VRED, as soon 
 vrImageService	reuseImage(source)	method	v2	vrdImage	Re-use an image from scene instead of source.
@@ -967,7 +963,6 @@ vrMaterialService	getEntries(materials)	method	v2	List[vrMaterialEntryId]	Get ma
 vrMaterialService	getGroupPath(node)	method	v2	List[string]	Returns the path of a node within the material tree.
 vrMaterialService	getImportMetadata(type)	method	v2	bool	Returns whether metadata for the specified material type will be imported or not.
 vrMaterialService	getMaterialFromId(materialId)	method	v2	vrdMaterial	Gets a material by its identifier.
-vrMaterialService	getMaterialIdPassColors()	method	v2	Dict[integer,QVector3D]	Returns a map of material IDs and their corresponding colors. These are the colors used in the material ID render pass. See also vrdMaterialRaytracingSettings.s
 vrMaterialService	getMaterialNodes(root=vrdNode())	method	v2	List[vrdMaterialNode]	Returns all material nodes in the given sub tree.
 vrMaterialService	getMaterialRoot()	method	v2	vrdNode	Returns the root for all materials in the material tree.
 vrMaterialService	getMaterials(root)	method	v2	List[vrdMaterial]	Get all materials used in the given tree.
@@ -1264,38 +1259,6 @@ vrPhysicsTypes.ForceMode	Force	data	v2
 vrPhysicsTypes.ForceMode	Impulse	data	v2		
 vrPhysicsTypes.ForceMode	VelocityChange	data	v2		
 vrPhysicsTypes.ForceMode	Acceleration	data	v2		
-vrPlatformService	getAppName()	method	v2	string	returns The application name. E.g. VREDPro
-vrPlatformService	getAppVersionName()	method	v2	string	returns The display name of the current application version.
-vrPlatformService	getBaseDir()	method	v2	string	returns The installation base directory.
-vrPlatformService	getBinDir()	method	v2	string	returns The binary directory.
-vrPlatformService	getDataDir()	method	v2	string	returns The shared application data directory.
-vrPlatformService	getDpiScaleX()	method	v2	float	returns The horizontal DPI scale factor.
-vrPlatformService	getDpiScaleY()	method	v2	float	returns The vertical DPI scale factor.
-vrPlatformService	getDpiX()	method	v2	integer	returns The DPI value in the horizontal direction.
-vrPlatformService	getDpiY()	method	v2	integer	returns The DPI value in the vertical direction.
-vrPlatformService	getExeDir()	method	v2	string	returns The directory that contains the executable.
-vrPlatformService	getLargeIconSizeX()	method	v2	integer	returns The width of the large icon size.
-vrPlatformService	getLargeIconSizeY()	method	v2	integer	returns The height of the large icon size.
-vrPlatformService	getLargePreviewSizeX()	method	v2	integer	returns The width of the large preview size.
-vrPlatformService	getLargePreviewSizeY()	method	v2	integer	returns The height of the large preview size.
-vrPlatformService	getLibDir()	method	v2	string	returns The library directory.
-vrPlatformService	getMediumIconSizeX()	method	v2	integer	returns The width of the medium icon size.
-vrPlatformService	getMediumIconSizeY()	method	v2	integer	returns The height of the medium icon size.
-vrPlatformService	getMediumPreviewSizeX()	method	v2	integer	returns The width of the medium preview size.
-vrPlatformService	getMediumPreviewSizeY()	method	v2	integer	returns The height of the medium preview size.
-vrPlatformService	getMiniIconSizeX()	method	v2	integer	returns The width of the mini icon size.
-vrPlatformService	getMiniIconSizeY()	method	v2	integer	returns The height of the mini icon size.
-vrPlatformService	getPlatform()	method	v2	string	returns The current platform identifier. E.g. WIN64 or Linux64
-vrPlatformService	getPluginsDir()	method	v2	string	returns The plugins directory.
-vrPlatformService	getPreferencesDir()	method	v2	string	returns The preferences directory.
-vrPlatformService	getSmallIconSizeX()	method	v2	integer	returns The width of the small icon size.
-vrPlatformService	getSmallIconSizeY()	method	v2	integer	returns The height of the small icon size.
-vrPlatformService	getTreeViewIconSize()	method	v2	integer	returns The icon size used in tree views.
-vrPlatformService	getVersionString()	method	v2	string	returns The version string of the current application. E.g. 19.2
-vrPluginService	getScriptPluginInfo(name)	method	v2	vrdScriptPluginInfo	Get information about a specific python script plugin by name.
-vrPluginService	getScriptPluginInfos()	method	v2	List[vrdScriptPluginInfo]	Get information about all python script plugins.
-vrPluginService	getScriptPluginNames()	method	v2	List[string]	Get a list of all python script plugins.
-vrPluginService	reloadScriptPlugins()	method	v2		Reload all python script plugins.
 vrProgressService	cancelOperation()	method	v2		Cancels the currently running opertation.
 vrProgressService	operationFinished(canceled)	method	v2		An operation that reports its progress has finished.
 vrProgressService	operationStarted(state)	method	v2		An operation that reports its progress has started.
@@ -2988,8 +2951,8 @@ vrdClearcoat	setColorSpectrum(value)	method	v2		Sets the spectrum of the clearco
 vrdClearcoat	setDensity(value)	method	v2		Sets the density A value of 0 will use the clearcoat color as reflection color. A value larger than 0 will use the clearcoat color to tint the refraction of the
 vrdClearcoat	setOrangePeelFrequency(value)	method	v2		Sets the bump structure's noise frequency. The higher the value, the closer together the orange peel bump.
 vrdClearcoat	setOrangePeelIntensity(value)	method	v2		Sets the bump structure's intensity. The higher the value, the more visible the orange peel and less smooth the clearcoat surface.
-vrdClearcoat	setReflectivity(value)	method	v2		Sets the clearcoat reflective intensity. It defines the amount of light reflected at normal incidence. The higher the value, the more reflective the surface. Re
-vrdClearcoat	setRefractionIndex(value)	method	v2		Sets the clearcoat index of refraction. Realistic values are around 1.4-1.6.
+vrdClearcoat	setReflectivity(value)	method	v2		Sets the clearcoat reflective intensity. It defines the amount of light reflected at normal incidence. The higher the value, the more reflective the surface.
+vrdClearcoat	setRefractionIndex(value)	method	v2		Sets the clearcoat index of refraction.
 vrdClearcoat	setRoughness(value)	method	v2		Controls the sharpness of the clearcoat reflections. The higher the value, the rougher the microscopic structure of the surface and more diffuse the reflections
 vrdClearcoat	setThickness(value)	method	v2		Sets the thickness of the clearcoat layer. A value of 0 will use the clearcoat color as reflection color. A value larger than 0 will use the clearcoat color to 
 vrdClearcoat	setType(value)	method	v2		Defines the computation method for the clearcoat. Depending on the material the following options can be available:
@@ -3969,7 +3932,6 @@ vrdMDLMaterial	getUseScreenSpaceRefractions()	method	v2	bool	returns If screen s
 vrdMDLMaterial	hasModuleData()	method	v2	bool	Check if a MDL module file was successfully loaded.
 vrdMDLMaterial	isModuleValid()	method	v2	bool	Check if a MDL module file is valid.
 vrdMDLMaterial	loadModule(path)	method	v2	bool	Load a MDL module to this material.
-vrdMDLMaterial	loadModuleFromString(data, moduleName="data.mdl")	method	v2	bool	Load a MDL module from a string.
 vrdMDLMaterial	resetMaterial()	method	v2		Resets a material to its default state.
 vrdMDLMaterial	setActiveMaterialIndex(index)	method	v2		Gets the index of the active material.
 vrdMDLMaterial	setActiveMaterialProperty(parameterId, value)	method	v2		Sets a MDL property for the active material.
@@ -4291,6 +4253,7 @@ vrdObject	asType(type)	method	v2	vrdObject	Tries to convert a vrdObject to a dif
 vrdObject	getObjectId()	method	v2	integer	Returns the internal object id.
 vrdObject	isNull()	method	v2	bool	Determines if the object is null.
 vrdObject	isType(type)	method	v2	bool	Determines whether the specified object is of a specific type.
+vrdObjectSignal	getSignal(object)	method	v2	SignalT	returns  
 vrdOpenGLInfo	getAvailableVideoMemorySize()	method	v2	integer	Returns the available video memory size in Kb.
 vrdOpenGLInfo	getDriverVersion()	method	v2	List[integer]	Returns the version number of the active OpenGL driver.
 vrdOpenGLInfo	getExtensions()	method	v2	List[string]	Returns a list of available OpenGL extensions.
@@ -4891,7 +4854,6 @@ vrdRenderAutomationVariantSetGroup	hasActiveVariantSets()	method	v2	bool	Checks 
 vrdRenderAutomationVariantSetGroup	removeActiveVariantSetName(setName)	method	v2	bool	Removes a variant set name from the list of active variant sets.
 vrdRenderAutomationVariantSetGroup	setActiveVariantSetNames(variantSets)	method	v2		Sets the list of active variant set names in the group.
 vrdRenderAutomationVariantSetGroup	setGroupName(groupName)	method	v2		Sets the name of the group.
-vrdRenderPasses	clearPasses()	method	v2		Disables all render passes by setting each pass to false.
 vrdRenderPasses	getAlbedoPass()	method	v2	bool	Gets the status of the albedo pass.
 vrdRenderPasses	getBackgroundColorPass()	method	v2	bool	Gets the status of the background color pass.
 vrdRenderPasses	getBackplatePass()	method	v2	bool	Gets the status of the backplate pass.
@@ -4910,7 +4872,6 @@ vrdRenderPasses	getDiffuseIndirectPass()	method	v2	bool	Gets the status of the d
 vrdRenderPasses	getDiffuseLightIlluminationPass()	method	v2	bool	Gets the status of the diffuse light illumination pass.
 vrdRenderPasses	getDiffuseLightPass()	method	v2	bool	Gets the status of the diffuse light pass.
 vrdRenderPasses	getExportRenderpasses()	method	v2	bool	Returns if rendering with renderpasses is activated. All activated renderpasses are rendered and saved at a time.
-vrdRenderPasses	getExportRenderpassesInVulkan()	method	v2	bool	returns Additional flag to export supported render passes in Vulkan. See vrdRenderPasses.setExportRenderpassesInVulkan(enabled) for more information.
 vrdRenderPasses	getFogPass()	method	v2	bool	Gets the status of the fog pass.
 vrdRenderPasses	getFrontplatePass()	method	v2	bool	Gets the status of the frontplate pass.
 vrdRenderPasses	getGlossyColorPass()	method	v2	bool	Gets the status of the glossy color pass.
@@ -4960,7 +4921,6 @@ vrdRenderPasses	setDiffuseIndirectPass(diffuseIndirectPass)	method	v2		Sets the 
 vrdRenderPasses	setDiffuseLightIlluminationPass(diffuseLightIlluminationPass)	method	v2		Sets the status of the diffuse light illumination pass.
 vrdRenderPasses	setDiffuseLightPass(diffuseLightPass)	method	v2		Sets the status of the diffuse light pass.
 vrdRenderPasses	setExportRenderpasses(exportRenderPasses)	method	v2		Activates rendering with renderpasses. All activated renderpasses are rendered and saved at a time.
-vrdRenderPasses	setExportRenderpassesInVulkan(enabled)	method	v2		The Vulkan renderer supports a subset of the render passes for offline rendering. This flag allows to export these passes in Vulkan. By default, it is disabled.
 vrdRenderPasses	setFogPass(fogPass)	method	v2		Sets the status of the fog pass.
 vrdRenderPasses	setFrontplatePass(frontplatePass)	method	v2		Sets the status of the frontplate pass.
 vrdRenderPasses	setGlossyColorPass(glossyColorPass)	method	v2		Sets the status of the glossy color pass.
@@ -5404,12 +5364,6 @@ vrdScreenSpaceAmbientOcclusionSettings	setIntensity(value)	method	v2		Sets the i
 vrdScreenSpaceAmbientOcclusionSettings	setRadius(value)	method	v2		Sets the radius of effect of the SSAO, in scene units. Geometry beyond that distance does not occlude illumination.
 vrdScreenSpaceAmbientOcclusionSettings	setSampleQuality(value)	method	v2		Sets the sample quality of the SSAO. More samples produces better results, but it is also slower.
 vrdScreenSpaceAmbientOcclusionSettings	setUseBakedShadowsForShadowMaterial(value)	method	v2		Sets if the baked shadows should be used for the shadow material instead of the output of the SSAO.
-vrdScriptPluginInfo	getAuthor()	method	v2	string	Get the author of the script plugin.
-vrdScriptPluginInfo	getPluginName()	method	v2	string	Get the name of the script plugin.
-vrdScriptPluginInfo	getScriptFile()	method	v2	string	Get the script file name.
-vrdScriptPluginInfo	setAuthor(author)	method	v2		Set the author of the script plugin.
-vrdScriptPluginInfo	setPluginName(name)	method	v2		Set the name of the script plugin.
-vrdScriptPluginInfo	setScriptFile(file)	method	v2		Set the script file name.
 vrdSessionUser	getBillboardNode()	method	v2	vrdNode	returns A node pointer for the billboard transformation
 vrdSessionUser	getCameraMatrix()	method	v2	QMatrix4x4	returns A matrix representing the users camera position.
 vrdSessionUser	getDeviceImage()	method	v2	QImage	returns An icon for the VR device.
@@ -7979,8 +7933,6 @@ vrOSGWidget	setDepthPeeling(state)	method	v1		Enables or disables depth peeling 
 vrOSGWidget	getDepthPeeling()	method	v1	bool	Returns whether depth peeling is enabled in rasterization (OpenGL, Vulkan). Vulkan always uses depth peeling.
 vrOSGWidget	setDepthPeelingLayers(layers)	method	v1		Sets the number of layers to peel for depth peeling in rasterization (OpenGL, Vulkan).
 vrOSGWidget	getDepthPeelingLayers()	method	v1	int	Returns the number of layers that are peeled for depth peeling in rasterization (OpenGL, Vulkan).
-vrOSGWidget	getDepthShouldIncludeTransparentObjects()	method	v1	bool	Returns if depth render output should include transparent objects.
-vrOSGWidget	setDepthShouldIncludeTransparentObjects(state)	method	v1		Enables or disables depth render output including transparent objects.
 vrOSGWidget	setOcclusionCulling(state)	method	v1		Enables or disables occlusion culling.
 vrOSGWidget	setOcclusionCullingMode(mode)	method	v1		Sets the occlusion culling mode (experimental).
 vrOSGWidget	setFrustumCulling(state)	method	v1		Enables or disables frustum culling.
@@ -8366,9 +8318,9 @@ vrRenderSettings	setRenderBackgroundColor(r, g, b)	method	v1		Sets the backgroun
 vrRenderSettings	getRenderBackgroundColor()	method	v1	Vec3f	Returns the background color.
 vrRenderSettings	setUseRenderPasses(state)	method	v1		Enables export of render passes when rendering to a file.
 vrRenderSettings	getUseRenderPasses()	method	v1	bool	Returns whether the render passes export is active or not.
-vrRenderSettings	setRenderPasses(passes)	method	v1		Sets the active render passes by passing a list of pass names. This modifies the current scene settings and is used when calling the startRenderToFile command.
+vrRenderSettings	setRenderPasses(passes)	method	v1		Sets the active render passes by passing a list of pass names.
 vrRenderSettings	getRenderPasses()	method	v1	list	Returns the names of the current active render passes.
-vrRenderSettings	setRenderMetaDataFlags(flags)	method	v1		Sets the type of metadata to be embedded in a file. Image formats supporting metadata are png, jpg, tif and exr.
+vrRenderSettings	setRenderMetaDataFlags(flags)	method	v1		Sets the type of metadata to be embedded in a file.
 vrRenderSettings	getRenderMetaDataFlags()	method	v1	int	Returns the metadata flags bitmask.
 vrRenderSettings	setRenderAnimation(state)	method	v1		Enables rendering of an animation sequence.
 vrRenderSettings	getRenderAnimation()	method	v1	bool	Returns whether animation export is turned on or off.

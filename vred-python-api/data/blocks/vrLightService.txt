@@ -34,7 +34,7 @@ Here are some examples on how to work with lights:
      vrLightService.pasteLensFlare([pointLightNode2])
 
      # delete the pointlight and the group
-     vrNodeService.removeNodes([pointLight, groupNode])
+     vrNodeService.removeNode([pointLight, groupNode])
 
 Summary
 =======

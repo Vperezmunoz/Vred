@@ -49,6 +49,9 @@ Parameter                Description
 -wport arg               set web server port (overrides preferences)
 -wsslport arg            set web server ssl port (overrides preferences)
 -wpipe arg               set web server pipeline
+-atf                     force ATF importer
+-dc                      force DirectConnect importer
+-legacy_tessellator      force legacy tessellator
 -prepython arg           executes any semicolon-separated python command or base64 encoded python script prior to loading the scene.
 -postpython arg          executes any semicolon-separated python command or base64 encoded python script after loading the scene.
 ======================== ===========

@@ -6,8 +6,6 @@ vrVariantService
 
 (Inherits vrBaseService)
 
-Interface to access variant sets and variant set groups.
-
 Summary
 =======
 

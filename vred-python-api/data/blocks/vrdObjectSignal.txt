@@ -8,3 +8,20 @@ vrdObjectSignal
 
 Base class for all signal objects.
 
+Summary
+=======
+
+Functions:
+    * getSignal(object) → SignalT
+
+Functions
+=========
+
+.. py:method:: vrdObjectSignal.getSignal(object)
+
+    :param object:
+    :type object: ObjectT
+
+    :return:
+    :rtype: SignalT
+
