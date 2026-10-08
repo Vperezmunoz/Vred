@@ -8,7 +8,7 @@
 | 2027.1 (`VREDPro-19.1`) | `vred-2027.1` |
 | 2027.2 (`VREDPro-19.2`) | `vred-2027.2` |
 
-Claude Code / Claude Agent "skills" for working with Autodesk VRED — Python API lookups, script plugin development, and packaging tools for customers.
+Claude Code / Claude Agent "skills" for working with Autodesk VRED — Python API lookups, script plugin development, design-review tooling and perf-log comparison.
 
 A skill is a folder with a `SKILL.md` that Claude Code loads on demand when its description matches the task at hand. See [Claude Code skills](https://docs.claude.com/en/docs/claude-code/skills) for how they work.
 
