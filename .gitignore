@@ -1,4 +1,4 @@
-# Claude Code local state: worktrees, session data, local settings
+﻿# Claude Code local state: worktrees, session data, local settings
 .claude/
 
 # Python
@@ -11,10 +11,4 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 
-# Private skills — kept in separate PRIVATE repos, cloned in place here.
-# This repo is PUBLIC. Never commit these: they hold colleagues' names,
 # job titles, LinkedIn URLs and named customer contacts.
-/autodesk-automotive-org/
-/internal-brief-page/
-/autodesk-brand/
-/customer-shareable-package/
