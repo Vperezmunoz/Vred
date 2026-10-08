@@ -1,4 +1,4 @@
-﻿# Claude Code local state: worktrees, session data, local settings
+# Claude Code local state: worktrees, session data, local settings
 .claude/
 
 # Python
@@ -10,5 +10,3 @@ __pycache__/
 .idea/
 Thumbs.db
 Desktop.ini
-
-# job titles, LinkedIn URLs and named customer contacts.
