@@ -1,7 +1,8 @@
 {
   "vred": "VREDPro-19.2",
-  "sources": "C:\\Program Files\\Autodesk\\VREDPro-19.2\\doc\\_sources",
+  "sources": "<VRED install>\\doc\\_sources",
   "classes": 693,
   "members": 8827,
-  "examples": 152
+  "examples": 152,
+  "marketing": "VRED 2027.2"
 }

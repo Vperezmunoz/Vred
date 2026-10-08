@@ -5,7 +5,9 @@ description: Look up the Autodesk VRED Python API offline — services, classes,
 
 # VRED Python API lookup
 
-The full VRED API reference (8779 members, 690 classes, 152 example scripts) is indexed
+**Index version: VRED 2027.2 (`VREDPro-19.2`).** For another release use the matching branch of the repo.
+
+The full VRED API reference (8827 members, 693 classes, 152 example scripts) is indexed
 in `data/`. **Query it with `vredapi.py`; never read the files in `data/` directly** — a
 single class page is thousands of tokens, a query is tens.
 
