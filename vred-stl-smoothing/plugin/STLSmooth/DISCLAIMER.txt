@@ -1,0 +1,40 @@
+STLSmooth - VRED script plugin
+==============================
+
+This tool is NOT a product of Autodesk. It is NOT developed, endorsed, supported,
+maintained, or warranted by Autodesk in any way, and is NOT covered by any Autodesk
+support entitlement or maintenance plan.
+
+It is an independently written script plugin that uses Autodesk VRED's public Python
+scripting API. "VRED" is a trademark of Autodesk, Inc., used here only to describe
+compatibility.
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE, INCLUDING DAMAGE TO OR LOSS OF ANY VRED SCENE OR PROJECT FILE.
+
+What this tool does to your environment:
+- Installing it requires disabling VRED's Python sandbox (Edit > Preferences), which
+  affects every script VRED runs afterwards, not just this plugin.
+- It writes no files and no persistent settings. It never modifies the source STL files.
+- When run, it imports the chosen STL files into the open scene. With "Keep original"
+  on (the default) it adds a smoothed duplicate of each processed geometry node and, with
+  "Compare in a switch node" on, moves the original and its copies into a new switch node
+  named <part>_versions (otherwise it hides the original). With "Keep original" off it REPLACES the vertex, index
+  and normal data of the processed nodes in place. Neither is undoable with Ctrl+Z.
+  Save your scene before using it.
+- The smoothing changes shading only. Vertex positions are kept exactly; coincident
+  vertices are merged, vertices on a crease are duplicated, and the corner order of
+  triangles with inconsistent orientation is reversed. Optional subdivision adds
+  triangles and slightly moves the surface between original vertices.
+- "Defect map selected" adds a coloured copy of the part and creates one material named
+  STLSmooth_DefectMap (with the colour-ramp texture STLSmooth_ramp.png) in the scene,
+  plus, by default, a VRED annotation labelling the map as orientative.
+- The defect colour map is an ORIENTATIVE geometric visualisation aid only. Its values are
+  estimates derived from the exported mesh and the chosen settings; they are expected to
+  differ from, and do not replace, the results of any CAE / stamping simulation tool. It
+  is NOT a measurement against nominal CAD data and must NOT be used for any quality,
+  safety or sign-off decision.

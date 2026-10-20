@@ -18,6 +18,9 @@ How to build an AI design-review copilot on VRED: an in-VRED capture trigger (ca
 ### [customer-shareable-package](customer-shareable-package/)
 Checklist and conventions for turning a working local tool into something you can hand to a customer, partner, or colleague — scrubbing personal paths, bundling dependencies with their licenses, README structure, and verifying the shipped artifact instead of the source.
 
+### [vred-stl-smoothing](vred-stl-smoothing/)
+Make STL meshes render smooth in VRED instead of faceted: weld the duplicated vertices, repair inconsistent triangle orientation and compute smooth normals with a crease angle. Includes the finished `STLSmooth` script plugin (pure Python, progress bar and Cancel, all versions of a part in a switch node, an orientative defect colour map), the algorithm notes, what does and does not work in VRED (textures must come from a file, surface analysis is OpenGL-only), and offline tests with a stubbed VRED/PySide6.
+
 ### [vred-perf-comparison](vred-perf-comparison/)
 Build a one-pager HTML/PDF comparing two VRED FPS perf-test logs (e.g. regular rendering vs. static foveation) — matching scenarios across logs, collapsing repeat runs into weighted means, and laying out a print-ready single-page report.
 

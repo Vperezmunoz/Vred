@@ -366,6 +366,53 @@ Never block VRED's UI thread. Run external tools with `QtCore.QProcess` and pars
 from stdout. On Windows, pass `creationflags=subprocess.CREATE_NO_WINDOW` to any
 `subprocess.run()` so console windows don't flash up behind VRED.
 
+**Pure-Python heavy work (mesh maths etc.): chunk it with generators.** VRED's bundled
+Python has **no numpy**. Write each step as a generator that `yield`s a fraction 0..1 every
+~20k items and `return`s its result; chain with `yield from`. A `QTimer(interval 0)` slot runs
+the current generator for ~50 ms per tick (`while True: next(gen); if time >= deadline: break`
+— always take at least one step per tick, or a slow tick leaves your progress variable
+unbound), updates a `QProgressBar`, and hands control back to VRED. Write results to the scene
+only when a part is finished, so Cancel leaves nothing half-done. Outside the UI, drive the
+same generator with `run_to_end(gen)`. Disable the action buttons while running and refuse a
+second run. Full worked example: `vred-stl-smoothing` skill, `plugin/STLSmooth/vrSTLSmooth.py`.
+
+## Geometry, textures, switch nodes and annotations (verified while building STLSmooth)
+
+- Read/write mesh: `vrdGeometryNode(node)` (cast after `node.isType(vrdGeometryNode)`), then
+  `getPositions()/getIndices()/getNormals()` and `setPositions/setIndices/setNormals` take flat
+  float/int lists; the normal list must match the positions list in length. Keep a vertex
+  duplicated when it needs two normals (creases).
+  `setTexCoords(flat_uv, 0, 2)` — slot 0 is the material UV set. Duplicate a node with
+  `vrScenegraphService.duplicateNodes([n], vrScenegraphTypes.DuplicateOption.DuplicateAll)`.
+- **Texture images must come from a file.** `vrImageService.loadImage(QImage, "x.png")`
+  followed by `tex.setImage(img)` leaves the material's texture slot empty — grey surface,
+  no exception. Ship the PNG next to the plugin (`os.path.dirname(os.path.abspath(__file__))`)
+  and `vrImageService.loadImage(path)`. Configure the textures on every use of a shared material
+  (setImage, setUseTexture(True), setMappingType(UVMapping), setRepeatModeU/V), which also repairs a
+  material broken by an earlier plugin version; check `tex.getImage().isNull()` afterwards and log it.
+- A 1-D colour ramp is easiest as a 256x4 PNG with U = value and V = 0.5, repeat mode Clamp
+  (`vrTextureTypes.RepeatMode.Clamp`); keep U off the extreme texels (0.004..0.996). Add the same
+  texture as incandescence at ~0.5 so colours read on unlit sides.
+- **`vrSurfaceAnalysis` (VRED's zebra/stripe mode) is OpenGL-only** and its int arguments
+  (mode, line type) are undocumented; it does nothing in Vulkan. The module is v1, so
+  `import vrSurfaceAnalysis` and `from vrOSGTypes import Vec3f` are needed. Detect the renderer
+  with `vrOSGWidget.getRaytracingEnabled()` + `vrRenderSettings.getRasterizationMode()`.
+- Switch node: `vrScenegraphService.createNode(vrScenegraphTypes.NodeType.SwitchNode, parent, name)`;
+  `switch.children.append(node)` moves a node into it (no transform of its own, nothing shifts);
+  `vrdSwitchNode(n).setChoice(i)` selects the child; names get uniquified (`name1`), so match by
+  `startswith`. When matching "other versions of this part" by name, compare `== base` or
+  `startswith(base + tag)` — a bare `startswith(base)` also catches `PartA2` when handling `PartA`.
+- Annotation as an in-scene caption: `vrAnnotationService.createAnnotation(name)`, `.setText`,
+  `.setSceneNode(node)` + `.setUseSceneNodeVisibility(True)` (follow a node's visibility),
+  `.setPosition(QVector3D)` (e.g. `node.getWorldBoundingBox().getMax()`), `.setSize`.
+- Log a failing VRED call once and carry on (`_call(label, fn, *args)` with a `_reported` set); put
+  the plugin's own errors in a panel log widget, because an exception in a button slot only
+  reaches Scripts > Terminal and looks like "the button does nothing".
+- File import: `vrFileIOService.importFiles(files, parent)` returns an id; connect
+  `vrFileIOService.importFinished(importId, duration)` and diff the root's children before/after.
+- An undocumented API behaviour is a *test the user must run*: expose the unknown numbers as
+  spin boxes, say so in the tooltip, and ask for the log — do not guess defaults.
+
 ## Testing outside VRED
 
 You can exercise everything except the VRED API calls by stubbing PySide6 — worth doing
@@ -399,6 +446,17 @@ directly unit-testable.
 Also assert that any HTML template fully substitutes: a leftover `__TOKEN__` is a silent
 black screen, not an error.
 
+Mock-test the whole panel, not just the maths: fake `Geo`/scene nodes with the few methods
+the plugin calls, call the slot methods, then loop `while timer.on: panel._tick()`. A mock
+run of a panel built with `object.__new__(Panel)` + `__dict__.update(...)` caught four real
+bugs here. Remember to add every new `from vrKernelServices import X` name to the stub, or
+the import fails before any test runs. Examples: `vred-stl-smoothing/tests/`.
+
 ## Machine note
 
 On this machine use `py`, never `python`/`python3` (Store stub). `py -m pip`, not `pip`.
+Installed VRED builds: `VREDPro-19.0` = 2027, `19.1` = 2027.1, `19.2` = 2027.2, `18.2` = 2026.2;
+install a plugin into each `Documents\Autodesk\VRED-<ver>\ScriptPlugins\` you want covered.
+
+For long Python patches, use the Write tool to create a script and run it with `py -I`
+instead of a bash heredoc — nested quotes and `\n` inside the heredoc broke repeatedly.
