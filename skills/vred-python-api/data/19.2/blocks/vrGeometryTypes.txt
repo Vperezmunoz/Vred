@@ -1,0 +1,85 @@
+---------------
+vrGeometryTypes
+---------------
+
+.. py:class:: vrGeometryTypes
+
+    .. py:class:: PrimitiveType
+
+        Primitive type of         vrdGeometryNode.
+
+            .. py:data:: Unknown
+               :no-index:
+
+            .. py:data:: Points
+
+            .. py:data:: Lines
+
+            .. py:data:: LineStrip
+
+            .. py:data:: Triangles
+
+    .. py:class:: DecoreMode
+
+        When geometry is determined to be inside another and non-visible, then one of these options are available:
+
+            .. py:data:: Remove
+
+                Removes the occluded parts from the scene.
+
+            .. py:data:: SetToBSide
+
+                Sets the occluded parts to B Side and doesn't delete them.
+
+    .. py:class:: DecoreTransparentObjectMode
+
+        Defines how transparent objects are handled when decoring.
+
+            .. py:data:: Ignore
+
+                Transparent objects are ignored (i.e., they do not occlude other objects and they are not occluded by other objects). (Fastest mode)
+
+            .. py:data:: TreatAsTransparent
+
+                Transparent objects will not occlude other objects, but they can be occluded by non-transparent objects. (Slower, but most accurate mode)
+
+            .. py:data:: TreatAsOpaque
+
+                No special handling for transparent objects, they are treated as opaque.
+
+    .. py:class:: DecoreSubObjectMode
+
+        Determines how sub-objects are factored in when decoring or correcting face normals.
+
+            .. py:data:: None_
+               :no-index:
+
+                No sub objects will be changed, i.e., only works on object level.
+
+            .. py:data:: Components
+
+                Works on the component level for shells.
+
+            .. py:data:: Triangles
+               :no-index:
+
+                Works on the triangle/polygon level for meshes.
+
+            .. py:data:: ComponentsAndTriangles
+
+                Works on the triangle and component level.
+
+    .. py:class:: VisibilityMergeMode
+
+            .. py:data:: MergeByVisibility
+
+                Hidden and visible geometry nodes are merged separately.
+
+            .. py:data:: MergeOnlyVisible
+
+                Merge all visible geometries and ignore the rest.
+
+            .. py:data:: MergeAllKeepVisibility
+
+                Shells: Merge all components into one shell and set the correct visibility; meshes: merge all visible meshes, invisible meshes are discarded.
+

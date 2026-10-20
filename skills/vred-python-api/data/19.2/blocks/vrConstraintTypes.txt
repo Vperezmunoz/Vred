@@ -1,0 +1,40 @@
+-----------------
+vrConstraintTypes
+-----------------
+
+.. py:class:: vrConstraintTypes
+
+    .. py:class:: AimMode
+
+            .. py:data:: PointToX
+
+            .. py:data:: PointToY
+
+            .. py:data:: PointToZ
+
+            .. py:data:: PointToNegX
+
+            .. py:data:: PointToNegY
+
+            .. py:data:: PointToNegZ
+
+    .. py:class:: UpMode
+
+            .. py:data:: PointToX
+               :no-index:
+
+            .. py:data:: PointToY
+               :no-index:
+
+            .. py:data:: PointToZ
+               :no-index:
+
+            .. py:data:: PointToNegX
+               :no-index:
+
+            .. py:data:: PointToNegY
+               :no-index:
+
+            .. py:data:: PointToNegZ
+               :no-index:
+

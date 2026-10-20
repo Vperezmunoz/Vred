@@ -1,0 +1,131 @@
+MODULE vrSHLChunkPtr (legacy v1 API)
+
+-------------
+vrSHLChunkPtr
+-------------
+
+WARNING:
+
+   **Deprecated**. Use API v2 vrdGLSLShaderChunk and vrdGLSLShaderParameter types instead.
+
+Summary
+=======
+
+Classes:
+    * vrSHLChunkPtr
+
+Methods:
+    * fields() → vrFieldAccess
+    * getID() → unsigned int
+    * getPtr() → SHLChunkPtr
+    * isValid() → bool
+    * setUniformParameterInt(name, v)
+    * setUniformParameterReal(name, v)
+    * setUniformParameterVec2f(name, x, y)
+    * setUniformParameterVec3f(name, x, y, z)
+    * setUniformParameterVec4f(name, x, y, z, w)
+
+.. class:: vrSHLChunkPtr
+
+    **Deprecated**. Use API v2 vrdGLSLShaderChunk and vrdGLSLShaderParameter types instead.
+
+    The SHLChunkPtr class provides direct access to all data of an OpenGL Shader Chunk.
+
+    **Constructors:**
+
+    - `vrSHLChunkPtr()` Creates a vrTextureChunkPtr object.
+    - `vrSHLChunkPtr(source)` Creates a vrTextureChunkPtr object from an unsigned int.
+    - `vrSHLChunkPtr(source)` Creates a vrTextureChunkPtr object from a StateChunkPtr.
+    - `vrSHLChunkPtr(source)` Creates a vrTextureChunkPtr object from a SHLChunkPtr.
+
+    :param source: The source (Optional).
+    :type source: unsigned int or StateChunkPtr or SHLChunkPtr
+
+.. method:: getID()
+    :no-index:
+
+    Returns the node id.
+
+    :return: The node id.
+    :rtype: unsigned int
+
+.. method:: getPtr()
+    :no-index:
+
+    Returns the OpenSG SHLChunkPtr.
+
+    :return: The node pointer.
+    :rtype: SHLChunkPtr
+
+.. method:: isValid()
+    :no-index:
+
+    Returns true when the node is valid. Should be called for sanity reasons after searching a material with findMaterial.
+
+    :return: True if the node is valid, false otherwise.
+    :rtype: bool
+
+.. method:: setUniformParameterInt(name, v)
+
+    Sets an OpenGL Shading Language integer parameter.
+
+    :param name: The name of the parameter.
+    :type name: string
+    :param v: The value.
+    :type v: integer
+
+.. method:: setUniformParameterReal(name, v)
+
+    Sets an OpenGL Shading Language real parameter.
+
+    :param name: The name of the parameter.
+    :type name: string
+    :param v: The value.
+    :type v: float
+
+.. method:: setUniformParameterVec2f(name, x, y)
+
+    Sets an OpenGL Shading Language vec2f parameter.
+
+    :param name: The name of the parameter.
+    :type name: string
+    :param x: The x value.
+    :type x: float
+    :param y: The y value.
+    :type y: float
+
+.. method:: setUniformParameterVec3f(name, x, y, z)
+
+    Sets an OpenGL Shading Language vec3f parameter.
+
+    :param name: The name of the parameter.
+    :type name: string
+    :param x: The x value.
+    :type x: float
+    :param y: The y value.
+    :type y: float
+    :param z: The z value.
+    :type z: float
+
+.. method:: setUniformParameterVec4f(name, x, y, z, w)
+
+    Sets an OpenGL Shading Language vec4f parameter.
+
+    :param name: The name of the parameter.
+    :type name: string
+    :param x: The x value.
+    :type x: float
+    :param y: The y value.
+    :type y: float
+    :param z: The z value.
+    :type z: float
+    :param w: The w value.
+    :type w: float
+
+.. method:: fields()
+    :no-index:
+
+    Returns the field access.
+
+    :return: The field access.
+    :rtype: vrFieldAccess

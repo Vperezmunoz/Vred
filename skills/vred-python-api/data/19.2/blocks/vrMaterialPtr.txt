@@ -1,0 +1,622 @@
+MODULE vrMaterialPtr (legacy v1 API)
+
+-------------
+vrMaterialPtr
+-------------
+
+.. class:: vrMaterialPtr
+
+   A wrapper class for the OpenSG MaterialPtr.
+
+   Most functions of vrMaterialPtr are **deprecated**; use API v2 vrdMaterial types instead.
+
+   Note: This module contains global functions which are mapped to the global namespace. They can be used without creating an instance of the class.
+
+Summary
+=======
+
+Global Functions:
+    * addMaterialTag(material, tag)
+    * addMaterialTag(materials, tag)
+    * addMaterialTags(materials, tags)
+    * addMaterialTags(material, tags)
+    * createMaterial(type) → vrMaterialPtr
+    * findMaterial(name) → vrMaterialPtr
+    * findMaterials(name, regexp=False) → list
+    * getAllMaterials() → list
+    * getMaterialTags(material) → list
+    * getMaterialsWithTag(tag) → list
+    * getMaterialsWithTags(tags, matchAllTags) → list
+    * hasMaterialTag(material, tag) → bool
+    * hasMaterialTags(material, tags) → bool
+    * removeMaterialTag(material, tag)
+    * removeMaterialTag(materials, tag)
+    * removeMaterialTags(material, tags)
+    * removeMaterialTags(materials, tags)
+    * replaceMaterialTag(material, oldTag, newTag)
+    * replaceMaterialTag(materials, oldTag, newTag)
+    * setEnvironmentImage(mat, image_path)
+    * setMaterialImage(mat, field_name, image_path)
+    * setSwitchMaterialChoice(name, choice)
+    * setTextureTransform(mat, component, translate, rotate, scale)
+    * toMaterial(id) → vrMaterialPtr
+
+Static Functions:
+    * removeAssetManagerReference(materials)
+
+Class Functions:
+    * vrMaterialPtr()
+    * getID() → unsigned int
+    * getPtr() → MaterialPtr
+    * isValid() → bool
+    * getChunkCount() → unsigned int
+    * getChunk(i) → vrChunkPtr
+    * getSHLChunk() → vrSHLChunkPtr
+    * getNodes() → list
+    * fields() → vrFieldAccess
+    * addChunk(chunk) → bool
+    * subChunk(chunk) → bool
+    * setName(name)
+    * getName() → string
+    * getType() → string
+    * getSubMaterials() → list
+    * setChoice(choice)
+    * getChoice() → unsigned int
+    * getMaterialByChoice(choice) → vrMaterialPtr
+    * setMaterialChoiceByTag(tag)
+    * setMaterialChoiceByTags(tags, matchAllTags)
+    * addMaterial(mat)
+    * subMaterial(mat)
+    * sub(update=True)
+    * setTransparency(t)
+    * copy() → vrMaterialPtr
+    * isAsset() → bool
+
+.. function:: vrMaterialPtr()
+    :no-index:
+
+    The constructor of the MaterialPtr class. There are three valid versions:
+
+    MaterialPtr() Creates a MaterialPtr object.
+
+    MaterialPtr(source) Creates a MaterialPtr object from an unsigned int.
+
+    MaterialPtr(source) Creates a MaterialPtr object from a MaterialPtr.
+
+    :param source: The source (Optional).
+    :type source: unsigned int or MaterialPtr
+
+.. method:: getID() → unsigned int
+
+    Return the material id.
+
+    :return: The material id.
+    :rtype: unsigned int (32bit)
+
+.. method:: getPtr() → MaterialPtr
+
+    Return the OpenSG MaterialPtr.
+
+    :return: The pointer.
+    :rtype: MaterialPtr
+
+.. method:: isValid() → bool
+
+    **Deprecated:** See `vrdSceneObject.isValid()` in API v2.
+
+    Return true when the material is valid. Should be called for sanity reasons after searching a material with findMaterial.
+
+    :return: True when the material is valid, false otherwise.
+    :rtype: bool
+
+.. method:: getChunkCount() → unsigned int
+
+    **Deprecated:** See `vrdChunkMaterial` and `vrdMaterialChunkList` in API v2.
+
+    Returns the chunk count.
+
+    :return: The chunk count.
+    :rtype: unsigned int (32bit)
+
+.. method:: getChunk(i) → vrChunkPtr
+
+    **Deprecated:** See `vrdChunkMaterial` and `vrdMaterialChunkList` in API v2.
+
+    Returns a chunk.
+
+    :param i: The index.
+    :type i: unsigned int (32bit)
+    :return: The chunk
+    :rtype: vrChunkPtr
+
+.. method:: getSHLChunk() → vrSHLChunkPtr
+
+    **Deprecated:** See `vrdChunkMaterial` and `vrdGLSLShaderChunk` in API v2.
+
+    Returns an opengl shading language chunk (if there is one within the material).
+
+    :return: The chunk.
+    :rtype: vrSHLChunkPtr
+
+.. method:: getNodes() → list
+
+    **Deprecated:** Use `vrMaterialService.findNodesWithMaterial(mat)` in API v2.
+
+    Returns all nodes that are using this material.
+
+    :return: The nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: fields() → vrFieldAccess
+
+    **Deprecated:** Use API v2 material types instead to read and write material settings, e.g. `vrdPlasticMaterial`.
+
+    Returns the field access object to get access to all fields. Take a look at the vrFieldAccess documentation to see how to manipulate the value of the fields.
+
+    :return: The field access object.
+    :rtype: vrFieldAccess
+
+.. method:: addChunk(chunk) → bool
+
+    **Deprecated:** See `vrdChunkMaterial` and `vrdMaterialChunkList` in API v2.
+
+    Adds a chunk to the material.
+
+    :param chunk: The chunk pointer.
+    :type chunk: vrChunkPtr
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: subChunk(chunk) → bool
+
+    **Deprecated:** See `vrdChunkMaterial` and `vrdMaterialChunkList` in API v2.
+
+    Subs a chunk from the material.
+
+    :param chunk: The chunk pointer.
+    :type chunk: vrChunkPtr
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: setName(name)
+    :no-index:
+
+    **Deprecated:** Use `vrdMaterial.setName(name)` in API v2.
+
+    Sets the name of the material.
+
+    :param name: The new name of the material.
+    :type name: string
+
+.. method:: getName() → string
+
+    **Deprecated:** Use `vrdMaterial.getName()` in API v2.
+
+    Returns the name of the material.
+
+    :return: The name of the material.
+    :rtype: string
+
+.. method:: getType() → string
+
+    **Deprecated.** Returns the OpenSG type of the material.
+
+    :return: The type of the material.
+    :rtype: string
+
+.. method:: getSubMaterials() → list
+
+    **Deprecated:** Use `vrdMultiMaterial.getMaterials()` in API v2.
+
+    Returns all sub materials of the material.
+
+    :return: A list of materials.
+    :rtype: list of vrMaterialPtrs
+
+.. method:: setChoice(choice)
+
+    **Deprecated:** Use `vrdSwitchMaterial.setChoice(choice)` in API v2.
+
+    Sets the choice of a switch material.
+
+    :param choice: The choice.
+    :type choice: unsigned int
+
+.. method:: getChoice() → unsigned int
+
+    **Deprecated:** Use `vrdSwitchMaterial.getChoice()` in API v2.
+
+    Returns the current choice of a switch material.
+
+    :return: The choice.
+    :rtype: unsigned integer
+
+.. method:: getMaterialByChoice(choice) → vrMaterialPtr
+
+    **Deprecated:** Use `vrdSwitchMaterial.materials.at(choice)` in API v2.
+
+    Returns the material of a switch material.
+
+    :param choice: The choice.
+    :type choice: unsigned int
+    :return: The material.
+    :rtype: vrMaterialPtr
+
+.. method:: setMaterialChoiceByTag(tag)
+
+    **Deprecated:** Use `vrMaterialService.setSwitchChoiceByAnyTag` in API v2.
+
+    Sets the current choice of the switch to the material with the tag.
+
+    :param tag: The choice.
+    :type tag: string
+
+.. method:: setMaterialChoiceByTags(tags, matchAllTags)
+
+    **Deprecated:** Use `vrMaterialService.setSwitchChoiceByAnyTag` or `vrMaterialService.setSwitchChoiceByAllTags` in API v2.
+
+    Sets the current choice of the switch to the material with the tags.
+
+    :param tags: The list of tag strings to check.
+    :type tags: list of string
+    :param matchAllTags: If true only materials which contain all give tags are returns. If false any material that contains at least one tag is returned.
+    :type matchAllTags: bool
+
+.. method:: addMaterial(mat)
+
+    **Deprecated:** Use `vrdMultiMaterial.materials.append(mat)` in API v2.
+
+    Adds a material to a switch material.
+
+    :param mat: The material.
+    :type mat: vrMaterialPtr
+
+.. method:: subMaterial(mat)
+
+    **Deprecated:** Use `vrdMultiMaterial.materials.remove(mat)` in API v2.
+
+    Subs a material from a switch material.
+
+    :param mat: The material.
+    :type mat: vrMaterialPtr
+
+.. method:: sub(update=True)
+    :no-index:
+
+    **Deprecated:** Use `vrMaterialService.deleteMaterials(mat)` in API v2.
+
+    Removes the material from the material pool.
+
+    :param update: If true the material editor is updated (Optional). Default is true.
+    :type update: bool
+
+.. method:: setTransparency(t)
+
+    **Deprecated:** Use `material.getTransparency().setSeeThrough(QVector3D(t, t, t))` in API v2.
+
+    Sets the transparency.
+
+    :param t: The transparency.
+    :type t: float
+
+.. method:: copy() → vrMaterialPtr
+
+    **Deprecated:** Use `vrMaterialService.duplicateMaterials([mat])` in API v2.
+
+    Returns a copy of the material.
+
+    :return: The copy.
+    :rtype: vrMaterialPtr
+
+.. method:: isAsset() → bool
+
+    **Deprecated:** Use `vrdMaterial.isAsset()` in API v2.
+
+    Checks if the material is an asset from the Asset Manager.
+
+    :return: True if the material is an asset, false otherwise.
+    :rtype: bool
+
+.. method:: removeAssetManagerReference(materials)
+
+    For every material that is an asset, removes its reference to the Asset Manager.
+
+    For environment materials it removes the reference to the environment asset.
+
+    Updates the Material Editor (and Scenegraph, if an environment asset reference is deleted) UI afterwards.
+
+    :param materials: The list of materials.
+    :type materials: list of vrMaterialPtr
+
+.. function:: findMaterial(name) → vrMaterialPtr
+
+    **Deprecated:** Use `vrMaterialService.findMaterial(name)` in API v2.
+
+    Finds a material by name.
+
+    :param name: The material name.
+    :type name: string
+    :return: The material.
+    :rtype: vrMaterialPtr
+
+.. function:: findMaterials(name, regexp=False) → list
+
+    **Deprecated:** Use `vrMaterialService.findMaterials(name)` in API v2.
+
+    Finds materials by name.
+
+    :param name: The material name.
+    :type name: string
+    :param regexp: Use regular expression: On/Off (Optional). Default is false.
+    :type regexp: bool
+    :return: The materials.
+    :rtype: list of vrMaterialPtrs
+
+.. function:: getAllMaterials() → list
+
+    **Deprecated:** Use `vrMaterialService.getAllMaterials()` in API v2.
+
+    Returns all materials.
+
+    :return: The materials.
+    :rtype: list of vrMaterialPtrs
+
+.. function:: getMaterialTags(material) → list
+
+    **Deprecated:** Use `vrMetadataService.getTags()` in API v2.
+
+    Returns the list of tags attached to the given material.
+
+    :param material: The material to check.
+    :type material: vrMaterialPtr
+    :return: The list of tags.
+    :rtype: list of string
+
+.. function:: hasMaterialTag(material, tag) → bool
+
+    **Deprecated:** Use `vrMetadataService.hasTag()` in API v2.
+
+    Checks if a material has a certain tag.
+
+    :param material: The material to check.
+    :type material: vrMaterialPtr
+    :param tag: The tag string to check.
+    :type tag: string
+    :return: True if the material has the tag.
+    :rtype: bool
+
+.. function:: hasMaterialTags(material, tags) → bool
+
+    **Deprecated:** Use `vrMetadataService.getTags()` in API v2.
+
+    Checks if a material has all of the given tags.
+
+    :param material: The material to check.
+    :type material: vrMaterialPtr
+    :param tags: The list of tag strings to check.
+    :type tags: list of string
+    :return: True if the material has all tags.
+    :rtype: bool
+
+.. function:: getMaterialsWithTag(tag) → list
+
+    **Deprecated:** Use `vrMaterialService.getMaterialsWithAnyTag` in API v2.
+
+    Returns a list of materials which have the given metadata tag assigned, starting from the root material.
+
+    :param tag: The tag string to check.
+    :type tag: string
+    :return: The selected materials.
+    :rtype: list of vrMaterialPtr
+
+.. function:: getMaterialsWithTags(tags, matchAllTags) → list
+
+    **Deprecated:** Use `vrMaterialService.getMaterialsWithAnyTag` or `vrMaterialService.getMaterialsWithAllTags` in API v2.
+
+    Returns a list of materials which have the given metadata tags assigned.
+
+    :param tags: The list of tag strings to check.
+    :type tags: list of string
+    :param matchAllTags: If true only materials which contain all given tags are returned. If false any material that contains at least one tag is returned.
+    :type matchAllTags: bool
+    :return: The selected materials.
+    :rtype: list of vrMaterialPtr
+
+.. function:: createMaterial(type) → vrMaterialPtr
+
+    **Deprecated:** Use `vrMaterialService.createMaterial(name, type)` in API v2.
+
+    Creates a MaterialPtr of a specific type.
+
+    :param type: The name of the material type. Names are like 'U' + MaterialEditor type without spaces, e.g., 'UPlasticMaterial'.
+    :type type: string
+    :return: The material.
+    :rtype: vrMaterialPtr
+
+.. function:: setSwitchMaterialChoice(name, choice)
+
+    **Deprecated:** Use `vrdSwitchMaterial.setChoice(choice)` in API v2.
+
+    Changes the choice of a switch material.
+
+    :param name: The material name.
+    :type name: string
+    :param choice: The choice.
+    :type choice: unsigned integer
+
+.. function:: setMaterialImage(mat, field_name, image_path)
+
+    **Deprecated:** Use `vrImageService.loadImage(image_path)` and e.g., `mat.getDiffuseTexture().setImage(img)` in API v2.
+
+    Changes the image of a material.
+
+    :param mat: The material pointer or the material name.
+    :type mat: MaterialPtr or string
+    :param field_name: The field name.
+    :type field_name: string
+    :param image_path: The image path.
+    :type image_path: string
+
+.. function:: setEnvironmentImage(mat, image_path)
+
+    **Deprecated:** Use `vrImageService.loadImage(image_path, vrImageTypes.LoadType.Environment)` and `envMat.setEnvironment(img)` in API v2.
+
+    Changes the environment image of a material.
+
+    :param mat: The material.
+    :type mat: MaterialPtr
+    :param image_path: The image path.
+    :type image_path: string
+
+.. function:: toMaterial(id) → vrMaterialPtr
+
+    Returns a material pointer corresponding to the material ID provided.
+
+    :param id: The material ID.
+    :type id: unsigned int (32bit)
+    :return: The material pointer.
+    :rtype: vrMaterialPtr
+
+.. function:: setTextureTransform(mat, component, translate, rotate, scale)
+
+    Changes the input coordinate transformation for texture projections in ubermaterials.
+
+    :param mat: The material. This must be a material derived from UberMaterial.
+    :type mat: MaterialPtr
+    :param component: The texture component.
+    :type component: string
+    :param translate: Translation values.
+    :type translate: Pnt3f
+    :param rotate: Euler rotation values.
+    :type rotate: Vec3f
+    :param scale: Scale values.
+    :type scale: Vec3f
+
+.. function:: addMaterialTag(material, tag)
+
+    Deprecated: `vrMetadataService.addTags()` in API v2
+    Adds a tag to the material.
+
+    :param material:  The material to add the tag to.
+    :type material: MaterialPtr
+    :param tag: The tag string to add.
+    :type tag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: addMaterialTag(materials, tag)
+    :no-index:
+
+    Deprecated: `vrMetadataService.addTags()` in API v2
+    Adds a tag to the material.
+
+    :param materials:   The materials to add the tag to.
+    :type materials: list of MaterialPtr
+    :param tag: The tag string to add.
+    :type tag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: addMaterialTags(material, tags)
+
+    Deprecated: Use `vrMetadataService.addTags()` in API v2.
+    Adds tags to the materials.
+
+    :param material: The material to add the tags to.
+    :type material: MaterialPtr
+    :param tags: The tags to add.
+    :type tags: list of string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: addMaterialTags(materials, tags)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.addTags()` in API v2.
+    Adds tags to the materials.
+
+    :param materials: The materials to add the tags to.
+    :type materials: list of MaterialPtr
+    :param tags: The tags to add.
+    :type tags: list of string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: removeMaterialTag(material, tag)
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+    Removes a tag from a material.
+
+    :param material: The material to remove the tag from.
+    :type material: MaterialPtr
+    :param tag: The tag string to remove.
+    :type tag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: removeMaterialTag(materials, tag)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+    Removes a tag from the given materials.
+
+    :param materials: The materials to remove the tag from.
+    :type materials: list of MaterialPtr
+    :param tag: The tag string to remove.
+    :type tag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: removeMaterialTags(material, tags)
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+    Removes the tags from a material.
+
+    :param material: The material to remove the tags from.
+    :type material: MaterialPtr
+    :param tags: The list of tag strings to remove.
+    :type tags: list of string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: removeMaterialTags(materials, tags)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+    Removes the tags from the given materials.
+
+    :param materials: The materials to remove the tags from.
+    :type materials: list of MaterialPtr
+    :param tags: The list of tag strings to remove.
+    :type tags: list of string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: replaceMaterialTag(material, oldTag, newTag)
+
+    Deprecated: Use `vrMetadataService.renameTag()` in API v2.
+    Replaces an existing tag.
+
+    :param material: The material in question.
+    :type material: MaterialPtr
+    :param oldTag: The tag string to remove.
+    :type oldTag: string
+    :param newTag: The tag string to add instead.
+    :type newTag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: replaceMaterialTag(materials, oldTag, newTag)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.renameTag()` in API v2.
+    Replaces an existing tag.
+
+    :param materials: The materials to replace the tags.
+    :type materials: list of MaterialPtr
+    :param oldTag: The tag string to remove.
+    :type oldTag: string
+    :param newTag: The tag string to add instead.
+    :type newTag: string
+    :return: True on success, false otherwise.
+    :rtype: bool

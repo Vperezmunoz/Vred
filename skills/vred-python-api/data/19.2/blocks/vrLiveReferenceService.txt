@@ -1,0 +1,192 @@
+----------------------
+vrLiveReferenceService
+----------------------
+
+.. py:class:: vrLiveReferenceService
+
+(Inherits vrBaseService)
+
+Interface to access VRED and Alias interoperability data.
+
+Summary
+=======
+
+Functions:
+    * findLiveReference(object) → vrdLiveReferenceNode
+    * getLockOverlayEnabled() → bool
+    * getReferences() → List[vrdLiveReferenceNode]
+    * getSearchPath(file) → Dict[vrLiveReferenceTypes.SearchOption,string]
+    * getSelection() → List[vrdLiveReferenceNode]
+    * getStorePath() → string
+    * importChanges(node) → bool
+    * importFile(filename, parent, applyMaterialsFromAssetManager) → vrdLiveReferenceNode
+    * isLiveReferenceObject(object) → bool
+    * reload(node) → vrdLiveReferenceNode
+    * removeLiveReference(node)
+    * setLockOverlayEnabled(enabled)
+    * setSelection(references)
+    * setStorePath(path)
+
+Signals:
+    * openCreateLiveReferencesDialog()
+    * referenceChanged()
+    * referenceLocked(sourceFile, lockFile, success) → bool
+    * selectionChanged(references)
+
+Functions
+=========
+
+.. py:method:: vrLiveReferenceService.findLiveReference(object)
+
+    Try to find the live reference that contains the given scene object.
+
+    :param object: The scene object to search for
+    :type object: vrdSceneObject
+
+    :return: The live reference node, that contains the scene object
+    :rtype: vrdLiveReferenceNode
+
+.. py:method:: vrLiveReferenceService.getLockOverlayEnabled()
+
+    Get the lock overlay enabled state.
+
+    :return: True if the lock overlay is enabled
+    :rtype: bool
+
+.. py:method:: vrLiveReferenceService.getReferences()
+
+    Get all live references currently connected to VRED.
+
+    :return: The list of vrLiveReferenceNode nodes
+    :rtype: List[vrdLiveReferenceNode]
+
+.. py:method:: vrLiveReferenceService.getSearchPath(file)
+
+    Get the search path for the given file.
+
+    :param file: The file to search for
+    :type file: string
+
+    :return: A map of search options and their corresponding paths
+    :rtype: Dict[vrLiveReferenceTypes.SearchOption, string]
+
+.. py:method:: vrLiveReferenceService.getSelection()
+
+    Get currently selected live reference.
+
+    :return: The currently selected live reference
+    :rtype: List[vrdLiveReferenceNode]
+
+.. py:method:: vrLiveReferenceService.getStorePath()
+
+    Get the path to the live reference data.
+
+    :return: The path to the live reference data
+    :rtype: string
+
+.. py:method:: vrLiveReferenceService.importChanges(node)
+
+    Applies Alias changes to the VRED scene.
+
+    :param node: The interop node that will be changed
+    :type node: vrdLiveReferenceNode
+
+    :return: True on success.
+    :rtype: bool
+
+.. py:method:: vrLiveReferenceService.importFile(filename, parent=vrdNode(), applyMaterialsFromAssetManager=False)
+
+    Import interop file.
+
+    :param filename: The file name to import
+    :type filename: string
+
+    :param parent: The parent node for the imported scene
+    :type parent: vrdNode
+
+    :param applyMaterialsFromAssetManager: If true, materials will be applied from the asset manager
+    :type applyMaterialsFromAssetManager: bool
+
+    :return: True on success.
+    :rtype: vrdLiveReferenceNode
+
+.. py:method:: vrLiveReferenceService.isLiveReferenceObject(object)
+
+    :param object:
+    :type object: vrdSceneObject
+
+    :return: True if the given object is part of a live reference
+    :rtype: bool
+
+.. py:method:: vrLiveReferenceService.reload(node)
+
+    Dismisses all VRED changes and reload all data from Alias.
+
+    :param node:
+    :type node: vrdLiveReferenceNode
+
+    :return: The reloaded live reference node
+    :rtype: vrdLiveReferenceNode
+
+.. py:method:: vrLiveReferenceService.removeLiveReference(node)
+
+    Removes the live link to the source file.
+
+    :param node:
+    :type node: vrdLiveReferenceNode
+
+.. py:method:: vrLiveReferenceService.setLockOverlayEnabled(enabled)
+
+    Set the lock overlay enabled state.
+
+    :param enabled: True to enable the lock overlay, false to disable it
+    :type enabled: bool
+
+.. py:method:: vrLiveReferenceService.setSelection(references)
+
+    Sets the currently selected live references.
+
+    :param references: The live references to select
+    :type references: List[vrdLiveReferenceNode]
+
+.. py:method:: vrLiveReferenceService.setStorePath(path)
+
+    Get the store path for the live reference data.
+
+    :param path:
+    :type path: string
+
+Signals
+=======
+
+.. py:method:: vrLiveReferenceService.openCreateLiveReferencesDialog()
+
+    This triggers the create reference dialog.
+
+.. py:method:: vrLiveReferenceService.referenceChanged()
+
+    This signal is emitted, whenever a live reference is moved, created or removed.
+
+.. py:method:: vrLiveReferenceService.referenceLocked(sourceFile, lockFile, success)
+
+    This signal is emitted, whenever a live reference is locked during an update request.
+
+    :param sourceFile:
+    :type sourceFile: string
+
+    :param lockFile:
+    :type lockFile: string
+
+    :param success:
+    :type success: bool
+
+    :return:
+    :rtype: bool
+
+.. py:method:: vrLiveReferenceService.selectionChanged(references)
+
+    This signal is emitted, whenever a live reference is selected.
+
+    :param references:
+    :type references: List[vrdLiveReferenceNode]
+

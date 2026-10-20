@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "vred-skills",
+  "description": "Claude Code skills for Autodesk VRED development.",
+  "owner": {
+    "name": "Vperezmunoz",
+    "url": "https://github.com/Vperezmunoz"
+  },
+  "plugins": [
+    {
+      "name": "vred-skills",
+      "description": "VRED Python API lookup (per release), script plugin guide, STL smoothing plugin, VLM design review, FPS log comparison.",
+      "version": "1.0.0",
+      "source": "./",
+      "category": "development",
+      "tags": ["vred", "autodesk", "python"]
+    }
+  ]
+}

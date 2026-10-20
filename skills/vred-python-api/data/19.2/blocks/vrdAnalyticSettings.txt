@@ -1,0 +1,108 @@
+-------------------
+vrdAnalyticSettings
+-------------------
+
+.. py:class:: vrdAnalyticSettings
+
+(Inherits vrdSceneObject)
+
+This class gives access to material settings used in Analytic Rendering mode. See     vrdBRDFMaterial.getAnalytic().
+
+Summary
+=======
+
+Functions:
+    * getDiffuseColor() → QVector3D
+    * getEmissiveColor() → QVector3D
+    * getGlossyColor() → QVector3D
+    * getShininess() → float
+    * getTransparency() → float
+    * getUseRealisticSettings() → bool
+    * setDiffuseColor(value)
+    * setEmissiveColor(value)
+    * setGlossyColor(value)
+    * setShininess(value)
+    * setTransparency(value)
+    * setUseRealisticSettings(s)
+
+Functions
+=========
+
+.. py:method:: vrdAnalyticSettings.getDiffuseColor()
+
+    :return: Current diffuse color
+    :rtype: QVector3D
+
+.. py:method:: vrdAnalyticSettings.getEmissiveColor()
+
+    Gets emissive color.
+
+    :return: Current used emissive color.
+    :rtype: QVector3D
+
+.. py:method:: vrdAnalyticSettings.getGlossyColor()
+
+    :return: Current glossy reflection color.
+    :rtype: QVector3D
+
+.. py:method:: vrdAnalyticSettings.getShininess()
+
+    Gets how sharp or wide the glossy reflection is.
+
+    :return: Current value of the glossy reflection.
+    :rtype: float
+
+.. py:method:: vrdAnalyticSettings.getTransparency()
+
+    Gets transparency.
+
+    :return: Current used value for transparency.
+    :rtype: float
+
+.. py:method:: vrdAnalyticSettings.getUseRealisticSettings()
+
+    :return: If Analytic settings should be synchronized with realistic material settings.
+    :rtype: bool
+
+.. py:method:: vrdAnalyticSettings.setDiffuseColor(value)
+
+    Sets the diffuse reflection color.
+
+    :param value: New diffuse color.
+    :type value: QVector3D
+
+.. py:method:: vrdAnalyticSettings.setEmissiveColor(value)
+
+    Sets emissive color.
+
+    :param value: New emissive color.
+    :type value: QVector3D
+
+.. py:method:: vrdAnalyticSettings.setGlossyColor(value)
+
+    Sets the glossy reflection color.
+
+    :param value: New color.
+    :type value: QVector3D
+
+.. py:method:: vrdAnalyticSettings.setShininess(value)
+
+    Sets how sharp or wide the glossy reflection is.
+
+    :param value: New value of the glossy reflection.
+    :type value: float
+
+.. py:method:: vrdAnalyticSettings.setTransparency(value)
+
+    Sets transparency.
+
+    :param value: New value for transparency.
+    :type value: float
+
+.. py:method:: vrdAnalyticSettings.setUseRealisticSettings(s)
+
+    If enabled, synchronizes the Analytic material settings with the Realistic material settings, disabling all custom Analytic settings.
+
+    :param s: New state. Set to False to be able to set custom analytic color values and settings.
+    :type s: bool
+

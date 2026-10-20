@@ -1,0 +1,69 @@
+--------------
+vrTextureTypes
+--------------
+
+.. py:class:: vrTextureTypes
+
+    .. py:class:: RepeatMode
+       :no-index:
+
+        Enum for Texture Repeat Modes.
+
+            .. py:data:: Repeat
+               :no-index:
+
+                Repeats the texture.
+
+            .. py:data:: Mirrored
+               :no-index:
+
+                Repeats and mirrors the texture.
+
+            .. py:data:: Decal
+               :no-index:
+
+                The texture is not repeated.
+
+            .. py:data:: Clamp
+               :no-index:
+
+                Repeats only the last pixel of the texture.
+
+    .. py:class:: MappingType
+
+        Determine how 2D textures are applied to objects in a scene.
+
+            .. py:data:: UVMapping
+
+                Use UV coordinates for texture mapping.
+
+            .. py:data:: PlanarMapping
+
+                Apply planar mapping to texture.
+
+            .. py:data:: TriplanarMapping
+
+                Apply triplanar mapping to texture.
+
+    .. py:class:: TriplanarBlendMode
+
+            .. py:data:: Curved
+
+            .. py:data:: Linear
+               :no-index:
+
+    .. py:class:: Axis
+       :no-index:
+
+            .. py:data:: X
+               :no-index:
+
+            .. py:data:: Y
+               :no-index:
+
+            .. py:data:: Z
+               :no-index:
+
+            .. py:data:: Custom
+               :no-index:
+

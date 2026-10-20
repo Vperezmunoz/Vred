@@ -1,0 +1,32 @@
+-------------
+vrRenderTypes
+-------------
+
+.. py:class:: vrRenderTypes
+
+    .. py:class:: ShadingQuality
+
+            .. py:data:: Native1x1
+
+            .. py:data:: Coarse2x2
+
+            .. py:data:: Coarse4x4
+
+            .. py:data:: Supersampling2x
+
+            .. py:data:: Supersampling4x
+
+            .. py:data:: Supersampling8x
+
+    .. py:class:: FoveatedQualityPreset
+
+            .. py:data:: HighestPerformance
+
+            .. py:data:: Balanced
+
+            .. py:data:: HighestQuality
+               :no-index:
+
+            .. py:data:: Custom
+               :no-index:
+

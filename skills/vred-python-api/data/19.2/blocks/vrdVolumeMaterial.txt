@@ -1,0 +1,132 @@
+-----------------
+vrdVolumeMaterial
+-----------------
+
+.. py:class:: vrdVolumeMaterial
+
+(Inherits vrdMaterial)
+
+Base class for volume materials.
+
+Summary
+=======
+
+Functions:
+    * getAbsorption() → QVector3D
+    * getAsymmetry() → float
+    * getColor() → QVector3D
+    * getDensity() → float
+    * getEnableSelfShadow() → bool
+    * getEnableVolumeShadow() → bool
+    * getQuality() → integer
+    * setAbsorption(absorption)
+    * setAsymmetry(asymmetry)
+    * setColor(color)
+    * setDensity(density)
+    * setEnableSelfShadow(enable)
+    * setEnableVolumeShadow(enable)
+    * setQuality(quality)
+
+Functions
+=========
+
+.. py:method:: vrdVolumeMaterial.getAbsorption()
+
+    Gets the color of the remaining light after absorption by the volume.
+
+    :return: Current abosrption
+    :rtype: QVector3D
+
+.. py:method:: vrdVolumeMaterial.getAsymmetry()
+
+    Gets the directional characteristics of scattering events.
+
+    :return: Current asymmetry
+    :rtype: float
+
+.. py:method:: vrdVolumeMaterial.getColor()
+
+    Gets the color of the light scattered by the volume.
+
+    :return: Current color
+    :rtype: QVector3D
+
+.. py:method:: vrdVolumeMaterial.getDensity()
+
+    Gets how far light travels through the volume before being scattered or absorbed.
+
+    :return: Current density
+    :rtype: float
+
+.. py:method:: vrdVolumeMaterial.getEnableSelfShadow()
+
+    Gets whether the volume will shadow itself as well as other volumes.
+
+    :return: Current self-shadow state
+    :rtype: bool
+
+.. py:method:: vrdVolumeMaterial.getEnableVolumeShadow()
+
+    Gets whether the volume will shadow geometries and the shadow plane."));.
+
+    :return: Current volume shadow setting
+    :rtype: bool
+
+.. py:method:: vrdVolumeMaterial.getQuality()
+
+    Gets how far light travels through the volume before being scattered or absorbed.
+
+    :return: Current quality
+    :rtype: integer
+
+.. py:method:: vrdVolumeMaterial.setAbsorption(absorption)
+
+    Sets the color of the reamining light after absorption by the volume.
+
+    :param absorption:
+    :type absorption: QVector3D
+
+.. py:method:: vrdVolumeMaterial.setAsymmetry(asymmetry)
+
+    Sets the directional characteristics of scattering events.
+
+    :param asymmetry: New asymmetry
+    :type asymmetry: float
+
+.. py:method:: vrdVolumeMaterial.setColor(color)
+
+    Sets the color color the light scattered by the volume.
+
+    :param color: New color
+    :type color: QVector3D
+
+.. py:method:: vrdVolumeMaterial.setDensity(density)
+
+    Sets how far light travels through the volume before being scattered or absorbed.
+
+    :param density: Current density
+    :type density: float
+
+.. py:method:: vrdVolumeMaterial.setEnableSelfShadow(enable)
+
+    Sets whether the volume will shadow itself as well as other volumes.
+
+    :param enable: New self-shadow state
+    :type enable: bool
+
+.. py:method:: vrdVolumeMaterial.setEnableVolumeShadow(enable)
+
+    Sets whether the volume will shadow geometries and the shadow plane."));.
+
+    :param enable: New volume shadow state
+    :type enable: bool
+
+.. py:method:: vrdVolumeMaterial.setQuality(quality)
+
+    Sets how many samples are taken along each view ray.
+
+    Values range from 1 to 8, with 1 producing maximum performance and 8 maximum quality.
+
+    :param quality: New quality
+    :type quality: integer
+

@@ -1,0 +1,69 @@
+----------------
+vrdVariantHotKey
+----------------
+
+.. py:class:: vrdVariantHotKey
+
+(Inherits vrdData)
+
+Hotkey definition for a variant.
+
+Contains the triggering key sequence and the state that should be applied.
+
+Summary
+=======
+
+Functions:
+    * getKeySequence() → QKeySequence
+    * getState() → string
+    * setKeySequence(sequence)
+    * setState(state)
+    * vrdVariantHotKey()
+    * vrdVariantHotKey(sequence, state)
+
+Functions
+=========
+
+.. py:method:: vrdVariantHotKey.getKeySequence()
+
+    Gets the triggering key sequence.
+
+    :return: QKeySequence The key sequence.
+    :rtype: QKeySequence
+
+.. py:method:: vrdVariantHotKey.getState()
+
+    Gets the state that should be applied when triggered.
+
+    :return: QString The state.
+    :rtype: string
+
+.. py:method:: vrdVariantHotKey.setKeySequence(sequence)
+
+    Sets the triggering key sequence.
+
+    :param sequence: The key sequence.
+    :type sequence: QKeySequence
+
+.. py:method:: vrdVariantHotKey.setState(state)
+
+    Sets the state that should be applied when triggered.
+
+    :param state: The state.
+    :type state: string
+
+.. py:method:: vrdVariantHotKey.vrdVariantHotKey()
+
+    Default constructor.
+
+.. py:method:: vrdVariantHotKey.vrdVariantHotKey(sequence, state)
+   :no-index:
+
+    Constructor.
+
+    :param sequence: The key sequence that triggers the variant state change.
+    :type sequence: QKeySequence
+
+    :param state: The state to be applied when the variant is triggered.
+    :type state: string
+

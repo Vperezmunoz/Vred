@@ -1,0 +1,78 @@
+---------------
+vrDecoreService
+---------------
+
+.. py:class:: vrDecoreService
+
+(Inherits vrBaseService)
+
+Service for object decoring/optimization.
+
+Decoring removes redundant geometry that is inside other geometry, like screws and mountings inside a door covering. A virtual camera flies around the selected object, takes screen shots, and removes any non-visible geometry.
+
+This feature only works with OpenGL.
+
+This is a basic example:
+
+```
+
+     settings = vrdDecoreSettings()
+     settings.setResolution(1024)
+     settings.setQualitySteps(8)
+     settings.setCorrectFaceNormals(False)
+     settings.setDecoreEnabled(True)
+     settings.setDecoreMode(vrGeometryTypes.DecoreMode.Remove)
+     settings.setSubObjectMode(vrGeometryTypes.DecoreSubObjectMode.Triangles)
+     settings.setTransparentObjectMode(vrGeometryTypes.DecoreTransparentObjectMode.Ignore)
+     treatAsCombinedObject = True
+     nodesToDecore = vrNodeService.findNodes('GeometryToDecore')
+     vrDecoreService.decore(nodesToDecore, treatAsCombinedObject, settings)
+
+Summary
+=======
+
+Functions:
+    * decore(nodes, treatAsCombinedObject, settings)
+    * getSettings() → vrdDecoreSettings
+    * setSettings(settings)
+
+Signals:
+    * settingsChanged()
+
+Functions
+=========
+
+.. py:method:: vrDecoreService.decore(nodes, treatAsCombinedObject, settings)
+
+    Decores the given objects with the given settings.
+
+    :param nodes: Nodes to decore
+    :type nodes: List[vrdNode]
+
+    :param treatAsCombinedObject: Defines if the given nodes are treated as combined objects or separately
+    :type treatAsCombinedObject: bool
+
+    :param settings: Settings for decoring objects
+    :type settings: vrdDecoreSettings
+
+.. py:method:: vrDecoreService.getSettings()
+
+    Return the current user interface (GUI) settings.
+
+    :return: Settings for decoring objects
+    :rtype: vrdDecoreSettings
+
+.. py:method:: vrDecoreService.setSettings(settings)
+
+    Set setting to the user interface (GUI)
+
+    :param settings: Settings for decoring objects
+    :type settings: vrdDecoreSettings
+
+Signals
+=======
+
+.. py:method:: vrDecoreService.settingsChanged()
+
+    Signal is emitted when a parameter is changed.
+

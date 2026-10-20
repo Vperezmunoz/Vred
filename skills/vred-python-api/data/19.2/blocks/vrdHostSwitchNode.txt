@@ -1,0 +1,32 @@
+-----------------
+vrdHostSwitchNode
+-----------------
+
+.. py:class:: vrdHostSwitchNode
+
+(Inherits vrdNode)
+
+This class provides access to a host switch node.
+
+Summary
+=======
+
+Functions:
+    * getHostName() → string
+    * setHostName(value)
+
+Functions
+=========
+
+.. py:method:: vrdHostSwitchNode.getHostName()
+
+    :return: The name of the computer on which the children should be visible.
+    :rtype: string
+
+.. py:method:: vrdHostSwitchNode.setHostName(value)
+
+    Sets the name of the computer on which the children should be visible.
+
+    :param value: A name of a computer
+    :type value: string
+

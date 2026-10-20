@@ -1,0 +1,97 @@
+----------------------------
+vrdEnvironmentTransformation
+----------------------------
+
+.. py:class:: vrdEnvironmentTransformation
+
+(Inherits vrdSceneObject)
+
+This class is used for all environment transformation properties.
+
+Summary
+=======
+
+Functions:
+    * getCenter() → QVector3D
+    * getEnvironmentSize() → float
+    * getManipulate() → bool
+    * getRotate() → QVector3D
+    * getScale() → QVector3D
+    * setCenter(value)
+    * setCenterFromObject()
+    * setEnvironmentSize(value)
+    * setManipulate(s)
+    * setRotate(value)
+    * setScale(value)
+
+Functions
+=========
+
+.. py:method:: vrdEnvironmentTransformation.getCenter()
+
+    :return: Current center of virtual sphere
+    :rtype: QVector3D
+
+.. py:method:: vrdEnvironmentTransformation.getEnvironmentSize()
+
+    Gets environment size.
+
+    :return: Current value of environment size
+    :rtype: float
+
+.. py:method:: vrdEnvironmentTransformation.getManipulate()
+
+    Returns whether the texture projection manipulator is active or not.
+
+    :return: True if the manipulator is active, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentTransformation.getRotate()
+
+    :return: Rotation angles
+    :rtype: QVector3D
+
+.. py:method:: vrdEnvironmentTransformation.getScale()
+
+    :return: Scale factors
+    :rtype: QVector3D
+
+.. py:method:: vrdEnvironmentTransformation.setCenter(value)
+
+    Sets center of the virtual sphere used as reference for environment illumination calculations.
+
+    :param value: New center
+    :type value: QVector3D
+
+.. py:method:: vrdEnvironmentTransformation.setCenterFromObject()
+
+    Sets the center of the virtual sphere to the center of the selected object from scene graph.
+
+.. py:method:: vrdEnvironmentTransformation.setEnvironmentSize(value)
+
+    Sets the size of the virtual sphere used as reference for environment illumination calculations.
+
+    :param value: New value of environment size
+    :type value: float
+
+.. py:method:: vrdEnvironmentTransformation.setManipulate(s)
+
+    Set to True to enable the texture projection manipulator.
+
+    :param s: True enables the texture projection manipulator, False disables it
+    :type s: bool
+
+.. py:method:: vrdEnvironmentTransformation.setRotate(value)
+
+    Sets rotation of the virtual sphere.
+
+    :param value: Rotation angles
+    :type value: QVector3D
+
+.. py:method:: vrdEnvironmentTransformation.setScale(value)
+
+    Sets scale factors of the virtual sphere.
+
+    :param value: Scale factors
+    :type value: QVector3D
+

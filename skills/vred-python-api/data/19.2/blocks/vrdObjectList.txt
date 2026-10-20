@@ -1,0 +1,10 @@
+-------------
+vrdObjectList
+-------------
+
+.. py:class:: vrdObjectList
+
+(Inherits vrdObject)
+
+Common interface to provide access to a collection of vrdObjects.
+

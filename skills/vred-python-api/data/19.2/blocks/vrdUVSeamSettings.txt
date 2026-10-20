@@ -1,0 +1,133 @@
+-----------------
+vrdUVSeamSettings
+-----------------
+
+.. py:class:: vrdUVSeamSettings
+
+(Inherits vrdData)
+
+Settings for seaming with     vrUVService.
+
+Summary
+=======
+
+Functions:
+    * getBakingAngle() → float
+    * getBakingSizeOfMinPatch() → integer
+    * getManufacturedAngle() → float
+    * getManufacturedAreaRatio() → float
+    * getMode() → vrUVTypes.SeamMode
+    * getOrganicSegmentationAmount() → float
+    * getOrganicUsePipesCutter() → bool
+    * setBakingAngle(angle)
+    * setBakingSizeOfMinPatch(minPatchSize)
+    * setManufacturedAngle(angle)
+    * setManufacturedAreaRatio(ratio)
+    * setMode(mode)
+    * setOrganicSegmentationAmount(segmentationAmount)
+    * setOrganicUsePipesCutter(usePipesCutter)
+    * vrdUVSeamSettings()
+
+Functions
+=========
+
+.. py:method:: vrdUVSeamSettings.getBakingAngle()
+
+    Returns the angle between two consecutive polygons.
+
+    :return: Angle between two consecutive polygons
+    :rtype: float
+
+.. py:method:: vrdUVSeamSettings.getBakingSizeOfMinPatch()
+
+    Returns the size of the smallest patch.
+
+    :return: Size of the smallest patch.
+    :rtype: integer
+
+.. py:method:: vrdUVSeamSettings.getManufacturedAngle()
+
+    Returns the angle between two consecutive polygons.
+
+    :return: Angle between two consecutive polygons.
+    :rtype: float
+
+.. py:method:: vrdUVSeamSettings.getManufacturedAreaRatio()
+
+    Returns the ratio between the smaller and larger patch areas.
+
+    :return: Ratio between the smaller and larger patch areas.
+    :rtype: float
+
+.. py:method:: vrdUVSeamSettings.getMode()
+
+    Returns mode for seaming.
+
+    :return: Seam mode
+    :rtype: vrUVTypes.SeamMode
+
+.. py:method:: vrdUVSeamSettings.getOrganicSegmentationAmount()
+
+    Returns segmentation amount.
+
+    :return: Amount in range from 0.0 to 1.0, setting 0.0 will disable segmentation.
+    :rtype: float
+
+.. py:method:: vrdUVSeamSettings.getOrganicUsePipesCutter()
+
+    Returns if linking all holes should be forced.
+
+    :return: True, if linking all holes should be forced.
+    :rtype: bool
+
+.. py:method:: vrdUVSeamSettings.setBakingAngle(angle)
+
+    Sets the angle between two consecutive polygons.
+
+    :param angle: Angle between two consecutive polygons.
+    :type angle: float
+
+.. py:method:: vrdUVSeamSettings.setBakingSizeOfMinPatch(minPatchSize)
+
+    Defines the size of the smallest patch. It merges the smaller patches until minimum size is reached.
+
+    :param minPatchSize: Size of the smallest patch.
+    :type minPatchSize: integer
+
+.. py:method:: vrdUVSeamSettings.setManufacturedAngle(angle)
+
+    Sets the angle between two consecutive polygons.
+
+    :param angle: Angle between two consecutive polygons.
+    :type angle: float
+
+.. py:method:: vrdUVSeamSettings.setManufacturedAreaRatio(ratio)
+
+    Defines the ratio between the smaller and larger patch areas.
+
+    :param ratio: Ratio between the smaller and larger patch areas.
+    :type ratio: float
+
+.. py:method:: vrdUVSeamSettings.setMode(mode)
+
+    Set mode for seaming.
+
+    :param mode: Seam mode
+    :type mode: vrUVTypes.SeamMode
+
+.. py:method:: vrdUVSeamSettings.setOrganicSegmentationAmount(segmentationAmount)
+
+    Segments the mesh, if the amount is greater than 0.0.
+
+    :param segmentationAmount: Amount in range from 0.0 to 1.0, setting 0.0 will disable segmentation.
+    :type segmentationAmount: float
+
+.. py:method:: vrdUVSeamSettings.setOrganicUsePipesCutter(usePipesCutter)
+
+    Forces linking of all holes to suppress all pipes of mesh.
+
+    :param usePipesCutter: True, if linking all holes should be forced.
+    :type usePipesCutter: bool
+
+.. py:method:: vrdUVSeamSettings.vrdUVSeamSettings()
+

@@ -1,0 +1,193 @@
+MODULE vrVariantSetPtr (legacy v1 API)
+
+---------------
+vrVariantSetPtr
+---------------
+
+**Deprecated**; use API v2 vrdVariantSetNode instead.
+
+Summary
+=======
+
+Functions:
+    * addClippingPlane(position, normal, invertDirection, hideScene, showClippingPlane, showGrid, showContour)
+    * addCurrentClippingPlane()
+    * addGeometry(node, state)
+    * addLight(light, state)
+    * addMaterial(material, state)
+    * addScript(script)
+    * addTransform(node, state)
+    * addView(viewpoint)
+    * getHotkey()
+    * getName()
+    * getScript()
+    * getTargetNodeNames()
+    * getValue(key)
+    * setClippingState(state)
+    * setHotkey(key, modifier)
+    * setHotkey(key)
+    * setHotkeyString(key)
+    * setName(name)
+    * setValue(key, value)
+
+.. function:: setName(name)
+    :no-index:
+
+    Sets a Name.
+
+    :param name: The Name.
+    :type name: string
+
+.. function:: getName()
+    :no-index:
+
+    Gets the Name.
+
+    :return: The Name.
+    :rtype: string
+
+.. function:: setHotkeyString(key)
+
+    Sets a Key.
+
+    :param key: The Key.
+    :type key: string
+
+.. function:: setHotkey(key)
+
+    Sets a Key.
+
+    :param key: The Key.
+    :type key: integer (unsigned)
+
+.. function:: setHotkey(key, modifier)
+    :no-index:
+
+    Sets a Key.
+
+    :param key: The Key.
+    :type key: integer (unsigned)
+    :param modifier: The modifier.
+    :type modifier: integer (unsigned)
+
+.. function:: getHotkey()
+
+    Gets the Key.
+
+    :return: The Key.
+    :rtype: string
+
+.. function:: addGeometry(node, state)
+
+    Adds a geometry variant.
+
+    :param node: The geometry switch.
+    :type node: vrNodePtr
+    :param state: The node state.
+    :type state: string
+
+.. function:: addTransform(node, state)
+
+    Adds a transform variant.
+
+    :param node: The node holding transform variants.
+    :type node: vrNodePtr
+    :param state: The node state.
+    :type state: string
+
+.. function:: addMaterial(material, state)
+    :no-index:
+
+    Adds a material variant.
+
+    :param node: The material switch.
+    :type node: vrMaterialPtr
+    :param state: The material state.
+    :type state: string
+
+.. function:: addLight(light, state)
+    :no-index:
+
+    Adds a light variant.
+
+    :param light: The light switch.
+    :type light: vrNodePtr
+    :param state: The light state.
+    :type state: string
+
+.. function:: setClippingState(state)
+
+    Sets the clipping state.
+
+    :param state: The clippping state (0=no change, 1=enable clipping, 2=disable clipping, 3=set clipping plane values but keep the rest).
+    :type state: string
+
+.. function:: addClippingPlane(position, normal, invertDirection, hideScene, showClippingPlane, showGrid, showContour)
+
+    Adds a Clipping Plane.
+
+    :param position: The position.
+    :type position: bool
+    :param normal: The normal.
+    :type normal: bool
+    :param invertDirection: Toggle invert direction.
+    :type invertDirection: bool
+    :param hideScene: Toggle hide scene.
+    :type hideScene: bool
+    :param showClippingPlane: Toggle show clipping plane.
+    :type showClippingPlane: bool
+    :param showGrid: Toggle show grid.
+    :type showGrid: bool
+    :param showContour: Toggle show contour.
+    :type showContour: bool
+
+.. function:: addCurrentClippingPlane()
+
+    Adds current Clipping Plane.
+
+.. function:: addView(viewpoint)
+
+    Adds a viewpoint.
+
+    :param viewpoint: The viewpoint.
+    :type viewpoint: string
+
+.. function:: addScript(script)
+
+    Adds a script.
+
+    :param script: The script.
+    :type script: string
+
+.. function:: getScript()
+
+    Gets the script.
+
+    :return: The script.
+    :rtype: string
+
+.. function:: getTargetNodeNames()
+
+    Gets the names of the target nodes.
+
+    :return: The names.
+    :rtype: vector of string
+
+.. function:: setValue(key, value)
+
+    Adds a key/value pair to the variant set.
+    Keys are unique. Setting another value for the same key overwrites the previous value.
+
+    :param key: The key.
+    :type key: string
+    :param value: The value.
+    :type value: string
+
+.. function:: getValue(key)
+
+    Gets the value stored for the given key.
+
+    :param key: The key for which the value should be returned.
+    :type key: string
+    :return: The value. Empty string if the variant set does not contain the given key.
+    :rtype: string

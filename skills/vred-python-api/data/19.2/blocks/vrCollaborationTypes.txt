@@ -1,0 +1,14 @@
+--------------------
+vrCollaborationTypes
+--------------------
+
+.. py:class:: vrCollaborationTypes
+
+    .. py:class:: AvatarType
+
+            .. py:data:: Default
+
+            .. py:data:: CustomVred
+
+            .. py:data:: Copresence
+

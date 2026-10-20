@@ -1,0 +1,135 @@
+-------------------
+vrdBrushOrientation
+-------------------
+
+.. py:class:: vrdBrushOrientation
+
+(Inherits vrdSceneObject)
+
+This class is used for all brush orientation properties of     vrdBrushedMetalMaterial.
+
+    .. py:class:: BrushAxis
+
+            .. py:data:: PlanarXY
+
+            .. py:data:: PlanarXZ
+
+            .. py:data:: PlanarYZ
+
+            .. py:data:: RadialXY
+
+            .. py:data:: RadialXZ
+
+            .. py:data:: RadialYZ
+
+            .. py:data:: Triplanar
+
+Summary
+=======
+
+Functions:
+    * getBrushAxis() → vrdBrushOrientation.BrushAxis
+    * getCenter() → QVector3D
+    * getOrientation() → QVector3D
+    * getStructureScaleU() → float
+    * getStructureScaleV() → float
+    * getTriplanarRotate() → QVector3D
+    * setBrushAxis(m)
+    * setCenter(v)
+    * setCenterFromObject()
+    * setOrientation(v)
+    * setStructureScaleU(v)
+    * setStructureScaleV(v)
+    * setTriplanarRotate(v)
+
+Functions
+=========
+
+.. py:method:: vrdBrushOrientation.getBrushAxis()
+
+    Query brush orientation.
+
+    :return: Current brush orientation
+    :rtype: vrdBrushOrientation.BrushAxis
+
+.. py:method:: vrdBrushOrientation.getCenter()
+
+    Gets the projection planes center of the radial brushes.
+
+    :return: Current projection planes center of the radial brushes
+    :rtype: QVector3D
+
+.. py:method:: vrdBrushOrientation.getOrientation()
+
+    Gets the projection planes orientation.
+
+    :return: Current projection planes orientation
+    :rtype: QVector3D
+
+.. py:method:: vrdBrushOrientation.getStructureScaleU()
+
+    Gets the brush size on the U-axis.
+
+    :return: Current brush size on the U-axis
+    :rtype: float
+
+.. py:method:: vrdBrushOrientation.getStructureScaleV()
+
+    Gets the brush size on the V-axis.
+
+    :return: Current brush size on the V-axis
+    :rtype: float
+
+.. py:method:: vrdBrushOrientation.getTriplanarRotate()
+
+    Gets the projection planes rotation on the X/Y/Z-axis.
+
+    :return: Current projection planes rotation on the X/Y/Z-axis
+    :rtype: QVector3D
+
+.. py:method:: vrdBrushOrientation.setBrushAxis(m)
+
+    Allows you to choose between a range of possible brush orientations, for example, metal brushed in one direction or metal with radial brushes. For example, Brush Mapping Radial XY simulates radial brushes within the xy-plane. The projection planes are defined relative to the object coordinate system of the object the material is assigned to.
+
+    :param m: New brush orientation
+    :type m: vrdBrushOrientation.BrushAxis
+
+.. py:method:: vrdBrushOrientation.setCenter(v)
+
+    Sets the projection planes center of the radial brushes.
+
+    :param v: New projection planes center of the radial brushes
+    :type v: QVector3D
+
+.. py:method:: vrdBrushOrientation.setCenterFromObject()
+
+    Sets the radial projection plane center to the center of the selected object from scene graph.
+
+.. py:method:: vrdBrushOrientation.setOrientation(v)
+
+    Sets the projection planes orientation.
+
+    :param v: New projection planes orientation
+    :type v: QVector3D
+
+.. py:method:: vrdBrushOrientation.setStructureScaleU(v)
+
+    Defines the brush size on the U-axis.
+
+    :param v: New brushs size on the U-axis
+    :type v: float
+
+.. py:method:: vrdBrushOrientation.setStructureScaleV(v)
+
+    Defines the brush size on the V-axis.
+
+    :param v: New brush size on the V-axis
+    :type v: float
+
+.. py:method:: vrdBrushOrientation.setTriplanarRotate(v)
+
+    Sets the projection planes rotation on the X/Y/Z-axis.
+
+    :param v: New projection planes rotation on the X/Y/Z-axis
+    :type v: QVector3D
+

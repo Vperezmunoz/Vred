@@ -1,0 +1,89 @@
+------------
+vrdWebEngine
+------------
+
+.. py:class:: vrdWebEngine
+
+(Inherits vrdUiEngine)
+
+This class represents a web engine. Web engines are used to displpay HTML 5 content on textures.
+
+    .. py:class:: TextureSlotType
+
+            .. py:data:: Diffuse
+
+            .. py:data:: Incandescence
+
+            .. py:data:: DiffuseAndIncandescence
+
+Summary
+=======
+
+Functions:
+    * getTexture() → vrdWebEngine.TextureSlotType
+    * getUrl() → string
+    * getUsedInSceneplate() → bool
+    * isValid() → bool
+    * sendEvent(event, data)
+    * setTexture(textureSlot)
+    * setUrl(url)
+
+Functions
+=========
+
+.. py:method:: vrdWebEngine.getTexture()
+
+    Returns the texture slot where the web engine renders to.
+
+    :return: The texture slot.
+    :rtype: vrdWebEngine.TextureSlotType
+
+.. py:method:: vrdWebEngine.getUrl()
+
+    Returns the current URL.
+
+    :return: The current URL.
+    :rtype: string
+
+.. py:method:: vrdWebEngine.getUsedInSceneplate()
+
+    Returns if this web engine is used in a sceneplate.
+
+    :return: True if used in a sceneplate, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdWebEngine.isValid()
+
+    Checks if the web engine object is valid.
+
+    This function checks if the core instance of the web engine is present. This should always be the case.
+
+    :return: True if valid, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdWebEngine.sendEvent(event, data)
+
+    Sends a custom Javascript event to a webpage.
+
+    This function creates a Javascript custom event and executes it on the DOM document.             See also: examples/webengine-customevents
+
+    :param event: The custom event name
+    :type event: string
+
+    :param data: Event dependent data. Can be an empty string.
+    :type data: string
+
+.. py:method:: vrdWebEngine.setTexture(textureSlot)
+
+    Sets the texture slot where the web content should be rendered to.
+
+    :param textureSlot: The texture slot
+    :type textureSlot: vrdWebEngine.TextureSlotType
+
+.. py:method:: vrdWebEngine.setUrl(url)
+
+    Sets the URL to display.
+
+    :param url: The new URL
+    :type url: string
+

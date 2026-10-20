@@ -1,0 +1,121 @@
+MODULE vrRuler (legacy v1 API)
+
+-------
+vrRuler
+-------
+
+Summary
+=======
+
+Functions:
+    * getRulerEnabled() → bool
+    * getRulerFixAxes() → bool
+    * getRulerGridEnabled() → bool
+    * getRulerManipulatorEnabled() → bool
+    * getRulerPosition() → Pnt3f
+    * getRulerRotation() → Vec3f
+    * resetRuler()
+    * setRulerFixAxes(state)
+    * setRulerPosition(x, y, z)
+    * setRulerRotation(rotationX, rotationY, rotationZ)
+    * showRuler(state)
+    * showRulerGrid(state)
+    * showRulerManipulator(state)
+
+.. method:: showRuler(state)
+
+    Shows or hides the Ruler.
+
+    :param state: Show (true) / hide (false).
+    :type state: bool
+
+.. method:: setRulerPosition(x, y, z)
+
+    Sets the position of the ruler.
+
+    :param x: The x coordinate.
+    :type x: float
+    :param y: The y coordinate.
+    :type y: float
+    :param z: The z coordinate.
+    :type z: float
+
+.. method:: setRulerRotation(rotationX, rotationY, rotationZ)
+
+    Sets the rotation of the ruler with Euler rotation angles.
+
+    :param rotationX: Euler rotation angle x in degrees.
+    :type rotationX: float
+    :param rotationY: Euler rotation angle y in degrees.
+    :type rotationY: float
+    :param rotationZ: Euler rotation angle z in degrees.
+    :type rotationZ: float
+
+.. method:: resetRuler()
+
+    Resets the position and rotation of the ruler.
+
+.. method:: showRulerGrid(state)
+
+    Shows/hides the ruler grid.
+
+    :param state: Show (true) / hide (false).
+    :type state: bool
+
+.. method:: showRulerManipulator(state)
+
+    Shows/hides the ruler manipulator.
+
+    :param state: Show (true) / hide (false).
+    :type state: bool
+
+.. method:: setRulerFixAxes(state)
+
+    Sets whether the ruler scale markings and the grid should adapt to the camera distance.
+
+    If 'Fix Axes' is disabled (default), ruler scale markings and the grid adapt to the distance of the camera to the ruler origin. If 'Fix Axes' is activated, the scale and grid will remain static during camera movement.
+
+    :param state: Enable/Disable.
+    :type state: bool
+
+.. method:: getRulerPosition()
+
+    Returns the current position of the ruler.
+
+    :return: A point with x, y and z coordinates.
+    :rtype: Pnt3f
+
+.. method:: getRulerRotation()
+
+    Returns the current rotation of the ruler as Euler angles.
+
+    :return: A vector with x, y and z Euler angles in degrees.
+    :rtype: Vec3f
+
+.. method:: getRulerEnabled()
+
+    Returns whether the ruler is enabled.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. method:: getRulerManipulatorEnabled()
+
+    Returns whether the manipulator is shown.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. method:: getRulerGridEnabled()
+
+    Returns whether the grid is shown.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. method:: getRulerFixAxes()
+
+    Returns whether the ruler scale markings and the grid should adapt to the camera distance.
+
+    :return: a bool flag.
+    :rtype: bool

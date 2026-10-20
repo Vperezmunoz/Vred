@@ -1,0 +1,349 @@
+----------------
+vrVariantService
+----------------
+
+.. py:class:: vrVariantService
+
+(Inherits vrBaseService)
+
+Summary
+=======
+
+Functions:
+    * copyNodes(nodes)
+    * createVariantSet(name, group) → vrdVariantSetNode
+    * createVariantSetGroup(name, group, groupType) → vrdVariantSetGroupNode
+    * deleteNodes(nodes)
+    * execute(variantSetNode, flags)
+    * findReferencingVariantSets(object) → List[vrdVariantSetNode]
+    * findVariantSet(name) → vrdVariantSetNode
+    * findVariantSetGroup(name) → vrdVariantSetGroupNode
+    * findVSetsByTouchNodes(nodes) → List[vrdVariantSetNode]
+    * fixAmbiguousNodeNames()
+    * getAllVariantSets() → List[vrdVariantSetNode]
+    * getDefaultThumbnailSize() → QSize
+    * getGroups() → List[vrdVariantSetGroupNode]
+    * getReferringStates(objects, includeChildren, targetTypes) → List[vrdVariantState]
+    * getSelectedNodes() → List[vrdNode]
+    * getSelectedVariantSets() → List[vrdVariantSetNode]
+    * getUngroupedVariantSets() → List[vrdVariantSetNode]
+    * getVariantSetRoot() → vrdNode
+    * hasAmbiguousNodeNames() → bool
+    * loadVariantSets(filename)
+    * moveNodes(nodes, newParent, childIndex) → List[vrdNode]
+    * pasteNodes(targetRoot) → List[vrdNode]
+    * removeStates(states)
+    * saveVariantSets(filename)
+    * setSelectedNodes(nodes)
+    * setVariantState(target, state, targetType, searchMethod) → bool
+
+Signals:
+    * nodeRenamed(variantSetNode, oldName)
+    * scrollToSelected()
+    * selectionChanged(selectedNodes)
+    * showGeneralTab()
+    * showStateTab(targetType)
+    * stateSelectionChanged(selectedStates)
+    * variantsChanged()
+    * variantSetExecuted(variantSetNode)
+
+Functions
+=========
+
+.. py:method:: vrVariantService.copyNodes(nodes)
+
+    Copies nodes.
+
+    :param nodes: List of nodes to be copied.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrVariantService.createVariantSet(name, group=vrdNode())
+
+    Creates a variant set.
+
+    :param name: Name of the variant set.
+    :type name: string
+
+    :param group: Optional group to add the variant set to.
+    :type group: vrdNode
+
+    :return: vrdVariantSetNode The created variant set node.
+    :rtype: vrdVariantSetNode
+
+.. py:method:: vrVariantService.createVariantSetGroup(name, group=vrdNode(), groupType=vrVariantTypes.GroupType.Group)
+
+    Creates a variant set group.
+
+    :param name: Name of the variant set group.
+    :type name: string
+
+    :param group: Optional group to add the variant set group to.
+    :type group: vrdNode
+
+    :param groupType: The type of the variant set group.
+    :type groupType: vrVariantTypes.GroupType
+
+    :return: vrdVariantSetGroupNode The created variant set group node.
+    :rtype: vrdVariantSetGroupNode
+
+.. py:method:: vrVariantService.deleteNodes(nodes)
+
+    Deletes the given nodes and references to them.
+
+    :param nodes: The nodes to delete.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrVariantService.execute(variantSetNode, flags=vrVariantTypes.ExecuteFlag.None)
+
+    Executes the given variant set.
+
+    This function also synchronizes execution over the connector or in a collaboration session, if requested.
+
+    :param variantSetNode: The variant set to execute.
+    :type variantSetNode: vrdVariantSetNode
+
+    :param flags: Execution flags to control behavior during execution.
+    :type flags: vrVariantTypes.ExecuteFlags
+
+.. py:method:: vrVariantService.findReferencingVariantSets(object)
+
+    Finds variant sets that reference the given object.
+
+    :param object: The scene object.
+    :type object: vrdSceneObject
+
+    :return: QList<vrdVariantSetNode> The found variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrVariantService.findVariantSet(name)
+
+    Finds a variant set by name.
+
+    :param name: The name to search for.
+    :type name: string
+
+    :return: vrdVariantSetNode The found variant set.
+    :rtype: vrdVariantSetNode
+
+.. py:method:: vrVariantService.findVariantSetGroup(name)
+
+    Finds a variant set group by name.
+
+    :param name: The name to search for.
+    :type name: string
+
+    :return: vrdVariantSetGroupNode The found variant set group.
+    :rtype: vrdVariantSetGroupNode
+
+.. py:method:: vrVariantService.findVSetsByTouchNodes(nodes)
+
+    Finds variant sets attached to the given nodes.
+
+    :param nodes: The touch sensor nodes.
+    :type nodes: List[vrdNode]
+
+    :return: QList<vrdVariantSetNode> The found variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrVariantService.fixAmbiguousNodeNames()
+
+    Fixes ambiguous node names in variant sets.
+
+.. py:method:: vrVariantService.getAllVariantSets()
+
+    Gets all variant sets.
+
+    :return: QList<vrdVariantSetNode> All variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrVariantService.getDefaultThumbnailSize()
+
+    Gets the default thumbnail size.
+
+    :return: QSize The default thumbnail size.
+    :rtype: QSize
+
+.. py:method:: vrVariantService.getGroups()
+
+    Gets all variant set groups in the scene.
+
+    :return: QList<vrdVariantSetGroupNode> List of variant set group nodes.
+    :rtype: List[vrdVariantSetGroupNode]
+
+.. py:method:: vrVariantService.getReferringStates(objects, includeChildren, targetTypes=vrVariantTypes.TargetType.All)
+
+    Gets the states that are referring to the given objects.
+
+    :param objects: The objects to test.
+    :type objects: List[vrdSceneObject]
+
+    :param includeChildren: If true, also check all children of the objects.
+    :type includeChildren: bool
+
+    :param targetTypes: The types of variants to check.
+    :type targetTypes: vrVariantTypes.TargetTypes
+
+    :return: QList<vrdVariantState> The referring states.
+    :rtype: List[vrdVariantState]
+
+.. py:method:: vrVariantService.getSelectedNodes()
+
+    Gets the selected variant sets and variant set groups.
+
+    :return: QList<vrdNode> The selected variant sets and variant set groups.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrVariantService.getSelectedVariantSets()
+
+    Gets the selected variant sets.
+
+    :return: QList<vrdVariantSetNode> The selected variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrVariantService.getUngroupedVariantSets()
+
+    Gets the ungrouped variant sets.
+
+    :return: QList<vrdVariantSetNode> The ungrouped variant sets.
+    :rtype: List[vrdVariantSetNode]
+
+.. py:method:: vrVariantService.getVariantSetRoot()
+
+    Gets the root node of the variant set tree.
+
+    :return: vrdNode The root node.
+    :rtype: vrdNode
+
+.. py:method:: vrVariantService.hasAmbiguousNodeNames()
+
+    Checks for ambiguous node names in variant sets.
+
+    :return: bool True if ambiguous names are found.
+    :rtype: bool
+
+.. py:method:: vrVariantService.loadVariantSets(filename)
+
+    Loads variant sets from an XML file.
+
+    :param filename: The XML file name.
+    :type filename: string
+
+.. py:method:: vrVariantService.moveNodes(nodes, newParent, childIndex=-1)
+
+    Moves the given nodes to a new parent at the specified child index.
+
+    :param nodes: The nodes to move.
+    :type nodes: List[vrdNode]
+
+    :param newParent: The new parent node.
+    :type newParent: vrdNode
+
+    :param childIndex: The index at which to insert the nodes under the new parent.
+    :type childIndex: integer
+
+    :return: QList<vrdNode> The moved nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrVariantService.pasteNodes(targetRoot)
+
+    Pastes nodes.
+
+    :param targetRoot: Pastes copies of nodes in copy buffer to the given root.
+    :type targetRoot: vrdNode
+
+    :return: QList<vrdNode> The pasted nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrVariantService.removeStates(states)
+
+    Removes the given states from all variant sets.
+
+    :param states: The states to remove.
+    :type states: List[vrdVariantState]
+
+.. py:method:: vrVariantService.saveVariantSets(filename)
+
+    Saves variant sets to an XML file.
+
+    :param filename: The XML file name.
+    :type filename: string
+
+.. py:method:: vrVariantService.setSelectedNodes(nodes)
+
+    Sets the selected nodes.
+
+    :param nodes: The nodes to select.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrVariantService.setVariantState(target, state, targetType=vrVariantTypes.TargetType.Scenegraph, searchMethod=vrVariantTypes.SearchMethod.Name)
+
+    Sets a variant state.
+
+    :param target: The target identifier to be used based on the search method.
+    :type target: string
+
+    :param state: The state value to set for the target object.
+    :type state: string
+
+    :param targetType: The type of the target object.
+    :type targetType: vrVariantTypes.TargetType
+
+    :param searchMethod: The method to find the target object.
+    :type searchMethod: vrVariantTypes.SearchMethod
+
+    :return: bool True if the state was set successfully, false otherwise.
+    :rtype: bool
+
+Signals
+=======
+
+.. py:method:: vrVariantService.nodeRenamed(variantSetNode, oldName)
+
+    This signal is emitted when a variant set or variant set group has been renamed.
+
+    :param variantSetNode: The renamed variant set or variant set group.
+    :type variantSetNode: vrdNode
+
+    :param oldName: The old name.
+    :type oldName: string
+
+.. py:method:: vrVariantService.scrollToSelected()
+
+    This signal is emitted to scroll to the selected node.
+
+.. py:method:: vrVariantService.selectionChanged(selectedNodes)
+
+    This signal is emitted when the selection has changed.
+
+    :param selectedNodes:
+    :type selectedNodes: List[vrdNode]
+
+.. py:method:: vrVariantService.showGeneralTab()
+
+    This signal is emitted to show the general tab.
+
+.. py:method:: vrVariantService.showStateTab(targetType)
+
+    This signal is emitted to show the state tab for the given target type.
+
+    :param targetType:
+    :type targetType: vrVariantTypes.TargetType
+
+.. py:method:: vrVariantService.stateSelectionChanged(selectedStates)
+
+    This signal is emitted when the state selection has changed.
+
+    :param selectedStates:
+    :type selectedStates: List[vrdVariantState]
+
+.. py:method:: vrVariantService.variantsChanged()
+
+    This signal is emitted when a variant or variant set has changed.
+
+.. py:method:: vrVariantService.variantSetExecuted(variantSetNode)
+
+    This signal is emitted when a variant set has been executed.
+
+    :param variantSetNode: The executed variant set.
+    :type variantSetNode: vrdVariantSetNode
+

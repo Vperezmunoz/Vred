@@ -1,0 +1,102 @@
+MODULE vrAnnotation (legacy v1 API)
+
+------------
+vrAnnotation
+------------
+
+.. class:: vrAnnotation
+
+   This class is **deprecated**; use vrAnnotationService and vrdAnnotationNode instead.
+
+Summary
+=======
+
+Functions:
+    * createAnnotation(name)
+    * deleteAnnotations(annotations)
+    * duplicateAnnotation(annotation) → Annotation
+    * findAnnotation(name) → Annotation
+    * getAnnotations() → list
+    * getShowAnnotations() → bool
+    * loadAnnotationsXML(path) → list
+    * pickAnnotation(annotation)
+    * saveAnnotationsXML(path, annotations)
+    * setShowAnnotations(state)
+
+.. method:: createAnnotation(name)
+
+    Creates a new annotation with the specified name.
+
+    :param name: The name of the annotation.
+    :type name: string
+
+.. method:: deleteAnnotations(annotations)
+
+    Deletes the specified annotations.
+
+    :param annotations: A list of annotations to delete.
+    :type annotations: list
+
+.. method:: findAnnotation(name) → Annotation
+
+    Finds an annotation by its name.
+
+    :param name: The name of the annotation to find.
+    :type name: string
+    :return: The annotation object if found, otherwise None.
+    :rtype: Annotation
+
+.. method:: getAnnotations() → list
+
+    Retrieves all annotations in the scene.
+
+    :return: A list of all annotations.
+    :rtype: list
+
+.. method:: setShowAnnotations(state)
+
+    Enables or disables the visualization of annotations.
+
+    :param state: True to show annotations, False to hide them.
+    :type state: bool
+
+.. method:: getShowAnnotations() → bool
+
+    Checks whether annotations are currently visible.
+
+    :return: True if annotations are visible, False otherwise.
+    :rtype: bool
+
+.. method:: duplicateAnnotation(annotation) → Annotation
+
+    Creates a duplicate of the specified annotation.
+
+    :param annotation: The annotation to duplicate.
+    :type annotation: Annotation
+    :return: The duplicated annotation object.
+    :rtype: Annotation
+
+.. method:: loadAnnotationsXML(path) → list
+
+    Loads annotations from XML file and adds them to the scene.
+
+    :param path: XML file path.
+    :type path: string
+    :return: List of loaded annotations.
+    :rtype: list
+
+.. method:: pickAnnotation(annotation)
+
+    Activates the picking tool in the render window to reposition the given annotation.
+
+    :param annotation: The annotation to reposition.
+    :type annotation: vrAnnotationPtr
+
+.. method:: saveAnnotationsXML(path, annotations)
+
+    Saves annotations to an XML file. Omit second parameter to save all annotations.
+
+    :param path: XML file path.
+    :type path: string
+    :param annotations: List of annotations to save (optional).
+    :type annotations: list

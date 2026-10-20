@@ -1,0 +1,293 @@
+-------------
+vrCameraTypes
+-------------
+
+.. py:class:: vrCameraTypes
+
+    .. py:class:: VanishingLinesType
+
+            .. py:data:: XYZ
+
+            .. py:data:: XY
+
+            .. py:data:: XZ
+
+            .. py:data:: YZ
+
+    .. py:class:: ViewpointCreationMode
+
+            .. py:data:: IgnoreTrackingMatrix
+
+            .. py:data:: IncludeTrackingMatrix
+
+    .. py:class:: CameraTrackType
+
+            .. py:data:: InvalidCameraTrack
+
+            .. py:data:: RegularCameraTrack
+
+            .. py:data:: RenderQueueCameraTrack
+
+            .. py:data:: VariantSetCameraTrack
+
+    .. py:class:: CameraProjectionMode
+
+            .. py:data:: ProjectionPerspective
+
+            .. py:data:: ProjectionOrthographic
+
+            .. py:data:: ProjectionSphericalMap
+
+            .. py:data:: ProjectionPetersMap
+
+            .. py:data:: ProjectionVerticalCross
+
+            .. py:data:: ProjectionHorizontalCross
+
+            .. py:data:: ProjectionOmnidirectional
+
+            .. py:data:: ProjectionCustomMatrix
+
+    .. py:class:: CameraConstraint
+
+            .. py:data:: ConstraintNone
+
+            .. py:data:: ConstraintAim
+
+            .. py:data:: ConstraintAimUp
+
+    .. py:class:: CameraTonemapper
+
+            .. py:data:: TonemapperReinhardLuminance
+
+            .. py:data:: TonemapperReinhardRGB
+
+            .. py:data:: TonemapperLogarithmicLuminance
+
+            .. py:data:: TonemapperLogarithmicRGB
+
+            .. py:data:: TonemapperFilmic
+
+            .. py:data:: TonemapperPhysicalCamera
+
+            .. py:data:: TonemapperLuminance
+
+            .. py:data:: TonemapperIlluminance
+
+    .. py:class:: CameraStereoLayout
+
+            .. py:data:: StereoLayoutTopBottom
+
+            .. py:data:: StereoLayoutLeftRight
+
+            .. py:data:: StereoLayoutLeftEye
+
+            .. py:data:: StereoLayoutRightEye
+
+    .. py:class:: CameraCandelaMapping
+
+            .. py:data:: CandelaMappingLogarithmicRGB
+
+            .. py:data:: CandelaMappingLogarithmicHSV
+
+            .. py:data:: CandelaMappingLinearRGB
+
+            .. py:data:: CandelaMappingLinearHSV
+
+    .. py:class:: CameraResponseCurveMode
+
+            .. py:data:: CameraResponseCurveLuminance
+
+            .. py:data:: CameraResponseCurveRed
+
+            .. py:data:: CameraResponseCurveGreen
+
+            .. py:data:: CameraResponseCurveBlue
+
+            .. py:data:: CameraResponseCurveRGB
+
+    .. py:class:: CameraSensorResponse
+
+            .. py:data:: CustomCurve
+
+            .. py:data:: SyncolorAces10
+
+            .. py:data:: SyncolorAces07
+
+            .. py:data:: AgX
+
+            .. py:data:: AgX_Punchy
+
+            .. py:data:: AgX_Custom
+
+            .. py:data:: OpenColorIO
+
+    .. py:class:: CameraSensorResponseCurveMapping
+
+            .. py:data:: CameraResponseCurveLinear
+
+            .. py:data:: CameraResponseCurveLogarithmic
+
+    .. py:class:: CameraColorspace
+
+            .. py:data:: SRGBColorspace
+
+            .. py:data:: Aces10Colorspace
+
+            .. py:data:: AgXColorspace
+
+    .. py:class:: BlendMode
+
+            .. py:data:: BlendOff
+
+            .. py:data:: BlendVignette
+
+            .. py:data:: BlendImage
+
+    .. py:class:: BlendModeType
+
+            .. py:data:: BlendTypeVignette
+
+            .. py:data:: BlendTypeImage
+
+    .. py:class:: DistortionType
+
+            .. py:data:: BarrelDistortion
+
+            .. py:data:: RadialDistortion
+
+    .. py:class:: DistortionEdgeMode
+
+            .. py:data:: Clamp
+               :no-index:
+
+            .. py:data:: MirroredRepeat
+               :no-index:
+
+            .. py:data:: Black
+
+            .. py:data:: Zoom
+
+    .. py:class:: CameraEye
+
+            .. py:data:: CameraLeftEye
+
+            .. py:data:: CameraRightEye
+
+    .. py:class:: CameraAxis
+
+            .. py:data:: X
+
+            .. py:data:: Y
+
+            .. py:data:: Z
+
+    .. py:class:: CollisionStructureBuildMethod
+
+            .. py:data:: CollisionTriangleBased
+
+            .. py:data:: CollisionBoundingBoxBased
+
+    .. py:class:: TurntableDirection
+
+            .. py:data:: TurntableCounterClockwise
+
+            .. py:data:: TurntableClockwise
+
+    .. py:class:: PasteOption
+
+            .. py:data:: PasteAllAttributes
+
+            .. py:data:: PasteViewingAttributes
+
+            .. py:data:: PasteCameraAttributes
+
+            .. py:data:: PasteTonemappingAttributes
+
+            .. py:data:: PasteColorCorrectionAttributes
+
+            .. py:data:: PasteGradingAttributes
+
+            .. py:data:: PasteGlowAttributes
+
+            .. py:data:: PasteGlareAttributes
+
+            .. py:data:: PasteBlendingAttributes
+
+            .. py:data:: PasteFogAttributes
+
+            .. py:data:: PastePerspectiveMatchAttributes
+
+            .. py:data:: PasteChromaticAberrationAttributes
+
+            .. py:data:: PasteFilmGrainAttributes
+
+    .. py:class:: CameraSpace
+
+            .. py:data:: LocalSpace
+
+            .. py:data:: GlobalSpace
+
+    .. py:class:: FovMode
+
+            .. py:data:: Vertical
+
+            .. py:data:: Horizontal
+
+    .. py:class:: FogFalloffMode
+
+            .. py:data:: Realistic
+               :no-index:
+
+            .. py:data:: Linear
+
+    .. py:class:: InteractiveDofQuality
+
+            .. py:data:: UltraLow
+
+            .. py:data:: Low
+               :no-index:
+
+            .. py:data:: Medium
+               :no-index:
+
+            .. py:data:: High
+               :no-index:
+
+            .. py:data:: UltraHigh
+               :no-index:
+
+    .. py:class:: DepthOfFieldMode
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: Stillframe
+
+            .. py:data:: Always
+               :no-index:
+
+    .. py:class:: GradingLogSpace
+
+            .. py:data:: ACEScct
+
+            .. py:data:: ACEScc
+
+            .. py:data:: CanonClog2
+
+            .. py:data:: CanonClog3
+
+            .. py:data:: ARRILogC3
+
+            .. py:data:: ARRILogC4
+
+            .. py:data:: PanasonicVlog
+
+            .. py:data:: RedLogFilm
+
+            .. py:data:: RedLog3G10
+
+            .. py:data:: SonySLog3
+
+            .. py:data:: SonySLog3Cine
+

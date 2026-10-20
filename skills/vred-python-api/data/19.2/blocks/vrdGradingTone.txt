@@ -1,0 +1,217 @@
+--------------
+vrdGradingTone
+--------------
+
+.. py:class:: vrdGradingTone
+
+(Inherits vrdSceneObject)
+
+Class to access tone grading functionality.
+
+To access the tone grading of a camera or viewpoint, use vrdCameraBaseNode.getGradingTone():
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     grading = cam.getGradingTone()
+
+Summary
+=======
+
+Functions:
+    * getBlacks() → QVector4D
+    * getBlacksRange() → QVector2D
+    * getEnabled() → bool
+    * getHighlights() → QVector4D
+    * getHighlightsRange() → QVector2D
+    * getMidtones() → QVector4D
+    * getMidtonesRange() → QVector2D
+    * getSContrast() → float
+    * getShadows() → QVector4D
+    * getShadowsRange() → QVector2D
+    * getWhites() → QVector4D
+    * getWhitesRange() → QVector2D
+    * setBlacks(values)
+    * setBlacksRange(values)
+    * setEnabled(enabled)
+    * setHighlights(values)
+    * setHighlightsRange(values)
+    * setMidtones(values)
+    * setMidtonesRange(values)
+    * setSContrast(contrast)
+    * setShadows(values)
+    * setShadowsRange(values)
+    * setWhites(values)
+    * setWhitesRange(values)
+
+Functions
+=========
+
+.. py:method:: vrdGradingTone.getBlacks()
+
+    Returns the blacks.
+
+    :return: The blacks.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingTone.getBlacksRange()
+
+    Returns the range for blacks.
+
+    :return: The range for blacks.
+    :rtype: QVector2D
+
+.. py:method:: vrdGradingTone.getEnabled()
+
+    Returns the current grading curve state.
+
+    :return: True if tone grading is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdGradingTone.getHighlights()
+
+    Returns the rgbm highlights.
+
+    :return: The rgbm highlights.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingTone.getHighlightsRange()
+
+    Returns the range for highlights.
+
+    :return: The range for highlights.
+    :rtype: QVector2D
+
+.. py:method:: vrdGradingTone.getMidtones()
+
+    Returns the rgbm midtones.
+
+    :return: The rgbm midtones.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingTone.getMidtonesRange()
+
+    Returns the range for midtones.
+
+    :return: The range for midtones.
+    :rtype: QVector2D
+
+.. py:method:: vrdGradingTone.getSContrast()
+
+    Returns the S-Curve contrast.
+
+    :return: The S-Curve contrast.
+    :rtype: float
+
+.. py:method:: vrdGradingTone.getShadows()
+
+    Returns the rgbm shadows.
+
+    :return: The rgbm shadows.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingTone.getShadowsRange()
+
+    Returns the range for blacks.
+
+    :return: The range for blacks.
+    :rtype: QVector2D
+
+.. py:method:: vrdGradingTone.getWhites()
+
+    Returns the rgbm whites.
+
+    :return: The rgbm whites.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingTone.getWhitesRange()
+
+    Returns the range for whites.
+
+    :return: The range for whites.
+    :rtype: QVector2D
+
+.. py:method:: vrdGradingTone.setBlacks(values)
+
+    Sets the rgbm blacks.
+
+    :param values: The rgbm blacks.
+    :type values: QVector4D
+
+.. py:method:: vrdGradingTone.setBlacksRange(values)
+
+    Sets the range for blacks. The x-value sets the start stop of the blacks. The y-value sets the width of the blacks.
+
+    :param values: The range for blacks.
+    :type values: QVector2D
+
+.. py:method:: vrdGradingTone.setEnabled(enabled)
+
+    Enables / disables primary grading.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrdGradingTone.setHighlights(values)
+
+    Sets the rgbm highlights.
+
+    :param values: The rgbm highlights.
+    :type values: QVector4D
+
+.. py:method:: vrdGradingTone.setHighlightsRange(values)
+
+    Sets the range for highlights. The x-value sets the start stop of the highlights. The y-value sets the pivot of the highlights.
+
+    :param values: The range for highlights.
+    :type values: QVector2D
+
+.. py:method:: vrdGradingTone.setMidtones(values)
+
+    Sets the rgbm midtones.
+
+    :param values: The rgbm midtones.
+    :type values: QVector4D
+
+.. py:method:: vrdGradingTone.setMidtonesRange(values)
+
+    Sets the range for midtones. The x-value sets the center for the midtones. The y-value sets the width in stops that are affected as midtones.
+
+    :param values: The range for midtones.
+    :type values: QVector2D
+
+.. py:method:: vrdGradingTone.setSContrast(contrast)
+
+    Sets an S-Curve contrast.
+
+    :param contrast: S-Curve contrast.
+    :type contrast: float
+
+.. py:method:: vrdGradingTone.setShadows(values)
+
+    Sets the rgbm shadows.
+
+    :param values: The rgbm shadows.
+    :type values: QVector4D
+
+.. py:method:: vrdGradingTone.setShadowsRange(values)
+
+    Sets the range for shadows. The x-value sets the start stop of the shadows. The y-value sets the pivot of the shadows.
+
+    :param values: The range for shadows.
+    :type values: QVector2D
+
+.. py:method:: vrdGradingTone.setWhites(values)
+
+    Sets the rgbm whites.
+
+    :param values: The rgbm whites.
+    :type values: QVector4D
+
+.. py:method:: vrdGradingTone.setWhitesRange(values)
+
+    Sets the range for whites.
+
+    :param values: The range for whites.
+    :type values: QVector2D
+

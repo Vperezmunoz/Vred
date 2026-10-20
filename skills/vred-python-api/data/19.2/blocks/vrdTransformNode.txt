@@ -1,0 +1,373 @@
+----------------
+vrdTransformNode
+----------------
+
+.. py:class:: vrdTransformNode
+
+(Inherits vrdNode)
+
+Transformation node.
+
+Euler angles are given in degrees. The world transformation functions transform the world space value into the coordinate system of the given node. World transformations of clones of this node are not taken into account for this calculation.
+
+Translation methods: setTranslation sets the node's translation component directly. setWorldTranslation applies a world-space translation. Its result differs from setTranslation when any parent nodes are transformed. setLocalTranslation moves along the node's local axes. Its result differs from setTranslation when this node has a rotation or a pivot orientation.
+
+Summary
+=======
+
+Functions:
+    * addLocalTranslation(localTranslationDelta)
+    * captureTransformVariant(name)
+    * deleteTransformVariant(variant)
+    * findTransformVariant(name) → vrdTransformNodeVariant
+    * getEulerRotationOrder() → vrTransformTypes.EulerRotationOrder
+    * getLocalTranslation() → QVector3D
+    * getRotatePivot() → QVector3D
+    * getRotatePivotTranslation() → QVector3D
+    * getRotationAsEuler() → QVector3D
+    * getRotationAsQuaternion() → QQuaternion
+    * getRotationOrientationAsDirection() → Tuple[QVector3D,vrTransformTypes.Axis]
+    * getRotationOrientationAsEuler() → QVector3D
+    * getRotationOrientationAsQuaternion() → QQuaternion
+    * getScale() → QVector3D
+    * getScalePivot() → QVector3D
+    * getScalePivotTranslation() → QVector3D
+    * getShear() → QVector3D
+    * getTransform() → QMatrix4x4
+    * getTransformLimits() → vrdTransformLimits
+    * getTransformVariants() → List[vrdTransformNodeVariant]
+    * getTranslation() → QVector3D
+    * getWorldRotatePivot() → QVector3D
+    * getWorldScalePivot() → QVector3D
+    * getWorldTranslation() → QVector3D
+    * resetTransformation()
+    * setEulerRotationOrder(rotationOrder)
+    * setLocalTranslation(translation)
+    * setRotatePivot(rotatePivot)
+    * setRotatePivotTranslation(rotatePivotTranslation)
+    * setRotationAsEuler(rotation)
+    * setRotationAsQuaternion(rotation)
+    * setRotationOrientationAsDirection(direction)
+    * setRotationOrientationAsEuler(rotationOrientation)
+    * setRotationOrientationAsQuaternion(orientation)
+    * setScale(scale)
+    * setScalePivot(scalePivot)
+    * setScalePivotTranslation(scalePivotTranslation)
+    * setShear(shear)
+    * setTransform(matrix)
+    * setTranslation(translation)
+    * setWorldRotatePivot(rotatePivot)
+    * setWorldScalePivot(scalePivot)
+    * setWorldTransform(matrix)
+    * setWorldTranslation(translation)
+
+Functions
+=========
+
+.. py:method:: vrdTransformNode.addLocalTranslation(localTranslationDelta)
+
+    Adds a translation delta along the node's local axes, as when using the translation manipulator in "Local Mode".
+
+    Prefer to use this helper to apply movements along local axes. It should give more stable results than using getLocalTranslation/setLocalTranslation repeatedly.
+
+    Example usage:
+
+```
+
+         # Move node by 100 units along its local Z axis
+         node.addLocalTranslation(QVector3D(0, 0, 100))
+
+    For reference, a manual implementation of the snippet above would be:
+
+```
+
+         qr = node.getRotationAsQuaternion()
+         qro = node.getRotationOrientationAsQuaternion()
+         t = node.getTranslation()
+         tlocal = QVector3D(0, 0, 100) # movement vector along local axes
+         tdelta = (qr * qro).rotatedVector( tlocal) # rotate to node coordinate system
+         node.setTranslation( t + tdelta)
+
+    :param localTranslationDelta: Vector along local axes
+    :type localTranslationDelta: QVector3D
+
+.. py:method:: vrdTransformNode.captureTransformVariant(name)
+
+    Captures the current transformation into a variant.
+
+    :param name: Name of the vriant         Creates a new variant if the name does not exists. Otherwise
+        the existing variant is overwritten
+    :type name: string
+
+.. py:method:: vrdTransformNode.deleteTransformVariant(variant)
+
+    Deletes the given transform variant from this transformation.
+
+    :param variant: The variant to be deleted
+    :type variant: vrdTransformNodeVariant
+
+.. py:method:: vrdTransformNode.findTransformVariant(name)
+
+    Find a transform variant by name.
+
+    :param name: Variant name
+    :type name: string
+
+    :return: A variant or if not found an invalid pointer
+    :rtype: vrdTransformNodeVariant
+
+.. py:method:: vrdTransformNode.getEulerRotationOrder()
+
+    :return: The euler angle rotation order
+    :rtype: vrTransformTypes.EulerRotationOrder
+
+.. py:method:: vrdTransformNode.getLocalTranslation()
+
+    Returns the translation converted into local-axis coordinates.
+
+    The local axes are the node's X/Y/Z axes rotated by the node rotation and rotation orientation (pivot orientation). This corresponds to the Translation manipulator axes in "Local Mode".
+
+    :return: The translation vector along local axes.
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getRotatePivot()
+
+    :return: The rotation pivot point
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getRotatePivotTranslation()
+
+    :return: The rotation pivot translation
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getRotationAsEuler()
+
+    :return: The euler rotation angles in degrees
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getRotationAsQuaternion()
+
+    :return: The rotation as quaternion
+    :rtype: QQuaternion
+
+.. py:method:: vrdTransformNode.getRotationOrientationAsDirection()
+
+    :return: Pair where the first value is the object-space direction vector that the chosen pivot axis points to, and the second value is that pivot axis.
+    :rtype: Tuple[QVector3D, vrTransformTypes.Axis]
+
+.. py:method:: vrdTransformNode.getRotationOrientationAsEuler()
+
+    :return: The rotation orientation angles in degrees
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getRotationOrientationAsQuaternion()
+
+    :return: The rotation orientation as quaternion
+    :rtype: QQuaternion
+
+.. py:method:: vrdTransformNode.getScale()
+
+    :return: The scale vector
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getScalePivot()
+
+    :return: The scale pivot point
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getScalePivotTranslation()
+
+    :return: The scale pivot translation
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getShear()
+
+    :return: The shear value
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getTransform()
+
+    :return: This node's transformation matrix.
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdTransformNode.getTransformLimits()
+
+    :return: Transformation limit settings
+    :rtype: vrdTransformLimits
+
+.. py:method:: vrdTransformNode.getTransformVariants()
+
+    :return: A list of transform variants for this transformation
+    :rtype: List[vrdTransformNodeVariant]
+
+.. py:method:: vrdTransformNode.getTranslation()
+
+    :return: This node's translation vector
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getWorldRotatePivot()
+
+    :return: The rotation pivot in world space
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getWorldScalePivot()
+
+    :return: The cale pivot point in world space
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.getWorldTranslation()
+
+    :return: The translation vector in world space
+    :rtype: QVector3D
+
+.. py:method:: vrdTransformNode.resetTransformation()
+
+    Resets all transformation fields to their default values.
+
+.. py:method:: vrdTransformNode.setEulerRotationOrder(rotationOrder)
+
+    Sets the euler rotation order.
+
+    :param rotationOrder: The rotation order
+    :type rotationOrder: vrTransformTypes.EulerRotationOrder
+
+.. py:method:: vrdTransformNode.setLocalTranslation(translation)
+
+    Sets the translation along the node's local axes.
+
+    The local axes are the node's X/Y/Z axes rotated by the node rotation and rotation orientation (pivot orientation). This corresponds to the Translation manipulator axes in "Local Mode".
+
+    Note: To apply a local translation delta, use vrdTransformNode.addLocalTranslation(localTranslationDelta).
+
+    :param translation: Translation along local axes
+    :type translation: QVector3D
+
+.. py:method:: vrdTransformNode.setRotatePivot(rotatePivot)
+
+    Sets the rotate pivot.
+
+    :param rotatePivot: The rotate pivot
+    :type rotatePivot: QVector3D
+
+.. py:method:: vrdTransformNode.setRotatePivotTranslation(rotatePivotTranslation)
+
+    Sets the rotate pivot translation.
+
+    :param rotatePivotTranslation: The rotate pivot translation
+    :type rotatePivotTranslation: QVector3D
+
+.. py:method:: vrdTransformNode.setRotationAsEuler(rotation)
+
+    Sets the rotation.
+
+    :param rotation: Euler rotation angles in degrees
+    :type rotation: QVector3D
+
+.. py:method:: vrdTransformNode.setRotationAsQuaternion(rotation)
+
+    Sets the rotation.
+
+    :param rotation: as Quaternion
+    :type rotation: QQuaternion
+
+.. py:method:: vrdTransformNode.setRotationOrientationAsDirection(direction)
+
+    Sets the rotation pivot orientation from a direction vector and axis, such that the selected pivot's axis is aligned with the direction vector.
+
+    For example, to change the pivot orientation such that the pivot's Z axis is aligned with the object space vector (1, 1, 1):
+
+```
+
+         node.setRotationOrientationAsDirection((QVector3D(1, 1, 1), vrTransformTypes.Axis.Z))
+
+    :param direction: Vector: Direction vector in object space coordinates. Does not need to be normalized. Axis: Pivot axis that is aligned with the direction vector.
+    :type direction: Tuple[QVector3D, vrTransformTypes.Axis]
+
+.. py:method:: vrdTransformNode.setRotationOrientationAsEuler(rotationOrientation)
+
+    Sets the rotation orientation.
+
+    :param rotationOrientation: Euler rotation orientation angles in degrees
+    :type rotationOrientation: QVector3D
+
+.. py:method:: vrdTransformNode.setRotationOrientationAsQuaternion(orientation)
+
+    Sets the rotation orientation.
+
+    :param orientation: as Quaternion
+    :type orientation: QQuaternion
+
+.. py:method:: vrdTransformNode.setScale(scale)
+
+    Sets the scaling.
+
+    :param scale: Scale vector
+    :type scale: QVector3D
+
+.. py:method:: vrdTransformNode.setScalePivot(scalePivot)
+
+    Sets the scale pivot.
+
+    :param scalePivot: The scale pivot
+    :type scalePivot: QVector3D
+
+.. py:method:: vrdTransformNode.setScalePivotTranslation(scalePivotTranslation)
+
+    Sets the scale pivot translation.
+
+    :param scalePivotTranslation: The scale pivot translation
+    :type scalePivotTranslation: QVector3D
+
+.. py:method:: vrdTransformNode.setShear(shear)
+
+    Sets the shear.
+
+    :param shear: shear vector
+    :type shear: QVector3D
+
+.. py:method:: vrdTransformNode.setTransform(matrix)
+
+    Sets this node's transformation.
+
+    A matrix containing shearing transformation can not be applied by this operation.
+
+    :param matrix: The transformation matrix.
+    :type matrix: QMatrix4x4
+
+.. py:method:: vrdTransformNode.setTranslation(translation)
+
+    Sets this node's translation.
+
+    :param translation: The translation vector
+    :type translation: QVector3D
+
+.. py:method:: vrdTransformNode.setWorldRotatePivot(rotatePivot)
+
+    Sets the rotate pivot in world space.
+
+    :param rotatePivot: The rotate pivot in world space
+    :type rotatePivot: QVector3D
+
+.. py:method:: vrdTransformNode.setWorldScalePivot(scalePivot)
+
+    Sets the scale pivot in world space.
+
+    :param scalePivot: The scale pivot in world space
+    :type scalePivot: QVector3D
+
+.. py:method:: vrdTransformNode.setWorldTransform(matrix)
+
+    Sets the transformation matrix in world space.
+
+    A matrix containing shearing transformation can not be applied by this operation.
+
+    :param matrix: The world transformation matrix.
+    :type matrix: QMatrix4x4
+
+.. py:method:: vrdTransformNode.setWorldTranslation(translation)
+
+    Sets the translation in world space.
+
+    :param translation: Translation in world space
+    :type translation: QVector3D
+

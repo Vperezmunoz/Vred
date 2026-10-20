@@ -1,0 +1,97 @@
+-----------------------
+vrdPhysicsCapsuleConfig
+-----------------------
+
+.. py:class:: vrdPhysicsCapsuleConfig
+
+(Inherits vrdPhysicsConfig)
+
+The configuration class for PhysX capsule colliders.
+
+Summary
+=======
+
+Functions:
+    * getAxisTranslation() → float
+    * getCustomPrincipalAxis() → QVector3D
+    * getLengthScale() → float
+    * getRadiusScale() → float
+    * setAxisTranslation(translation)
+    * setCustomPrincipalAxis(axis)
+    * setLengthScale(scale)
+    * setRadiusScale(scale)
+    * vrdPhysicsCapsuleConfig()
+    * vrdPhysicsCapsuleConfig(other)
+    * ~vrdPhysicsCapsuleConfig()
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsCapsuleConfig.getAxisTranslation()
+
+    Get the axis translation for the capsule.
+
+    :return: The axis translation.
+    :rtype: float
+
+.. py:method:: vrdPhysicsCapsuleConfig.getCustomPrincipalAxis()
+
+    Get the custom principal axis for the capsule.
+
+    :return: The custom principal axis direction vector. (0, 0, 0) means auto-calculated.
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsCapsuleConfig.getLengthScale()
+
+    Get the length scaling factor for the capsule.
+
+    :return: The length scaling factor.
+    :rtype: float
+
+.. py:method:: vrdPhysicsCapsuleConfig.getRadiusScale()
+
+    Get the radius scaling factor for the capsule.
+
+    :return: The radius scaling factor.
+    :rtype: float
+
+.. py:method:: vrdPhysicsCapsuleConfig.setAxisTranslation(translation)
+
+    Set the axis translation for the capsule.
+
+    :param translation: Translation along the capsule's principal axis Positive values move geometry toward the positive cap, negative toward the negative cap. This allows manual optimization of cap utilization.
+    :type translation: float
+
+.. py:method:: vrdPhysicsCapsuleConfig.setCustomPrincipalAxis(axis)
+
+    Set the custom principal axis for the capsule.
+
+    This axis defines the direction of the capsule's main cylinder. Set to (0, 0, 0) to use auto-calculated axis from geometry. Non-zero vectors will be automatically normalized and used as the custom axis. For tire geometries, typically set this to the wheel's rotation axis.
+
+    :param axis: The principal axis direction vector. Use (0, 0, 0) for auto-calculation.
+    :type axis: QVector3D
+
+.. py:method:: vrdPhysicsCapsuleConfig.setLengthScale(scale)
+
+    Set the length scaling factor for the capsule.
+
+    :param scale: The scaling factor for the length. Values > 1.0 increase length, < 1.0 decrease length.
+    :type scale: float
+
+.. py:method:: vrdPhysicsCapsuleConfig.setRadiusScale(scale)
+
+    Set the radius scaling factor for the capsule.
+
+    :param scale: The scaling factor for the radius. Values > 1.0 increase radius, < 1.0 decrease radius.
+    :type scale: float
+
+.. py:method:: vrdPhysicsCapsuleConfig.vrdPhysicsCapsuleConfig()
+
+.. py:method:: vrdPhysicsCapsuleConfig.vrdPhysicsCapsuleConfig(other)
+   :no-index:
+
+    :param other:
+    :type other: vrdPhysicsCapsuleConfig
+
+.. py:method:: vrdPhysicsCapsuleConfig.~vrdPhysicsCapsuleConfig()
+

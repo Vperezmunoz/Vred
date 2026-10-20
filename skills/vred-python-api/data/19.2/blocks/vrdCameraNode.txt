@@ -1,0 +1,305 @@
+-------------
+vrdCameraNode
+-------------
+
+.. py:class:: vrdCameraNode
+
+(Inherits vrdCameraBaseNode)
+
+This class represents a camera in VRED.
+
+For access to existing cameras and to create new cameras use vrCameraService. This class holds all properties that are specific to cameras and not valid for viewpoints (vrdViewpointNode). For more properties see also vrdCameraBaseNode.
+
+There are actually two different nodes for each camera in VRED: One node is in the regular scene graph, the second node is in the graph in the Camera Editor. They have different ids but internally work on the same OSG camera.
+
+Summary
+=======
+
+Functions:
+    * activate()
+    * getAimConstraintSources() → List[vrdNode]
+    * getAimVisualizationScale() → float
+    * getAimVisualizationVisible() → bool
+    * getCameraCollider() → vrdCameraCollider
+    * getCameraTrack(cameraTrackIndex) → vrdCameraTrackNode
+    * getCameraTrackCount() → integer
+    * getCameraTracks() → List[vrdCameraTrackNode]
+    * getDefaultCameraTrack() → vrdCameraTrackNode
+    * getDollyZoom() → bool
+    * getEvaluateNavigationMode() → bool
+    * getModuleNode() → vrdCameraNode
+    * getTrackingMatrix() → QMatrix4x4
+    * getTurntable() → vrdTurntable
+    * getUpVectorConstraintSources() → List[vrdNode]
+    * getVisualizationScale() → float
+    * getVisualizationVisible() → bool
+    * hasAimConstraint() → bool
+    * hasAimConstraintSource(sourceNode) → bool
+    * isActive() → bool
+    * isDefault() → bool
+    * isInitialCamera() → bool
+    * removeAimConstraintSources() → bool
+    * removeUpVectorConstraintSources() → bool
+    * setAimConstraintSources(nodes)
+    * setAimVisualizationScale(value)
+    * setAimVisualizationVisible(enable)
+    * setDollyZoom(enabled)
+    * setEvaluateNavigationMode(enabled)
+    * setInitialCamera()
+    * setUpVectorConstraintSources(nodes)
+    * setVisualizationScale(value)
+    * setVisualizationVisible(enable)
+    * updateFromPerspectiveMatch()
+
+Functions
+=========
+
+.. py:method:: vrdCameraNode.activate()
+
+    Sets the camera to active.
+
+.. py:method:: vrdCameraNode.getAimConstraintSources()
+
+    Returns the list of nodes set as aim constraint sources for the camera.
+
+    :return: The list of aim constraint source nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdCameraNode.getAimVisualizationScale()
+
+    Returns the scaling value used for the aim and up vector visualization.
+
+    Deprecated This method is deprecated. Use vrdConstraintNode.getVisualizationScale() directly.
+
+    :return: The visualization scaling value.
+    :rtype: float
+
+.. py:method:: vrdCameraNode.getAimVisualizationVisible()
+
+    Queries if the aim and up vector visualization is visible in the renderer.
+
+    Deprecated This method is deprecated. It queries getVisualizationVisible on all constraint nodes that have this camera as constrained node. Use vrdConstraintNode.getVisualizationVisible() directly.
+
+    :return: True if the visualization is enabled.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.getCameraCollider()
+
+    This object gives access to the camera collision functionality.
+
+    :return: The camera collider object.
+    :rtype: vrdCameraCollider
+
+.. py:method:: vrdCameraNode.getCameraTrack(cameraTrackIndex)
+
+    Gets the camera track.
+
+    :param cameraTrackIndex: The camera track index
+    :type cameraTrackIndex: integer
+
+    :return: The camera track.
+    :rtype: vrdCameraTrackNode
+
+.. py:method:: vrdCameraNode.getCameraTrackCount()
+
+    Returns the number of camera tracks in the camera.
+
+    :return: The number of camera tracks.
+    :rtype: integer
+
+.. py:method:: vrdCameraNode.getCameraTracks()
+
+    Returns the list of all camera track nodes of the camera.
+
+    :return: The list of camera track nodes.
+    :rtype: List[vrdCameraTrackNode]
+
+.. py:method:: vrdCameraNode.getDefaultCameraTrack()
+
+    Returns the default camera track node.
+
+    :return: The default camera track node.
+    :rtype: vrdCameraTrackNode
+
+.. py:method:: vrdCameraNode.getDollyZoom()
+
+    Returns the state of dolly zoom mode.
+
+    :return: True if dolly zoom mode is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.getEvaluateNavigationMode()
+
+    Queries if evaluation of the navigation mode is enabled.
+
+    :return: True if evaluation is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.getModuleNode()
+
+    Returns the corresponding camera graph node to this camera node.
+
+    :return: Returns the camera graph node
+    :rtype: vrdCameraNode
+
+.. py:method:: vrdCameraNode.getTrackingMatrix()
+
+    Gets the HMD tracking matrix.
+
+    :return: The HMD tracking matrix.
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdCameraNode.getTurntable()
+
+    This object gives access to the turntable.
+
+    :return: The turntable object.
+    :rtype: vrdTurntable
+
+.. py:method:: vrdCameraNode.getUpVectorConstraintSources()
+
+    Returns the list of nodes set as up vector sources for the camera.
+
+    :return: The list of up vector constraint source nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdCameraNode.getVisualizationScale()
+
+    Returns the scaling value used for the camera visualization.
+
+    :return: The visualization scaling value.
+    :rtype: float
+
+.. py:method:: vrdCameraNode.getVisualizationVisible()
+
+    Queries if the visualization for the camera has been enabled.
+
+    :return: The visualization visible.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.hasAimConstraint()
+
+    Queries if the camera has an aim constraint (        vrdAimConstraintNode).
+
+    :return: True if has aim constraint, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.hasAimConstraintSource(sourceNode)
+
+    Queries if a given node is an aim constraint source for the camera.
+
+    :param sourceNode: The node to check.
+    :type sourceNode: vrdNode
+
+    :return: True if the node is part of the aim constraint sources, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.isActive()
+
+    Determines if the camera is active.
+
+    :return: True if active, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.isDefault()
+
+    Determines if the camera is the default camera.
+
+    :return: True if default, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.isInitialCamera()
+
+    Queries if this camera is the initial camera.
+
+    :return: True if initial camera, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.removeAimConstraintSources()
+
+    Removes all aim constraint sources from the camera.
+
+    Note that this will also remove the default 'CameraNameAim' node which is automatically created and added as an aim constraint source when creating a new camera with an aim constraint.
+
+    :return: True if aim constraint sources could be removed, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.removeUpVectorConstraintSources()
+
+    Removes all up vector constraint sources.
+
+    Note that this will also remove the default 'CameraNameUp' node which is automatically created and added as an up vector constraint source when creating a new camera with an aim and up constraint.
+
+    :return: True if up vector constraint sources could be removed, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdCameraNode.setAimConstraintSources(nodes)
+
+    Sets a list of nodes as aim constraint sources for the camera (        vrdAimConstraintNode).
+
+    :param nodes: The nodes to set as aim constraint sources.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdCameraNode.setAimVisualizationScale(value)
+
+    Sets the scaling value for the aim and up vector visualization.
+
+    Deprecated This method is deprecated. Use vrdConstraintNode::setVisualizationScale(bool) directly.
+
+    :param value: The scaling value (minimum: 0)
+    :type value: float
+
+.. py:method:: vrdCameraNode.setAimVisualizationVisible(enable)
+
+    Enables / disables the aim and up vector visualizations.
+
+    Deprecated This method is deprecated. It calls setVisualizationVisible on all constraint nodes that have this camera as constrained node. Use vrdConstraintNode.setVisualizationVisible(enable) directly.
+
+    :param enable: True to enable the visualization, False to disable.
+    :type enable: bool
+
+.. py:method:: vrdCameraNode.setDollyZoom(enabled)
+
+    Enables / disables dolly zoom mode.
+
+    :param enabled: True to enable dolly zoom mode, False to disable.
+    :type enabled: bool
+
+.. py:method:: vrdCameraNode.setEvaluateNavigationMode(enabled)
+
+    Enable / disable the evaluation of the navigation mode when playing camera animations.
+
+    :param enabled: True enables evaluation, False disables it.
+    :type enabled: bool
+
+.. py:method:: vrdCameraNode.setInitialCamera()
+
+    Sets this camera to be the initial camera.
+
+.. py:method:: vrdCameraNode.setUpVectorConstraintSources(nodes)
+
+    Sets a list of nodes as up vector constraint sources.
+
+    :param nodes: The nodes to set as up vector constraint sources.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdCameraNode.setVisualizationScale(value)
+
+    Sets a scaling value for the camera visualization.
+
+    :param value: The scaling value (minimum: 0)
+    :type value: float
+
+.. py:method:: vrdCameraNode.setVisualizationVisible(enable)
+
+    Enables / disables the visualization of the camera.
+
+    Enabling this will show a visualization of the camera in the render window.
+
+    :param enable: True to enable the visualization, False to disable.
+    :type enable: bool
+
+.. py:method:: vrdCameraNode.updateFromPerspectiveMatch()
+
+    Updates this camera's focal length and rotation according to perspective match settings.
+

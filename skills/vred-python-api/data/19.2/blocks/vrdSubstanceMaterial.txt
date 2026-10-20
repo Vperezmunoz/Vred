@@ -1,0 +1,352 @@
+--------------------
+vrdSubstanceMaterial
+--------------------
+
+.. py:class:: vrdSubstanceMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all substance archive based material properties.
+
+See vrdSubstanceProperties for a snippet on how to query all properties including the exposed substance input parameters contained in the substance archive, and VRED built-in properties (names start with __vred_ prefix) of the material like texture mapping settings.
+
+Snippet for accessing the built-in texture settings of a substance material:
+
+```
+
+     def getSubstanceProperty(substance_mat, propertyName):
+         properties = substance_mat.getProperties()
+         obj = PySide6.QtCore.QObject()
+         properties.update(obj, 0)
+         return obj.property(propertyName)
+
+     mat = vrMaterialService.findMaterial("MaterialName")
+
+     # Change the texture mapping type to UVMapping and set the UV repeat:
+     ts = getSubstanceProperty(mat, "__vred_textureSettings")
+     # ts is a vrdTexture object
+     ts.setMappingType(vrTextureTypes.MappingType.UVMapping)
+     ts.setRepeat(QVector2D(2,3))
+     print("UV Repeat:", ts.getRepeat())
+
+     # Change the displacement height:
+     dtex = getSubstanceProperty(mat, "__vred_displacementTexture")
+     # dtex is a vrdDisplacementTexture object or None if the material does not have a displacement
+     if dtex:
+         dtex.setDisplacementHeight(2.0)
+
+     # Change the bump intensity:
+     btex = getSubstanceProperty(mat, "__vred_bumpTexture")
+     # btex is a vrdBumpTexture object or None if the material does not have a normal map
+     if btex:
+         btex.setBumpIntensity(0.5)
+
+To change an input parameter of a substance material, use the     vrdSubstanceMaterial.setProperty(graphName, parameterId, value) method.
+
+Summary
+=======
+
+Functions:
+    * applyPreset(index, applyMode, setDefaultOutputSize)
+    * clearPresets()
+    * createPreset(name) → vrdSubstancePreset
+    * exportPresets(indexes, path) → bool
+    * getActiveAttributeGroups() → List[vrdAttributeGroup]
+    * getActiveGraphIndex() → integer
+    * getActiveGraphName() → string
+    * getActiveGraphProperty(parameterId) → QVariant
+    * getArchivePath() → string
+    * getGraphCount() → integer
+    * getGraphName(index) → string
+    * getPreset(index) → vrdSubstancePreset
+    * getPresetCount() → integer
+    * getPresets() → List[vrdSubstancePreset]
+    * getProperties() → vrdSubstanceProperties
+    * getProperty(graphName, parameterId) → QVariant
+    * getSyncOutputSize() → bool
+    * hasArchiveData() → bool
+    * hasImage(name) → bool
+    * importPresets(pathList, importForOtherGraphs) → bool
+    * isArchiveValid() → bool
+    * isInputVisible(dependency) → bool
+    * loadArchive(path) → bool
+    * recapturePreset(index)
+    * removePresets(indexes) → bool
+    * reorderPresets(indexes)
+    * resetGraph()
+    * setActiveGraphIndex(index)
+    * setActiveGraphProperty(parameterId, value)
+    * setProperty(graphName, parameterId, value)
+    * setSyncOutputSize(syncOutputSize)
+
+Functions
+=========
+
+.. py:method:: vrdSubstanceMaterial.applyPreset(index, applyMode=vrSubstanceTypes.PresetApplyMode.UsePreference, setDefaultOutputSize=False)
+
+    Applies a preset.
+
+    :param index: The index of the preset. The valid range is from 0 to vrdSubstanceMaterial.getPresetCount() - 1.
+    :type index: integer
+
+    :param applyMode: Specifies the mode which is used for applying the preset.
+    :type applyMode: vrSubstanceTypes.PresetApplyMode
+
+    :param setDefaultOutputSize: If set to true, the output size is set to the values stored in the preferences
+    :type setDefaultOutputSize: bool
+
+.. py:method:: vrdSubstanceMaterial.clearPresets()
+
+    Remove all presets from material.
+
+.. py:method:: vrdSubstanceMaterial.createPreset(name)
+
+    Creates a preset from material.
+
+    :param name: Name for the new created preset
+    :type name: string
+
+    :return: The created preset
+    :rtype: vrdSubstancePreset
+
+.. py:method:: vrdSubstanceMaterial.exportPresets(indexes, path)
+
+    Export presets from material.
+
+    :param indexes: List of indexes
+    :type indexes: List[integer]
+
+    :param path: The path to export to
+    :type path: string
+
+    :return: True, if presets could be exported
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.getActiveAttributeGroups()
+
+    Gets access to all vrdAttributeGroup objects.
+
+    :return: All vrdAttributeGroup objects
+    :rtype: List[vrdAttributeGroup]
+
+.. py:method:: vrdSubstanceMaterial.getActiveGraphIndex()
+
+    Gets the index of the active graph.
+
+    :return: The index of the active graph.
+    :rtype: integer
+
+.. py:method:: vrdSubstanceMaterial.getActiveGraphName()
+
+    Gets the name of the active graph.
+
+    :return: The name of the graph.
+    :rtype: string
+
+.. py:method:: vrdSubstanceMaterial.getActiveGraphProperty(parameterId)
+
+    Query the value of a substance property in the active graph.
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :return: The value for this property
+    :rtype: QVariant
+
+.. py:method:: vrdSubstanceMaterial.getArchivePath()
+
+    Get the path of the underlying substance archive file.
+
+    :return: The path of the underlying substance archive file.
+    :rtype: string
+
+.. py:method:: vrdSubstanceMaterial.getGraphCount()
+
+    Gets the number of graphs in this material.
+
+    :return: The number of graphs.
+    :rtype: integer
+
+.. py:method:: vrdSubstanceMaterial.getGraphName(index)
+
+    Gets the name of a graph.
+
+    :param index: The index of the graph.
+    :type index: integer
+
+    :return: The name of the graph.
+    :rtype: string
+
+.. py:method:: vrdSubstanceMaterial.getPreset(index)
+
+    Gets a preset by index.
+
+    :param index: The index of the preset. The valid range is from 0 to vrdSubstanceMaterial.getPresetCount() - 1.
+    :type index: integer
+
+    :return: The preset.
+    :rtype: vrdSubstancePreset
+
+.. py:method:: vrdSubstanceMaterial.getPresetCount()
+
+    Get the number of presets.
+
+    :return: The number presets.
+    :rtype: integer
+
+.. py:method:: vrdSubstanceMaterial.getPresets()
+
+    Returns a list of all child nodes.
+
+    :return: The list of child nodes.
+    :rtype: List[vrdSubstancePreset]
+
+.. py:method:: vrdSubstanceMaterial.getProperties()
+
+    Returns a list of all properties.
+
+    :return: The list of all properties.
+    :rtype: vrdSubstanceProperties
+
+.. py:method:: vrdSubstanceMaterial.getProperty(graphName, parameterId)
+
+    Query the value of a substance property.
+
+    :param graphName: Name of a substance graph
+    :type graphName: string
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :return: The value for this property
+    :rtype: QVariant
+
+.. py:method:: vrdSubstanceMaterial.getSyncOutputSize()
+
+    Returns the GUI hint, if the output size (width and height) should be synchronized.
+
+    :return: True, if output size should be synchronized
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.hasArchiveData()
+
+    Check if a substance archive file was successfully loaded.
+
+    :return: True, if substance archive data are available.
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.hasImage(name)
+
+    Check if a substance archive contain an image with a given name.
+
+    :param name: Name of the image
+    :type name: string
+
+    :return: True, if an image with the given name exists
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.importPresets(pathList, importForOtherGraphs)
+
+    Add presets for the given material.
+
+    :param pathList: Preset files to import
+    :type pathList: List[string]
+
+    :param importForOtherGraphs: If True, all presets are imported. If False, only presets for existing graphs are imported.
+    :type importForOtherGraphs: bool
+
+    :return: True, if imported successfully
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.isArchiveValid()
+
+    Check if a substance archive file is valid.
+
+    :return: True, if substance archive data is valid.
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.isInputVisible(dependency)
+
+    Check if input is visible.
+
+    :param dependency: Dependency
+    :type dependency: string
+
+    :return: visible state
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.loadArchive(path)
+
+    Load a substance archive to this material.
+
+    :param path: The path for the substance archive file.
+    :type path: string
+
+    :return: True, if the substance archive was successfully loaded.
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.recapturePreset(index)
+
+    Recaptures the preset.
+
+    :param index: Index of the preset to recapture
+    :type index: integer
+
+.. py:method:: vrdSubstanceMaterial.removePresets(indexes)
+
+    Remove presets from material.
+
+    :param indexes: List of indexes
+    :type indexes: List[integer]
+
+    :return: True, if presets could be removed
+    :rtype: bool
+
+.. py:method:: vrdSubstanceMaterial.reorderPresets(indexes)
+
+    Reorders the presets of a material.
+
+    :param indexes: The list of new index, e.g. [1,2,3,0] to move the first preset to the end
+    :type indexes: List[integer]
+
+.. py:method:: vrdSubstanceMaterial.resetGraph()
+
+    Resets a graph to its default state.
+
+.. py:method:: vrdSubstanceMaterial.setActiveGraphIndex(index)
+
+    Sets the index of the active graph.
+
+    :param index:
+    :type index: integer
+
+.. py:method:: vrdSubstanceMaterial.setActiveGraphProperty(parameterId, value)
+
+    Sets a substance property for the active graph.
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :param value: New value for the property
+    :type value: QVariant
+
+.. py:method:: vrdSubstanceMaterial.setProperty(graphName, parameterId, value)
+
+    Sets a substance property.
+
+    :param graphName: Name of the graph
+    :type graphName: string
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :param value: New value for the property
+    :type value: QVariant
+
+.. py:method:: vrdSubstanceMaterial.setSyncOutputSize(syncOutputSize)
+
+    Sets the GUI hint, if the output size (width and height) should be synchronized.
+
+    :param syncOutputSize: Defines if output size should be synchronized
+    :type syncOutputSize: bool
+

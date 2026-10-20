@@ -1,0 +1,88 @@
+------------------
+vrdRenderStatistic
+------------------
+
+.. py:class:: vrdRenderStatistic
+
+(Inherits vrdObject)
+
+Summary
+=======
+
+Functions:
+    * getAnimationFramesCount() → integer
+    * getRenderPassesCount() → integer
+    * getRenderPassesImagesCount() → integer
+    * getStereoImagesCount() → integer
+    * getTotalFilesCount() → integer
+    * getTotalRendersCount() → integer
+    * getVariantSetRendersCount() → integer
+    * getVariantSetsCount() → integer
+    * getViewpointsCount() → integer
+
+Functions
+=========
+
+.. py:method:: vrdRenderStatistic.getAnimationFramesCount()
+
+    Gets the count of animation frames.
+
+    :return: The count of animation frames.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getRenderPassesCount()
+
+    Gets the count of render passes.
+
+    :return: The count of render passes.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getRenderPassesImagesCount()
+
+    Gets the count of render pass images.
+
+    :return: The count of render pass images.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getStereoImagesCount()
+
+    Gets the count of stereo images.
+
+    :return: The count of stereo images.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getTotalFilesCount()
+
+    Gets the total count of files.
+
+    :return: The total count of files.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getTotalRendersCount()
+
+    Gets the total count of renders.
+
+    :return: The total count of renders.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getVariantSetRendersCount()
+
+    Gets the count of variant set renders.
+
+    :return: The count of variant set renders.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getVariantSetsCount()
+
+    Gets the count of variant sets.
+
+    :return: The count of variant sets.
+    :rtype: integer
+
+.. py:method:: vrdRenderStatistic.getViewpointsCount()
+
+    Gets the count of viewpoints.
+
+    :return: The count of viewpoints.
+    :rtype: integer
+

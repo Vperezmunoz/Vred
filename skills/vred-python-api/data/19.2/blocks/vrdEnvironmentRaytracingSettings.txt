@@ -1,0 +1,218 @@
+--------------------------------
+vrdEnvironmentRaytracingSettings
+--------------------------------
+
+.. py:class:: vrdEnvironmentRaytracingSettings
+
+(Inherits vrdSceneObject)
+
+This class is used for all environment raytracing properties.
+
+    .. py:class:: Shadowing
+
+            .. py:data:: FullSphere
+
+                FullSphere: Generates shadows based on the full environment sphere.
+
+            .. py:data:: UpperHemisphere
+
+                UpperHemisphere: Generates shadows based on the upper hemisphere of the environment.
+
+Summary
+=======
+
+Functions:
+    * getAnisotropy() → float
+    * getEmitCaustics() → bool
+    * getFilterSampledCaustics() → bool
+    * getImportanceMapQuality() → integer
+    * getInteractiveIblSamplingQuality() → integer
+    * getIsLightsource() → bool
+    * getIsVisibleInReflections() → bool
+    * getMaterialId() → integer
+    * getOverrideIblSampling() → bool
+    * getShadowingMode() → vrdEnvironmentRaytracingSettings.Shadowing
+    * getStillFrameIblSamplingQuality() → integer
+    * getUseAccurateReflections() → bool
+    * setAnisotropy(anisotropy)
+    * setEmitCaustics(value)
+    * setFilterSampledCaustics(value)
+    * setImportanceMapQuality(value)
+    * setInteractiveIblSamplingQuality(value)
+    * setIsLightsource(value)
+    * setIsVisibleInReflections(value)
+    * setMaterialId(value)
+    * setOverrideIblSampling(value)
+    * setShadowingMode(mode)
+    * setStillFrameIblSamplingQuality(value)
+    * setUseAccurateReflections(value)
+
+Functions
+=========
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getAnisotropy()
+
+    Returns the anisotropy value of the texture.
+
+    :return: The anisotropy value.
+    :rtype: float
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getEmitCaustics()
+
+    Gets enable state of the HDR to emit photon caustics.
+
+    :return: Current enable state of the HDR to emit photon caustics
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getFilterSampledCaustics()
+
+    Gets state of sample caustics.
+
+    :return: Current state of sample caustics
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getImportanceMapQuality()
+
+    Gets the quality level for the environment importance map used for IBL sampling.
+
+    :return: Quality level from 1 to 8
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getInteractiveIblSamplingQuality()
+
+    Gets the override IBL sampling quality used during interactive rendering.
+
+    :return: Quality level from 0 to 4
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getIsLightsource()
+
+    Gets the state of diffuse or glossy illumination calculation.
+
+    :return: Current state of diffuse or glossy illumination calculation
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getIsVisibleInReflections()
+
+    Gets the visibility of the environment in reflections.
+
+    :return: Current visibility of the environment in reflections
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getMaterialId()
+
+    Gets the ID of the material.
+
+    :return: CurrentID of the material
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getOverrideIblSampling()
+
+    :return: Whether IBL sampling quality override is enabled
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getShadowingMode()
+
+    Gets the shadowing mode.
+
+    :return: Current used shadowing mode
+    :rtype: vrdEnvironmentRaytracingSettings.Shadowing
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getStillFrameIblSamplingQuality()
+
+    Gets the override IBL sampling quality used during still-frame rendering.
+
+    :return: Quality level from 0 to 4
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.getUseAccurateReflections()
+
+    Gets state of the real environment geometry usage.
+
+    :return: Current state of the real environment geometry usage
+    :rtype: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setAnisotropy(anisotropy)
+
+    Sets the anisotropy value of the texture.
+
+    :param anisotropy: The anisotropy value.
+    :type anisotropy: float
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setEmitCaustics(value)
+
+    Enables the HDR to emit photon caustics. Only supported in Full Global Illumination mode with caustics (Photon Tracing mode 'Caustics + Indirect').
+
+    :param value: New enable state of the HDR to emit photon caustics
+    :type value: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setFilterSampledCaustics(value)
+
+    If enabled the maximum energy from caustic ray paths is limited to avoid excessive noise. If disabled caustics caused by the environment are accurately sampled.
+
+    :param value: New state of sample caustics
+    :type value: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setImportanceMapQuality(value)
+
+    Sets the quality level for the environment importance map used for IBL sampling. The quality level is a scaling factor for the resolution of the importance map. Higher value require more memory.
+
+    :param value: New quality level from 1 to 8. Default 1
+    :type value: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setInteractiveIblSamplingQuality(value)
+
+    Sets the override IBL sampling quality used during interactive rendering.
+
+    :param value: New quality level from 0 to 4. Default 1
+    :type value: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setIsLightsource(value)
+
+    Does not calculate diffuse or glossy illumination, when disabled. Only one visible environment should have this enabled otherwise, VRED won't know which environment to use as a light source.
+
+    :param value: State of diffuse or glossy illumination calculation
+    :type value: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setIsVisibleInReflections(value)
+
+    Toggles the visibility of the environment in reflections.
+
+    :param value: New visibility of the environment in reflections
+    :type value: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setMaterialId(value)
+
+    Sets the ID of the material for Renderpasses rendering.
+
+    :param value: New ID of the material
+    :type value: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setOverrideIblSampling(value)
+
+    Enables overriding the global IBL sampling quality for sampling the environment map during interactive or still frame rendering.
+
+    :param value: True to enable override
+    :type value: bool
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setShadowingMode(mode)
+
+    Sets the shadowing mode to use for environment shadows in the Illumination Mode "Precomputed + Shadows", shadows on the Shadow Material and shadow lightsources generated for the environment.
+
+    :param mode: New shadowing mode
+    :type mode: vrdEnvironmentRaytracingSettings.Shadowing
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setStillFrameIblSamplingQuality(value)
+
+    Sets the override IBL sampling quality used during still-frame rendering.
+
+    :param value: New quality level from 0 to 4. Default 1
+    :type value: integer
+
+.. py:method:: vrdEnvironmentRaytracingSettings.setUseAccurateReflections(value)
+
+    Uses the real environment geometry, when enabled, for more accurate diffuse and glossy illumination in Precomputed+IBL and Full Global Illumination Mode (at the cost of a 20 to 25 percent performance hit compared to the default finite sphere environment). It is disabled by default, so all diffuse and glossy reflection calculations are based on the virtual sphere of the environment.
+
+    :param value: New state of the real environment geometry usage
+    :type value: bool
+

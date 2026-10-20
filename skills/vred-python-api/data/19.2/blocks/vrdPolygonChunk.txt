@@ -1,0 +1,202 @@
+---------------
+vrdPolygonChunk
+---------------
+
+.. py:class:: vrdPolygonChunk
+
+(Inherits vrdMaterialChunk)
+
+This class represents a polygon chunk.
+
+    .. py:class:: CullFace
+
+            .. py:data:: None_
+               :no-index:
+
+            .. py:data:: Front
+
+            .. py:data:: Back
+
+            .. py:data:: FrontAndBack
+
+    .. py:class:: FrontFace
+
+            .. py:data:: Clockwise
+
+            .. py:data:: Counterclockwise
+
+    .. py:class:: FillMode
+
+            .. py:data:: Point
+
+            .. py:data:: Line
+               :no-index:
+
+            .. py:data:: Filled
+
+Summary
+=======
+
+Functions:
+    * getBackMode() → vrdPolygonChunk.FillMode
+    * getCullFace() → vrdPolygonChunk.CullFace
+    * getFrontFace() → vrdPolygonChunk.FrontFace
+    * getFrontMode() → vrdPolygonChunk.FillMode
+    * getOffsetBias() → float
+    * getOffsetFactor() → float
+    * getOffsetFill() → bool
+    * getOffsetLine() → bool
+    * getOffsetPoint() → bool
+    * getSmoothing() → bool
+    * setBackMode(fillMode)
+    * setCullFace(cullFace)
+    * setFrontFace(frontFace)
+    * setFrontMode(fillMode)
+    * setOffsetBias(offsetBias)
+    * setOffsetFactor(offsetFactor)
+    * setOffsetFill(offsetFill)
+    * setOffsetLine(offsetLine)
+    * setOffsetPoint(offsetPoint)
+    * setSmoothing(smoothing)
+
+Functions
+=========
+
+.. py:method:: vrdPolygonChunk.getBackMode()
+
+    Returns if polygon back sides are rendered filled (default), outlined or as points.
+
+    :return: The back mode.
+    :rtype: vrdPolygonChunk.FillMode
+
+.. py:method:: vrdPolygonChunk.getCullFace()
+
+    Returns which side of the polygon is invisible. Set to None to not cull anything.
+
+    :return: The cull face.
+    :rtype: vrdPolygonChunk.CullFace
+
+.. py:method:: vrdPolygonChunk.getFrontFace()
+
+    Returns which side of the polygon is considered the front side, defaults to Counterclockwise.
+
+    :return: The front face.
+    :rtype: vrdPolygonChunk.FrontFace
+
+.. py:method:: vrdPolygonChunk.getFrontMode()
+
+    :return: The fill mode for polygon front sides.
+    :rtype: vrdPolygonChunk.FillMode
+
+.. py:method:: vrdPolygonChunk.getOffsetBias()
+
+    Defines the offset bias.
+
+    :return: The offset bias.
+    :rtype: float
+
+.. py:method:: vrdPolygonChunk.getOffsetFactor()
+
+    Returns the offset factor.
+
+    :return: The offset factor.
+    :rtype: float
+
+.. py:method:: vrdPolygonChunk.getOffsetFill()
+
+    Returns if offsetting for polygons is enabled.
+
+    :return: True if offsetting is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPolygonChunk.getOffsetLine()
+
+    Returns if offsetting for lines is enabled.
+
+    :return: True if offsetting is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPolygonChunk.getOffsetPoint()
+
+    Returns if offsetting for points is enabled.
+
+    :return: True if offsetting is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPolygonChunk.getSmoothing()
+
+    Returns if polygon antialiasing is used.
+
+    :return: True if smoothing is used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPolygonChunk.setBackMode(fillMode)
+
+    Defines if polygon back sides are rendered filled (default), outlined or as points.
+
+    :param fillMode: The fill mode
+    :type fillMode: vrdPolygonChunk.FillMode
+
+.. py:method:: vrdPolygonChunk.setCullFace(cullFace)
+
+    Defines which side of the polygon is invisible. Set to None to not cull anything.
+
+    :param cullFace: The cull face
+    :type cullFace: vrdPolygonChunk.CullFace
+
+.. py:method:: vrdPolygonChunk.setFrontFace(frontFace)
+
+    Defines which side of the polygon is considered the front side, defaults to Counterclockwise.
+
+    :param frontFace: The front face
+    :type frontFace: vrdPolygonChunk.FrontFace
+
+.. py:method:: vrdPolygonChunk.setFrontMode(fillMode)
+
+    Defines if polygon front sides are rendered filled (default), outlined or as points.
+
+    :param fillMode: The fill mode
+    :type fillMode: vrdPolygonChunk.FillMode
+
+.. py:method:: vrdPolygonChunk.setOffsetBias(offsetBias)
+
+    Returns the offset bias.
+
+    :param offsetBias: The offset bias
+    :type offsetBias: float
+
+.. py:method:: vrdPolygonChunk.setOffsetFactor(offsetFactor)
+
+    Defines the offset factor.
+
+    :param offsetFactor: The offset factor
+    :type offsetFactor: float
+
+.. py:method:: vrdPolygonChunk.setOffsetFill(offsetFill)
+
+    Enables offsetting for polygons.
+
+    :param offsetFill: True to turn on offsetting, False to turn it off.
+    :type offsetFill: bool
+
+.. py:method:: vrdPolygonChunk.setOffsetLine(offsetLine)
+
+    Enables offsetting for lines.
+
+    :param offsetLine: True to enable offsetting, False otherwise.
+    :type offsetLine: bool
+
+.. py:method:: vrdPolygonChunk.setOffsetPoint(offsetPoint)
+
+    Enables offsetting for points.
+
+    :param offsetPoint: True to enable offsetting, False to disable.
+    :type offsetPoint: bool
+
+.. py:method:: vrdPolygonChunk.setSmoothing(smoothing)
+
+    Defines if polygon antialiasing is used.
+
+    :param smoothing: True to turn on smoothing, False to turn off smoothing.
+    :type smoothing: bool
+

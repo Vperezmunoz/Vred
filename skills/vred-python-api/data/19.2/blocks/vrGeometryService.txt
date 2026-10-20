@@ -1,0 +1,361 @@
+-----------------
+vrGeometryService
+-----------------
+
+.. py:class:: vrGeometryService
+
+(Inherits vrBaseService)
+
+Interface to create and change geometries.
+
+See also     vrdGeometryNode.
+
+Summary
+=======
+
+Functions:
+    * applyTessellation(nodes, settings, preserveUVs)
+    * createBox(parent, size, resolutionX, resolutionY, resolutionZ, color) → vrdNode
+    * createCone(parent, height, radius, sides, createSide, createBottom, color) → vrdNode
+    * createCylinder(parent, height, radius, sides, showSide, showTop, showBottom, color) → vrdNode
+    * createDome(parent, baseRadius, groundRadius, latres, longres, color) → vrdNode
+    * createLine(parent, point1, point2, color) → vrdNode
+    * createPlane(parent, size, resolutionX, resolutionY, color) → vrdNode
+    * createSphere(parent, radius, latres, longres, color) → vrdNode
+    * createTorus(parent, innerRadius, outerRadius, sides, rings, color) → vrdNode
+    * getTessellationSettings(node) → vrdTessellationSettings
+    * hasBSides(root) → bool
+    * hasDegenerateTriangles(root) → bool
+    * mergeGeometry(nodes, material, visibilityMode) → List[vrdNode]
+    * mergeGeometryByMaterial(nodes, visibilityMode) → List[vrdNode]
+    * removeBSideNodes(nodes)
+    * setToBSide(nodes, enable)
+    * splitGeometry(nodes, maxPrimitives)
+    * subdivideGeometry(nodes, maxEdgeLength)
+    * subdivideGeometryPhong(nodes, iterations)
+    * unsplitFromPrimitives(nodes)
+
+Functions
+=========
+
+.. py:method:: vrGeometryService.applyTessellation(nodes, settings, preserveUVs=False)
+
+    Tessellate the given nodes.
+
+    :param nodes: The surfaces that should be tessellated
+    :type nodes: List[vrdNode]
+
+    :param settings: The tessellation settings
+    :type settings: vrdTessellationSettings
+
+    :param preserveUVs: If enabled the UV layout will be transferred from the old to the new tessellated surfaces after tessellation is finished.
+    :type preserveUVs: bool
+
+.. py:method:: vrGeometryService.createBox(parent, size, resolutionX=10, resolutionY=10, resolutionZ=10, color=QColor(0xFFFFFFFF))
+
+    Creates a box geometry.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param size: the length, width and height of the box
+    :type size: QVector3D
+
+    :param resolutionX: Number of grid points X direction
+    :type resolutionX: integer
+
+    :param resolutionY: Number of grid points Y direction
+    :type resolutionY: integer
+
+    :param resolutionZ: Number of grid points Z direction
+    :type resolutionZ: integer
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createCone(parent, height, radius, sides=20, createSide=True, createBottom=True, color=QColor(0xFFFFFFFF))
+
+    Creates a cone, or parts of it, in a given size and color.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param height: The height of the cone
+    :type height: float
+
+    :param radius: The bottom radius of the cone
+    :type radius: float
+
+    :param sides: The number of elements the side consists of
+    :type sides: integer
+
+    :param createSide: Creation of side geometry
+    :type createSide: bool
+
+    :param createBottom: Creation of bottom geometry
+    :type createBottom: bool
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createCylinder(parent, height, radius, sides=20, showSide=True, showTop=True, showBottom=True, color=QColor(0xFFFFFFFF))
+
+    Creates a cylinder geometry.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param height: The height
+    :type height: float
+
+    :param radius: The radius
+    :type radius: float
+
+    :param sides: Number of grid faces around the cylinder
+    :type sides: integer
+
+    :param showSide: Show faces on the side
+    :type showSide: bool
+
+    :param showTop: Show top face
+    :type showTop: bool
+
+    :param showBottom: Show bottom face
+    :type showBottom: bool
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createDome(parent, baseRadius, groundRadius, latres=64, longres=64, color=QColor(0xFFFFFFFF))
+
+    Creates a dome with a given size and color.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param baseRadius: The radius of the dome half sphere
+    :type baseRadius: float
+
+    :param groundRadius: Controls the transition from the flat ground to the half sphere
+    :type groundRadius: float
+
+    :param latres: The lateral resolution (subdivisions) of the dome
+    :type latres: integer
+
+    :param longres: The longitudinal resolution (subdivisions) of the dome
+    :type longres: integer
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createLine(parent, point1, point2, color=QColor(0xFFFFFFFF))
+
+    Creates a line geometry.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param point1: The starting point
+    :type point1: QVector3D
+
+    :param point2: The end point
+    :type point2: QVector3D
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createPlane(parent, size, resolutionX=10, resolutionY=10, color=QColor(0xFFFFFFFF))
+
+    Creates a plane geometry.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param size: the length and width of the plane
+    :type size: QVector2D
+
+    :param resolutionX: Number of grid points X direction
+    :type resolutionX: integer
+
+    :param resolutionY: Number of grid points Y direction
+    :type resolutionY: integer
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createSphere(parent, radius, latres=50, longres=50, color=QColor(0xFFFFFFFF))
+
+    Creates a sphere with a given size and color.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param radius: The radius of the sphere
+    :type radius: float
+
+    :param latres: The lateral resolution (subdivision) of the sphere
+    :type latres: integer
+
+    :param longres: The longitudinal resolution (subdivision) of the sphere
+    :type longres: integer
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.createTorus(parent, innerRadius, outerRadius, sides=32, rings=32, color=QColor(0xFFFFFFFF))
+
+    Creates a torus with a given size and color.
+
+    :param parent: The parent node for the new geometry
+    :type parent: vrdNode
+
+    :param innerRadius: The inner radius of the torus
+    :type innerRadius: integer
+
+    :param outerRadius: The outer radius of the torus
+    :type outerRadius: integer
+
+    :param sides: Number of sides
+    :type sides: integer
+
+    :param rings: Number of rings
+    :type rings: integer
+
+    :param color: A new material with this color is created and assigned to the geometry
+    :type color: QColor
+
+    :return: The created geometry node
+    :rtype: vrdNode
+
+.. py:method:: vrGeometryService.getTessellationSettings(node=vrdNode())
+
+    Get tessellation settings from node or from parent nodes.
+
+    :param node: Search for settings in this node
+    :type node: vrdNode
+
+    :return: The found settings
+    :rtype: vrdTessellationSettings
+
+.. py:method:: vrGeometryService.hasBSides(root=vrdNode())
+
+    Check, if there are geometries with B-Sides in the given tree.
+
+    :param root: The tree to search. If empty, search the show scene graph
+    :type root: vrdNode
+
+    :return: True, if B-Sides found
+    :rtype: bool
+
+.. py:method:: vrGeometryService.hasDegenerateTriangles(root)
+
+    :param root: root node of a sub tree
+    :type root: vrdNode
+
+    :return: True, if given tree contains geometry with degenerate triangles
+    :rtype: bool
+
+.. py:method:: vrGeometryService.mergeGeometry(nodes, material, visibilityMode=vrGeometryTypes.VisibilityMergeMode.MergeByVisibility)
+
+    Merges the given geometries into one geometry.
+
+    :param nodes: The nodes to be merged
+    :type nodes: List[vrdNode]
+
+    :param material: This material is applied to the merged geometry
+    :type material: vrdMaterial
+
+    :param visibilityMode: Defines, how different visibilities are handled
+    :type visibilityMode: vrGeometryTypes.VisibilityMergeMode
+
+    :return: On success, the merged nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrGeometryService.mergeGeometryByMaterial(nodes, visibilityMode=vrGeometryTypes.VisibilityMergeMode.MergeByVisibility)
+
+    Merges the given geometries into one geometry for each material.
+
+    :param nodes: The nodes to be merged
+    :type nodes: List[vrdNode]
+
+    :param visibilityMode: Defines, how different visibilities are handled
+    :type visibilityMode: vrGeometryTypes.VisibilityMergeMode
+
+    :return: On success, the merged nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrGeometryService.removeBSideNodes(nodes)
+
+    Remove all nodes with B-Sides in the given trees.
+
+    :param nodes: A list of nodes to be searched for B-Side nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrGeometryService.setToBSide(nodes, enable)
+
+    Enables or disables the BSide mode for the given nodes.
+
+    :param nodes: A list of nodes be to processed
+    :type nodes: List[vrdNode]
+
+    :param enable: If True, b side is enabled
+    :type enable: bool
+
+.. py:method:: vrGeometryService.splitGeometry(nodes, maxPrimitives=1)
+
+    Split the given geometries into multiple geometries.
+
+    :param nodes: The nodes to be split
+    :type nodes: List[vrdNode]
+
+    :param maxPrimitives: Split into nodes with a maximum of this primitives
+    :type maxPrimitives: integer
+
+.. py:method:: vrGeometryService.subdivideGeometry(nodes, maxEdgeLength)
+
+    Subdivide meshes into smaller triangles.
+
+    :param nodes: The nodes to be subdivided
+    :type nodes: List[vrdNode]
+
+    :param maxEdgeLength: Subdivide if edges are longer than this value
+    :type maxEdgeLength: float
+
+.. py:method:: vrGeometryService.subdivideGeometryPhong(nodes, iterations)
+
+    Subdivide meshes into smaller triangles using phong interpolation.
+
+    :param nodes: The nodes to be subdivided
+    :type nodes: List[vrdNode]
+
+    :param iterations: The number of iterations to run
+    :type iterations: integer
+
+.. py:method:: vrGeometryService.unsplitFromPrimitives(nodes)
+
+    Combines child geometries with one triangle into a single geometry.
+
+    :param nodes: List of parent nodes that have only geometries with one triangle as children
+    :type nodes: List[vrdNode]
+

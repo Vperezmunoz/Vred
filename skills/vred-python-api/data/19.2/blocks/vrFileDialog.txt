@@ -1,0 +1,92 @@
+MODULE vrFileDialog (legacy v1 API)
+
+------------
+vrFileDialog
+------------
+
+Contains the functionality to let the user interactively choose file or directory names.
+
+All directory names are with / as delimiters (e.g., Windows `c:/tmp` and Linux `/tmp`).
+
+The filter parameter can be a list of filters. For example:
+- Single filter: `["Windows Bitmaps (*.bmp)"]` or `["Images (*.bmp *.jpg *.tif)"]`
+- Multiple filters: `["Images (*.bmp *.jpg *.tif)", "Textdocuments (*.txt)"]`
+
+Summary
+=======
+
+Functions:
+    * getExistingDirectory(caption, directory, dirsonly=True, resolvesymlinks=False) → string
+    * getOpenFileName(caption, filename, filter) → string
+    * getOpenFileNames(caption, filename, filter) → list of strings
+    * getOpenFileNamesQt(caption, filename, filter) → list of strings
+    * getSaveFileName(caption, filename, filter, confirmOverwrite=True) → string
+
+.. function:: getExistingDirectory(caption, directory, dirsonly=True, resolvesymlinks=False) → string
+
+    Opens a file dialog and lets the user choose an existing directory.
+
+    :param caption: The caption of the file dialog.
+    :type caption: string
+    :param directory: The start directory.
+    :type directory: string
+    :param dirsonly: A flag indicating if only directories shall be shown. This parameter can be omitted (default is true).
+    :type dirsonly: bool
+    :param resolvesymlinks: A flag indicating if symbolic links (Linux only) shall be resolved. If true, the dialog will show `/var/tmp` when clicking on `/usr/tmp`. This parameter can be omitted (default is false).
+    :type resolvesymlinks: bool
+    :return: The directory the user has chosen or an empty string.
+    :rtype: string
+
+.. function:: getOpenFileName(caption, filename, filter) → string
+
+    Opens a file dialog box and lets the user choose a filename by clicking on an existing file.
+
+    :param caption: The caption of the file dialog.
+    :type caption: string
+    :param filename: The start filename/directory.
+    :type filename: string
+    :param filter: The list of file filters.
+    :type filter: list of strings
+    :return: The filename the user has chosen or an empty string.
+    :rtype: string
+
+.. function:: getOpenFileNames(caption, filename, filter) → list of strings
+
+    Opens a file dialog and lets the user choose several files by selecting them.
+
+    :param caption: The caption of the file dialog.
+    :type caption: string
+    :param filename: The start filename/directory.
+    :type filename: string
+    :param filter: The list of file filters.
+    :type filter: list of strings
+    :return: The list of filenames (or an empty list) the user has chosen.
+    :rtype: list of strings
+
+.. function:: getSaveFileName(caption, filename, filter, confirmOverwrite=True) → string
+
+    Opens a file dialog and lets the user choose a filename by clicking on an existing file or typing in a new name.
+
+    :param caption: The caption of the file dialog.
+    :type caption: string
+    :param filename: The start filename/directory.
+    :type filename: string
+    :param filter: The list of file filters.
+    :type filter: list of strings
+    :param confirmOverwrite: A flag indicating if the user shall be prompted to overwrite an existing filename. If true, the user will be prompted; otherwise, the existing filename will be returned. This parameter can be omitted (default is true).
+    :type confirmOverwrite: bool
+    :return: The filename the user has chosen or an empty string.
+    :rtype: string
+
+.. function:: getOpenFileNamesQt(caption, filename, filter) → list of strings
+
+    Opens a Qt file dialog and lets the user choose several files by selecting them.
+
+    :param caption: The caption of the file dialog.
+    :type caption: string
+    :param filename: The start filename/directory.
+    :type filename: string
+    :param filter: The list of file filters.
+    :type filter: list of strings
+    :return: The list of filenames (or an empty list) the user has chosen.
+    :rtype: list of strings

@@ -1,0 +1,140 @@
+-----------
+vrdUiEngine
+-----------
+
+.. py:class:: vrdUiEngine
+
+(Inherits vrdObject)
+
+This is the base class for engines displaying user interfaces on textures.
+
+Summary
+=======
+
+Functions:
+    * doReload()
+    * getClickThrough() → float
+    * getEnabled() → bool
+    * getHeight() → integer
+    * getMaterial() → vrdMaterial
+    * getName() → string
+    * getWidth() → integer
+    * hasFocus() → bool
+    * setClickThrough(alpha)
+    * setEnabled(state)
+    * setHeight(height)
+    * setMaterial(material)
+    * setName(name)
+    * setSize(width, height)
+    * setWidth(width)
+
+Functions
+=========
+
+.. py:method:: vrdUiEngine.doReload()
+
+    Forces a reload of the engine's content.
+
+.. py:method:: vrdUiEngine.getClickThrough()
+
+    Returns the alpha click through threshold. If the alpha value under the mouse is smaller than this threshold it will click through and navigate the scene.
+
+    :return: Floating number between 0 and 1
+    :rtype: float
+
+.. py:method:: vrdUiEngine.getEnabled()
+
+    Queries if updates are enabled.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdUiEngine.getHeight()
+
+    Returns the height of the engine.
+
+    :return: The height in pixels.
+    :rtype: integer
+
+.. py:method:: vrdUiEngine.getMaterial()
+
+    Returns the material used for rendering.
+
+    :return: The material used for rendering.
+    :rtype: vrdMaterial
+
+.. py:method:: vrdUiEngine.getName()
+
+    Returns the name of the engine.
+
+    :return: The name of the engine.
+    :rtype: string
+
+.. py:method:: vrdUiEngine.getWidth()
+
+    Returns the width of the engine.
+
+    :return: The width in pixels.
+    :rtype: integer
+
+.. py:method:: vrdUiEngine.hasFocus()
+
+    Returns if the engine currently has the input focus.
+
+    :return: True if it has focus, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdUiEngine.setClickThrough(alpha)
+
+    Sets the alpha click through threshold. If the alpha value under the mouse is smaller than this threshold it will click through and navigate the scene.
+
+    :param alpha: Floating number between 0 and 1
+    :type alpha: float
+
+.. py:method:: vrdUiEngine.setEnabled(state)
+
+    Enables / disables updates.
+
+    Setting this to False will prevent content updates.
+
+    :param state: True to enable updates, False otherwise.
+    :type state: bool
+
+.. py:method:: vrdUiEngine.setHeight(height)
+
+    Sets the height of the engine.
+
+    :param height: The height in pixels.
+    :type height: integer
+
+.. py:method:: vrdUiEngine.setMaterial(material)
+
+    Sets the material used for rendering.
+
+    :param material: The material used for rendering.
+    :type material: vrdMaterial
+
+.. py:method:: vrdUiEngine.setName(name)
+
+    Sets the name of the engine.
+
+    :param name: The name of the engine.
+    :type name: string
+
+.. py:method:: vrdUiEngine.setSize(width, height)
+
+    Sets the size of the engine.
+
+    :param width: The width in pixels.
+    :type width: integer
+
+    :param height: The height in pixels.
+    :type height: integer
+
+.. py:method:: vrdUiEngine.setWidth(width)
+
+    Sets the width of the engine.
+
+    :param width: The width in pixels.
+    :type width: integer
+

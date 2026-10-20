@@ -1,0 +1,93 @@
+MODULE vrRenderLayerModule (legacy v1 API)
+
+-------------------
+vrRenderLayerModule
+-------------------
+
+.. module:: vrRenderLayerModule
+
+Summary
+=======
+
+Functions:
+    * activateRenderLayer(name)
+    * activateRenderLayerState(name)
+    * addNodesToRenderLayer(nodes, layerName)
+    * createRenderLayer(name)
+    * resetNodeVisibilityFlags(node)
+    * resetRenderLayers()
+    * setNodeVisibilityFlags(...)
+
+.. function:: createRenderLayer(name)
+
+    Activates a render layer.
+
+    :param name: The name of the layer.
+    :type name: string
+
+.. function:: addNodesToRenderLayer(nodes, layerName)
+
+    Adds nodes to a render layer.
+
+    :param nodes: The pointers to the nodes.
+    :type nodes: vector of pointers
+    :param layerName: The name of the layer.
+    :type layerName: string
+
+.. function:: activateRenderLayer(name)
+
+    Activates a render layer.
+
+    :param name: The name of the layer.
+    :type name: string
+
+.. function:: resetRenderLayers()
+
+    Resets all activated render layers.
+
+.. function:: setNodeVisibilityFlags(node, visible, visibleInAlpha, primaryVisibility, visibleInReflections, visibleInRefractions, castShadows, receiveShadows, doubleSided, visibleForPhotons, visibleForShadowMaterial, useOverrideMaterial, overrideMaterial, cryptomatteLayer)
+
+    Sets the visibility flags and the override material for a given node and its children.
+
+    :param node: The root node.
+    :type node: NodePtr
+    :param visible: Visibility: On/Off.
+    :type visible: bool
+    :param visibleInAlpha: Visibility in alpha: On/Off.
+    :type visibleInAlpha: bool
+    :param primaryVisibility: Primary visibility: On/Off.
+    :type primaryVisibility: bool
+    :param visibleInReflections: Visibility in reflections: On/Off.
+    :type visibleInReflections: bool
+    :param visibleInRefractions: Visibility in refractions: On/Off.
+    :type visibleInRefractions: bool
+    :param castShadows: Cast shadows: On/Off.
+    :type castShadows: bool
+    :param receiveShadows: Receive shadows: On/Off.
+    :type receiveShadows: bool
+    :param doubleSided: Double sided: On/Off.
+    :type doubleSided: bool
+    :param visibleForPhotons: Visible for Photons: On/Off.
+    :type visibleForPhotons: bool
+    :param visibleForShadowMaterial: If off, the objects don't cast shadows from the IBL onto the shadow material: On/Off.
+    :type visibleForShadowMaterial: bool
+    :param useOverrideMaterial: If off, the objects don't use the override material: On/Off.
+    :type useOverrideMaterial: bool
+    :param overrideMaterial: The name of the override material, defaults to none.
+    :type overrideMaterial: string
+    :param cryptomatteLayer: The name of the cryptomatte geometry layer to use, defaults to none.
+    :type cryptomatteLayer: string
+
+.. function:: resetNodeVisibilityFlags(node)
+
+    Resets the node visibility flags for a given node and its children.
+
+    :param node: The root node.
+    :type node: NodePtr
+
+.. function:: activateRenderLayerState(name)
+
+    Activates stored node visibility states for the whole scene.
+
+    :param name: Stored name of the render layer state.
+    :type name: string

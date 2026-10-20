@@ -1,0 +1,102 @@
+---------------
+vrMetadataTypes
+---------------
+
+.. py:class:: vrMetadataTypes
+
+    .. py:class:: ChangeFlag
+
+        Enum for a description of the ways in which metadata sets have changed.
+
+            .. py:data:: SetsChanged
+
+                Sets have been added or removed.
+
+            .. py:data:: TagsChanged
+
+                Tags have changed.
+
+            .. py:data:: AssignmentsChanged
+
+                The assignment of sets has changed.
+
+            .. py:data:: AllChanged
+
+                All reasons for changes.
+
+    .. py:class:: ValueType
+
+        Enum for a description of what type of data an metadata entry contains.
+
+            .. py:data:: String
+               :no-index:
+
+            .. py:data:: Integer
+
+                Metadata entry contains a string.
+
+            .. py:data:: Float
+
+                Metadata entry contains an integer value.
+
+            .. py:data:: Boolean
+
+                Metadata entry contains a float value.
+
+            .. py:data:: Time
+
+                Metadata entry contains a boolean value.
+
+            .. py:data:: Date
+
+                Metadata entry contains a time.
+
+            .. py:data:: DateTime
+
+                Metadata entry contains a date.
+
+            .. py:data:: List
+
+                Metadata entry contains a date and a time.
+
+            .. py:data:: Tag
+
+                Metadata entry contains a list.
+
+            .. py:data:: Unknown
+               :no-index:
+
+                Metadata entry contains a tag (value VRED-Tag)
+
+    .. py:class:: ObjectType
+
+        Enum for a description of which object types can have metadata.
+
+            .. py:data:: ScenegraphNode
+
+            .. py:data:: Material
+
+            .. py:data:: Camera
+
+            .. py:data:: Light
+               :no-index:
+
+            .. py:data:: Sceneplate
+
+            .. py:data:: VariantSet
+
+            .. py:data:: All
+               :no-index:
+
+    .. py:class:: MatrixOrder
+
+        Enum for a description of the way in which matrices are stored.
+
+            .. py:data:: RowMajor
+
+                Iterate rows first.
+
+            .. py:data:: ColumnMajor
+
+                Iterate columns first.
+

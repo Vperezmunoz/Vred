@@ -1,0 +1,30 @@
+-------------------
+vrdConstraintObject
+-------------------
+
+.. py:class:: vrdConstraintObject
+
+(Inherits vrdSceneObject)
+
+Constraint objects store constraint parameters for individual scene nodes participating in constraints. Each scene node in a constraint has its own constraint object with specialized types for different constraint types.
+
+vrdConstraintObject is the base class for all constraint data containers and stores reference to scene graph nodes that participate in constraints.
+
+For constraint tree organization and general constraint management see     vrdConstraintNode and vrConstraintService.
+
+Summary
+=======
+
+Functions:
+    * getReferenceNode() → vrdNode
+
+Functions
+=========
+
+.. py:method:: vrdConstraintObject.getReferenceNode()
+
+    Returns the scene graph node that this constraint object represents.
+
+    :return: The scene node that participates in the constraint.
+    :rtype: vrdNode
+

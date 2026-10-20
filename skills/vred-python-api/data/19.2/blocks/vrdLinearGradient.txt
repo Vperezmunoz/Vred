@@ -1,0 +1,78 @@
+-----------------
+vrdLinearGradient
+-----------------
+
+.. py:class:: vrdLinearGradient
+
+(Inherits vrdSceneObject)
+
+Defines a linear gradient and evaluates it.
+
+The gradient colors are defined and evaluated in linear color space. Interpolation between two neighboring stops is done linearly as long as the mid color position is 0.5. For other values, the interpolation will be weighted with an exponential term.
+
+Summary
+=======
+
+Functions:
+    * evaluateAt(position) → QColor
+    * getImage(size, format, convertToSRgb) → QImage
+    * getLookupTable(tableSize, convertToSRgb) → List[QColor]
+    * getStops() → List[vrdLinearGradientStop]
+    * setStops(stops)
+
+Functions
+=========
+
+.. py:method:: vrdLinearGradient.evaluateAt(position)
+
+    Evaluates the gradient.
+
+    :param position: The position to evaluate at.
+    :type position: qreal
+
+    :return: The color of the gradient at given position.
+    :rtype: QColor
+
+.. py:method:: vrdLinearGradient.getImage(size, format=QImage.Format_RGB32, convertToSRgb=True)
+
+    Generates an image of the gradient.
+
+    :param size: The size of the image.
+    :type size: QSize
+
+    :param format: The format of the image.
+    :type format: QImage.Format
+
+    :param convertToSRgb: Specifies if the result will be converted to sRgb.
+    :type convertToSRgb: bool
+
+    :return: An image containing the rendered gradient.
+    :rtype: QImage
+
+.. py:method:: vrdLinearGradient.getLookupTable(tableSize, convertToSRgb)
+
+    Generates a lookup table.
+
+    :param tableSize: The size of the lookup table.
+    :type tableSize: integer
+
+    :param convertToSRgb: Specifies if the result will be converted to sRgb.
+    :type convertToSRgb: bool
+
+    :return: A lookup table of the gradients colors over it entire range.
+    :rtype: List[QColor]
+
+.. py:method:: vrdLinearGradient.getStops()
+
+    Gets the stops.
+
+    :return: The stops that define the gradient.
+    :rtype: List[vrdLinearGradientStop]
+
+.. py:method:: vrdLinearGradient.setStops(stops)
+
+    Sets the stops.
+
+    :param stops: The stops that define the gradient.
+    :type stops: List[vrdLinearGradientStop]
+

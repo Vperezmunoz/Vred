@@ -1,0 +1,130 @@
+-----------------
+vrdCarbonMaterial
+-----------------
+
+.. py:class:: vrdCarbonMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all carbon material properties.
+
+Summary
+=======
+
+Functions:
+    * getBumpTexture() → vrdBumpTexture
+    * getCarbonPattern() → vrdCarbonPattern3D
+    * getClearcoat() → vrdClearcoat
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getGlossyColor() → QVector3D
+    * getGlossyColorSpectrum() → vrSpectrum
+    * getIncandescence() → vrdIncandescence
+    * getRoughness() → float
+    * setDiffuseColor(value)
+    * setDiffuseColorSpectrum(value)
+    * setGlossyColor(value)
+    * setGlossyColorSpectrum(value)
+    * setRoughness(roughness)
+
+Functions
+=========
+
+.. py:method:: vrdCarbonMaterial.getBumpTexture()
+
+    Gets access to all properties of         vrdBumpTexture.
+
+    :return: An vrdBumpTexture object, to read and write access of alls properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdCarbonMaterial.getCarbonPattern()
+
+    Gets access to all properties of         vrdCarbonPattern3D.
+
+    :return: An vrdCarbonPattern3D object, to read and write access of alls properties.
+    :rtype: vrdCarbonPattern3D
+
+.. py:method:: vrdCarbonMaterial.getClearcoat()
+
+    Gets access to all properties of         vrdClearcoat.
+
+    :return: An vrdClearcoat object, to read and write access of alls properties.
+    :rtype: vrdClearcoat
+
+.. py:method:: vrdCarbonMaterial.getDiffuseColor()
+
+    :return: Current diffuse reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdCarbonMaterial.getDiffuseColorSpectrum()
+
+    Gets the diffuse color spectrum.
+
+    :return: The current used spectrum for diffuse color
+    :rtype: vrSpectrum
+
+.. py:method:: vrdCarbonMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdCarbonMaterial.getGlossyColor()
+
+    :return: Current glossy reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdCarbonMaterial.getGlossyColorSpectrum()
+
+    :return: The material's color spectrum for glossy reflections
+    :rtype: vrSpectrum
+
+.. py:method:: vrdCarbonMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdCarbonMaterial.getRoughness()
+
+    :return: The current value of roughness for this material.
+    :rtype: float
+
+.. py:method:: vrdCarbonMaterial.setDiffuseColor(value)
+
+    Sets the diffuse reflection color of the material.
+
+    :param value: New diffuse color.
+    :type value: QVector3D
+
+.. py:method:: vrdCarbonMaterial.setDiffuseColorSpectrum(value)
+
+    Sets the diffuse color spectrum.
+
+    :param value: New spectrum for diffuse color
+    :type value: vrSpectrum
+
+.. py:method:: vrdCarbonMaterial.setGlossyColor(value)
+
+    Sets the glossy reflection color of the material.
+
+    :param value: New glossy reflection color
+    :type value: QVector3D
+
+.. py:method:: vrdCarbonMaterial.setGlossyColorSpectrum(value)
+
+    Sets the material's color spectrum for glossy reflections.
+
+    :param value: New color spectrum
+    :type value: vrSpectrum
+
+.. py:method:: vrdCarbonMaterial.setRoughness(roughness)
+
+    Controls the sharpness of the glossy reflections. The higher the value, the rougher the microscopic structure of the surface and more diffuse the reflections. The lower the value, the glossier the material.
+
+    :param roughness: New value of roughness for this material.
+    :type roughness: float
+

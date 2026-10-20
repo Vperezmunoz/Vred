@@ -1,0 +1,126 @@
+--------------
+vrPhysicsTypes
+--------------
+
+.. py:class:: vrPhysicsTypes
+
+    .. py:class:: ColliderShape
+
+        The ColliderShape enum defines the types of physics colliders that can be added to the simulation.
+
+            .. py:data:: Invalid
+               :no-index:
+
+            .. py:data:: ConvexHull
+
+            .. py:data:: ConvexDecomp
+
+            .. py:data:: Triangles
+               :no-index:
+
+            .. py:data:: Box
+
+            .. py:data:: Plane
+
+            .. py:data:: Capsule
+
+            .. py:data:: Sphere
+               :no-index:
+
+            .. py:data:: SDF
+
+    .. py:class:: ObjectType
+       :no-index:
+
+            .. py:data:: Invalid
+               :no-index:
+
+            .. py:data:: Invalid
+               :no-index:
+
+            .. py:data:: ConvexHull
+               :no-index:
+
+            .. py:data:: ConvexHull
+               :no-index:
+
+            .. py:data:: ConvexDecomp
+               :no-index:
+
+            .. py:data:: ConvexDecomp
+               :no-index:
+
+            .. py:data:: Triangles
+               :no-index:
+
+            .. py:data:: Triangles
+               :no-index:
+
+    .. py:class:: ColliderType
+
+            .. py:data:: Invalid
+               :no-index:
+
+            .. py:data:: Dynamic
+
+            .. py:data:: Static
+
+            .. py:data:: Kinematic
+
+    .. py:class:: SolverType
+
+        The SolverType enum defines the solver algorithms used for physics constraint resolution.
+
+            .. py:data:: PGS
+
+            .. py:data:: TGS
+
+    .. py:class:: Axis
+
+        The Axis enum defines the axes used in physics calculations.
+
+            .. py:data:: X
+               :no-index:
+
+            .. py:data:: Y
+               :no-index:
+
+            .. py:data:: Z
+               :no-index:
+
+    .. py:class:: LockFlags
+
+            .. py:data:: LockNone
+
+            .. py:data:: LockLinearX
+
+            .. py:data:: LockLinearY
+
+            .. py:data:: LockLinearZ
+
+            .. py:data:: LockLinear
+
+            .. py:data:: LockAngularX
+
+            .. py:data:: LockAngularY
+
+            .. py:data:: LockAngularZ
+
+            .. py:data:: LockAngular
+
+    .. py:class:: ForceMode
+
+        The ForceMode enum defines how forces and torques are applied to physics objects. Corresponds to PhysX PxForceMode enum.
+
+        Important behavioral notes:
+
+        Force: Requires eRETAIN_ACCELERATIONS flag to work properly (auto-enabled when used)Impulse: Applied once, then forceEnabled is automatically disabled to prevent accumulationVelocityChange: Applied continuously each frame, ignoring massAcceleration: Applied continuously each frame, ignoring mass
+
+            .. py:data:: Force
+
+            .. py:data:: Impulse
+
+            .. py:data:: VelocityChange
+
+            .. py:data:: Acceleration
+

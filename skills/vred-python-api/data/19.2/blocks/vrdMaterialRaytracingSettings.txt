@@ -1,0 +1,258 @@
+-----------------------------
+vrdMaterialRaytracingSettings
+-----------------------------
+
+.. py:class:: vrdMaterialRaytracingSettings
+
+(Inherits vrdSceneObject)
+
+This class is used for all material raytracing properties.
+
+    .. py:class:: IlluminationMode
+
+            .. py:data:: Precomputed
+
+            .. py:data:: PrecomputedAndReflections
+
+            .. py:data:: PrecomputedAndShadows
+
+            .. py:data:: PrecomputedAndIBL
+
+            .. py:data:: FullGI
+
+Summary
+=======
+
+Functions:
+    * getIgnorePhotonMap() → bool
+    * getInteractiveIblSamplingQuality() → integer
+    * getInteractiveIlluminationMode() → vrdMaterialRaytracingSettings.IlluminationMode
+    * getInteractiveReflectionSamplingQuality() → integer
+    * getInteractiveTraceDepth() → integer
+    * getLineTubeRadius() → float
+    * getMaterialId() → integer
+    * getOverrideIblSampling() → bool
+    * getOverrideIllumination() → bool
+    * getOverrideReflectionSampling() → bool
+    * getOverrideTraceDepth() → bool
+    * getStillFrameIblSamplingQuality() → integer
+    * getStillFrameIlluminationMode() → vrdMaterialRaytracingSettings.IlluminationMode
+    * getStillFrameReflectionSamplingQuality() → integer
+    * getStillFrameTraceDepth() → integer
+    * getUseLocalEnvironment() → bool
+    * setIgnorePhotonMap(value)
+    * setInteractiveIblSamplingQuality(value)
+    * setInteractiveIlluminationMode(mode)
+    * setInteractiveReflectionSamplingQuality(value)
+    * setInteractiveTraceDepth(value)
+    * setLineTubeRadius(value)
+    * setMaterialId(value)
+    * setOverrideIblSampling(value)
+    * setOverrideIllumination(value)
+    * setOverrideReflectionSampling(value)
+    * setOverrideTraceDepth(value)
+    * setStillFrameIblSamplingQuality(value)
+    * setStillFrameIlluminationMode(mode)
+    * setStillFrameReflectionSamplingQuality(value)
+    * setStillFrameTraceDepth(value)
+    * setUseLocalEnvironment(value)
+
+Functions
+=========
+
+.. py:method:: vrdMaterialRaytracingSettings.getIgnorePhotonMap()
+
+    :return: True if path tracing is used on this material even when photon mapping is turned on
+    :rtype: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.getInteractiveIblSamplingQuality()
+
+    :return: Current IBL Sampling quality override for sampling the environment map for interactive rendering
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getInteractiveIlluminationMode()
+
+    :return: Current override illumination mode for interactive rendering
+    :rtype: vrdMaterialRaytracingSettings.IlluminationMode
+
+.. py:method:: vrdMaterialRaytracingSettings.getInteractiveReflectionSamplingQuality()
+
+    :return: Current sampling quality override for reflections and refractions for interactive rendering
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getInteractiveTraceDepth()
+
+    :return: Current trace depth override during interactive rendering
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getLineTubeRadius()
+
+    Gets the radius of tubes that are used to render lines with raytracing or Vulkan renderer. It is given in object space.
+
+    :return: Current radius of tubes
+    :rtype: float
+
+.. py:method:: vrdMaterialRaytracingSettings.getMaterialId()
+
+    Gets the ID of the material for Renderpasses rendering.
+
+    :return: Current ID of the material
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getOverrideIblSampling()
+
+    :return: If IBL Sampling quality override is enabled for this material
+    :rtype: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.getOverrideIllumination()
+
+    :return: If illumination mode override is enabled for this material
+    :rtype: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.getOverrideReflectionSampling()
+
+    :return: If sampling quality override for reflections and refractions is enabled for this material
+    :rtype: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.getOverrideTraceDepth()
+
+    :return: If trace depth override is enabled for this material
+    :rtype: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.getStillFrameIblSamplingQuality()
+
+    :return: Current IBL Sampling quality override for sampling the environment map for still frame rendering
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getStillFrameIlluminationMode()
+
+    :return: Current illumination mode override for for still frame rendering
+    :rtype: vrdMaterialRaytracingSettings.IlluminationMode
+
+.. py:method:: vrdMaterialRaytracingSettings.getStillFrameReflectionSamplingQuality()
+
+    :return: Current sampling quality override for reflections and refractions for still frame rendering
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getStillFrameTraceDepth()
+
+    :return: Current trace depth override during still-frame rendering
+    :rtype: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.getUseLocalEnvironment()
+
+    :return: If local environment (the environment assigned to the material, see vrdBRDFCommonSettings.getEnvironment()) is used for diffuse and glossy reflections in raytracing.
+    :rtype: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.setIgnorePhotonMap(value)
+
+    Uses path tracing on this material even when photon mapping is turned on.
+
+    :param value: New state of path tracing usage
+    :type value: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.setInteractiveIblSamplingQuality(value)
+
+    Sets the IBL Sampling quality override for sampling the environment map for interactive rendering.
+
+    :param value: Override quality from 0 to 4. Default 1
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setInteractiveIlluminationMode(mode)
+
+    Sets the override illumination mode for interactive rendering.
+
+    :param mode: Override mode
+    :type mode: vrdMaterialRaytracingSettings.IlluminationMode
+
+.. py:method:: vrdMaterialRaytracingSettings.setInteractiveReflectionSamplingQuality(value)
+
+    Sets the sampling quality override for reflections and refractions for interactive rendering.
+
+    :param value: Override quality from 0 to 4. Default 1
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setInteractiveTraceDepth(value)
+
+    Sets the trace depth override during interactive rendering.
+
+    :param value: Override depth
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setLineTubeRadius(value)
+
+    Sets the radius of tubes that are used to render lines with raytracing or Vulkan renderer. It is given in object space.
+
+    :param value: New radius of tubes
+    :type value: float
+
+.. py:method:: vrdMaterialRaytracingSettings.setMaterialId(value)
+
+    Sets the ID of the material for Renderpasses rendering.
+
+    :param value: New ID of the material
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setOverrideIblSampling(value)
+
+    Enables IBL Sampling quality override for this material in interactive and still frame rendering.
+
+    :param value: Enable override
+    :type value: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.setOverrideIllumination(value)
+
+    Enables illumination mode override for this material in interactive and still frame rendering.
+
+    :param value: Enable override
+    :type value: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.setOverrideReflectionSampling(value)
+
+    Enables sampling quality override for reflections and refractions for this material for interactive and still frame rendering.
+
+    :param value: Enable override
+    :type value: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.setOverrideTraceDepth(value)
+
+    Enables trace depth override for this material during interactive and still frame rendering.
+
+    :param value: Enable override
+    :type value: bool
+
+.. py:method:: vrdMaterialRaytracingSettings.setStillFrameIblSamplingQuality(value)
+
+    Sets the override IBL Sampling quality for sampling the environment map for still frame rendering.
+
+    :param value: Override quality from 0 to 4. Default 1
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setStillFrameIlluminationMode(mode)
+
+    Sets the override illumination mode for still frame rendering.
+
+    :param mode: Override mode
+    :type mode: vrdMaterialRaytracingSettings.IlluminationMode
+
+.. py:method:: vrdMaterialRaytracingSettings.setStillFrameReflectionSamplingQuality(value)
+
+    Sets the sampling quality override for reflections and refractions for still frame rendering.
+
+    :param value: Override quality from 0 to 4. Default 1
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setStillFrameTraceDepth(value)
+
+    Sets the trace depth override during still-frame rendering.
+
+    :param value: Override depth
+    :type value: integer
+
+.. py:method:: vrdMaterialRaytracingSettings.setUseLocalEnvironment(value)
+
+    Uses the local environment (the environment assigned to the material, see         vrdBRDFCommonSettings.getEnvironment()) for diffuse and glossy reflections in raytracing.
+
+    :param value: New state of local environment usage
+    :type value: bool
+

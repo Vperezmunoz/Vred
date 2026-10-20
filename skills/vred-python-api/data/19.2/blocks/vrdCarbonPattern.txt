@@ -1,0 +1,76 @@
+----------------
+vrdCarbonPattern
+----------------
+
+.. py:class:: vrdCarbonPattern
+
+(Inherits vrdSceneObject)
+
+This class is used for all carbon pattern properties.
+
+    .. py:class:: Type
+
+            .. py:data:: Pattern2x2
+
+            .. py:data:: Pattern3x1Staircase
+
+            .. py:data:: Pattern3x1Interweaved
+
+            .. py:data:: Pattern5x1
+
+Summary
+=======
+
+Functions:
+    * getIntensity() → float
+    * getSize() → float
+    * getType() → vrdCarbonPattern.Type
+    * setIntensity(value)
+    * setSize(value)
+    * setType(value)
+
+Functions
+=========
+
+.. py:method:: vrdCarbonPattern.getIntensity()
+
+    Gets the fissure depth intensity.
+
+    :return: The current used fissure depth intensity.
+    :rtype: float
+
+.. py:method:: vrdCarbonPattern.getSize()
+
+    Gets the carbon structure size.
+
+    :return: The current used structure size.
+    :rtype: float
+
+.. py:method:: vrdCarbonPattern.getType()
+
+    Gets the pattern used for generating the carbon material, based on the selected typically sewn carbon structures.
+
+    :return: The current used generating pattern.
+    :rtype: vrdCarbonPattern.Type
+
+.. py:method:: vrdCarbonPattern.setIntensity(value)
+
+    Sets the fissure depth intensity.
+
+    :param value: The new fissure depth intensity.
+    :type value: float
+
+.. py:method:: vrdCarbonPattern.setSize(value)
+
+    Sets the carbon structure size.
+
+    :param value: The new structure size.
+    :type value: float
+
+.. py:method:: vrdCarbonPattern.setType(value)
+
+    Sets the pattern used for generating the carbon material, based on the selected typically sewn carbon structures. Choose from 2X2, 3X1 Staircase, 3X1 Interleave, and 5X1.
+
+    :param value: The new generating pattern.
+    :type value: vrdCarbonPattern.Type
+

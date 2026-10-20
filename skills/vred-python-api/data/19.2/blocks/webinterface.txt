@@ -1,0 +1,28 @@
+Web Interface
+=============
+
+VRED provides a web interface that allows sending Python commands to VRED.
+To use it, VRED's web server must be running, for example by enabling it in VRED's
+Web Interface preferences.
+
+There are five URL endpoints for sending Python commands to VRED:
+
+**python (synchronous):**
+As soon as the command has finished, a blank webpage is returned.
+*Example:* `http://localhost:8888/python?value=getFov()`
+
+**pythonr (synchronous):**
+Same as python, but returns a webpage with true or false depending on whether the execution was successful or not.
+*Example:* `http://localhost:8888/pythonr?value=getFov()`
+
+**pythoneval (synchronous):**
+Same as python, but returns a webpage with the return value of the command.
+*Example:* `http://localhost:8888/pythoneval?value=getFov()`
+
+**pythonasync (asynchronous):**
+An empty webpage is returned immediately. The command is put into a queue and will be executed as soon as possible.
+*Example:* `http://localhost:8888/pythonasync?value=getFov()`
+
+**pythonasyncr (asynchronous):**
+Same as pythonasync, but returns a webpage with true.
+*Example:* `http://localhost:8888/pythonasyncr?value=getFov()`

@@ -1,0 +1,74 @@
+MODULE vrImagePtr (legacy v1 API)
+
+----------
+vrImagePtr
+----------
+
+See API v2 vrImageService and vrdImage.
+
+.. class:: vrImagePtr
+
+   A wrapper class for the OpenSG ImagePtr. See C{vrdImage} in API v2.
+
+   Note: This module contains global functions which are mapped to the global namespace. They can be used without creating an instance of the class.
+
+Summary
+=======
+
+Global Functions:
+    * createImage() → vrImagePtr
+
+Class Functions:
+    * fields() → vrFieldAccess
+    * getID() → unsigned int
+    * getPtr() → ImagePtr
+    * isValid() → bool
+    * read(name) → bool
+
+.. function:: createImage() → vrImagePtr
+
+    Creates an Image.
+
+    :return: A pointer to the image.
+    :rtype: vrImagePtr
+
+.. method:: getID()
+    :no-index:
+
+    Returns the image id.
+
+    :return: The id of the image.
+    :rtype: unsigned int (32bit)
+
+.. method:: getPtr()
+    :no-index:
+
+    Return the OpenSG ImagePtr.
+
+    :return: A pointer to the image.
+    :rtype: ImagePtr
+
+.. method:: isValid()
+    :no-index:
+
+    Returns true when the image is valid.
+
+    :return: Returns true when the image is valid, false otherwise.
+    :rtype: bool
+
+.. method:: read(name)
+
+    Loads an image via filename.
+
+    :param name: The name of the file.
+    :type name: string
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: fields()
+    :no-index:
+
+    Returns the field access object to get access to all fields. Take a look at the vrFieldAccess documentation to see how to manipulate the value of the fields.
+
+    :return: The field access object.
+    :rtype: vrFieldAccess

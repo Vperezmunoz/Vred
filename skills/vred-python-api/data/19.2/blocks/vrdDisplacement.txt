@@ -1,0 +1,119 @@
+---------------
+vrdDisplacement
+---------------
+
+.. py:class:: vrdDisplacement
+
+(Inherits vrdSceneObject)
+
+This class is used for displacement settings of MaterialX and MDL materials.
+
+The vrdDisplacement object is stored as a dynamic property
+(see also vrdMDLProperties, vrdMaterialXProperties) and can be queried like this:
+
+```
+
+     # Query an MDL material by name
+     mdlMat = vrMaterialService.findMaterial("MaterialName")
+     # Query the dynamic properties
+     properties = mdlMat.getProperties()
+     obj = PySide6.QtCore.QObject()
+     properties.update(obj)
+     # Get the displacement object
+     displacement = obj.property("__vred_displacement")
+     print(displacement.getBuildPrecision())
+
+    .. py:class:: SilhouetteMode
+
+            .. py:data:: NoOpenGLSilhouettes
+
+            .. py:data:: AccurateOpenGLSilhouettes
+
+Summary
+=======
+
+Functions:
+    * getBuildPrecision() → float
+    * getDisplacementEdgeLengthVulkan() → float
+    * getIntersectionPrecision() → float
+    * getSilhouetteMode() → vrdDisplacement.SilhouetteMode
+    * getValueLimit() → QVector2D
+    * setBuildPrecision(value)
+    * setDisplacementEdgeLengthVulkan(edgeLength)
+    * setIntersectionPrecision(value)
+    * setSilhouetteMode(mode)
+    * setValueLimit(range)
+
+Functions
+=========
+
+.. py:method:: vrdDisplacement.getBuildPrecision()
+
+    Gets the build precision in scene units.
+
+    :return: Current used value for the build precision
+    :rtype: float
+
+.. py:method:: vrdDisplacement.getDisplacementEdgeLengthVulkan()
+
+    Gets displacement edge length for Vulkan.
+
+    :return: Current used value for edge length
+    :rtype: float
+
+.. py:method:: vrdDisplacement.getIntersectionPrecision()
+
+    Gets the intersection precision in scene units.
+
+    :return: Current used value for the intersection precision
+    :rtype: float
+
+.. py:method:: vrdDisplacement.getSilhouetteMode()
+
+    Gets OpenGL silhouette mode.
+
+    :return: Current used silhouette mode mode
+    :rtype: vrdDisplacement.SilhouetteMode
+
+.. py:method:: vrdDisplacement.getValueLimit()
+
+    Gets the set limit of displacement values in scene units.
+
+    :return: Current used limit of displacement values
+    :rtype: QVector2D
+
+.. py:method:: vrdDisplacement.setBuildPrecision(value)
+
+    Sets the precision in scene units for evaluating the displacement function during acceleration structure build in raytracing modes. Smaller values evaluate the displacement functions more accurately but will slow down acceleration structure build. Higher values will result in faster acceleration structure builds but might cause missing peaks if the displacement map frequency is too high.
+
+    :param value: New value for the build precision
+    :type value: float
+
+.. py:method:: vrdDisplacement.setDisplacementEdgeLengthVulkan(edgeLength)
+
+    Sets displacement edge length for Vulkan.
+
+    :param edgeLength: New value for edge length
+    :type edgeLength: float
+
+.. py:method:: vrdDisplacement.setIntersectionPrecision(value)
+
+    Sets the precision in scene units for evaluating the displacement function during intersection calculations. Smaller values will take more samples during intersection and therefore result in slower tracing performance Higher values will increase tracing performance but may miss intersections if the displacement map frequency is too high.
+
+    :param value: New value for the intersection precision
+    :type value: float
+
+.. py:method:: vrdDisplacement.setSilhouetteMode(mode)
+
+    Sets OpenGL silhouette mode.
+
+    :param mode: New silhouette mode mode
+    :type mode: vrdDisplacement.SilhouetteMode
+
+.. py:method:: vrdDisplacement.setValueLimit(range)
+
+    Sets the limit of values in the displacement function in scene units for OpenGL. The range must but large enough to cover all possible values in the displacement function.
+
+    :param range: New value for the value limit for displacement values
+    :type range: QVector2D
+

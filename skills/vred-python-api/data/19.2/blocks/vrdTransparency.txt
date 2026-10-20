@@ -1,0 +1,58 @@
+---------------
+vrdTransparency
+---------------
+
+.. py:class:: vrdTransparency
+
+(Inherits vrdSceneObject)
+
+This class is used for all transparency properties.
+
+Summary
+=======
+
+Functions:
+    * getSeeThrough() → QVector3D
+    * getSeeThroughSpectrum() → vrSpectrum
+    * getTexture() → vrdTexture
+    * setSeeThrough(value)
+    * setSeeThroughSpectrum(value)
+
+Functions
+=========
+
+.. py:method:: vrdTransparency.getSeeThrough()
+
+    Gets the see through value.
+
+    :return: The current used the see through value
+    :rtype: QVector3D
+
+.. py:method:: vrdTransparency.getSeeThroughSpectrum()
+
+    Gets the see through spectrum.
+
+    :return: The current used spectrum for see through.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdTransparency.getTexture()
+
+    Gets access of all         vrdTexture properties.
+
+    :return: The embedded vrdTexture object
+    :rtype: vrdTexture
+
+.. py:method:: vrdTransparency.setSeeThrough(value)
+
+    Sets the see through value.
+
+    :param value: The new the see through value
+    :type value: QVector3D
+
+.. py:method:: vrdTransparency.setSeeThroughSpectrum(value)
+
+    Sets the see through spectrum.
+
+    :param value: New spectrum for see through
+    :type value: vrSpectrum
+

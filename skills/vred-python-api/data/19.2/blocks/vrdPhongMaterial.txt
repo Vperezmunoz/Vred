@@ -1,0 +1,162 @@
+----------------
+vrdPhongMaterial
+----------------
+
+.. py:class:: vrdPhongMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all phong material properties.
+
+Summary
+=======
+
+Functions:
+    * getBumpTexture() → vrdBumpTexture
+    * getDiffuseBackscattering() → float
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getDiffuseTexture() → vrdTexture
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getGlossyColor() → QVector3D
+    * getGlossyColorSpectrum() → vrSpectrum
+    * getGlossyTexture() → vrdTexture
+    * getIncandescence() → vrdIncandescence
+    * getRoughness() → float
+    * getRoughnessTexture() → vrdRoughnessTexture
+    * getSubsurfaceScattering() → vrdSubsurfaceScattering
+    * setDiffuseBackscattering(v)
+    * setDiffuseColor(value)
+    * setDiffuseColorSpectrum(value)
+    * setGlossyColor(value)
+    * setGlossyColorSpectrum(value)
+    * setRoughness(roughness)
+
+Functions
+=========
+
+.. py:method:: vrdPhongMaterial.getBumpTexture()
+
+    Gets access to all properties of         vrdBumpTexture.
+
+    :return: An vrdBumpTexture object, to read and write access of alls properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdPhongMaterial.getDiffuseBackscattering()
+
+    gets the value of the roughness of the material's diffuse component.
+
+    :return: Current used value of the roughness of the material's diffuse component.
+    :rtype: float
+
+.. py:method:: vrdPhongMaterial.getDiffuseColor()
+
+    :return: Current diffuse reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdPhongMaterial.getDiffuseColorSpectrum()
+
+    Gets the diffuse color spectrum.
+
+    :return: The current used spectrum for diffuse color
+    :rtype: vrSpectrum
+
+.. py:method:: vrdPhongMaterial.getDiffuseTexture()
+
+    Gets access to all properties of the diffuse texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdPhongMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdPhongMaterial.getGlossyColor()
+
+    :return: Current glossy reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdPhongMaterial.getGlossyColorSpectrum()
+
+    :return: The material's color spectrum for glossy reflections
+    :rtype: vrSpectrum
+
+.. py:method:: vrdPhongMaterial.getGlossyTexture()
+
+    Gets access to all properties of the glossy texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdPhongMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdPhongMaterial.getRoughness()
+
+    :return: The current value of roughness for this material.
+    :rtype: float
+
+.. py:method:: vrdPhongMaterial.getRoughnessTexture()
+
+    Gets access to all properties of         vrdRoughnessTexture.
+
+    :return: An vrdRoughnessTexture object, to read and write access of alls properties.
+    :rtype: vrdRoughnessTexture
+
+.. py:method:: vrdPhongMaterial.getSubsurfaceScattering()
+
+    Gets access to all properties of         vrdSubsurfaceScattering.
+
+    :return: An vrdSubsurfaceScattering object, to read and write access of alls properties.
+    :rtype: vrdSubsurfaceScattering
+
+.. py:method:: vrdPhongMaterial.setDiffuseBackscattering(v)
+
+    Defines the roughness of the material's diffuse component. A value of 0.0 means smooth (Lambertian surface). A value of 1.0 means rough (for example, concrete).
+
+    :param v: New value of the roughness of the material's diffuse component.
+    :type v: float
+
+.. py:method:: vrdPhongMaterial.setDiffuseColor(value)
+
+    Sets the diffuse reflection color of the material.
+
+    :param value: New diffuse color.
+    :type value: QVector3D
+
+.. py:method:: vrdPhongMaterial.setDiffuseColorSpectrum(value)
+
+    Sets the diffuse color spectrum.
+
+    :param value: New spectrum for diffuse color
+    :type value: vrSpectrum
+
+.. py:method:: vrdPhongMaterial.setGlossyColor(value)
+
+    Sets the glossy reflection color of the material.
+
+    :param value: New glossy reflection color
+    :type value: QVector3D
+
+.. py:method:: vrdPhongMaterial.setGlossyColorSpectrum(value)
+
+    Sets the material's color spectrum for glossy reflections.
+
+    :param value: New color spectrum
+    :type value: vrSpectrum
+
+.. py:method:: vrdPhongMaterial.setRoughness(roughness)
+
+    Controls the sharpness of the glossy reflections. The higher the value, the rougher the microscopic structure on top of the surface and the more diffuse the reflections.
+
+    :param roughness: New value of roughness for this material.
+    :type roughness: float
+

@@ -1,0 +1,63 @@
+MODULE vrTimer (legacy v1 API)
+
+-------
+vrTimer
+-------
+
+Contains the functionality to receive timer events.
+
+Summary
+=======
+
+Classes:
+    * vrTimer
+
+Functions:
+    * setInterval(interval)
+    * setSingleShot(singleshot)
+
+.. class:: vrTimer()
+.. class:: vrTimer(interval)
+    :no-index:
+.. class:: vrTimer(interval, singleshot)
+    :no-index:
+
+    The timer class is responsible to call time based functionality. To use it just create a timer object and connect the callback functionality you need.
+
+    Example::
+
+        See also example fade.py, frame.py or menu.py
+
+    The constructor of the vrTimer class. Actually there are 3 constructors for this class.
+
+        vrTimer() creates a timer callback object that fires repeatedly every render frame.
+
+        vrTimer(interval) creates a timer callback object that fires repeatedly in a defined interval.
+
+        vrTimer(interval, singleshot) creates a timer callback object that fires in a defined interval.
+
+    CAUTION: The timer loop runs synchronous with the render loop, so if your render speed goes down to a few frames per second the timers won't get called more often!
+
+    :param interval: The interval the timer should fire in seconds. 0.04 (1/25) means 25 times per seconds.
+    :type interval: float (64bit)
+
+    :param singleshot: Defines if the timer should fire only once (true) or repeatedly (false).
+    :type singleshot: bool
+
+.. method:: setInterval(interval)
+
+    Changes the timer interval.
+
+    CAUTION: If the object was a singleshot timer and has already fired you need to call addLoop to put it back into the behavior loop.
+
+    :param interval: The interval in seconds.
+    :type interval: float (64bit)
+
+.. method:: setSingleShot(singleshot)
+
+    Changes the singleshot behaviour.
+
+    CAUTION: If the object was a singleshot timer and has already fired you need to call addLoop to put it back into the behavior loop.
+
+    :param singleshot: True for a single timer event and false for repeated timer events.
+    :type singleshot: bool

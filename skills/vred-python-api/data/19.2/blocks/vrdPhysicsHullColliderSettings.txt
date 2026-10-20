@@ -1,0 +1,74 @@
+------------------------------
+vrdPhysicsHullColliderSettings
+------------------------------
+
+.. py:class:: vrdPhysicsHullColliderSettings
+
+(Inherits vrdPhysicsColliderSettings)
+
+The     vrdPhysicsHullColliderSettings class represents collider settings for PhysX convex hull colliders.
+
+Summary
+=======
+
+Functions:
+    * getMergeGeometries() → bool
+    * getPreprocessGeometry() → bool
+    * getUseBoundingBox() → bool
+    * setMergeGeometries(enable)
+    * setPreprocessGeometry(enable)
+    * setUseBoundingBox(enable)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsHullColliderSettings.getMergeGeometries()
+
+    Check if geometries are merged before creating convex hulls.
+
+    :return: True if geometries are merged, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsHullColliderSettings.getPreprocessGeometry()
+
+    Check if the geometry is preprocessed before creating the convex hull.
+
+    :return: True if the geometry is preprocessed, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsHullColliderSettings.getUseBoundingBox()
+
+    Check if the bounding box of the geometry is used to create the convex hull.
+
+    :return: True if the bounding box is used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsHullColliderSettings.setMergeGeometries(enable)
+
+    Set whether to merge geometries before creating hulls.
+
+    If this is enabled, all child geometries of the node will be merged into a single geometry before creating the hull. Otherwise a separate convex hull will be created for each child geometry.
+
+    The default value is 'true'.
+
+    :param enable: True to merge geometries, False otherwise.
+    :type enable: bool
+
+.. py:method:: vrdPhysicsHullColliderSettings.setPreprocessGeometry(enable)
+
+    Set whether to preprocess the geometry before creating the convex hull.
+
+    Preprocessing can improve the quality and performance of convex hull creation by cleaning up the geometry data.
+
+    :param enable: True to preprocess the geometry, False otherwise.
+    :type enable: bool
+
+.. py:method:: vrdPhysicsHullColliderSettings.setUseBoundingBox(enable)
+
+    Set whether to use the bounding box of the geometry to create the convex hull.
+
+    This is an optimization that can be used to speed up the creation of convex hulls. If precise hulls are not required, this can be enabled to create a convex hull that matches an object oriented bounding box of the geometry. The default value is 'false'.
+
+    :param enable: True to use the bounding box, False otherwise.
+    :type enable: bool
+

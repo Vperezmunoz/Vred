@@ -1,0 +1,28 @@
+-------------
+vrdVolumeNode
+-------------
+
+.. py:class:: vrdVolumeNode
+
+(Inherits vrdTransformNode)
+
+A node that a volume material can be assigned to.
+
+To create a visible volume in a scene, a volume material needs to be assigned to a volume node.
+
+Example:
+
+```
+
+     # Create a volume node
+     volNode = vrScenegraphService.createNode(vrScenegraphTypes.VolumeNode, name="myVolumeNode")
+
+     # create a volume scatter material
+     volMat = vrMaterialService.createMaterial("myScatterMat", vrMaterialTypes.VolumeScatter)
+
+     # ....or an OpenVDB material
+     #volMat = vrMaterialService.createMaterial("myVDBMat", vrMaterialTypes.OpenVDBVolume)
+
+     # Apply the material to the volume node
+     volNode.applyMaterial(voLMat)
+

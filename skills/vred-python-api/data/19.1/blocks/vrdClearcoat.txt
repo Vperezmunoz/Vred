@@ -1,0 +1,243 @@
+------------
+vrdClearcoat
+------------
+
+.. py:class:: vrdClearcoat
+
+(Inherits vrdSceneObject)
+
+This class is used for clearcoat properties.
+
+    .. py:class:: Type
+       :no-index:
+
+            .. py:data:: Off
+               :no-index:
+
+                Off: No clearcoat is used.
+
+            .. py:data:: Fast
+               :no-index:
+
+                Fast: Schlick approximation for the fresnel term of the clearcoat is used.
+
+            .. py:data:: Accurate
+               :no-index:
+
+                Accurate: Cook-Torrance approximation for the fresnel term of the clearcoat is used.
+
+            .. py:data:: UseRefractionIndex
+               :no-index:
+
+                UseRefractionIndex: Uses the refraction index instead of the reflectivity for the clearcoat calculation.
+
+Summary
+=======
+
+Functions:
+    * getColor() → QVector3D
+    * getColorSpectrum() → vrSpectrum
+    * getDensity() → float
+    * getOrangePeelFrequency() → float
+    * getOrangePeelIntensity() → float
+    * getReflectivity() → float
+    * getRefractionIndex() → float
+    * getRoughness() → float
+    * getThickness() → float
+    * getType() → vrdClearcoat.Type
+    * getUseOrangePeel() → bool
+    * setColor(value)
+    * setColorSpectrum(value)
+    * setDensity(value)
+    * setOrangePeelFrequency(value)
+    * setOrangePeelIntensity(value)
+    * setReflectivity(value)
+    * setRefractionIndex(value)
+    * setRoughness(value)
+    * setThickness(value)
+    * setType(value)
+    * setUseOrangePeel(value)
+    * supportsOrangePeel() → bool
+    * supportsRefractionIndex() → bool
+    * supportsThickness() → bool
+
+Functions
+=========
+
+.. py:method:: vrdClearcoat.getColor()
+
+    Gets the color of the clearcoat.
+
+    :return: Current used value of clearcoat color.
+    :rtype: QVector3D
+
+.. py:method:: vrdClearcoat.getColorSpectrum()
+
+    Gets the spectrum of the clearcoat color.
+
+    :return: The current used spectrum for clearcoat color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdClearcoat.getDensity()
+
+    Gets the density.
+
+    :return: Current used value for the density
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getOrangePeelFrequency()
+
+    Gets the bump structure's noise frequency.
+
+    :return: The current used value for the bump structure's noise frequency.
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getOrangePeelIntensity()
+
+    Gets the bump structure's intensity.
+
+    :return: The current used bump structure's intensity
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getReflectivity()
+
+    Gets value of clearcoat reflective intensity.
+
+    :return: Current value of clearcoat reflective intensity.
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getRefractionIndex()
+
+    Gets value of clearcoat refraction index.
+
+    :return: Current value of clearcoat refraction index.
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getRoughness()
+
+    Gets value of clearcoat roughness.
+
+    :return: Current value of clearcoat roughness.
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getThickness()
+
+    Gets the thickness of the clearcoat layer.
+
+    :return: Current used value for the thickness
+    :rtype: float
+
+.. py:method:: vrdClearcoat.getType()
+
+    Get the value of clearcoat type.
+
+    :return: Current value of clearcoat type.
+    :rtype: vrdClearcoat.Type
+
+.. py:method:: vrdClearcoat.getUseOrangePeel()
+
+    Query the state of activation of a noisy bump structure in the shader.
+
+    :return: Current state of activation of a noisy bump structure in the shader.
+    :rtype: bool
+
+.. py:method:: vrdClearcoat.setColor(value)
+
+    Sets the color of the clearcoat.
+
+    :param value: New value of clearcoat color.
+    :type value: QVector3D
+
+.. py:method:: vrdClearcoat.setColorSpectrum(value)
+
+    Sets the spectrum of the clearcoat color.
+
+    :param value: New spectrum for clearcoat color
+    :type value: vrSpectrum
+
+.. py:method:: vrdClearcoat.setDensity(value)
+
+    Sets the density A value of 0 will use the clearcoat color as reflection color. A value larger than 0 will use the clearcoat color to tint the refraction of the clearcoat depending on the thickness and density settings.
+
+    :param value: New value for the density
+    :type value: float
+
+.. py:method:: vrdClearcoat.setOrangePeelFrequency(value)
+
+    Sets the bump structure's noise frequency. The higher the value, the closer together the orange peel bump.
+
+    :param value: The new value for the bump structure's noise frequency.
+    :type value: float
+
+.. py:method:: vrdClearcoat.setOrangePeelIntensity(value)
+
+    Sets the bump structure's intensity. The higher the value, the more visible the orange peel and less smooth the clearcoat surface.
+
+    :param value: The new bump structure's intensity
+    :type value: float
+
+.. py:method:: vrdClearcoat.setReflectivity(value)
+
+    Sets the clearcoat reflective intensity. It defines the amount of light reflected at normal incidence. The higher the value, the more reflective the surface.
+
+    :param value: New value for clearcoat reflective intensity.
+    :type value: float
+
+.. py:method:: vrdClearcoat.setRefractionIndex(value)
+
+    Sets the clearcoat index of refraction.
+
+    :param value: New value for clearcoat refraction index.
+    :type value: float
+
+.. py:method:: vrdClearcoat.setRoughness(value)
+
+    Controls the sharpness of the clearcoat reflections. The higher the value, the rougher the microscopic structure of the surface and more diffuse the reflections. The lower the value, the glossier the material. A value of 0 creates mirror reflections.
+
+    :param value: New value for clearcoat roughness.
+    :type value: float
+
+.. py:method:: vrdClearcoat.setThickness(value)
+
+    Sets the thickness of the clearcoat layer. A value of 0 will use the clearcoat color as reflection color. A value larger than 0 will use the clearcoat color to tint the refraction of the clearcoat depending on the thickness and density settings.
+
+    :param value: New value for the thickness
+    :type value: float
+
+.. py:method:: vrdClearcoat.setType(value)
+
+    Defines the computation method for the clearcoat. Depending on the material the following options can be available:
+
+    Off: No clearcoat is used.
+
+    Fast: Schlick approximation for the fresnel term of the clearcoat is used.
+
+    Accurate: Cook-Torrance approximation for the fresnel term of the clearcoat is used.
+
+    UseRefractionIndex: Uses the refraction index instead of the reflectivity for the clearcoat calculation.
+
+    :param value: New value of clearcoat type.
+    :type value: vrdClearcoat.Type
+
+.. py:method:: vrdClearcoat.setUseOrangePeel(value)
+
+    Activates a noisy bump structure in the shader.
+
+    :param value: New state of activation of a noisy bump structure in the shader.
+    :type value: bool
+
+.. py:method:: vrdClearcoat.supportsOrangePeel()
+
+    :return: True if orange peel properties can be changed for this clearcoat, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdClearcoat.supportsRefractionIndex()
+
+    :return: True if type vrdClearcoat::Type::UseRefractionIndex and refraction index property are supported for this clearcoat, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdClearcoat.supportsThickness()
+
+    :return: True if thickness and density properties can be changed for this clearcoat, False otherwise
+    :rtype: bool
+

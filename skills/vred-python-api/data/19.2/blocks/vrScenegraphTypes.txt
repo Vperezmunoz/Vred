@@ -1,0 +1,172 @@
+-----------------
+vrScenegraphTypes
+-----------------
+
+.. py:class:: vrScenegraphTypes
+
+    .. py:class:: UnshareOption
+
+        Options for unsharing cloned nodes in the Scenegraph.
+
+            .. py:data:: UnshareAll
+
+                Breaks all clone connections in the subtree.
+
+            .. py:data:: KeepLocalClones
+
+                Breaks all clone connections from nodes in the subtree to other parts of the Scenegraph. Keeps clone connections within the subtree.
+
+            .. py:data:: KeepGlobalClones
+
+                Breaks the clone connection of the selected node and of implicitly shared children. Shared children that have explicit clone connections to other nodes (inside or outside the subtree) are not unshared.
+
+    .. py:class:: DuplicateOption
+
+        Options for how to handle clones nodes inside the duplicated tree.
+
+            .. py:data:: DuplicateAll
+
+                Duplicate node without keeping any clone structure in its hierarchy.
+
+            .. py:data:: DuplicateKeepLocalClones
+
+                Duplicate node and keep the inner clone structure in its hierarchy.
+
+            .. py:data:: DuplicateKeepClones
+
+                Duplicate node and in its hierarchy keep inner clone structure as well as clone connections to other parts of the Scenegraph.
+
+    .. py:class:: Action
+
+            .. py:data:: Rename
+
+            .. py:data:: Convert
+
+            .. py:data:: ShowHide
+
+            .. py:data:: SetSide
+
+            .. py:data:: AddSubChild
+
+            .. py:data:: MoveTo
+
+            .. py:data:: ApplyMaterial
+
+            .. py:data:: Delete
+
+            .. py:data:: RemoveSelected
+
+            .. py:data:: Cut
+
+            .. py:data:: Paste
+
+            .. py:data:: Clone
+
+            .. py:data:: Unshare
+
+            .. py:data:: ReloadFile
+
+            .. py:data:: ReplaceFile
+
+            .. py:data:: Tessellate
+
+            .. py:data:: ShellFromSelection
+
+            .. py:data:: EditGeometry
+
+            .. py:data:: Edit
+
+            .. py:data:: ChangeTransformation
+
+            .. py:data:: ChangeSwitchChoice
+
+            .. py:data:: ChangeAnimation
+
+            .. py:data:: EditLightProperties
+
+            .. py:data:: SwitchLightOnOff
+
+            .. py:data:: ChangeGeometryNormals
+
+            .. py:data:: ChangeGeometryAO
+
+            .. py:data:: ChangeGeometryTextureCoords
+
+            .. py:data:: CameraNavigation
+
+            .. py:data:: EditCameraProperties
+
+            .. py:data:: ModifyAsset
+
+    .. py:class:: ChangeFlag
+       :no-index:
+
+            .. py:data:: GraphChanged
+               :no-index:
+
+            .. py:data:: NodeChanged
+               :no-index:
+
+            .. py:data:: MetadataChanged
+               :no-index:
+
+            .. py:data:: AllChanged
+               :no-index:
+
+    .. py:class:: NodeType
+
+            .. py:data:: BillboardNode
+
+            .. py:data:: ClipPlaneNode
+
+            .. py:data:: DistanceLODNode
+
+            .. py:data:: TransformNode
+
+            .. py:data:: HostSwitchNode
+
+            .. py:data:: MaterialNode
+
+            .. py:data:: MatrixTransformNode
+
+            .. py:data:: ShellNode
+
+            .. py:data:: SurfaceNode
+
+            .. py:data:: SoundNode
+
+            .. py:data:: SoundObstructorNode
+
+            .. py:data:: StereoSwitchNode
+
+            .. py:data:: SwitchNode
+
+            .. py:data:: VolumeNode
+
+            .. py:data:: PointCloudNode
+
+    .. py:class:: VolumeType
+
+            .. py:data:: Scatter
+
+            .. py:data:: OpenVDB
+               :no-index:
+
+    .. py:class:: MirrorMode
+
+            .. py:data:: MirrorNone
+
+            .. py:data:: MirrorX
+
+            .. py:data:: MirrorY
+
+            .. py:data:: MirrorZ
+
+            .. py:data:: MirrorXY
+
+            .. py:data:: MirrorXZ
+
+            .. py:data:: MirrorYZ
+
+            .. py:data:: MirrorXYZ
+

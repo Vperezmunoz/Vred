@@ -1,0 +1,57 @@
+----------------------
+vrdVarjoRenderSettings
+----------------------
+
+.. py:class:: vrdVarjoRenderSettings
+
+(Inherits vrdData)
+
+Holds render settings for Varjo HMD. Changes to these settings take effect on next activation of Varjo HMD mode.
+
+Use it like this:
+
+```
+
+     varjoSettings = vrHMDService.getVarjoRenderSettings()
+     # change settings, e.g.
+     varjoSettings.setUseNativeFoveatedRendering(True)
+     vrHMDService.setVarjoRenderSettings(varjoSettings)
+
+Summary
+=======
+
+Functions:
+    * getUseNativeFoveatedRendering() → bool
+    * setUseNativeFoveatedRendering(on)
+    * vrdVarjoRenderSettings()
+    * vrdVarjoRenderSettings(state)
+
+Functions
+=========
+
+.. py:method:: vrdVarjoRenderSettings.getUseNativeFoveatedRendering()
+
+    Return if native Varjo foveated rendering is used.
+
+    :return: On/Off
+    :rtype: bool
+
+.. py:method:: vrdVarjoRenderSettings.setUseNativeFoveatedRendering(on)
+
+    Toggle native Varjo foveated rendering. In this mode the viewport that is moved by the gaze is rendered in a higher resolution than the the peripheral viewport to improve rendering performance.
+
+    :param on: On (True), Off (False)
+    :type on: bool
+
+.. py:method:: vrdVarjoRenderSettings.vrdVarjoRenderSettings()
+
+    Default constructor.
+
+.. py:method:: vrdVarjoRenderSettings.vrdVarjoRenderSettings(state)
+   :no-index:
+
+    Copy constructor.
+
+    :param state:
+    :type state: vrdVarjoRenderSettings
+

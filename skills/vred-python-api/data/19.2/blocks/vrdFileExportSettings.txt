@@ -1,0 +1,626 @@
+---------------------
+vrdFileExportSettings
+---------------------
+
+.. py:class:: vrdFileExportSettings
+
+(Inherits vrdData)
+
+    .. py:class:: SurfaceExportMode
+
+        Keeps surfaces as surfaces, converts surfaces to a mesh, or excludes all surfaces.
+
+            .. py:data:: Surface
+
+                Keeps surfaces as surfaces.
+
+            .. py:data:: Mesh
+
+                Converts surfaces to a mesh.
+
+            .. py:data:: Both
+
+                Converts surfaces to a mesh and a surface.
+
+            .. py:data:: None_
+               :no-index:
+
+                Excludes all surfaces.
+
+Summary
+=======
+
+Functions:
+    * getExportAnimationClips() → bool
+    * getExportAnimationCurves() → bool
+    * getExportAnnotations() → bool
+    * getExportCameras() → bool
+    * getExportColors() → bool
+    * getExportConstraints() → bool
+    * getExportEnvironmentGeometries() → bool
+    * getExportGeometrySwitches() → bool
+    * getExportInvisibleData() → bool
+    * getExportLightmaps() → bool
+    * getExportLights() → bool
+    * getExportMaterialSwitches() → bool
+    * getExportMeshes() → bool
+    * getExportMetadata() → bool
+    * getExportPhysics() → bool
+    * getExportSceneplates() → bool
+    * getExportScripts() → bool
+    * getExportSurfaces() → SurfaceExportMode
+    * getExportTouchSensors() → bool
+    * getExportTransformVariants() → bool
+    * getExportVariants() → bool
+    * getExportVariantSets() → bool
+    * getExportVertexColors() → bool
+    * getFbxFormat() → integer
+    * getFbxVersionId() → integer
+    * getInlineTextures() → bool
+    * getKeepDefaultCameras() → bool
+    * getKeepEmptyGeometryNodes() → bool
+    * getKeepEmptyGroupNodes() → bool
+    * getKeepEmptyMaterialGroupNodes() → bool
+    * getKeepEmptyShellNodes() → bool
+    * getKeepUnusedMaterials() → bool
+    * getRemoveBSides() → bool
+    * getStlFormat() → integer
+    * getTextureCompressionMode() → vrFileTypes.TextureCompressionMode
+    * getTextureCompressionQuality() → integer
+    * setExportAnimationClips(enable)
+    * setExportAnimationCurves(enable)
+    * setExportAnnotations(enable)
+    * setExportCameras(enable)
+    * setExportColors(enable)
+    * setExportConstraints(enable)
+    * setExportEnvironmentGeometries(enable)
+    * setExportGeometrySwitches(enable)
+    * setExportInvisibleData(enable)
+    * setExportLightmaps(enable)
+    * setExportLights(enable)
+    * setExportMaterialSwitches(enable)
+    * setExportMeshes(enable)
+    * setExportMetadata(enable)
+    * setExportPhysics(enable)
+    * setExportSceneplates(enable)
+    * setExportScripts(enable)
+    * setExportSurfaces(mode)
+    * setExportTouchSensors(enable)
+    * setExportTransformVariants(enable)
+    * setExportVariants(enable)
+    * setExportVariantSets(enable)
+    * setExportVertexColors(enable)
+    * setFbxFormat(format)
+    * setFbxVersionId(id)
+    * setInlineTextures(enable)
+    * setKeepDefaultCameras(enable)
+    * setKeepEmptyGeometryNodes(keep)
+    * setKeepEmptyGroupNodes(keep)
+    * setKeepEmptyMaterialGroupNodes(keep)
+    * setKeepEmptyShellNodes(keep)
+    * setKeepUnusedMaterials(keep)
+    * setRemoveBSides(enable)
+    * setStlFormat(format)
+    * setTextureCompressionMode(mode)
+    * setTextureCompressionQuality(quality)
+    * vrdFileExportSettings()
+    * vrdFileExportSettings(other)
+    * ~vrdFileExportSettings()
+
+Functions
+=========
+
+.. py:method:: vrdFileExportSettings.getExportAnimationClips()
+
+    Check if it is allowed to export animation clips.
+
+    :return: The present state of animation clip export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportAnimationCurves()
+
+    Check if it is allowed to export animation curves.
+
+    :return: The present state of animation curve export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportAnnotations()
+
+    Check if it is allowed to export annotations.
+
+    :return: The present state of annotation export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportCameras()
+
+    Check if it is allowed to export cameras.
+
+    :return: The present state of camera export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportColors()
+
+    Check if it is allowed to export colors.
+
+    :return: The present state of color export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportConstraints()
+
+    Check if it is allowed to export constraints.
+
+    :return: The present state of constraint export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportEnvironmentGeometries()
+
+    Check if it is allowed to export environment geometries.
+
+    :return: The present state of environment geometry export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportGeometrySwitches()
+
+    Check if it is allowed to export geometry switches.
+
+    :return: The present state of geometry switch export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportInvisibleData()
+
+    Check if it is allowed to export invisible data.
+
+    :return: The present state of invisible data export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportLightmaps()
+
+    Check if it is allowed to export lightmaps.
+
+    :return: The present state of lightmap export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportLights()
+
+    Check if it is allowed to export lights.
+
+    :return: The present state of light export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportMaterialSwitches()
+
+    Check if it is allowed to export material switches.
+
+    :return: The present state of material switch export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportMeshes()
+
+    Check if it is allowed to export meshes.
+
+    :return: The present state of mesh export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportMetadata()
+
+    Check if it is allowed to export metadata.
+
+    :return: The present state of metadata export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportPhysics()
+
+    Check if it is allowed to export physics.
+
+    :return: The present state of physics export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportSceneplates()
+
+    Check if it is allowed to export sceneplates.
+
+    :return: The present state of sceneplate export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportScripts()
+
+    Check if it is allowed to export scripts.
+
+    :return: The present state of script export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportSurfaces()
+
+    Check if it is allowed to export surfaces.
+
+    :return: The present state of surface export
+    :rtype: SurfaceExportMode
+
+.. py:method:: vrdFileExportSettings.getExportTouchSensors()
+
+    Check if it is allowed to export touch sensors.
+
+    :return: The present state of touch sensor export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportTransformVariants()
+
+    Check if it is allowed to export transform variants.
+
+    :return: The present state of transform variant export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportVariants()
+
+    Check if it is allowed to export variants.
+
+    :return: The present state of variant export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportVariantSets()
+
+    Check if it is allowed to export variant sets with their different geometry and material switches.
+
+    :return: The present state of variant set export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getExportVertexColors()
+
+    Check if it is allowed to export vertex colors.
+
+    :return: The present state of vertex color export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getFbxFormat()
+
+    Query the FBX format.
+
+    :return: The present used FBX format
+    :rtype: integer
+
+.. py:method:: vrdFileExportSettings.getFbxVersionId()
+
+    Query the used FBX version id.
+
+    :return: The present used FBX version id
+    :rtype: integer
+
+.. py:method:: vrdFileExportSettings.getInlineTextures()
+
+    Query if textures in exported files will be inlined.
+
+    :return: The present state of inline texture clearance
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getKeepDefaultCameras()
+
+    Check if default cameras should be included when exporting cameras.
+
+    :return: The present state of default camera export
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getKeepEmptyGeometryNodes()
+
+    Query how empty geometries are handled.
+
+    :return: The present state of empty geometry export handling
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getKeepEmptyGroupNodes()
+
+    Query how empty groups are handled.
+
+    :return: The present state of empty group export handling
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getKeepEmptyMaterialGroupNodes()
+
+    Query how empty material groups are handled.
+
+    :return: The present state of empty material group export handling
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getKeepEmptyShellNodes()
+
+    Query how empty shells are handled.
+
+    :return: The present state of empty shell export handling
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getKeepUnusedMaterials()
+
+    Query how unused materials are handled. Keeps material group nodes that contain no child nodes.
+
+    :return: The present state of unused material export handling
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getRemoveBSides()
+
+    Check if it is allowed to remove all B sides.
+
+    :return: The present state of B-Side remove clearance
+    :rtype: bool
+
+.. py:method:: vrdFileExportSettings.getStlFormat()
+
+    Query the used STL format.
+
+    :return: The present used STL format
+    :rtype: integer
+
+.. py:method:: vrdFileExportSettings.getTextureCompressionMode()
+
+    :return: The present texture compression state
+    :rtype: vrFileTypes.TextureCompressionMode
+
+.. py:method:: vrdFileExportSettings.getTextureCompressionQuality()
+
+    :return: The present texture compression quality
+    :rtype: integer
+
+.. py:method:: vrdFileExportSettings.setExportAnimationClips(enable)
+
+    Allows to export animation clips.
+
+    :param enable: The new state of animation clip export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportAnimationCurves(enable)
+
+    Allows to export animation curves.
+
+    :param enable: The new state of animation curve export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportAnnotations(enable)
+
+    Allows to export annotations.
+
+    :param enable: The new state of annotation export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportCameras(enable)
+
+    Allows to export cameras.
+
+    :param enable: The new state of camera export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportColors(enable)
+
+    Allows to export colors on polygon mesh segments.
+
+    :param enable: The new state of color export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportConstraints(enable)
+
+    Allows to export constraints.
+
+    :param enable: The new state of constraint export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportEnvironmentGeometries(enable)
+
+    Allows to export environment geometries.
+
+    :param enable: The new state of environment geometry export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportGeometrySwitches(enable)
+
+    Allows to export geometry switches If geometry switches are not enabled, this could affect variants and variant sets.
+
+    :param enable: The new state of geometry switch export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportInvisibleData(enable)
+
+    Export invisible nodes as visible nodes (true) or remove all invisible nodes from export (false).
+
+    :param enable: The new state of invisible data export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportLightmaps(enable)
+
+    Allows to export lightmaps. Depending on the resolution, lightmaps can be very large, in terms of the amount of data.
+
+    :param enable: The new state of lightmap export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportLights(enable)
+
+    Allows to export lights.
+
+    :param enable: The new state of light export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportMaterialSwitches(enable)
+
+    Allows to export material switches If material switches are not enabled, this could affect variants and variant sets.
+
+    :param enable: The new state of material switch export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportMeshes(enable)
+
+    Allows to export meshes.
+
+    :param enable: The new state of mesh export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportMetadata(enable)
+
+    Allows to export metadata.
+
+    :param enable: The new state of metadata export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportPhysics(enable)
+
+    Allows to export physics.
+
+    :param enable: The new state of physics export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportSceneplates(enable)
+
+    Allows to export sceneplates.
+
+    :param enable: The new state of sceneplate export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportScripts(enable)
+
+    Allows to export scripts.
+
+    :param enable: The new state of script export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportSurfaces(mode)
+
+    Allows to export surfaces.
+
+    :param mode:
+    :type mode: SurfaceExportMode
+
+.. py:method:: vrdFileExportSettings.setExportTouchSensors(enable)
+
+    Allows to export touch sensors.
+
+    :param enable: The new state of touch sensor export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportTransformVariants(enable)
+
+    Allows to export transform variants.
+
+    :param enable: The new state of transform variant export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportVariants(enable)
+
+    Allows to export variants.
+
+    :param enable: The new state of variant export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportVariantSets(enable)
+
+    Allows to export variant sets.
+
+    :param enable: The new state of variant set export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setExportVertexColors(enable)
+
+    Keeps existing red, green, and blue values stored for each vertex in the model.
+
+    :param enable: The new state of vertex color export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setFbxFormat(format)
+
+    Set the FBX format 0: Binary 1: ASCII.
+
+    :param format: The new FBX format
+    :type format: integer
+
+.. py:method:: vrdFileExportSettings.setFbxVersionId(id)
+
+    Set the FBX version id 0: FBX 2020 2019: FBX 2019 2018: FBX 2018 2016: FBX 2016/2017 2014: FBX 2014/2015 2013: FBX 2013 2012: FBX 2012 2011: FBX 2011.
+
+    :param id: The new FBX version id
+    :type id: integer
+
+.. py:method:: vrdFileExportSettings.setInlineTextures(enable)
+
+    Embeds the texture data in the geometry file. When disabled, texture images are stored in separate files that are referenced in the geometry file.
+
+    :param enable: New state of inline texture clearance
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setKeepDefaultCameras(enable)
+
+    Include default cameras when exporting cameras, i.e., this setting only has an effect if cameras are exported.
+
+    :param enable: The new state of default camera export
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setKeepEmptyGeometryNodes(keep)
+
+    Keeps geometry nodes containing no polygons in exported data.
+
+    :param keep: The new state of empty geometry export handling
+    :type keep: bool
+
+.. py:method:: vrdFileExportSettings.setKeepEmptyGroupNodes(keep)
+
+    Keeps empty groups in exported data.
+
+    :param keep: The new state of empty group export handling
+    :type keep: bool
+
+.. py:method:: vrdFileExportSettings.setKeepEmptyMaterialGroupNodes(keep)
+
+    Keeps empty material groups in exported data.
+
+    :param keep: The new state of empty material group export handling
+    :type keep: bool
+
+.. py:method:: vrdFileExportSettings.setKeepEmptyShellNodes(keep)
+
+    Keeps empty shell nodes without children in exported data.
+
+    :param keep: The new state of empty shell export handling
+    :type keep: bool
+
+.. py:method:: vrdFileExportSettings.setKeepUnusedMaterials(keep)
+
+    Keeps unused materials in exported data. A large number of unused materials can increase the amount of data.
+
+    :param keep: The new state of unused material export handling
+    :type keep: bool
+
+.. py:method:: vrdFileExportSettings.setRemoveBSides(enable)
+
+    A B-Side definition is comparable with the No Show feature in CAD software. When enabled, this removes all shapes and components set as a B-Side.
+
+    :param enable: The new state of B-Side remove clearance
+    :type enable: bool
+
+.. py:method:: vrdFileExportSettings.setStlFormat(format)
+
+    Set the used STL format 0: Binary 1: ASCII.
+
+    :param format: The new STL format
+    :type format: integer
+
+.. py:method:: vrdFileExportSettings.setTextureCompressionMode(mode)
+
+    Sets the texture compression mode for osb and vpb file formats. Using 'Lossy' will take the compression quality into account.
+
+    :param mode: New texture compression mode
+    :type mode: vrFileTypes.TextureCompressionMode
+
+.. py:method:: vrdFileExportSettings.setTextureCompressionQuality(quality)
+
+    Sets the texture compression quality for the lossy compression mode. The value will be clamped to the range 1 .. 100.
+
+    :param quality: New texture compression quality
+    :type quality: integer
+
+.. py:method:: vrdFileExportSettings.vrdFileExportSettings()
+
+    Create an empty         vrdFileExportSettings object.
+
+.. py:method:: vrdFileExportSettings.vrdFileExportSettings(other)
+   :no-index:
+
+    Create a copy of another         vrdFileExportSettings object.
+
+    :param other: The template object, we will copy from
+    :type other: vrdFileExportSettings
+
+.. py:method:: vrdFileExportSettings.~vrdFileExportSettings()
+

@@ -1,0 +1,253 @@
+---------------
+vrUserMimeTypes
+---------------
+
+.. py:class:: vrUserMimeTypes
+
+Contains constants for all user accessible MIME types. Provides methods for extracting and interpreting their data.
+
+    .. py:class:: DataType
+
+        Type of the MIME data.
+
+            .. py:data:: Invalid
+
+            .. py:data:: String
+
+            .. py:data:: VrdObject
+
+            .. py:data:: Custom
+               :no-index:
+
+            .. py:data:: Any
+
+Summary
+=======
+
+Functions:
+    * decode(data, type) → QVariant
+    * decodeObjects(data, type) → List[vrdObject]
+    * decodeStrings(data, type) → List[string]
+    * findType(types, dataType) → string
+    * findTypes(types, dataType) → List[string]
+    * getDataType(type) → DataType
+    * getTypes(dataType) → List[string]
+    * hasDataType(type, dataType) → bool
+
+Instance Variables:
+    * metadataTag → string
+    * assetDirectory → string
+    * materialAssetUuid → string
+    * environmentAssetUuid → string
+    * sceneplateAssetUuid → string
+    * geometryAssetUuid → string
+    * metadataAssetUuid → string
+    * vrdViewpointNode → string
+    * vrdMaterial → string
+    * vrdMetadataEntry → string
+    * scenegraphTreeNode → string
+    * cameraTreeNode → string
+    * lightTreeNode → string
+    * materialTreeNode → string
+    * sceneplateTreeNode → string
+    * annotationTreeNode → string
+    * metadataTreeObject → string
+    * materialEntryId → string
+
+Functions
+=========
+
+.. py:method:: vrUserMimeTypes.decode(data, type)
+
+    Decodes arbitrary instances from given MIME data.
+
+    :param data: The MIME data to decode from.
+    :type data: QMimeData
+
+    :param type: The MIME type to query.
+    :type type: string
+
+    :return: A QVariant holding a list with the decoded instances.
+    :rtype: QVariant
+
+.. py:method:: vrUserMimeTypes.decodeObjects(data, type)
+
+    Decodes         vrdObject instances from given MIME data.
+
+    :param data: The MIME data to decode from.
+    :type data: QMimeData
+
+    :param type: The MIME type to query.
+    :type type: string
+
+    :return: A list with the decoded vrdObject instances.
+    :rtype: List[vrdObject]
+
+.. py:method:: vrUserMimeTypes.decodeStrings(data, type)
+
+    Decodes QString instances from given MIME data.
+
+    :param data: The MIME data to decode from.
+    :type data: QMimeData
+
+    :param type: The MIME type to query.
+    :type type: string
+
+    :return: A list with the decoded QString instances.
+    :rtype: List[string]
+
+.. py:method:: vrUserMimeTypes.findType(types, dataType)
+
+    Searches given MIME types for the first type with given data type.
+
+    :param types: The MIME types to be searched.
+    :type types: List[string]
+
+    :param dataType: The desired data type.
+    :type dataType: DataType
+
+    :return: The first MIME type that has given data type.
+    :rtype: string
+
+.. py:method:: vrUserMimeTypes.findTypes(types, dataType)
+
+    Searches given MIME types for all types with given data type.
+
+    :param types: The MIME types to be searched.
+    :type types: List[string]
+
+    :param dataType: The desired data type.
+    :type dataType: DataType
+
+    :return: The MIME types that have given data type.
+    :rtype: List[string]
+
+.. py:method:: vrUserMimeTypes.getDataType(type)
+
+    Gets the data type of a MIME type.
+
+    :param type: The MIME type to query.
+    :type type: string
+
+    :return: The data type of the given MIME type.
+    :rtype: DataType
+
+.. py:method:: vrUserMimeTypes.getTypes(dataType=DataType.Any)
+
+    Gets the MIME types which have the given data type.
+
+    :param dataType: The data type to query.
+    :type dataType: DataType
+
+    :return: A list with the MIME type strings.
+    :rtype: List[string]
+
+.. py:method:: vrUserMimeTypes.hasDataType(type, dataType)
+
+    Tells if the given MIME type has given data type.
+
+    :param type: The MIME type to query.
+    :type type: string
+
+    :param dataType: The data type to query.
+    :type dataType: DataType
+
+    :return: True, if the MIME type has given data type.
+    :rtype: bool
+
+Instance Variables
+==================
+
+.. py:attribute:: metadataTag
+    :type: string
+
+    A metadata tag. Data type: string.
+
+.. py:attribute:: assetDirectory
+    :type: string
+
+    A comma-separated list of directories for assets. Data type: string.
+
+.. py:attribute:: materialAssetUuid
+    :type: string
+
+    A UUID for of a material asset. Data type: string.
+
+.. py:attribute:: environmentAssetUuid
+    :type: string
+
+    A UUID for of an environment asset. Data type: string.
+
+.. py:attribute:: sceneplateAssetUuid
+    :type: string
+
+    A UUID for of a sceneplate asset. Data type: string.
+
+.. py:attribute:: geometryAssetUuid
+    :type: string
+
+    A UUID for of a geometry asset. Data type: string.
+
+.. py:attribute:: metadataAssetUuid
+    :type: string
+
+    A UUID for of a metadata asset. Data type: string.
+
+.. py:attribute:: vrdViewpointNode
+    :type: string
+    :no-index:
+
+    A generic viewpoint node. Data type:         vrdViewpointNode or descendant types.
+
+.. py:attribute:: vrdMaterial
+    :type: string
+    :no-index:
+
+    A material. Data type:         vrdMaterial or descendant types.
+
+.. py:attribute:: vrdMetadataEntry
+    :type: string
+    :no-index:
+
+    A metadata entry. Data type:         vrdMetadataEntry or descendant types.
+
+.. py:attribute:: scenegraphTreeNode
+    :type: string
+
+    A node in the scenegraph tree. Data type:         vrdNode (for groups) or descendant types (for others, e.g. vrdGeometryNode).
+
+.. py:attribute:: cameraTreeNode
+    :type: string
+
+    A node in the camera tree. Data type:         vrdNode (for groups) or descendant types (for others, e.g. vrdCameraNode).
+
+.. py:attribute:: lightTreeNode
+    :type: string
+
+    A node in the light tree. Data type:         vrdNode (for groups) or descendant types (for others, e.g. vrdPointLightNode).
+
+.. py:attribute:: materialTreeNode
+    :type: string
+
+    A node in the material tree. Data type:         vrdNode (for groups) or descendant types (for others, e.g. vrdMaterialNode).
+
+.. py:attribute:: sceneplateTreeNode
+    :type: string
+
+    A node in the sceneplate tree. Data type:         vrdNode (for groups) or descendant types (for others, e.g. vrdSceneplateNode).
+
+.. py:attribute:: annotationTreeNode
+    :type: string
+
+    A node in the annotation tree. Data type:         vrdNode (for groups) or descendant types (for others, e.g. vrdAnnotationNode).
+
+.. py:attribute:: metadataTreeObject
+    :type: string
+
+    An object in the metadata tree. Data type:         vrdMetadataSet (for sets), vrdNode or descendant types (for nodes with metadata sets), vrdMaterial or descendant types (for materials with metadata sets).
+
+.. py:attribute:: materialEntryId
+    :type: string
+
+    A material entry ID. Data type:         vrMaterialEntryId.
+

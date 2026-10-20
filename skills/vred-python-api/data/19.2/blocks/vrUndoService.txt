@@ -1,0 +1,146 @@
+-------------
+vrUndoService
+-------------
+
+.. py:class:: vrUndoService
+
+(Inherits vrBaseService)
+
+Service that provides access to undo / redo functionality.
+
+This service provides access to VREDs undo stack. Properties of vrd objects will automatically generate an undo command when their setter is called. To record those commands, vrUndoService.beginUndo() has to be called first. After all the properties that should be undoable have been modified, vrUndoService.endUndo() must be called to stop command recording.
+
+Example:
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     vrUndoService.beginUndo()
+     try:
+         cam.setFov(10)
+         cam.setNearClippingDistance(10)
+         cam.setFarClippingDistance(100)
+     finally:
+         vrUndoService.endUndo()
+
+This will enable undo for the three changed properties (fov, nearClippingDistance, farClippingDistance). The result can be observed by opening the Undo/Redo History GUI in VRED: there are three commands on the undo stack, one for each property.
+
+It is possible to join those three commands together so that they are all undoable together in a single undo step by using a multi command to join them.
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     vrUndoService.beginUndo()
+     vrUndoService.beginMultiCommand("testcommand")
+
+     try:
+         cam.setFov(10)
+         cam.setNearClippingDistance(10)
+         cam.setFarClippingDistance(100)
+     finally:
+         vrUndoService.endMultiCommand()
+         vrUndoService.endUndo()
+
+By looking again at the Undo/Redo History, there should be a single entry called 'testcommand' for all three properties.
+
+The user has to make sure that there is no dangling state at the end of his commands. One way to achieve this is using the try statement with a finally keyword to make sure that the end function of the multi command is always called, as shown in the examples above.
+
+Summary
+=======
+
+Functions:
+    * beginBlockUndo()
+    * beginMultiCommand(name, mergeEnabled)
+    * beginUndo()
+    * clear()
+    * endBlockUndo()
+    * endMultiCommand()
+    * endUndo()
+    * redo()
+    * undo()
+    * undoAndPop()
+    * undoBlocked() → bool
+    * undoEnabled() → bool
+
+Signals:
+    * cleared()
+
+Functions
+=========
+
+.. py:method:: vrUndoService.beginBlockUndo()
+
+    Prefix call. Temporarily blocks undo for all the commands that are created between beginBlockUndo and endBlockUndo.
+
+.. py:method:: vrUndoService.beginMultiCommand(name, mergeEnabled=True)
+
+    Prefix call. Used to wrap subsequent undo-able service calls to one grouped command.
+
+            Note:
+            - The wrapped service calls need to be undo-able.
+            - A multi command is not automatically added to the undo history. If the command is added
+                to the undo stack while undo/redo is not enabled, it will be executed but
+                not be added to the undo history.
+            To wrap begin with beginMultiCommand call and end with endMultiCommand call.
+
+    :param name: The name of the multicommand.
+    :type name: string
+
+    :param mergeEnabled: True if merging of commands should be enabled, False otherwise.
+    :type mergeEnabled: bool
+
+.. py:method:: vrUndoService.beginUndo()
+
+    Prefix call. Enables undo for all commands that are added to the undo stack.
+
+    Commands will be added separately to the undo stack. To group commands you can either group them but creating own multi commands or by calling begin/endMultiCommand. Make sure to always call the corresponding "endUndo" method to define the block of undoable calls
+
+.. py:method:: vrUndoService.clear()
+
+    Clears the undo stack.
+
+.. py:method:: vrUndoService.endBlockUndo()
+
+    Suffix call to         vrUndoService.beginBlockUndo().
+
+.. py:method:: vrUndoService.endMultiCommand()
+
+    Suffix call to beginMultiCommand.
+
+.. py:method:: vrUndoService.endUndo()
+
+    Suffix call to         vrUndoService.beginUndo(). Note: To temporarily block undo, you can also use beginBlockUndo, endBlockUndo.
+
+.. py:method:: vrUndoService.redo()
+
+    Redo the next command on the undo stack.
+
+.. py:method:: vrUndoService.undo()
+
+    Undo the last command on the undo stack.
+
+.. py:method:: vrUndoService.undoAndPop()
+
+    Undo the last command and remove it from the undo stack.
+
+.. py:method:: vrUndoService.undoBlocked()
+
+    Indicates if undo is currently blocked.
+
+    :return: true if undo is blocked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrUndoService.undoEnabled()
+
+    Indicates if undo is currently active. This means,         vrUndoService.beginUndo() has been called.
+
+    :return: true if undo is enabled, false otherwise.
+    :rtype: bool
+
+Signals
+=======
+
+.. py:method:: vrUndoService.cleared()
+
+    This signal is emitted when the undo stack was cleared.
+

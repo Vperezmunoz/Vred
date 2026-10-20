@@ -1,0 +1,1846 @@
+-----------------
+vrdRenderSettings
+-----------------
+
+.. py:class:: vrdRenderSettings
+
+(Inherits vrdObject)
+
+Encapsulates the render settings.
+
+Summary
+=======
+
+Functions:
+    * addVariantSetGroup(groupName) → vrdRenderAutomationVariantSetGroup
+    * canVariantSetViewpointBeUsed() → bool
+    * clearVariantSetGroups()
+    * findVariantSetGroup(name) → vrdRenderAutomationVariantSetGroup
+    * getAaThresholdQuality() → vrRenderSettingsTypes.AAthresholdQuality
+    * getAllowShaderExecutionReordering() → bool
+    * getAnimationClip() → string
+    * getAnimationFormat() → vrRenderSettingsTypes.AnimationFormat
+    * getAnimationFps() → integer
+    * getAnimationFrameStep() → integer
+    * getAnimationInfo() → vrdRenderAnimationInfo
+    * getAnimationStartFrame() → integer
+    * getAnimationStopFrame() → integer
+    * getAnimationType() → vrRenderSettingsTypes.AnimationType
+    * getAutomaticPhotonMapUpdate() → bool
+    * getBackgroundColor() → QVector3D
+    * getBrdfMode() → vrRenderSettingsTypes.BRDFMode
+    * getClampValue() → float
+    * getDenoiseAlpha() → bool
+    * getDenoiserInput() → vrRenderSettingsTypes.DenoiserInput
+    * getDenoiserMode() → vrRenderSettingsTypes.DenoiserMode
+    * getDenoiserType() → vrRenderSettingsTypes.DenoiserType
+    * getDisplayLuminance() → float
+    * getEnableCostVisualization() → bool
+    * getEnableNURBSRaytracing() → bool
+    * getEnablePhotometricParameters() → bool
+    * getEnableSpectralRaytracing() → bool
+    * getExportAlphaChannel() → bool
+    * getExportExrHalf() → bool
+    * getExportMultiLayerImageForRenderpasses() → bool
+    * getExportTiffInHDR() → bool
+    * getFilename() → string
+    * getFinalGatherRadius() → float
+    * getGlobalVolumeMaxQuality() → integer
+    * getHeight() → integer
+    * getIccProfile() → vrRenderSettingsTypes.ICCProfile
+    * getIgnoreOverrideIblSampling() → bool
+    * getIgnoreOverrideIllumination() → bool
+    * getIgnoreOverrideReflectionSampling() → bool
+    * getIgnoreOverrideTraceDepth() → bool
+    * getIlluminant() → vrRenderSettingsTypes.Illuminant
+    * getImageSamples() → integer
+    * getImageSamplingMode() → vrRenderSettingsTypes.ImageSamplingMode
+    * getIndirectPhotonRadius() → float
+    * getInteractiveFinalGatherQuality() → integer
+    * getInteractiveIblSamplingQuality() → integer
+    * getInteractiveIlluminationMode() → vrRenderSettingsTypes.IlluminationMode
+    * getInteractivePhotonCount() → integer
+    * getInteractiveReflectionSamplingQuality() → integer
+    * getInteractiveTextureSharpness() → float
+    * getInteractiveTraceDepth() → integer
+    * getInteractiveVolumeScatterDepth() → integer
+    * getKeepUndenoisedImage() → bool
+    * getLightOptimizationMode() → bool
+    * getMetaDataFlags() → vrRenderSettingsTypes.MetaDataFlags
+    * getPhotonLookupCount() → integer
+    * getPhotonMapRefreshMode() → vrRenderSettingsTypes.PhotonMapRefreshMode
+    * getPhotonMode() → vrRenderSettingsTypes.PhotonMode
+    * getPhotonTraceDepth() → integer
+    * getPixelFilterHeight() → float
+    * getPixelFilterType() → vrRenderSettingsTypes.PixelFilterType
+    * getPixelFilterWidth() → float
+    * getPixelHeight() → float
+    * getPixelWidth() → float
+    * getPremultiplyAlpha() → bool
+    * getPrintingHeight() → float
+    * getPrintingResolution() → float
+    * getPrintingWidth() → float
+    * getRaytracedAmbientOcclusionSettings() → vrdRaytracedAmbientOcclusionSettings
+    * getRaytracedDiffuseGISettings() → vrdRaytracedDiffuseGISettings
+    * getRaytracedEnvironmentShadowsSettings() → vrdRaytracedEnvironmentShadowsSettings
+    * getRaytracedReflectionsSettings() → vrdRaytracedReflectionsSettings
+    * getRealtimeEnvironmentShadowsMode() → vrRenderSettingsTypes.RealtimeEnvironmentShadowsMode
+    * getRegionEndX() → integer
+    * getRegionEndY() → integer
+    * getRegionStartX() → integer
+    * getRegionStartY() → integer
+    * getRenderAnimation() → bool
+    * getRenderingColorspace() → vrRenderSettingsTypes.RenderingColorSpace
+    * getRenderPasses() → vrdRenderPasses
+    * getRenderTimeLimit() → integer
+    * getSampleOffset() → integer
+    * getScreenSpaceAmbientOcclusionSettings() → vrdScreenSpaceAmbientOcclusionSettings
+    * getStillFrameFinalGatherQuality() → integer
+    * getStillFrameIblSamplingQuality() → integer
+    * getStillFrameIlluminationMode() → vrRenderSettingsTypes.IlluminationMode
+    * getStillFramePhotonCount() → integer
+    * getStillFrameReflectionSamplingQuality() → integer
+    * getStillFrameTextureSharpness() → float
+    * getStillFrameTraceDepth() → integer
+    * getStillFrameVolumeScatterDepth() → integer
+    * getTonemapHDR() → bool
+    * getTransparencyMode() → vrRenderSettingsTypes.TransparencyMode
+    * getUpdateRenderSamplesThreshold() → integer
+    * getUseAnimationClipRange() → bool
+    * getUseAutomaticPhotonRadius() → bool
+    * getUseClamping() → bool
+    * getUseCurrentView() → bool
+    * getUseFinalGatherForGlossy() → bool
+    * getUseInfiniteRendering() → bool
+    * getUseRaySplitting() → bool
+    * getUseRaytracedReflections() → bool
+    * getUseRealtimeEnvironmentShadows() → bool
+    * getUseRenderRegion() → bool
+    * getUseRenderTimeLimit() → bool
+    * getUseScreenSpaceRefractions() → bool
+    * getUseSupersampling() → bool
+    * getUseTimeStamp() → bool
+    * getUseTwoSampleImportanceSampling() → bool
+    * getUseVariantSets() → bool
+    * getUseVariantSetViewpoints() → bool
+    * getVariantSetGroups() → List[vrdRenderAutomationVariantSetGroup]
+    * getView() → vrdNode
+    * getVolumeEvaluationMode() → vrRenderSettingsTypes.VolumeEvaluationMode
+    * getWidth() → integer
+    * isCameraTrackUsed() → bool
+    * isExportingToCameraTrackDirectory() → bool
+    * isExportingVariantSetViewpoints() → bool
+    * isMovie() → bool
+    * removeVariantSetGroup(groupName) → bool
+    * reorderVariantSetGroups(groupNames) → bool
+    * setAaThresholdQuality(aaThresholdQuality)
+    * setAllowShaderExecutionReordering(allowShaderExecutionReordering)
+    * setAnimationClip(clip)
+    * setAnimationFormat(animationFormat)
+    * setAnimationFps(fps)
+    * setAnimationFrameStep(stepFrame)
+    * setAnimationStartFrame(startFrame)
+    * setAnimationStopFrame(stopFrame)
+    * setAnimationType(animationType)
+    * setAutomaticPhotonMapUpdate(autoUpdate)
+    * setBackgroundColor(backgroundColor)
+    * setBrdfMode(brdfMode)
+    * setClampValue(clampValue)
+    * setDenoiseAlpha(denoiseAlpha)
+    * setDenoiserInput(denoiserInput)
+    * setDenoiserMode(denoiseFilter)
+    * setDenoiserType(denoiserType)
+    * setDisplayLuminance(displayLuminance)
+    * setEnableCostVisualization(enableCostVisualization)
+    * setEnableNURBSRaytracing(nurbsMode)
+    * setEnablePhotometricParameters(enablePhotometricParameters)
+    * setEnablePhotometricParametersWithoutValueAdjustment(enablePhotometricParameters)
+    * setEnableSpectralRaytracing(enableSpectralRaytracing)
+    * setExportAlphaChannel(alpha)
+    * setExportExrHalf(exrHalf)
+    * setExportMultiLayerImageForRenderpasses(multiLayer)
+    * setExportTiffInHDR(tiffHDR)
+    * setFilename(filename)
+    * setFinalGatherRadius(finalGatherRadius)
+    * setGlobalVolumeMaxQuality(globalVolumeQuality)
+    * setIccProfile(iccProfile)
+    * setIgnoreOverrideIblSampling(ignoreOverrideIblSampling)
+    * setIgnoreOverrideIllumination(ignoreOverrideIllumination)
+    * setIgnoreOverrideReflectionSampling(ignoreOverrideReflectionSampling)
+    * setIgnoreOverrideTraceDepth(ignoreOverrideTraceDepth)
+    * setIlluminant(illuminant)
+    * setImageSamples(imageSamples)
+    * setImageSamplingMode(imageSamplingMode)
+    * setIndirectPhotonRadius(indirectPhotonRadius)
+    * setInteractiveFinalGatherQuality(interactiveFinalGatherQuality)
+    * setInteractiveIblSamplingQuality(samplingQuality)
+    * setInteractiveIlluminationMode(interactiveIlluminationMode)
+    * setInteractivePhotonCount(interactivePhotonCount)
+    * setInteractiveReflectionSamplingQuality(interactiveQuality)
+    * setInteractiveTextureSharpness(interactiveTextureSharpness)
+    * setInteractiveTraceDepth(traceDepth)
+    * setInteractiveVolumeScatterDepth(interactiveVolumeScatterDepth)
+    * setKeepUndenoisedImage(keepUndenoisedImage)
+    * setLightOptimizationMode(lightOptimizationMode)
+    * setMetaDataFlags(metaDataFlags)
+    * setPhotonLookupCount(photonLookupCount)
+    * setPhotonMapRefreshMode(photonMapRefreshMode)
+    * setPhotonMode(photonMode)
+    * setPhotonTraceDepth(photonTraceDepth)
+    * setPixelFilterHeight(filterHeight)
+    * setPixelFilterType(filterType)
+    * setPixelFilterWidth(filterWidth)
+    * setPixelHeight(pixelHeight)
+    * setPixelWidth(pixelWidth)
+    * setPremultiplyAlpha(premultiplyAlpha)
+    * setPrintingHeight(printHeight)
+    * setPrintingResolution(ppi)
+    * setPrintingWidth(printingWidth)
+    * setRealtimeEnvironmentShadowsMode(mode)
+    * setRegionEndX(regionEndX)
+    * setRegionEndY(regionEndY)
+    * setRegionStartX(regionStartX)
+    * setRegionStartY(regionStartY)
+    * setRenderAnimation(renderAnimation)
+    * setRenderingColorspace(renderingColorspace)
+    * setRenderPasses(renderPasses)
+    * setRenderTimeLimit(timeLimit)
+    * setSampleOffset(sampleOffset)
+    * setStillFrameFinalGatherQuality(stillFrameFinalGatherQuality)
+    * setStillFrameIblSamplingQuality(samplingQuality)
+    * setStillFrameIlluminationMode(stillFrameIlluminationMode)
+    * setStillFramePhotonCount(stillFramePhotonCount)
+    * setStillFrameReflectionSamplingQuality(stillFrameQuality)
+    * setStillFrameTextureSharpness(stillFrameTextureSharpness)
+    * setStillFrameTraceDepth(traceDepth)
+    * setStillFrameVolumeScatterDepth(stillFrameVolumeScatterDepth)
+    * setTonemapHDR(tonemapHdr)
+    * setTransparencyMode(mode)
+    * setUpdateRenderSamplesThreshold(samplesThreshold)
+    * setUseAnimationClipRange(useClipRange)
+    * setUseAutomaticPhotonRadius(photonUseAutomaticRadius)
+    * setUseClamping(useClamping)
+    * setUseCurrentView()
+    * setUseFinalGatherForGlossy(useFinalGatherForGlossy)
+    * setUseInfiniteRendering(useInfiniteRendering)
+    * setUseRaySplitting(useRaySplitting)
+    * setUseRaytracedReflections(b)
+    * setUseRealtimeEnvironmentShadows(b)
+    * setUseRenderRegion(useRenderRegion)
+    * setUseRenderTimeLimit(useRenderTimeLimit)
+    * setUseScreenSpaceRefractions(b)
+    * setUseSupersampling(supersampling)
+    * setUseTimeStamp(useTimeStamp)
+    * setUseTwoSampleImportanceSampling(useTwoSampleImportanceSampling)
+    * setUseVariantSets(variantSetsUsed)
+    * setUseVariantSetViewpoints(variantSetViewpointsUsed)
+    * setVariantSetGroups(variantSetGroups)
+    * setView(view)
+    * setVolumeEvaluationMode(volumeEvaluationMode)
+
+Functions
+=========
+
+.. py:method:: vrdRenderSettings.addVariantSetGroup(groupName)
+
+    Adds a variant set group.
+
+    :param groupName: The name of the group to add.
+    :type groupName: string
+
+    :return: The found vrdRenderAutomationVariantSetGroup.
+    :rtype: vrdRenderAutomationVariantSetGroup
+
+.. py:method:: vrdRenderSettings.canVariantSetViewpointBeUsed()
+
+    Checks if the viewpoints defined in variant sets can be used. If variant sets are not used, their viewpoints will not be used. If a camera track is used, the camera position is determined by the viewpoints in the camera track, and the viewpoints in the variant sets will be ignored. See also:         vrdRenderSettings.setUseVariantSets(variantSetsUsed), setView(vrdNode) and vrdRenderSettings.isCameraTrackUsed()
+
+    :return: True if the viewpoints of variant sets can be used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.clearVariantSetGroups()
+
+    Clears all variant set groups.
+
+.. py:method:: vrdRenderSettings.findVariantSetGroup(name)
+
+    Finds a variant set group by name.
+
+    :param name: The name of the group to find.
+    :type name: string
+
+    :return: The found vrdRenderAutomationVariantSetGroup.
+    :rtype: vrdRenderAutomationVariantSetGroup
+
+.. py:method:: vrdRenderSettings.getAaThresholdQuality()
+
+    Gets the AA threshold quality. The "Highest Quality" disables adaptive antialiasing and delivers the highest quality but might waste computations of regions of the image that do not need any further processing.
+
+    :return: The AA threshold quality.
+    :rtype: vrRenderSettingsTypes.AAthresholdQuality
+
+.. py:method:: vrdRenderSettings.getAllowShaderExecutionReordering()
+
+    Gets whether shader execution reordering is allowed. If enabled, the GPU raytracer is permitted to reorder shader executions to improve performance on supported hardware. This is a hint and may have no effect if the hardware or driver does not support shader execution reordering. This setting only applies to GPU Raytracing.
+
+    :return: True if shader execution reordering is allowed, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getAnimationClip()
+
+    Gets the clip.
+
+    :return: The clip as a string.
+    :rtype: string
+
+.. py:method:: vrdRenderSettings.getAnimationFormat()
+
+    Gets the animation format.
+
+    :return: The animation format.
+    :rtype: vrRenderSettingsTypes.AnimationFormat
+
+.. py:method:: vrdRenderSettings.getAnimationFps()
+
+    Returns the frame rate for the output movie. This option is available when the Movie format is selected, see         vrdRenderSettings.getAnimationFormat() and vrdRenderSettings.getRenderAnimation().
+
+    :return: The FPS value.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getAnimationFrameStep()
+
+    Gets the step frame value. Frame step skips the set value of frames, when rendering out an animation, to reduce the render time when testing a rendered sequence. The result will be at a lower frame rate.
+
+    :return: The step frame value.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getAnimationInfo()
+
+    Gets the animation settings.
+
+    :return: The animation settings as a vrdRenderAnimationInfo object.
+    :rtype: vrdRenderAnimationInfo
+
+.. py:method:: vrdRenderSettings.getAnimationStartFrame()
+
+    Gets the first frame of the animation.
+
+    :return: The start frame as an integer.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getAnimationStopFrame()
+
+    Gets the last frame of the animation.
+
+    :return: The stop frame as an integer.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getAnimationType()
+
+    Gets the animation type.
+
+    :return: The animation type.
+    :rtype: vrRenderSettingsTypes.AnimationType
+
+.. py:method:: vrdRenderSettings.getAutomaticPhotonMapUpdate()
+
+    Returns if automatic updating of the photon map is enabled.
+
+    :return: True, if automatic updating of the photon map is enabled.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getBackgroundColor()
+
+    Gets the background color.
+
+    :return: The background color as a QVector3D.
+    :rtype: QVector3D
+
+.. py:method:: vrdRenderSettings.getBrdfMode()
+
+    Gets the BRDF mode. (Deprecated, this method is still here for backward compatibility only).
+
+    :return: The BRDF mode.
+    :rtype: vrRenderSettingsTypes.BRDFMode
+
+.. py:method:: vrdRenderSettings.getClampValue()
+
+    Gets the clamp value. Clamping value is only taken into account if         vrdRenderSettings.getUseClamping() is set to True.
+
+    :return: The reflection clamp value.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getDenoiseAlpha()
+
+    Returns if denoising of the alpha channel is enabled.
+
+    :return: True if denoising the alpha channel is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getDenoiserInput()
+
+    Gets the denoiser input type.
+
+    :return: The denoiser input type.
+    :rtype: vrRenderSettingsTypes.DenoiserInput
+
+.. py:method:: vrdRenderSettings.getDenoiserMode()
+
+    Gets the denoiser mode.
+
+    :return: The denoiser mode.
+    :rtype: vrRenderSettingsTypes.DenoiserMode
+
+.. py:method:: vrdRenderSettings.getDenoiserType()
+
+    Gets the denoiser type.
+
+    :return: The denoiser type.
+    :rtype: vrRenderSettingsTypes.DenoiserType
+
+.. py:method:: vrdRenderSettings.getDisplayLuminance()
+
+    Gets the display luminance.
+
+    :return: The display luminance.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getEnableCostVisualization()
+
+    Enables a visualization of the costs per traced pixel block for the raytracer. Black to blue colors represent a lower cost (fast to compute) while red to white represent a high cost (slow to compute). This can be useful to figure out which parts of the scene requires most computational power.
+
+    :return: True, if cost visualization is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getEnableNURBSRaytracing()
+
+    Get the NURBS raytracing state.
+
+    :return: Returns True if direct NURBS raytracing is enabled.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getEnablePhotometricParameters()
+
+    Gets the photometric parameters status.
+
+    :return: True if photometric parameters are enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getEnableSpectralRaytracing()
+
+    Gets the spectral raytracing status.
+
+    :return: True if spectral raytracing is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getExportAlphaChannel()
+
+    Gets the alpha channel status.
+
+    :return: True if alpha channel is exported, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getExportExrHalf()
+
+    Gets the EXR half status. If set to true, EXR files are written in 16 bit format. If photometric parameters are chosen 32 bit floating point will always be used.
+
+    :return: True if EXR half is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getExportMultiLayerImageForRenderpasses()
+
+    Gets the multi-layer status for renderpasses.
+
+    :return: True if multi-layer is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getExportTiffInHDR()
+
+    Gets the TIFF HDR status.
+
+    :return: True if TIFF HDR is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getFilename()
+
+    Returns the path and name of the image file to save the rendering to.
+
+    :return: The filename as a string.
+    :rtype: string
+
+.. py:method:: vrdRenderSettings.getFinalGatherRadius()
+
+    Gets the initial search radius for the lookup into the indirect illumination photon map.
+
+    :return: The final gather radius.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getGlobalVolumeMaxQuality()
+
+    Gets the global volume quality.
+
+    :return: The global volume quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getHeight()
+
+    Gets the height of the render.
+
+    Returns the height of the render in pixels (see also vrdRenderSettings.getPixelHeight()). This is a convenience method that returns the height of the render as an integer rounded to the nearest pixel.
+
+    :return: The height of the render.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getIccProfile()
+
+    Gets the ICC Profile for the rendering.
+
+    :return: The ICC profile ID.
+    :rtype: vrRenderSettingsTypes.ICCProfile
+
+.. py:method:: vrdRenderSettings.getIgnoreOverrideIblSampling()
+
+    Gets the ignore override IBL sampling status. Each material can bring its own IBL sampling quality. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :return: True if ignoring override IBL sampling, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getIgnoreOverrideIllumination()
+
+    Gets the ignore override illumination status. Each material can bring its own illumination mode. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :return: True if ignoring override illumination, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getIgnoreOverrideReflectionSampling()
+
+    Gets the ignore override reflection sampling status. Each material can bring its own reflection/refraction quality. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :return: True if ignoring override reflection quality, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getIgnoreOverrideTraceDepth()
+
+    Gets the ignore override trace depth status. Each material can bring its own trace depth. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :return: True if ignoring override trace depth, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getIlluminant()
+
+    Returns the illuminant to be considered as white.
+
+    :return: The illuminant.
+    :rtype: vrRenderSettingsTypes.Illuminant
+
+.. py:method:: vrdRenderSettings.getImageSamples()
+
+    Gets the number of image samples taken during stillframe antialiasing for the calculation of an image. The image samples are taken into account if         vrdRenderSettings.getImageSamplingMode() is set to vrRenderSettingsTypes.ImageSamplingMode.ImageSampleCount.
+
+    :return: The image samples.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getImageSamplingMode()
+
+    Return the image sampling mode. See also         vrdRenderSettings.getImageSamples() and vrdRenderSettings.getRenderTimeLimit().
+
+    :return: Image sampling mode.
+    :rtype: vrRenderSettingsTypes.ImageSamplingMode
+
+.. py:method:: vrdRenderSettings.getIndirectPhotonRadius()
+
+    Gets the indirect photon radius.
+
+    :return: The indirect photon radius.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getInteractiveFinalGatherQuality()
+
+    Gets the interactive final gather quality.
+
+    :return: The interactive final gather quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getInteractiveIblSamplingQuality()
+
+    Gets the interactive IBL sampling quality.
+
+    :return: The environment interactive quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getInteractiveIlluminationMode()
+
+    Returns the Illumination mode during interactive rendering.
+
+    :return: The interactive illumination mode.
+    :rtype: vrRenderSettingsTypes.IlluminationMode
+
+.. py:method:: vrdRenderSettings.getInteractivePhotonCount()
+
+    Returns the number of photons emitted per image sample.
+
+    :return: The interactive photon count.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getInteractiveReflectionSamplingQuality()
+
+    Gets the reflection/refraction quality for interactive rendering.
+
+    :return: The interactive quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getInteractiveTextureSharpness()
+
+    Gets the interactive texture sharpness.
+
+    :return: The interactive texture sharpness.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getInteractiveTraceDepth()
+
+    Returns the maximum raytrace depth during interactive rendering. No more bounces are performed after reaching this limit.
+
+    :return: The interactive trace depth.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getInteractiveVolumeScatterDepth()
+
+    Gets the interactive volume scatter depth.
+
+    :return: The interactive volume scatter depth.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getKeepUndenoisedImage()
+
+    Gets the keep undenoised image status.
+
+    :return: True if keeping the undenoised image is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getLightOptimizationMode()
+
+    Returns if optimizations for scenes with many light sources is enabled. While this gives massive speed improvements, it might fail in some situations.
+
+    :return: The light optimization mode.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getMetaDataFlags()
+
+    Gets the meta data flags. This feature embeds certain scene settings in the rendered output. Later, you can import the rendering into VRED, using File > Import Scene Data > Rendering Meta Data. The settings saved within the image upon creation are applied to the currently loaded scene, for example, the camera settings adopt. These options are only available for JPG, PNG, TIFF, and EXR files.
+
+    :return: The meta data flags as an integer.
+    :rtype: vrRenderSettingsTypes.MetaDataFlags
+
+.. py:method:: vrdRenderSettings.getPhotonLookupCount()
+
+    Gets the photon lookup count.
+
+    :return: The photon lookup count.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getPhotonMapRefreshMode()
+
+    Returns how often the photon map is rebuilt if final gathering is turned on.
+
+    :return: The photon map refresh mode.
+    :rtype: vrRenderSettingsTypes.PhotonMapRefreshMode
+
+.. py:method:: vrdRenderSettings.getPhotonMode()
+
+    Gets the photon mode.
+
+    :return: The photon mode.
+    :rtype: vrRenderSettingsTypes.PhotonMode
+
+.. py:method:: vrdRenderSettings.getPhotonTraceDepth()
+
+    Gets the photon trace depth.
+
+    :return: The photon trace depth.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getPixelFilterHeight()
+
+    Gets the filter height.
+
+    :return: The filter height.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getPixelFilterType()
+
+    Gets the filter type.
+
+    :return: The filter type.
+    :rtype: vrRenderSettingsTypes.PixelFilterType
+
+.. py:method:: vrdRenderSettings.getPixelFilterWidth()
+
+    Gets the filter width.
+
+    :return: The filter width.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getPixelHeight()
+
+    Gets the pixel height.
+
+    Returns the pixel height as a floating point value (see vrdRenderSettings.setPixelHeight(pixelHeight) for more information).
+
+    :return: The pixel height.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getPixelWidth()
+
+    Gets the pixel width.
+
+    Returns the pixel width as a floating point value (see vrdRenderSettings.setPixelWidth(pixelWidth) for more information).
+
+    :return: The pixel width.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getPremultiplyAlpha()
+
+    Gets the premultiply alpha status.
+
+    :return: True if premultiply alpha is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getPrintingHeight()
+
+    Gets the print height.
+
+    :return: The print height in cm.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getPrintingResolution()
+
+    Gets the printing resolution.
+
+    :return: The printing resolution (pixels per inch) value.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getPrintingWidth()
+
+    Gets the printing width.
+
+    :return: The printing width in cm.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getRaytracedAmbientOcclusionSettings()
+
+    Access the settings for Ray Traced Ambient Occlusion for the Vulkan renderer.
+
+    :return: Settings for Ray Traced Ambient Occlusion.
+    :rtype: vrdRaytracedAmbientOcclusionSettings
+
+.. py:method:: vrdRenderSettings.getRaytracedDiffuseGISettings()
+
+    Access the settings for Raytraced Diffuse GI for the Vulkan renderer.
+
+    :return: Settings for Raytraced Diffuse GI.
+    :rtype: vrdRaytracedDiffuseGISettings
+
+.. py:method:: vrdRenderSettings.getRaytracedEnvironmentShadowsSettings()
+
+    Access the settings for Ray Traced Environment Shadows for the Vulkan renderer.
+
+    :return: Settings for Ray Traced Environment Shadows.
+    :rtype: vrdRaytracedEnvironmentShadowsSettings
+
+.. py:method:: vrdRenderSettings.getRaytracedReflectionsSettings()
+
+    Access the settings for Ray Traced Reflections for the Vulkan renderer.
+
+    :return: Settings for Ray Traced Reflections.
+    :rtype: vrdRaytracedReflectionsSettings
+
+.. py:method:: vrdRenderSettings.getRealtimeEnvironmentShadowsMode()
+
+    Gets the mode of the real-time environment shadows to use in rasterization, if enabled.
+
+    :return: The mode of the real-time environment shadows to use, if enabled.
+    :rtype: vrRenderSettingsTypes.RealtimeEnvironmentShadowsMode
+
+.. py:method:: vrdRenderSettings.getRegionEndX()
+
+    Gets the region end X coordinate.
+
+    :return: The region end X coordinate.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getRegionEndY()
+
+    Gets the region end Y coordinate.
+
+    :return: The region end Y coordinate.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getRegionStartX()
+
+    Gets the region start X coordinate.
+
+    :return: The region start X coordinate.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getRegionStartY()
+
+    Gets the region start Y coordinate.
+
+    :return: The region start Y coordinate.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getRenderAnimation()
+
+    Gets the render animation status.
+
+    :return: True if render animation is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getRenderingColorspace()
+
+    Gets the rendering colorspace.
+
+    :return: The rendering colorspace
+    :rtype: vrRenderSettingsTypes.RenderingColorSpace
+
+.. py:method:: vrdRenderSettings.getRenderPasses()
+
+    Gets the render passes.
+
+    :return: The render passes.
+    :rtype: vrdRenderPasses
+
+.. py:method:: vrdRenderSettings.getRenderTimeLimit()
+
+    Gets the render time limit in seconds. This value is only used if         vrdRenderSettings.getImageSamplingMode() is set to vrRenderSettingsTypes.ImageSamplingMode.TimeLimit.
+
+    :return: The render duration.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getSampleOffset()
+
+    Gets the sample offset value.
+
+    Returns the sample offset to start the rendering. Usually this will be 0 unless you want to continue at a certain sample id.
+
+    :return: The sample offset value.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getScreenSpaceAmbientOcclusionSettings()
+
+    Access the settings for Screen Space Ambient Occlusion for Rasterization.
+
+    :return: Settings for Screen Space Ambient Occlusion
+    :rtype: vrdScreenSpaceAmbientOcclusionSettings
+
+.. py:method:: vrdRenderSettings.getStillFrameFinalGatherQuality()
+
+    Gets the still frame final gather quality.
+
+    :return: The still frame final gather quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getStillFrameIblSamplingQuality()
+
+    Gets the still frame IBL sampling quality.
+
+    :return: The environment still quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getStillFrameIlluminationMode()
+
+    Gets the Illumination mode during still frame rendering.
+
+    :return: The still frame illumination mode.
+    :rtype: vrRenderSettingsTypes.IlluminationMode
+
+.. py:method:: vrdRenderSettings.getStillFramePhotonCount()
+
+    Returns the number of photons emitted per image sample.
+
+    :return: The still frame photon count.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getStillFrameReflectionSamplingQuality()
+
+    Gets the reflection/refraction quality for still frame rendering.
+
+    :return: The still frame quality.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getStillFrameTextureSharpness()
+
+    Gets the still frame texture sharpness.
+
+    :return: The still frame texture sharpness.
+    :rtype: float
+
+.. py:method:: vrdRenderSettings.getStillFrameTraceDepth()
+
+    Gets the maximum raytrace depth during still frame rendering. No more bounces are performed after reaching this limit.
+
+    :return: The still frame trace depth.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getStillFrameVolumeScatterDepth()
+
+    Gets the still frame volume scatter depth.
+
+    :return: The still frame volume scatter depth.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getTonemapHDR()
+
+    Return true if tone mapping is applied to the high dynamic range image rendering.
+
+    :return: True if tonemap HDR is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getTransparencyMode()
+
+    Returns current transparency mode in rasterization.
+
+    :return: Transparency mode.
+    :rtype: vrRenderSettingsTypes.TransparencyMode
+
+.. py:method:: vrdRenderSettings.getUpdateRenderSamplesThreshold()
+
+    Gets the update samples threshold.
+
+    :return: The samples threshold.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.getUseAnimationClipRange()
+
+    Gets the use clip range status.
+
+    :return: True if use clip range is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseAutomaticPhotonRadius()
+
+    Gets the status of using automatic radius for photons. If enabled, a preprocess is doing a lookup of the 16 closest photons for each photon in the scene and calculates two times the average lookup radius. This feature works for most situations.
+
+    :return: True if using automatic radius for photons, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseClamping()
+
+    Gets the clamping status. This might help in filtering out single bright spots but limiting the maximum value a pixel can take the the given value.
+
+    :return: True if clamping is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseCurrentView()
+
+    Checks if the current view is used.
+
+    :return: True if the current view is used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseFinalGatherForGlossy()
+
+    Gets the status of using final gather for glossy. If activated, glossy reflections are not evaluated by path tracing but use the final gather map instead. This reduces the rendertime but results in less accurate reflections. Also specular surfaces are seen as black if caustics are not enabled.
+
+    :return: True if using final gather for glossy, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseInfiniteRendering()
+
+    Returns if the calculation of the image samples is set as endless. If set to False, there are as many image samples calculated as set in         vrdRenderSettings.getImageSamples() (for example, 256 images) or as the calculation takes until the render time limit (vrdRenderSettings.getRenderTimeLimit()) is reached.
+
+    :return: True if infinite rendering is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseRaySplitting()
+
+    Gets the ray splitting status. If enabled a ray hitting a glass material for the first time will be split into following the reflection and refraction direction. If disabled either the reflection or the refraction direction will be traced. This setting only applies to GPU Raytracing.
+
+    :return: True if ray splitting is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseRaytracedReflections()
+
+    Gets if the raytraced reflections are enabled in the Vulkan renderer.
+
+    :return: True if the raytraced reflections are enabled.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseRealtimeEnvironmentShadows()
+
+    Gets if real-time environment shadows are used in rasterization. When real-time environment shadows are used, baked shadows are ignored.
+
+    :return: True if real-time environment shadows are used.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseRenderRegion()
+
+    Gets the use render region status.
+
+    :return: True if render region is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseRenderTimeLimit()
+
+    Convenience method to check if a render time limit is used for rendering. This is equivalent to         vrdRenderSettings.getImageSamplingMode() == vrRenderSettingsTypes.ImageSamplingMode.TimeLimit.
+
+    :return: True if using a render time limit, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseScreenSpaceRefractions()
+
+    Gets if screen space refractions are used (only supported in Vulkan rendering mode).
+
+    :return: True if screen space refractions are used.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseSupersampling()
+
+    Returns if supersampling for the rendering.
+
+    :return: True, if supersampling is enabled.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseTimeStamp()
+
+    Gets the use timestamp status.
+
+    :return: True if timestamp is used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseTwoSampleImportanceSampling()
+
+    Gets the status of using two-sample importance sampling. If enabled two samples will be evaluated for IBL importance sampling. If disabled one sample will be used for IBL importance sampling. This setting only applies to GPU Raytracing.
+
+    :return: True if using two-sample importance sampling, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseVariantSets()
+
+    Gets the status of variant sets usage. Use the Variant Sets section to easily render multiple versions of a model in VRED. Render a red car in a garage, yellow car in a garage, and red car in park, in one render job.
+
+    :return: True if variant sets are used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getUseVariantSetViewpoints()
+
+    Returns true if the set viewpoint is ignored and viewpoints set in variant sets are used.
+
+    :return: True if variant set viewpoints are used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.getVariantSetGroups()
+
+    Gets the list of variant set groups.
+
+    :return: A QList of vrdRenderAutomationVariantSetGroup.
+    :rtype: List[vrdRenderAutomationVariantSetGroup]
+
+.. py:method:: vrdRenderSettings.getView()
+
+    Gets the view.
+
+    The view is either a camera, a viewpoint or a camera track node. If the returned node is null, then the view is set to follow the current view.
+
+    :return: The view as a vrdNode.
+    :rtype: vrdNode
+
+.. py:method:: vrdRenderSettings.getVolumeEvaluationMode()
+
+    Gets the volume evaluation mode.
+
+    :return: The volume evaluation mode.
+    :rtype: vrRenderSettingsTypes.VolumeEvaluationMode
+
+.. py:method:: vrdRenderSettings.getWidth()
+
+    Gets the width of the render.
+
+    Returns the width of the render in pixels (see also vrdRenderSettings.getPixelWidth()). This is a convenience method that returns the width of the render as an integer rounded to the nearest pixel.
+
+    :return: The width of the render.
+    :rtype: integer
+
+.. py:method:: vrdRenderSettings.isCameraTrackUsed()
+
+    Checks if a camera track is being exported. This is equivalent to checking if         vrdRenderSettings.getView().dynamicCast<vrdCameraTrack>().isValid().
+
+    :return: True if a camera track is used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.isExportingToCameraTrackDirectory()
+
+    If a camera track is used (see         vrdRenderSettings.getView()) and no animation is rendered (see vrdRenderSettings.getRenderAnimation()), an image is rendered for each viewpoint in the camera track. In this case, the rendered images are saved in a subdirectory named after the camera track. If an animation is rendered, the camera track is rendered either as a movie or as a sequence of images (see AnimationFormat()).
+
+    :return: True if the images are saved to a separate directory for the camera track, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.isExportingVariantSetViewpoints()
+
+    Checks if the viewpoints from variant sets are used for export. To use the viewpoints from variant sets, ensure that variant sets are added, and the use of variant sets and their viewpoints is enabled. See also: addVariantSetGroup(QString),         vrdRenderSettings.setUseVariantSets(variantSetsUsed), vrdRenderSettings.setUseVariantSetViewpoints(variantSetViewpointsUsed) and vrdRenderSettings.canVariantSetViewpointBeUsed()
+
+    :return: True if the viewpoints from variant sets are used, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.isMovie()
+
+    Checks if a movie is being exported. This method verifies if animations are enabled and if the output is a movie rather than a sequence of images. See vrRenderSettingsTypes::getAnimationFormat() and vrRenderSettingsTypes::getRenderAnimation().
+
+    :return: True if a movie is exported, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.removeVariantSetGroup(groupName)
+
+    Removes a variant set group.
+
+    :param groupName: The name of the group to remove.
+    :type groupName: string
+
+    :return: True if the group was removed, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.reorderVariantSetGroups(groupNames)
+
+    Reorders the variant set groups.
+
+    :param groupNames: The new order of the group names.
+    :type groupNames: List[string]
+
+    :return: True if the reordering was successful, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdRenderSettings.setAaThresholdQuality(aaThresholdQuality)
+
+    Sets the quality level for the adaptive antialiasing. Settings the quality level to "Highest Quality" disables adaptive antialiasing and delivers the highest quality but might waste computations of regions of the image that do not need any further processing.
+
+    :param aaThresholdQuality: The AA threshold quality.
+    :type aaThresholdQuality: vrRenderSettingsTypes.AAthresholdQuality
+
+.. py:method:: vrdRenderSettings.setAllowShaderExecutionReordering(allowShaderExecutionReordering)
+
+    Sets whether shader execution reordering is allowed. If enabled, the GPU raytracer is permitted to reorder shader executions to improve performance on supported hardware. This is a hint and may have no effect if the hardware or driver does not support shader execution reordering. This setting only applies to GPU Raytracing.
+
+    :param allowShaderExecutionReordering: True to allow shader execution reordering, false to disable it.
+    :type allowShaderExecutionReordering: bool
+
+.. py:method:: vrdRenderSettings.setAnimationClip(clip)
+
+    Sets the clip. The clip is only used when no camera track animation or variant is set, see         vrdRenderSettings.getView() and vrdRenderSettings.getUseVariantSets()
+
+    :param clip: The clip name.
+    :type clip: string
+
+.. py:method:: vrdRenderSettings.setAnimationFormat(animationFormat)
+
+    Sets the animation format.
+
+    :param animationFormat: The animation format.
+    :type animationFormat: vrRenderSettingsTypes.AnimationFormat
+
+.. py:method:: vrdRenderSettings.setAnimationFps(fps)
+
+    Defines the frame rate for the output movie. This option is available when the Movie format is selected, see         vrdRenderSettings.getAnimationFormat() and vrdRenderSettings.getRenderAnimation().
+
+    :param fps: The FPS value to set.
+    :type fps: integer
+
+.. py:method:: vrdRenderSettings.setAnimationFrameStep(stepFrame)
+
+    Sets the step frame value. Frame step skips the set value of frames, when rendering out an animation, to reduce the render time when testing a rendered sequence. The result will be at a lower frame rate.
+
+    :param stepFrame: The step frame value to set.
+    :type stepFrame: integer
+
+.. py:method:: vrdRenderSettings.setAnimationStartFrame(startFrame)
+
+    Sets the first frame of the animation.
+
+    :param startFrame: The start frame as an integer.
+    :type startFrame: integer
+
+.. py:method:: vrdRenderSettings.setAnimationStopFrame(stopFrame)
+
+    Sets the last frame of the animation.
+
+    :param stopFrame: The stop frame as an integer.
+    :type stopFrame: integer
+
+.. py:method:: vrdRenderSettings.setAnimationType(animationType)
+
+    Sets the animation type.
+
+    :param animationType: The animation type.
+    :type animationType: vrRenderSettingsTypes.AnimationType
+
+.. py:method:: vrdRenderSettings.setAutomaticPhotonMapUpdate(autoUpdate)
+
+    Enables automatic updating of the photon map.
+
+    :param autoUpdate: True, to enable automatic updating of the photon map.
+    :type autoUpdate: bool
+
+.. py:method:: vrdRenderSettings.setBackgroundColor(backgroundColor)
+
+    Sets the background color.
+
+    :param backgroundColor: The background color as a QVector3D.
+    :type backgroundColor: QVector3D
+
+.. py:method:: vrdRenderSettings.setBrdfMode(brdfMode)
+
+    Sets the BRDF mode. (Deprecated, this method is still here for backward compatibility only).
+
+    :param brdfMode: The BRDF mode.
+    :type brdfMode: vrRenderSettingsTypes.BRDFMode
+
+.. py:method:: vrdRenderSettings.setClampValue(clampValue)
+
+    Sets the clamp value. Clamping value is only taken into account if         vrdRenderSettings.getUseClamping() is set to True.
+
+    :param clampValue: The reflection clamp value.
+    :type clampValue: float
+
+.. py:method:: vrdRenderSettings.setDenoiseAlpha(denoiseAlpha)
+
+    Enables/Disables denoising of the alpha channel.
+
+    :param denoiseAlpha: True to enable denoising the alpha channel, false to disable it.
+    :type denoiseAlpha: bool
+
+.. py:method:: vrdRenderSettings.setDenoiserInput(denoiserInput)
+
+    Sets the denoiser input type.
+
+    :param denoiserInput: The denoiser input type.
+    :type denoiserInput: vrRenderSettingsTypes.DenoiserInput
+
+.. py:method:: vrdRenderSettings.setDenoiserMode(denoiseFilter)
+
+    Sets the denoiser mode.
+
+    :param denoiseFilter: The denoiser mode.
+    :type denoiseFilter: vrRenderSettingsTypes.DenoiserMode
+
+.. py:method:: vrdRenderSettings.setDenoiserType(denoiserType)
+
+    Sets the denoiser type.
+
+    :param denoiserType: The denoiser type.
+    :type denoiserType: vrRenderSettingsTypes.DenoiserType
+
+.. py:method:: vrdRenderSettings.setDisplayLuminance(displayLuminance)
+
+    Sets the display luminance.
+
+    :param displayLuminance: The display luminance.
+    :type displayLuminance: float
+
+.. py:method:: vrdRenderSettings.setEnableCostVisualization(enableCostVisualization)
+
+    Enables a visualization of the costs per traced pixel block for the raytracer. Black to blue colors represent a lower cost (fast to compute) while red to white represent a high cost (slow to compute). This can be useful to figure out which parts of the scene requires most computational power.
+
+    :param enableCostVisualization: True to enable, False to disable cost visualization.
+    :type enableCostVisualization: bool
+
+.. py:method:: vrdRenderSettings.setEnableNURBSRaytracing(nurbsMode)
+
+    Enables/Disables direct NURBS raytracing.
+
+    :param nurbsMode: The NURBS mode.
+    :type nurbsMode: bool
+
+.. py:method:: vrdRenderSettings.setEnablePhotometricParameters(enablePhotometricParameters)
+
+    Sets the photometric parameters status. Enables photometric parameters for all the light sources, materials, environment maps, cameras, the display, and the clamping. All the light sources in the scene are converted to physically-based light sources with realistic attenuation and photometrically consistent colors. The incandescence of all the materials in the scene is converted to have a photometrically consistent color. The photometric quantities of all the light sources, materials, environment maps, cameras, the display, and the clamping are adjusted to comply with the photometric parameters, use setEnablePhotometricParametersWithoutValueAdjustment to disable the adjustment.
+
+    :param enablePhotometricParameters: True to enable photometric parameters, false to disable them.
+    :type enablePhotometricParameters: bool
+
+.. py:method:: vrdRenderSettings.setEnablePhotometricParametersWithoutValueAdjustment(enablePhotometricParameters)
+
+    Sets the photometric parameters status. Enables photometric parameters for all the light sources, materials, environment maps, cameras, the display, and the clamping. All the light sources in the scene are converted to physically-based light sources with realistic attenuation and photometrically consistent colors. The incandescence of all the materials in the scene is converted to have a photometrically consistent color. The photometric quantities of all the light sources, materials, environment maps, cameras, the display, and the clamping are not adjusted to comply with the photometric parameters, use setEnablePhotometricParameters to adjust the values.
+
+    :param enablePhotometricParameters: True to enable photometric parameters, false to disable them.
+    :type enablePhotometricParameters: bool
+
+.. py:method:: vrdRenderSettings.setEnableSpectralRaytracing(enableSpectralRaytracing)
+
+    Sets the spectral raytracing status.
+
+    :param enableSpectralRaytracing: True to enable spectral raytracing, false to disable it.
+    :type enableSpectralRaytracing: bool
+
+.. py:method:: vrdRenderSettings.setExportAlphaChannel(alpha)
+
+    Sets the alpha channel status.
+
+    :param alpha: True to enable alpha channel export, false to disable it.
+    :type alpha: bool
+
+.. py:method:: vrdRenderSettings.setExportExrHalf(exrHalf)
+
+    Sets the EXR half status. If set to true, EXR files are written in 16 bit format. If photometric parameters are chosen 32 bit floating point will always be used.
+
+    :param exrHalf: True to enable EXR half, false to disable it.
+    :type exrHalf: bool
+
+.. py:method:: vrdRenderSettings.setExportMultiLayerImageForRenderpasses(multiLayer)
+
+    Sets the multi-layer status.
+
+    :param multiLayer: True to enable multi-layer images for renderpasses, false to disable it.
+    :type multiLayer: bool
+
+.. py:method:: vrdRenderSettings.setExportTiffInHDR(tiffHDR)
+
+    Sets the TIFF HDR status.
+
+    :param tiffHDR: True to enable TIFF HDR, false to disable it.
+    :type tiffHDR: bool
+
+.. py:method:: vrdRenderSettings.setFilename(filename)
+
+    Sets the path and name of the image file to save the rendering to.
+
+    :param filename: The filename as a string.
+    :type filename: string
+
+.. py:method:: vrdRenderSettings.setFinalGatherRadius(finalGatherRadius)
+
+    Sets the initial search radius for the lookup into the indirect illumination photon map.
+
+    :param finalGatherRadius: The final gather radius.
+    :type finalGatherRadius: float
+
+.. py:method:: vrdRenderSettings.setGlobalVolumeMaxQuality(globalVolumeQuality)
+
+    Sets the global volume quality.
+
+    :param globalVolumeQuality: The global volume quality.
+    :type globalVolumeQuality: integer
+
+.. py:method:: vrdRenderSettings.setIccProfile(iccProfile)
+
+    Sets the ICC Profile for the rendering.
+
+    :param iccProfile: The ICC profile.
+    :type iccProfile: vrRenderSettingsTypes.ICCProfile
+
+.. py:method:: vrdRenderSettings.setIgnoreOverrideIblSampling(ignoreOverrideIblSampling)
+
+    Sets the ignore override IBL sampling status. Each material can bring its own IBL sampling quality.` That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :param ignoreOverrideIblSampling: True to ignore override IBL sampling, false to disable it.
+    :type ignoreOverrideIblSampling: bool
+
+.. py:method:: vrdRenderSettings.setIgnoreOverrideIllumination(ignoreOverrideIllumination)
+
+    Sets the ignore override illumination mode status. Each material can bring its own illumination mode. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :param ignoreOverrideIllumination: True to ignore override illumination, false to disable it.
+    :type ignoreOverrideIllumination: bool
+
+.. py:method:: vrdRenderSettings.setIgnoreOverrideReflectionSampling(ignoreOverrideReflectionSampling)
+
+    Sets the ignore override reflection quality status. Each material can bring its own reflection/refraction quality. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :param ignoreOverrideReflectionSampling: True to ignore override reflection sampling, false to disable it.
+    :type ignoreOverrideReflectionSampling: bool
+
+.. py:method:: vrdRenderSettings.setIgnoreOverrideTraceDepth(ignoreOverrideTraceDepth)
+
+    Sets the ignore override trace depth status. Each material can bring its own trace depth. That means, you can use different render settings for each material. This can be deactivated here, so the special material settings are ignored.
+
+    :param ignoreOverrideTraceDepth: True to ignore override trace depth, false to disable it.
+    :type ignoreOverrideTraceDepth: bool
+
+.. py:method:: vrdRenderSettings.setIlluminant(illuminant)
+
+    Sets the illuminant to be considered as white.
+
+    :param illuminant: The illuminant.
+    :type illuminant: vrRenderSettingsTypes.Illuminant
+
+.. py:method:: vrdRenderSettings.setImageSamples(imageSamples)
+
+    Sets the number of image samples taken during stillframe antialiasing for the calculation of an image. The image samples are taken into account if         vrdRenderSettings.getImageSamplingMode() is set to vrRenderSettingsTypes.ImageSamplingMode.ImageSampleCount.
+
+    :param imageSamples: The image samples.
+    :type imageSamples: integer
+
+.. py:method:: vrdRenderSettings.setImageSamplingMode(imageSamplingMode)
+
+    Sets whether to use fixed image sample count or time limit.
+
+    :param imageSamplingMode: Image sampling mode.
+    :type imageSamplingMode: vrRenderSettingsTypes.ImageSamplingMode
+
+.. py:method:: vrdRenderSettings.setIndirectPhotonRadius(indirectPhotonRadius)
+
+    Sets the indirect photon radius.
+
+    :param indirectPhotonRadius: The indirect photon radius.
+    :type indirectPhotonRadius: float
+
+.. py:method:: vrdRenderSettings.setInteractiveFinalGatherQuality(interactiveFinalGatherQuality)
+
+    Sets the interactive final gather quality.
+
+    :param interactiveFinalGatherQuality: The interactive final gather quality.
+    :type interactiveFinalGatherQuality: integer
+
+.. py:method:: vrdRenderSettings.setInteractiveIblSamplingQuality(samplingQuality)
+
+    Sets the interactive IBL sampling quality.
+
+    :param samplingQuality: The sampling quality.
+    :type samplingQuality: integer
+
+.. py:method:: vrdRenderSettings.setInteractiveIlluminationMode(interactiveIlluminationMode)
+
+    Sets the Illumination mode during interactive rendering.
+
+    :param interactiveIlluminationMode: The interactive illumination mode.
+    :type interactiveIlluminationMode: vrRenderSettingsTypes.IlluminationMode
+
+.. py:method:: vrdRenderSettings.setInteractivePhotonCount(interactivePhotonCount)
+
+    Sets the number of photons to emit per image sample.
+
+    :param interactivePhotonCount: The interactive photon count.
+    :type interactivePhotonCount: integer
+
+.. py:method:: vrdRenderSettings.setInteractiveReflectionSamplingQuality(interactiveQuality)
+
+    Sets the reflection/refraction quality for interactive rendering.
+
+    :param interactiveQuality: The interactive quality.
+    :type interactiveQuality: integer
+
+.. py:method:: vrdRenderSettings.setInteractiveTextureSharpness(interactiveTextureSharpness)
+
+    Sets the interactive texture sharpness.
+
+    :param interactiveTextureSharpness: The interactive texture sharpness.
+    :type interactiveTextureSharpness: float
+
+.. py:method:: vrdRenderSettings.setInteractiveTraceDepth(traceDepth)
+
+    Sets the maximum raytrace depth during interactive rendering. No more bounces are performed after reaching this limit.
+
+    :param traceDepth: The interactive trace depth.
+    :type traceDepth: integer
+
+.. py:method:: vrdRenderSettings.setInteractiveVolumeScatterDepth(interactiveVolumeScatterDepth)
+
+    Sets the interactive volume scatter depth.
+
+    :param interactiveVolumeScatterDepth: The interactive volume scatter depth.
+    :type interactiveVolumeScatterDepth: integer
+
+.. py:method:: vrdRenderSettings.setKeepUndenoisedImage(keepUndenoisedImage)
+
+    Sets the keep undenoised image status.
+
+    :param keepUndenoisedImage: True to keep undenoised image, false to only keep the denoised image.
+    :type keepUndenoisedImage: bool
+
+.. py:method:: vrdRenderSettings.setLightOptimizationMode(lightOptimizationMode)
+
+    Enables/Disables optimizations for scenes with many light sources. While this gives massive speed improvements, it might fail in some situations.
+
+    :param lightOptimizationMode: The light optimization mode.
+    :type lightOptimizationMode: bool
+
+.. py:method:: vrdRenderSettings.setMetaDataFlags(metaDataFlags)
+
+    Sets the meta data flags. This feature embeds certain scene settings in the rendered output. Later, you can import the rendering into VRED, using File > Import Scene Data > Rendering Meta Data. The settings saved within the image upon creation are applied to the currently loaded scene, for example, the camera settings adopt. These options are only available for JPG, PNG, TIFF, and EXR files.
+
+    :param metaDataFlags: The meta data flags to set.
+    :type metaDataFlags: vrRenderSettingsTypes.MetaDataFlags
+
+.. py:method:: vrdRenderSettings.setPhotonLookupCount(photonLookupCount)
+
+    Sets the photon lookup count.
+
+    :param photonLookupCount: The photon lookup count.
+    :type photonLookupCount: integer
+
+.. py:method:: vrdRenderSettings.setPhotonMapRefreshMode(photonMapRefreshMode)
+
+    Sets how often the photon map is rebuilt if final gathering is turned on.
+
+    :param photonMapRefreshMode: The photon map refresh mode.
+    :type photonMapRefreshMode: vrRenderSettingsTypes.PhotonMapRefreshMode
+
+.. py:method:: vrdRenderSettings.setPhotonMode(photonMode)
+
+    Sets the photon mode.
+
+    :param photonMode: The photon mode.
+    :type photonMode: vrRenderSettingsTypes.PhotonMode
+
+.. py:method:: vrdRenderSettings.setPhotonTraceDepth(photonTraceDepth)
+
+    Sets the photon trace depth.
+
+    :param photonTraceDepth: The photon trace depth.
+    :type photonTraceDepth: integer
+
+.. py:method:: vrdRenderSettings.setPixelFilterHeight(filterHeight)
+
+    Sets the filter height.
+
+    :param filterHeight: The filter height.
+    :type filterHeight: float
+
+.. py:method:: vrdRenderSettings.setPixelFilterType(filterType)
+
+    Sets the filter type.
+
+    :param filterType: The filter type.
+    :type filterType: vrRenderSettingsTypes.PixelFilterType
+
+.. py:method:: vrdRenderSettings.setPixelFilterWidth(filterWidth)
+
+    Sets the filter width.
+
+    :param filterWidth: The filter width.
+    :type filterWidth: float
+
+.. py:method:: vrdRenderSettings.setPixelHeight(pixelHeight)
+
+    Sets the pixel height.
+
+    This function accepts a float value, but the value is converted to an integer internally. The float value is needed because the printing height is calculated in cm from this input and the printing resolution and could cause rounding errors if the value is an integer.
+
+    :param pixelHeight: The pixel height.
+    :type pixelHeight: float
+
+.. py:method:: vrdRenderSettings.setPixelWidth(pixelWidth)
+
+    Sets the pixel width.
+
+    This function accepts a float value, but the value is converted to an integer internally. The float value is needed because the printing width is calculated in cm from this input and the printing resolution and could cause rounding errors if the value is an integer.
+
+    :param pixelWidth: The pixel width.
+    :type pixelWidth: float
+
+.. py:method:: vrdRenderSettings.setPremultiplyAlpha(premultiplyAlpha)
+
+    Sets the premultiply alpha status.
+
+    :param premultiplyAlpha: True to enable premultiply alpha, false to disable it.
+    :type premultiplyAlpha: bool
+
+.. py:method:: vrdRenderSettings.setPrintingHeight(printHeight)
+
+    Sets the print height.
+
+    Sets the printing height in cm. Setting this will also update the pixel height (rounded to the nearest integer).
+
+    :param printHeight: The print height in cm.
+    :type printHeight: float
+
+.. py:method:: vrdRenderSettings.setPrintingResolution(ppi)
+
+    Gets the printing resolution.
+
+    :param ppi: The printing resolution (pixels per inch) value.
+    :type ppi: float
+
+.. py:method:: vrdRenderSettings.setPrintingWidth(printingWidth)
+
+    Sets the printing width.
+
+    Sets the printing width in cm. Setting this will also update the pixel width (rounded to the nearest integer).
+
+    :param printingWidth: The printing width in cm.
+    :type printingWidth: float
+
+.. py:method:: vrdRenderSettings.setRealtimeEnvironmentShadowsMode(mode)
+
+    Sets the mode of the real-time environment shadows to use in rasterization, if enabled.
+
+    :param mode:
+    :type mode: vrRenderSettingsTypes.RealtimeEnvironmentShadowsMode
+
+.. py:method:: vrdRenderSettings.setRegionEndX(regionEndX)
+
+    Sets the region end X coordinate.
+
+    :param regionEndX: The region end X coordinate.
+    :type regionEndX: integer
+
+.. py:method:: vrdRenderSettings.setRegionEndY(regionEndY)
+
+    Sets the region end Y coordinate.
+
+    :param regionEndY: The region end Y coordinate.
+    :type regionEndY: integer
+
+.. py:method:: vrdRenderSettings.setRegionStartX(regionStartX)
+
+    Sets the region start X coordinate.
+
+    :param regionStartX: The region start X coordinate.
+    :type regionStartX: integer
+
+.. py:method:: vrdRenderSettings.setRegionStartY(regionStartY)
+
+    Sets the region start Y coordinate.
+
+    :param regionStartY: The region start Y coordinate.
+    :type regionStartY: integer
+
+.. py:method:: vrdRenderSettings.setRenderAnimation(renderAnimation)
+
+    Sets the render animation status.
+
+    :param renderAnimation: True to enable render animation, false to disable it.
+    :type renderAnimation: bool
+
+.. py:method:: vrdRenderSettings.setRenderingColorspace(renderingColorspace)
+
+    Sets the rendering colorspace.
+
+    :param renderingColorspace: The rendering colorspace
+    :type renderingColorspace: vrRenderSettingsTypes.RenderingColorSpace
+
+.. py:method:: vrdRenderSettings.setRenderPasses(renderPasses)
+
+    Sets the render passes.
+
+    :param renderPasses: The render passes to set.
+    :type renderPasses: vrdRenderPasses
+
+.. py:method:: vrdRenderSettings.setRenderTimeLimit(timeLimit)
+
+    Sets the maximum duration for creating a single image (in seconds), This value is only used if         vrdRenderSettings.getImageSamplingMode() is set to vrRenderSettingsTypes.ImageSamplingMode.TimeLimit.
+
+    :param timeLimit: The render time limit.
+    :type timeLimit: integer
+
+.. py:method:: vrdRenderSettings.setSampleOffset(sampleOffset)
+
+    Sets the sample offset value.
+
+    Sets the offset for the pixel sampling id (advanced feature). This allows to use some sort of manual image refinement be offsetting the starting sample of the computation and merging the final image with a previous render.
+
+    :param sampleOffset: The sample offset value.
+    :type sampleOffset: integer
+
+.. py:method:: vrdRenderSettings.setStillFrameFinalGatherQuality(stillFrameFinalGatherQuality)
+
+    Sets the still frame final gather quality.
+
+    :param stillFrameFinalGatherQuality: The still frame final gather quality.
+    :type stillFrameFinalGatherQuality: integer
+
+.. py:method:: vrdRenderSettings.setStillFrameIblSamplingQuality(samplingQuality)
+
+    Sets the still frame IBL sampling quality.
+
+    :param samplingQuality: The sampling quality.
+    :type samplingQuality: integer
+
+.. py:method:: vrdRenderSettings.setStillFrameIlluminationMode(stillFrameIlluminationMode)
+
+    Sets the Illumination mode during still frame rendering.
+
+    :param stillFrameIlluminationMode: The still frame illumination mode.
+    :type stillFrameIlluminationMode: vrRenderSettingsTypes.IlluminationMode
+
+.. py:method:: vrdRenderSettings.setStillFramePhotonCount(stillFramePhotonCount)
+
+    Sets the number of photons to emit per image sample.
+
+    :param stillFramePhotonCount: The still frame photon count.
+    :type stillFramePhotonCount: integer
+
+.. py:method:: vrdRenderSettings.setStillFrameReflectionSamplingQuality(stillFrameQuality)
+
+    Sets the reflection/refraction quality for still frame rendering.
+
+    :param stillFrameQuality: The still frame quality.
+    :type stillFrameQuality: integer
+
+.. py:method:: vrdRenderSettings.setStillFrameTextureSharpness(stillFrameTextureSharpness)
+
+    Sets the still frame texture sharpness.
+
+    :param stillFrameTextureSharpness: The still frame texture sharpness.
+    :type stillFrameTextureSharpness: float
+
+.. py:method:: vrdRenderSettings.setStillFrameTraceDepth(traceDepth)
+
+    Sets the maximum raytrace depth during still frame rendering. No more bounces are performed after reaching this limit.
+
+    :param traceDepth: The still frame trace depth.
+    :type traceDepth: integer
+
+.. py:method:: vrdRenderSettings.setStillFrameVolumeScatterDepth(stillFrameVolumeScatterDepth)
+
+    Sets the still frame volume scatter depth.
+
+    :param stillFrameVolumeScatterDepth: The still frame volume scatter depth.
+    :type stillFrameVolumeScatterDepth: integer
+
+.. py:method:: vrdRenderSettings.setTonemapHDR(tonemapHdr)
+
+    Applies tone mapping to the high dynamic range image rendering.
+
+    :param tonemapHdr: True to enable tonemap HDR, false to disable it.
+    :type tonemapHdr: bool
+
+.. py:method:: vrdRenderSettings.setTransparencyMode(mode)
+
+    :param mode:
+    :type mode: vrRenderSettingsTypes.TransparencyMode
+
+.. py:method:: vrdRenderSettings.setUpdateRenderSamplesThreshold(samplesThreshold)
+
+    Sets the update samples threshold.
+
+    :param samplesThreshold: The samples threshold.
+    :type samplesThreshold: integer
+
+.. py:method:: vrdRenderSettings.setUseAnimationClipRange(useClipRange)
+
+    Sets the use clip range status.
+
+    :param useClipRange: True to enable use clip range, false to disable it.
+    :type useClipRange: bool
+
+.. py:method:: vrdRenderSettings.setUseAutomaticPhotonRadius(photonUseAutomaticRadius)
+
+    Sets the status of using automatic radius for photons. If enabled, a preprocess is doing a lookup of the 16 closest photons for each photon in the scene and calculates two times the average lookup radius. This feature works for most situations.
+
+    :param photonUseAutomaticRadius: True to use automatic radius for photons, false to disable it.
+    :type photonUseAutomaticRadius: bool
+
+.. py:method:: vrdRenderSettings.setUseClamping(useClamping)
+
+    Sets the clamping status. This might help in filtering out single bright spots but limiting the maximum value a pixel can take the the given value.
+
+    :param useClamping: True to enable clamping, false to disable it.
+    :type useClamping: bool
+
+.. py:method:: vrdRenderSettings.setUseCurrentView()
+
+    Sets that the current view (currently active camera) should be used for exporting images.
+
+.. py:method:: vrdRenderSettings.setUseFinalGatherForGlossy(useFinalGatherForGlossy)
+
+    Sets the status of using final gather for glossy. If activated, glossy reflections are not evaluated by path tracing but use the final gather map instead. This reduces the rendertime but results in less accurate reflections. Also specular surfaces are seen as black if caustics are not enabled.
+
+    :param useFinalGatherForGlossy: True to use final gather for glossy, false to disable it.
+    :type useFinalGatherForGlossy: bool
+
+.. py:method:: vrdRenderSettings.setUseInfiniteRendering(useInfiniteRendering)
+
+    Sets the calculation of the image samples as endless. If set to False, there are as many image samples calculated as set in         vrdRenderSettings.getImageSamples() (for example, 256 images) or as the calculation takes until the render time limit (vrdRenderSettings.getRenderTimeLimit()) is reached.
+
+    :param useInfiniteRendering: True to enable infinite rendering, false to disable it.
+    :type useInfiniteRendering: bool
+
+.. py:method:: vrdRenderSettings.setUseRaySplitting(useRaySplitting)
+
+    Sets the ray splitting status. If enabled a ray hitting a glass material for the first time will be split into following the reflection and refraction direction. If disabled either the reflection or the refraction direction will be traced. This setting only applies to GPU Raytracing.
+
+    :param useRaySplitting: True to enable ray splitting, false to disable it.
+    :type useRaySplitting: bool
+
+.. py:method:: vrdRenderSettings.setUseRaytracedReflections(b)
+
+    Enable or disable raytraced reflections in the Vulkan renderer.
+
+    :param b: True to enable raytraced reflections.
+    :type b: bool
+
+.. py:method:: vrdRenderSettings.setUseRealtimeEnvironmentShadows(b)
+
+    Sets if real-time environment shadows should be used in rasterization.
+
+    :param b: True if real-time environment shadows should be used.
+    :type b: bool
+
+.. py:method:: vrdRenderSettings.setUseRenderRegion(useRenderRegion)
+
+    Sets the use render region status.
+
+    :param useRenderRegion: True to enable render region, false to disable it.
+    :type useRenderRegion: bool
+
+.. py:method:: vrdRenderSettings.setUseRenderTimeLimit(useRenderTimeLimit)
+
+    Convenience method to use a render time limit for rendering. This is equivalent to setting         vrdRenderSettings.setImageSamplingMode(imageSamplingMode) to vrRenderSettingsTypes.ImageSamplingMode.TimeLimit.
+
+    :param useRenderTimeLimit: True to use a render time limit, false to disable it.
+    :type useRenderTimeLimit: bool
+
+.. py:method:: vrdRenderSettings.setUseScreenSpaceRefractions(b)
+
+    Sets if screen space refractions should be used (only supported in Vulkan rendering mode).
+
+    :param b: True if screen space refractions should be used.
+    :type b: bool
+
+.. py:method:: vrdRenderSettings.setUseSupersampling(supersampling)
+
+    Enables supersampling for the rendering.
+
+    :param supersampling: True, to enable supersampling.
+    :type supersampling: bool
+
+.. py:method:: vrdRenderSettings.setUseTimeStamp(useTimeStamp)
+
+    Sets the use timestamp status.
+
+    :param useTimeStamp: True to use timestamp, false to disable it.
+    :type useTimeStamp: bool
+
+.. py:method:: vrdRenderSettings.setUseTwoSampleImportanceSampling(useTwoSampleImportanceSampling)
+
+    Sets the status of using two-sample importance sampling. If enabled two samples will be evaluated for IBL importance sampling. If disabled one sample will be used for IBL importance sampling. This setting only applies to GPU Raytracing.
+
+    :param useTwoSampleImportanceSampling: True to use two-sample importance sampling, false to disable it.
+    :type useTwoSampleImportanceSampling: bool
+
+.. py:method:: vrdRenderSettings.setUseVariantSets(variantSetsUsed)
+
+    Sets the status of variant sets usage. Use the Variant Sets section to easily render multiple versions of a model in VRED. Render a red car in a garage, yellow car in a garage, and red car in park, in one render job.
+
+    :param variantSetsUsed: True to use variant sets, false to not use them.
+    :type variantSetsUsed: bool
+
+.. py:method:: vrdRenderSettings.setUseVariantSetViewpoints(variantSetViewpointsUsed)
+
+    Setting this to true will ignore the set viewpoint and uses what is set in the variant sets.
+
+    :param variantSetViewpointsUsed: True to use variant set viewpoints, false to not use them.
+    :type variantSetViewpointsUsed: bool
+
+.. py:method:: vrdRenderSettings.setVariantSetGroups(variantSetGroups)
+
+    Sets the list of variant set groups.
+
+    :param variantSetGroups: The list of vrdRenderAutomationVariantSetGroup to set.
+    :type variantSetGroups: List[vrdRenderAutomationVariantSetGroup]
+
+.. py:method:: vrdRenderSettings.setView(view)
+
+    Sets the view.
+
+    To set the view to follow the 'current' camera, use vrdRenderSettings.setUseCurrentView()
+
+    :param view: The view can either be a camera, a viewpoint or a camera track node.
+    :type view: vrdNode
+
+.. py:method:: vrdRenderSettings.setVolumeEvaluationMode(volumeEvaluationMode)
+
+    Sets the volume evaluation mode.
+
+    :param volumeEvaluationMode: The volume evaluation mode.
+    :type volumeEvaluationMode: vrRenderSettingsTypes.VolumeEvaluationMode
+

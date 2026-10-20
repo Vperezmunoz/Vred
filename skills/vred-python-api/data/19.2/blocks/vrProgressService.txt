@@ -1,0 +1,62 @@
+-----------------
+vrProgressService
+-----------------
+
+.. py:class:: vrProgressService
+
+(Inherits vrBaseService)
+
+Reports the progress of a currently running operation.
+
+Only some long running operations will report there progress through this service
+
+Summary
+=======
+
+Functions:
+    * cancelOperation()
+
+Signals:
+    * operationFinished(canceled)
+    * operationStarted(state)
+    * progressChanged(progress)
+    * stateChanged(state)
+
+Functions
+=========
+
+.. py:method:: vrProgressService.cancelOperation()
+
+    Cancels the currently running opertation.
+
+Signals
+=======
+
+.. py:method:: vrProgressService.operationFinished(canceled)
+
+    An operation that reports its progress has finished.
+
+    :param canceled: If True, the operation has been manually canceled
+    :type canceled: bool
+
+.. py:method:: vrProgressService.operationStarted(state)
+
+    An operation that reports its progress has started.
+
+    :param state: An optional description of the current operation
+    :type state: string
+
+.. py:method:: vrProgressService.progressChanged(progress)
+
+    The progress value has changed.
+
+    :param progress: A value from 0 to 1
+    :type progress: float
+
+.. py:method:: vrProgressService.stateChanged(state)
+
+    The operation state has changed.
+
+    :param state: The state of the running operation
+    :type state: string
+

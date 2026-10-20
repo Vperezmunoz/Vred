@@ -1,0 +1,175 @@
+--------------
+vrdSessionUser
+--------------
+
+.. py:class:: vrdSessionUser
+
+(Inherits vrdObject)
+
+User information for collaboration sessions.
+
+Summary
+=======
+
+Functions:
+    * getBillboardNode() → vrdNode
+    * getCameraMatrix() → QMatrix4x4
+    * getDeviceImage() → QImage
+    * getDeviceName() → string
+    * getHasLeftHand() → bool
+    * getHasRightHand() → bool
+    * getHeadNode() → vrdNode
+    * getHeadTrackingMatrix() → QMatrix4x4
+    * getIsHmd() → bool
+    * getIsRemote() → bool
+    * getLeftHandNode() → vrdNode
+    * getLeftHandTrackingMatrix() → QMatrix4x4
+    * getProjectCRC() → integer
+    * getProjectName() → string
+    * getRightHandNode() → vrdNode
+    * getRightHandTrackingMatrix() → QMatrix4x4
+    * getRoom() → string
+    * getSpectatorCount() → integer
+    * getTorsoNode() → vrdNode
+    * getUserColor() → QColor
+    * getUserIcon() → QImage
+    * getUserId() → integer
+    * getUserName() → string
+    * sendPython(command, commandId)
+    * setAvatarVisible(visible)
+
+Functions
+=========
+
+.. py:method:: vrdSessionUser.getBillboardNode()
+
+    :return: A node pointer for the billboard transformation
+    :rtype: vrdNode
+
+.. py:method:: vrdSessionUser.getCameraMatrix()
+
+    :return: A matrix representing the users camera position.
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdSessionUser.getDeviceImage()
+
+    :return: An icon for the VR device.
+    :rtype: QImage
+
+.. py:method:: vrdSessionUser.getDeviceName()
+
+    :return: The name of the VR device.
+    :rtype: string
+
+.. py:method:: vrdSessionUser.getHasLeftHand()
+
+    :return: True, if left hand is tracked.
+    :rtype: bool
+
+.. py:method:: vrdSessionUser.getHasRightHand()
+
+    :return: True, if right hand is tracked.
+    :rtype: bool
+
+.. py:method:: vrdSessionUser.getHeadNode()
+
+    :return: A node pointer for the head transformation.
+    :rtype: vrdNode
+
+.. py:method:: vrdSessionUser.getHeadTrackingMatrix()
+
+    :return: A matrix representing the users head tracking position.
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdSessionUser.getIsHmd()
+
+    :return: True, if a head mounted display is used
+    :rtype: bool
+
+.. py:method:: vrdSessionUser.getIsRemote()
+
+    :return: True, if this is a remote user
+    :rtype: bool
+
+.. py:method:: vrdSessionUser.getLeftHandNode()
+
+    :return: A node pointer for the left hand transformation.
+    :rtype: vrdNode
+
+.. py:method:: vrdSessionUser.getLeftHandTrackingMatrix()
+
+    :return: A matrix representing the users left hand tracking position.
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdSessionUser.getProjectCRC()
+
+    :return: The current project checksum.
+    :rtype: integer
+
+.. py:method:: vrdSessionUser.getProjectName()
+
+    :return: The current project file name.
+    :rtype: string
+
+.. py:method:: vrdSessionUser.getRightHandNode()
+
+    :return: A node pointer for the right hand transformation.
+    :rtype: vrdNode
+
+.. py:method:: vrdSessionUser.getRightHandTrackingMatrix()
+
+    :return: A matrix representing the users right hand tracking position.
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdSessionUser.getRoom()
+
+    :return: Current room name.
+    :rtype: string
+
+.. py:method:: vrdSessionUser.getSpectatorCount()
+
+    :return: Number of spectators for this user.
+    :rtype: integer
+
+.. py:method:: vrdSessionUser.getTorsoNode()
+
+    :return: A node pointer for the torso transformation.
+    :rtype: vrdNode
+
+.. py:method:: vrdSessionUser.getUserColor()
+
+    :return: The user color.
+    :rtype: QColor
+
+.. py:method:: vrdSessionUser.getUserIcon()
+
+    :return: An icon based on the device icon colored in user color.
+    :rtype: QImage
+
+.. py:method:: vrdSessionUser.getUserId()
+
+    :return: The user id.
+    :rtype: integer
+
+.. py:method:: vrdSessionUser.getUserName()
+
+    :return: The user name.
+    :rtype: string
+
+.. py:method:: vrdSessionUser.sendPython(command, commandId="")
+
+    Sends a python command to this users.
+
+    :param command: The python command to send
+    :type command: string
+
+    :param commandId: For the same commandId, only the last command is synchronized
+    :type commandId: string
+
+.. py:method:: vrdSessionUser.setAvatarVisible(visible)
+
+    Sets the head, torso and hand nodes visbility.
+
+    :param visible: True to set head, torso and hands visible, False to set these nodes to invisible
+    :type visible: bool
+

@@ -1,0 +1,10 @@
+-------------------
+vrdStereoSwitchNode
+-------------------
+
+.. py:class:: vrdStereoSwitchNode
+
+(Inherits vrdNode)
+
+Objects of this type represent a stereo switch node. The first child node of a stereo switch is drawn on the left eye channel, the second child node is drawn on the right eye.
+

@@ -1,0 +1,79 @@
+-----------------
+vrSceneplateTypes
+-----------------
+
+.. py:class:: vrSceneplateTypes
+
+    .. py:class:: NodeType
+       :no-index:
+
+            .. py:data:: Frontplate
+               :no-index:
+
+            .. py:data:: Backplate
+               :no-index:
+
+            .. py:data:: Group
+               :no-index:
+
+            .. py:data:: Switch
+               :no-index:
+
+            .. py:data:: Depthplate
+               :no-index:
+
+            .. py:data:: All
+               :no-index:
+
+    .. py:class:: ContentType
+
+            .. py:data:: Image
+
+            .. py:data:: Web
+
+            .. py:data:: Text
+
+    .. py:class:: SizeType
+
+            .. py:data:: Absolute
+
+            .. py:data:: Relative
+
+    .. py:class:: Position
+
+            .. py:data:: Top
+
+            .. py:data:: Bottom
+
+            .. py:data:: Left
+               :no-index:
+
+            .. py:data:: Right
+               :no-index:
+
+            .. py:data:: Center
+
+            .. py:data:: TopLeft
+               :no-index:
+
+            .. py:data:: TopRight
+               :no-index:
+
+            .. py:data:: BottomLeft
+               :no-index:
+
+            .. py:data:: BottomRight
+               :no-index:
+
+    .. py:class:: RepeatMode
+
+            .. py:data:: Repeat
+               :no-index:
+
+            .. py:data:: Mirror
+
+            .. py:data:: Decal
+
+            .. py:data:: Clamp
+               :no-index:
+

@@ -1,0 +1,52 @@
+MODULE vrVariants (legacy v1 API)
+
+-----------
+vrVariants
+-----------
+
+Contains functions to capture and activate variant sets.
+
+**Deprecated**; use API v2 vrVariantService instead.
+
+Summary
+=======
+
+Functions:
+    * activateCapturedVariantSet(name)
+    * createAndCaptureVariantSet(variantName, groupName)
+    * selectVariantSet(name, excludeViewpoint)
+    * selectVariantSet(name)
+
+.. function:: createAndCaptureVariantSet(variantName, groupName)
+
+    Captures variants to variant set.
+
+    :param variantName: The name of the variant set.
+    :type variantName: string
+    :param groupName: Name of the variant set group.
+    :type groupName: string
+
+.. function:: activateCapturedVariantSet(name)
+
+    Activates a captured variant set. The variant set will activate all states of its defined node and material variants.
+
+    :param name: The name of the captured variant set.
+    :type name: string
+
+.. function:: selectVariantSet(name)
+
+    Activates a variant set. The variant set will activate all states of its defined node and material variants.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+.. function:: selectVariantSet(name, exclusive)
+    :no-index:
+
+    Activates a variant set. The variant set will activate all states of its defined node and material variants.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+    :param excludeViewpoint: exclude viewpoint from this variant set.
+    :type excludeViewpoint: bool

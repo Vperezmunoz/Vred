@@ -1,0 +1,355 @@
+-------------------
+vrSceneplateService
+-------------------
+
+.. py:class:: vrSceneplateService
+
+(Inherits vrBaseService)
+
+Base class for all work with scene plate.
+
+Summary
+=======
+
+Functions:
+    * clearSelection()
+    * copyNodes(nodes)
+    * createGroupForNodes(nodes) → vrdNode
+    * createNode(parent, type, name) → vrdNode
+    * createSwitchForNodes(nodes) → vrdSwitchNode
+    * cutNodes(nodes)
+    * duplicateNodes(nodes)
+    * findNode(name) → vrdNode
+    * findNodes(name) → List[vrdNode]
+    * getAllGroups() → List[vrdNode]
+    * getAllNodes() → List[vrdNode]
+    * getAllSceneplates() → List[vrdSceneplateNode]
+    * getDefaultBackgroundColor() → QVector3D
+    * getDefaultBackgroundTransparency() → float
+    * getDefaultFont() → string
+    * getDefaultFontColor() → QVector3D
+    * getPreviewImage(sceneplate) → QImage
+    * getRootNode() → vrdNode
+    * getSelectedNodes() → List[vrdNode]
+    * loadNodes(filename) → bool
+    * pasteAllAttributes(nodes)
+    * pasteColorCorrection(nodes)
+    * pasteNodes(targetRoot)
+    * pasteProperties(nodes)
+    * pasteSizeAndPosition(nodes)
+    * reloadWebPage(nodes)
+    * removeAllGroups()
+    * removeNodes(nodes)
+    * saveNodes(filename, nodes) → bool
+    * setDefaultBackgroundColor(color)
+    * setDefaultBackgroundTransparency(transparency)
+    * setDefaultFont(font)
+    * setDefaultFontColor(color)
+    * setSelectedNodes(nodes)
+
+Signals:
+    * nodesAdded(nodes)
+    * nodesChanged()
+    * nodesRemoved(nodes)
+    * nodesSelected(nodes)
+
+Functions
+=========
+
+.. py:method:: vrSceneplateService.clearSelection()
+
+    Clears the current sceneplate selection.
+
+.. py:method:: vrSceneplateService.copyNodes(nodes)
+
+    Copy Nodes.
+
+    :param nodes: List of nodes to be copied
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.createGroupForNodes(nodes)
+
+    All given nodes will be moved to a new created group.
+
+    :param nodes: Nodes to be grouped
+    :type nodes: List[vrdNode]
+
+    :return: Created group
+    :rtype: vrdNode
+
+.. py:method:: vrSceneplateService.createNode(parent, type, name)
+
+    Creates a new sceneplate node.
+
+    :param parent: Parent to add the new created node (has to be a child of scene plate root)
+    :type parent: vrdNode
+
+    :param type: The type of the new created node (e.g. frontplate)
+    :type type: vrSceneplateTypes.NodeType
+
+    :param name: The name of the new created node
+    :type name: string
+
+    :return: Created node
+    :rtype: vrdNode
+
+.. py:method:: vrSceneplateService.createSwitchForNodes(nodes)
+
+    All given nodes will be moved to a new created switch.
+
+    :param nodes: Nodes to be moved to switch
+    :type nodes: List[vrdNode]
+
+    :return: Created node
+    :rtype: vrdSwitchNode
+
+.. py:method:: vrSceneplateService.cutNodes(nodes)
+
+    Cut nodes.
+
+    :param nodes: List of nodes to be cut
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.duplicateNodes(nodes)
+
+    Duplicate the nodes.
+
+    Each duplicated node is created as child of the same parent as the original node
+
+    :param nodes: List of nodes to duplicate
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.findNode(name)
+
+    Returns the first node found in sceneplate hierarchy with the given name.
+
+    :param name: Name of node
+    :type name: string
+
+    :return: Node with given name
+    :rtype: vrdNode
+
+.. py:method:: vrSceneplateService.findNodes(name)
+
+    Returns list of nodes found in sceneplate hierarchy with the given name.
+
+    :param name: Name of nodes
+    :type name: string
+
+    :return: List of nodes with given name
+    :rtype: List[vrdNode]
+
+.. py:method:: vrSceneplateService.getAllGroups()
+
+    Returns all group nodes (excluding sceneplates and switches)
+
+    :return: List of all group nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrSceneplateService.getAllNodes()
+
+    Returns all nodes (sceneplates, groups and switches)
+
+    :return: List of all nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrSceneplateService.getAllSceneplates()
+
+    Returns all sceneplates (excluding groups and switches)
+
+    :return: List of all sceneplates
+    :rtype: List[vrdSceneplateNode]
+
+.. py:method:: vrSceneplateService.getDefaultBackgroundColor()
+
+    Returns the default background color for new created (text) sceneplates.
+
+    :return: Background color of a text sceneplate
+    :rtype: QVector3D
+
+.. py:method:: vrSceneplateService.getDefaultBackgroundTransparency()
+
+    Returns the default background transparency for new created (text) sceneplates.
+
+    :return: Background transparency
+    :rtype: float
+
+.. py:method:: vrSceneplateService.getDefaultFont()
+
+    Returns the default font for new created (text) sceneplates.
+
+    :return: Font name
+    :rtype: string
+
+.. py:method:: vrSceneplateService.getDefaultFontColor()
+
+    Returns the default font color for new created (text) sceneplates.
+
+    :return: Color of default font
+    :rtype: QVector3D
+
+.. py:method:: vrSceneplateService.getPreviewImage(sceneplate)
+
+    Returns an image for a node, the image shows the current content of the sceneplate. If a group or switch is selected the content of the first visible sceneplate will be returned.
+
+    :param sceneplate:
+    :type sceneplate: vrdNode
+
+    :return: Image showing content of sceneplate node
+    :rtype: QImage
+
+.. py:method:: vrSceneplateService.getRootNode()
+
+    Returns the root node of all sceneplates.
+
+    :return: Root node
+    :rtype: vrdNode
+
+.. py:method:: vrSceneplateService.getSelectedNodes()
+
+    Returns the currently selected nodes.
+
+    :return: Selected nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrSceneplateService.loadNodes(filename)
+
+    Load sceneplate nodes from file with the given name.
+
+    :param filename: File to load
+    :type filename: string
+
+    :return: True on success
+    :rtype: bool
+
+.. py:method:: vrSceneplateService.pasteAllAttributes(nodes)
+
+    Paste all attributes from the first node in copy buffer to the given nodes.
+
+    :param nodes: Nodes to be changed
+    :type nodes: List[vrdSceneplateNode]
+
+.. py:method:: vrSceneplateService.pasteColorCorrection(nodes)
+
+    Paste color correction setting from the first node in copy buffer to the given nodes.
+
+    :param nodes: Nodes to be changed
+    :type nodes: List[vrdSceneplateNode]
+
+.. py:method:: vrSceneplateService.pasteNodes(targetRoot)
+
+    Paste nodes.
+
+    :param targetRoot: Pastes copies of nodes in copy buffer to the given root
+    :type targetRoot: vrdNode
+
+.. py:method:: vrSceneplateService.pasteProperties(nodes)
+
+    Paste properties (all information about the content) from the first node in copy buffer to the given nodes.
+
+    :param nodes: Nodes to be changed
+    :type nodes: List[vrdSceneplateNode]
+
+.. py:method:: vrSceneplateService.pasteSizeAndPosition(nodes)
+
+    Paste size and position from the first node in copy buffer to the given nodes.
+
+    :param nodes: Nodes to be changed
+    :type nodes: List[vrdSceneplateNode]
+
+.. py:method:: vrSceneplateService.reloadWebPage(nodes)
+
+    Reloads the web pages of the given nodes.
+
+    :param nodes: Nodes to be reloaded
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.removeAllGroups()
+
+    Removes all groups (not switches) from the sceneplate hierarchy.
+
+.. py:method:: vrSceneplateService.removeNodes(nodes)
+
+    Remove nodes from sceneplates.
+
+    :param nodes: Nodes to be removed
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.saveNodes(filename, nodes)
+
+    Saves the nodes to the file with the given name.
+
+    :param filename: Target .osb file
+    :type filename: string
+
+    :param nodes: Nodes to be saved
+    :type nodes: List[vrdNode]
+
+    :return: True on success
+    :rtype: bool
+
+.. py:method:: vrSceneplateService.setDefaultBackgroundColor(color)
+
+    Sets the default background color for new created (text) sceneplates.
+
+    :param color: Background color for text sceneplates
+    :type color: QVector3D
+
+.. py:method:: vrSceneplateService.setDefaultBackgroundTransparency(transparency)
+
+    Sets the default background transparency for new created (text) sceneplates.
+
+    :param transparency: Background transparency
+    :type transparency: float
+
+.. py:method:: vrSceneplateService.setDefaultFont(font)
+
+    Sets the default font for new created (text) sceneplates.
+
+    :param font: Name of the font
+    :type font: string
+
+.. py:method:: vrSceneplateService.setDefaultFontColor(color)
+
+    Sets the default font color for new created (text) sceneplates.
+
+    :param color: Color for default font
+    :type color: QVector3D
+
+.. py:method:: vrSceneplateService.setSelectedNodes(nodes)
+
+    Sets the sceneplate selection.
+
+    :param nodes: Nodes to be selected
+    :type nodes: List[vrdNode]
+
+Signals
+=======
+
+.. py:method:: vrSceneplateService.nodesAdded(nodes)
+
+    Notifies about nodes added to the sceneplate hierarchy.
+
+    :param nodes: Added nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.nodesChanged()
+
+    Notifies about changes in node structure, e.g. after a new scene.
+
+.. py:method:: vrSceneplateService.nodesRemoved(nodes)
+
+    Notifies about nodes removed from the sceneplate hierarchy.
+
+    :param nodes: Removed nodes
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrSceneplateService.nodesSelected(nodes)
+
+    Notifies about selection changes of sceneplates.
+
+    Sends the currently selected nodes, not the nodes that are added or removed from selection, but always the whole list of currently selected nodes.
+
+    :param nodes: The currently selected nodes
+    :type nodes: List[vrdNode]
+

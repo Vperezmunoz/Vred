@@ -1,0 +1,78 @@
+MODULE vrFrame (legacy v1 API)
+
+--------
+vrFrame
+--------
+
+Creates a 2D frame with HTML content.
+
+.. class:: vrFrame
+
+Summary
+=======
+
+Constructor:
+    * vrFrame(html, x1, y1, x2, y2)
+
+Functions:
+    * getFrame() → list
+    * hide()
+    * setFrame(x1, y1, x2, y2)
+    * setHtml(html)
+    * show()
+    * toggleShow()
+
+.. method:: vrFrame(html, x1, y1, x2, y2)
+    :no-index:
+
+    The constructor of the vrFrame class.
+
+    :param html: The content.
+    :type html: string
+    :param x1: The first coordinate on the horizontal axis.
+    :type x1: float
+    :param y1: The first coordinate on the vertical axis.
+    :type y1: float
+    :param x2: The second coordinate on the horizontal axis.
+    :type x2: float
+    :param y2: The second coordinate on the vertical axis.
+    :type y2: float
+
+.. method:: show()
+
+    Shows the frame.
+
+.. method:: hide()
+
+    Hides the frame.
+
+.. method:: toggleShow()
+
+    Toggles the visibility of the frame.
+
+.. method:: setHtml(html)
+
+    Sets the HTML content of the frame.
+
+    :param html: The content.
+    :type html: string
+
+.. method:: setFrame(x1, y1, x2, y2)
+
+    Sets the frame vertices.
+
+    :param x1: The first coordinate on the horizontal axis.
+    :type x1: float
+    :param y1: The first coordinate on the vertical axis.
+    :type y1: float
+    :param x2: The second coordinate on the horizontal axis.
+    :type x2: float
+    :param y2: The second coordinate on the vertical axis.
+    :type y2: float
+
+.. method:: getFrame()
+
+    Gets the frame vertices.
+
+    :return: The first horizontal and vertical and the second horizontal and vertical coordinate of the frame.
+    :rtype: list of floats

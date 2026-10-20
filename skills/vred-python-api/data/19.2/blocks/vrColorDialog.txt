@@ -1,0 +1,40 @@
+MODULE vrColorDialog (legacy v1 API)
+
+-------------
+vrColorDialog
+-------------
+
+Contains the functionality to let the user interactively choose a color.
+
+Summary
+=======
+
+Functions:
+    * getColorFromDialog(float, float, float)
+    * getColorFromDialog(int, int, int)
+
+.. function:: getColorFromDialog(red: float, green: float, blue: float) → list[float]
+
+    Opens a color dialog and lets the user choose a color.
+
+    :param red: The red component of the preset color as a float (value from 0.0 to 1.0).
+    :type red: float
+    :param green: The green component of the preset color as a float (value from 0.0 to 1.0).
+    :type green: float
+    :param blue: The blue component of the preset color as a float (value from 0.0 to 1.0).
+    :type blue: float
+    :return: The user-selected colors (element 0 is the red, element 1 is the green, and element 2 is the blue component).
+    :rtype: list[float]
+
+.. function:: getColorFromDialog(red: int, green: int, blue: int) → list[int]
+
+    Opens a color dialog and lets the user choose a color.
+
+    :param red: The red component of the preset color as an integer (value from 0 to 255).
+    :type red: int
+    :param green: The green component of the preset color as an integer (value from 0 to 255).
+    :type green: int
+    :param blue: The blue component of the preset color as an integer (value from 0 to 255).
+    :type blue: int
+    :return: The user-selected colors (element 0 is the red, element 1 is the green, and element 2 is the blue component).
+    :rtype: list[int]

@@ -1,0 +1,1269 @@
+MODULE vrNodePtr (legacy v1 API)
+
+---------
+vrNodePtr
+---------
+
+.. class:: vrNodePtr
+
+   The NodePtr class is a Python representation of a node within the scenegraph. It can be used to alter the existing structure by adding/removing nodes.
+
+   Most functions in vrNodePtr are **deprecated**.
+   Use the API v2 node types instead:
+   For basic node functions, use vrdNode.
+   For transform functions, use vrdTransformNode.
+   For light functions, use vrdBaseLightNode, vrdPointLightNode, etc.
+
+   Example::
+
+       # Example usage of vrNodePtr
+       node = findNode("Group")
+       node.setName("ExampleNode")
+       node.setTranslation(1.0, 2.0, 3.0)
+       print(node.getName())
+       print(node.getTranslation())
+
+   Note: This module contains global functions which are mapped to the global namespace. They can be used without creating an instance of the class.
+
+Summary
+=======
+Global Functions:
+    * toNode(id) → vrNodePtr
+    * createLight(type) → vrNodePtr
+
+Static Functions:
+    * removeAssetManagerReference(nodes)
+
+Class Functions:
+    * addAttachment(attachment) → bool
+    * addChild(node)
+    * changeLightType(type) → bool
+    * clone() → vrNodePtr
+    * copy() → vrNodePtr
+    * deleteRayFile()
+    * fields() → vrFieldAccess
+    * getActive() → bool
+    * getAreaLightInteractiveQuality() → int
+    * getAreaLightPrimaryVisibility() → bool
+    * getAreaLightStillFrameQuality() → int
+    * getAreaLightUseConeAngle() → bool
+    * getAreaLightVisibleInReflections() → bool
+    * getAttachment(aname) → FieldContainerPtr
+    * getAttribute(key) → string
+    * getBoundingBox() → list of floats
+    * getCastShadowOnShadowMaterial() → bool
+    * getCenter() → list of floats
+    * getChild(id) → vrNodePtr
+    * getDiffuseLightColor() → list of floats
+    * getDlistCache() → bool
+    * getGlossyLightColor() → list of floats
+    * getGroundShadowIntensity() → float
+    * getID() → unsigned int
+    * getIlluminateShadowMaterial() → bool
+    * getLightConeAngle() → float
+    * getLightImportanceMultiplier() → float
+    * getLightIntensity() → float
+    * getLightPenumbraAngle() → float
+    * getLightTemperature() → int
+    * getLightVisualizationScale() → float
+    * getLightVisualizationVisible() → bool
+    * getLocalTranslation() → list of floats
+    * getMaterial() → vrMaterialPtr
+    * getName() → string
+    * getNChildren() → unsigned int
+    * getNormals() → list of floats
+    * getParent() → vrNodePtr
+    * getPositions() → list of floats
+    * getPtr() → NodePtr
+    * getRayFileUsePhotonsForDirectLighting() → bool
+    * getRayFileUseRandomSampling() → bool
+    * getRayFileVisualizationRayCount() → unsigned int
+    * getRayFileVisualizationRayLength() → float
+    * getRotation() → list of floats
+    * getScale() → list of floats
+    * getShadowIntensity() → float
+    * getShadowMapFilterRadius() → float
+    * getShadowMapResolution() → int
+    * getTexCoords() → list of floats
+    * getTranslation() → list of floats
+    * getType() → string
+    * getUseIESProfile() → bool
+    * getUseLightTemperature() → bool
+    * getVBO() → bool
+    * getWorldRotation() → list of floats
+    * getWorldScale() → list of floats
+    * getWorldTransform() → list of floats
+    * getWorldTranslation() → list of floats
+    * hasAttachment(fname) → bool
+    * hasAttribute(key) → bool
+    * isAreaLight() → bool
+    * isAsset() → bool
+    * isDirectionalLight() → bool
+    * isDiskLight() → bool
+    * isLight() → bool
+    * isLightOn() → bool
+    * isLocalLight() → bool
+    * isPointLight() → bool
+    * isRayFileLight() → bool
+    * isRectangularLight() → bool
+    * isSphericalLight() → bool
+    * isSpotLight() → bool
+    * isTransform() → bool
+    * isValid() → bool
+    * loadIESProfile(filename) → bool
+    * loadRayFile(filename) → bool
+    * makeComponentTransform()
+    * makeTransform(search=False)
+    * removeAttribute(key)
+    * setActive(state)
+    * setAreaLightInteractiveQuality(quality)
+    * setAreaLightPrimaryVisibility(state)
+    * setAreaLightStillFrameQuality(quality)
+    * setAreaLightUseConeAngle(state)
+    * setAreaLightVisibleInReflections(state)
+    * setAttribute(key, value)
+    * setAxisRotation(axis, alpha)
+    * setAxisRotation(ax, ay, az, bx, by, bz, alpha)
+    * setCastShadowOnShadowMaterial(state)
+    * setDiffuseLightColor(r, g, b)
+    * setDlistCache(state)
+    * setFieldBool()
+    * setFieldColor4f()
+    * setFieldInt16()
+    * setFieldInt32()
+    * setFieldNode()
+    * setFieldPnt2f()
+    * setFieldPnt3f()
+    * setFieldReal32()
+    * setFieldReal64()
+    * setFieldString()
+    * setFieldUInt16()
+    * setFieldUInt32()
+    * setFieldVec2f()
+    * setFieldVec3f()
+    * setFieldVec4f()
+    * setGlossyLightColor(r, g, b)
+    * setGroundShadowIntensity(value)
+    * setIlluminateShadowMaterial(state)
+    * setLightConeAngle(angleInDegrees)
+    * setLightImportanceMultiplier(value)
+    * setLightIntensity(intensity)
+    * setLightOn(state)
+    * setLightPenumbraAngle(angleInDegrees)
+    * setLightTemperature(kelvin)
+    * setLightVisualizationScale(scale)
+    * setLightVisualizationVisible(state)
+    * setLocalLight(state)
+    * setLocalTranslation(x, y, z)
+    * setMaterial(mat)
+    * setName(name)
+    * setNormals(normals)
+    * setPositions(positions)
+    * setRayFileUsePhotonsForDirectLighting(state)
+    * setRayFileUseRandomSampling(state)
+    * setRayFileVisualizationRayCount(count)
+    * setRayFileVisualizationRayLength(length)
+    * setRotation(x, y, z)
+    * setScale(x, y, z)
+    * setShadowIntensity(value)
+    * setShadowMapFilterRadius(radius)
+    * setShadowMapResolution(resolution)
+    * setTexCoords(texCoords)
+    * setTransformMatrix(matrix, transposed)
+    * setTranslation(x, y, z)
+    * setTransparency(t)
+    * setUseIESProfile(state)
+    * setUseLightTemperature(state)
+    * setVBO(state)
+    * setWorldTranslation(x, y, z)
+    * sub()
+    * subAttachment(attachment) → bool
+    * subChild(node)
+    * toggleLight()
+
+.. method:: toNode(id)
+
+    Returns a node with the node id provided.
+
+    :param id:  The node id.
+    :type id: unsigned int (32bit)
+    :return: The node.
+    :rtype: vrNodePtr
+
+.. method:: createLight(type)
+
+    **Deprecated**. Use API v2 vrLightService.createLight(name, type) instead.
+
+    Creates a light node with the given light type and adds it to the root node of the scenegraph.
+
+    Supported types are: UDirectionalLight, USpotLight, UPointLight, UDiskLight, URectangularLight, USphericalLight, URayLight.
+
+    :param type: The type of the light.
+    :type type: string
+
+.. method:: getID()
+    :no-index:
+
+    Returns the internal id of the node.
+
+    :return: The node id.
+    :rtype: unsigned int (32bit)
+
+.. method:: getPtr()
+    :no-index:
+
+    Returns the OpenSG NodePtr.
+
+    :return: The pointer to the node.
+    :rtype: NodePtr
+
+.. method:: isValid()
+    :no-index:
+
+    Returns true when the node is valid. Should be called for sanity reasons after searching a node with findNode.
+
+    :return: True if valid, false otherwise.
+    :rtype: bool
+
+.. method:: setName(name)
+    :no-index:
+
+    Sets the name of the node.
+
+    :param name: The new name of the node.
+    :type name: string
+
+.. method:: getName()
+    :no-index:
+
+    Returns the name of the node.
+
+    :return: The name of the node.
+    :rtype: string
+
+.. method:: isTransform()
+
+    Returns true if the node is a transform node.
+
+    :return: True if the node is a transform node, false otherwise.
+    :rtype: bool
+
+.. method:: makeTransform(search=False)
+
+    Converts the node into a transform node.
+
+    :param search: When true, tries to find a transform node parent/child (Optional).
+    :type search: boolean
+
+.. method:: makeComponentTransform()
+
+    Converts the node into a component transform node.
+
+.. method:: getParent()
+
+    Returns the parent node.
+
+    :return: The parent node.
+    :rtype: vrNodePtr
+
+.. method:: addChild(node)
+
+    Adds a child node to a parent node.
+
+    :param node: The child node.
+    :type node: vrNodePtr
+
+.. method:: subChild(node)
+
+    Removes a child node from a parent node.
+
+    :param node: The child node.
+    :type node: vrNodePtr
+
+.. method:: sub()
+    :no-index:
+
+    Removes the node itself from the scenegraph.
+
+.. method:: getChild(id)
+
+    Gets a child node by index in [0, n] or name.
+
+    :param id: The index or the name of the child node.
+    :type id: unsigned integer or string
+    :return: The child node.
+    :rtype: vrNodePtr
+
+.. method:: getNChildren()
+
+    Gets the number of children.
+
+    :return: The number of children.
+    :rtype: unsigned integer
+
+.. method:: copy()
+
+    Creates a copy of the node.
+
+    :return: The copy.
+    :rtype: vrNodePtr
+
+.. method:: clone()
+
+    Creates a clone of the node.
+
+    :return: The clone.
+    :rtype: vrNodePtr
+
+.. method:: setActive(state)
+    :no-index:
+
+    Enables/disables rendering for this node.
+
+    :param state: Set true to enable and false to disable the object.
+    :type state: bool
+
+.. method:: getActive()
+
+    Returns the render state for this node.
+
+    :return: The render state: On/Off.
+    :rtype: bool
+
+.. method:: getType()
+
+    Returns the type for this node.
+
+    :return: The type.
+    :rtype: string
+
+.. method:: setTranslation(x, y, z)
+
+    Sets the translation of a transform node.
+
+    :param x: The x translation.
+    :type x: float (32bit)
+    :param y: The y translation.
+    :type y: float (32bit)
+    :param z: The z translation.
+    :type z: float (32bit)
+
+.. method:: setLocalTranslation(x, y, z)
+
+    Same as setTranslation(x, y, z). Sets the translation of a transform node.
+
+WARNING:
+        This legacy function sets the node translation directly, not a translation along rotated local axes,
+        to maintain backward compatibility with existing scripts.
+        Use vrdTransformNode.setLocalTranslation
+        and vrdTransformNode.addLocalTranslation
+        in API v2 to change translation along local axes (oriented by the node's rotation and rotation orientation).
+
+    :param x: The x translation.
+    :type x: float (32bit)
+    :param y: The y translation.
+    :type y: float (32bit)
+    :param z: The z translation.
+    :type z: float (32bit)
+
+.. method:: setWorldTranslation(x, y, z)
+
+    Sets the translation of a transform node in world coordinates.
+
+    :param x: The x translation.
+    :type x: float (32bit)
+    :param y: The y translation.
+    :type y: float (32bit)
+    :param z: The z translation.
+    :type z: float (32bit)
+
+.. method:: setRotation(x, y, z)
+
+    Sets the rotation of a transform node.
+
+    :param x: The x rotation.
+    :type x: float (32bit)
+    :param y: The y rotation.
+    :type y: float (32bit)
+    :param z: The z rotation.
+    :type z: float (32bit)
+
+.. method:: setAxisRotation(axis, alpha)
+
+    Rotates a transform node around an arbitrary axis.
+
+    :param axis: The node of the axis.
+    :type axis: vrNodePtr
+    :param alpha: The angle in degrees.
+    :type alpha: float (32bit)
+
+.. method:: setAxisRotation(ax, ay, az, bx, by, bz, alpha)
+    :no-index:
+
+    Rotates a transform node around an arbitrary axis. Two sets of parameters are valid:
+
+    setAxisRotation(ax, ay, az, bx, by, bz, alpha) or
+
+    setAxisRotation(axis, alpha)
+
+    :param ax: The x coordinate of the first axis point.
+    :type ax: float (32bit)
+    :param ay: The y coordinate of the first axis point.
+    :type ay: float (32bit)
+    :param az: The z coordinate of the first axis point.
+    :type az: float (32bit)
+    :param bx: The x coordinate of the second axis point.
+    :type bx: float (32bit)
+    :param by: The y coordinate of the second axis point.
+    :type by: float (32bit)
+    :param bz: The z coordinate of the second axis point.
+    :type bz: float (32bit)
+    :param alpha: The angle in degrees.
+    :type alpha: float (32bit)
+
+.. method:: setScale(x, y, z)
+    :no-index:
+
+    Sets the scale of a transform node.
+
+    :param x: The x scale.
+    :type x: float (32bit)
+    :param y: The y scale.
+    :type y: float (32bit)
+    :param z: The z scale.
+    :type z: float (32bit)
+
+.. method:: setTransformMatrix(matrix, transposed)
+
+    Sets the matrix of a matrix transform node.
+
+    Note that standard group transform nodes will recalculate their matrix based on their attributes and therefore the matrix will be lost on every update.
+
+    :param matrix: The 4 x 4 matrix consisting of 16 floats.
+    :type matrix: list of floats (32bit)
+    :param transposed: Transposed/not transposed.
+    :type transposed: bool
+
+.. method:: getTranslation()
+
+    Returns the translation of a transform node.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getLocalTranslation()
+
+    Same as getTranslation(). Returns the translation of a transform node.
+
+WARNING:
+        This legacy function returns the node translation directly, not a translation along rotated local axes,
+        to maintain backward compatibility with existing scripts.
+        vrdTransformNode.getLocalTranslation() in API v2
+        returns translation along local axes (oriented by the node's rotation and rotation orientation).
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getWorldTranslation()
+
+    Returns the translation of a transform node in world coordinates.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getRotation()
+
+    Returns the rotation of a transform node.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getWorldRotation()
+
+    Returns the world rotation of a transform node.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getScale()
+
+    Returns the scale of a transform node.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getWorldScale()
+
+    Returns the world scale of a transform node.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getWorldTransform()
+
+    Returns the world transform matrix of a transform node.
+
+    :return: A 4x4 matrix consisting of 16 floats.
+    :rtype: list of floats (32bit)
+
+.. method:: getPositions()
+
+    Returns the vertices of a geometry node.
+
+    :return: N vectors containing three floats each: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getTexCoords()
+
+    Returns the texture coordinates of a geometry node.
+
+    :return: A list of vectors, each containing two floats: the x and y coordinates.
+    :rtype: list of floats (32bit)
+
+.. method:: setPositions(positions)
+
+    Sets the vertices of a geometry node.
+
+    :param positions: N vectors containing three floats each: the x, y and z coordinate.
+    :type positions: list of floats (32bit)
+
+.. method:: setTexCoords(texCoords)
+
+    Sets the texture coordinates of a geometry node.
+
+    :param texCoords: A list of vectors, each containing two floats: the x and y coordinates.
+    :type texCoords: list of floats (32bit)
+
+.. method:: getNormals()
+
+    Returns the normals of a geometry node.
+
+    :return: N vectors containing three floats each: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: setNormals(normals)
+
+    Sets the normals of a geometry node.
+
+    :param normals: N vectors containing three floats each: the x, y and z coordinate.
+    :type normals: list of floats (32bit)
+
+.. method:: getDlistCache()
+
+    Returns the display list cache state.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setDlistCache(state)
+
+    Enables or disables the display list cache.
+
+    :param state: True to enable, false to disable.
+    :type state: bool
+
+.. method:: getVBO()
+
+    Returns the VBO rendering state.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setVBO(state)
+
+    Enables or disables VBO rendering.
+
+    :param state: True to enable, false to disable.
+    :type state: bool
+
+.. method:: getCenter()
+
+    Returns the center of the node.
+
+    :return: Three floats: the x, y and z coordinate.
+    :rtype: list of floats (32bit)
+
+.. method:: getBoundingBox()
+
+    Returns the bounding box of the node.
+
+    :return: Six floats: the minimum and maximum x, y, and z coordinates.
+    :rtype: list of floats (32bit)
+
+.. method:: getMaterial()
+
+    Returns the material of a geometry node.
+
+    :return: The material.
+    :rtype: vrMaterialPtr
+
+.. method:: setMaterial(mat)
+    :no-index:
+
+    Sets the material of a geometry node.
+
+    :param mat: The material to set.
+    :type mat: vrMaterialPtr
+
+.. method:: fields()
+    :no-index:
+
+    Provides access to the fields of the node core.
+
+    :return: The field access object.
+    :rtype: vrFieldAccess
+
+.. method:: setFieldBool()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldInt16()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldUInt16()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldInt32()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldUInt32()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldReal32()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldReal64()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldVec2f()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldVec3f()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldVec4f()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldPnt2f()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldPnt3f()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldColor4f()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldString()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setFieldNode()
+
+    Obsolete. Use the field access API (vrFieldAccess) instead.
+
+.. method:: setTransparency(t)
+    :no-index:
+
+    Sets the transparency of the node.
+
+    :param t: The transparency value.
+    :type t: float
+
+.. method:: hasAttachment(fname)
+    :no-index:
+
+    Checks if the node has an attachment with the given name.
+
+    :param fname: The name of the attachment.
+    :type fname: string
+    :return: True if the attachment exists, false otherwise.
+    :rtype: bool
+
+.. method:: getAttachment(aname)
+    :no-index:
+
+    Returns the attachment with the given name.
+
+    :param aname: The name of the attachment.
+    :type aname: string
+    :return: The attachment.
+    :rtype: FieldContainerPtr
+
+.. method:: addAttachment(attachment)
+    :no-index:
+
+    Adds an attachment to the node.
+
+    :param attachment: The attachment to add.
+    :type attachment: FieldContainerPtr
+    :return: True if successful, false otherwise.
+    :rtype: bool
+
+.. method:: subAttachment(attachment)
+    :no-index:
+
+    Removes an attachment from the node.
+
+    :param attachment: The attachment to remove.
+    :type attachment: FieldContainerPtr
+    :return: True if successful, false otherwise.
+    :rtype: bool
+
+.. method:: setAttribute(key, value)
+
+    Sets an attribute of the node.
+
+    :param key: The attribute key.
+    :type key: string
+    :param value: The attribute value.
+    :type value: string
+
+.. method:: getAttribute(key)
+
+    Gets the value of an attribute.
+
+    :param key: The attribute key.
+    :type key: string
+    :return: The attribute value.
+    :rtype: string
+
+.. method:: hasAttribute(key)
+
+    Checks if the node has an attribute with the given key.
+
+    :param key: The attribute key.
+    :type key: string
+    :return: True if the attribute exists, false otherwise.
+    :rtype: bool
+
+.. method:: removeAttribute(key)
+
+    Removes an attribute from the node.
+
+    :param key: The attribute key.
+    :type key: string
+
+.. method:: isAsset()
+
+    Checks if the node is an asset from the Asset Manager.
+
+    :return: True if the node is an asset, false otherwise.
+    :rtype: bool
+
+.. method:: removeAssetManagerReference(nodes)
+    :no-index:
+
+    Removes the Asset Manager reference for the given nodes.
+
+    :param nodes: A list of nodes.
+    :type nodes: list of vrNodePtrs
+
+.. method:: isLight()
+
+    Checks if the node is a light source.
+
+    :return: True if the node is a light source, false otherwise.
+    :rtype: bool
+
+.. method:: changeLightType(type)
+
+    Changes the type of the light source.
+
+    :param type: The new light type.
+    :type type: string
+    :return: True if successful, false otherwise.
+    :rtype: bool
+
+.. method:: isAreaLight()
+
+    Checks if the node is an area light.
+
+    :return: True if the node is an area light, false otherwise.
+    :rtype: bool
+
+.. method:: isDirectionalLight()
+
+    Checks if the node is a directional light.
+
+    :return: True if the node is a directional light, false otherwise.
+    :rtype: bool
+
+.. method:: isPointLight()
+
+    Checks if the node is a point light.
+
+    :return: True if the node is a point light, false otherwise.
+    :rtype: bool
+
+.. method:: isSpotLight()
+
+    Checks if the node is a spot light.
+
+    :return: True if the node is a spot light, false otherwise.
+    :rtype: bool
+
+.. method:: isSphericalLight()
+
+    Checks if the node is a spherical light.
+
+    :return: True if the node is a spherical light, false otherwise.
+    :rtype: bool
+
+.. method:: isDiskLight()
+
+    Checks if the node is a disk light.
+
+    :return: True if the node is a disk light, false otherwise.
+    :rtype: bool
+
+.. method:: isRectangularLight()
+
+    Checks if the node is a rectangular light.
+
+    :return: True if the node is a rectangular light, false otherwise.
+    :rtype: bool
+
+.. method:: isRayFileLight()
+
+    Checks if the node is a ray file light.
+
+    :return: True if the node is a ray file light, false otherwise.
+    :rtype: bool
+
+.. method:: isLightOn()
+
+    Returns whether the light is on.
+
+    :return: True if the light is on, false otherwise.
+    :rtype: bool
+
+.. method:: setLightOn(state)
+
+    Turns the light on or off.
+
+    :param state: True to turn on, False to turn off.
+    :type state: bool
+
+.. method:: toggleLight()
+
+    Toggles the light's state between on and off.
+
+.. method:: setLocalLight(state)
+
+    Sets the light to local or global lighting.
+
+    :param state: True for local lighting, False for global lighting.
+    :type state: bool
+
+.. method:: isLocalLight()
+
+    Returns whether the light is local.
+
+    :return: True if the light is local, false otherwise.
+    :rtype: bool
+
+.. method:: getShadowIntensity()
+
+    Returns the shadow intensity of the light.
+
+    :return: The shadow intensity.
+    :rtype: float
+
+.. method:: setShadowIntensity(value)
+
+    Sets the shadow intensity of the light.
+
+    :param value: Shadow intensity (0 for no shadow, 1 for full shadow).
+    :type value: float
+
+.. method:: getGroundShadowIntensity()
+
+    Returns the ground shadow intensity of the light.
+
+    :return: The ground shadow intensity.
+    :rtype: float
+
+.. method:: setGroundShadowIntensity(value)
+
+    Sets the ground shadow intensity of the light.
+
+    :param value: Ground shadow intensity (0 for no shadow, 1 for full shadow).
+    :type value: float
+
+.. method:: setCastShadowOnShadowMaterial(state)
+
+    Sets whether the light casts a shadow on the shadow material.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getCastShadowOnShadowMaterial()
+
+    Returns whether the light casts a shadow on the shadow material.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setIlluminateShadowMaterial(state)
+
+    Sets whether the light illuminates the shadow material.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getIlluminateShadowMaterial()
+
+    Returns whether the light illuminates the shadow material.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setShadowMapResolution(resolution)
+
+    Sets the resolution of the shadow map.
+
+    :param resolution: The resolution of the shadow map.
+    :type resolution: int
+
+.. method:: getShadowMapResolution()
+
+    For a light node, return the resolution of the shadow map used in rasterization (OpenGL and Vulkan)
+
+    :return: The shadow map resolution.
+    :rtype: int
+
+.. method:: setShadowMapFilterRadius(radius)
+
+    Sets the radius for shadow map filtering.
+
+    :param radius: The filter radius.
+    :type radius: float
+
+.. method:: getShadowMapFilterRadius()
+
+    For a light node, return the radius for shadow map filtering in rasterization (OpenGL and Vulkan)
+
+    :return: The filter radius.
+    :rtype: float
+
+.. method:: setLightImportanceMultiplier(value)
+
+    Sets the importance multiplier for the light.
+
+    :param value: The importance multiplier.
+    :type value: float
+
+.. method:: getLightImportanceMultiplier()
+
+    Returns the importance multiplier of the light.
+
+    :return: The importance multiplier.
+    :rtype: float
+
+.. method:: setLightConeAngle(angleInDegrees)
+
+    Sets the cone angle of the light.
+
+    :param angleInDegrees: Cone angle in degrees in [0.01..89.99].
+    :type angleInDegrees: float
+
+.. method:: getLightConeAngle()
+
+    Returns the cone angle of the light.
+
+    :return: The cone angle in degrees.
+    :rtype: float
+
+.. method:: setLightPenumbraAngle(angleInDegrees)
+
+    Sets the penumbra angle of the light.
+
+    :param angleInDegrees: Penumbra angle in degrees.
+    :type angleInDegrees: float
+
+.. method:: getLightPenumbraAngle()
+
+    Returns the penumbra angle of the light.
+
+    :return: The penumbra angle in degrees.
+    :rtype: float
+
+.. method:: setDiffuseLightColor(r, g, b)
+
+    Sets the diffuse color of the light.
+
+    :param r: Red component.
+    :type r: float
+    :param g: Green component.
+    :type g: float
+    :param b: Blue component.
+    :type b: float
+
+.. method:: getDiffuseLightColor()
+
+    Returns the diffuse color of the light.
+
+    :return: A list of three floats representing the RGB color.
+    :rtype: list of floats
+
+.. method:: setGlossyLightColor(r, g, b)
+
+    Sets the glossy color of the light.
+
+    :param r: Red component.
+    :type r: float
+    :param g: Green component.
+    :type g: float
+    :param b: Blue component.
+    :type b: float
+
+.. method:: getGlossyLightColor()
+
+    Returns the glossy color of the light.
+
+    :return: A list of three floats representing the RGB color.
+    :rtype: list of floats
+
+.. method:: setUseLightTemperature(state)
+
+    Sets whether the light uses the temperature value to determine its color.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getUseLightTemperature()
+
+    Returns whether the light uses the temperature value to determine its color.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setLightTemperature(kelvin)
+
+    Sets the temperature used to determine the light color.
+
+    :param kelvin: The temperature in kelvin.
+    :type kelvin: int
+
+.. method:: getLightTemperature()
+
+    Returns the temperature used to determine the light color.
+
+    :return: The temperature in kelvin.
+    :rtype: int
+
+.. method:: setLightIntensity(intensity)
+
+    Sets the intensity of the light.
+
+    :param intensity: The intensity value.
+    :type intensity: float
+
+.. method:: getLightIntensity()
+
+    Returns the intensity of the light.
+
+    :return: The intensity value.
+    :rtype: float
+
+.. method:: setAreaLightPrimaryVisibility(state)
+
+    Sets whether the area light is visible for primary rays in Raytracing.
+
+    :param state: True for visible, False for invisible.
+    :type state: bool
+
+.. method:: getAreaLightPrimaryVisibility()
+
+    Returns whether the area light is visible for primary rays in Raytracing.
+
+    :return: True if visible, False otherwise.
+    :rtype: bool
+
+.. method:: setAreaLightVisibleInReflections(state)
+
+    Sets whether the area light is visible in reflections in Raytracing.
+
+    :param state: True for visible, False for invisible.
+    :type state: bool
+
+.. method:: getAreaLightVisibleInReflections()
+
+    Returns whether the area light is visible in reflections in Raytracing.
+
+    :return: True if visible, False otherwise.
+    :rtype: bool
+
+.. method:: setAreaLightUseConeAngle(state)
+
+    Sets whether the light uses spotlight angles to define its emission.
+
+    :param state: True to use spotlight angles, False for Lambert emitter.
+    :type state: bool
+
+.. method:: getAreaLightUseConeAngle()
+
+    Returns whether the light uses spotlight angles to define its emission.
+
+    :return: True if using spotlight angles, False otherwise.
+    :rtype: bool
+
+.. method:: setAreaLightStillFrameQuality(quality)
+
+    Sets the still frame area light sampling quality level for Raytracing.
+
+    :param quality: The quality level (0-8).
+    :type quality: int
+
+.. method:: getAreaLightStillFrameQuality()
+
+    Returns the still frame area light sampling quality level for Raytracing.
+
+    :return: The quality level.
+    :rtype: int
+
+.. method:: setAreaLightInteractiveQuality(quality)
+
+    Sets the interactive area light sampling quality level for Raytracing.
+
+    :param quality: The quality level (0-8).
+    :type quality: int
+
+.. method:: getAreaLightInteractiveQuality()
+
+    Returns the interactive area light sampling quality level for Raytracing.
+
+    :return: The quality level.
+    :rtype: int
+
+.. method:: setLightVisualizationScale(scale)
+
+    Sets the scale of the light source visualization geometry.
+
+    :param scale: The scale factor.
+    :type scale: float
+
+.. method:: getLightVisualizationScale()
+
+    Returns the scale of the light source visualization geometry.
+
+    :return: The scale factor.
+    :rtype: float
+
+.. method:: setLightVisualizationVisible(state)
+
+    Sets whether the light source visualization is visible.
+
+    :param state: True for visible, False for invisible.
+    :type state: bool
+
+.. method:: getLightVisualizationVisible()
+
+    Returns whether the light source visualization is visible.
+
+    :return: True if visible, False otherwise.
+    :rtype: bool
+
+.. method:: loadIESProfile(filename)
+
+    Loads an IES file for the light.
+
+    :param filename: Path to the IES file.
+    :type filename: string
+    :return: True if successful, false otherwise.
+    :rtype: bool
+
+.. method:: setUseIESProfile(state)
+
+    Enables or disables the IES profile for the light.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getUseIESProfile()
+
+    Returns whether the light uses an IES profile.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: loadRayFile(filename)
+
+    Loads a ray file for the light.
+
+    :param filename: Path to the ray file.
+    :type filename: string
+    :return: True if successful, false otherwise.
+    :rtype: bool
+
+.. method:: deleteRayFile()
+
+    Deletes the ray file of the light.
+
+.. method:: setRayFileVisualizationRayLength(length)
+
+    Sets the length of the visualized rays in the viewport.
+
+    :param length: Length of the visualized rays.
+    :type length: float
+
+.. method:: getRayFileVisualizationRayLength()
+
+    Returns the length of the visualized rays in the viewport.
+
+    :return: Length of the visualized rays.
+    :rtype: float
+
+.. method:: setRayFileVisualizationRayCount(count)
+
+    Sets the number of visualized rays in the viewport.
+
+    :param count: Number of visualized rays.
+    :type count: unsigned int
+
+.. method:: getRayFileVisualizationRayCount()
+
+    Returns the number of visualized rays in the viewport.
+
+    :return: Number of visualized rays.
+    :rtype: unsigned int
+
+.. method:: setRayFileUsePhotonsForDirectLighting(state)
+
+    Sets whether the ray file light uses photons for direct lighting.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getRayFileUsePhotonsForDirectLighting()
+
+    Returns whether the ray file light uses photons for direct lighting.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setRayFileUseRandomSampling(state)
+
+    Sets whether the ray file light uses random sampling for the rays.
+
+    :param state: True to enable, False to disable.
+    :type state: bool
+
+.. method:: getRayFileUseRandomSampling()
+
+    Returns whether the ray file light uses random sampling for the rays.
+
+    :return: True if enabled, False otherwise.
+    :rtype: bool

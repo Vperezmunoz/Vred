@@ -1,0 +1,57 @@
+MODULE vrScript (legacy v1 API)
+
+--------
+vrScript
+--------
+
+Summary
+=======
+
+Functions:
+    * cameraViewRedo()
+    * cameraViewUndo()
+    * clearScript()
+    * executePython(command) → bool
+    * executePythonR(command) → string
+    * redo()
+    * undo()
+
+.. function:: undo()
+
+    Undo the last command.
+
+.. function:: redo()
+
+    Redo the last command.
+
+.. function:: cameraViewUndo()
+
+    Undo the last view change.
+
+.. function:: cameraViewRedo()
+
+    Redo the last view change.
+
+.. function:: clearScript()
+
+    Clear python script in the script editor.
+
+.. function:: executePython(command)
+
+    Execute a python command.
+
+    :param command: The command.
+    :type command: string
+
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. function:: executePythonR(command)
+
+    Execute a python command and return the return value as a string.
+
+    :param command: The command.
+    :type command: string
+
+    :return: The return value.
+    :rtype: string

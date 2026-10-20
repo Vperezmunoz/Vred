@@ -1,0 +1,104 @@
+--------------
+vrdTrackedHand
+--------------
+
+.. py:class:: vrdTrackedHand
+
+(Inherits vrdObject)
+
+Access to tracked hands.
+
+Summary
+=======
+
+Functions:
+    * getJointTransform(finger, jointId) → QMatrix4x4
+    * getPinchStrength() → float
+    * getRole() → vrHandTypes.HandRole
+    * getTransform() → QMatrix4x4
+    * isTracked() → bool
+    * setGesture(gesture)
+    * setJointTransform(transform, finger, jointId)
+    * setPinchStrength(value)
+    * setTracked(value)
+    * setTransform(matrix)
+    * signal() → Q_SLOTvrdTrackedHandSignal
+
+Functions
+=========
+
+.. py:method:: vrdTrackedHand.getJointTransform(finger, jointId)
+
+    Gets the joint transformation.
+
+    :param finger: The finger
+    :type finger: vrHandTypes.FingerType
+
+    :param jointId: The joint id, 0 = Metacarpel, 4 Finger Tip
+    :type jointId: integer
+
+    :return: The transformation matrix
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdTrackedHand.getPinchStrength()
+
+    :return: Pinch strength 0-1. 0 not pinching
+    :rtype: float
+
+.. py:method:: vrdTrackedHand.getRole()
+
+    :return: Hand Role. Left or right
+    :rtype: vrHandTypes.HandRole
+
+.. py:method:: vrdTrackedHand.getTransform()
+
+    :return: The hand position offset in world space
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdTrackedHand.isTracked()
+
+    :return: True, if the hand has been detected
+    :rtype: bool
+
+.. py:method:: vrdTrackedHand.setGesture(gesture)
+
+    :param gesture: Tell the system, that a gesture has been detected
+    :type gesture: vrHandTypes.HandTrackingGesture
+
+.. py:method:: vrdTrackedHand.setJointTransform(transform, finger, jointId)
+
+    Sets the joint transformation. The thumb has only 5 (0-4) joints.
+
+    :param transform: The transformation matrix
+    :type transform: QMatrix4x4
+
+    :param finger: The finger
+    :type finger: vrHandTypes.FingerType
+
+    :param jointId: The joint id, 0 = Metacarpel, 5 Finger Tip
+    :type jointId: integer
+
+.. py:method:: vrdTrackedHand.setPinchStrength(value)
+
+    :param value: Pinch strength 0-1. 0 not pinching
+    :type value: float
+
+.. py:method:: vrdTrackedHand.setTracked(value)
+
+    :param value: If True, mark as detected
+    :type value: bool
+
+.. py:method:: vrdTrackedHand.setTransform(matrix)
+
+    Sets the hand position offset in world space.
+
+    :param matrix: The position
+    :type matrix: QMatrix4x4
+
+.. py:method:: vrdTrackedHand.signal()
+
+    Gets the signal that can be triggered.
+
+    :return: The signal object.
+    :rtype: Q_SLOTvrdTrackedHandSignal
+

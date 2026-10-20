@@ -1,0 +1,166 @@
+---------
+vrUVTypes
+---------
+
+.. py:class:: vrUVTypes
+
+    .. py:class:: UVSet
+
+        Lists UV sets available in UV Editor and         vrUVService.
+
+            .. py:data:: MaterialUVSet
+
+                UV set for material textures.
+
+            .. py:data:: LightmapUVSet
+
+                UV set for lightmap textures.
+
+    .. py:class:: SeamMode
+
+            .. py:data:: Organic
+
+                Selects a generated edges set to open an organic mesh. It tries to detect feature points of the mesh, such as finger tips or toes, links them together, and segments the mesh, if the Segmentation Amount is greater than 0.0. Use the Use Pipecutter option to force linking of all holes, to suppress all pipes of mesh.
+
+            .. py:data:: Manufactured
+
+                Selects a generated edges set to open a manufactured mesh. Use Angle to define the angle between two consecutive polygons and Area Ratio to define the ratio between the smaller and larger patch area.
+
+            .. py:data:: Baking
+
+                Selects a generated edges set to open a mesh for baking. It makes patches, according to a defined angle between polygons, and defines the size of the smallest patch by merging the smaller patches until the minimum size is reached.
+
+    .. py:class:: PreRotateMode
+
+        Pre-layout rotate mode. Before packing, the islands can be reoriented in a pre-process phase.
+
+            .. py:data:: RotateOff
+
+                Disabled (Leave the current island's orientation)
+
+            .. py:data:: Horizontal
+               :no-index:
+
+                Pre-orient the island horizontally before packing (using its minimal bounding box as reference)
+
+            .. py:data:: Vertical
+               :no-index:
+
+                Pre-orient the island vertically before packing (using its minimal bounding box as reference)
+
+            .. py:data:: XAxisToV
+
+                Pre-orient the island so that its X axis in 3D space is aligned to the V axis in UV Space.
+
+            .. py:data:: YAxisToV
+
+                Pre-orient the island so that its Y axis in 3D space is aligned to the V axis in UV Space.
+
+            .. py:data:: ZAxisToV
+
+                Pre-orient the island so that its Z axis in 3D space is aligned to the V axis in UV Space.
+
+    .. py:class:: PreScaleMode
+
+        Pre-layout scaling mode. Before packing, the islands can be rescaled in a pre-process phase.
+
+            .. py:data:: ScaleOff
+
+                Disabled. Do not rescale the islands during pre-process (can still be scaled during post-process)
+
+            .. py:data:: Keep3DArea
+
+                Scale the island so that it will have the same UV area as it has in 3D space.
+
+            .. py:data:: KeepTotalUVArea
+
+                Scale the island so that the total UV area will be kept. The purpose is to give a coherent scale ratio between 3D space and UV space for all islands.
+
+    .. py:class:: PostScaleMode
+
+        Post-layout scaling mode. A universal scale operation is applied to all involved islands, after packing.
+
+            .. py:data:: TranslateOnly
+
+                No post scaling, however the bounding box of the involved islands will be translated so that it is at the left corner of the specified box/tile.
+
+            .. py:data:: Uniform
+               :no-index:
+
+                Scale all islands so that their global bbox fits best the given box. The scaling will be uniform: same scaling for U and V axis.
+
+            .. py:data:: NonUniform
+
+                Scale all islands so that their global bbox fits completely the given box. The scaling will be non uniform: Scaling in U and V axis can be different.
+
+    .. py:class:: TileAssignMode
+
+        Determines how islands are associated to the available tiles. The tiles are specified with         vrdUVLayoutSettings.setTilesU(tilesU) and vrdUVLayoutSettings.setTilesV(tilesV). The geometry of the tile (that will be used for all tiles) must be specified using parameter vrdUVLayoutSettings.setBox(box).
+
+            .. py:data:: BBoxCenter
+
+                Each island is assigned to the tile that contains the island's bounding box center.
+
+            .. py:data:: Distribute
+
+                The selected islands are automatically distributed into the available tiles.
+
+    .. py:class:: UVProjectionMode
+
+        Lists different kinds of projections to create UVs.
+
+            .. py:data:: None_
+               :no-index:
+
+                No projection.
+
+            .. py:data:: PlanarMapping
+               :no-index:
+
+                Calculate UV coordinates by planar mapping.
+
+            .. py:data:: TriplanarMapping
+               :no-index:
+
+                Calculate UV coordinates by triplanar mapping.
+
+            .. py:data:: CylindricalMapping
+
+                Calculate UV coordinates by cylindrical mapping.
+
+    .. py:class:: SnapshotMode
+
+        Defines the area to be included in the snapshot image.
+
+            .. py:data:: ZeroToOneSpace
+
+                Capture the area from 0 to 1 in UV coordinates.
+
+            .. py:data:: Boundingbox
+
+                Capture the entire object.
+
+            .. py:data:: CustomSpace
+
+                Capture a custom area.
+
+    .. py:class:: SnapshotStyle
+
+        Flags for snapshot style.
+
+            .. py:data:: ShowWireframe
+
+                Show wireframe rendering.
+
+            .. py:data:: ShowBorders
+
+                Show borders on UV islands.
+
+            .. py:data:: ShowShading
+
+                Show shaded filling of UV islands.
+
+            .. py:data:: ShowAllVertices
+
+                Show all vertices.
+

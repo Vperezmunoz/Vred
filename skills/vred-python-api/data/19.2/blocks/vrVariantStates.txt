@@ -1,0 +1,199 @@
+---------------
+vrVariantStates
+---------------
+
+.. py:class:: vrVariantStates
+
+Contains the built-in states for variants.
+
+Instance Variables:
+    * Enable → string
+    * Disable → string
+    * Toggle → string
+    * Activate → string
+    * Reset → string
+    * Isolate → string
+    * Integrate → string
+    * ToggleIsolate → string
+    * Play → string
+    * PlayBackward → string
+    * Loop → string
+    * LoopBackward → string
+    * Stop → string
+    * Pause → string
+    * Resume → string
+    * Next → string
+    * NextLoop → string
+    * Previous → string
+    * PreviousLoop → string
+    * None → string
+    * All → string
+    * Fly → string
+    * FlyNext → string
+    * FlyNextLoop → string
+    * FlyPrevious → string
+    * FlyPreviousLoop → string
+    * Jump → string
+    * JumpNext → string
+    * JumpNextLoop → string
+    * JumpPrevious → string
+    * JumpPreviousLoop → string
+
+Instance Variables
+==================
+
+.. py:attribute:: Enable
+    :type: string
+
+    Set target visible.
+
+.. py:attribute:: Disable
+    :type: string
+
+    Set target invisible.
+
+.. py:attribute:: Toggle
+    :type: string
+
+    Toggle visibility of the target.
+
+.. py:attribute:: Activate
+    :type: string
+
+    Set target active.
+
+.. py:attribute:: Reset
+    :type: string
+
+    Reset target to defaults.
+
+.. py:attribute:: Isolate
+    :type: string
+
+    Isolate the target.
+
+.. py:attribute:: Integrate
+    :type: string
+
+    Disable isolation mode.
+
+.. py:attribute:: ToggleIsolate
+    :type: string
+
+    Toggle isolation mode.
+
+.. py:attribute:: Play
+    :type: string
+
+    Start playback on the target.
+
+.. py:attribute:: PlayBackward
+    :type: string
+
+    Start playback backward on the target.
+
+.. py:attribute:: Loop
+    :type: string
+
+    Start looped playback on the target.
+
+.. py:attribute:: LoopBackward
+    :type: string
+
+    Start looped playback backward on the target.
+
+.. py:attribute:: Stop
+    :type: string
+
+    Stop playback on the target.
+
+.. py:attribute:: Pause
+    :type: string
+
+    Pause playback on the target.
+
+.. py:attribute:: Resume
+    :type: string
+
+    Resume playback on the target.
+
+.. py:attribute:: Next
+    :type: string
+
+    Set the next state.
+
+.. py:attribute:: NextLoop
+    :type: string
+
+    Set the next state; wrap from last to first state.
+
+.. py:attribute:: Previous
+    :type: string
+
+    Set the previous state.
+
+.. py:attribute:: PreviousLoop
+    :type: string
+
+    Set the previous state; wrap from first to last state.
+
+.. py:attribute:: None
+    :type: string
+
+    Set no state.
+
+.. py:attribute:: All
+    :type: string
+
+    Set all states.
+
+.. py:attribute:: Fly
+    :type: string
+
+    Fly to the viewpoint.
+
+.. py:attribute:: FlyNext
+    :type: string
+
+    Fly to the next viewpoint.
+
+.. py:attribute:: FlyNextLoop
+    :type: string
+
+    Fly to the next viewpoint; wrap from last to first viewpoint.
+
+.. py:attribute:: FlyPrevious
+    :type: string
+
+    Fly to the previous viewpoint.
+
+.. py:attribute:: FlyPreviousLoop
+    :type: string
+
+    Fly to the previous viewpoint; wrap from first to last viewpoint.
+
+.. py:attribute:: Jump
+    :type: string
+
+    Jump to the viewpoint.
+
+.. py:attribute:: JumpNext
+    :type: string
+
+    Jump to the next viewpoint.
+
+.. py:attribute:: JumpNextLoop
+    :type: string
+
+    Jump to the next viewpoint; wrap from last to first viewpoint.
+
+.. py:attribute:: JumpPrevious
+    :type: string
+
+    Jump to the previous viewpoint.
+
+.. py:attribute:: JumpPreviousLoop
+    :type: string
+
+    Jump to the previous viewpoint; wrap from first to last viewpoint.
+

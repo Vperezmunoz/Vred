@@ -1,0 +1,359 @@
+---------------
+vrCameraService
+---------------
+
+.. py:class:: vrCameraService
+
+(Inherits vrBaseService)
+
+Interface to access cameras and viewpoints in VRED.
+
+This is the basic interface to access, create or delete cameras and viewpoints. It also provides functionality to access the camera graph by using vrCameraService.getCameraRoot().
+
+            See also: scenegraphs
+
+These are some basic examples how to work on the camera graph:
+
+```
+
+     #add a group node
+     groupNode = vrCameraService.createCameraGroup("group1")
+
+     #search for the group node in the camera graph
+     groupNode = vrNodeService.findNode("group1", root=vrCameraService.getCameraRoot())
+
+     #create a new camera below that group
+     cameraNode = vrCameraService.createCamera("NewCamera", cameraGraphParentNode=groupNode)
+
+     #delete the camera and group again
+     vrNodeService.removeNodes([groupNode, cameraNode])
+
+Summary
+=======
+
+Functions:
+    * copiedNodesAvailable() → bool
+    * copyNodes(nodes)
+    * createCamera(name, mode, constraint, sceneGraphParentNode, cameraGraphParentNode) → vrdCameraNode
+    * createCameraGroup(name, cameraGraphParentNode) → vrdNode
+    * createCameraTrack(name, cameraNode) → vrdCameraTrackNode
+    * createViewpoint(name, cameraTrack) → vrdViewpointNode
+    * duplicateNode(node) → vrdNode
+    * getActiveCamera(useCameraGraph) → vrdCameraNode
+    * getAllCameraTracks() → List[vrdCameraTrackNode]
+    * getAllViewpoints() → List[vrdViewpointNode]
+    * getCamera(name, useCameraGraph) → vrdCameraNode
+    * getCameraNames() → List[string]
+    * getCameraRoot() → vrdNode
+    * getCameras(useCameraGraph) → List[vrdCameraNode]
+    * getSelectedNodes() → List[vrdNode]
+    * getViewpoint(name) → vrdViewpointNode
+    * getViewpointCreationMode() → vrCameraTypes.ViewpointCreationMode
+    * load(filename) → List[vrdNode]
+    * pasteAttributes(cameras, option)
+    * pasteNodes(targetNodes) → List[vrdNode]
+    * saveCameras(nodes, filename) → bool
+    * saveNodes(nodes, filename) → bool
+    * saveViewpoints(filename) → bool
+    * setSelectedNodes(nodes)
+    * setViewpointCreationMode(mode)
+    * zoomToNodes(nodes)
+
+Signals:
+    * selectionChanged(nodes)
+
+Functions
+=========
+
+.. py:method:: vrCameraService.copiedNodesAvailable()
+
+    Indicates if there are nodes in the internal copy buffer.
+
+    Nodes can be copied with vrCameraService.copyNodes(nodes).
+
+    :return: True if there are any nodes in the copy buffer, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrCameraService.copyNodes(nodes)
+
+    Add nodes to the internal copy buffer.
+
+    This adds nodes to the internal copy buffer from where they then can be used with vrCameraService.pasteAttributes(cameras, option) or vrCameraService.pasteNodes(targetNodes). The copy buffer is always cleared first when this function is called. The copied nodes must be in the camera tree.
+
+    :param nodes: The nodes to be copied
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrCameraService.createCamera(name, mode=vrCameraTypes.ProjectionPerspective, constraint=vrCameraTypes.ConstraintNone, sceneGraphParentNode=vrdNode(), cameraGraphParentNode=vrdNode())
+
+    Creates a new camera.
+
+    :param name: The name for the camera.
+    :type name: string
+
+    :param mode: Defines the mode (e.g. perspective or orthographic) of the created camera.
+    :type mode: vrCameraTypes.CameraProjectionMode
+
+    :param constraint: Defines if a constraint should be applied to the created camera.
+    :type constraint: vrCameraTypes.CameraConstraint
+
+    :param sceneGraphParentNode: This scene graph node is used as a parent for the created camera (scene root is default).
+    :type sceneGraphParentNode: vrdNode
+
+    :param cameraGraphParentNode: This camera graph node is used as a parent for the created camera (camera root is default).
+    :type cameraGraphParentNode: vrdNode
+
+    :return: Created camera (always returns the camera tree node).
+    :rtype: vrdCameraNode
+
+.. py:method:: vrCameraService.createCameraGroup(name, cameraGraphParentNode=vrdNode())
+
+    Creates a new camera group.
+
+    :param name: The name used for new created group.
+    :type name: string
+
+    :param cameraGraphParentNode: Group will be created as child of this group, group has to be a child of the camera root. If no parent is given, the camera root is used.
+    :type cameraGraphParentNode: vrdNode
+
+    :return: Created camera group
+    :rtype: vrdNode
+
+.. py:method:: vrCameraService.createCameraTrack(name, cameraNode=vrdCameraNode())
+
+    Creates a new camera track.
+
+    :param name: The name of the new created node.
+    :type name: string
+
+    :param cameraNode: Camera to add the new created node (if not given, active camera will be used).
+    :type cameraNode: vrdCameraNode
+
+    :return: Created camera track
+    :rtype: vrdCameraTrackNode
+
+.. py:method:: vrCameraService.createViewpoint(name, cameraTrack=vrdCameraTrackNode())
+
+    Creates a new viewpoint.
+
+    :param name: The name for the new created viewpoint.
+    :type name: string
+
+    :param cameraTrack: Defines parent for the new created viewpoint. If no camera track is given, first the default camera track of the active camera is used. If there is also no default camera track, a new track will be created.
+    :type cameraTrack: vrdCameraTrackNode
+
+    :return: Created viewpoint (in camera tree)
+    :rtype: vrdViewpointNode
+
+.. py:method:: vrCameraService.duplicateNode(node)
+
+    Creates a copy of a camera tree node (including its children).
+
+    :param node:
+    :type node: vrdNode
+
+    :return: Returns the duplicated node.
+    :rtype: vrdNode
+
+.. py:method:: vrCameraService.getActiveCamera(useCameraGraph=False)
+
+    Returns the active camera of the currently active viewport.
+
+    :param useCameraGraph: If True the camera from the camera graph is returned. If False the scene tree camera is returned.
+    :type useCameraGraph: bool
+
+    :return: Camera node
+    :rtype: vrdCameraNode
+
+.. py:method:: vrCameraService.getAllCameraTracks()
+
+    Returns the list of all camera tracks.
+
+    :return: List of camera tracks
+    :rtype: List[vrdCameraTrackNode]
+
+.. py:method:: vrCameraService.getAllViewpoints()
+
+    Returns the list of all viewpoints.
+
+    :return: List of viewpoints
+    :rtype: List[vrdViewpointNode]
+
+.. py:method:: vrCameraService.getCamera(name, useCameraGraph=False)
+
+    Returns the first camera with the given name.
+
+    :param name: The name of camera (case sensitive).
+    :type name: string
+
+    :param useCameraGraph: If True the camera from the camera graph is returned. If False the scene tree camera is returned.
+    :type useCameraGraph: bool
+
+    :return: Camera node
+    :rtype: vrdCameraNode
+
+.. py:method:: vrCameraService.getCameraNames()
+
+    Returns a list with the names of all cameras.
+
+    :return: List of camera names
+    :rtype: List[string]
+
+.. py:method:: vrCameraService.getCameraRoot()
+
+    Returns the root node of cameras, that contains all cameras, camera tracks and viewpoints.
+
+    :return: Root node
+    :rtype: vrdNode
+
+.. py:method:: vrCameraService.getCameras(useCameraGraph=False)
+
+    Returns the list of all cameras (not including viewpoints or camera tracks).
+
+    :param useCameraGraph:
+    :type useCameraGraph: bool
+
+    :return: List of cameras
+    :rtype: List[vrdCameraNode]
+
+.. py:method:: vrCameraService.getSelectedNodes()
+
+    Returns the nodes currently selected in camera editor.
+
+    :return: Selected nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrCameraService.getViewpoint(name)
+
+    Returns the first viewpoint with the given name.
+
+    :param name:
+    :type name: string
+
+    :return: Viewpoint node
+    :rtype: vrdViewpointNode
+
+.. py:method:: vrCameraService.getViewpointCreationMode()
+
+    Returns if tracking transformation should be included in viewpoint transformation.
+
+    :return:
+    :rtype: vrCameraTypes.ViewpointCreationMode
+
+.. py:method:: vrCameraService.load(filename)
+
+    Load camera related nodes.
+
+    The nodes in the returned list are module nodes in the camera tree. To get their corresponding scenegraph nodes use vrdNode.getSharedNodes():
+
+```
+
+         moduleNodes = vrCameraService.load(path)
+         sceneNodes = [node for moduleNode in moduleNodes for node in moduleNode.getSharedNodes()]
+
+    Supported formats / file extensions:
+
+'.xml': Adds contained cameras and viewpoints
+'.vpb', '.osb', '.vpe': Adds contained camera structure including camera groups, tracks and viewpoints
+'.wrl': Adds camera animation
+'.views': Add contained viewpoints
+'.jpg', '.jpeg', '.png', '.tif', '.tiff', '.exr': Will create camera from contained meta data
+
+    :param filename: File containing camera related nodes.
+    :type filename: string
+
+    :return: Returns the list of loaded nodes (camera tree nodes).
+    :rtype: List[vrdNode]
+
+.. py:method:: vrCameraService.pasteAttributes(cameras, option=vrCameraTypes.PasteOption.PasteAllAttributes)
+
+    Paste attributes of nodes.
+
+    This function allows to copy groups of attributes (or all) from the first camera in the internal copy buffer to all camera nodes given in 'cameras'.
+
+    The copy buffer needs to be filled first with vrCameraService.copyNodes(nodes).
+
+    :param cameras: The cameras where the attributes should be copied to.
+    :type cameras: List[vrdCameraBaseNode]
+
+    :param option: The attributes which are to be copied.
+    :type option: vrCameraTypes.PasteOption
+
+.. py:method:: vrCameraService.pasteNodes(targetNodes)
+
+    Paste nodes from the internal copy buffer.
+
+    This adds a copy of every node in the internal copy buffer as a child of every node given in targetNodes.
+
+    :param targetNodes: The target nodes where nodes should be pasted to.
+    :type targetNodes: List[vrdNode]
+
+    :return: The pasted nodes
+    :rtype: List[vrdNode]
+
+.. py:method:: vrCameraService.saveCameras(nodes, filename)
+
+    Save cameras and viewpoints to an .xml file (no hierarchy, groups or tracks supported).
+
+    :param nodes: List of cameras and viewpoints.
+    :type nodes: List[vrdNode]
+
+    :param filename: File to save nodes (only '.xml' files are supported).
+    :type filename: string
+
+    :return: Return True on success.
+    :rtype: bool
+
+.. py:method:: vrCameraService.saveNodes(nodes, filename)
+
+    Save nodes including children (tracks, groups, viewpoints) to .osb file.
+
+    :param nodes: List of nodes.
+    :type nodes: List[vrdNode]
+
+    :param filename: Filename to use (only '.osb' files are supported).
+    :type filename: string
+
+    :return: Return True on success.
+    :rtype: bool
+
+.. py:method:: vrCameraService.saveViewpoints(filename)
+
+    Save all viewpoints to '.xml' file.
+
+    :param filename: File to save nodes (only '.xml' files are supported).
+    :type filename: string
+
+    :return: Return True on success
+    :rtype: bool
+
+.. py:method:: vrCameraService.setSelectedNodes(nodes)
+
+    Sets the selection in camera editor.
+
+    :param nodes: Nodes to be selected
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrCameraService.setViewpointCreationMode(mode)
+
+    Defines if tracking transformation should be included in viewpoint transformation.
+
+    :param mode: Add or ignore tracking transformation when creating viewpoints.
+    :type mode: vrCameraTypes.ViewpointCreationMode
+
+.. py:method:: vrCameraService.zoomToNodes(nodes)
+
+    Zoom to the given nodes.
+
+    :param nodes: A list of nodes that should be in view
+    :type nodes: List[vrdNode]
+
+Signals
+=======
+
+.. py:method:: vrCameraService.selectionChanged(nodes)
+
+    Notifies about selection changes of camera editor.
+
+    :param nodes: The currently selected nodes
+    :type nodes: List[vrdNode]
+

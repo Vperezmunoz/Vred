@@ -1,0 +1,88 @@
+-------------------
+vrdUVUnfoldSettings
+-------------------
+
+.. py:class:: vrdUVUnfoldSettings
+
+(Inherits vrdData)
+
+Holds settings for UV unfold with Unfold3D. See     vrUVService.unfold(nodes, unfoldSettings, layoutSettings, uvSet).
+
+Summary
+=======
+
+Functions:
+    * getIterations() → integer
+    * getMapSize() → integer
+    * getPreventBorderIntersections() → bool
+    * getPreventTriangleFlips() → bool
+    * getRoomSpace() → integer
+    * setIterations(iterations)
+    * setMapSize(mapSize)
+    * setPreventBorderIntersections(prevent)
+    * setPreventTriangleFlips(prevent)
+    * setRoomSpace(roomSpace)
+
+Functions
+=========
+
+.. py:method:: vrdUVUnfoldSettings.getIterations()
+
+    :return: Number of optimize iterations when unfolding the UVs with Unfold3D. See vrdUVUnfoldSettings.setIterations(iterations) for an explanation of the iteration value.
+    :rtype: integer
+
+.. py:method:: vrdUVUnfoldSettings.getMapSize()
+
+    :return: Texture map size in pixels for room space used by anti-border self intersection.
+    :rtype: integer
+
+.. py:method:: vrdUVUnfoldSettings.getPreventBorderIntersections()
+
+    :return: Whether anti-border self intersection is enabled.
+    :rtype: bool
+
+.. py:method:: vrdUVUnfoldSettings.getPreventTriangleFlips()
+
+    :return: Whether anti-triangle flip is enabled.
+    :rtype: bool
+
+.. py:method:: vrdUVUnfoldSettings.getRoomSpace()
+
+    :return: Room space value in pixels used by anti-border self intersection.
+    :rtype: integer
+
+.. py:method:: vrdUVUnfoldSettings.setIterations(iterations)
+
+    Set the number of Optimize iterations being applied when unfolding UVs with Unfold3D.
+
+    :param iterations: Number of optimize iterations. -1 disables Optimize during Unfold. 0 enables Optimize only in case triangle flips or border intersections happen during the Unfold. With iterations >= 1, Optimize also runs after the unfold.
+    :type iterations: integer
+
+.. py:method:: vrdUVUnfoldSettings.setMapSize(mapSize)
+
+    Sets the texture map size for room space used by anti-border self intersection.
+
+    :param mapSize: Map size in pixels
+    :type mapSize: integer
+
+.. py:method:: vrdUVUnfoldSettings.setPreventBorderIntersections(prevent)
+
+    Activate the anti-border self intersection algorithm. The room space parameter is taken into account for this. See         vrdUVUnfoldSettings.setRoomSpace(roomSpace).
+
+    :param prevent:
+    :type prevent: bool
+
+.. py:method:: vrdUVUnfoldSettings.setPreventTriangleFlips(prevent)
+
+    Activate the anti-triangle flip algorithm.
+
+    :param prevent:
+    :type prevent: bool
+
+.. py:method:: vrdUVUnfoldSettings.setRoomSpace(roomSpace)
+
+    Sets the room space in pixels, in relation to the map size set with setMapSize. The room space is the minimum space allowed between borders within one island for the anti-border self intersection algorithm. This setting only has an effect if the anti-border self intersection is enabled with         vrdUVUnfoldSettings.setPreventBorderIntersections(prevent). Avoid large values, because it can slow down the unfold calculations and create distortion.
+
+    :param roomSpace: Room space value in pixels.
+    :type roomSpace: integer
+

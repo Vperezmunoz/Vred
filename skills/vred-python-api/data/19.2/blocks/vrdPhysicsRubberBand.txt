@@ -1,0 +1,146 @@
+--------------------
+vrdPhysicsRubberBand
+--------------------
+
+.. py:class:: vrdPhysicsRubberBand
+
+(Inherits vrdObject)
+
+The     vrdPhysicsRubberBand class exposes parameters for the rubber-band drive behavior used by interactive physics dragging.
+
+Rubber-band interaction allows users to manipulate physics objects during simulation by applying forces that pull objects toward the interaction point. This class configures the behavior of this interaction system, including acceleration limits, damping, and visualization options.
+
+Summary
+=======
+
+Functions:
+    * getAngularAcceleration() → float
+    * getCrossVisualizationEnabled() → bool
+    * getDampingRatio() → float
+    * getDepthScale() → float
+    * getInvertDepth() → bool
+    * getLinearAcceleration() → float
+    * getMouseCrossVisualizationEnabled() → bool
+    * setAngularAcceleration(acceleration)
+    * setCrossVisualizationEnabled(enabled)
+    * setDampingRatio(ratio)
+    * setDepthScale(scale)
+    * setInvertDepth(invert)
+    * setLinearAcceleration(acceleration)
+    * setMouseCrossVisualizationEnabled(enabled)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsRubberBand.getAngularAcceleration()
+
+    Get the maximum desired angular acceleration.
+
+    :return: The maximum angular acceleration in rad/s².
+    :rtype: float
+
+.. py:method:: vrdPhysicsRubberBand.getCrossVisualizationEnabled()
+
+    Get whether cross visualization is enabled.
+
+    :return: True if cross visualization is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsRubberBand.getDampingRatio()
+
+    Get the damping ratio.
+
+    :return: The dimensionless damping ratio.
+    :rtype: float
+
+.. py:method:: vrdPhysicsRubberBand.getDepthScale()
+
+    Get the depth adjustment scale.
+
+    :return: The depth scale multiplier.
+    :rtype: float
+
+.. py:method:: vrdPhysicsRubberBand.getInvertDepth()
+
+    Get whether depth adjustment direction is inverted.
+
+    :return: True if depth is inverted, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsRubberBand.getLinearAcceleration()
+
+    Get the maximum desired linear acceleration.
+
+    :return: The maximum linear acceleration in m/s².
+    :rtype: float
+
+.. py:method:: vrdPhysicsRubberBand.getMouseCrossVisualizationEnabled()
+
+    Get whether mouse cross visualization is enabled.
+
+    :return: True if mouse cross visualization is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsRubberBand.setAngularAcceleration(acceleration)
+
+    Set the maximum desired angular acceleration for rubber-band interaction.
+
+    This value is used to derive torque limits for rotational motion during interactive dragging. Higher values allow faster rotation but may cause instability.
+
+    :param acceleration: The maximum angular acceleration in rad/s².
+    :type acceleration: float
+
+.. py:method:: vrdPhysicsRubberBand.setCrossVisualizationEnabled(enabled)
+
+    Enable or disable cross visualization during rubber-band interaction.
+
+    When enabled, a crosshair is displayed at the interaction point during rubber-band manipulation to provide visual feedback.
+
+    :param enabled: True to enable cross visualization, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsRubberBand.setDampingRatio(ratio)
+
+    Set the damping ratio for rubber-band interaction.
+
+    The damping ratio controls how quickly the rubber-band interaction settles. A value of 1.0 represents critical damping (optimal settling without oscillation). Values less than 1.0 are underdamped (oscillatory), values greater than 1.0 are overdamped (slow).
+
+    :param ratio: The dimensionless damping ratio. 1.0 = critical damping.
+    :type ratio: float
+
+.. py:method:: vrdPhysicsRubberBand.setDepthScale(scale)
+
+    Set the depth adjustment scale/sensitivity multiplier.
+
+    This controls how sensitive the depth adjustment is when using A-key depth control. Higher values make depth changes more pronounced.
+
+    :param scale: The depth scale multiplier.
+    :type scale: float
+
+.. py:method:: vrdPhysicsRubberBand.setInvertDepth(invert)
+
+    Set the depth adjustment direction when using A-key depth control.
+
+    When enabled, the depth adjustment direction is inverted, so pressing A moves the interaction point in the opposite direction.
+
+    :param invert: True to invert depth direction, false for normal direction.
+    :type invert: bool
+
+.. py:method:: vrdPhysicsRubberBand.setLinearAcceleration(acceleration)
+
+    Set the maximum desired linear acceleration for rubber-band interaction.
+
+    This value is used to derive force limits for linear motion during interactive dragging. Higher values allow faster movement but may cause instability.
+
+    :param acceleration: The maximum linear acceleration in m/s².
+    :type acceleration: float
+
+.. py:method:: vrdPhysicsRubberBand.setMouseCrossVisualizationEnabled(enabled)
+
+    Enable or disable cross visualization during mouse interaction.
+
+    Note: This feature is not yet used in the tool logic but is reserved for future use.
+
+    :param enabled: True to enable mouse cross visualization, false to disable.
+    :type enabled: bool
+

@@ -1,0 +1,61 @@
+----------------
+vrdLensFlareGlow
+----------------
+
+.. py:class:: vrdLensFlareGlow
+
+(Inherits vrdLensFlareFxElement)
+
+This class is used for a glowing shape. A short introduction can be found under     https://help.autodesk.com/view/VREDPRODUCTS/2020/ENU/?guid=VRED_Lights_About_Lens_Flares_and_Elements_html.
+
+Summary
+=======
+
+Functions:
+    * getImage() → vrdImage
+    * getShape() → vrLensFlareTypes.ElementShape
+    * setImage(image)
+    * setShape(shape)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareGlow.getImage()
+
+    Return the current used texture.
+
+    :return: The current used image for texture. May be invalid, if no image is used.
+    :rtype: vrdImage
+
+.. py:method:: vrdLensFlareGlow.getShape()
+
+    Get the current used shape.
+
+    :return: Current used shape
+    :rtype: vrLensFlareTypes.ElementShape
+
+.. py:method:: vrdLensFlareGlow.setImage(image)
+
+    Set an image for this element. You have to change the type to Texture to use the image for the glow effect.
+
+    :param image: The image used for this effect
+    :type image: vrdImage
+
+.. py:method:: vrdLensFlareGlow.setShape(shape)
+
+    Set a shape for the glow element.
+
+    Circle = A circular shape
+    Triangle = Shape with 3 edges
+    Quad = Shape with 4 edges
+    Pentagon = Shape with 5 edges
+    Hexagon = Shape with 6 edges
+    Heptagon = Shape with 7 edges
+    Octagon = Shape with 8 edges
+    Nonagon = Shape with 9 edges
+    Decagon = Shape with 10 edges
+    Texture = Shape assigned to an image
+
+    :param shape: New shape to be set
+    :type shape: vrLensFlareTypes.ElementShape
+

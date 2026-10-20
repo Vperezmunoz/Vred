@@ -1,0 +1,301 @@
+--------------------
+vrImmersiveUiService
+--------------------
+
+.. py:class:: vrImmersiveUiService
+
+(Inherits vrBaseService)
+
+Interface to work with interactive VR windows and tools.
+
+Summary
+=======
+
+Functions:
+    * createMenu(name) → vrdImmersiveMenu
+    * createTool(name, group) → vrdImmersiveTool
+    * deleteMenu(menu)
+    * deleteMenu(name)
+    * deleteTool(tool)
+    * deleteTool(name)
+    * findMenu(name) → vrdImmersiveMenu
+    * findTool(name) → vrdImmersiveTool
+    * getHideParticipantsVRPanel() → bool
+    * getHideStatusVRPanel() → bool
+    * getMenuRepositionDistanceThreshold() → float
+    * getMenuRepositionYawThreshold() → float
+    * getTools() → List[vrdImmersiveTool]
+    * openToolsSubMenu(content)
+    * openToolsSubMenu(widget)
+    * openToolsSubMenu(tool)
+    * refreshFilteredTools()
+    * setHideParticipantsVRPanel(value)
+    * setHideStatusVRPanel(value)
+    * setMenuRepositionDistanceThreshold(distance)
+    * setMenuRepositionYawThreshold(rotation)
+    * showMenuIconBar(show, rightHand)
+    * showToolsMenu(show, rightHand)
+    * toggleMenuIconBar(rightHand) → bool
+    * toggleToolsMenu(rightHand) → bool
+
+Signals:
+    * toolChecked(tool)
+    * toolClicked(tool)
+    * toolSubMenuClosed(tool)
+    * toolSubMenuOpened(tool)
+    * toolUnchecked(tool)
+
+Functions
+=========
+
+.. py:method:: vrImmersiveUiService.createMenu(name="")
+
+    Creates a new VR menu.
+
+    :param name: Name of the menu
+    :type name: string
+
+    :return: A new menu or an existing menu with the given name
+    :rtype: vrdImmersiveMenu
+
+.. py:method:: vrImmersiveUiService.createTool(name="", group="Tools")
+
+    Creates a new VR tool visible on the VR tools menu.
+
+    :param name: Name of the new tool
+    :type name: string
+
+    :param group: Group in which the tool is inserted. Use "Tools" to add the tool to the tools menu, "MenuBar" to add the tool to the menu icon bar, or "Settings/YourGroup" to add it to the settings menu in the subgroup "YourGroup". If the group doesn't exist, it will be created.
+    :type group: string
+
+    :return: A new tool or an existing one with the given name
+    :rtype: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.deleteMenu(menu)
+
+    Removes a VR menu.
+
+    :param menu: Menu to be deleted
+    :type menu: vrdImmersiveMenu
+
+.. py:method:: vrImmersiveUiService.deleteMenu(name)
+   :no-index:
+
+    Removes a VR menu by name.
+
+    :param name: Name of the menu to be removed
+    :type name: string
+
+.. py:method:: vrImmersiveUiService.deleteTool(tool)
+
+    Removes a VR tool.
+
+    This can not be used to delete the tools created by default.
+
+    :param tool: Tool to be removed
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.deleteTool(name)
+   :no-index:
+
+    Remove a VR tool by name.
+
+    This can not be used to delete the tools created by default.
+
+    :param name: Name of the tool to be removed
+    :type name: string
+
+.. py:method:: vrImmersiveUiService.findMenu(name)
+
+    Find a VR menu by name.
+
+    To find the main VR menu panel, use:
+
+```
+
+         vrImmersiveUiService.findMenu("ToolsMenu")
+
+    :param name: Name to search for.
+    :type name: string
+
+    :return: If found, the menu otherwise an invalid object
+    :rtype: vrdImmersiveMenu
+
+.. py:method:: vrImmersiveUiService.findTool(name)
+
+    Find a VR tool by name.
+
+    :param name: Name to search for
+    :type name: string
+
+    :return: If found, the tool otherwise an invalid object
+    :rtype: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.getHideParticipantsVRPanel()
+
+    Get participants hide option.
+
+    :return: True, if panel is hidden
+    :rtype: bool
+
+.. py:method:: vrImmersiveUiService.getHideStatusVRPanel()
+
+    Get status panel hide option.
+
+    :return: True, if panel is hidden
+    :rtype: bool
+
+.. py:method:: vrImmersiveUiService.getMenuRepositionDistanceThreshold()
+
+    Gets the current menu repositioning distance.
+
+    :return: The distance value in mm
+    :rtype: float
+
+.. py:method:: vrImmersiveUiService.getMenuRepositionYawThreshold()
+
+    Gets the current menu repositioning yaw angle.
+
+    :return: The yaw rotation angle in degrees
+    :rtype: float
+
+.. py:method:: vrImmersiveUiService.getTools()
+
+    :return: A list of all existing vr tools
+    :rtype: List[vrdImmersiveTool]
+
+.. py:method:: vrImmersiveUiService.openToolsSubMenu(content)
+
+    Opens a new tools sub menu with the given html content.
+
+    :param content: Content can be a http link, a name of a module or one of the predefined VR panels "variantSets" or "viewpoints"
+    :type content: string
+
+.. py:method:: vrImmersiveUiService.openToolsSubMenu(widget)
+   :no-index:
+
+    Opens a new tools sub menu with the given widget.
+
+    :param widget: The given widget is displayed
+    :type widget: QWidget
+
+.. py:method:: vrImmersiveUiService.openToolsSubMenu(tool)
+   :no-index:
+
+    Opens the tools sub menu of the given         vrdImmersiveTool.
+
+    This functions is called automatically, if a tool button is pressed.
+
+    :param tool: The type of the submenu is determined by the given tool
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.refreshFilteredTools()
+
+    Updates the filtered tools list and notifies all menus.
+
+.. py:method:: vrImmersiveUiService.setHideParticipantsVRPanel(value)
+
+    Hides the participants panel in the vr menu.
+
+    :param value: True, hides the panel
+    :type value: bool
+
+.. py:method:: vrImmersiveUiService.setHideStatusVRPanel(value)
+
+    Hides the status panel with the current time in the vr menu.
+
+    :param value: True, hides the panel
+    :type value: bool
+
+.. py:method:: vrImmersiveUiService.setMenuRepositionDistanceThreshold(distance)
+
+    Sets the distance for menu repositioning in XR.
+
+    :param distance: Distance value in mm for positioning the menu
+    :type distance: float
+
+.. py:method:: vrImmersiveUiService.setMenuRepositionYawThreshold(rotation)
+
+    Sets the yaw rotation angle for menu repositioning.
+
+    :param rotation: Yaw rotation angle in degrees
+    :type rotation: float
+
+.. py:method:: vrImmersiveUiService.showMenuIconBar(show, rightHand=False)
+
+    Shows the menu icon bar.
+
+    :param show: True, shows the icon bar
+    :type show: bool
+
+    :param rightHand: Show it on the right (true) or left (false) hand.
+    :type rightHand: bool
+
+.. py:method:: vrImmersiveUiService.showToolsMenu(show, rightHand=False)
+
+    Opens or closes the VR tools menu.
+
+    :param show: True shows the menu, False hides the menu
+    :type show: bool
+
+    :param rightHand: Show it on the right (true) or left (false) hand.
+    :type rightHand: bool
+
+.. py:method:: vrImmersiveUiService.toggleMenuIconBar(rightHand=False)
+
+    Toggles the menu icon bar.
+
+    :param rightHand: Show it on the right (true) or left (false) hand.
+    :type rightHand: bool
+
+    :return: True, if the icon bar has been switched on
+    :rtype: bool
+
+.. py:method:: vrImmersiveUiService.toggleToolsMenu(rightHand=False)
+
+    Toggles show/hide VR tools menu.
+
+    :param rightHand: Show it on the right or left hand.
+    :type rightHand: bool
+
+    :return: True, if the menu has been switched on
+    :rtype: bool
+
+Signals
+=======
+
+.. py:method:: vrImmersiveUiService.toolChecked(tool)
+
+    Signal emitted, if a tool button is switched on.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.toolClicked(tool)
+
+    Signal emitted, if a tool button is clicked.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.toolSubMenuClosed(tool)
+
+    Signal emitted, if a tool sub menu is closed.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.toolSubMenuOpened(tool)
+
+    Signal emitted, if a tool sub menu is opened.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+
+.. py:method:: vrImmersiveUiService.toolUnchecked(tool)
+
+    Signal emitted, if a tool button is switched off.
+
+    :param tool: The vrdImmersiveTool that triggered the signal
+    :type tool: vrdImmersiveTool
+

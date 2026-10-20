@@ -1,0 +1,242 @@
+-------------
+vrdFlakeLayer
+-------------
+
+.. py:class:: vrdFlakeLayer
+
+(Inherits vrdSceneObject)
+
+This class is used for all flake layer properties.
+
+Summary
+=======
+
+Functions:
+    * getFlakeColor() → QVector3D
+    * getFlakeColorSpectrum() → vrSpectrum
+    * getFlakeDensity() → float
+    * getFlakePerturbation() → float
+    * getFlakeReflectivity() → float
+    * getFlakeRoughness() → float
+    * getFlakeSize() → float
+    * getFlipFlopBlending() → float
+    * getFlipFlopFlakeColor() → QVector3D
+    * getFlipFlopFlakeColorSpectrum() → vrSpectrum
+    * getPigmentColor() → QVector3D
+    * getPigmentColorSpectrum() → vrSpectrum
+    * getPigmentConcentration() → float
+    * getUseFlipFlop() → bool
+    * setFlakeColor(value)
+    * setFlakeColorSpectrum(value)
+    * setFlakeDensity(value)
+    * setFlakePerturbation(value)
+    * setFlakeReflectivity(value)
+    * setFlakeRoughness(value)
+    * setFlakeSize(value)
+    * setFlipFlopBlending(value)
+    * setFlipFlopFlakeColor(value)
+    * setFlipFlopFlakeColorSpectrum(value)
+    * setPigmentColor(value)
+    * setPigmentColorSpectrum(value)
+    * setPigmentConcentration(value)
+    * setUseFlipFlop(value)
+
+Functions
+=========
+
+.. py:method:: vrdFlakeLayer.getFlakeColor()
+
+    Gets the color of the flakes.
+
+    :return: Current used color of the flakes.
+    :rtype: QVector3D
+
+.. py:method:: vrdFlakeLayer.getFlakeColorSpectrum()
+
+    Gets the spectrum of the flakes.
+
+    :return: Current spectrum of the flakes.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdFlakeLayer.getFlakeDensity()
+
+    Gets the concentration of the flakes by controlling how many flakes are present in the layer.
+
+    :return: Current value of the concentration of the flakes
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getFlakePerturbation()
+
+    Gets the randomness of the flake's orientation.
+
+    :return: Current value of the randomness of the flake's orientation.
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getFlakeReflectivity()
+
+    Gets the flake's reflective intensity.
+
+    :return: Current value for flake's reflective intensity.
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getFlakeRoughness()
+
+    Gets the roughness of the flake surfaces.
+
+    :return: Current roughness of the flake surfaces
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getFlakeSize()
+
+    Gets the flake's size.
+
+    :return: Current flake's size.
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getFlipFlopBlending()
+
+    Gets the mixture ratio of the two flake colors.
+
+    :return: Current used mixture ratio of the two flake colors.
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getFlipFlopFlakeColor()
+
+    Gets the color of the flakes when viewed at an angle.
+
+    :return: Current color of the flakes viewed at an angle.
+    :rtype: QVector3D
+
+.. py:method:: vrdFlakeLayer.getFlipFlopFlakeColorSpectrum()
+
+    Gets the metallic shiny flake's spectrum.
+
+    :return: Current spectrum for the shiny flake.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdFlakeLayer.getPigmentColor()
+
+    Gets the pigment's color, which gives the basic color impression of this layer.
+
+    :return: Current used value of the pigment's color.
+    :rtype: QVector3D
+
+.. py:method:: vrdFlakeLayer.getPigmentColorSpectrum()
+
+    Gets the pigment's spectrum, which gives the basic color impression of this layer.
+
+    :return: Current used pigment's spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdFlakeLayer.getPigmentConcentration()
+
+    Gets the density of pigments by controling how many particles are present in the layer.
+
+    :return: Current used density of pigments.
+    :rtype: float
+
+.. py:method:: vrdFlakeLayer.getUseFlipFlop()
+
+    Gets the state of flakes with a Flip Flop behavior use.
+
+    :return: Current state of flakes Flip Flop behavior use.
+    :rtype: bool
+
+.. py:method:: vrdFlakeLayer.setFlakeColor(value)
+
+    Sets the color of the flakes. For a flip flop layer this defines the color of the flakes when viewed at a normal incidence.
+
+    :param value: New color for the flakes.
+    :type value: QVector3D
+
+.. py:method:: vrdFlakeLayer.setFlakeColorSpectrum(value)
+
+    Sets the spectrum of the flakes. For a flip flop layer this defines the spectrum of the flakes when viewed at a normal incidence.
+
+    :param value: New spectrum for the flakes.
+    :type value: vrSpectrum
+
+.. py:method:: vrdFlakeLayer.setFlakeDensity(value)
+
+    Sets the concentration of the flakes by controlling how many flakes are present in the layer. If the density is set to 0, no flakes are present and the paint represents a unicolor paint.
+
+    :param value: New concentration of the flakes.
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setFlakePerturbation(value)
+
+    Sets the randomness of the flake's orientation. This adds a glitter effect to the paint.
+
+    :param value: New value of the randomness of the flake's orientation.
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setFlakeReflectivity(value)
+
+    Sets the flake's reflective intensity. The higher the value, the more reflectivity of the flakes in the paint.
+
+    :param value: New value for flake's reflective intensity.
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setFlakeRoughness(value)
+
+    Sets the roughness of the flake surfaces. A lower value represents a smoother surface resulting in more specular reflections while a higher value represents a rough surface resulting in a more diffuse reflections.
+
+    :param value: New value of the flake roughness
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setFlakeSize(value)
+
+    Sets the flake's size. The higher the value, the larger the flake in the paint.
+
+    :param value: New flake's size.
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setFlipFlopBlending(value)
+
+    Defines the mixture ratio of the two flake colors. By a lower value the intensity of the basic Flake color will be increased. By a higher value, the intensity of the Flip Flop Flake Color will be increased.
+
+    :param value: New used mixture ratio of the two flake colors.
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setFlipFlopFlakeColor(value)
+
+    Sets the color of the flakes when viewed at an angle.
+
+    :param value: New color for the flakes viewed at an angle.
+    :type value: QVector3D
+
+.. py:method:: vrdFlakeLayer.setFlipFlopFlakeColorSpectrum(value)
+
+    Sets the spectrum of the flakes when viewed at an angle.
+
+    :param value: New spectrum for the flakes viewed at an angle
+    :type value: vrSpectrum
+
+.. py:method:: vrdFlakeLayer.setPigmentColor(value)
+
+    Sets the pigment's color, which gives the basic color impression of this layer.
+
+    :param value: New value of the pigment's color.
+    :type value: QVector3D
+
+.. py:method:: vrdFlakeLayer.setPigmentColorSpectrum(value)
+
+    Sets the pigment's spectrum, which gives the basic color impression of this layer.
+
+    :param value: New value of the pigment's spectrum.
+    :type value: vrSpectrum
+
+.. py:method:: vrdFlakeLayer.setPigmentConcentration(value)
+
+    Sets the density of pigments by controling how many particles are present in the layer.
+
+    :param value: New value for density of pigments.
+    :type value: float
+
+.. py:method:: vrdFlakeLayer.setUseFlipFlop(value)
+
+    Uses flakes with a Flip Flop behavior. If true, the Flip Flop Flake Color and Flip Flop Blend attributes become used.
+
+    :param value: State of flakes Flip Flop behavior.
+    :type value: bool
+

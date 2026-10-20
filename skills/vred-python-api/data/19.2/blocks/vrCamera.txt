@@ -1,0 +1,922 @@
+MODULE vrCamera (legacy v1 API)
+
+--------
+vrCamera
+--------
+
+Most functions in this module are **deprecated**; use vrCameraService, vrdCameraNode, and vrdViewpointNode instead.
+
+Summary
+=======
+
+Functions:
+    * addCollisionNode(name)
+    * addViewPoint(name)
+    * addViewPoint(name, unique)
+    * adjustAtPos4Viewpoint(name)
+    * adjustAtPos4Viewpoint(name, rootname)
+    * buildCollisionData()
+    * enableCollision(activate)
+    * enableCollisionSlide(activate)
+    * getActiveCameraNode() → vrNodePtr
+    * getCameraHmdMode() → bool
+    * getCameraTracks(name) → dict
+    * getDepthOfField() → bool
+    * getDollyZoom() → bool
+    * getFogBlendHeight() → float
+    * getFogColorDistance() → Vec3f
+    * getFogColorHeight() → Vec3f
+    * getFogDensityDistance() → float
+    * getFogDensityHeight() → float
+    * getFogDistance() → bool
+    * getFogEnableNoiseSizeUniformDistance() → bool
+    * getFogEnableNoiseSizeUniformHeight() → bool
+    * getFogFalloffDistance() → unsigned int
+    * getFogFalloffHeight() → unsigned int
+    * getFogHeight() → bool
+    * getFogNoiseDistance() → float
+    * getFogNoiseHeight() → float
+    * getFogNoiseOffsetDistance() → Vec3f
+    * getFogNoiseOffsetHeight() → Vec3f
+    * getFogNoiseSizeDistance() → Vec3f
+    * getFogNoiseSizeHeight() → Vec3f
+    * getFogRangeDistance() → float
+    * getFogRangeHeight() → Vec2f
+    * getGlare() → bool
+    * getGlow() → bool
+    * getLensFlare() → bool
+    * getMotionBlur() → bool
+    * getViewpointCreationMode() → unsigned int
+    * getViewpointNode(name) → vrNodePtr
+    * getViewpointPreview(name) → bytes
+    * getViewpoints() → list
+    * jumpViewPoint(name)
+    * loadViewPoints(filename)
+    * playTrack(name)
+    * removeViewPoint(name)
+    * saveViewPoints(filename)
+    * selectCamera(name)
+    * selectViewPoint(name)
+    * setCameraHmdMode(activate)
+    * setCollisionBuildMethod(method)
+    * setCollisionDistance(dist)
+    * setDepthOfField(on)
+    * setDollyZoom(on)
+    * setExposure(exposure)
+    * setExposure(exposure, name)
+    * setFogBlendHeight(blend)
+    * setFogColorDistance(r, g, b)
+    * setFogColorHeight(r, g, b)
+    * setFogDensityDistance(density)
+    * setFogDensityHeight(density)
+    * setFogDistance(activate)
+    * setFogEnableNoiseSizeUniformDistance(uniform)
+    * setFogEnableNoiseSizeUniformHeight(uniform)
+    * setFogFalloffDistance(falloff)
+    * setFogFalloffHeight(falloff)
+    * setFogHeight(activate)
+    * setFogNoiseDistance(intensity)
+    * setFogNoiseHeight(intensity)
+    * setFogNoiseOffsetDistance(offsetX, offsetY, offsetZ)
+    * setFogNoiseOffsetHeight(offsetX, offsetY, offsetZ)
+    * setFogNoiseSizeDistance(sizeX, sizeY, sizeZ)
+    * setFogNoiseSizeHeight(sizeX, sizeY, sizeZ)
+    * setFogRangeDistance(near)
+    * setFogRangeHeight(min, max)
+    * setFStop(fStop)
+    * setFStop(fStop, name)
+    * setGlare(on)
+    * setGlow(on)
+    * setLeftEyeBlendingMap(file, activate)
+    * setLensFlare(on)
+    * setMotionBlur(on)
+    * setNavigatorMode(mode)
+    * setRightEyeBlendingMap(file, activate)
+    * setViewPoint(name)
+    * setViewpointCreationMode(mode)
+    * setWhitepoint(whitepoint)
+    * setWhitepoint(whitepoint, name)
+    * viewpointAnim(name)
+
+.. method:: selectCamera(name)
+
+    Deprecated. Use `vrCameraService.getCamera(name).activate()` instead.
+
+    Activates a camera via name.
+
+    :param name: The name of the camera.
+    :type name: string
+
+.. method:: selectViewPoint(name)
+
+    Deprecated. Use `vrCameraService.getViewpoint(name).activate()` instead.
+
+    Activates a viewpoint via name.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+
+.. method:: jumpViewPoint(name)
+
+    Deprecated. Use `vrCameraService.getViewpoint(name).activate(True)` instead.
+
+    Jumps to the viewpoint via name. The difference to `selectViewPoint` is that this function immediately jumps to the viewpoint (no interpolation).
+
+    :param name: The name of the viewpoint.
+    :type name: string
+
+.. method:: setViewPoint(name)
+
+    Deprecated. Use `vrCameraService.getViewpoint(name).setToCurrentView()` instead.
+
+    Recaptures a viewpoint via name.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+
+.. method:: loadViewPoints(filename)
+
+    Deprecated. Use `vrCameraService.load(filename)` instead.
+
+    Loads a viewpoint XML file from disk.
+
+    :param filename: The name of the XML file.
+    :type filename: string
+
+.. method:: saveViewPoints(filename)
+
+    Deprecated. Use `vrCameraService.saveViewpoints(filename)` instead.
+
+    Saves a viewpoint XML file to disk.
+
+    :param filename: The name of the XML file.
+    :type filename: string
+
+.. method:: addViewPoint(name)
+
+    Deprecated. Use `vrCameraService.createViewpoint(name)` instead.
+
+    Adds the current view as a viewpoint with the name provided.
+
+    :param name: The name of the viewpoint to add.
+    :type name: string
+
+.. method:: addViewPoint(name, unique)
+    :no-index:
+
+    Deprecated. Use `vrCameraService.createViewpoint(name)` instead.
+
+    Adds the current view as a viewpoint with the name provided.
+
+    :param name: The name of the viewpoint to add.
+    :type name: string
+    :param unique: If true, a unique name is generated. (Optional).
+    :type unique: bool
+
+.. method:: removeViewPoint(name)
+
+    Deprecated. Use `vrNodeService.removeNodes([vrCameraService.getViewpoint(name)])` instead.
+
+    Removes the viewpoint with the given name.
+
+    :param name: The name of the viewpoint to remove.
+    :type name: string
+
+.. method:: getViewpoints() → list
+
+    Deprecated. Use `vrCameraService.getAllViewpoints()` and `vrdViewpointNode.getName()` instead.
+
+    Returns a list of all viewpoints.
+
+    :return: Viewpoint names.
+    :rtype: list of strings
+
+.. method:: getViewpointPreview(name) → bytes
+
+    Deprecated. Use `vrCameraService.getAllViewpoints()` and `vrdViewpointNode.getPreview()` instead.
+
+    Get a preview image for the viewpoint (if it has one).
+
+    Convert returned data to Base64: `base64.b64encode(getViewpointPreview("View"))`.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+    :return: Bytes of a PNG image.
+    :rtype: string
+
+.. method:: viewpointAnim(name)
+
+    Deprecated. Use `vrCameraService.getViewpoint(name).activate(False, True)` instead.
+
+    Animates to a viewpoint via name. The function waits until animation is finished.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+
+.. method:: adjustAtPos4Viewpoint(name)
+
+    Adjust the look-at point onto the surface of the closest object in the direction of viewing.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+
+.. method:: adjustAtPos4Viewpoint(name, rootname)
+    :no-index:
+
+    Adjust the look-at point onto the surface of the closest object in the direction of viewing.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+    :param rootname: The name of the root node that may contain the object (Optional).
+    :type rootname: string
+
+.. method:: setNavigatorMode(mode)
+
+    Sets the current navigator mode.
+
+    :param mode: Navigator mode (0: fly, 1: trackball, 2: axis, 3: none, 4: orientation).
+    :type mode: unsigned int
+
+.. method:: playTrack(name)
+
+    Deprecated. Use `vrCameraService.getAllCameraTracks()`, find the track with the name, and `track.setPlaying(True)` instead.
+
+    Plays a track via name.
+
+    :param name: The name of the track.
+    :type name: string
+
+.. method:: getCameraTracks(name) → dict
+
+    Deprecated. Use `vrCameraService.getAllCameraTracks()` and `track.getChildren()` instead.
+
+    Gets all camera track names and the names of the contained viewpoints for the given camera.
+
+    :param name: Camera name.
+    :type name: string
+    :return: Camera tracks for the passed camera name.
+    :rtype: dict
+
+.. method:: setWhitepoint(whitepoint)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getTonemapper().setWhitePoint(whitepoint)` instead.
+
+    Sets the whitepoint of the active camera.
+
+    :param whitepoint: The whitepoint value.
+    :type whitepoint: float
+
+.. method:: setWhitepoint(whitepoint, name)
+    :no-index:
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getTonemapper().setWhitePoint(whitepoint)` or `vrCameraService.getCamera(name).getTonemapper().setWhitePoint(whitepoint)` instead.
+
+    Sets the whitepoint of the active camera. Alternatively, the name of a specific camera can be provided.
+
+    :param whitepoint: The whitepoint value.
+    :type whitepoint: float
+    :param name: The name of the camera (Optional).
+    :type name: string
+
+.. method:: setExposure(exposure)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getTonemapper().setExposure(exposure)` instead.
+
+    Sets the exposure of the active camera.
+
+    :param exposure: The exposure value.
+    :type exposure: float
+
+.. method:: setExposure(exposure, name)
+    :no-index:
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getTonemapper().setExposure(exposure)` or `vrCameraService.getCamera(name).getTonemapper().setExposure(exposure)` instead.
+
+    Sets the exposure of the active camera. Alternatively, the name of a specific camera can be provided.
+
+    :param exposure: The exposure value.
+    :type exposure: float
+    :param name: The name of the camera (Optional).
+    :type name: string
+
+.. method:: setFStop(fStop)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setFStop(fStop)` instead.
+
+    Sets the FStop of the active camera. Note that this value only takes effect if Depth of Field is activated.
+
+    :param fStop: The FStop value (f/N where N is the value passed).
+    :type fStop: float
+
+.. method:: setFStop(fStop, name)
+    :no-index:
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setFStop(fStop)` or `vrCameraService.getCamera(name).setFStop(fStop)` instead.
+
+    Sets the FStop of the active camera. Alternatively, the name of a specific camera can be provided. Note that the FStop value only takes effect if Depth of Field is activated for the camera.
+
+    :param fStop: The FStop in f/N where N is the value passed to this function.
+    :type fStop: float
+    :param name: The name of the camera (Optional).
+    :type name: string
+
+.. method:: setLeftEyeBlendingMap(file, activate)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().loadBlendMap(file, vrCameraTypes.CameraLeftEye)` instead.
+
+    Sets and enables/disables the blending map for the left eye of the active camera.
+
+    :param file: The blending map file.
+    :type file: string
+    :param activate: Enables/disables left eye blending.
+    :type activate: bool
+
+.. method:: setRightEyeBlendingMap(file, activate)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().loadBlendMap(file, vrCameraTypes.CameraRightEye)` instead.
+
+    Sets and enables/disables the blending map for the right eye of the active camera.
+
+    :param file: The blending map file.
+    :type file: string
+    :param activate: Enables/disables right eye blending.
+    :type activate: bool
+
+.. method:: enableCollision(activate)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getCameraCollider().setEnabled(activate)` instead.
+
+    Enables/disables collision detection for the active camera.
+
+    :param activate: True to enable, False to disable.
+    :type activate: bool
+
+.. method:: enableCollisionSlide(activate)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getCameraCollider().setSlide(activate)` instead.
+
+    Enables/disables sliding for collision detection for the active camera.
+
+    :param activate: True to enable, False to disable.
+    :type activate: bool
+
+.. method:: setCollisionDistance(dist)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getCameraCollider().setDistance(dist)` instead.
+
+    Sets the closest allowed distance from the active camera to a colliding object.
+
+    :param dist: The distance value.
+    :type dist: float
+
+.. method:: addCollisionNode(name)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getCameraCollider().addNode(name)` instead.
+
+    Adds a node to collide against for the active camera.
+
+    :param name: The name of the node.
+    :type name: string
+
+.. method:: setCollisionBuildMethod(method)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getCameraCollider().setCollisionStructureBuildMethod(method)` instead.
+
+    Sets the collision building method for the active camera.
+
+    :param method: 0 for triangles, 1 for bounding boxes.
+    :type method: int
+
+.. method:: buildCollisionData()
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getCameraCollider().buildCollisionStructure()` instead.
+
+    Builds the data structure for collision detection for the active camera.
+
+.. method:: getActiveCameraNode() → vrNodePtr
+
+    Deprecated. Use `vrCameraService.getActiveCamera()` instead.
+
+    Returns the active camera node of the active render window.
+
+    :return: The active camera node.
+    :rtype: vrNodePtr
+
+.. method:: getViewpointNode(name) → vrNodePtr
+
+    Deprecated. Use `vrCameraService.getViewpoint(name)` instead.
+
+    Returns the viewpoint node with the given name.
+
+    :param name: The name of the viewpoint.
+    :type name: string
+    :return: The viewpoint node.
+    :rtype: vrNodePtr
+
+.. method:: setCameraHmdMode(activate)
+
+    Enables/disables the camera HMD mode.
+
+    :param activate: True to enable, False to disable.
+    :type activate: bool
+
+.. method:: getCameraHmdMode() → bool
+
+    Returns the current state of the camera HMD mode.
+
+    :return: True if HMD mode is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setViewpointCreationMode(mode)
+
+    Deprecated. Use `vrCameraService.setViewpointCreationMode(mode)` instead.
+
+    Sets how a new viewpoint is created when using head-tracking (e.g., with a HMD in VR).
+
+    :param mode: 0 for IgnoreTrackingMatrix, 1 for IncludeTrackingMatrix.
+    :type mode: unsigned int
+
+.. method:: getViewpointCreationMode() → unsigned int
+
+    Deprecated. Use `vrCameraService.getViewpointCreationMode()` instead.
+
+    Returns the current viewpoint creation mode.
+
+    :return: 0 for IgnoreTrackingMatrix, 1 for IncludeTrackingMatrix.
+    :rtype: unsigned int
+
+.. method:: setDepthOfField(on)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDepthOfField(on)` instead.
+
+    Enables/disables depth of field for the current camera.
+
+    :param on: True to enable, False to disable.
+    :type on: bool
+
+.. method:: getDepthOfField() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDepthOfField()` instead.
+
+    Returns the current depth of field state of the current camera.
+
+    :return: True if depth of field is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setMotionBlur(on)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setMotionBlur(on)` instead.
+
+    Enables/disables motion blur for the current camera.
+
+    :param on: True to enable, False to disable.
+    :type on: bool
+
+.. method:: getMotionBlur() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getMotionBlur()` instead.
+
+    Returns the current motion blur state of the current camera.
+
+    :return: True if motion blur is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setDollyZoom(on)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDollyZoom(on)` instead.
+
+    Enables/disables dolly zoom for the current camera.
+
+    :param on: True to enable, False to disable.
+    :type on: bool
+
+.. method:: getDollyZoom() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDollyZoom()` instead.
+
+    Returns the current dolly zoom state of the current camera.
+
+    :return: True if dolly zoom is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setGlow(on)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setGlow(on)` instead.
+
+    Enables/disables glow for the current camera.
+
+    :param on: True to enable, False to disable.
+    :type on: bool
+
+.. method:: getGlow() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getGlow()` instead.
+
+    Returns the current glow state of the current camera.
+
+    :return: True if glow is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setGlare(on)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setGlare(on)` instead.
+
+    Enables/disables glare for the current camera.
+
+    :param on: True to enable, False to disable.
+    :type on: bool
+
+.. method:: getGlare() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getGlare()` instead.
+
+    Returns the current glare state of the current camera.
+
+    :return: True if glare is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setLensFlare(on)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setLensFlare(on)` instead.
+
+    Enables/disables lens flares for the current camera.
+
+    :param on: True to enable, False to disable.
+    :type on: bool
+
+.. method:: getLensFlare() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getLensFlare()` instead.
+
+    Returns the current lens flare state of the current camera.
+
+    :return: True if lens flares are enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setFogDistance(activate)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFog(activate)` instead.
+
+    Enables/disables distance fog.
+
+    :param activate: True to enable, False to disable.
+    :type activate: bool
+
+.. method:: getFogDistance() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFog()` instead.
+
+    Returns the current activation state of distance fog.
+
+    :return: True if distance fog is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setFogHeight(activate)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFog(activate)` instead.
+
+    Enables/disables height fog.
+
+    :param activate: True to enable, False to disable.
+    :type activate: bool
+
+.. method:: getFogHeight() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFog()` instead.
+
+    Returns the current activation state of height fog.
+
+    :return: True if height fog is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setFogFalloffHeight(falloff)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogFalloff(falloff)` instead.
+
+    Sets the falloff type for height fog.
+
+    :param falloff: 0 for realistic, 1 for linear.
+    :type falloff: unsigned int
+
+.. method:: getFogFalloffHeight() → unsigned int
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogFalloff()` instead.
+
+    Returns the falloff type of height fog.
+
+    :return: 0 for realistic, 1 for linear.
+    :rtype: unsigned int
+
+.. method:: setFogFalloffDistance(falloff)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogFalloff(falloff)` instead.
+
+    Sets the falloff type for distance fog.
+
+    :param falloff: 0 for realistic, 1 for linear.
+    :type falloff: unsigned int
+
+.. method:: getFogFalloffDistance() → unsigned int
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogFalloff()` instead.
+
+    Returns the falloff type of distance fog.
+
+    :return: 0 for realistic, 1 for linear.
+    :rtype: unsigned int
+
+.. method:: setFogDensityDistance(density)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogDensity(density)` instead.
+
+    Sets the density of distance fog.
+
+    :param density: The fog density (value >= 0).
+    :type density: float
+
+.. method:: getFogDensityDistance() → float
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogDensity()` instead.
+
+    Returns the density of distance fog.
+
+    :return: The fog density.
+    :rtype: float
+
+.. method:: setFogDensityHeight(density)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogDensity(density)` instead.
+
+    Sets the density of height fog.
+
+    :param density: The fog density (value >= 0).
+    :type density: float
+
+.. method:: getFogDensityHeight() → float
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogDensity()` instead.
+
+    Returns the density of height fog.
+
+    :return: The fog density.
+    :rtype: float
+
+.. method:: setFogRangeDistance(near)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogRange(near)` instead.
+
+    Sets the starting distance for distance fog.
+
+    :param near: Distance from the camera where the fog begins.
+    :type near: float
+
+.. method:: getFogRangeDistance() → float
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogRange()` instead.
+
+    Returns the starting distance for distance fog.
+
+    :return: Distance from the camera where the fog begins.
+    :rtype: float
+
+.. method:: setFogRangeHeight(min, max)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogRange(QVector2D(min, max))` instead.
+
+    Sets the range for height fog.
+
+    :param min: Height from the ground where the fog begins.
+    :type min: float
+    :param max: Height from the ground where the fog ends. Must be greater than min.
+    :type max: float
+
+.. method:: getFogRangeHeight() → Vec2f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogRange()` instead.
+
+    Returns the range for height fog.
+
+    :return: A vector with min and max values.
+    :rtype: Vec2f
+
+.. method:: setFogColorDistance(r, g, b)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogColor(color)` instead.
+
+    Sets the color of distance fog.
+
+    :param r: Red component of the fog color, range [0; 1].
+    :type r: float
+    :param g: Green component of the fog color, range [0; 1].
+    :type g: float
+    :param b: Blue component of the fog color, range [0; 1].
+    :type b: float
+
+.. method:: getFogColorDistance() → Vec3f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogColor()` instead.
+
+    Returns the color of distance fog.
+
+    :return: A vector with r, g, b components.
+    :rtype: Vec3f
+
+.. method:: setFogColorHeight(r, g, b)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogColor(color)` instead.
+
+    Sets the color of height fog.
+
+    :param r: Red component of the fog color, range [0; 1].
+    :type r: float
+    :param g: Green component of the fog color, range [0; 1].
+    :type g: float
+    :param b: Blue component of the fog color, range [0; 1].
+    :type b: float
+
+.. method:: getFogColorHeight() → Vec3f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogColor()` instead.
+
+    Returns the color of height fog.
+
+    :return: A vector with r, g, b components.
+    :rtype: Vec3f
+
+.. method:: setFogNoiseDistance(intensity)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogNoise(intensity)` instead.
+
+    Sets the intensity of noise for distance fog.
+
+    :param intensity: Multiplier of noise (value from 0 to 10).
+    :type intensity: float
+
+.. method:: getFogNoiseDistance() → float
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogNoise()` instead.
+
+    Returns the intensity of noise for distance fog.
+
+    :return: The noise intensity.
+    :rtype: float
+
+.. method:: setFogNoiseHeight(intensity)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogNoise(intensity)` instead.
+
+    Sets the intensity of noise for height fog.
+
+    :param intensity: Multiplier of noise (value from 0 to 10).
+    :type intensity: float
+
+.. method:: getFogNoiseHeight() → float
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogNoise()` instead.
+
+    Returns the intensity of noise for height fog.
+
+    :return: The noise intensity.
+    :rtype: float
+
+.. method:: setFogNoiseSizeDistance(sizeX, sizeY, sizeZ)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogNoiseSize(size)` instead.
+
+    Sets the size of noise for distance fog.
+
+    :param sizeX: Noise size along X (value >= 0.01).
+    :type sizeX: float
+    :param sizeY: Noise size along Y (value >= 0.01).
+    :type sizeY: float
+    :param sizeZ: Noise size along Z (value >= 0.01).
+    :type sizeZ: float
+
+.. method:: getFogNoiseSizeDistance() → Vec3f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogNoiseSize()` instead.
+
+    Returns the size of noise for distance fog.
+
+    :return: A vector with sizeX, sizeY, sizeZ components.
+    :rtype: Vec3f
+
+.. method:: setFogNoiseOffsetDistance(offsetX, offsetY, offsetZ)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogNoiseOffset(offset)` instead.
+
+    Sets the offset of noise for distance fog.
+
+    :param offsetX: Noise offset along X.
+    :type offsetX: float
+    :param offsetY: Noise offset along Y.
+    :type offsetY: float
+    :param offsetZ: Noise offset along Z.
+    :type offsetZ: float
+
+.. method:: getFogNoiseOffsetDistance() → Vec3f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogNoiseOffset()` instead.
+
+    Returns the offset of noise for distance fog.
+
+    :return: A vector with offsetX, offsetY, offsetZ components.
+    :rtype: Vec3f
+
+.. method:: setFogNoiseSizeHeight(sizeX, sizeY, sizeZ)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogNoiseSize(size)` instead.
+
+    Sets the size of noise for height fog.
+
+    :param sizeX: Noise size along X (value >= 0.01).
+    :type sizeX: float
+    :param sizeY: Noise size along Y (value >= 0.01).
+    :type sizeY: float
+    :param sizeZ: Noise size along Z (value >= 0.01).
+    :type sizeZ: float
+
+.. method:: getFogNoiseSizeHeight() → Vec3f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogNoiseSize()` instead.
+
+    Returns the size of noise for height fog.
+
+    :return: A vector with sizeX, sizeY, sizeZ components.
+    :rtype: Vec3f
+
+.. method:: setFogNoiseOffsetHeight(offsetX, offsetY, offsetZ)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogNoiseOffset(offset)` instead.
+
+    Sets the offset of noise for height fog.
+
+    :param offsetX: Noise offset along X.
+    :type offsetX: float
+    :param offsetY: Noise offset along Y.
+    :type offsetY: float
+    :param offsetZ: Noise offset along Z.
+    :type offsetZ: float
+
+.. method:: getFogNoiseOffsetHeight() → Vec3f
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogNoiseOffset()` instead.
+
+    Returns the offset of noise for height fog.
+
+    :return: A vector with offsetX, offsetY, offsetZ components.
+    :rtype: Vec3f
+
+.. method:: setFogBlendHeight(blend)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogBlend(blend)` instead.
+
+    Sets the transition distance between fog and no fog.
+
+    :param blend: Smooths the transition between areas with fog and areas without fog (value from 0 to 1).
+    :type blend: float
+
+.. method:: getFogBlendHeight() → float
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogBlend()` instead.
+
+    Returns the blend value of height fog.
+
+    :return: The blend value.
+    :rtype: float
+
+.. method:: setFogEnableNoiseSizeUniformDistance(uniform)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setDistanceFogEnableNoiseSizeUniform(uniform)` instead.
+
+    Enables/disables uniform noise size for distance fog.
+
+    :param uniform: If true, uniform noise is activated.
+    :type uniform: bool
+
+.. method:: getFogEnableNoiseSizeUniformDistance() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getDistanceFogEnableNoiseSizeUniform()` instead.
+
+    Returns the uniform noise size flag for distance fog.
+
+    :return: Uniform noise size flag.
+    :rtype: bool
+
+.. method:: setFogEnableNoiseSizeUniformHeight(uniform)
+
+    Deprecated. Use `vrCameraService.getActiveCamera().setHeightFogEnableNoiseSizeUniform(uniform)` instead.
+
+    Enables/disables uniform noise size for height fog.
+
+    :param uniform: If true, uniform noise is activated.
+    :type uniform: bool
+
+.. method:: getFogEnableNoiseSizeUniformHeight() → bool
+
+    Deprecated. Use `vrCameraService.getActiveCamera().getHeightFogEnableNoiseSizeUniform()` instead.
+
+    Returns the uniform noise size flag for height fog.
+
+    :return: Uniform noise size flag.
+    :rtype: bool

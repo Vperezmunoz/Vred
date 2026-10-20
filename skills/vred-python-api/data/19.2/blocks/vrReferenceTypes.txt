@@ -1,0 +1,63 @@
+----------------
+vrReferenceTypes
+----------------
+
+.. py:class:: vrReferenceTypes
+
+    .. py:class:: Type
+       :no-index:
+
+            .. py:data:: Smart
+               :no-index:
+
+            .. py:data:: Source
+               :no-index:
+
+    .. py:class:: NotificationMode
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: Always
+               :no-index:
+
+            .. py:data:: OnLoad
+
+    .. py:class:: ExportLocation
+
+            .. py:data:: NextToSource
+
+            .. py:data:: Custom
+               :no-index:
+
+    .. py:class:: State
+
+            .. py:data:: New
+
+            .. py:data:: Unloaded
+
+            .. py:data:: Loaded
+
+    .. py:class:: FileState
+
+            .. py:data:: Current
+
+            .. py:data:: Outdated
+
+            .. py:data:: Missing
+
+            .. py:data:: Unsaved
+
+            .. py:data:: Unknown
+               :no-index:
+
+    .. py:class:: LoadMode
+
+            .. py:data:: LoadedReferences
+
+            .. py:data:: AllReferences
+
+            .. py:data:: NoReferences
+
+            .. py:data:: LoadedSkipLeafReferences
+

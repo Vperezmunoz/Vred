@@ -1,0 +1,164 @@
+------------------
+vrdLensFlareEffect
+------------------
+
+.. py:class:: vrdLensFlareEffect
+
+(Inherits vrdSceneObject)
+
+Summary
+=======
+
+Functions:
+    * createLensFlareElement(name, type) → vrdLensFlareElement
+    * getAngularIntensity() → float
+    * getColor() → QVector3D
+    * getIntensity() → float
+    * getIsActive() → bool
+    * getLensFlareElements() → List[vrdLensFlareElement]
+    * getPresetType() → vrLensFlareTypes.PresetType
+    * getRadius() → float
+    * getSize() → float
+    * getUseLightProperties() → bool
+    * removeElements(elements)
+    * setAngularIntensity(angularIntensity)
+    * setColor(color)
+    * setIntensity(intensity)
+    * setIsActive(active)
+    * setPresetType(type)
+    * setRadius(radius)
+    * setSize(size)
+    * setUseLightProperties(use)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareEffect.createLensFlareElement(name, type)
+
+    :param name:
+    :type name: string
+
+    :param type:
+    :type type: vrLensFlareTypes.ElementType
+
+    :return:
+    :rtype: vrdLensFlareElement
+
+.. py:method:: vrdLensFlareEffect.getAngularIntensity()
+
+    Returns the angular intensity.
+
+    :return: Angular intensity
+    :rtype: float
+
+.. py:method:: vrdLensFlareEffect.getColor()
+
+    Returns the lens flare color.
+
+    :return: Color
+    :rtype: QVector3D
+
+.. py:method:: vrdLensFlareEffect.getIntensity()
+
+    Returns the brightness of all lens flares.
+
+    :return: Intensity
+    :rtype: float
+
+.. py:method:: vrdLensFlareEffect.getIsActive()
+
+    Returns if the lens flare effect is enabled.
+
+    :return: True if enabled.
+    :rtype: bool
+
+.. py:method:: vrdLensFlareEffect.getLensFlareElements()
+
+    :return:
+    :rtype: List[vrdLensFlareElement]
+
+.. py:method:: vrdLensFlareEffect.getPresetType()
+
+    :return:
+    :rtype: vrLensFlareTypes.PresetType
+
+.. py:method:: vrdLensFlareEffect.getRadius()
+
+    Returns the radius.
+
+    :return: Radius
+    :rtype: float
+
+.. py:method:: vrdLensFlareEffect.getSize()
+
+    Returns the size of all lens flares.
+
+    :return: Size
+    :rtype: float
+
+.. py:method:: vrdLensFlareEffect.getUseLightProperties()
+
+    Returns if the intensity of the light is used.
+
+    :return: True, if the intensity of the light is used.
+    :rtype: bool
+
+.. py:method:: vrdLensFlareEffect.removeElements(elements)
+
+    :param elements:
+    :type elements: List[vrdLensFlareElement]
+
+.. py:method:: vrdLensFlareEffect.setAngularIntensity(angularIntensity)
+
+    Changes the brightness of the flare, as the angle changes. As the light source is rotated toward the viewer, becoming perpendicular to the view, its intensity increases. It is like how intense a sunset gets as it reaches the horizon, just before setting. Another example would be turning a flashlight's beam toward you. From your point of view, as the light aligns with your view, it becomes more intense, to the point of blinding.
+
+    :param angularIntensity: Angular intensity
+    :type angularIntensity: float
+
+.. py:method:: vrdLensFlareEffect.setColor(color)
+
+    Sets the color of all lens flares. The color is multiplied with any element color already assigned. Note: If Use Light Properties is enabled, the color set here is ignored and the light color is used. Note: Since this color is multiplied with element color assignments, there may be instances where a lens flare disappears, due to the multiply operation. If this occurs, try changing the color of the individual lens flares (instead of using this option) or change the color of this option. If there are no element assigned colors, this color is assigned to all lens flares.
+
+    :param color: Color for all lens flares
+    :type color: QVector3D
+
+.. py:method:: vrdLensFlareEffect.setIntensity(intensity)
+
+    Changes the brightness of all lens flares.
+
+    :param intensity: Intensity
+    :type intensity: float
+
+.. py:method:: vrdLensFlareEffect.setIsActive(active)
+
+    Enables or disables the lens flare effect.
+
+    :param active: If set to True, the lens flare effect is enabled.
+    :type active: bool
+
+.. py:method:: vrdLensFlareEffect.setPresetType(type)
+
+    :param type:
+    :type type: vrLensFlareTypes.PresetType
+
+.. py:method:: vrdLensFlareEffect.setRadius(radius)
+
+    Changes how dispersed the flare is for all lens flares. The radius represents the virtual size of the light sources, since the lights do not have geometry. A larger radius requires a larger object to completely occlude the effect. Shrinking of the lens flare will start when the radius around the light source starts to get occluded by an object. That occlusion also decreases the intensity of the ghosts. As the radius increases, the intensity of the light decreases. As the radius decreases, the flare becomes more intense and defined.
+
+    :param radius: Radius
+    :type radius: float
+
+.. py:method:: vrdLensFlareEffect.setSize(size)
+
+    Changes the size of all lens flares.
+
+    :param size: Size
+    :type size: float
+
+.. py:method:: vrdLensFlareEffect.setUseLightProperties(use)
+
+    Use the intensity of the light settings instead of the local setting. This only affects the color. When disabled, the local color is used.
+
+    :param use: Use the intensity of the light.
+    :type use: bool
+

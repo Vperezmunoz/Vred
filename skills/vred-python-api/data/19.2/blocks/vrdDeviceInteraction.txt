@@ -1,0 +1,131 @@
+--------------------
+vrdDeviceInteraction
+--------------------
+
+.. py:class:: vrdDeviceInteraction
+
+(Inherits vrdObject)
+
+Represents an interaction that can contain several     vrdDeviceAction which are triggered by controller events.
+
+Summary
+=======
+
+Functions:
+    * addSupportedInteractionGroup(name)
+    * createControllerAction(mapping) → vrdDeviceAction
+    * getControllerAction(name) → vrdDeviceAction
+    * getControllerActions() → List[vrdDeviceAction]
+    * getName() → string
+    * getSupportedInteractionGroups() → List[string]
+    * removeControllerAction(action)
+    * removeSupportedInteractionGroup(name)
+    * setControllerActionMapping(actionName, mapping)
+    * setSupportedInteractionGroups(names)
+
+Functions
+=========
+
+.. py:method:: vrdDeviceInteraction.addSupportedInteractionGroup(name)
+
+    Adds an interaction group to the supported interaction groups.
+
+    Note: It is required to add the supported interaction groups before the OpenXR session is started, if OpenXR mode is used.
+
+    :param name: Name of the group tthat is added to be supported. If a group does not exist yet, it will be created.
+    :type name: string
+
+.. py:method:: vrdDeviceInteraction.createControllerAction(mapping)
+
+    Creates an action for this interaction.
+
+    The mapping string is built up like this: side-button-event (e.g., left-trigger-pressed).
+
+Possible values for the parts are:
+   - side: left, right, any button
+   - (Not all available on every controller): touchpad, thumb, trigger, customtrigger, grip, menu, xa, yb event: pressed, released, touched, untouched
+
+Remarks: Not every controller supports all events for every button. Please refer to the documentation of the controller for more information.
+
+The "customtrigger" and the "trigger" are the same physical button, but the custom version is extended in VRED to support the touched and untouched event.
+
+The "thumb" button refers to thumbstick and its position can be queried from its buttonstate (see vrdVRDevice.getButtonState(button)).
+
+OpenVR mode only: It might be needed to use "touchpad" to address the thumbstick for some controllers
+
+"Button" can also be every name of a previously defined virtual touchpad button (see vrdDevice.addVirtualButton(button, physicalButton)).
+
+    :param mapping: Describes which controller input executes the action.
+    :type mapping: string
+
+    :return: Action associated with this interaction.
+    :rtype: vrdDeviceAction
+
+.. py:method:: vrdDeviceInteraction.getControllerAction(name)
+
+    Gets an already existing action related to the interaction.
+
+    Note: It is required to create controller actions before the OpenXR session is started, if OpenXR mode is used.
+
+    :param name: The name of the action
+    :type name: string
+
+    :return: The action object or an invalid action object if there is no action with that name.
+    :rtype: vrdDeviceAction
+
+.. py:method:: vrdDeviceInteraction.getControllerActions()
+
+    Gets a list of all action objects related to the interaction.
+
+    :return: List of all actions related to this interaction.
+    :rtype: List[vrdDeviceAction]
+
+.. py:method:: vrdDeviceInteraction.getName()
+
+    :return: The name of the interaction
+    :rtype: string
+
+.. py:method:: vrdDeviceInteraction.getSupportedInteractionGroups()
+
+    :return: A list of modes to which this interaction is limited
+    :rtype: List[string]
+
+.. py:method:: vrdDeviceInteraction.removeControllerAction(action)
+
+    Removes an action from the interaction.
+
+    Note: It is required to set controller actions before the OpenXR session is started, if OpenXR mode is used.
+
+    :param action: The action that is removed.
+    :type action: vrdDeviceAction
+
+.. py:method:: vrdDeviceInteraction.removeSupportedInteractionGroup(name)
+
+    Removes an interaction group from being supported by the interaction.
+
+    Note: It is required to set the supported interaction groups before the OpenXR session is started, if OpenXR mode is used.
+
+    :param name: The name of the interaction group.
+    :type name: string
+
+.. py:method:: vrdDeviceInteraction.setControllerActionMapping(actionName, mapping)
+
+    Sets the mapping of an already existing action related to this interaction.
+
+    Note: It is required to set the mappings before the OpenXR session is started, if OpenXR mode is used.
+
+    :param actionName: The name of the action. If the action cannot be found nothing will be mapped.
+    :type actionName: string
+
+    :param mapping: The mapping that should be set for the action. If the mapping string is incorrect, nothing will be mapped (see vrdDeviceInteraction.createControllerAction(mapping)).
+    :type mapping: string
+
+.. py:method:: vrdDeviceInteraction.setSupportedInteractionGroups(names)
+
+    Sets the interaction groups the interaction will be part of. Setting no groups will activate this interaction for all interaction groups.
+
+    Note: It is required to set the supported interaction groups before the OpenXR session is started, if OpenXR mode is used.
+
+    :param names: Names of the supported interaction groups. If a group does not exist yet, it will be created.
+    :type names: List[string]
+

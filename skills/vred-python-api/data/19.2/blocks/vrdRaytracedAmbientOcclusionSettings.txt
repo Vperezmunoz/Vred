@@ -1,0 +1,103 @@
+------------------------------------
+vrdRaytracedAmbientOcclusionSettings
+------------------------------------
+
+.. py:class:: vrdRaytracedAmbientOcclusionSettings
+
+(Inherits vrdObject)
+
+This class configures the Raytraced Ambient Occlusion in Vulkan rendering mode.
+
+Raytraced Ambient Occlusion (RTAO) uses GPU accelerated ray-tracing to compute areas of the image where the diffuse illumination are occluded by other geometry.
+
+This method produces more accurate results than Screen Space Ambient Occlusion (SSAO) as it has access to all the geometry.
+
+RTAO produces a uniform shadowing result. To get raytraced shadows from the environment map use Raytraced Environment Shadows instead.
+
+Because it uses GPU accelerated ray-tracing, it is only available on those graphic cards with ray-tracing support.
+
+Example:
+
+```
+
+     renderSettings = vrRenderSettingsService.getSettings()
+     renderSettings.setUseRealtimeEnvironmentShadows(True)
+     renderSettings.setRealtimeEnvironmentShadowsMode(vrRenderSettingsTypes.RaytracedAmbientOcclusion)
+     renderSettings.getRaytracedAmbientOcclusionSettings().setRaysPerPixel(2)
+
+Summary
+=======
+
+Functions:
+    * getDistance() → float
+    * getIntensity() → float
+    * getRaysPerPixel() → integer
+    * getUseBakedShadowsForShadowMaterial() → bool
+    * setDistance(value)
+    * setIntensity(value)
+    * setRaysPerPixel(value)
+    * setUseBakedShadowsForShadowMaterial(value)
+
+Functions
+=========
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.getDistance()
+
+    Gets the maximum distance for the geometry to be considered as an occluder. Geometry beyond that distance does not occlude illumination.
+
+    :return: Distance in scene units.
+    :rtype: float
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.getIntensity()
+
+    Gets the intensity of the shadow. The greater the value, the darker the shadows.
+
+    :return: Intensity of the shadow.
+    :rtype: float
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.getRaysPerPixel()
+
+    Gets the number of rays to trace per pixel.
+
+    :return: The number of rays to trace per pixel.
+    :rtype: integer
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.getUseBakedShadowsForShadowMaterial()
+
+    Sets if the baked shadows are used for the shadow material instead of the output of the RTAO.
+
+    Deprecated. This property was moved to the shadow material.
+
+    :return: True if baked shadows are used.
+    :rtype: bool
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.setDistance(value)
+
+    Sets the maximum distance for the geometry to be considered as an occluder. Geometry beyond that distance does not occlude illumination.
+
+    :param value: Distance in scene units.
+    :type value: float
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.setIntensity(value)
+
+    Sets the intensity of the shadow. The greater the value, the darker the shadows.
+
+    :param value: Intensity of the shadow.
+    :type value: float
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.setRaysPerPixel(value)
+
+    Sets the number of rays to trace per pixel.
+
+    :param value: The number of rays to trace per pixel.
+    :type value: integer
+
+.. py:method:: vrdRaytracedAmbientOcclusionSettings.setUseBakedShadowsForShadowMaterial(value)
+
+    Sets if the baked shadows should be used for the shadow material instead of the output of the RTAO.
+
+    Deprecated. This property was moved to the shadow material.
+
+    :param value: True if baked shadows should be used.
+    :type value: bool
+

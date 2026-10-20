@@ -1,0 +1,74 @@
+MODULE vrConnector (legacy v1 API)
+
+-----------
+vrConnector
+-----------
+
+Summary
+=======
+
+Functions:
+    * setConnectorMousePos(x, y, w, h)
+    * setConnectorShowMouseOnClients(state)
+    * setVredFrameSync(state)
+    * startVredClient(serverIP, port)
+    * startVredServer(port)
+    * stopVredClient()
+    * stopVredServer()
+
+.. function:: startVredServer(port)
+
+    Starts the server at the defined port.
+
+    With the vrConnector you can connect two VRED instances synchronizing the navigation as well as Python commands. One VRED instance will act as a server, sending all commands to the client. Both instances do not need to be running on the same machine; they can be run on different computers, even over the internet, as long as a connection can be established. Please note that only a lag-free connection ensures a fluent experience.
+
+    :param port: The port number.
+    :type port: integer
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. function:: stopVredServer()
+
+    Stops the server. An established connection to a client is interrupted.
+
+.. function:: startVredClient(serverIP, port)
+
+    Starts a client. The client can be used like an ordinary instance but will execute all navigation and Python commands from the server.
+
+    :param serverIP: The IP address of the server.
+    :type serverIP: string
+    :param port: The port number.
+    :type port: integer
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. function:: stopVredClient()
+
+    Stops the client. An established connection to a server is interrupted.
+
+.. function:: setVredFrameSync(state)
+
+    Enables or disables frame synchronization.
+
+    :param state: Frame sync: On/Off.
+    :type state: bool
+
+.. function:: setConnectorShowMouseOnClients(state)
+
+    Enables or disables displaying the mouse on the clients.
+
+    :param state: Show mouse: On/Off.
+    :type state: bool
+
+.. function:: setConnectorMousePos(x, y, w, h)
+
+    Sets the mouse position.
+
+    :param x: X position.
+    :type x: int
+    :param y: Y position.
+    :type y: int
+    :param w: Width.
+    :type w: int
+    :param h: Height.
+    :type h: int

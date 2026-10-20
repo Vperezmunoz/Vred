@@ -1,0 +1,362 @@
+MODULE vrVariantSets (legacy v1 API)
+
+-------------
+vrVariantSets
+-------------
+
+Contains the functionality to switch between defined variants of a model.
+
+**Deprecated**; use API v2 vrVariantService instead.
+
+.. class:: vrVariantSets
+
+Summary
+=======
+
+Functions:
+    * beginDissection() → bool
+    * captureVariantSetFromRootNodes(name, roots, inclNodes, inclMaterials, inclLights, inclEnvs, inclView, inclRenderlayerStates=False, sendMsg=False)
+    * createVariantSet(name) → vrVariantSet
+    * createVariantSetGroup(name)
+    * deleteVariantSet(name)
+    * deleteVariantSetGroup(name)
+    * dissectionSnapshot(filename=None, width=None, height=None, ssf=None)
+    * endDissection() → bool
+    * getGroupedVariantSets(skipHidden=False) → dict
+    * getMaterialVariantCurrent(name) → string
+    * getMaterialVariantDefault(name) → string
+    * getMaterialVariants(name=None) → list
+    * getMaterialVariantStates(name) → list
+    * getNodeVariantCurrent(name) → string
+    * getNodeVariantDefault(name) → string
+    * getNodeVariants(name=None) → list
+    * getNodeVariantStates(name) → list
+    * getVariantAnimations(name) → list
+    * getVariantSet(name) → vrVariantSet
+    * getVariantSetPreview(name) → string
+    * getVariantSets() → list
+    * getVariantViewPoints(name) → list
+    * hideMaterialVariantGeometry(name)
+    * hideNodeVariantGeometry(name)
+    * hideVariantSetGeometry(name)
+    * loadVariants(name)
+    * moveVariantSetToGroup(variantSetName, variantSetGroupName)
+    * renderVariantSetPreview(name)
+    * saveSwitchedGeometry(filename=None) → bool
+    * saveVariants(name)
+    * selectMaterialVariant(name, state=None)
+    * selectNodeVariant(name, state=None)
+    * selectVariantSetDefault(name)
+    * showMaterialVariantGeometry(name)
+    * showNodeVariantGeometry(name)
+    * showVariantSetGeometry(name)
+
+.. method:: createVariantSet(name) → vrVariantSet
+
+    Creates a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+    :return: The Variant Set.
+    :rtype: vrVariantSet
+
+.. method:: deleteVariantSet(name)
+
+    Deletes a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+.. method:: moveVariantSetToGroup(variantSetName, variantSetGroupName)
+
+    Moves a variant set to a group.
+
+    :param variantSetName: The name of the variant set.
+    :type variantSetName: string
+    :param variantSetGroupName: The name of the group.
+    :type variantSetGroupName: string
+
+.. method:: getVariantSet(name) → vrVariantSet
+
+    Gets a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+    :return: The Variant Set.
+    :rtype: vrVariantSet
+
+.. method:: createVariantSetGroup(name)
+
+    Creates a variant set group.
+
+    :param name: The name of the variant set group.
+    :type name: string
+
+.. method:: deleteVariantSetGroup(name)
+
+    Deletes a variant set group. The variant sets of the group will be ungrouped and not be deleted.
+
+    :param name: The name of the variant set group.
+    :type name: string
+
+.. method:: getGroupedVariantSets(skipHidden=False) → dict
+
+    Gets all variant sets.
+
+    :param skipHidden: If True, exclude hidden variant sets. Default is False.
+    :type skipHidden: bool
+    :return: The Variant Sets.
+    :rtype: dict
+
+.. method:: loadVariants(name)
+
+    Loads variant definitions from an XML file.
+
+    :param name: The name of the XML file.
+    :type name: string
+
+.. method:: saveVariants(name)
+
+    Saves the variant definitions to an XML file.
+
+    :param name: The name of the XML file.
+    :type name: string
+
+.. method:: selectNodeVariant(name, state=None)
+
+    Activates a state of a node variant.
+
+    :param name: The name of the node variant.
+    :type name: string
+    :param state: The name of the state to be activated. If omitted, the default state will be activated.
+    :type state: string
+
+.. method:: selectMaterialVariant(name, state=None)
+
+    Activates a state of a material variant.
+
+    :param name: The name of the material variant.
+    :type name: string
+    :param state: The name of the state to be activated. If omitted, the default state will be activated.
+    :type state: string
+
+.. method:: selectVariantSetDefault(name)
+
+    Activates the default state of a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+.. method:: getVariantSets() → list
+
+    Returns a list of all defined variant sets.
+
+    :return: The variant sets.
+    :rtype: list of strings
+
+.. method:: getVariantViewPoints(name) → list
+
+    Returns a list of all viewpoints belonging to a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+    :return: The viewpoints.
+    :rtype: list of strings
+
+.. method:: getVariantAnimations(name) → list
+
+    Returns a list of all animations of a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+    :return: The animations.
+    :rtype: list of strings
+
+.. method:: getNodeVariants(name=None) → list
+
+    Returns a list of all node variants of a single variant set or all node variants if the name parameter is omitted.
+
+    :param name: The name of the variant set. This parameter can be omitted.
+    :type name: string
+    :return: The node variants.
+    :rtype: list of strings
+
+.. method:: getMaterialVariants(name=None) → list
+
+    Returns a list of all material variants of a single variant set or all material variants if the name parameter is omitted.
+
+    :param name: The name of the variant set. This parameter can be omitted.
+    :type name: string
+    :return: The material variants.
+    :rtype: list of strings
+
+.. method:: getNodeVariantStates(name) → list
+
+    Returns all possible states of a node variant.
+
+    :param name: The name of the node variant.
+    :type name: string
+    :return: The states.
+    :rtype: list of strings
+
+.. method:: getMaterialVariantStates(name) → list
+
+    Returns all possible states of a material variant.
+
+    :param name: The name of the material variant.
+    :type name: string
+    :return: The states.
+    :rtype: list of strings
+
+.. method:: getNodeVariantDefault(name) → string
+
+    Returns the default state of a node variant.
+
+    :param name: The name of the node variant.
+    :type name: string
+    :return: The default state.
+    :rtype: string
+
+.. method:: getMaterialVariantDefault(name) → string
+
+    Returns the default state of a material variant.
+
+    :param name: The name of the material variant.
+    :type name: string
+    :return: The default state.
+    :rtype: string
+
+.. method:: getNodeVariantCurrent(name) → string
+
+    Returns the current state of a node variant.
+
+    :param name: The name of the node variant.
+    :type name: string
+    :return: The current state.
+    :rtype: string
+
+.. method:: getMaterialVariantCurrent(name) → string
+
+    Returns the current state of a material variant.
+
+    :param name: The name of the material variant.
+    :type name: string
+    :return: The current state.
+    :rtype: string
+
+.. method:: saveSwitchedGeometry(filename=None) → bool
+
+    Saves the current switched geometry/materials into a file.
+
+    :param filename: The name of the file. If omitted, a file dialog pops up to ask for a filename.
+    :type filename: string
+    :return: True on success, False otherwise.
+    :rtype: bool
+
+.. method:: beginDissection() → bool
+
+    Starts the dissection process.
+
+    :return: True on success, False otherwise.
+    :rtype: bool
+
+.. method:: endDissection() → bool
+
+    Ends the dissection process.
+
+    :return: True on success, False otherwise.
+    :rtype: bool
+
+.. method:: showNodeVariantGeometry(name)
+
+    Enables the geometry that is switched by a node variant.
+
+    :param name: The name of the node variant.
+    :type name: string
+
+.. method:: hideNodeVariantGeometry(name)
+
+    Disables the geometry that is switched by a node variant.
+
+    :param name: The name of the node variant.
+    :type name: string
+
+.. method:: showMaterialVariantGeometry(name)
+
+    Enables the geometry that is switched by a material variant.
+
+    :param name: The name of the material variant.
+    :type name: string
+
+.. method:: hideMaterialVariantGeometry(name)
+
+    Disables the geometry that is switched by a material variant.
+
+    :param name: The name of the material variant.
+    :type name: string
+
+.. method:: showVariantSetGeometry(name)
+
+    Enables the geometry that is switched by a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+.. method:: hideVariantSetGeometry(name)
+
+    Disables the geometry that is switched by a variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+.. method:: dissectionSnapshot(filename=None, width=None, height=None, ssf=None)
+
+    Creates a snapshot in dissection mode.
+
+    :param filename: The name of the file.
+    :type filename: string
+    :param width: The width (-1 to use default).
+    :type width: integer
+    :param height: The height (-1 to use default).
+    :type height: integer
+    :param ssf: The supersampling factor (-1 to use default).
+    :type ssf: integer
+
+.. method:: captureVariantSetFromRootNodes(name, roots, inclNodes, inclMaterials, inclLights, inclEnvs, inclView, inclRenderlayerStates=False, sendMsg=False)
+
+    Captures variants to an existing variant set.
+
+    :param name: The name of the variant set.
+    :type name: string
+    :param roots: The root nodes to capture from.
+    :type roots: list of vrNodePtrs
+    :param inclNodes: Flag for capturing node state (inactive nodes only) and switch state.
+    :type inclNodes: bool
+    :param inclMaterials: Flag for tracking materials internally in variant set and capturing material switch state.
+    :type inclMaterials: bool
+    :param inclLights: Flag for capturing active/inactive light nodes.
+    :type inclLights: bool
+    :param inclEnvs: Flag for capturing active/inactive environment nodes, switch state, and material.
+    :type inclEnvs: bool
+    :param inclView: Flag for capturing the current camera and creating a view from this.
+    :type inclView: bool
+    :param inclRenderlayerStates: Flag for capturing the current render layer states.
+    :type inclRenderlayerStates: bool
+    :param sendMsg: Flag to send a message when creating variants.
+    :type sendMsg: bool
+
+.. method:: renderVariantSetPreview(name)
+
+    Renders a variant set preview.
+
+    :param name: The name of the variant set.
+    :type name: string
+
+.. method:: getVariantSetPreview(name) → string
+
+    Gets a preview image for the variant set (if it has one).
+
+    :param name: The name of the variant set.
+    :type name: string
+    :return: Bytes of a PNG image.
+    :rtype: string

@@ -1,0 +1,62 @@
+---------
+vrdMarker
+---------
+
+.. py:class:: vrdMarker
+
+(Inherits vrdObject)
+
+Marker.
+
+A marker that is tracked in mixed reality. A marker can be used to place objects in a mixed reality scene.
+
+Summary
+=======
+
+Functions:
+    * getConfidence() → float
+    * getName() → string
+    * getNode() → vrdNode
+    * getSize() → QVector3D
+    * getTimestamp() → QDateTime
+    * getType() → vrXRealityTypes.MarkerTypes
+    * isTracked() → bool
+
+Functions
+=========
+
+.. py:method:: vrdMarker.getConfidence()
+
+    :return: The current confidence value of the marker
+    :rtype: float
+
+.. py:method:: vrdMarker.getName()
+
+    :return: The name of the marker
+    :rtype: string
+
+.. py:method:: vrdMarker.getNode()
+
+    :return: The node that can be used to attach objects to the marker
+    :rtype: vrdNode
+
+.. py:method:: vrdMarker.getSize()
+
+    :return: The physical marker size
+    :rtype: QVector3D
+
+.. py:method:: vrdMarker.getTimestamp()
+
+    :return: The timestamp of the last marker update
+    :rtype: QDateTime
+
+.. py:method:: vrdMarker.getType()
+
+    :return: The type of the marker
+    :rtype: vrXRealityTypes.MarkerTypes
+
+.. py:method:: vrdMarker.isTracked()
+
+    :return: True if the marker is tracked, false otherwise
+    :rtype: bool
+

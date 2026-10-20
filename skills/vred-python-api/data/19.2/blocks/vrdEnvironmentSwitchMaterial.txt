@@ -1,0 +1,10 @@
+----------------------------
+vrdEnvironmentSwitchMaterial
+----------------------------
+
+.. py:class:: vrdEnvironmentSwitchMaterial
+
+(Inherits vrdSwitchMaterial)
+
+This class is used to handle all environment switch material properties.
+

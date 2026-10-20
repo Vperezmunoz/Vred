@@ -1,0 +1,229 @@
+--------------------------
+vrdGLSLShaderParameterList
+--------------------------
+
+.. py:class:: vrdGLSLShaderParameterList
+
+(Inherits vrdObjectList)
+
+    .. py:class:: ParameterType
+
+            .. py:data:: Unknown
+
+            .. py:data:: Int
+
+            .. py:data:: Real
+
+            .. py:data:: Vec2f
+
+            .. py:data:: Vec3f
+
+            .. py:data:: Vec4f
+
+            .. py:data:: Matrix
+
+Summary
+=======
+
+Functions:
+    * append(value)
+    * append(values)
+    * at(i) → vrdGLSLShaderParameter
+    * autoCreate()
+    * canInsert(value) → bool
+    * clear()
+    * contains(value) → bool
+    * count(value) → integer
+    * create(name, type) → vrdGLSLShaderParameter
+    * data() → List[vrdGLSLShaderParameter]
+    * find(name) → vrdGLSLShaderParameter
+    * index(value, from, to) → integer
+    * insert(i, value)
+    * insert(i, values)
+    * move(from, to) → bool
+    * remove(value) → bool
+    * removeAll(value) → integer
+    * removeAt(i) → bool
+    * size() → integer
+
+Functions
+=========
+
+.. py:method:: vrdGLSLShaderParameterList.append(value)
+
+    Appends the value to this list.
+
+    :param value: The value to append
+    :type value: vrdGLSLShaderParameter
+
+.. py:method:: vrdGLSLShaderParameterList.append(values)
+   :no-index:
+
+    Appends the items of the value list to this list.
+
+    :param values: The values to append
+    :type values: List[vrdGLSLShaderParameter]
+
+.. py:method:: vrdGLSLShaderParameterList.at(i)
+
+    Get the value at the given index.
+
+    :param i:
+    :type i: integer
+
+    :return: i The index of the requested value
+    :rtype: vrdGLSLShaderParameter
+
+.. py:method:: vrdGLSLShaderParameterList.autoCreate()
+
+    Automatically extracts parameter from the used programs, replacing the existing parameter list.
+
+.. py:method:: vrdGLSLShaderParameterList.canInsert(value)
+
+    Check, if the given entry can be inserted.
+
+    :param value:
+    :type value: vrdGLSLShaderParameter
+
+    :return: True, if insert is allowed
+    :rtype: bool
+
+.. py:method:: vrdGLSLShaderParameterList.clear()
+
+    Removes all items from the list.
+
+.. py:method:: vrdGLSLShaderParameterList.contains(value)
+
+    Check, if an element is already in the list.
+
+    :param value:
+    :type value: vrdGLSLShaderParameter
+
+    :return: True, if the given value is in this list
+    :rtype: bool
+
+.. py:method:: vrdGLSLShaderParameterList.count(value)
+
+    Count the occurences of a given vlaue.
+
+    :param value:
+    :type value: vrdGLSLShaderParameter
+
+    :return: The number of times, the value has been found in the list
+    :rtype: integer
+
+.. py:method:: vrdGLSLShaderParameterList.create(name, type)
+
+    Create new parameter with given names.
+
+    :param name: Parameter name
+    :type name: string
+
+    :param type: Parameter type
+    :type type: vrdGLSLShaderParameterList.ParameterType
+
+    :return:
+    :rtype: vrdGLSLShaderParameter
+
+.. py:method:: vrdGLSLShaderParameterList.data()
+
+    Get all entries of this list.
+
+    :return: List of elements
+    :rtype: List[vrdGLSLShaderParameter]
+
+.. py:method:: vrdGLSLShaderParameterList.find(name)
+
+    Returns first occurrence with given name.
+
+    :param name: Name
+    :type name: string
+
+    :return:
+    :rtype: vrdGLSLShaderParameter
+
+.. py:method:: vrdGLSLShaderParameterList.index(value, from=0, to=-1)
+
+    Returns the index of the given value.
+
+    :param value: The value to search
+    :type value: vrdGLSLShaderParameter
+
+    :param from: The index to start the search, default is 0
+    :type from: integer
+
+    :param to: The index to end the search, default is -1 to search until the end
+    :type to: integer
+
+    :return: The index or -1, if not found
+    :rtype: integer
+
+.. py:method:: vrdGLSLShaderParameterList.insert(i, value)
+
+    Insert a value at a given position.
+
+    :param i: The position, starting from 0
+    :type i: integer
+
+    :param value: The value to be inserted
+    :type value: vrdGLSLShaderParameter
+
+.. py:method:: vrdGLSLShaderParameterList.insert(i, values)
+   :no-index:
+
+    Insert values at a given position.
+
+    :param i: The position, starting from 0
+    :type i: integer
+
+    :param values: The values to be inserted
+    :type values: List[vrdGLSLShaderParameter]
+
+.. py:method:: vrdGLSLShaderParameterList.move(from, to)
+
+    Moves a values inside the list.
+
+    :param from: The index to move
+    :type from: integer
+
+    :param to: The destination index
+    :type to: integer
+
+    :return: True on success, False otherwise
+    :rtype: bool
+
+.. py:method:: vrdGLSLShaderParameterList.remove(value)
+
+    Remove the first occurrence of the given value.
+
+    :param value:
+    :type value: vrdGLSLShaderParameter
+
+    :return: True, if the value has been removed
+    :rtype: bool
+
+.. py:method:: vrdGLSLShaderParameterList.removeAll(value)
+
+    Remove all occurences of the given value.
+
+    :param value:
+    :type value: vrdGLSLShaderParameter
+
+    :return: The number of value that have been removed
+    :rtype: integer
+
+.. py:method:: vrdGLSLShaderParameterList.removeAt(i)
+
+    Remove a value from the list.
+
+    :param i: Index of the value to be removed
+    :type i: integer
+
+    :return: True, if the value has been removed
+    :rtype: bool
+
+.. py:method:: vrdGLSLShaderParameterList.size()
+
+    :return: Number of elements in this list.
+    :rtype: integer
+

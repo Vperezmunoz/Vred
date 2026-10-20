@@ -1,0 +1,463 @@
+MODULE vrOpenVRController (legacy v1 API)
+
+------------------
+vrOpenVRController
+------------------
+
+.. class:: vrOpenVRController
+
+   Proxy class for an OpenVR Controller. Deprecated; use vrDeviceService, vrdVRDevice, and vrdDeviceInteraction instead.
+
+   The vrOpenVRController class is a proxy class for an OpenVR Controller. You only pass the name of the OpenVR Controller to the constructor to connect this proxy class to a controller. Controllers are named Controller0 for the first controller, Controller1 for the second controller, and so on. The generic tracker can also be accessed and is named GenericTracker0, GenericTracker1, and so on.
+
+   Additional to functions and signals matched to the default OpenVR Controller, this class also provides a generic interface to the OpenVR Controller using the same IDs as the OpenVR library.
+
+Summary
+=======
+
+Functions:
+    * buttonPositionChanged(id, position)
+    * buttonPressed(id)
+    * buttonReleased(id)
+    * buttonTouched(id)
+    * buttonUntouched(id)
+    * controllerMoved()
+    * getButtonPosition(id) → Vec2f
+    * getHandRole() → int
+    * getTouchpadPosition() → Vec2f
+    * getTriggerRatio() → float
+    * getVisualizationMode() → int
+    * getWorldMatrix() → list
+    * gripPressed()
+    * gripReleased()
+    * handPoseStarted(poseId)
+    * handPoseStopped(poseId)
+    * handRoleChanged(role)
+    * handTouchContinues(touchedNodeId, fingerId)
+    * handTouchStarted(touchedNodeId, fingerId)
+    * handTouchStopped(touchedNode, fingerId)
+    * isButtonPressed(id) → bool
+    * isButtonSupported(id) → bool
+    * isButtonTouched(id) → bool
+    * isGripPressed() → bool
+    * isHandAnimationEnabled() → bool
+    * isHandInteractionEnabled() → bool
+    * isHandPoseActive(poseId) → bool
+    * isHandTouchPointVisualizationEnabled() → bool
+    * isMenuButtonPressed() → bool
+    * isTouchpadPressed() → bool
+    * isTouchpadTouched() → bool
+    * isTriggerPressed() → bool
+    * isVisible() → bool
+    * menuButtonPressed()
+    * menuButtonReleased()
+    * pickNode() → vrNodePtr
+    * pickNodeEx() → tuple
+    * pickNodeWithFinger(fingerId) → tuple
+    * setCustomPickingDirection(origin, direction, color)
+    * setHandAnimationEnabled(enabled)
+    * setHandInteractionEnabled(enabled)
+    * setHandRole(role)
+    * setHandTouchPointVisualizationEnabled(enabled)
+    * setPickingAxis(axis)
+    * setVisible(visible)
+    * setVisualizationMode(mode)
+    * showPickingAxis(axis)
+    * touchpadPositionChanged(position)
+    * touchpadPressed()
+    * touchpadReleased(position)
+    * touchpadTouched(position)
+    * touchpadUntouched(position)
+    * triggerHapticPulse(axis, duration)
+    * triggerPressed()
+    * triggerReleased()
+
+.. method:: controllerMoved()
+
+    SIGNAL is called constantly when the controller moves.
+
+.. method:: triggerPressed()
+
+    SIGNAL is called when the trigger is pressed.
+
+.. method:: triggerReleased()
+
+    SIGNAL is called when the trigger is released.
+
+.. method:: isTriggerPressed()
+
+    Returns the pressed state of the trigger button.
+
+    :return: The trigger button state.
+    :rtype: bool
+
+.. method:: getTriggerRatio()
+
+    Returns the current ratio the trigger is pressed.
+
+    :return: The current ratio of the trigger press.
+    :rtype: float
+
+.. method:: gripPressed()
+
+    SIGNAL is called when the grip is pressed.
+
+.. method:: gripReleased()
+
+    SIGNAL is called when the grip is released.
+
+.. method:: isGripPressed()
+
+    Returns the pressed state of the grip button.
+
+    :return: The grip button state.
+    :rtype: bool
+
+.. method:: menuButtonPressed()
+
+    SIGNAL is called when the menu button is pressed.
+
+.. method:: menuButtonReleased()
+
+    SIGNAL is called when the menu button is released.
+
+.. method:: isMenuButtonPressed()
+
+    Returns the pressed state of the menu button.
+
+    :return: The menu button state.
+    :rtype: bool
+
+.. method:: touchpadPressed()
+
+    SIGNAL is called when the touchpad is pressed.
+
+.. method:: touchpadReleased(position)
+
+    SIGNAL is called when the touchpad is released.
+
+    :param position: The position on the touchpad.
+    :type position: tuple with 2 entries
+
+.. method:: isTouchpadPressed()
+
+    Returns the pressed state of the touchpad button.
+
+    :return: The touchpad button state.
+    :rtype: bool
+
+.. method:: touchpadTouched(position)
+
+    SIGNAL is called when the touchpad is pressed.
+
+    :param position: The position on the touchpad.
+    :type position: tuple with 2 entries
+
+.. method:: touchpadUntouched(position)
+
+    SIGNAL is called when the touchpad is untouched.
+
+    :param position: The position on the touchpad.
+    :type position: tuple with 2 entries
+
+.. method:: isTouchpadTouched()
+
+    Returns the touch state of the touchpad button.
+
+    :return: The touchpad button touch state.
+    :rtype: bool
+
+.. method:: touchpadPositionChanged(position)
+
+    SIGNAL is called when the position on the touchpad changed.
+
+    :param position: The position on the touchpad.
+    :type position: tuple with 2 entries
+
+.. method:: getTouchpadPosition()
+
+    Returns the current position on the touchpad.
+
+    :return: The current position on the touchpad.
+    :rtype: Vec2f
+
+.. method:: buttonPressed(id)
+
+    SIGNAL is called when the button is pressed.
+
+    :param id: The id of the button being pressed.
+    :type id: int
+
+.. method:: buttonReleased(id)
+
+    SIGNAL is called when the button is released.
+
+    :param id: The id of the button being released.
+    :type id: int
+
+.. method:: isButtonPressed(id)
+
+    Returns the pressed state of the button.
+
+    :param id: The id of the button to query.
+    :type id: int
+    :return: The button state.
+    :rtype: bool
+
+.. method:: buttonTouched(id)
+
+    SIGNAL is called when the button is touched.
+
+    :param id: The id of the button being touched.
+    :type id: int
+
+.. method:: buttonUntouched(id)
+
+    SIGNAL is called when the button is untouched.
+
+    :param id: The id of the button being untouched.
+    :type id: int
+
+.. method:: isButtonTouched(id)
+
+    Returns the touch state of the button.
+
+    :param id: The id of the button to query.
+    :type id: int
+    :return: The touch state.
+    :rtype: bool
+
+.. method:: buttonPositionChanged(id, position)
+
+    SIGNAL is called when the position ratios of the button changed.
+
+    :param id: The id of the button to query.
+    :type id: int
+    :param position: The position ratios of the button.
+    :type position: tuple with 2 entries
+
+.. method:: getButtonPosition(id)
+
+    Returns the current position ratio of the button.
+
+    :param id: The id of the button to query.
+    :type id: int
+    :return: The current position of the button.
+    :rtype: Vec2f
+
+.. method:: isButtonSupported(id)
+
+    Return whether the button is supported by this controller.
+
+    :param id: The id of the button to query.
+    :type id: int
+    :return: Supported (True), unsupported (False).
+    :rtype: bool
+
+.. method:: setVisible(visible)
+    :no-index:
+
+    Sets the visibility of the visualization (geometry or hands) of this controller.
+
+    :param visible: Visibility state.
+    :type visible: bool
+
+.. method:: isVisible()
+    :no-index:
+
+    Gets the visibility of the visualization (geometry or hands) of this controller. The default is 'visible'.
+
+    :return: The visibility.
+    :rtype: bool
+
+.. method:: setVisualizationMode(mode)
+
+    Sets how the controller should be visualized (controller geometry or hands).
+
+    :param mode: Visualization_Controller or Visualization_Hand.
+    :type mode: int
+
+.. method:: getVisualizationMode()
+
+    Get whether the controller geometry or hands are displayed. The default value is 'Controller'.
+
+    :return: Visualization_Controller or Visualization_Hand
+    :rtype: int
+
+.. method:: setPickingAxis(axis)
+
+    Sets the axis used for picking on this controller.
+
+    :param axis: The axis used for picking. Valid range is from 0 to 3 with 3 being the custom picking direction
+    :type axis: unsigned int
+
+.. method:: setCustomPickingDirection(origin, direction, color)
+
+    Sets a custom axis for picking on this controller.
+
+    :param origin: The origin of the picking ray.
+    :type origin: Pnt3f
+    :param direction: The direction of the picking ray.
+    :type direction: Vec3f
+    :param color: The color of the picking ray visualization.
+    :type color: Vec3f
+
+.. method:: showPickingAxis(axis)
+
+    Shows the picking axis on this controller.
+
+    :param axis: On/off state.
+    :type axis: bool
+
+.. method:: pickNode()
+
+    Performs a selection along the picking axis of the controller and returns the nearest node along the picking ray.
+
+    :return: The hit node
+    :rtype: vrNodePtr
+
+.. method:: pickNodeEx()
+
+    Performs a selection along the picking axis of the controller and returns the nearest node along the picking ray.
+
+    :return: The hit node, position, normal, uv
+    :rtype: tuple<vrNodePtr, Pnt3f, Vec3f, Pnt2f>
+
+.. method:: getWorldMatrix()
+
+    Returns the world space transformation matrix of the controller.
+
+    :return: The 4 x 4 matrix consisting of 16 floats.
+    :rtype: list of floats (32bit)
+
+.. method:: triggerHapticPulse(axis, duration)
+
+    Triggers a haptic pulse on the controller.
+
+    :param axis: The axis to trigger the pulse on.
+    :type axis: unsigned int
+    :param duration: The duration of the pulse in microseconds.
+    :type duration: unsigned int
+
+.. method:: pickNodeWithFinger(fingerId)
+
+    Performs a selection with a ray emanating from the finger tip and returns the nearest node along the picking ray.
+    This method can only be used in hand visualization mode.
+
+    :param fingerId: Finger to pick with. Value can be Finger_Thumb, Finger_Index, Finger_Middle, Finger_Ring, Finger_Pinky.
+    :type fingerId: unsigned int
+    :return: The hit node, position, normal, uv
+    :rtype: tuple<vrNodePtr, Pnt3f, Vec3f, Pnt2f>
+
+.. method:: getHandRole()
+
+    Get whether this controller is detected as left or right hand.
+
+    :return: Hand_Left, Hand_Right or Hand_Undefined
+    :rtype: int
+
+.. method:: setHandRole(role)
+
+    Set this controller to left, right or undefined (no) hand role. In most cases, the hand role is auto-detected by SteamVR and does not need to be set.
+
+    :param role: Hand_Left, Hand_Right or Hand_Undefined
+    :type role: int
+
+.. method:: handRoleChanged(role)
+
+    SIGNAL is called when the hand role has changed, after the hand model has been loaded.
+
+    :param role: Hand_Left, Hand_Right or Hand_Undefined
+    :type role: int
+
+.. method:: handPoseStarted(poseId)
+
+    SIGNAL is called when a hand pose is detected in Hand visualization mode.
+
+    :param poseId: Pose_Pointing, Pose_Picking, Pose_ThumbsUp or Pose_Fist
+    :type poseId: int
+
+.. method:: handPoseStopped(poseId)
+
+    SIGNAL is called when a hand pose stops in Hand visualization mode.
+
+    :param poseId: Pose_Pointing, Pose_Picking, Pose_ThumbsUp or Pose_Fist
+    :type poseId: int
+
+.. method:: isHandPoseActive(poseId)
+
+    Return whether the user performs a specific hand pose.
+
+    :param poseId: Pose_Pointing, Pose_Picking, Pose_ThumbsUp or Pose_Fist
+    :type poseId: int
+    :return: Whether the hand pose is active.
+    :rtype: bool
+
+.. method:: handTouchStarted(touchedNodeId, fingerId)
+
+    SIGNAL is called when a finger of this controller's hand has touched a node in the scene that was made interactable with setNodeInteractableInVR(node, True).
+
+    :param touchedNodeId: Id of the touched scenegraph node. Create the node object with vrNodePtr(id).
+    :type touchedNodeId: unsigned int
+    :param fingerId: Which finger touches the node. Value can be Finger_Thumb, Finger_Index, Finger_Middle, Finger_Ring, Finger_Pinky.
+    :type fingerId: unsigned int
+
+.. method:: handTouchContinues(touchedNodeId, fingerId)
+
+    SIGNAL is called when the finger continues touching the node.
+
+    :param touchedNodeId: Id of the touched scenegraph node.
+    :type touchedNodeId: unsigned int
+    :param fingerId: Which finger touches the node.
+    :type fingerId: unsigned int
+
+.. method:: handTouchStopped(touchedNode, fingerId)
+
+    SIGNAL is called when the finger stops touching the node.
+
+    :param touchedNode: Id of the touched scenegraph node.
+    :type touchedNode: unsigned int
+    :param fingerId: Which finger touched the node.
+    :type fingerId: unsigned int
+
+.. method:: setHandInteractionEnabled(enabled)
+
+    Enables or disables the interaction with Web engines and Touch sensors in Hand visualization mode.
+
+    :param enabled: On (True), off (False).
+    :type enabled: bool
+
+.. method:: isHandInteractionEnabled()
+
+    Get whether the interaction with Web engines and Touch sensors is enabled in Hand visualization mode. Default is 'on'.
+
+    :return: On (True), off (False)
+    :rtype: bool
+
+.. method:: setHandAnimationEnabled(enabled)
+
+    Enables or disables transformation of finger joints when the user pressed or touches buttons in Hand visualization mode.
+
+    :param enabled: On (True), off (False).
+    :type enabled: bool
+
+.. method:: isHandAnimationEnabled()
+
+    Get whether the finger joints are transformed when the user pressed or touches buttons in Hand visualization mode. Default is 'on'.
+
+    :return: On (True), off (False)
+    :rtype: bool
+
+.. method:: setHandTouchPointVisualizationEnabled(enabled)
+
+    Enables or disables visualization of the touch point in Hand visualization mode.
+
+    :param enabled: On (True), off (False).
+    :type enabled: bool
+
+.. method:: isHandTouchPointVisualizationEnabled()
+
+    Get whether the visualization of the touch point in Hand visualization mode is enabled. Default is 'on'.
+
+    :return: On (True), off (False)
+    :rtype: bool

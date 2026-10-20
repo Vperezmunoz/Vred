@@ -1,0 +1,324 @@
+----------------
+vrdBaseLightNode
+----------------
+
+.. py:class:: vrdBaseLightNode
+
+(Inherits vrdTransformNode)
+
+This class is the base from which all other light nodes are derived from. It contains the functionality that is shared among all lights.
+
+Summary
+=======
+
+Functions:
+    * getBakeLayer() → integer
+    * getCastShadowOnShadowMaterial() → bool
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getGlossyColor() → QVector3D
+    * getGlossyColorSpectrum() → vrSpectrum
+    * getGroundShadowIntensity() → float
+    * getIlluminateShadowMaterial() → bool
+    * getImportanceMultiplier() → float
+    * getIntensity() → float
+    * getIsPhysicallyBased() → bool
+    * getLightTransform() → vrdLightTransform
+    * getLightUnit() → vrLightTypes.Unit
+    * getMaterialShadowIntensity() → float
+    * getModuleNode() → vrdBaseLightNode
+    * getOn() → bool
+    * getTemperature() → integer
+    * getUseLightTemperature() → bool
+    * getVisualizationVisible() → bool
+    * getVolumeIlluminationMode() → vrLightTypes.VolumeIlluminationMode
+    * setBakeLayer(layer)
+    * setCastShadowOnShadowMaterial(castShadow)
+    * setDiffuseColor(diffuseColor)
+    * setDiffuseColorSpectrum(spectrum)
+    * setGlossyColor(glossyColor)
+    * setGlossyColorSpectrum(spectrum)
+    * setGroundShadowIntensity(intensity)
+    * setIlluminateShadowMaterial(illuminateShadosMeterial)
+    * setImportanceMultiplier(importanceMultiplier)
+    * setIntensity(intensity)
+    * setIsPhysicallyBased(on)
+    * setLightUnit(unit)
+    * setMaterialShadowIntensity(intensity)
+    * setOn(on)
+    * setTemperature(kelvin)
+    * setUseLightTemperature(use)
+    * setVisualizationVisible(showVisualization)
+    * setVolumeIlluminationMode(mode)
+
+Functions
+=========
+
+.. py:method:: vrdBaseLightNode.getBakeLayer()
+
+    Returns which lightmap layer the illumination from this light source is baked to with texture baking. See         vrdBaseLightNode.setBakeLayer(layer).
+
+    :return: The layer index.
+    :rtype: integer
+
+.. py:method:: vrdBaseLightNode.getCastShadowOnShadowMaterial()
+
+    Returns if the light casts a shadow on the shadow material.
+
+    :return: True if the light casts a shadow, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdBaseLightNode.getDiffuseColor()
+
+    Returns the diffuse color of the light.
+
+    :return: The diffuse color.
+    :rtype: QVector3D
+
+.. py:method:: vrdBaseLightNode.getDiffuseColorSpectrum()
+
+    Returns the spectrum of the light's diffuse color.
+
+    :return: The diffuse spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdBaseLightNode.getGlossyColor()
+
+    Returns the light's glossy color.
+
+    :return: The glossy color.
+    :rtype: QVector3D
+
+.. py:method:: vrdBaseLightNode.getGlossyColorSpectrum()
+
+    Returns the spectrum of the light's glossy color.
+
+    :return: The glossy spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdBaseLightNode.getGroundShadowIntensity()
+
+    Returns the intensity of shadows on the shadow material.
+
+    :return: The ground shadow intensity (interval: [0,1])
+    :rtype: float
+
+.. py:method:: vrdBaseLightNode.getIlluminateShadowMaterial()
+
+    Returns whether the light illuminates the shadow material.
+
+    :return: True if the light illuminates the shadow material, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdBaseLightNode.getImportanceMultiplier()
+
+    Returns the importance multiplier of the light.
+
+    :return: The importance multiplier.
+    :rtype: float
+
+.. py:method:: vrdBaseLightNode.getIntensity()
+
+    Returns the intensity of the light.
+
+    :return: The intensity value.
+    :rtype: float
+
+.. py:method:: vrdBaseLightNode.getIsPhysicallyBased()
+
+    Returns whether the light source is physically based.
+
+    :return: True if physically based, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdBaseLightNode.getLightTransform()
+
+    Returns the light transform.
+
+    :return: The light transform.
+    :rtype: vrdLightTransform
+
+.. py:method:: vrdBaseLightNode.getLightUnit()
+
+    Returns the unit used for this light source.
+
+    :return: The light unit.
+    :rtype: vrLightTypes.Unit
+
+.. py:method:: vrdBaseLightNode.getMaterialShadowIntensity()
+
+    Returns the intensity of shadows of brdf based materials.
+
+    :return: The material shadow intensity (interval: [0,1].
+    :rtype: float
+
+.. py:method:: vrdBaseLightNode.getModuleNode()
+
+    Returns the corresponding light graph node to this light node.
+
+    :return: Returns the light graph node
+    :rtype: vrdBaseLightNode
+
+.. py:method:: vrdBaseLightNode.getOn()
+
+    Returns the state of the light.
+
+    :return: True if the light is on, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdBaseLightNode.getTemperature()
+
+    Returns the light temperature.
+
+    :return: The temperature in kelvin.
+    :rtype: integer
+
+.. py:method:: vrdBaseLightNode.getUseLightTemperature()
+
+    Returns whether the light uses the temperature value to determine its color.
+
+    :return: True if the light's temperature is used, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdBaseLightNode.getVisualizationVisible()
+
+    Returns whether the light source visualization is visible.
+
+    :return: True if the visualization is visible, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdBaseLightNode.getVolumeIlluminationMode()
+
+    Returns the illuminate volumes mode.
+
+    :return: On/Off/Only
+    :rtype: vrLightTypes.VolumeIlluminationMode
+
+.. py:method:: vrdBaseLightNode.setBakeLayer(layer)
+
+    For texture baking, a layer can be set with         vrdIlluminationBakeSettings.setLightsLayer(value) to bake only illumination from lights that have this bake layer number set. Use this function to set the layer for this light source. Default is 0.
+
+    :param layer: The layer index. Supported values are 0 (base illumination/shadows) and 1 (separate illumination).
+    :type layer: integer
+
+.. py:method:: vrdBaseLightNode.setCastShadowOnShadowMaterial(castShadow)
+
+    Set whether the light casts a shadow on the shadow material or not.
+
+    :param castShadow: True to cast a shadow, False otherwise.
+    :type castShadow: bool
+
+.. py:method:: vrdBaseLightNode.setDiffuseColor(diffuseColor)
+
+    Sets the diffuse color of the light.
+
+    :param diffuseColor: The diffuse color.
+    :type diffuseColor: QVector3D
+
+.. py:method:: vrdBaseLightNode.setDiffuseColorSpectrum(spectrum)
+
+    Sets the spectrum of the light's diffuse color.
+
+    :param spectrum: The spectrum
+    :type spectrum: vrSpectrum
+
+.. py:method:: vrdBaseLightNode.setGlossyColor(glossyColor)
+
+    Sets the glossy color of the light.
+
+    :param glossyColor: The glossy color
+    :type glossyColor: QVector3D
+
+.. py:method:: vrdBaseLightNode.setGlossyColorSpectrum(spectrum)
+
+    Sets the spectrum of the light's glossy color.
+
+    :param spectrum: The glossy spectrum.
+    :type spectrum: vrSpectrum
+
+.. py:method:: vrdBaseLightNode.setGroundShadowIntensity(intensity)
+
+    Sets the intensity of shadows on the shadow material.
+
+    :param intensity: The intensity value (interval: [0,1])
+    :type intensity: float
+
+.. py:method:: vrdBaseLightNode.setIlluminateShadowMaterial(illuminateShadosMeterial)
+
+    Sets whether the light illuminates the shadow material.
+
+    :param illuminateShadosMeterial: True if the light illuminates the shadow material, False otherwise.
+    :type illuminateShadosMeterial: bool
+
+.. py:method:: vrdBaseLightNode.setImportanceMultiplier(importanceMultiplier)
+
+    Sets the importance multiplier of the light.
+
+    A value higher than 1 increases the probability that the light source emits photons.
+
+    :param importanceMultiplier: The importance multiplier
+    :type importanceMultiplier: float
+
+.. py:method:: vrdBaseLightNode.setIntensity(intensity)
+
+    Sets the intensity of the light.
+
+    :param intensity: The intensity of the light.
+    :type intensity: float
+
+.. py:method:: vrdBaseLightNode.setIsPhysicallyBased(on)
+
+    Sets whether the light source is physically based.
+
+    :param on: True to enable, False otherwise.
+    :type on: bool
+
+.. py:method:: vrdBaseLightNode.setLightUnit(unit)
+
+    Sets the unit used for this light source.
+
+    :param unit: The unit.
+    :type unit: vrLightTypes.Unit
+
+.. py:method:: vrdBaseLightNode.setMaterialShadowIntensity(intensity)
+
+    Sets the intensity of shadows of brdf based materials.
+
+    :param intensity: The intensity value (interval: [0,1])
+    :type intensity: float
+
+.. py:method:: vrdBaseLightNode.setOn(on)
+
+    Switch the light on / off.
+
+    :param on: True to switch the light on, False to switch it off.
+    :type on: bool
+
+.. py:method:: vrdBaseLightNode.setTemperature(kelvin)
+
+    Sets the light temperature.
+
+    :param kelvin: The temperature in kelvin.
+    :type kelvin: integer
+
+.. py:method:: vrdBaseLightNode.setUseLightTemperature(use)
+
+    Sets whether the light uses the temperature value to determine its color.
+
+    :param use: True to use the light's temperature, False otherwise.
+    :type use: bool
+
+.. py:method:: vrdBaseLightNode.setVisualizationVisible(showVisualization)
+
+    Sets whether the light source visualization is visible.
+
+    :param showVisualization: True to show the light's visualization, False otherwise.
+    :type showVisualization: bool
+
+.. py:method:: vrdBaseLightNode.setVolumeIlluminationMode(mode)
+
+    Sets whether the light illuminates the volumes or only the volumes.
+
+    :param mode: On/Off/Only
+    :type mode: vrLightTypes.VolumeIlluminationMode
+

@@ -1,0 +1,20 @@
+-----------------------
+vrRoughnessTextureTypes
+-----------------------
+
+.. py:class:: vrRoughnessTextureTypes
+
+    .. py:class:: ValueMapping
+
+        Determine how the values from a roughness texture are mapped to material roughness.
+
+            .. py:data:: Linear
+               :no-index:
+
+                Use linear mapping of roughness values.
+
+            .. py:data:: Legacy
+               :no-index:
+
+                Use legacy mapping of roughness values.
+

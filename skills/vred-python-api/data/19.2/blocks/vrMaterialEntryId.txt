@@ -1,0 +1,75 @@
+-----------------
+vrMaterialEntryId
+-----------------
+
+.. py:class:: vrMaterialEntryId
+
+Identifies an entry in the material tree. The material tree is formed out of the material pool by expanding all multimaterials as if they were regular nodes. Attention: When the tree structure is changed, this ID stays valid only for main material and group IDs. Submaterial IDs become invalid, if any of the parent materials are changed.
+
+Summary
+=======
+
+Functions:
+    * getEntry() → vrMaterialEntry
+    * getEntryType() → vrMaterialEntryType
+    * getParentId() → vrMaterialEntryId
+    * vrMaterialEntryId()
+    * vrMaterialEntryId(groupNode)
+    * vrMaterialEntryId(materialNode)
+    * vrMaterialEntryId(parentId, childIndex)
+
+Functions
+=========
+
+.. py:method:: vrMaterialEntryId.getEntry()
+
+    Gets the associated entry.
+
+    :return: The material tree entry.
+    :rtype: vrMaterialEntry
+
+.. py:method:: vrMaterialEntryId.getEntryType()
+
+    Gets the type of the associated entry.
+
+    :return: The type of the material tree entry.
+    :rtype: vrMaterialEntryType
+
+.. py:method:: vrMaterialEntryId.getParentId()
+
+    Gets the parent, if this id is child of a group or a sub material.
+
+    :return: The parent enty id.
+    :rtype: vrMaterialEntryId
+
+.. py:method:: vrMaterialEntryId.vrMaterialEntryId()
+
+    Creates an invalid id.
+
+.. py:method:: vrMaterialEntryId.vrMaterialEntryId(groupNode)
+   :no-index:
+
+    Creates an ID for a material group.
+
+    :param groupNode: The node of the group.
+    :type groupNode: vrdNode
+
+.. py:method:: vrMaterialEntryId.vrMaterialEntryId(materialNode)
+   :no-index:
+
+    Creates an ID for a main material.
+
+    :param materialNode: The node of the material.
+    :type materialNode: vrdMaterialNode
+
+.. py:method:: vrMaterialEntryId.vrMaterialEntryId(parentId, childIndex)
+   :no-index:
+
+    Creates an ID for a submaterial.
+
+    :param parentId: The ID of the parent material.
+    :type parentId: vrMaterialEntryId
+
+    :param childIndex: The child index of the submaterial within its parent.
+    :type childIndex: integer
+

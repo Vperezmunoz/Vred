@@ -1,0 +1,120 @@
+MODULE vrTextureChunkPtr (legacy v1 API)
+
+-----------------
+vrTextureChunkPtr
+-----------------
+
+**Deprecated**. Use API v2 vrdTextureChunk instead.
+
+A wrapper class for the OpenSG TextureChunkPtr.
+
+Summary
+=======
+
+Classes:
+    * vrTextureChunkPtr
+
+Functions:
+    * fields()
+    * getID()
+    * getImage()
+    * getImageFilename()
+    * getPtr()
+    * imageContentChanged()
+    * isValid()
+    * setImage(image)
+    * setImageFilename(name)
+    * setImageFilenameNoCaching(name)
+
+.. class:: vrTextureChunkPtr()
+.. class:: vrTextureChunkPtr(source)
+    :no-index:
+
+    **Deprecated**. Use API v2 vrdTextureChunk instead.
+
+    A wrapper class for the OpenSG TextureChunkPtr.
+
+    The constructor of the vrTextureChunkPtr class. There are four valid versions:
+
+        vrTextureChunkPtr() Creates a vrSwitch object for one node.
+
+        vrTextureChunkPtr(source) Creates a vrTextureChunkPtr object from an unsigned int.
+
+        vrTextureChunkPtr(source) Creates a vrTextureChunkPtr object from a StateChunkPtr.
+
+        vrTextureChunkPtr(source) Creates a vrTextureChunkPtr object from a TextureChunkPtr.
+
+    :param source: The source (Optional).
+    :type source: unsigned int or StateChunkPtr or TextureChunkPtr
+
+.. method:: getID()
+    :no-index:
+
+    Returns the node id.
+
+    :return: The node id.
+    :rtype: unsigned int
+
+.. method:: getPtr()
+    :no-index:
+
+    Returns the OpenSG TextureChunkPtr.
+
+    :return: The node pointer.
+    :rtype: TextureChunkPtr
+
+.. method:: isValid()
+    :no-index:
+
+    Return true when the chunk is valid. Should be called for sanity reasons after searching a material with findMaterial.
+
+    :return: True if the chunk is valid, false otherwise.
+    :rtype: bool
+
+.. method:: setImageFilename(name)
+
+    Sets a new image via filename.
+
+    :param name: The name of the file.
+    :type name: string
+
+.. method:: setImageFilenameNoCaching(name)
+
+    Sets a new image via filename without image caching.
+
+    :param name: The name of the file.
+    :type name: string
+
+.. method:: getImageFilename()
+
+    Returns the image filename.
+
+    :return: The name of the file.
+    :rtype: string
+
+.. method:: setImage(image)
+
+    Sets a new image.
+
+    :param image: The image pointer.
+    :type image: vrImagePtr
+
+.. method:: getImage()
+    :no-index:
+
+    Returns the image pointer.
+
+    :return: The image pointer.
+    :rtype: vrImagePtr
+
+.. method:: imageContentChanged()
+
+    Updates the texture on the graphics card.
+
+.. method:: fields()
+    :no-index:
+
+    Returns the field access object to get access to all fields. Take a look at the vrFieldAccess documentation to see how to manipulate the value of the fields.
+
+    :return: The field access object.
+    :rtype: vrFieldAccess

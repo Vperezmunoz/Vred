@@ -1,0 +1,181 @@
+-----------------------
+vrRenderSettingsService
+-----------------------
+
+.. py:class:: vrRenderSettingsService
+
+(Inherits vrBaseService)
+
+Interface to access render settings in VRED.
+
+This service provides access to the render settings in VRED.
+
+Use the service to adjust the settings that control how the scene renders.
+
+Once you're finished customizing the settings, use the vrRenderSettingsService.getRenderStatistic() for a summary of things, such as total renders and files, and more. When finished setting attributes, use vrRenderSettingsService.render() to start image calculations and write the images to disk.
+
+Some examples how to work with render settings:
+
+```
+
+     # Changing the image samples
+     vrRenderSettingsService.getSettings().setImageSamples(512)
+
+     # Configure render passes
+     vrRenderSettingsService.getSettings().getRenderPasses().setExportRenderpasses(True)
+     vrRenderSettingsService.getSettings().getRenderPasses().setBeautyPass(False)
+     vrRenderSettingsService.getSettings().getRenderPasses().setDiffuseColorPass(True)
+
+     # Setting the file name
+     vrRenderSettingsService.getSettings().setFilename("c:/vred-snapshots/rendering.png")
+
+     # Check the statistics, how many images will be rendered
+     print("Writing " + str(vrRenderSettingsService.getRenderStatistic().getTotalFilesCount()) + " files.")
+
+     # Add the current settings as a preset (for later use)
+     vrRenderSettingsService.savePreset("OnlyDiffuseColorPass")
+
+     # Start the rendering
+     vrRenderSettingsService.render()
+
+Summary
+=======
+
+Functions:
+    * addToRenderQueue()
+    * applyPreset(presetName, applyMode)
+    * deletePreset(name) → bool
+    * getPresetNames() → List[string]
+    * getRenderStatistic() → vrdRenderStatistic
+    * getSettings() → vrdRenderSettings
+    * loadVariantSets(filename) → bool
+    * renamePreset(oldName, newName) → bool
+    * render()
+    * savePreset(name)
+    * saveVariantSets(filename)
+    * sendToClusterQueue()
+    * setDefault()
+
+Signals:
+    * renderSettingsPresetAdded(name)
+    * renderSettingsPresetRemoved(name)
+    * renderSettingsPresetRenamed(oldName, newName)
+
+Functions
+=========
+
+.. py:method:: vrRenderSettingsService.addToRenderQueue()
+
+    Creates a render job from from the current render settings and adds it to the Render Queue.
+
+.. py:method:: vrRenderSettingsService.applyPreset(presetName, applyMode)
+
+    Applies the render settings preset with the given name, see         vrRenderSettingsService.getPresetNames()
+
+    :param presetName: Name of the preset to apply.
+    :type presetName: string
+
+    :param applyMode: Mode to apply the preset.
+    :type applyMode: vrRenderSettingsTypes.ApplyPresetMode
+
+.. py:method:: vrRenderSettingsService.deletePreset(name)
+
+    Deletes the render settings preset with the given name.
+
+    :param name: Name of the preset to delete.
+    :type name: string
+
+    :return: True if the preset was deleted, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrRenderSettingsService.getPresetNames()
+
+    :return: List of available render settings presets. A preset can be applied with vrRenderSettingsService.applyPreset(presetName, applyMode).
+    :rtype: List[string]
+
+.. py:method:: vrRenderSettingsService.getRenderStatistic()
+
+    :return: Returns a summary of how many renderings and files will be created with the current settings.
+    :rtype: vrdRenderStatistic
+
+.. py:method:: vrRenderSettingsService.getSettings()
+
+    :return: The current render settings
+    :rtype: vrdRenderSettings
+
+.. py:method:: vrRenderSettingsService.loadVariantSets(filename)
+
+    Reloads the XML variant set configuration file.
+
+    :param filename:
+    :type filename: string
+
+    :return:
+    :rtype: bool
+
+.. py:method:: vrRenderSettingsService.renamePreset(oldName, newName)
+
+    Renames the render settings preset with the given name.
+
+    :param oldName: Name of the preset to rename.
+    :type oldName: string
+
+    :param newName: New name of the preset.
+    :type newName: string
+
+    :return: True if the preset was renamed, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrRenderSettingsService.render()
+
+    Starts rendering to file using the current render settings. Existing files are overwritten without warning.
+
+.. py:method:: vrRenderSettingsService.savePreset(name)
+
+    Saves the current render settings as a preset with the given name.
+
+    :param name: Name of the preset to save.
+    :type name: string
+
+.. py:method:: vrRenderSettingsService.saveVariantSets(filename)
+
+    Saves the variant set configurations as an XML file. This is useful to keep along side your VPB files to get the same rendering results another time.
+
+    :param filename:
+    :type filename: string
+
+.. py:method:: vrRenderSettingsService.sendToClusterQueue()
+
+    Sends the current scene and render settings to the Cluster Queue. See also         vrClusterManagerService.
+
+.. py:method:: vrRenderSettingsService.setDefault()
+
+    Sets the render settings to default values. Most of them are read from the Preferences.
+
+Signals
+=======
+
+.. py:method:: vrRenderSettingsService.renderSettingsPresetAdded(name)
+
+    Signal is emitted when a render settings preset is added.
+
+    :param name:
+    :type name: string
+
+.. py:method:: vrRenderSettingsService.renderSettingsPresetRemoved(name)
+
+    Signal is emitted when a render settings preset is removed.
+
+    :param name:
+    :type name: string
+
+.. py:method:: vrRenderSettingsService.renderSettingsPresetRenamed(oldName, newName)
+
+    Signal is emitted when a render settings preset is renamed.
+
+    :param oldName:
+    :type oldName: string
+
+    :param newName:
+    :type newName: string
+

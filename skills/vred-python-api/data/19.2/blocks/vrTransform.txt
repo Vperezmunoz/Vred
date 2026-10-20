@@ -1,0 +1,84 @@
+MODULE vrTransform (legacy v1 API)
+
+------------
+vrTransform
+------------
+
+Summary
+=======
+
+Functions:
+    * captureTransformVariants(name, nodes)
+    * getBBCenter()
+    * pickAxis()
+    * pickAxis3Points()
+    * selectTransformVariantByIndex(node, variantIndex)
+    * selectTransformVariantByIndex(nodeName, variantIndex)
+    * selectTransformVariantByName(node, variantName)
+    * selectTransformVariantByName(nodeName, variantName)
+
+.. function:: pickAxis()
+
+    Defines rotation axis over two pick points.
+
+.. function:: pickAxis3Points()
+
+    Defines rotation axis over three pick points.
+
+.. function:: getBBCenter()
+
+    Returns the center of the bounding box of the current selection.
+
+.. function:: captureTransformVariants(name, nodes)
+
+    Creates transform variants with the given name for all nodes passed to this function.
+
+    The variant is created from the current state of the node. If a node already has a transform variant with that name, the variant is overwritten with the current transformation values of the node.
+
+    :param name: Name of the transform variant.
+    :type name: string
+
+    :param nodes: All transform nodes whose current state should be captured as transform variant.
+    :type nodes: list of vrNodePtr
+
+.. function:: selectTransformVariantByName(node, name)
+
+    Applies a transform variant of a given node by name.
+
+    :param node: The node with transform variants.
+    :type node: vrNodePtr
+
+    :param name: The name of the transform variant.
+    :type name: string
+
+.. function:: selectTransformVariantByName(nodeName, variantName)
+    :no-index:
+
+    Applies a transform variant for a given node by name.
+
+    :param nodeName: The name of the node with transform variants.
+    :type nodeName: string
+
+    :param variantName: The name of the transform variant.
+    :type variantName: string
+
+.. function:: selectTransformVariantByIndex(node, index)
+
+    Applies a transform variant of a given node by index.
+
+    :param node: The node with transform variants.
+    :type node: vrNodePtr
+
+    :param index: The index of the transform variant.
+    :type index: int
+
+.. function:: selectTransformVariantByIndex(nodeName, index)
+    :no-index:
+
+    Applies a transform variant of a given node by index.
+
+    :param nodeName: The name of the node with transform variants.
+    :type nodeName: string
+
+    :param index: The index of the transform variant.
+    :type index: int

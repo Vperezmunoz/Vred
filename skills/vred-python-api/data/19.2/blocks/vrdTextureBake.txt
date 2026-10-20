@@ -1,0 +1,69 @@
+--------------
+vrdTextureBake
+--------------
+
+.. py:class:: vrdTextureBake
+
+(Inherits vrdSceneObject)
+
+This class provides functionality for texture bake data of a single geometry node.
+
+Summary
+=======
+
+Functions:
+    * clearBake()
+    * createBaseLightmap() → vrdLightmap
+    * createSeparateLightmap() → vrdLightmap
+    * deleteBaseLightmap()
+    * deleteSeparateLightmap()
+    * getBaseLightmap() → vrdLightmap
+    * getLightmap() → vrdLightmap
+    * getLightmaps() → List[vrdLightmap]
+    * getSeparateLightmap() → vrdLightmap
+
+Functions
+=========
+
+.. py:method:: vrdTextureBake.clearBake()
+
+    Deletes the texture bake image(s) of this node.
+
+.. py:method:: vrdTextureBake.createBaseLightmap()
+
+    :return: Creates an empty base lightmap object or returns the existing object if there is already one. It can be used for loading lightmap images.
+    :rtype: vrdLightmap
+
+.. py:method:: vrdTextureBake.createSeparateLightmap()
+
+    :return: Creates an empty separate lightmap object or returns the existing object if there is already one. It can be used for loading lightmap images.
+    :rtype: vrdLightmap
+
+.. py:method:: vrdTextureBake.deleteBaseLightmap()
+
+    Deletes the base lightmap of this node.
+
+.. py:method:: vrdTextureBake.deleteSeparateLightmap()
+
+    Deletes the separate lightmap of this node.
+
+.. py:method:: vrdTextureBake.getBaseLightmap()
+
+    :return: Returns the base lightmap.
+    :rtype: vrdLightmap
+
+.. py:method:: vrdTextureBake.getLightmap()
+
+    :return: The first existing lightmap object. Invalid if none existing.
+    :rtype: vrdLightmap
+
+.. py:method:: vrdTextureBake.getLightmaps()
+
+    :return: List of lightmaps on this node. The base lightmap is stored at index 0, the separate lightmap at index 1 of the list.
+    :rtype: List[vrdLightmap]
+
+.. py:method:: vrdTextureBake.getSeparateLightmap()
+
+    :return: Returns the separate lightmap.
+    :rtype: vrdLightmap
+

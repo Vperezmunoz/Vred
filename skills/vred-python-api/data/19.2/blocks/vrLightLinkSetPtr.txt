@@ -1,0 +1,177 @@
+MODULE vrLightLinkSetPtr (legacy v1 API)
+
+-----------------
+vrLightLinkSetPtr
+-----------------
+
+**Deprecated**; use API v2 vrdLightLinkSetNode instead.
+
+.. class:: vrLightLinkSetPtr
+
+   Note: This module contains global functions which are mapped to the global namespace. They can be used without creating an instance of the class.
+
+Summary
+=======
+
+Global Functions:
+    * createLightLinkSet(name)
+    * deleteLightLinkSet(name) → bool
+    * findLightLinkSet(name) → vrLightLinkSetPtr
+    * getLightLinkSets() → list of vrLightLinkSetPtr
+
+Class Functions:
+    * addLight(light)
+    * addSceneNode(sceneNode)
+    * copy() → vrLightLinkSetPtr
+    * fields() → vrFieldAccess
+    * getID() → unsigned int
+    * getLights() → list of vrNodePtrs
+    * getName() → string
+    * getPtr() → LightLinkSetPtr
+    * getSceneNodes() → list of vrNodePtrs
+    * getType() → string
+    * isValid() → bool
+    * setName(name)
+    * sub(update=True)
+    * subLight(light)
+    * subSceneNode(sceneNode)
+
+.. function:: createLightLinkSet(name)
+
+    Creates a light link set.
+
+    :param name: The name of the light link set.
+    :type name: string
+    :return: The new light link set.
+    :rtype: vrLightLinkSetPtr
+
+.. function:: deleteLightLinkSet(name) → bool
+
+    Deletes a light link set.
+
+    :param name: The name of the light link set.
+    :type name: string
+    :return: Success.
+    :rtype: bool
+
+.. function:: findLightLinkSet(name) → vrLightLinkSetPtr
+
+    Finds a light link set.
+
+    :param name: The name of the light link set.
+    :type name: string
+    :return: The light link set.
+    :rtype: vrLightLinkSetPtr
+
+.. function:: getLightLinkSets() → list of vrLightLinkSetPtr
+
+    Returns a list of all light link sets.
+
+    :return: The light link sets.
+    :rtype: list of vrLightLinkSetPtr
+
+.. method:: getID() → unsigned int
+
+    Returns the set ID.
+
+    :return: The set ID.
+    :rtype: unsigned int
+
+.. method:: getPtr() → LightLinkSetPtr
+
+    Returns the OpenSG LightLinkSetPtr.
+
+    :return: The pointer.
+    :rtype: LightLinkSetPtr
+
+.. method:: isValid() → bool
+
+    Returns true if the set is valid.
+
+    :return: True if valid, false otherwise.
+    :rtype: bool
+
+.. method:: fields() → vrFieldAccess
+
+    Returns the field access object to manipulate fields.
+
+    :return: The field access object.
+    :rtype: vrFieldAccess
+
+.. method:: setName(name)
+    :no-index:
+
+    Sets the name of the set.
+
+    :param name: The new name of the set.
+    :type name: string
+
+.. method:: getName() → string
+
+    Returns the name of the set.
+
+    :return: The name of the set.
+    :rtype: string
+
+.. method:: getType() → string
+
+    Returns the type of the set.
+
+    :return: The type of the set.
+    :rtype: string
+
+.. method:: addLight(light)
+
+    Adds a light to the light linking set.
+
+    :param light: The light node.
+    :type light: vrNodePtr
+
+.. method:: subLight(light)
+
+    Removes a light from the light linking set.
+
+    :param light: The light node.
+    :type light: vrNodePtr
+
+.. method:: getLights() → list of vrNodePtrs
+
+    Returns all lights in the light linking set.
+
+    :return: The light nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: addSceneNode(sceneNode)
+
+    Adds a scene node to the light linking set.
+
+    :param sceneNode: The scene node.
+    :type sceneNode: vrNodePtr
+
+.. method:: subSceneNode(sceneNode)
+
+    Removes a scene node from the light linking set.
+
+    :param sceneNode: The scene node.
+    :type sceneNode: vrNodePtr
+
+.. method:: getSceneNodes() → list of vrNodePtrs
+
+    Returns all scene nodes in the light linking set.
+
+    :return: The scene nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: sub(update=True)
+
+    Removes the light link set from the pool.
+
+    :param update: If true, the light editor is updated (default is true).
+    :type update: bool
+
+.. method:: copy() → vrLightLinkSetPtr
+
+    Returns a copy of the light link set.
+
+    :return: The copy.
+    :rtype: vrLightLinkSetPtr

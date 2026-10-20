@@ -1,0 +1,74 @@
+---------------------------
+vrdMeasuredCarpaintMaterial
+---------------------------
+
+.. py:class:: vrdMeasuredCarpaintMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all measured carpaint material properties.
+
+Summary
+=======
+
+Functions:
+    * getColorCorrection() → vrdColorCorrection
+    * getExposure() → float
+    * getIncandescence() → vrdIncandescence
+    * getRefractionIndex() → float
+    * getTextureSettings() → vrdTextureSettings
+    * setExposure(exposure)
+    * setRefractionIndex(value)
+
+Functions
+=========
+
+.. py:method:: vrdMeasuredCarpaintMaterial.getColorCorrection()
+
+    Gets access to all properties of         vrdColorCorrection.
+
+    :return: An vrdColorCorrection object, to read and write access of alls properties.
+    :rtype: vrdColorCorrection
+
+.. py:method:: vrdMeasuredCarpaintMaterial.getExposure()
+
+    Get the current value for exposure.
+
+    :return: The current value for exposure.
+    :rtype: float
+
+.. py:method:: vrdMeasuredCarpaintMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdMeasuredCarpaintMaterial.getRefractionIndex()
+
+    Sets the clearcoat reflective intensity. The higher the value, the more reflective the surface.
+
+    :return: The current index of refraction
+    :rtype: float
+
+.. py:method:: vrdMeasuredCarpaintMaterial.getTextureSettings()
+
+    Gets access to all properties of         vrdTextureSettings.
+
+    :return: An vrdTextureSettings object, to read and write access of alls properties.
+    :rtype: vrdTextureSettings
+
+.. py:method:: vrdMeasuredCarpaintMaterial.setExposure(exposure)
+
+    Controls the representation intensity of the measured material. A threshold about 1.0 gives the optimal result.
+
+    :param exposure: The new used value for exposure.
+    :type exposure: float
+
+.. py:method:: vrdMeasuredCarpaintMaterial.setRefractionIndex(value)
+
+    Sets the index of refraction for the material by showing the amount the rays are reflected off the surface versus absorbed.
+
+    :param value: New value for clearcoat reflective intensity.
+    :type value: float
+

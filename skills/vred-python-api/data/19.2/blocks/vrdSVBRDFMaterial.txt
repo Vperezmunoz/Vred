@@ -1,0 +1,72 @@
+-----------------
+vrdSVBRDFMaterial
+-----------------
+
+.. py:class:: vrdSVBRDFMaterial
+
+(Inherits vrdBRDFMaterial)
+
+this class is used for measured materials of type SVBRDF (spatially varying BRDF).
+
+Summary
+=======
+
+Functions:
+    * getBumpTexture() → vrdBumpTexture
+    * getColorCorrection() → vrdColorCorrection
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getExposure() → float
+    * getIncandescence() → vrdIncandescence
+    * getSubsurfaceScattering() → vrdSubsurfaceScattering
+    * setExposure(exposure)
+
+Functions
+=========
+
+.. py:method:: vrdSVBRDFMaterial.getBumpTexture()
+
+    Gets access to all properties of         vrdBumpTexture.
+
+    :return: An vrdBumpTexture object, to read and write access of alls properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdSVBRDFMaterial.getColorCorrection()
+
+    Gets access to all properties of         vrdColorCorrection.
+
+    :return: An vrdColorCorrection object, to read and write access of alls properties.
+    :rtype: vrdColorCorrection
+
+.. py:method:: vrdSVBRDFMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdSVBRDFMaterial.getExposure()
+
+    :return: Current exposure value.
+    :rtype: float
+
+.. py:method:: vrdSVBRDFMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdSVBRDFMaterial.getSubsurfaceScattering()
+
+    Gets access to all properties of         vrdSubsurfaceScattering.
+
+    :return: An vrdSubsurfaceScattering object, to read and write access of alls properties.
+    :rtype: vrdSubsurfaceScattering
+
+.. py:method:: vrdSVBRDFMaterial.setExposure(exposure)
+
+    Controls the intensity of the material colors. The default value 1.0 keeps colors unchanged.
+
+    :param exposure: The new value for exposure.
+    :type exposure: float
+

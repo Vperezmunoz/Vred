@@ -1,0 +1,452 @@
+-------------
+vrNodeService
+-------------
+
+.. py:class:: vrNodeService
+
+(Inherits vrBaseService)
+
+A service that provides helper functions for working with vrdNodes.
+
+    .. py:class:: TraverseChoice
+
+        Defines the choice for the next traverse iteration.
+
+            .. py:data:: Continue
+
+                Move on to the next (either child or sibling) node.
+
+            .. py:data:: Skip
+
+                Skip all child nodes and continue with next sibling.
+
+            .. py:data:: Quit
+
+                Terminate the traversal.
+
+Summary
+=======
+
+Functions:
+    * clearFindCache()
+    * cloneNodes(nodes) → List[vrdNode]
+    * findNode(uuid, root) → vrdNode
+    * findNode(name, wildcard, includeComponents, root, caseSensitive) → vrdNode
+    * findNodes(name, wildcard, includeComponents, root, caseSensitive) → List[vrdNode]
+    * findNodes(names, wildcard, includeComponents, root, caseSensitive) → List[vrdNode]
+    * findNodes(function, options, root) → List[vrdNode]
+    * findNodesWithPath(path, wildcard, root) → List[vrdNode]
+    * findNodeWithPath(path, wildcard, root) → vrdNode
+    * findNodeWithUniquePath(uniquePath) → vrdNode
+    * getAllNodes(root, options) → List[vrdNode]
+    * getCloneRoot(node) → vrdNode
+    * getClones(node) → List[vrdNode]
+    * getCommonParent(nodes) → vrdNode
+    * getMaxDepth(node) → integer
+    * getNodeFromId(nodeId) → vrdNode
+    * getNodesFromIds(nodeIds) → List[vrdNode]
+    * getRootNode() → vrdNode
+    * getSelectedNodes() → List[vrdNode]
+    * getSelectedRootNodes() → List[vrdNode]
+    * getUniqueName(name, root, recursive) → string
+    * initFindCache()
+    * isInSubtree(root, node) → bool
+    * removeNodes(nodes)
+    * traverse(function, root)
+    * unshareNodes(nodes, option)
+
+Signals:
+    * nodesAdded(nodes)
+    * nodesRemoved(nodes)
+    * selectionChanged()
+
+Functions
+=========
+
+.. py:method:: vrNodeService.clearFindCache()
+
+    Clears the find cache.
+
+    The find cache is an internal cache structure to speed up the execution of the findNode(s) command. After changing the scenegraph the findcache is no longer valid and needs to be rebuilt!         vrNodeService.clearFindCache() Invalidates the cache so all find calls will no longer use the cache resulting in longer search times.
+
+.. py:method:: vrNodeService.cloneNodes(nodes)
+
+    Clone a list of nodes from the scene graph.
+
+    :param nodes: The list of nodes to clone.
+    :type nodes: List[vrdNode]
+
+    :return: A list of cloned nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.findNode(uuid, root=vrdNode())
+
+    Finds the node via Uuid.
+
+    :param uuid: The Uuid of the node.
+    :type uuid: QUuid
+
+    :param root: The root node to start the search from.
+    :type root: vrdNode
+
+    :return: The found node.
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.findNode(name, wildcard=False, includeComponents=False, root=vrdNode(), caseSensitive=True)
+   :no-index:
+
+    Finds the node via name.
+
+    :param name: The name of the node.
+    :type name: string
+
+    :param wildcard: Use wildcard matching.
+    :type wildcard: bool
+
+    :param includeComponents: Search below shells.
+    :type includeComponents: bool
+
+    :param root: The search will start at this node.
+    :type root: vrdNode
+
+    :param caseSensitive: If set to False, search case insensitive
+    :type caseSensitive: bool
+
+    :return: The found node.
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.findNodes(name, wildcard=False, includeComponents=False, root=vrdNode(), caseSensitive=True)
+
+    Finds a list of nodes depending on their name.
+
+    Be aware that this is a costly operation. To speed up use the function vrNodeService.initFindCache() once your scenegraph structure does no longer change.
+
+    :param name: The name of the node.
+    :type name: string
+
+    :param wildcard: Use wildcard matching.
+    :type wildcard: bool
+
+    :param includeComponents: Search below shells.
+    :type includeComponents: bool
+
+    :param root: The search will start at this node
+    :type root: vrdNode
+
+    :param caseSensitive: If set to False, search case insensitive
+    :type caseSensitive: bool
+
+    :return: The found nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.findNodes(names, wildcard=False, includeComponents=False, root=vrdNode(), caseSensitive=True)
+   :no-index:
+
+    Finds a list of nodes depending on a list of names.
+
+    This function will return all nodes that match any of the names in the list.
+
+    Be aware that this is a costly operation. To speed up use the function vrNodeService.initFindCache() once your scenegraph structure does no longer change.
+
+    :param names: The list of node names.
+    :type names: List[string]
+
+    :param wildcard: Use wildcard matching.
+    :type wildcard: bool
+
+    :param includeComponents: Search below shells.
+    :type includeComponents: bool
+
+    :param root: The search will start at this node
+    :type root: vrdNode
+
+    :param caseSensitive: If set to False, search case insensitive
+    :type caseSensitive: bool
+
+    :return: The found nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.findNodes(function, options=vrdFindOptions(), root=vrdNode())
+   :no-index:
+
+    Finds a list of nodes depending on a Python matching function.
+
+Requirements for the Python function:
+- Takes exactly one vrdNode as input parameter
+- Must evaluate to boolean.
+
+```
+
+         def findGeometry(node):
+             return node.isType(vrdGeometryNode)
+
+         vrNodeService.findNodes(findGeometry, vrdFindOptions(), vrNodeService.getRootNode())
+         # also works with lambdas: vrNodeService.findNodes(lambda node: node.isType(vrdGeometryNode))
+
+    :param function: A Python function object.
+    :type function: function
+
+    :param options: Additional find options.
+    :type options: vrdFindOptions
+
+    :param root: The search will start at this node. If null, the scene root is used.
+    :type root: vrdNode
+
+    :return: The found nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.findNodesWithPath(path, wildcard=False, root=vrdNode())
+
+    Finds a list of nodes depending on the node path.
+
+    The node path is the The names of the ancestor nodes and the node itself concatenated by a slash (/), e.g. "Root/Group/Geometry123".
+
+    :param path: The node path.
+    :type path: string
+
+    :param wildcard: Use wildcard matching.
+    :type wildcard: bool
+
+    :param root: The search will start at this node.
+    :type root: vrdNode
+
+    :return: The found nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.findNodeWithPath(path, wildcard=False, root=vrdNode())
+
+    Finds a node depending on its node path.
+
+    The node path is the The names of the ancestor nodes and the node itself concatenated by a slash (/), e.g. "Root/Group/Geometry123".
+
+    :param path: The node path.
+    :type path: string
+
+    :param wildcard: Use wildcard matching.
+    :type wildcard: bool
+
+    :param root: The search will start at this node
+    :type root: vrdNode
+
+    :return: The found node.
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.findNodeWithUniquePath(uniquePath)
+
+    Find a node by its unique path. See         vrdNode.getUniquePath().
+
+    :param uniquePath: The unique path to look for.
+    :type uniquePath: string
+
+    :return: The node with given unique path.
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.getAllNodes(root, options=vrdFindOptions())
+
+    Get all nodes in the given sub graph.
+
+    :param root: The root node of the graph
+    :type root: vrdNode
+
+    :param options: Find options. By default, components are skipped
+    :type options: vrdFindOptions
+
+    :return: All nodes found in the given graph
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.getCloneRoot(node)
+
+    Get the top most node of a clone hierarchy.
+
+    :param node: The node to examine
+    :type node: vrdNode
+
+    :return: The top most node of the clone hierarchy
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.getClones(node)
+
+    Gets the clones of a given node.
+
+    :param node: The node to query.
+    :type node: vrdNode
+
+    :return: A list of nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.getCommonParent(nodes)
+
+    Find the first equal parent for the given nodes.
+
+    :param nodes: The nodes to examine
+    :type nodes: List[vrdNode]
+
+    :return: The first node that is parent to all given nodes
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.getMaxDepth(node)
+
+    Get the maximum depth of the given graph.
+
+    :param node: The graph to check
+    :type node: vrdNode
+
+    :return: The maximum depth of any sub graph
+    :rtype: integer
+
+.. py:method:: vrNodeService.getNodeFromId(nodeId)
+
+    Gets a node by its identifier.
+
+    This returns a vrdNode for a given node identifier. You can convert from an old vrNodePtr to a vrdNode by taking the ID from the old node like this:
+
+```
+
+         newnode = vrNodeService.getNodeFromId(oldnode.getID())
+
+    :param nodeId: The node identifier
+    :type nodeId: integer
+
+    :return: The node from identifier.
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.getNodesFromIds(nodeIds)
+
+    Gets nodes from its identifiers.
+
+    :param nodeIds: The node identifiers.
+    :type nodeIds: List[integer]
+
+    :return: The associated nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.getRootNode()
+
+    Returns the root node.
+
+    :return: The root node.
+    :rtype: vrdNode
+
+.. py:method:: vrNodeService.getSelectedNodes()
+
+    Returns a list of selected nodes.
+
+    :return: The selected nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.getSelectedRootNodes()
+
+    Returns a list of selected root nodes.
+
+    :return: The selected root nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrNodeService.getUniqueName(name, root, recursive=True)
+
+    Get a unique name for a node.
+
+    :param name: This name will be used to create a unique name
+    :type name: string
+
+    :param root: The name should be unique in this graph
+    :type root: vrdNode
+
+    :param recursive: If False, name will only be unique for direct children of root
+    :type recursive: bool
+
+    :return: A unique name
+    :rtype: string
+
+.. py:method:: vrNodeService.initFindCache()
+
+    Build up an internal cache structure to speed up execution of find commands.
+
+    Build up an internal cache structure to speed up execution of the python commands findNode and findNodes. E.g. for a scene with 10000 nodes it is about 700 times faster. Be aware that this cache is no longer valid after you have deleted or created nodes.
+
+    Note: Shell components (children of Shell geometry nodes) are not included in the cache.
+
+    Example: See also example find2.py
+
+.. py:method:: vrNodeService.isInSubtree(root, node)
+
+    Tells if a node is a direct or indirect child of a given root node.
+
+    :param root: The root node.
+    :type root: vrdNode
+
+    :param node: The node to check for.
+    :type node: vrdNode
+
+    :return: True if the given node is a direct or indirect child.
+    :rtype: bool
+
+.. py:method:: vrNodeService.removeNodes(nodes)
+
+    Removes a list of nodes from the scene graph.
+
+    :param nodes: The list of nodes to remove.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrNodeService.traverse(function, root=vrdNode())
+
+    Traverses a node graph and calls a Python function for each node.
+
+Requirements for the Python function:
+- Takes exactly one vrdNode as input parameter
+- Must evaluate to TraverseChoice.
+
+```
+
+         shells = []
+
+         def collectShells(node):
+             if node.isType(vrdGeometryNode) and node.isShell():
+                 shells.append(node)
+                 return vrNodeService.TraverseChoice.Skip
+             return vrNodeService.TraverseChoice.Continue
+
+         vrNodeService.traverse(collectShells, vrNodeService.getRootNode())
+
+    :param function: A Python function object.
+    :type function: function
+
+    :param root: The search will start at this node. If null, the scene root is used.
+    :type root: vrdNode
+
+.. py:method:: vrNodeService.unshareNodes(nodes, option=vrScenegraphTypes.KeepLocalClones)
+
+    Unshare a list of subtrees from the scene graph.
+
+    Unshare will break the connection between two nodes which share the same settings and children.
+
+            - vrScenegraphTypes::UnshareOption::UnshareAll will fully unshare all nodes in the subtree.
+            - vrScenegraphTypes::UnshareOption::KeepLocalClones will unshare the tree but keep the clone connections inside the subtree.
+            - vrScenegraphTypes::UnshareOption::KeepGlobalClones will unshare the node and implicitly shared children but will not unshare cloned children that have explicit clone connections to other nodes (inside or outside the subtree).
+
+    :param nodes: The list of root nodes to unshare.
+    :type nodes: List[vrdNode]
+
+    :param option: Unshare option.
+    :type option: vrScenegraphTypes.UnshareOption
+
+Signals
+=======
+
+.. py:method:: vrNodeService.nodesAdded(nodes)
+
+    This signal will be send when new nodes was added.
+
+    :param nodes: The list of all added nodes.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrNodeService.nodesRemoved(nodes)
+
+    This signal will be send when nodes was deleted.
+
+    :param nodes: The list of all removed nodes.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrNodeService.selectionChanged()
+
+    Signal is emitted when the scene tree selection has been changed.
+

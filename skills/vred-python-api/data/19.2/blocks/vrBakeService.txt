@@ -1,0 +1,184 @@
+-------------
+vrBakeService
+-------------
+
+.. py:class:: vrBakeService
+
+(Inherits vrBaseService)
+
+The bake service provides methods for baking illumination to a texture object.
+
+Summary
+=======
+
+Functions:
+    * bakeToTexture(geometryNodes, illuminationSettings, textureSettings, replaceTextureBake)
+    * bakeToTexture(geometryNodes, illuminationSettingsBase, textureSettingsBase, illuminationSettingsSeparate, textureSettingsSeparate)
+    * getTonemapLightmapPreviews() → bool
+    * loadLightmaps(geometryNodes, filePaths)
+    * repathLightmaps(geometryNodes, path)
+    * saveLightmaps(geometryNodes, path)
+    * setTonemapLightmapPreviews(value)
+
+Signals:
+    * progressChanged(percent, state)
+    * progressFinished()
+    * progressStarted()
+    * tonemapLightmapPreviewsChanged(value)
+
+Functions
+=========
+
+.. py:method:: vrBakeService.bakeToTexture(geometryNodes, illuminationSettings, textureSettings, replaceTextureBake=True)
+
+    Starts the texture bake calculation for one lightmap per geometry node with the given settings.
+
+    Either a base or a separate lightmap can be baked, depending on the illumination mode, see vrdIlluminationBakeSettings.setDirectIlluminationMode(value).
+
+    For more information about base and separate lightmap please view the documentation of bakeToTexture below. The only difference is that this method bakes only a single lightmap per node, whereas the other bakes two.
+
+    :param geometryNodes: A list of geometry nodes. Invisible geometries are ignored.
+    :type geometryNodes: List[vrdGeometryNode]
+
+    :param illuminationSettings: The illumination bake settings.
+    :type illuminationSettings: vrdIlluminationBakeSettings
+
+    :param textureSettings: The texture bake settings.
+    :type textureSettings: vrdTextureBakeSettings
+
+    :param replaceTextureBake: Specify what to do with an already existing separate lightmap on the node when baking a base lightmap. If True, the previous texture baking is replaced by the new base lightmap, the separate lightmap is deleted. If False, the separate lightmap is kept. When baking a separate lightmap this option is ignored, i.e. it creates or updates the separate lightmap and keeps the base lightmap.
+    :type replaceTextureBake: bool
+
+.. py:method:: vrBakeService.bakeToTexture(geometryNodes, illuminationSettingsBase, textureSettingsBase, illuminationSettingsSeparate, textureSettingsSeparate)
+   :no-index:
+
+    Starts the texture bake calculation for two lightmaps, a base and a separate lightmap, per geometry node with the given settings.
+
+    The base lightmap must be 'AO', 'Shadows' or 'Light and Shadows' baking (with optional indirect illumination), i.e. must have illumination mode vrBakeTypes.DirectIlluminationMode.AmbientOcclusion, vrBakeTypes.DirectIlluminationMode.Shadows or vrBakeTypes.DirectIlluminationMode.LightAndShadows.
+
+    The separate lightmap is for separate illumination (direct and optional indirect) from specific light sources, i.e. must have illumination mode vrBakeTypes.DirectIlluminationMode.Light. No environment light is baked to this lightmap.
+
+    A layer value is used to specify which lights from the scene are used to bake which lightmap.
+
+    Use layer 0 for the base lightmap, and layer 1 for the separate lightmap:
+
+```
+
+         illuminationSettingsBase.setLightsLayer(0)
+         illuminationSettingsSeparate.setLightsLayer(1)
+
+    See vrdIlluminationBakeSettings.setLightsLayer(value).
+
+    In the GUI, lights and objects with incandescence can be set to be baked into the separate lightmap by enabling the 'Bake as Separate Illumination' flag. This corresponds to layer 1. Disabled 'Bake as Separate Illumination' corresponds to layer 0. In the API, the layer is set with vrdBaseLightNode.setBakeLayer(layer) and vrdIncandescence.setBakeLayer(layer).
+
+    Though both lightmap bakings can have different input settings, there are some limitations: The same renderer is used, the same external reference location and the same clone sharing option (the ones from textureSettingsBase).
+
+    The results are stored as lightmap objects at the nodes (see vrdTextureBake.getLightmaps() or vrdTextureBake.getBaseLightmap() and vrdTextureBake.getSeparateLightmap()).
+
+    :param geometryNodes: A list of geometry nodes. Invisible geometries are ignored.
+    :type geometryNodes: List[vrdGeometryNode]
+
+    :param illuminationSettingsBase: The illumination bake settings for the base lightmap.
+    :type illuminationSettingsBase: vrdIlluminationBakeSettings
+
+    :param textureSettingsBase: The texture bake settings for the base lightmap.
+    :type textureSettingsBase: vrdTextureBakeSettings
+
+    :param illuminationSettingsSeparate: The illumination bake settings for the separate lightmap. Its mode must be vrBakeTypes.DirectIlluminationMode.Light.
+    :type illuminationSettingsSeparate: vrdIlluminationBakeSettings
+
+    :param textureSettingsSeparate: The texture bake settings for the separate lightmap.
+    :type textureSettingsSeparate: vrdTextureBakeSettings
+
+.. py:method:: vrBakeService.getTonemapLightmapPreviews()
+
+    :return: True if previews should get tone-mapped, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrBakeService.loadLightmaps(geometryNodes, filePaths)
+
+    Loads one or more lightmaps and applies them to the passed geometry nodes.
+
+    This function has two behaviors:
+
+    1) If only a single lightmap file is passed, or a base lightmap and corresponding separate lightmap, then the lightmap(s) will be applied to all geometry nodes.
+
+    2) If a list of lightmap files is passed, then it is tried to find an exact match of the node name and the lightmap file name. The matching algorithm looks for "nodeName_Lightmap.exr" as well as "nodeName_SeparateLightmap.exr".
+
+    Loading a single base lightmap to a geometry which had a base and separate before, deletes the separate lightmap. Loading a single separate lightmap to a geometry which had a base and separate before, keeps the old base lightmap unchanged.
+
+    :param geometryNodes: A list of geometry nodes.
+    :type geometryNodes: List[vrdGeometryNode]
+
+    :param filePaths: A list of lightmap files (.exr).
+    :type filePaths: List[string]
+
+.. py:method:: vrBakeService.repathLightmaps(geometryNodes, path)
+
+    Re-paths existing lightmaps from a list of geometry nodes.
+
+    This function takes the current directory paths of the lightmaps and exchanges it with a new one. An existing lightmap name is used to construct the file name. If the name was deleted, the old file name of the texture path is used instead. The new lightmaps will be loaded and replace the current ones.
+
+    Re-pathing from a base and separate lightmap to a base only, deletes the separate lightmap.
+
+    Re-pathing from a base and separate lightmap to a separate only, keeps the old base lightmap unchanged.
+
+    Re-pathing from a single base lightmap will also search the new location for a corresponding separate lightmap based on its naming scheme.
+
+    Re-pathing from a single separate lightmap will also search the new location for a corresponding base lightmap based on its naming scheme.
+
+    :param geometryNodes: A list of geometry nodes.
+    :type geometryNodes: List[vrdGeometryNode]
+
+    :param path: A path to a folder which will replace the current one.
+    :type path: string
+
+.. py:method:: vrBakeService.saveLightmaps(geometryNodes, path)
+
+    Saves existing lightmaps from a list of geometry nodes.
+
+    All lightmaps are saved as exr files in the given folder. The file name is created from the lightmap name, which was generated during the bake process. Additionally, the settings which were used to create the lightmap are stored as meta-data in the exr file. This allows you to load those files with the repathLightmaps and loadLightmaps functions.
+
+    :param geometryNodes: A list of geometry nodes.
+    :type geometryNodes: List[vrdGeometryNode]
+
+    :param path: A path to a folder where the lightmaps will be saved.
+    :type path: string
+
+.. py:method:: vrBakeService.setTonemapLightmapPreviews(value)
+
+    Sets whether lightmap previews get tone-mapped or not.
+
+    Lightmap previews are used in the Advanced section of the Bake Module (see vrdLightmap.getIlluminationPreview()) as well as in the UV Editor. Shadow previews are not tone-mapped. If this option is activated, darker parts of the lightmap get brighter and vice versa based on the maximum luminance of the image.
+
+    :param value: True for tone-mapped lightmap previews, False otherwise.
+    :type value: bool
+
+Signals
+=======
+
+.. py:method:: vrBakeService.progressChanged(percent, state)
+
+    Calculation progress changed.
+
+    :param percent: The current overall state in percent.
+    :type percent: float
+
+    :param state: The current state as a string.
+    :type state: string
+
+.. py:method:: vrBakeService.progressFinished()
+
+    Calculation progress finished.
+
+.. py:method:: vrBakeService.progressStarted()
+
+    Calculation progress started.
+
+.. py:method:: vrBakeService.tonemapLightmapPreviewsChanged(value)
+
+    The setting if lightmap previews should get tone-mapped changed.
+
+    :param value: The new state. True if lightmap previews get tone-mapped, False otherwiese.
+    :type value: bool
+

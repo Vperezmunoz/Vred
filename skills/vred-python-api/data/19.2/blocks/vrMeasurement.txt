@@ -1,0 +1,145 @@
+MODULE vrMeasurement (legacy v1 API)
+
+-------------
+vrMeasurement
+-------------
+
+Summary
+=======
+
+Functions:
+    * createCircleMeasurement()
+    * createGapMeasurement()
+    * createLineObjectMeasurement()
+    * createObjectObjectMeasurement()
+    * createPointObjectMeasurement()
+    * createPointPointMeasurement()
+    * removeAllMeasurements()
+    * removeSelectedMeasurement()
+    * updateAllMeasurements()
+    * updateMeasurement()
+    * zoomOnMeasurement()
+
+.. function:: createGapMeasurement(node1=None, hitPoint1=None, node2=None, hitPoint2=None)
+
+    Creates a gap measurement.
+
+    There are two functions:
+
+    - The function can be called without parameters. The interaction mode accordingly and the picking can be done with the mouse.
+    - The function with parameters can be used when the interaction mode cannot be used (e.g., in an immersive scenario). The parameters will have to come from a separate intersection test.
+
+    :param node1: The first node.
+    :type node1: vrNodePtr
+    :param hitPoint1: The intersection point on node1.
+    :type hitPoint1: Pnt3f
+    :param node2: The second node.
+    :type node2: vrNodePtr
+    :param hitPoint2: The intersection point on node2.
+    :type hitPoint2: Pnt3f
+
+.. function:: createCircleMeasurement(node1=None, hitPoint1=None, node2=None, hitPoint2=None, node3=None, hitPoint3=None)
+
+    Creates a circle measurement.
+
+    There are two functions:
+
+    - The function can be called without parameters. The interaction mode accordingly and the picking can be done with the mouse.
+    - The function with parameters can be used when the interaction mode cannot be used (e.g., in an immersive scenario). The parameters will have to come from a separate intersection test.
+
+    :param node1: The first node.
+    :type node1: vrNodePtr
+    :param hitPoint1: The intersection point on node1.
+    :type hitPoint1: Pnt3f
+    :param node2: The second node.
+    :type node2: vrNodePtr
+    :param hitPoint2: The intersection point on node2.
+    :type hitPoint2: Pnt3f
+    :param node3: The third node.
+    :type node3: vrNodePtr
+    :param hitPoint3: The intersection point on node3.
+    :type hitPoint3: Pnt3f
+
+.. function:: createPointPointMeasurement(node1=None, hitPoint1=None, node2=None, hitPoint2=None)
+
+    Creates a point-to-point measurement.
+
+    There are two functions:
+
+    - The function can be called without parameters. The interaction mode accordingly and the picking can be done with the mouse.
+    - The function with parameters can be used when the interaction mode cannot be used (e.g., in an immersive scenario). The parameters will have to come from a separate intersection test.
+
+    :param node1: The first node.
+    :type node1: vrNodePtr
+    :param hitPoint1: The intersection point on node1.
+    :type hitPoint1: Pnt3f
+    :param node2: The second node.
+    :type node2: vrNodePtr
+    :param hitPoint2: The intersection point on node2.
+    :type hitPoint2: Pnt3f
+
+.. function:: createPointObjectMeasurement(node1=None, hitPoint1=None, node2=None)
+
+    Creates a point-to-object measurement.
+
+    There are two functions:
+
+    - The function can be called without parameters. The interaction mode accordingly and the picking can be done with the mouse.
+    - The function with parameters can be used when the interaction mode cannot be used (e.g., in an immersive scenario). The parameters will have to come from a separate intersection test.
+
+    :param node1: The first node.
+    :type node1: vrNodePtr
+    :param hitPoint1: The intersection point on node1.
+    :type hitPoint1: Pnt3f
+    :param node2: The second node (no hit point is needed here for this measurement).
+    :type node2: vrNodePtr
+
+.. function:: createObjectObjectMeasurement(node1=None, node2=None)
+
+    Creates an object-to-object measurement.
+
+    There are two functions:
+
+    - The function can be called without parameters. The interaction mode accordingly and the picking can be done with the mouse.
+    - The function with parameters can be used when the interaction mode cannot be used (e.g., in an immersive scenario). The parameters will have to come from a separate intersection test.
+
+    :param node1: The first node.
+    :type node1: vrNodePtr
+    :param node2: The second node.
+    :type node2: vrNodePtr
+
+.. function:: createLineObjectMeasurement(lineNode=None, lineHitPoint=None, node2=None)
+
+    Creates a line-to-object measurement.
+
+    There are two functions:
+
+    - The function can be called without parameters. The interaction mode accordingly and the picking can be done with the mouse.
+    - The function with parameters can be used when the interaction mode cannot be used (e.g., in an immersive scenario). The parameters will have to come from a separate intersection test.
+
+    :param lineNode: The line node.
+    :type lineNode: vrNodePtr
+    :param lineHitPoint: The intersection point on the line node.
+    :type lineHitPoint: Pnt3f
+    :param node2: The second node (no hit point needed here).
+    :type node2: vrNodePtr
+
+.. function:: removeAllMeasurements()
+
+    Removes all existing measurements.
+
+.. function:: removeSelectedMeasurement()
+
+    Removes the currently selected measurement. The last created measurement is automatically selected.
+
+.. function:: zoomOnMeasurement()
+
+    Zooms on the selected measurement.
+
+.. function:: updateMeasurement()
+
+    Updates the selected measurement.
+
+.. function:: updateAllMeasurements()
+
+    Updates all measurements.

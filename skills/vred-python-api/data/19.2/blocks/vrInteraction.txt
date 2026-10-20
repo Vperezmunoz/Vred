@@ -1,0 +1,168 @@
+MODULE vrInteraction (legacy v1 API)
+
+-------------
+vrInteraction
+-------------
+
+Base class for all interactions.
+
+Summary
+=======
+
+Functions:
+    * addPostRender()
+    * addRender()
+    * callAllPickingMoved(node, pos, normal, uv, button)
+    * callAllPickingMoved(node, pos, normal, uv)
+    * callAllPickingPressed(node, pos, normal, uv, button)
+    * callAllPickingPressed(node, pos, normal, uv)
+    * callAllPickingReleased(node, pos, normal, uv, button)
+    * callAllPickingReleased(node, pos, normal, uv)
+    * getUseBoundingboxesForInteractionInVR() → bool
+    * postRender()
+    * preRender()
+    * setNodeInteractableInVR(node, state)
+    * setUseBoundingboxesForInteractionInVR(state)
+    * subPostRender()
+    * subRender()
+
+.. method:: addRender()
+
+    Call `preRender` on every render frame.
+
+.. method:: subRender()
+
+    Stop calling `preRender` on every render frame.
+
+.. method:: addPostRender()
+
+    Call `postRender` on every render frame.
+
+.. method:: subPostRender()
+
+    Stop calling `postRender` on every render frame.
+
+.. method:: preRender()
+
+    This method is called every render frame when the object has been added with `addRender()`. Add functionality that has to be updated every frame within this method.
+
+.. method:: postRender()
+
+    This method is called every render frame when the object has been added with `addPostRender()`. Add functionality that has to be updated every frame within this method.
+
+.. method:: callAllPickingPressed(node, pos, normal, uv):
+
+    Call all picking pressed callbacks.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param pos: The position.
+    :type pos: Pnt3f
+    :param normal: The normal.
+    :type normal: Vec3f
+    :param uv: The uv texture coordinates.
+    :type uv: Pnt2f
+
+.. method:: callAllPickingPressed(node, pos, normal, uv, button)
+
+    Call picking pressed for all devices.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param pos: The position.
+    :type pos: Pnt3f
+    :param normal: The normal.
+    :type normal: Vec3f
+    :param uv: The uv texture coordinates.
+    :type uv: Pnt2f
+    :param button: Button ID.
+    :type button: int
+
+.. method:: callAllPickingReleased(node, pos, normal, uv)
+
+    Call picking released for all devices.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param pos: The position.
+    :type pos: Pnt3f
+    :param normal: The normal.
+    :type normal: Vec3f
+    :param uv: The uv texture coordinates.
+    :type uv: Pnt2f
+
+.. method:: callAllPickingReleased(node, pos, normal, uv, button)
+    :no-index:
+
+    Call picking released for all devices.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param pos: The position.
+    :type pos: Pnt3f
+    :param normal: The normal.
+    :type normal: Vec3f
+    :param uv: The uv texture coordinates.
+    :type uv: Pnt2f
+    :param button: Button ID.
+    :type button: int
+
+.. method:: callAllPickingMoved(node, pos, normal, uv)
+
+    Call picking moved for all devices
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param pos: The position.
+    :type pos: Pnt3f
+    :param normal: The normal.
+    :type normal: Vec3f
+    :param uv: The uv texture coordinates.
+    :type uv: Pnt2f
+
+.. method:: callAllPickingMoved(node, pos, normal, uv, button)
+    :no-index:
+
+    Call picking moved for all devices.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param pos: The position.
+    :type pos: Pnt3f
+    :param normal: The normal.
+    :type normal: Vec3f
+    :param uv: The uv texture coordinates.
+    :type uv: Pnt2f
+    :param button: Button ID.
+    :type button: int
+
+.. method:: setUseBoundingboxesForInteractionInVR(state)
+
+    Enable or disable bounding boxes for VR interactions.
+
+    Use bounding boxes as collision objects for VR interactions instead of convex hulls.
+
+    :param state: Enable or disable bounding boxes.
+    :type state: bool
+
+.. method:: getUseBoundingboxesForInteractionInVR() → bool
+
+    Get the current state of bounding boxes for VR interactions.
+
+    Query if bounding boxes are used as collision objects for VR interactions.
+
+    :return: True if bounding boxes are used, false if convex hulls are used.
+    :rtype: bool
+
+.. method:: setNodeInteractableInVR(node, state)
+
+    Enable or disable interaction with a scene node in VR.
+
+    When using the hand interaction in VR mode, Web Engines will receive events and Touch sensors will be triggered when the hand collides with the convex hull of the geometry. The geometry must have a volume (no flat/planar geometry). The node itself and its parent nodes may be translated and rotated, any child geometry may not be transformed.
+
+    Interactable nodes must not have a parent-child relationship in the scene tree.
+
+    :param node: The scene node.
+    :type node: vrNodePtr
+    :param state: Enable or disable interaction.
+    :type state: bool

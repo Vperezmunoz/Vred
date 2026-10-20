@@ -1,0 +1,55 @@
+--------------
+vrdSceneObject
+--------------
+
+.. py:class:: vrdSceneObject
+
+(Inherits vrdObject)
+
+This interface represents an object that is part of the scene.
+
+Summary
+=======
+
+Functions:
+    * assignUuid() → QUuid
+    * getUuid() → QUuid
+    * isValid() → bool
+    * removeUuid()
+
+Functions
+=========
+
+.. py:method:: vrdSceneObject.assignUuid()
+
+    Assigns a unique identifier to the object.
+
+    If there is already a UUID assigned, the existing UUID is kept.
+
+    :return: The UUID of the object.
+    :rtype: QUuid
+
+.. py:method:: vrdSceneObject.getUuid()
+
+    Returns a unique identifier for the object.
+
+    It is necessary to call         vrdSceneObject.assignUuid() first to generate a new UUID. If there is no UUID assigned, a null UUID is returned.
+
+    :return: The UUID of the object.
+    :rtype: QUuid
+
+.. py:method:: vrdSceneObject.isValid()
+
+    Determines if the object is valid.
+
+    This call is expensive since it's a possible remote call. It checks if the referenced OSG object is still valid. In most cases calling vrdObject.isNull() should be preferred since it guarantees local evaluation.
+
+    :return: True if valid, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneObject.removeUuid()
+
+    Removes the UUID of the object.
+
+    After removing,         vrdSceneObject.getUuid() will return a null UUID.
+

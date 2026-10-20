@@ -1,0 +1,131 @@
+--------------------
+vrdMetadataEntryList
+--------------------
+
+.. py:class:: vrdMetadataEntryList
+
+(Inherits vrdObjectList)
+
+This class is used to manage     vrdMetadataEntry entries of a vrdMetadataSet.
+
+```
+
+     entries = metadataSet.getEntries()
+     for e in entries:
+         print(e.getKey())
+
+Note: The entries are unordered.
+
+Summary
+=======
+
+Functions:
+    * canInsert(entry) → bool
+    * clear()
+    * contains(entry) → bool
+    * count(entry) → integer
+    * data() → List[vrdMetadataEntry]
+    * find(key) → vrdMetadataEntry
+    * insert(entry) → bool
+    * insert(entries)
+    * remove(entry) → bool
+    * removeKey(key) → bool
+    * size() → integer
+
+Functions
+=========
+
+.. py:method:: vrdMetadataEntryList.canInsert(entry)
+
+    Check, if the given entry can be inserted.
+
+    :param entry:
+    :type entry: vrdMetadataEntry
+
+    :return: True, if insert is allowed
+    :rtype: bool
+
+.. py:method:: vrdMetadataEntryList.clear()
+
+    Removes all entries.
+
+.. py:method:: vrdMetadataEntryList.contains(entry)
+
+    Check if an element is already in the list.
+
+    :param entry: An entry we are looking for.
+    :type entry: vrdMetadataEntry
+
+    :return: True, if the given entry is in this list
+    :rtype: bool
+
+.. py:method:: vrdMetadataEntryList.count(entry)
+
+    Count the occurrences of a given entry.
+
+    :param entry: An entry we are looking for.
+    :type entry: vrdMetadataEntry
+
+    :return: The number of times the entry has been found in the list
+    :rtype: integer
+
+.. py:method:: vrdMetadataEntryList.data()
+
+    Get all entries of this list.
+
+    :return: List of elements
+    :rtype: List[vrdMetadataEntry]
+
+.. py:method:: vrdMetadataEntryList.find(key)
+
+    Returns first occurrence with given key.
+
+    :param key: The metadata entry key we are looking for.
+    :type key: string
+
+    :return: The found entry. If not found, it is null.
+    :rtype: vrdMetadataEntry
+
+.. py:method:: vrdMetadataEntryList.insert(entry)
+
+    Insert an entry. The entry is not inserted if an entry with the same key is already in this list.
+
+    :param entry: The entry to be inserted
+    :type entry: vrdMetadataEntry
+
+    :return: If the entry has been inserted
+    :rtype: bool
+
+.. py:method:: vrdMetadataEntryList.insert(entries)
+   :no-index:
+
+    Insert the given entries into the list. Entries are not inserted if their key is already in this list.
+
+    :param entries: The entries to be inserted
+    :type entries: List[vrdMetadataEntry]
+
+.. py:method:: vrdMetadataEntryList.remove(entry)
+
+    Remove the given entry.
+
+    :param entry:
+    :type entry: vrdMetadataEntry
+
+    :return: True if removed.
+    :rtype: bool
+
+.. py:method:: vrdMetadataEntryList.removeKey(key)
+
+    Remove the entry with the given key.
+
+    :param key:
+    :type key: string
+
+    :return:
+    :rtype: bool
+
+.. py:method:: vrdMetadataEntryList.size()
+
+    :return: Number of elements in this list.
+    :rtype: integer
+

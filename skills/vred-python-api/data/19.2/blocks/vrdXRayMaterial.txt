@@ -1,0 +1,210 @@
+---------------
+vrdXRayMaterial
+---------------
+
+.. py:class:: vrdXRayMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all X ray material properties.
+
+Summary
+=======
+
+Functions:
+    * getBaseColor() → QVector3D
+    * getBaseColorSpectrum() → vrSpectrum
+    * getCastShadows() → bool
+    * getFresnelColor() → QVector3D
+    * getFresnelColorBias() → float
+    * getFresnelColorPower() → float
+    * getFresnelColorScale() → float
+    * getFresnelColorSpectrum() → vrSpectrum
+    * getFresnelTransparencyBias() → float
+    * getFresnelTransparencyPower() → float
+    * getFresnelTransparencyScale() → float
+    * getSingleSided() → bool
+    * setBaseColor(color)
+    * setBaseColorSpectrum(value)
+    * setCastShadows(s)
+    * setFresnelColor(color)
+    * setFresnelColorBias(v)
+    * setFresnelColorPower(v)
+    * setFresnelColorScale(v)
+    * setFresnelColorSpectrum(value)
+    * setFresnelTransparencyBias(v)
+    * setFresnelTransparencyPower(v)
+    * setFresnelTransparencyScale(v)
+    * setSingleSided(s)
+
+Functions
+=========
+
+.. py:method:: vrdXRayMaterial.getBaseColor()
+
+    Get the the basic color.
+
+    :return: The current used the basic color
+    :rtype: QVector3D
+
+.. py:method:: vrdXRayMaterial.getBaseColorSpectrum()
+
+    Gets the spectrum of the base color.
+
+    :return: The current used spectrum for base color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdXRayMaterial.getCastShadows()
+
+    Query state of cast shadow approach.
+
+    :return: Current state of cast shadow approach.
+    :rtype: bool
+
+.. py:method:: vrdXRayMaterial.getFresnelColor()
+
+    Gets the Fresnel color.
+
+    :return: Current used Fresnel color.
+    :rtype: QVector3D
+
+.. py:method:: vrdXRayMaterial.getFresnelColorBias()
+
+    Gets the opacity of Fresnel color.
+
+    :return: Current used value for the opacity of Fresnel color.
+    :rtype: float
+
+.. py:method:: vrdXRayMaterial.getFresnelColorPower()
+
+    Gets the intensity of the outline created with Scale.
+
+    :return: Current used value for the intensity of the outline.
+    :rtype: float
+
+.. py:method:: vrdXRayMaterial.getFresnelColorScale()
+
+    Gets the opacity of the edge, by customizing the falloff, based on surface normals, and viewing direction. The higher the value, the stronger the hue, as it considers the normal falloff.
+
+    :return: Current used value for the opacity of the edge.
+    :rtype: float
+
+.. py:method:: vrdXRayMaterial.getFresnelColorSpectrum()
+
+    Gets the spectrum of the base color.
+
+    :return: The current used spectrum for base color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdXRayMaterial.getFresnelTransparencyBias()
+
+    Gets the opacity of object.
+
+    :return: Current value of the opacity of object.
+    :rtype: float
+
+.. py:method:: vrdXRayMaterial.getFresnelTransparencyPower()
+
+    Gets the intensity of the outline created with Scale.
+
+    :return: Current value of the intensity of the outline created with Scale.
+    :rtype: float
+
+.. py:method:: vrdXRayMaterial.getFresnelTransparencyScale()
+
+    Gets the opacity of the edges of the object.
+
+    :return: Current value of the opacity of the edges of the object.
+    :rtype: float
+
+.. py:method:: vrdXRayMaterial.getSingleSided()
+
+    Gets state of single side approach.
+
+    :return: Current state of single side approach.
+    :rtype: bool
+
+.. py:method:: vrdXRayMaterial.setBaseColor(color)
+
+    Defines the basic color, which is the main characteristic of the material.
+
+    :param color: Value for the new base color.
+    :type color: QVector3D
+
+.. py:method:: vrdXRayMaterial.setBaseColorSpectrum(value)
+
+    Sets the spectrum of the base color.
+
+    :param value: New spectrum for base color
+    :type value: vrSpectrum
+
+.. py:method:: vrdXRayMaterial.setCastShadows(s)
+
+    Casts a shadow, when enabled. In OpenGL, the shadow is based on non-transparent object forms. In Raytracing, transparency is considered.
+
+    :param s: New state of cast shadow approach.
+    :type s: bool
+
+.. py:method:: vrdXRayMaterial.setFresnelColor(color)
+
+    Sets the Fresnel color.
+
+    :param color: New Fresnel color.
+    :type color: QVector3D
+
+.. py:method:: vrdXRayMaterial.setFresnelColorBias(v)
+
+    Sets the opacity of Fresnel color. The higher the value, the stronger the hue and opaquer the surface.
+
+    :param v: New value for the opacity of Fresnel color.
+    :type v: float
+
+.. py:method:: vrdXRayMaterial.setFresnelColorPower(v)
+
+    Defines the intensity of the outline created with Scale. The higher the value, the more color applied, intensifying and making the outline opaquer.
+
+    :param v: New value for the intensity of the outline.
+    :type v: float
+
+.. py:method:: vrdXRayMaterial.setFresnelColorScale(v)
+
+    Sets the opacity of the edge, by customizing the falloff, based on surface normals, and viewing direction. The higher the value, the stronger the hue, as it considers the normal falloff.
+
+    :param v: New value for the opacity of the edge.
+    :type v: float
+
+.. py:method:: vrdXRayMaterial.setFresnelColorSpectrum(value)
+
+    Sets the spectrum of the base color.
+
+    :param value: New spectrum for base color
+    :type value: vrSpectrum
+
+.. py:method:: vrdXRayMaterial.setFresnelTransparencyBias(v)
+
+    Sets the opacity of object. The higher the value, the more solid the object.
+
+    :param v: New value of the opacity of object.
+    :type v: float
+
+.. py:method:: vrdXRayMaterial.setFresnelTransparencyPower(v)
+
+    Defines the intensity of the outline created with Scale. The higher the value, the more intense the outline.
+
+    :param v: New value of the intensity of the outline created with Scale.
+    :type v: float
+
+.. py:method:: vrdXRayMaterial.setFresnelTransparencyScale(v)
+
+    Sets the opacity of the edges of the object. The higher the value, the opaquer, as it considers the normal falloff.
+
+    :param v: New value of the opacity of the edges of the object.
+    :type v: float
+
+.. py:method:: vrdXRayMaterial.setSingleSided(s)
+
+    Toggles the visibility of backfaces. By default, this attribute is enabled, so only one side of the object is rendered. When enabled, it is important for normals to be correctly oriented. Single-sided can also be switched off in the Material options.
+
+    :param s: New state of single side approach.
+    :type s: bool
+

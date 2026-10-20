@@ -1,0 +1,95 @@
+MODULE vrWidget (legacy v1 API)
+
+--------
+vrWidget
+--------
+
+Summary
+=======
+
+Functions:
+    * connect(sender, signal, function)
+    * getQObject() → vrQObject
+    * setToolWindow(state)
+    * show(state)
+
+.. class:: vrWidget(object)
+
+   The vrWidget class creates a qt gui from a type or a ui xml file.
+
+   :param object: The QObject.
+   :type object: vrQObject
+
+   Example::
+
+       def returnPressed():
+           print('Pressed return in linedit!')
+
+       def textChanged(text):
+           print('Changed lineedit text to', text)
+
+       def toggledCheckBox(s):
+           print('Toggled checkbox to', s)
+
+       def clickedButton():
+           print('Clicked button1!')
+
+       def valueChanged1(v):
+           print('Changed spinbox value to', v)
+
+       def valueChanged2(v):
+           print('Changed slider value to', v)
+
+       widget = vrWidget("gui/test.ui")
+       widget.connect("_lineedit", "returnPressed()", returnPressed)
+       widget.connect("_lineedit", "textChanged(const QString &)", textChanged)
+       widget.connect("_button", "clicked()", clickedButton)
+       widget.connect("_spinbox", "valueChanged(int)", valueChanged1)
+       widget.connect("_slider", "valueChanged(int)", valueChanged2)
+
+       checkbox = findQObject(widget.getQObject(), "_checkbox")
+       widget2 = vrWidget(checkbox)
+       widget2.connect("_checkbox", "toggled(bool)", toggledCheckBox)
+
+       lineedit = findQObject(widget.getQObject(), "_lineedit")
+       lineedit.setProperty("text", "Hello")
+       print("lineedit enabled =", lineedit.getProperty("enabled"))
+       print("lineedit text =", lineedit.getProperty("text"))
+
+       text = vrWidget("QTextEdit", vrQObject(), "text edit")
+       text.getQObject().setProperty("caption", "TextEditor Test")
+       text.getQObject().setProperty("text", "Hi!")
+
+.. method:: getQObject() → vrQObject
+
+    Returns a vrQObject.
+
+    :return: The QObject.
+    :rtype: vrQObject
+
+.. method:: show(state)
+    :no-index:
+
+    Shows the widget.
+
+    :param state: The state: 1 = Show, 0 = Hide, -1 = Toggle.
+    :type state: integer
+
+.. method:: setToolWindow(state)
+
+    Converts it to a floating tool window.
+
+    :param state: true for tool windows, false for normal windows.
+    :type state: bool
+
+.. method:: connect(sender, signal, function)
+    :no-index:
+
+    Connects widget signals with Python functions.
+
+    :param sender: The name of the sender.
+    :type sender: string
+    :param signal: The name of the signal.
+    :type signal: string
+    :param function: The Python function.
+    :type function: boost::python::object

@@ -1,0 +1,34 @@
+-------------------------
+vrdConstraintTargetObject
+-------------------------
+
+.. py:class:: vrdConstraintTargetObject
+
+(Inherits vrdConstraintObject)
+
+This constraint object represents target nodes in all constraint types. It defines how target nodes contribute their transformations to constraint computation and provides weight control for combining multiple target influences. Obtain this object using vrdConstraintNode::getTargetObject(vrdNode).
+
+Summary
+=======
+
+Functions:
+    * getWeight() → float
+    * setWeight(weight)
+
+Functions
+=========
+
+.. py:method:: vrdConstraintTargetObject.getWeight()
+
+    Returns the weight of this target object.
+
+    :return: The weight value used for combining transformations from multiple targets.
+    :rtype: float
+
+.. py:method:: vrdConstraintTargetObject.setWeight(weight)
+
+    Sets the weight of this target object.
+
+    :param weight: The weight value for combining transformations from multiple targets (typically 0.0 to 1.0).
+    :type weight: float
+

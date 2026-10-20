@@ -1,0 +1,121 @@
+-----------------
+vrdGradingPrimary
+-----------------
+
+.. py:class:: vrdGradingPrimary
+
+(Inherits vrdSceneObject)
+
+Class to access primary grading functionality.
+
+To access the primary grading of a camera or viewpoint, use vrdCameraBaseNode.getGradingPrimary():
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     grading = cam.getGradingPrimary()
+
+Summary
+=======
+
+Functions:
+    * getContrast() → QVector4D
+    * getEnabled() → bool
+    * getExposure() → QVector4D
+    * getOffset() → QVector4D
+    * getPivot() → float
+    * getSaturation() → float
+    * setContrast(contrast)
+    * setEnabled(enabled)
+    * setExposure(exposure)
+    * setOffset(offset)
+    * setPivot(pivot)
+    * setSaturation(saturation)
+
+Functions
+=========
+
+.. py:method:: vrdGradingPrimary.getContrast()
+
+    Returns the contrast.
+
+    :return: The contrast.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingPrimary.getEnabled()
+
+    Returns the current grading curve state.
+
+    :return: True if primary grading is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdGradingPrimary.getExposure()
+
+    Returns the exposure.
+
+    :return: The exposure.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingPrimary.getOffset()
+
+    Returns the offset.
+
+    :return: The offset.
+    :rtype: QVector4D
+
+.. py:method:: vrdGradingPrimary.getPivot()
+
+    Returns the contrast pivot.
+
+    :return: The contrast pivot.
+    :rtype: float
+
+.. py:method:: vrdGradingPrimary.getSaturation()
+
+    Returns the saturation.
+
+    :return: The saturation.
+    :rtype: float
+
+.. py:method:: vrdGradingPrimary.setContrast(contrast)
+
+    Sets the contrast.
+
+    :param contrast: The contrast.
+    :type contrast: QVector4D
+
+.. py:method:: vrdGradingPrimary.setEnabled(enabled)
+
+    Enables / disables primary grading.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrdGradingPrimary.setExposure(exposure)
+
+    Sets the exposure.
+
+    :param exposure: The exposure.
+    :type exposure: QVector4D
+
+.. py:method:: vrdGradingPrimary.setOffset(offset)
+
+    Sets the offset.
+
+    :param offset: The offset.
+    :type offset: QVector4D
+
+.. py:method:: vrdGradingPrimary.setPivot(pivot)
+
+    Sets the contrast pivot.
+
+    :param pivot: The contrast pivot.
+    :type pivot: float
+
+.. py:method:: vrdGradingPrimary.setSaturation(saturation)
+
+    Sets the saturation.
+
+    :param saturation: The saturation.
+    :type saturation: float
+

@@ -1,0 +1,122 @@
+---------------------------
+vrdMetallicCarpaintMaterial
+---------------------------
+
+.. py:class:: vrdMetallicCarpaintMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all metalic paint material properties.
+
+    .. py:class:: PaintType
+
+            .. py:data:: Artistic
+
+            .. py:data:: TwoCoat
+
+            .. py:data:: ThreeCoat
+
+Summary
+=======
+
+Functions:
+    * getBaseColor() → QVector3D
+    * getBaseColorSpectrum() → vrSpectrum
+    * getClearcoat() → vrdClearcoat
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getIncandescence() → vrdIncandescence
+    * getPaintType() → vrdMetallicCarpaintMaterial.PaintType
+    * getPrimaryFlakeLayer() → vrdFlakeLayer
+    * getSecondaryFlakeLayer() → vrdFlakeLayer
+    * getThinFilm() → vrdThinFilm
+    * setBaseColor(color)
+    * setBaseColorSpectrum(value)
+    * setPaintType(type)
+
+Functions
+=========
+
+.. py:method:: vrdMetallicCarpaintMaterial.getBaseColor()
+
+    Get the the basic color.
+
+    :return: The current used the basic color
+    :rtype: QVector3D
+
+.. py:method:: vrdMetallicCarpaintMaterial.getBaseColorSpectrum()
+
+    Gets the spectrum of the base color.
+
+    :return: The current used spectrum for base color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdMetallicCarpaintMaterial.getClearcoat()
+
+    Gets access to all properties of         vrdClearcoat.
+
+    :return: An vrdClearcoat object, to read and write access of alls properties.
+    :rtype: vrdClearcoat
+
+.. py:method:: vrdMetallicCarpaintMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdMetallicCarpaintMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdMetallicCarpaintMaterial.getPaintType()
+
+    Gets the used type of carpaint.
+
+    :return: Current used type of carpaint
+    :rtype: vrdMetallicCarpaintMaterial.PaintType
+
+.. py:method:: vrdMetallicCarpaintMaterial.getPrimaryFlakeLayer()
+
+    Gets access to all properties of first         vrdFlakeLayer.
+
+    :return: An vrdFlakeLayer object, to read and write access of alls properties.
+    :rtype: vrdFlakeLayer
+
+.. py:method:: vrdMetallicCarpaintMaterial.getSecondaryFlakeLayer()
+
+    Gets access to all properties of second         vrdFlakeLayer.
+
+    :return: An vrdFlakeLayer object, to read and write access of alls properties.
+    :rtype: vrdFlakeLayer
+
+.. py:method:: vrdMetallicCarpaintMaterial.getThinFilm()
+
+    Gets access to all properties of         vrdThinFilm.
+
+    :return: An vrdThinFilm object, to read and write access of alls properties.
+    :rtype: vrdThinFilm
+
+.. py:method:: vrdMetallicCarpaintMaterial.setBaseColor(color)
+
+    Defines the basic color, which is the main characteristic of the material.
+
+    :param color: Value for the new base color.
+    :type color: QVector3D
+
+.. py:method:: vrdMetallicCarpaintMaterial.setBaseColorSpectrum(value)
+
+    Sets the spectrum of the base color.
+
+    :param value: New spectrum for base color
+    :type value: vrSpectrum
+
+.. py:method:: vrdMetallicCarpaintMaterial.setPaintType(type)
+
+    Sets the type of carpaint to simulate. Choose from three types. Artistic uses a simplified approach and consists of three layers (base, primary flake, clearcoat layer). 2-Coat uses a more realistic approach. 3-Coat uses four layers, including two flake layers on top.
+
+    :param type: New used type of carpaint
+    :type type: vrdMetallicCarpaintMaterial.PaintType
+

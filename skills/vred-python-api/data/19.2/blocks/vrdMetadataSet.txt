@@ -1,0 +1,164 @@
+--------------
+vrdMetadataSet
+--------------
+
+.. py:class:: vrdMetadataSet
+
+(Inherits vrdObject)
+
+This class gives access to the metadata set and metadata entries of an object.
+
+Metadata sets contain a list of key value pairs as     vrdMetadataEntry objects.
+
+Summary
+=======
+
+Functions:
+    * createEntry(valueType) → vrdMetadataEntry
+    * getColor() → QColor
+    * getEntries() → vrdMetadataEntryList
+    * getIcon() → QIcon
+    * getName() → string
+    * getObjects() → List[vrdSceneObject]
+    * getUniqueKey(key) → string
+    * getValue(key) → QVariant
+    * isAsset() → bool
+    * isAssigned() → bool
+    * isEditable() → bool
+    * isEditedAsset() → bool
+    * isLocked() → bool
+    * isObjectSet() → bool
+    * setColor(color)
+    * setLocked(value)
+    * setName(name)
+    * setValue(key, value)
+
+Functions
+=========
+
+.. py:method:: vrdMetadataSet.createEntry(valueType)
+
+    Create a new entry and add this new entry to this set.
+
+    :param valueType: The value type of the new entry.
+    :type valueType: vrMetadataTypes.ValueType
+
+    :return: The created vrdMetadataEntry object.
+    :rtype: vrdMetadataEntry
+
+.. py:method:: vrdMetadataSet.getColor()
+
+    :return: Color of this set.
+    :rtype: QColor
+
+.. py:method:: vrdMetadataSet.getEntries()
+
+    Gets all         vrdMetadataEntry entries of this set.
+
+    :return: A vrdMetadataEntryList which contains all vrdMetadataEntry entries of this set.
+    :rtype: vrdMetadataEntryList
+
+.. py:method:: vrdMetadataSet.getIcon()
+
+    :return: The icon of this set. The icon will be set internally and can't be changed.
+    :rtype: QIcon
+
+.. py:method:: vrdMetadataSet.getName()
+
+    :return: The name of the set.
+    :rtype: string
+
+.. py:method:: vrdMetadataSet.getObjects()
+
+    :return: All scene objects this set is assigned to.
+    :rtype: List[vrdSceneObject]
+
+.. py:method:: vrdMetadataSet.getUniqueKey(key)
+
+    Gets a unique key within the metadata set.
+
+    :param key: The key candidate.
+    :type key: string
+
+    :return: A unique key based on the key candidate.
+    :rtype: string
+
+.. py:method:: vrdMetadataSet.getValue(key)
+
+    Gets a value for an entry with a given key.
+
+    :param key:
+    :type key: string
+
+    :return: The value for this key as QVariant. If no entry with the given key exists, an empty QVariant will be returned.
+    :rtype: QVariant
+
+.. py:method:: vrdMetadataSet.isAsset()
+
+    Gets the asset state of this set.
+
+    :return: True, if this set is an imported asset.
+    :rtype: bool
+
+.. py:method:: vrdMetadataSet.isAssigned()
+
+    :return: True, if the set is assigned to at least one object.
+    :rtype: bool
+
+.. py:method:: vrdMetadataSet.isEditable()
+
+    Gets the edit state of this set.
+
+    :return: True, if the set can be changed.
+    :rtype: bool
+
+.. py:method:: vrdMetadataSet.isEditedAsset()
+
+    Gets the asset state of this set.
+
+    :return: True, if this set is an imported asset and can be edited.
+    :rtype: bool
+
+.. py:method:: vrdMetadataSet.isLocked()
+
+    Gets lock state of the set.
+
+    :return: True, if the set is locked.
+    :rtype: bool
+
+.. py:method:: vrdMetadataSet.isObjectSet()
+
+    :return: True, if this set is an object set. See vrdMetadata.getObjectSet().
+    :rtype: bool
+
+.. py:method:: vrdMetadataSet.setColor(color)
+
+    Each metadata set has a color.
+
+    :param color: New color for this set.
+    :type color: QColor
+
+.. py:method:: vrdMetadataSet.setLocked(value)
+
+    Lock or unlock a metadata set.
+
+    :param value: New lock state.
+    :type value: bool
+
+.. py:method:: vrdMetadataSet.setName(name)
+
+    Sets the name of the metadata set.
+
+    :param name: A name for the set.
+    :type name: string
+
+.. py:method:: vrdMetadataSet.setValue(key, value)
+
+    Sets a value for an entry with a given key. If no entry with the given key exists, a new entry with this key and with this value will be created.
+
+    :param key: The key.
+    :type key: string
+
+    :param value: The new value for this key.
+    :type value: QVariant
+

@@ -1,0 +1,32 @@
+--------------
+vrdMultiMarker
+--------------
+
+.. py:class:: vrdMultiMarker
+
+(Inherits vrdMarker)
+
+Multi Marker.
+
+This is a marker that is combined of multiple markers of the same type. The confidence and the pose of the markers is averaged for the multi marker.
+
+Summary
+=======
+
+Functions:
+    * getMarkers() → List[vrdMarker]
+    * getNode() → vrdNode
+
+Functions
+=========
+
+.. py:method:: vrdMultiMarker.getMarkers()
+
+    :return: The markers the multi marker consists of
+    :rtype: List[vrdMarker]
+
+.. py:method:: vrdMultiMarker.getNode()
+
+    :return: The node that can be used to attach objects to the multi marker
+    :rtype: vrdNode
+

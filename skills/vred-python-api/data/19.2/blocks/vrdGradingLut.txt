@@ -1,0 +1,115 @@
+-------------
+vrdGradingLut
+-------------
+
+.. py:class:: vrdGradingLut
+
+(Inherits vrdSceneObject)
+
+Class to access primary grading functionality.
+
+To access the primary grading of a camera or viewpoint, use vrdCameraBaseNode.getGradingLut():
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     grading = cam.getGradingLut()
+
+Summary
+=======
+
+Functions:
+    * getEnabled() → bool
+    * getLut() → string
+    * getLutFilename() → string
+    * getLutFolder() → string
+    * getLutSpace() → vrCameraTypes.GradingLogSpace
+    * getLutWeight() → float
+    * loadLut(fileName) → bool
+    * saveLut(fileName) → bool
+    * setEnabled(enabled)
+    * setLutSpace(logSpace)
+    * setLutWeight(weight)
+
+Functions
+=========
+
+.. py:method:: vrdGradingLut.getEnabled()
+
+    :return: True if LUT grading is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdGradingLut.getLut()
+
+    :return: The LUT as a string.
+    :rtype: string
+
+.. py:method:: vrdGradingLut.getLutFilename()
+
+    Returns the lut file name.
+
+    :return: Name of the lut file
+    :rtype: string
+
+.. py:method:: vrdGradingLut.getLutFolder()
+
+    Returns the folder to search for luts.
+
+    :return: Name of the lut search folder
+    :rtype: string
+
+.. py:method:: vrdGradingLut.getLutSpace()
+
+    Returns the log space the LUT is applied to.
+
+    :return: The LUT space currently used
+    :rtype: vrCameraTypes.GradingLogSpace
+
+.. py:method:: vrdGradingLut.getLutWeight()
+
+    Returns the weight the LUT is applied with.
+
+    :return: float The LUT weight currently used
+    :rtype: float
+
+.. py:method:: vrdGradingLut.loadLut(fileName)
+
+    Loads a LUT from a file.
+
+    :param fileName: The file name containing the LUT.
+    :type fileName: string
+
+    :return: True if loading was successful, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdGradingLut.saveLut(fileName)
+
+    Saves a LUT to a file.
+
+    :param fileName: The file name to use.
+    :type fileName: string
+
+    :return: True if saving was successful, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdGradingLut.setEnabled(enabled)
+
+    Enables / disables LUT grading.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrdGradingLut.setLutSpace(logSpace)
+
+    Sets the log space the LUT is applied to.
+
+    :param logSpace: The log space to use
+    :type logSpace: vrCameraTypes.GradingLogSpace
+
+.. py:method:: vrdGradingLut.setLutWeight(weight)
+
+    Sets the weight the LUT is applied with.
+
+    :param weight: The weight to apply the LUT with
+    :type weight: float
+

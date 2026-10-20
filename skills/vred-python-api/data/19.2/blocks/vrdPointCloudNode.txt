@@ -1,0 +1,160 @@
+-----------------
+vrdPointCloudNode
+-----------------
+
+.. py:class:: vrdPointCloudNode
+
+(Inherits vrdTransformNode)
+
+Node representing a point cloud and its per-point attributes.
+
+Provides accessors for positions, normals, colors, opacities, sizes/scales, rotations and optional spherical harmonics data used for advanced shading of point-based assets.
+
+Summary
+=======
+
+Functions:
+    * getColors() → List[float]
+    * getNormals() → List[float]
+    * getOpacities() → List[float]
+    * getPositions() → List[float]
+    * getRotations() → List[float]
+    * getSizes() → List[float]
+    * getSphericalHarmonics() → List[float]
+    * setColors(colors)
+    * setNormals(normals)
+    * setOpacities(opacities)
+    * setPositions(positions)
+    * setRotations(rotations)
+    * setSizes(sizes)
+    * setSphericalHarmonics(sphericalHarmonics)
+
+Functions
+=========
+
+.. py:method:: vrdPointCloudNode.getColors()
+
+    Gets the per-point colors.
+
+    Returns colors as a flat list of floats. Three consecutive values (r, g, b) represent the color of one point.
+
+    :return: The colors as a list of floating point values.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.getNormals()
+
+    Gets the per-point normals.
+
+    Returns normals as a flat list of floats. Three consecutive values (x, y, z) represent the normal of one point.
+
+    :return: The normals as a list of floating point values.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.getOpacities()
+
+    Gets the per-point opacities.
+
+    Returns one scalar opacity per point.
+
+    :return: The opacities as a list of floating point values.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.getPositions()
+
+    Gets the positions of the points.
+
+    This provides access to the point positions as a list of floats. These are 3d coordinates (x,y,z) so every three consecutive floats represent a point position of the point cloud.
+
+    :return: The positions of the points as a list of floating point values.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.getRotations()
+
+    Gets the per-point rotations.
+
+    Returns rotations as a flat list of floats. Four consecutive values (w, x, y, z) represent the quaternion of one point.
+
+    :return: The rotations as a list of floating point values.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.getSizes()
+
+    Gets the per-point sizes/scales.
+
+    Returns sizes as a flat list of floats. Three consecutive values typically represent anisotropic scale along (x, y, z) per point.
+
+    :return: The sizes/scales as a list of floating point values.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.getSphericalHarmonics()
+
+    Gets the per-point spherical harmonics coefficients.
+
+    Returns a flattened list of coefficients used to evaluate low-frequency lighting per point. The layout corresponds to the currently used spherical harmonics setup.
+
+    :return: The spherical harmonics coefficients as a list of floats.
+    :rtype: List[float]
+
+.. py:method:: vrdPointCloudNode.setColors(colors)
+
+    Sets the per-point colors.
+
+    The list is flat. Three consecutive values (r, g, b) represent the color of one point.
+
+    :param colors: The colors as a list of floating point values.
+    :type colors: List[float]
+
+.. py:method:: vrdPointCloudNode.setNormals(normals)
+
+    Sets the per-point normals.
+
+    The list is flat. Three consecutive values (x, y, z) represent the normal of one point. The number of values should match the positions buffer size.
+
+    :param normals: The normals as a list of floating point values.
+    :type normals: List[float]
+
+.. py:method:: vrdPointCloudNode.setOpacities(opacities)
+
+    Sets the per-point opacities.
+
+    Expects one scalar opacity per point.
+
+    :param opacities: The opacities as a list of floating point values.
+    :type opacities: List[float]
+
+.. py:method:: vrdPointCloudNode.setPositions(positions)
+
+    Sets the positions of the points.
+
+    The list is flat and stores 3D coordinates (x, y, z). Three consecutive values represent one point position. The number of values must be divisible by three with no remainder.
+
+    :param positions: The point positions as a list of floating point values.
+    :type positions: List[float]
+
+.. py:method:: vrdPointCloudNode.setRotations(rotations)
+
+    Sets the per-point rotations.
+
+    The list is flat. Four consecutive values (w, x, y, z) represent the quaternion of one point.
+
+    :param rotations: The rotations as a list of floating point values.
+    :type rotations: List[float]
+
+.. py:method:: vrdPointCloudNode.setSizes(sizes)
+
+    Sets the per-point sizes/scales.
+
+    The list is flat. Three consecutive values represent the anisotropic scale (x, y, z) of one point.
+
+    :param sizes: The sizes/scales as a list of floating point values.
+    :type sizes: List[float]
+
+.. py:method:: vrdPointCloudNode.setSphericalHarmonics(sphericalHarmonics)
+
+    Sets the per-point spherical harmonics coefficients.
+
+    The list contains the flattened coefficients for all points and must be consistent with the expected spherical harmonics layout for the point cloud.
+
+    :param sphericalHarmonics: The spherical harmonics coefficients.
+    :type sphericalHarmonics: List[float]
+

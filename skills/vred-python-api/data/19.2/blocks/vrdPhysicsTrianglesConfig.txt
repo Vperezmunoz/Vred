@@ -1,0 +1,108 @@
+-------------------------
+vrdPhysicsTrianglesConfig
+-------------------------
+
+.. py:class:: vrdPhysicsTrianglesConfig
+
+(Inherits vrdPhysicsConfig)
+
+The configuration class for PhysX triangle collider.
+
+This class is used to create a physics object that uses a triangle mesh as a collider. Triangle colliders can only be used with as static objects and must not be moved after creation.
+
+Summary
+=======
+
+Functions:
+    * getEnableMeshReduction() → bool
+    * getMergeGeometries() → bool
+    * getMinTriangles() → integer
+    * getReductionRatio() → float
+    * getReductionTolerance() → float
+    * setEnableMeshReduction(enable)
+    * setMergeGeometries(merge)
+    * setMinTriangles(minTriangles)
+    * setReductionRatio(ratio)
+    * setReductionTolerance(tolerance)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsTrianglesConfig.getEnableMeshReduction()
+
+    Get whether mesh reduction is enabled.
+
+    :return: True if mesh reduction is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsTrianglesConfig.getMergeGeometries()
+
+    Get whether geometry merging is enabled.
+
+    :return: True if geometries are merged before reduction, false if reduced individually
+    :rtype: bool
+
+.. py:method:: vrdPhysicsTrianglesConfig.getMinTriangles()
+
+    Get the minimum triangle count.
+
+    :return: The minimum number of triangles to preserve.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsTrianglesConfig.getReductionRatio()
+
+    Get the target reduction ratio.
+
+    :return: The target reduction ratio (0.0 to 1.0).
+    :rtype: float
+
+.. py:method:: vrdPhysicsTrianglesConfig.getReductionTolerance()
+
+    Get the reduction tolerance.
+
+    :return: The quality tolerance value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsTrianglesConfig.setEnableMeshReduction(enable)
+
+    Enable or disable mesh reduction for triangle meshes.
+
+    Mesh reduction uses meshoptimizer to reduce the number of triangles while maintaining collision accuracy. This can significantly improve physics performance for complex triangle meshes.
+
+    :param enable: True to enable mesh reduction, false to disable.
+    :type enable: bool
+
+.. py:method:: vrdPhysicsTrianglesConfig.setMergeGeometries(merge)
+
+    Enable or disable merging all geometry nodes into a single triangle mesh before reduction.
+
+    When enabled, all geometry nodes are combined into a single mesh before applying reduction, which allows for better global optimization decisions by the mesh reducer. When disabled, each geometry node is reduced individually.
+
+    :param merge: True to merge geometries, false to reduce individually (default: false)
+    :type merge: bool
+
+.. py:method:: vrdPhysicsTrianglesConfig.setMinTriangles(minTriangles)
+
+    Set the minimum number of triangles to keep after reduction.
+
+    :param minTriangles: Minimum triangle count. The default value is 100, the maximum is 10000.
+    :type minTriangles: integer
+
+.. py:method:: vrdPhysicsTrianglesConfig.setReductionRatio(ratio)
+
+    Set the target reduction ratio for mesh simplification.
+
+    This determines how aggressively the mesh should be simplified. A value of 0.5 means the target is 50% of the original triangle count.
+
+    :param ratio: Target reduction ratio (0.0 to 1.0). Default is 0.7 (70% of original).
+    :type ratio: float
+
+.. py:method:: vrdPhysicsTrianglesConfig.setReductionTolerance(tolerance)
+
+    Set the tolerance for mesh reduction quality.
+
+    Higher values allow more aggressive simplification but may reduce accuracy. Lower values preserve more detail but reduce less triangles.
+
+    :param tolerance: Quality tolerance (0.0 to 1.0). Default is 0.01.
+    :type tolerance: float
+

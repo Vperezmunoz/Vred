@@ -1,0 +1,52 @@
+-----------------
+vrdDepthTestChunk
+-----------------
+
+.. py:class:: vrdDepthTestChunk
+
+(Inherits vrdMaterialChunk)
+
+This class represents a depth test chunk.
+
+    .. py:class:: DepthFunc
+
+            .. py:data:: Never
+
+            .. py:data:: Less
+
+            .. py:data:: Equal
+
+            .. py:data:: LEqual
+
+            .. py:data:: Greater
+
+            .. py:data:: NotEqual
+
+            .. py:data:: GEqual
+
+            .. py:data:: Always
+
+Summary
+=======
+
+Functions:
+    * getDepthFunc() → vrdDepthTestChunk.DepthFunc
+    * setDepthFunc(depthFunc)
+
+Functions
+=========
+
+.. py:method:: vrdDepthTestChunk.getDepthFunc()
+
+    Returns the depth comparison function.
+
+    :return: The depth function.
+    :rtype: vrdDepthTestChunk.DepthFunc
+
+.. py:method:: vrdDepthTestChunk.setDepthFunc(depthFunc)
+
+    Sets the depth comparison function.
+
+    :param depthFunc: The depth function
+    :type depthFunc: vrdDepthTestChunk.DepthFunc
+

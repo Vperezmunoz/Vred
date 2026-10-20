@@ -1,0 +1,46 @@
+MODULE vrVirtualEye (legacy v1 API)
+
+------------
+vrVirtualEye
+------------
+
+Creates a virtual camera and maps the output on a node.
+
+Example::
+
+    See also example virtualeye.py
+
+Summary
+=======
+
+Constructors:
+    * vrVirtualEye(mat, camera_beacon, texsize)
+
+Methods:
+    * getCameraTransform()
+    * setUseCameraSetting(name)
+
+.. class:: vrVirtualEye(mat, camera_beacon, texsize)
+
+    The constructor of the vrVirtualEye class.
+
+    :param mat: The material to map the camera output to.
+    :type mat: vrMaterialPtr
+    :param camera_beacon: The camer beacon to position the camera.
+    :type camera_beacon: vrNodePtr
+    :param texsize: The texture resolution in pixels.
+    :type texsize: integer
+
+.. method:: getCameraTransform()
+
+    Returns the camera transformation node.
+
+    :return: The camera transformation node.
+    :rtype: vrNodePtr
+
+.. method:: setUseCameraSetting(name)
+
+    Use camera settings given by name.
+
+    :param name: camera setting name.
+    :type name: string

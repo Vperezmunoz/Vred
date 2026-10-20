@@ -1,0 +1,689 @@
+--------------------
+vrdPhysicsObjectNode
+--------------------
+
+.. py:class:: vrdPhysicsObjectNode
+
+(Inherits vrdNode)
+
+The     vrdPhysicsObjectNode class represents a physics object in the scene.
+
+This class provides access to a physics object node that can participate in physics simulation. Physics objects can be configured as static, dynamic, or kinematic colliders, each with different behaviors and properties. Static objects remain fixed in place, dynamic objects are affected by forces and collisions, and kinematic objects can be moved programmatically but are not affected by forces.
+
+Summary
+=======
+
+Functions:
+    * getAngularDamping() → float
+    * getAutoCalculateCenterOfMass() → bool
+    * getCcdEnabled() → bool
+    * getCcdFrictionEnabled() → bool
+    * getCenterOfMass() → QVector3D
+    * getColliderSettings() → vrdPhysicsColliderSettings
+    * getColliderShape() → vrPhysicsTypes.ColliderShape
+    * getColliderType() → vrPhysicsTypes.ColliderType
+    * getContactReportThreshold() → float
+    * getContactSlopCoefficient() → float
+    * getDensity() → float
+    * getForce() → QVector3D
+    * getForceEnabled() → bool
+    * getForceMode() → vrPhysicsTypes.ForceMode
+    * getForceWorldFrame() → bool
+    * getGravityEnabled() → bool
+    * getHighlightEnabled() → bool
+    * getLinearDamping() → float
+    * getLockAngularX() → bool
+    * getLockAngularY() → bool
+    * getLockAngularZ() → bool
+    * getLockLinearX() → bool
+    * getLockLinearY() → bool
+    * getLockLinearZ() → bool
+    * getMass() → float
+    * getMaxAngularVelocity() → float
+    * getMaxDepenetrationVelocity() → float
+    * getMaxLinearVelocity() → float
+    * getMinCCDAdvanceCoefficient() → float
+    * getPhysicsMaterial() → vrdPhysicsMaterial
+    * getSceneNode() → vrdNode
+    * getSleepThreshold() → float
+    * getSpeculativeCcdEnabled() → bool
+    * getStabilizationThreshold() → float
+    * getTorque() → QVector3D
+    * getUseInfiniteLinearVelocity() → bool
+    * getWakeCounter() → float
+    * isActive() → bool
+    * isInternal() → bool
+    * rebuild()
+    * setActive(active)
+    * setAngularDamping(angularDamping)
+    * setAutoCalculateCenterOfMass(autoCalculate)
+    * setCcdEnabled(enabled)
+    * setCcdFrictionEnabled(enabled)
+    * setCenterOfMass(centerOfMass)
+    * setColliderShape(colliderShape)
+    * setColliderType(colliderType)
+    * setContactReportThreshold(threshold)
+    * setContactSlopCoefficient(coefficient)
+    * setDensity(density)
+    * setForce(force)
+    * setForceEnabled(enabled)
+    * setForceMode(mode)
+    * setForceWorldFrame(worldFrame)
+    * setGravityEnabled(gravityEnabled)
+    * setHighlightEnabled(highlightEnabled)
+    * setInternal(internal)
+    * setLinearDamping(linearDamping)
+    * setLockAngularX(lockAngularX)
+    * setLockAngularY(lockAngularY)
+    * setLockAngularZ(lockAngularZ)
+    * setLockLinearX(lockLinearX)
+    * setLockLinearY(lockLinearY)
+    * setLockLinearZ(lockLinearZ)
+    * setMass(mass)
+    * setMaxAngularVelocity(maxAngularVelocity)
+    * setMaxDepenetrationVelocity(velocity)
+    * setMaxLinearVelocity(maxLinearVelocity)
+    * setMinCCDAdvanceCoefficient(threshold)
+    * setSleepThreshold(sleepThreshold)
+    * setSpeculativeCcdEnabled(enabled)
+    * setStabilizationThreshold(stabilizationThreshold)
+    * setTorque(torque)
+    * setUseInfiniteLinearVelocity(useInfiniteLinearVelocity)
+    * setWakeCounter(wakeCounter)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsObjectNode.getAngularDamping()
+
+    Get the angular velocity damping factor.
+
+    :return: The angular damping value. Higher values cause faster rotational energy loss.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getAutoCalculateCenterOfMass()
+
+    Get whether center of mass is automatically calculated from geometry.
+
+    :return: True if auto-calculation is enabled, false if manual center of mass is used.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getCcdEnabled()
+
+    Get whether Continuous Collision Detection (CCD) is enabled.
+
+    :return: True if CCD is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getCcdFrictionEnabled()
+
+    Get whether CCD friction is enabled.
+
+    :return: True if CCD friction is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getCenterOfMass()
+
+    Get the local center of mass position.
+
+    :return: The center of mass as a QVector3D in local coordinates.
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsObjectNode.getColliderSettings()
+
+    Get the collider settings for this physics object.
+
+    :return: The collider settings containing contact offset, rest offset, and shape-specific properties.
+    :rtype: vrdPhysicsColliderSettings
+
+.. py:method:: vrdPhysicsObjectNode.getColliderShape()
+
+    Get the current collider shape type.
+
+    :return: The collider shape (Box, Sphere, Capsule, Convex Hull, etc.).
+    :rtype: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsObjectNode.getColliderType()
+
+    Get the collider type of the physics object (Static, Dynamic, or Kinematic).
+
+    :return: The collider type.
+    :rtype: vrPhysicsTypes.ColliderType
+
+.. py:method:: vrdPhysicsObjectNode.getContactReportThreshold()
+
+    Get the contact report threshold.
+
+    :return: The contact report threshold. Lower values provide more accurate contact detection.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getContactSlopCoefficient()
+
+    Get the contact slop coefficient.
+
+    :return: The contact slop coefficient.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getDensity()
+
+    Get the material density of the physics object.
+
+    :return: The density in kg/m³. Common values: Water=1000, Aluminum=2700, Steel=7850.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getForce()
+
+    Get the current force vector applied to the physics object.
+
+    :return: The force vector. Units depend on force mode (N, N·s, m/s, or m/s²).
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsObjectNode.getForceEnabled()
+
+    Get whether continuous force application is enabled.
+
+    :return: True if force is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getForceMode()
+
+    Get the current force application mode.
+
+    :return: The force mode (Force, Impulse, Velocity Change, or Acceleration).
+    :rtype: vrPhysicsTypes.ForceMode
+
+.. py:method:: vrdPhysicsObjectNode.getForceWorldFrame()
+
+    Get whether forces are applied in world coordinates.
+
+    :return: True if world frame is enabled, false if local frame is used.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getGravityEnabled()
+
+    Get whether gravity is enabled for this physics object.
+
+    :return: True if gravity is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getHighlightEnabled()
+
+    Get whether collision highlighting is enabled for this physics object.
+
+    :return: True if highlighting is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getLinearDamping()
+
+    Get the linear velocity damping factor.
+
+    :return: The linear damping value. Higher values cause faster energy loss.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getLockAngularX()
+
+    Get whether angular motion around the X axis is locked.
+
+    :return: True if X-axis rotation is locked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getLockAngularY()
+
+    Get whether angular motion around the Y axis is locked.
+
+    :return: True if Y-axis rotation is locked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getLockAngularZ()
+
+    Get whether angular motion around the Z axis is locked.
+
+    :return: True if Z-axis rotation is locked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getLockLinearX()
+
+    Get whether linear motion along the X axis is locked.
+
+    :return: True if X-axis translation is locked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getLockLinearY()
+
+    Get whether linear motion along the Y axis is locked.
+
+    :return: True if Y-axis translation is locked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getLockLinearZ()
+
+    Get whether linear motion along the Z axis is locked.
+
+    :return: True if Z-axis translation is locked, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getMass()
+
+    Get the total mass of the physics object.
+
+    :return: The mass in kilograms.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getMaxAngularVelocity()
+
+    Get the maximum angular velocity limit.
+
+    :return: The maximum angular velocity in rad/s. Prevents unrealistic spinning.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getMaxDepenetrationVelocity()
+
+    Get the maximum depenetration velocity.
+
+    :return: The maximum depenetration velocity in m/s.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getMaxLinearVelocity()
+
+    Get the maximum linear velocity limit.
+
+    :return: The maximum linear velocity in m/s. Only used when infinite mode is disabled.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getMinCCDAdvanceCoefficient()
+
+    Get the minimum CCD advance coefficient.
+
+    :return: The minimum CCD advance coefficient (0.0 to 1.0).
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getPhysicsMaterial()
+
+    Get the physics material of the physics object.
+
+    :return: The physics material containing friction and restitution properties.
+    :rtype: vrdPhysicsMaterial
+
+.. py:method:: vrdPhysicsObjectNode.getSceneNode()
+
+    Get the scene node associated with this physics object.
+
+    :return: The scene node that this physics object is attached to.
+    :rtype: vrdNode
+
+.. py:method:: vrdPhysicsObjectNode.getSleepThreshold()
+
+    Get the motion threshold below which objects go to sleep.
+
+    :return: The sleep threshold in m/s². Objects below this threshold are put to sleep for performance.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getSpeculativeCcdEnabled()
+
+    Get whether speculative CCD is enabled.
+
+    :return: True if speculative CCD is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getStabilizationThreshold()
+
+    Get the threshold for stabilization to prevent micro-oscillations.
+
+    :return: The stabilization threshold in (m/s)².
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.getTorque()
+
+    Get the current torque vector applied to the physics object.
+
+    :return: The torque vector. Units depend on force mode (N·m, N·m·s, rad/s, or rad/s²).
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsObjectNode.getUseInfiniteLinearVelocity()
+
+    Get whether infinite linear velocity mode is enabled.
+
+    :return: True if infinite mode is enabled, false if velocity clamping is active.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.getWakeCounter()
+
+    Get the wake counter value.
+
+    :return: The wake counter in seconds.
+    :rtype: float
+
+.. py:method:: vrdPhysicsObjectNode.isActive()
+
+    Get whether the physics object is active in simulation.
+
+    :return: True if active, false if inactive.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.isInternal()
+
+    Get whether this physics object is marked as internal (system-created, temporary).
+
+    :return: True if internal, false if user-created.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsObjectNode.rebuild()
+
+    Rebuild the physics object's collider.
+
+    This forces a rebuild of the physics collider, which may be necessary after changing geometry or collider settings.
+
+.. py:method:: vrdPhysicsObjectNode.setActive(active)
+
+    Activate or deactivate simulation for the physics object.
+
+    :param active: True to activate simulation, false to deactivate.
+    :type active: bool
+
+.. py:method:: vrdPhysicsObjectNode.setAngularDamping(angularDamping)
+
+    Set the angular velocity damping factor.
+
+    Angular damping simulates rotational friction, causing objects to gradually lose angular velocity. Higher values cause faster rotational energy loss.
+
+    :param angularDamping: The angular damping factor. Must be >= 0.0.
+    :type angularDamping: float
+
+.. py:method:: vrdPhysicsObjectNode.setAutoCalculateCenterOfMass(autoCalculate)
+
+    Enable or disable automatic center of mass calculation.
+
+    When enabled, the center of mass is automatically calculated from geometry. When disabled, the manually specified center of mass is used.
+
+    :param autoCalculate: True to enable auto-calculation, false to use manual value.
+    :type autoCalculate: bool
+
+.. py:method:: vrdPhysicsObjectNode.setCcdEnabled(enabled)
+
+    Enable or disable Continuous Collision Detection (CCD).
+
+    CCD prevents fast-moving objects from tunneling through other objects by performing swept collision detection. Only applies to non-kinematic dynamic bodies.
+
+    :param enabled: True to enable CCD, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsObjectNode.setCcdFrictionEnabled(enabled)
+
+    Enable or disable CCD friction.
+
+    CCD friction provides more realistic collision response during CCD sweeps. Requires CCD Enabled to be active. Only applies to non-kinematic dynamic bodies.
+
+    :param enabled: True to enable CCD friction, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsObjectNode.setCenterOfMass(centerOfMass)
+
+    Set the local center of mass position.
+
+    This value is only used when auto-calculation is disabled. The center of mass is specified in local object coordinates.
+
+    :param centerOfMass: The center of mass position in local coordinates.
+    :type centerOfMass: QVector3D
+
+.. py:method:: vrdPhysicsObjectNode.setColliderShape(colliderShape)
+
+    Set the collider shape type for this physics object.
+
+    The available shapes depend on the collider type:
+
+    Static: Convex Hull, Convex Decomposition, Triangles, Box, Sphere, Capsule, PlaneDynamic/Kinematic: Convex Hull, Convex Decomposition, SDF Mesh, Box, Sphere, Capsule
+
+    :param colliderShape: The desired collider shape type.
+    :type colliderShape: vrPhysicsTypes.ColliderShape
+
+.. py:method:: vrdPhysicsObjectNode.setColliderType(colliderType)
+
+    Set the collider type for this physics object.
+
+    :param colliderType: The desired collider type.
+    :type colliderType: vrPhysicsTypes.ColliderType
+
+.. py:method:: vrdPhysicsObjectNode.setContactReportThreshold(threshold)
+
+    Set the contact report threshold.
+
+    Contact report threshold improves collision detection sensitivity. Lower values provide more accurate contact detection but may impact performance. Recommended for chain elements: 0.01. Only applies to non-kinematic dynamic bodies.
+
+    :param threshold: The contact report threshold. Must be >= 0.0.
+    :type threshold: float
+
+.. py:method:: vrdPhysicsObjectNode.setContactSlopCoefficient(coefficient)
+
+    Set the contact slop coefficient.
+
+    Contact slop allows small penetrations to be ignored, improving stability in chain and joint systems.
+
+    :param coefficient: The contact slop coefficient. Must be >= 0.0.
+    :type coefficient: float
+
+.. py:method:: vrdPhysicsObjectNode.setDensity(density)
+
+    Set the material density for mass and inertia calculation.
+
+    Material density is used to calculate mass and inertia when mass is not explicitly set. The relationship is: mass = density × volume.
+
+    :param density: The material density in kg/m³. Must be greater than 0.001.
+    :type density: float
+
+.. py:method:: vrdPhysicsObjectNode.setForce(force)
+
+    Set the force vector to apply to the physics object.
+
+    The force is always specified in Newtons (N) regardless of scene unit mode, and is automatically converted to scene units internally. The actual units depend on the force mode:
+
+    Force: Newtons (N) - continuous force affected by massImpulse: Newton-seconds (N·s) - instantaneous impulse affected by mass, auto-disables after applicationVelocity Change: meters/second (m/s) - direct velocity change, mass independentAcceleration: meters/second² (m/s²) - direct acceleration, mass independent
+
+    :param force: The force vector. Always specified in Newtons.
+    :type force: QVector3D
+
+.. py:method:: vrdPhysicsObjectNode.setForceEnabled(enabled)
+
+    Enable or disable continuous force application.
+
+    When enabled, the force and torque vectors are applied every frame according to the selected force mode. When disabled, no forces are applied.
+
+    :param enabled: True to enable force application, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsObjectNode.setForceMode(mode)
+
+    Set the force application mode.
+
+    The force mode determines how forces and torques are applied:
+
+    Force: Continuous force affected by mass/inertia (N, N·m) - applied every frame while enabledImpulse: Instantaneous impulse affected by mass/inertia (N·s, N·m·s) - applied once then auto-disablesVelocity Change: Direct velocity change ignoring mass/inertia (m/s, rad/s) - applied every frame while enabledAcceleration: Direct acceleration ignoring mass/inertia (m/s², rad/s²) - applied every frame while enabled
+
+    :param mode: The desired force application mode.
+    :type mode: vrPhysicsTypes.ForceMode
+
+.. py:method:: vrdPhysicsObjectNode.setForceWorldFrame(worldFrame)
+
+    Set whether forces are applied in world or local coordinates.
+
+    When enabled, force and torque are applied in world coordinates. When disabled, they are applied in local object coordinates.
+
+    :param worldFrame: True to use world coordinates, false to use local coordinates.
+    :type worldFrame: bool
+
+.. py:method:: vrdPhysicsObjectNode.setGravityEnabled(gravityEnabled)
+
+    Enable or disable gravity for this physics object.
+
+    When disabled, this object will not be affected by the scene's global gravity settings, allowing it to float in space.
+
+    :param gravityEnabled: True to enable gravity, false to disable.
+    :type gravityEnabled: bool
+
+.. py:method:: vrdPhysicsObjectNode.setHighlightEnabled(highlightEnabled)
+
+    Set whether collision highlighting should be enabled for this physics object.
+
+    :param highlightEnabled: True to enable highlighting, false to disable.
+    :type highlightEnabled: bool
+
+.. py:method:: vrdPhysicsObjectNode.setInternal(internal)
+
+    Set whether this physics object is internal (system-created, temporary).
+
+    Internal physics objects are typically created by the system during VR sessions (e.g., for avatars, tracking markers, controllers) and are hidden from the physics tree UI.
+
+    :param internal: True to mark as internal, false for user-created objects.
+    :type internal: bool
+
+.. py:method:: vrdPhysicsObjectNode.setLinearDamping(linearDamping)
+
+    Set the linear velocity damping factor.
+
+    Linear damping simulates air resistance or friction, causing objects to gradually lose linear velocity. Higher values cause faster energy loss.
+
+    :param linearDamping: The linear damping factor. Must be >= 0.0.
+    :type linearDamping: float
+
+.. py:method:: vrdPhysicsObjectNode.setLockAngularX(lockAngularX)
+
+    Lock or unlock angular motion around the X axis.
+
+    :param lockAngularX: True to lock X-axis rotation, false to unlock.
+    :type lockAngularX: bool
+
+.. py:method:: vrdPhysicsObjectNode.setLockAngularY(lockAngularY)
+
+    Lock or unlock angular motion around the Y axis.
+
+    :param lockAngularY: True to lock Y-axis rotation, false to unlock.
+    :type lockAngularY: bool
+
+.. py:method:: vrdPhysicsObjectNode.setLockAngularZ(lockAngularZ)
+
+    Lock or unlock angular motion around the Z axis.
+
+    :param lockAngularZ: True to lock Z-axis rotation, false to unlock.
+    :type lockAngularZ: bool
+
+.. py:method:: vrdPhysicsObjectNode.setLockLinearX(lockLinearX)
+
+    Lock or unlock linear motion along the X axis.
+
+    :param lockLinearX: True to lock X-axis translation, false to unlock.
+    :type lockLinearX: bool
+
+.. py:method:: vrdPhysicsObjectNode.setLockLinearY(lockLinearY)
+
+    Lock or unlock linear motion along the Y axis.
+
+    :param lockLinearY: True to lock Y-axis translation, false to unlock.
+    :type lockLinearY: bool
+
+.. py:method:: vrdPhysicsObjectNode.setLockLinearZ(lockLinearZ)
+
+    Lock or unlock linear motion along the Z axis.
+
+    :param lockLinearZ: True to lock Z-axis translation, false to unlock.
+    :type lockLinearZ: bool
+
+.. py:method:: vrdPhysicsObjectNode.setMass(mass)
+
+    Set the total mass of the physics object.
+
+    When mass is set, density is automatically recalculated based on volume. The relationship is: mass = density × volume.
+
+    :param mass: The mass in kilograms. Must be greater than 0.001.
+    :type mass: float
+
+.. py:method:: vrdPhysicsObjectNode.setMaxAngularVelocity(maxAngularVelocity)
+
+    Set the maximum angular velocity limit.
+
+    This prevents objects from spinning unrealistically fast. The limit is applied to the angular velocity magnitude.
+
+    :param maxAngularVelocity: The maximum angular velocity in rad/s. Must be >= 0.0.
+    :type maxAngularVelocity: float
+
+.. py:method:: vrdPhysicsObjectNode.setMaxDepenetrationVelocity(velocity)
+
+    Set the maximum depenetration velocity.
+
+    This limits how fast objects can separate when they penetrate each other, helping to stabilize chain and joint systems.
+
+    :param velocity: The maximum depenetration velocity in m/s. Must be >= 0.0.
+    :type velocity: float
+
+.. py:method:: vrdPhysicsObjectNode.setMaxLinearVelocity(maxLinearVelocity)
+
+    Set the maximum linear velocity limit.
+
+    This clamps the linear velocity to prevent objects from moving unrealistically fast. Only applies when infinite linear velocity is disabled.
+
+    :param maxLinearVelocity: The maximum linear velocity in m/s. Must be >= 0.0.
+    :type maxLinearVelocity: float
+
+.. py:method:: vrdPhysicsObjectNode.setMinCCDAdvanceCoefficient(threshold)
+
+    Set the minimum CCD advance coefficient.
+
+    This controls how far CCD advances per step. Lower values provide more accurate collision detection but may impact performance.
+
+    :param threshold: The minimum CCD advance coefficient (0.0 to 1.0).
+    :type threshold: float
+
+.. py:method:: vrdPhysicsObjectNode.setSleepThreshold(sleepThreshold)
+
+    Set the motion threshold below which objects go to sleep.
+
+    When an object's motion falls below this threshold, it is put to sleep to improve performance. Sleeping objects are not simulated until woken by a collision or force.
+
+    :param sleepThreshold: The motion threshold in m/s². Must be >= 0.0.
+    :type sleepThreshold: float
+
+.. py:method:: vrdPhysicsObjectNode.setSpeculativeCcdEnabled(enabled)
+
+    Enable or disable speculative CCD.
+
+    Speculative CCD uses predictive algorithms to handle fast rotations, improving performance with objects that have significant angular motion. Only applies to non-kinematic dynamic bodies.
+
+    :param enabled: True to enable speculative CCD, false to disable.
+    :type enabled: bool
+
+.. py:method:: vrdPhysicsObjectNode.setStabilizationThreshold(stabilizationThreshold)
+
+    Set the threshold for stabilization to prevent micro-oscillations.
+
+    This threshold helps prevent small oscillations that can occur in stable configurations, improving simulation stability and performance.
+
+    :param stabilizationThreshold: The stabilization threshold in (m/s)². Must be >= 0.0.
+    :type stabilizationThreshold: float
+
+.. py:method:: vrdPhysicsObjectNode.setTorque(torque)
+
+    Set the torque vector to apply to the physics object.
+
+    The torque is always specified in Newton-meters (N·m) regardless of scene unit mode, and is automatically converted to scene units internally. The actual units depend on the force mode:
+
+    Force: Newton-meters (N·m) - continuous torque affected by inertiaImpulse: Newton-meter-seconds (N·m·s) - instantaneous angular impulse affected by inertia, auto-disables after applicationVelocity Change: radians/second (rad/s) - direct angular velocity change, inertia independentAcceleration: radians/second² (rad/s²) - direct angular acceleration, inertia independent
+
+    :param torque: The torque vector. Always specified in Newton-meters.
+    :type torque: QVector3D
+
+.. py:method:: vrdPhysicsObjectNode.setUseInfiniteLinearVelocity(useInfiniteLinearVelocity)
+
+    Enable or disable infinite linear velocity mode.
+
+    When enabled, the linear velocity clamp is disabled and PhysX uses its maximum supported value. When disabled, the maxLinearVelocity limit is applied.
+
+    :param useInfiniteLinearVelocity: True to disable velocity clamping, false to enable it.
+    :type useInfiniteLinearVelocity: bool
+
+.. py:method:: vrdPhysicsObjectNode.setWakeCounter(wakeCounter)
+
+    Set the wake counter value.
+
+    The wake counter determines how long an object stays awake after being woken. Higher values keep objects active longer, preventing premature sleep.
+
+    :param wakeCounter: The wake counter in seconds. Must be >= 0.0.
+    :type wakeCounter: float
+

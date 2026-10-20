@@ -1,0 +1,43 @@
+MODULE vrSpeech (legacy v1 API)
+
+--------
+vrSpeech
+--------
+
+Text to speech
+
+Examples::
+
+    See also example speech.py
+
+Summary
+=======
+
+Classes:
+    * vrSpeech
+
+Functions:
+    * setVoiceType(id)
+    * speak(text)
+
+.. class:: vrSpeech(text)
+
+    Text to speech
+
+    Examples::
+
+        See also example speech.py
+
+.. function:: speak(text)
+
+    Speaks a text
+
+    :param text: Text to speak
+    :type text: string
+
+.. function:: setVoiceType(id)
+
+    Sets the voice type id
+
+    :param id: id of voice
+    :type id: integer

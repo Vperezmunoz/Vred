@@ -1,0 +1,72 @@
+--------------
+vrdRayFileInfo
+--------------
+
+.. py:class:: vrdRayFileInfo
+
+(Inherits vrdData)
+
+Interface to ray files.
+
+Holds information about a ray file.
+
+Summary
+=======
+
+Functions:
+    * getLuminousPower() → float
+    * getNumberOfRays() → integer
+    * getScalingFactor() → float
+    * getSpectralInformationString() → string
+    * vrdRayFileInfo(luminousPower, numberOfRays, scalingFactor, spectralInformationString)
+    * vrdRayFileInfo()
+    * vrdRayFileInfo(other)
+
+Functions
+=========
+
+.. py:method:: vrdRayFileInfo.getLuminousPower()
+
+    :return: Luminous power
+    :rtype: float
+
+.. py:method:: vrdRayFileInfo.getNumberOfRays()
+
+    :return: Number of rays
+    :rtype: integer
+
+.. py:method:: vrdRayFileInfo.getScalingFactor()
+
+    :return: Scaling factor
+    :rtype: float
+
+.. py:method:: vrdRayFileInfo.getSpectralInformationString()
+
+    :return: Spectral information string
+    :rtype: string
+
+.. py:method:: vrdRayFileInfo.vrdRayFileInfo(luminousPower, numberOfRays, scalingFactor, spectralInformationString)
+
+    Create a ray file information object. In general this is not created by the user but returned by a         vrdRayFile to provide information about the used ray file.
+
+    :param luminousPower:
+    :type luminousPower: float
+
+    :param numberOfRays:
+    :type numberOfRays: integer
+
+    :param scalingFactor:
+    :type scalingFactor: float
+
+    :param spectralInformationString:
+    :type spectralInformationString: string
+
+.. py:method:: vrdRayFileInfo.vrdRayFileInfo()
+   :no-index:
+
+.. py:method:: vrdRayFileInfo.vrdRayFileInfo(other)
+   :no-index:
+
+    :param other:
+    :type other: vrdRayFileInfo
+

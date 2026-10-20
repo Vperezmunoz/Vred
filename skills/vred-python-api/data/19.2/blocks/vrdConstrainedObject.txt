@@ -1,0 +1,10 @@
+--------------------
+vrdConstrainedObject
+--------------------
+
+.. py:class:: vrdConstrainedObject
+
+(Inherits vrdConstraintObject)
+
+This constraint object represents constrained nodes in all constraint types. It defines how target node transformations are applied to constrained nodes and serves as the base class for all constraint-specific constrained objects. To obtain derived constraint objects, see vrdConstraintNode::getConstrainedObject(vrdNode).
+

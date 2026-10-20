@@ -1,0 +1,197 @@
+-------------
+vrdOpenGLInfo
+-------------
+
+.. py:class:: vrdOpenGLInfo
+
+(Inherits vrdObject)
+
+This class is part of     vrGPUService.
+
+Provides access to information about the active OpenGL renderer. This can either be graphics hardware or a software based renderer like LLVMPipe.
+
+Summary
+=======
+
+Functions:
+    * getAvailableVideoMemorySize() → integer
+    * getDriverVersion() → List[integer]
+    * getExtensions() → List[string]
+    * getGLSLVersion() → integer
+    * getMax3DTextureSize() → integer
+    * getMaxArrayTextureLayers() → integer
+    * getMaxCubeMapTextureSize() → integer
+    * getMaxTextureImageUnits() → integer
+    * getMaxTextureSize() → integer
+    * getMaxTextureUnits() → integer
+    * getNumMulticastGPUs() → integer
+    * getOpenGLRenderer() → string
+    * getOpenGLVendor() → string
+    * getTextureMaxAnisotropy() → float
+    * getVersion() → float
+    * getVideoMemorySize() → integer
+    * hasExtension(extension) → bool
+    * hasFeature(feature) → bool
+    * hasShadingRateImageSupport() → bool
+    * isVendor(vendor) → bool
+
+Functions
+=========
+
+.. py:method:: vrdOpenGLInfo.getAvailableVideoMemorySize()
+
+    Returns the available video memory size in Kb.
+
+    This is only available on NVidia and AMD hardware.
+
+    :return: The available video memory size.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getDriverVersion()
+
+    Returns the version number of the active OpenGL driver.
+
+    The version number is returned as a list with three components: [major, minor, build].
+
+    :return: The driver version.
+    :rtype: List[integer]
+
+.. py:method:: vrdOpenGLInfo.getExtensions()
+
+    Returns a list of available OpenGL extensions.
+
+    :return: The list of extensions.
+    :rtype: List[string]
+
+.. py:method:: vrdOpenGLInfo.getGLSLVersion()
+
+    Gets the GLSL version.
+
+    :return: The GLSL version.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getMax3DTextureSize()
+
+    Gets the maximum number of 3D texture size.
+
+    :return: The maximum number 3D texture size.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getMaxArrayTextureLayers()
+
+    Gets the maximum number of texture array layers.
+
+    :return: The maximum number texture array layers.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getMaxCubeMapTextureSize()
+
+    Gets the maximum number of texture cube map size.
+
+    :return: The maximum number texture cube map size.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getMaxTextureImageUnits()
+
+    Gets the maximum number of texture image units.
+
+    :return: The maximum number texture image units.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getMaxTextureSize()
+
+    Returns the maximum allowed texture size.
+
+    :return: The maximum texture size in pixels.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getMaxTextureUnits()
+
+    Gets the maximum number of texture units.
+
+    :return: The maximum number texture units.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getNumMulticastGPUs()
+
+    Gets the number of available multicast GPUs.
+
+    :return: The number of multicast GPUs.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.getOpenGLRenderer()
+
+    Returns the name of the active OpenGL renderer.
+
+    This is either the name of the graphics card or an identifier for a software renderer like llvmpipe.
+
+    :return: The name of the OpenGL renderer.
+    :rtype: string
+
+.. py:method:: vrdOpenGLInfo.getOpenGLVendor()
+
+    Returns the vendor name of the OpenGL renderer.
+
+    :return: The OpenGL vendor name.
+    :rtype: string
+
+.. py:method:: vrdOpenGLInfo.getTextureMaxAnisotropy()
+
+    Returns the maximum level of anisotrophic filtering.
+
+    :return: The maximum level of anisotropy.
+    :rtype: float
+
+.. py:method:: vrdOpenGLInfo.getVersion()
+
+    Returns the OpenGL version.
+
+    :return: The OpenGL version.
+    :rtype: float
+
+.. py:method:: vrdOpenGLInfo.getVideoMemorySize()
+
+    Returns the maximum video size of the graphics hardware in Kb.
+
+    This is only available on NVidia and AMD hardware.
+
+    :return: The maximum video memory size.
+    :rtype: integer
+
+.. py:method:: vrdOpenGLInfo.hasExtension(extension)
+
+    Check if the current renderer supports an OpenGL extension.
+
+    :param extension: The extension to check for
+    :type extension: string
+
+    :return: True if the extension is supported, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdOpenGLInfo.hasFeature(feature)
+
+    Query specific OpenGL features.
+
+    :param feature: The feature to query
+    :type feature: vrGPUTypes.OpenGLFeature
+
+    :return: True if the feature is supported, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdOpenGLInfo.hasShadingRateImageSupport()
+
+    Returns if the OpenGL shading rate extension is supported.
+
+    :return: True if shading rate image support is available, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdOpenGLInfo.isVendor(vendor)
+
+    Query the vendor of the GPU.
+
+    :param vendor: The vendor
+    :type vendor: vrGPUTypes.OpenGLVendor
+
+    :return: True if the specified vendor matches, False otherwise.
+    :rtype: bool
+

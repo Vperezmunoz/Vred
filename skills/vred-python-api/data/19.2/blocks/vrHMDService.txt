@@ -1,0 +1,346 @@
+------------
+vrHMDService
+------------
+
+.. py:class:: vrHMDService
+
+(Inherits vrBaseService)
+
+Gives access to a Virtual Reality HMD (Head-mounted display) like the HTC Vive or Oculus.
+
+Summary
+=======
+
+Functions:
+    * getActiveOpenXRRuntimeName() → string
+    * getActiveOpenXRSystemName() → string
+    * getDefaultRenderMode() → vrXRealityTypes.XRRenderMode
+    * getDepthTextureEnabled() → bool
+    * getEyeGaze() → vrdEyeGaze
+    * getEyeTrackingEnabled() → bool
+    * getFovealRegionSize() → float
+    * getFoveatedRenderingEnabled() → bool
+    * getFoveatedRenderingQuality(preset) → vrdFoveatedQuality
+    * getFoveatedRenderingQualityPreset() → vrRenderTypes.FoveatedQualityPreset
+    * getMixedRealityDepthEstimationEnabled() → bool
+    * getMixedRealityEyeOffsetPercentage() → float
+    * getMixedRealityHandDepthEstimationEnabled() → bool
+    * getOpenXRDepthLayerCompositionEnabled() → bool
+    * getVarjoRenderSettings() → vrdVarjoRenderSettings
+    * getXRRenderMode() → vrXRealityTypes.XRRenderMode
+    * isEyeTrackingActive() → bool
+    * isHmdActive() → bool
+    * isMarkerTrackingSupported() → bool
+    * isMixedRealityDepthEstimationSupported() → bool
+    * isMixedRealitySupported() → bool
+    * isXRRenderModeSupported(mode) → bool
+    * setDefaultRenderMode(mode)
+    * setDepthTextureEnabled(enabled)
+    * setEyeTrackingEnabled(enabled)
+    * setFovealRegionSize(size)
+    * setFoveatedRenderingCustomQuality(quality)
+    * setFoveatedRenderingEnabled(enabled)
+    * setFoveatedRenderingQualityPreset(preset)
+    * setMixedRealityDepthEstimationEnabled(enabled)
+    * setMixedRealityEyeOffsetPercentage(offset)
+    * setMixedRealityHandDepthEstimationEnabled(enabled)
+    * setOpenXRDepthLayerCompositionEnabled(enable)
+    * setVarjoRenderSettings(settings)
+    * setXRRenderMode(mode)
+
+Signals:
+    * eyeGazeChanged()
+    * foveatedRenderingStateChanged(enabled)
+    * handDepthEstimationChanged(enabled)
+    * hmdStatusChanged(active)
+    * hmdStatusWillChange(active)
+    * XRRenderModeChanged(mode)
+
+Functions
+=========
+
+.. py:method:: vrHMDService.getActiveOpenXRRuntimeName()
+
+    :return: Returns the active OpenXR runtime's name as a string
+    :rtype: string
+
+.. py:method:: vrHMDService.getActiveOpenXRSystemName()
+
+    :return: Returns the active OpenXR system's name as a string
+    :rtype: string
+
+.. py:method:: vrHMDService.getDefaultRenderMode()
+
+    Gets the render mode that will be used on HMD activation.
+
+    :return: The render mode
+    :rtype: vrXRealityTypes.XRRenderMode
+
+.. py:method:: vrHMDService.getDepthTextureEnabled()
+
+    Checks if depth textures for positional timewarp are enabled.
+
+    :return: True if enables, False if disabled
+    :rtype: bool
+
+.. py:method:: vrHMDService.getEyeGaze()
+
+    Returns tracked eye gaze data while eye tracking is active. Without eye tracking returns the forward looking ray of the HMD user. The gaze ray is in world coordinates.
+
+    Note: This is currently not available in OpenXR mode.
+
+    :return: Gaze data
+    :rtype: vrdEyeGaze
+
+.. py:method:: vrHMDService.getEyeTrackingEnabled()
+
+    Returns whether eye tracking should be enabled in VR. Please note this does not tell whether the HMD actually supports eye tracking or whether eye tracking is currently running. For the latter, use         vrHMDService.isEyeTrackingActive().
+
+    :return: True if enabled
+    :rtype: bool
+
+.. py:method:: vrHMDService.getFovealRegionSize()
+
+    Gets the size of the foveal region in foveated rendering mode.
+
+    :return: The foveal region size
+    :rtype: float
+
+.. py:method:: vrHMDService.getFoveatedRenderingEnabled()
+
+    Returns whether foveated rendering should be enabled in VR. Please note this does not tell whether the graphics card actually supports foveated rendering.
+
+    :return: True if enabled
+    :rtype: bool
+
+.. py:method:: vrHMDService.getFoveatedRenderingQuality(preset)
+
+    Gets the quality settings for a given preset.
+
+    :param preset: Preset for shading qualities used in foveated rendering mode.
+    :type preset: vrRenderTypes.FoveatedQualityPreset
+
+    :return: Quality settings
+    :rtype: vrdFoveatedQuality
+
+.. py:method:: vrHMDService.getFoveatedRenderingQualityPreset()
+
+    Gets the quality preset that is used for foveated rendering. Get the individual settings for the preset with getFoveatedRenderingQuality(vrRenderTypes::FoveatedQualityPreset).
+
+    :return: Current preset
+    :rtype: vrRenderTypes.FoveatedQualityPreset
+
+.. py:method:: vrHMDService.getMixedRealityDepthEstimationEnabled()
+
+    Checks if the depth testing for mixed reality is enabled.
+
+    :return: True if enabled (even if not available), false otherwise
+    :rtype: bool
+
+.. py:method:: vrHMDService.getMixedRealityEyeOffsetPercentage()
+
+    Get the offset between the camera and the eye for mixed reality in percentage.
+
+    :return: The offset between the eye and camera in range 0.0 to 1.0
+    :rtype: float
+
+.. py:method:: vrHMDService.getMixedRealityHandDepthEstimationEnabled()
+
+    Checks if the depth testing for mixed reality is enabled.
+
+    :return: True if enabled (even if not available), false otherwise
+    :rtype: bool
+
+.. py:method:: vrHMDService.getOpenXRDepthLayerCompositionEnabled()
+
+    :return: Returns if the depth composition layers should be submitted to OpenXR runtimes.
+    :rtype: bool
+
+.. py:method:: vrHMDService.getVarjoRenderSettings()
+
+    Get current render settings that are specific for the Varjo HMD.
+
+    :return: Render settings for Varjo HMD
+    :rtype: vrdVarjoRenderSettings
+
+.. py:method:: vrHMDService.getXRRenderMode()
+
+    Gets the currently set XR rendering mode.
+
+    :return: The currently set rendering mode, will return FullScene, if no seethrough capable HMD is attached
+    :rtype: vrXRealityTypes.XRRenderMode
+
+.. py:method:: vrHMDService.isEyeTrackingActive()
+
+    Returns whether eye tracking is currently active. It can only be active if enabled, while in VR and if the HMD has an eye tracker supported by VRED.
+
+    :return: True if active
+    :rtype: bool
+
+.. py:method:: vrHMDService.isHmdActive()
+
+    Check if an HMD (VR) display mode is active.
+
+    :return: True, if in HMD mode
+    :rtype: bool
+
+.. py:method:: vrHMDService.isMarkerTrackingSupported()
+
+    :return: True if the currently active HMD supports marker tracking
+    :rtype: bool
+
+.. py:method:: vrHMDService.isMixedRealityDepthEstimationSupported()
+
+    :return: True if the currently active HMD supports depth testing in mixed reality
+    :rtype: bool
+
+.. py:method:: vrHMDService.isMixedRealitySupported()
+
+    Checks if the currently activated HMD supports mixed reality.
+
+    :return: False if mixed reality is not supported or if no HMD is currently active, True otherwise
+    :rtype: bool
+
+.. py:method:: vrHMDService.isXRRenderModeSupported(mode)
+
+    Checks if a XR render mode is supported by the currently active HMD.
+
+    :param mode: The render mode
+    :type mode: vrXRealityTypes.XRRenderMode
+
+    :return: True if the render mode is supported, false otherwise
+    :rtype: bool
+
+.. py:method:: vrHMDService.setDefaultRenderMode(mode)
+
+    Sets the render mode that will be used on HMD activation.
+
+    :param mode: The render mode that is set on activation. If the mode is not FullScene and the HMD does not support Mixed Reality, it will activate FullScene mode on activation
+    :type mode: vrXRealityTypes.XRRenderMode
+
+.. py:method:: vrHMDService.setDepthTextureEnabled(enabled)
+
+    Enables/Disables depth textures for positional timewarp if available.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrHMDService.setEyeTrackingEnabled(enabled)
+
+    Enables or disables eye tracking in VR if supported by the connected HMD. If the option is set before VR mode is enabled, it is applied when entering VR. Enable eye tracking for foveated rendering.
+
+    :param enabled: True to enable Eye tracking, False to disable Eye tracking
+    :type enabled: bool
+
+.. py:method:: vrHMDService.setFovealRegionSize(size)
+
+    Sets the size of the foveal region in foveated rendering mode. See         vrHMDService.setFoveatedRenderingEnabled(enabled).
+
+    :param size: Foveal region size.
+    :type size: float
+
+.. py:method:: vrHMDService.setFoveatedRenderingCustomQuality(quality)
+
+    Allows to set a custom configuration for the shading qualities used in foveated rendering mode. Enable the custom quality by setting         vrHMDService.setFoveatedRenderingQualityPreset(preset) to Custom.
+
+    :param quality: Foveated shading qualities settings.
+    :type quality: vrdFoveatedQuality
+
+.. py:method:: vrHMDService.setFoveatedRenderingEnabled(enabled)
+
+    Enables or disables foveated rendering in VR. This requires the OpenGL Shading Rate Image extension which is supported by NVIDIA Turing graphics cards. If the option is set before VR mode is enabled, it is applied when entering VR.
+
+    :param enabled: True to enable, False to disable Foveated rendering.
+    :type enabled: bool
+
+.. py:method:: vrHMDService.setFoveatedRenderingQualityPreset(preset)
+
+    Set the quality preset used for foveated rendering.
+
+    :param preset: Preset for shading qualities used in foveated rendering mode.
+    :type preset: vrRenderTypes.FoveatedQualityPreset
+
+.. py:method:: vrHMDService.setMixedRealityDepthEstimationEnabled(enabled)
+
+    Enables/Disables depth testing for mixed reality if supported. Depth testing allows the real world to occlude parts of the rendered image.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrHMDService.setMixedRealityEyeOffsetPercentage(offset)
+
+    Set the offset between the camera and the eye for mixed reality in percentage. This is needed to match the mr videos point of view to the renderings point of view.
+
+    :param offset: The offset between eye and camera in range 0.0 to 1.0
+    :type offset: float
+
+.. py:method:: vrHMDService.setMixedRealityHandDepthEstimationEnabled(enabled)
+
+    Enables/Disables depth testing for mixed reality if supported. Depth testing allows the real world hands to occlude parts of the rendered image.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrHMDService.setOpenXRDepthLayerCompositionEnabled(enable)
+
+    Enables or disables the submission of depth composition layers to provide depth information to OpenXR runtimes, which can be used for positional time warp or mixed reality for example. Note this might not be supported for all runtimes or HMDs.
+
+    :param enable: True to enable, False to disable
+    :type enable: bool
+
+.. py:method:: vrHMDService.setVarjoRenderSettings(settings)
+
+    Apply specific render settings for the Varjo HMD. Changes to these settings take effect on next activation of Varjo HMD mode.
+
+    :param settings:
+    :type settings: vrdVarjoRenderSettings
+
+.. py:method:: vrHMDService.setXRRenderMode(mode)
+
+    Sets the XR rendering mode of the HMD if available.
+
+    :param mode: The rendering mode
+    :type mode: vrXRealityTypes.XRRenderMode
+
+Signals
+=======
+
+.. py:method:: vrHMDService.eyeGazeChanged()
+
+    This signal is triggered every frame while eye tracking is active.
+
+.. py:method:: vrHMDService.foveatedRenderingStateChanged(enabled)
+
+    This signal is triggered when the state of foveated rendering changed.
+
+    :param enabled: True, if foveated rendering is enabled.
+    :type enabled: bool
+
+.. py:method:: vrHMDService.handDepthEstimationChanged(enabled)
+
+    This signal is triggered when the depth testing in MR has been enabled or disabled.
+
+    :param enabled: True, if depth testing has been enabled, false otherwise
+    :type enabled: bool
+
+.. py:method:: vrHMDService.hmdStatusChanged(active)
+
+    This signal is triggered when HMD (VR) display mode is switched on or off.
+
+    :param active: True, if HMD mode has been switched on
+    :type active: bool
+
+.. py:method:: vrHMDService.hmdStatusWillChange(active)
+
+    This signal is triggered just before the HMD (VR) display mode is switched on or off.
+
+    :param active: True, if HMD mode will be switched on, False otherwise
+    :type active: bool
+
+.. py:method:: vrHMDService.XRRenderModeChanged(mode)
+
+    This signal is triggered when the XR render mode has changed.
+
+    :param mode: The mode to which rendering has been switched.
+    :type mode: vrXRealityTypes.XRRenderMode
+

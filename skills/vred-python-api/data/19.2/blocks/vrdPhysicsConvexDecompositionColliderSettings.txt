@@ -1,0 +1,168 @@
+---------------------------------------------
+vrdPhysicsConvexDecompositionColliderSettings
+---------------------------------------------
+
+.. py:class:: vrdPhysicsConvexDecompositionColliderSettings
+
+(Inherits vrdPhysicsHullColliderSettings)
+
+The     vrdPhysicsConvexDecompositionColliderSettings class represents collider settings for physics objects produced by convex decomposition.
+
+This configuration class is used to specify the properties of physics objects that are produced by convex decomposition. Convex decomposition is a process that takes a complex mesh and breaks it down into a set of convex hulls that approximate the original mesh. This is useful for creating physics objects from non convex meshes that are more precise than a simple convex hull. If possible, this should be prefered over the use of triangle meshes.
+
+The library used for convex decomposition is the v-hacd library (Hierarchical Approximate Convex Decomposition):     https://github.com/kmammou/v-hacd. Its documentation contains more information about the parameters that can be set in this configuration class. Almost all of its parameters are exposded here and can be set in this class to fine-tune the decomposition process
+
+Summary
+=======
+
+Functions:
+    * getAsync() → bool
+    * getFillMode() → integer
+    * getMaxNumberOfConvexHulls() → integer
+    * getMaxNumVerticesPerHull() → integer
+    * getMaxRecursionDepth() → integer
+    * getMinEdgeLength() → integer
+    * getMinimumVolumePercentErrorAllowed() → float
+    * getResolution() → integer
+    * setAsync(mode)
+    * setFillMode(mode)
+    * setMaxNumberOfConvexHulls(numHulls)
+    * setMaxNumVerticesPerHull(numVertices)
+    * setMaxRecursionDepth(depth)
+    * setMinEdgeLength(length)
+    * setMinimumVolumePercentErrorAllowed(percent)
+    * setResolution(resolution)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getAsync()
+
+    Get whether decomposition runs asynchronously.
+
+    :return: True if asynchronous, false if synchronous.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getFillMode()
+
+    Get the voxel fill algorithm.
+
+    :return: The fill mode (0, 1, or 2).
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getMaxNumberOfConvexHulls()
+
+    Get the maximum number of convex hulls to generate.
+
+    :return: The maximum number of hulls (1-1024).
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getMaxNumVerticesPerHull()
+
+    Get the maximum number of vertices per convex hull.
+
+    :return: The maximum vertices per hull (4-256).
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getMaxRecursionDepth()
+
+    Get the maximum recursion depth.
+
+    :return: The maximum recursion depth (0-15). 0 means no recursion.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getMinEdgeLength()
+
+    Get the minimum edge length for recursion termination.
+
+    :return: The minimum edge length (0-500).
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getMinimumVolumePercentErrorAllowed()
+
+    Get the minimum acceptable volume approximation error.
+
+    :return: The volume percent error (0.0 to 100.0).
+    :rtype: float
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.getResolution()
+
+    Get the voxel resolution for convex decomposition.
+
+    :return: The voxel resolution.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setAsync(mode)
+
+    Set whether decomposition runs asynchronously.
+
+    When enabled, decomposition runs in the background without blocking the main thread.
+
+    :param mode: True to run asynchronously, false to run synchronously.
+    :type mode: bool
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setFillMode(mode)
+
+    Set the voxel fill algorithm for convex decomposition.
+
+    The fill mode determines how voxels are filled during decomposition:
+
+    0: Flood Fill Mode1: Surface Only Mode2: Raycast Fill Mode
+
+    :param mode: The fill mode (0, 1, or 2).
+    :type mode: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setMaxNumberOfConvexHulls(numHulls)
+
+    Set the maximum number of convex hulls to generate.
+
+    This limits how many convex hulls can be created during decomposition. More hulls provide better accuracy but increase computation time and memory usage.
+
+    :param numHulls: The maximum number of hulls. Must be between 1 and 1024.
+    :type numHulls: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setMaxNumVerticesPerHull(numVertices)
+
+    Set the maximum number of vertices per convex hull.
+
+    This limits the complexity of each generated convex hull. Lower values create simpler hulls but may require more hulls to approximate the shape.
+
+    :param numVertices: The maximum vertices per hull. Must be between 4 and 256.
+    :type numVertices: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setMaxRecursionDepth(depth)
+
+    Set the maximum recursion depth for decomposition.
+
+    This controls how many levels of recursive decomposition are performed. Higher values allow more detailed decomposition but take longer. A value of 0 means no recursion.
+
+    :param depth: The maximum recursion depth. Must be between 0 and 15.
+    :type depth: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setMinEdgeLength(length)
+
+    Set the minimum edge length for recursion termination.
+
+    During recursive decomposition, edges shorter than this value will not be split further. This helps control the level of detail in the decomposition.
+
+    :param length: The minimum edge length. Must be between 0 and 500.
+    :type length: integer
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setMinimumVolumePercentErrorAllowed(percent)
+
+    Set the minimum acceptable volume approximation error.
+
+    This controls the quality of the decomposition. Lower values require more accurate volume approximation, potentially requiring more hulls.
+
+    :param percent: The minimum volume percent error allowed (0.0 to 100.0).
+    :type percent: float
+
+.. py:method:: vrdPhysicsConvexDecompositionColliderSettings.setResolution(resolution)
+
+    Set the voxel resolution for convex decomposition.
+
+    Higher resolution provides more accurate decomposition but takes longer to compute. The resolution determines the number of voxels along each axis of the decomposition grid.
+
+    :param resolution: The voxel resolution. Must be >= 1. Higher values provide better accuracy.
+    :type resolution: integer
+

@@ -1,0 +1,50 @@
+------------
+vrdShadowMap
+------------
+
+.. py:class:: vrdShadowMap
+
+(Inherits vrdSceneObject)
+
+This class gives access to settings of shadow maps in OpenGL and Vulkan rendering.
+
+Summary
+=======
+
+Functions:
+    * getFilterRadius() → float
+    * getResolution() → integer
+    * setFilterRadius(radius)
+    * setResolution(resolution)
+
+Functions
+=========
+
+.. py:method:: vrdShadowMap.getFilterRadius()
+
+    Returns the radius used for shadow map filtering.
+
+    :return: The radius for shadow map filtering.
+    :rtype: float
+
+.. py:method:: vrdShadowMap.getResolution()
+
+    Returns the resolution of the shadow map.
+
+    :return: The resolution of the shadow map.
+    :rtype: integer
+
+.. py:method:: vrdShadowMap.setFilterRadius(radius)
+
+    Sets the radius for shadow map filtering.
+
+    :param radius: The radius for shadow map filtering
+    :type radius: float
+
+.. py:method:: vrdShadowMap.setResolution(resolution)
+
+    Sets the resolution of the shadow map.
+
+    :param resolution: The resolution of the shadow map.
+    :type resolution: integer
+

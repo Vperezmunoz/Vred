@@ -1,0 +1,50 @@
+-------------------
+vrdLensFlareElement
+-------------------
+
+.. py:class:: vrdLensFlareElement
+
+(Inherits vrdSceneObject)
+
+This is the base class of all lens flare effect classes. The Light Service works with objects of this class, but behind which objects derived from this class are hidden.
+
+Summary
+=======
+
+Functions:
+    * getIsActive() → bool
+    * getName() → string
+    * setIsActive(active)
+    * setName(name)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareElement.getIsActive()
+
+    Returns activation state of the lens flare element.
+
+    :return: Activation state of the lens flare element
+    :rtype: bool
+
+.. py:method:: vrdLensFlareElement.getName()
+
+    Returns name of this lens flare element.
+
+    :return: Name of this lens flare element
+    :rtype: string
+
+.. py:method:: vrdLensFlareElement.setIsActive(active)
+
+    Each lens flare element can be inactive for a while. The element will be hidden if is inactive. This method set the activation state of a lens flare element.
+
+    :param active: New activation state of the lens flare element
+    :type active: bool
+
+.. py:method:: vrdLensFlareElement.setName(name)
+
+    Each lens flare has a name. The name must not be unique. This method set the name.
+
+    :param name: The new name of the lens flare element.
+    :type name: string
+

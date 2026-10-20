@@ -1,0 +1,32 @@
+----------------
+vrdClipPlaneNode
+----------------
+
+.. py:class:: vrdClipPlaneNode
+
+(Inherits vrdTransformNode)
+
+This class provides access to clip planes.
+
+Summary
+=======
+
+Functions:
+    * getEnabled() → bool
+    * setEnabled(value)
+
+Functions
+=========
+
+.. py:method:: vrdClipPlaneNode.getEnabled()
+
+    :return: True if the clip plane is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdClipPlaneNode.setEnabled(value)
+
+    Enables or disables the clip plane.
+
+    :param value: True to enable the clip plane.
+    :type value: bool
+

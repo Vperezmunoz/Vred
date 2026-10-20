@@ -1,0 +1,33 @@
+-----------
+vrFileTypes
+-----------
+
+.. py:class:: vrFileTypes
+
+    .. py:class:: FileExtensionFilterMode
+
+            .. py:data:: NativeFileTypes
+
+            .. py:data:: ExternalFileTypes
+
+            .. py:data:: PythonFileType
+
+            .. py:data:: AllFileTypes
+
+    .. py:class:: TextureCompressionMode
+
+        Defines the texture compression for osb/vpb export.
+
+            .. py:data:: None_
+               :no-index:
+
+                No compression is used.
+
+            .. py:data:: Lossless
+
+                A lossless png compression is used.
+
+            .. py:data:: Lossy
+
+                A lossy jpeg compression is used. This setting takes the quality value into account.
+

@@ -1,0 +1,96 @@
+----------------
+vrdLensFlareRing
+----------------
+
+.. py:class:: vrdLensFlareRing
+
+(Inherits vrdLensFlareFxElement)
+
+Summary
+=======
+
+Functions:
+    * getChromaticAberration() → QVector3D
+    * getIsChromaticAberrationActive() → bool
+    * getNumberOfStreaks() → integer
+    * getStreakThickness() → float
+    * getThickness() → float
+    * setChromaticAberration(chromaticAberration)
+    * setIsChromaticAberrationActive(isActive)
+    * setNumberOfStreaks(numberOfStreaks)
+    * setStreakThickness(streakThickness)
+    * setThickness(thickness)
+
+Functions
+=========
+
+.. py:method:: vrdLensFlareRing.getChromaticAberration()
+
+    Get used chromatic aberration values as RGB.
+
+    :return: Used chromatic aberration
+    :rtype: QVector3D
+
+.. py:method:: vrdLensFlareRing.getIsChromaticAberrationActive()
+
+    Get activation state the usage of chromatic aberration.
+
+    :return: Activation state the usage of chromatic aberration
+    :rtype: bool
+
+.. py:method:: vrdLensFlareRing.getNumberOfStreaks()
+
+    Get how many arms a Ring element has.
+
+    :return: Count of arms of Ring element
+    :rtype: integer
+
+.. py:method:: vrdLensFlareRing.getStreakThickness()
+
+    Get the thickness of the segments.
+
+    :return: Thickness of the segments
+    :rtype: float
+
+.. py:method:: vrdLensFlareRing.getThickness()
+
+    Get the current used thickness of the effect.
+
+    :return: Thickness of the effect
+    :rtype: float
+
+.. py:method:: vrdLensFlareRing.setChromaticAberration(chromaticAberration)
+
+    Use chromatic aberration with the lens flare element to distort the colors.
+
+    :param chromaticAberration: New Chromatic Aberration
+    :type chromaticAberration: QVector3D
+
+.. py:method:: vrdLensFlareRing.setIsChromaticAberrationActive(isActive)
+
+    Activate the usage of chromatic aberration.
+
+    :param isActive: New activation state the usage of chromatic aberration
+    :type isActive: bool
+
+.. py:method:: vrdLensFlareRing.setNumberOfStreaks(numberOfStreaks)
+
+    Use to set how many arms a Ring element has.
+
+    :param numberOfStreaks: New count of arms of Ring element
+    :type numberOfStreaks: integer
+
+.. py:method:: vrdLensFlareRing.setStreakThickness(streakThickness)
+
+    Controls the thickness of the segments.
+
+    :param streakThickness: New thickness of the segments
+    :type streakThickness: float
+
+.. py:method:: vrdLensFlareRing.setThickness(thickness)
+
+    Controls the thickness of the effect.
+
+    :param thickness: New thickness of the effect
+    :type thickness: float
+

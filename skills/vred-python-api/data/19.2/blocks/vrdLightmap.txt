@@ -1,0 +1,109 @@
+-----------
+vrdLightmap
+-----------
+
+.. py:class:: vrdLightmap
+
+(Inherits vrdSceneObject)
+
+This class gives access to a lightmap.
+
+Summary
+=======
+
+Functions:
+    * deleteTexture()
+    * getIlluminationBakeSettings() → vrdIlluminationBakeSettings
+    * getIlluminationPreview() → QImage
+    * getName() → string
+    * getShadowPreview() → QImage
+    * getSize() → QSize
+    * getTexture() → vrdImage
+    * getTextureBakeSettings() → vrdTextureBakeSettings
+    * getUseExternalReference() → bool
+    * setName(name)
+    * setTexture(image)
+    * setUseExternalReference(value)
+
+Functions
+=========
+
+.. py:method:: vrdLightmap.deleteTexture()
+
+    Deletes the texture image.
+
+.. py:method:: vrdLightmap.getIlluminationBakeSettings()
+
+    :return: The stored illumination settings which were used to bake the lightmap.
+    :rtype: vrdIlluminationBakeSettings
+
+.. py:method:: vrdLightmap.getIlluminationPreview()
+
+    :return: A preview image of the baked illumination.
+    :rtype: QImage
+
+.. py:method:: vrdLightmap.getName()
+
+    :return: The lightmap name.
+    :rtype: string
+
+.. py:method:: vrdLightmap.getShadowPreview()
+
+    :return: A preview image of the baked ambient occlusion or shadows.
+    :rtype: QImage
+
+.. py:method:: vrdLightmap.getSize()
+
+    :return: The size of the texture image in pixels.
+    :rtype: QSize
+
+.. py:method:: vrdLightmap.getTexture()
+
+    The image contains the data which is used for rendering.
+
+    VRED generates HDR lightmap textures, as follows:
+
+    For a base lightmap, the format is RGBA and the data type 16bit floating point. The channels RGB contain the direct and indirect lighting information depending on the used bake mode. The alpha channel holds the ambient occlusion or shadow data.
+
+    For a separate lightmap, the format is RGB and the data type 16 bit floating point, holding illumination values from light sources.
+
+    :return: The texture image.
+    :rtype: vrdImage
+
+.. py:method:: vrdLightmap.getTextureBakeSettings()
+
+    :return: The stored texture settings which were used to bake the lightmap.
+    :rtype: vrdTextureBakeSettings
+
+.. py:method:: vrdLightmap.getUseExternalReference()
+
+    :return: True if the lightmap texture should be externally referenced, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdLightmap.setName(name)
+
+    Sets the name of the lightmap.
+
+    The name is e.g. used to create the file name when exporting lightmap textures. It is normally kept once it exists.
+
+    :param name: The name of the lightmap.
+    :type name: string
+
+.. py:method:: vrdLightmap.setTexture(image)
+
+    Sets the texture image of the lightmap.
+
+    VRED expects the texture data to be in a certain format (see vrdLightmap.getTexture()). If the image contains VRED readable bake meta-data then those are set as the last used bake settings. Please note: The vrBakeTypes.DirectIlluminationMode determines how the renderer interprets the image data.
+
+    :param image: The lightmap texture.
+    :type image: vrdImage
+
+.. py:method:: vrdLightmap.setUseExternalReference(value)
+
+    Sets whether the lightmap texture should be externally referenced or not.
+
+    Externally referenced textures will not store its data within the VRED project file. Instead, only the file path to the image is stored. This option only takes effect if the lightmap was already saved as a file.
+
+    :param value: True for use as external reference, False otherwise.
+    :type value: bool
+

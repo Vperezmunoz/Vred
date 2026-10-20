@@ -1,0 +1,50 @@
+MODULE vrConstraints (legacy v1 API)
+
+-------------
+vrConstraints
+-------------
+
+.. module:: vrConstraints
+
+**Deprecated**. Use API v2 vrConstraintService instead.
+
+Summary
+=======
+
+Functions:
+    * createAimConstraint(sourceNames, upSourceNames, targetName)
+    * createRotationConstraint(sourceNames, targetName, maintainOffset)
+    * createTranslationConstraint(sourceNames, targetName, maintainOffset)
+
+.. function:: createTranslationConstraint(sourceNames, targetName, maintainOffset)
+
+    Creates a constraint between nodes: "sources" and "target".
+
+    :param sourceNames: The names of the source nodes.
+    :type sourceNames: list of string
+    :param targetName: The name of the target node.
+    :type targetName: string
+    :param maintainOffset: Maintain current offset.
+    :type maintainOffset: bool
+
+.. function:: createRotationConstraint(sourceNames, targetName, maintainOffset)
+
+    Creates a constraint between nodes: "sources" and "target".
+
+    :param sourceNames: The names of the source nodes.
+    :type sourceNames: list of string
+    :param targetName: The name of the target node.
+    :type targetName: string
+    :param maintainOffset: Maintain current offset.
+    :type maintainOffset: bool
+
+.. function:: createAimConstraint(sourceNames, upSourceNames, targetName)
+
+    Creates a constraint between nodes: "sources" and "target".
+
+    :param sourceNames: The names of the source nodes.
+    :type sourceNames: list of string
+    :param upSourceNames: The names of the up source nodes.
+    :type upSourceNames: list of string
+    :param targetName: The name of the target node.
+    :type targetName: string

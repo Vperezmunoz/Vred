@@ -1,0 +1,30 @@
+---------------------------
+vrdGLSLShaderParameterVec4f
+---------------------------
+
+.. py:class:: vrdGLSLShaderParameterVec4f
+
+(Inherits vrdGLSLShaderParameter)
+
+Summary
+=======
+
+Functions:
+    * getValue() → QVector4D
+    * setValue(value)
+
+Functions
+=========
+
+.. py:method:: vrdGLSLShaderParameterVec4f.getValue()
+
+    :return: The four components vector value of the shader parameter.
+    :rtype: QVector4D
+
+.. py:method:: vrdGLSLShaderParameterVec4f.setValue(value)
+
+    Sets the value of the shader parameter.
+
+    :param value: New value.
+    :type value: QVector4D
+

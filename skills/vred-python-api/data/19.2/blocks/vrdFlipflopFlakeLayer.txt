@@ -1,0 +1,146 @@
+---------------------
+vrdFlipflopFlakeLayer
+---------------------
+
+.. py:class:: vrdFlipflopFlakeLayer
+
+(Inherits vrdSceneObject)
+
+This class is used for all flip flop material layer properties.
+
+Summary
+=======
+
+Functions:
+    * getBlending() → float
+    * getColor1() → QVector3D
+    * getColor1Spectrum() → vrSpectrum
+    * getColor2() → QVector3D
+    * getColor2Spectrum() → vrSpectrum
+    * getIntensity() → float
+    * getRoughness() → float
+    * getSize() → float
+    * setBlending(value)
+    * setColor1(value)
+    * setColor1Spectrum(value)
+    * setColor2(value)
+    * setColor2Spectrum(value)
+    * setIntensity(value)
+    * setRoughness(roughness)
+    * setSize(value)
+
+Functions
+=========
+
+.. py:method:: vrdFlipflopFlakeLayer.getBlending()
+
+    Gets the mixture ratio of two flake colors.
+
+    :return: Current used mixture ratio of two flake colors.
+    :rtype: float
+
+.. py:method:: vrdFlipflopFlakeLayer.getColor1()
+
+    Gets the color of the flakes when viewed at an angle.
+
+    :return: Current color of the flakes viewed at an angle.
+    :rtype: QVector3D
+
+.. py:method:: vrdFlipflopFlakeLayer.getColor1Spectrum()
+
+    Gets the spectrum of the flakes viewed at an angle.
+
+    :return: The current used spectrum of the flakes viewed at an angle.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdFlipflopFlakeLayer.getColor2()
+
+    Gets the color of the flakes when viewed at normal incidence.
+
+    :return: Current used color of the flakes when viewed at normal incidence.
+    :rtype: QVector3D
+
+.. py:method:: vrdFlipflopFlakeLayer.getColor2Spectrum()
+
+    Gets the spectrum of the flakes when viewed at normal incidence.
+
+    :return: The current used spectrum of the flakes when viewed at normal incidence.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdFlipflopFlakeLayer.getIntensity()
+
+    Gets the amount of variation in the flake's normal directions.
+
+    :return: The current value of the variation in the flake's normal direcions.
+    :rtype: float
+
+.. py:method:: vrdFlipflopFlakeLayer.getRoughness()
+
+    Gets the roughness of the flake surfaces.
+
+    :return: Current roughness of the flake surfaces
+    :rtype: float
+
+.. py:method:: vrdFlipflopFlakeLayer.getSize()
+
+    Gets the flake's size.
+
+    :return: The current value of the flake's size.
+    :rtype: float
+
+.. py:method:: vrdFlipflopFlakeLayer.setBlending(value)
+
+    Defines the mixture ratio of two flake colors.
+
+    :param value: New used value for flake's color mixture ratio.
+    :type value: float
+
+.. py:method:: vrdFlipflopFlakeLayer.setColor1(value)
+
+    Sets the color of the flakes when viewed at an angle.
+
+    :param value: New color for the flakes viewed at an angle.
+    :type value: QVector3D
+
+.. py:method:: vrdFlipflopFlakeLayer.setColor1Spectrum(value)
+
+    Sets the spectrum of the flakes when viewed at an angle.
+
+    :param value: New spectrum for the flakes viewed at an angle
+    :type value: vrSpectrum
+
+.. py:method:: vrdFlipflopFlakeLayer.setColor2(value)
+
+    Sets the color of the flakes when viewed at normal incidence.
+
+    :param value: New color for the flakes when viewed at normal incidence.
+    :type value: QVector3D
+
+.. py:method:: vrdFlipflopFlakeLayer.setColor2Spectrum(value)
+
+    Sets the spectrum of the flakes when viewed at normal incidence.
+
+    :param value: New spectrum for the flakes when viewed at normal incidence.
+    :type value: vrSpectrum
+
+.. py:method:: vrdFlipflopFlakeLayer.setIntensity(value)
+
+    Sets the amount of variation in the flake's normal directions.
+
+    :param value: New value for the variation in the flake's normal direcions.
+    :type value: float
+
+.. py:method:: vrdFlipflopFlakeLayer.setRoughness(roughness)
+
+    Sets the roughness of the flake surfaces. A lower value represents a smoother surface resulting in more specular reflections while a higher value represents a rough surface resulting in a more diffuse reflections.
+
+    :param roughness: New value of the flake roughness
+    :type roughness: float
+
+.. py:method:: vrdFlipflopFlakeLayer.setSize(value)
+
+    Sets the flake's size. The higher the value, the larger the flakes in the paint.
+
+    :param value: New value of flake's size.
+    :type value: float
+

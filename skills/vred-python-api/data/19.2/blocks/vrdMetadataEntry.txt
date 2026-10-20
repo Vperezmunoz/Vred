@@ -1,0 +1,137 @@
+----------------
+vrdMetadataEntry
+----------------
+
+.. py:class:: vrdMetadataEntry
+
+(Inherits vrdObject)
+
+This class gives access to an entry of a     vrdMetadataSet.
+
+Each entry has a key and a value of a specific value type. The key must occur only once in a vrdMetadataSet. The same key can be used across different metadata sets.
+
+A tag is a special metadata entry. Old tags are converted to tag entries. A tag entry has the tag name as the key and a fixed value set to string "VRED-Tag".
+
+Summary
+=======
+
+Functions:
+    * getIcon() → QIcon
+    * getKey() → string
+    * getSet() → vrdMetadataSet
+    * getValue() → QVariant
+    * getValueAsColor() → QColor
+    * getValueAsMatrix(order) → QMatrix4x4
+    * getValueAsVector3D() → QVector3D
+    * getValueType() → vrMetadataTypes.ValueType
+    * isTag() → bool
+    * setKey(key)
+    * setTag(tag)
+    * setValue(value)
+    * setValueFromColor(color)
+    * setValueFromMatrix(matrix)
+    * setValueFromVector3D(vector)
+    * setValueType(valueType)
+
+Functions
+=========
+
+.. py:method:: vrdMetadataEntry.getIcon()
+
+    Each metadata set has an icon. Method to query the icon from the set, which contains this entry.
+
+    :return: The current used icon.
+    :rtype: QIcon
+
+.. py:method:: vrdMetadataEntry.getKey()
+
+    :return: The current key.
+    :rtype: string
+
+.. py:method:: vrdMetadataEntry.getSet()
+
+    :return: The set which contains this entry.
+    :rtype: vrdMetadataSet
+
+.. py:method:: vrdMetadataEntry.getValue()
+
+    :return: The current value.
+    :rtype: QVariant
+
+.. py:method:: vrdMetadataEntry.getValueAsColor()
+
+    :return: The current value as QColor if possible, otherwise returns QColor(). Can convert from list of integers (0..255) or floats (0..1).
+    :rtype: QColor
+
+.. py:method:: vrdMetadataEntry.getValueAsMatrix(order=vrMetadataTypes.MatrixOrder.RowMajor)
+
+    :param order: The order used to convert the float list to matrix
+    :type order: vrMetadataTypes.MatrixOrder
+
+    :return: The current value as QMatrix4x4 if possible, otherwise returns QMatrix4x4().
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdMetadataEntry.getValueAsVector3D()
+
+    :return: The current value as QVector3D if possible, otherwise returns QVector3D().
+    :rtype: QVector3D
+
+.. py:method:: vrdMetadataEntry.getValueType()
+
+    :return: The current value type.
+    :rtype: vrMetadataTypes.ValueType
+
+.. py:method:: vrdMetadataEntry.isTag()
+
+    :return: True, if this entry is a tag entry. In this case query the tag name with vrdMetadataEntry.getKey().
+    :rtype: bool
+
+.. py:method:: vrdMetadataEntry.setKey(key)
+
+    Sets a new key.
+
+    :param key: New key.
+    :type key: string
+
+.. py:method:: vrdMetadataEntry.setTag(tag)
+
+    Changes this entry to a tag entry with the given tag name. The key is set to the tag name, the value is set to string "VRED-Tag".
+
+    :param tag: The name of this tag.
+    :type tag: string
+
+.. py:method:: vrdMetadataEntry.setValue(value)
+
+    Method sets a new value. The value may be of any value type.
+
+    :param value: A QVariant, which contains the new value.
+    :type value: QVariant
+
+.. py:method:: vrdMetadataEntry.setValueFromColor(color)
+
+    Changes the value to a list of 4 floats (RGBA values).
+
+    :param color: New RGBA color value.
+    :type color: QColor
+
+.. py:method:: vrdMetadataEntry.setValueFromMatrix(matrix)
+
+    Changes the value to a list of 16 floats. Row-major order is used.
+
+    :param matrix: A QMatrix4x4 with float values.
+    :type matrix: QMatrix4x4
+
+.. py:method:: vrdMetadataEntry.setValueFromVector3D(vector)
+
+    Changes the value to a list of 3 floats.
+
+    :param vector: Vector with the new 3 float values.
+    :type vector: QVector3D
+
+.. py:method:: vrdMetadataEntry.setValueType(valueType)
+
+    Changes the value type of the entry and sets a default value of that type.
+
+    :param valueType: The new value type.
+    :type valueType: vrMetadataTypes.ValueType
+

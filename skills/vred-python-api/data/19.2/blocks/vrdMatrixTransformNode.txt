@@ -1,0 +1,32 @@
+----------------------
+vrdMatrixTransformNode
+----------------------
+
+.. py:class:: vrdMatrixTransformNode
+
+(Inherits vrdNode)
+
+This class provides access to a matrix transform node.
+
+Summary
+=======
+
+Functions:
+    * getTransform() → QMatrix4x4
+    * setTransform(matrix)
+
+Functions
+=========
+
+.. py:method:: vrdMatrixTransformNode.getTransform()
+
+    :return: The local transformation matrix
+    :rtype: QMatrix4x4
+
+.. py:method:: vrdMatrixTransformNode.setTransform(matrix)
+
+    Sets the transformation matrix in local space.
+
+    :param matrix: The transformation matrix
+    :type matrix: QMatrix4x4
+

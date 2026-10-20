@@ -1,0 +1,74 @@
+---------------------------
+vrdUnicolorCarpaintMaterial
+---------------------------
+
+.. py:class:: vrdUnicolorCarpaintMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all unicolor paint material properties.
+
+Summary
+=======
+
+Functions:
+    * getBaseColor() → QVector3D
+    * getBaseColorSpectrum() → vrSpectrum
+    * getClearcoat() → vrdClearcoat
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getIncandescence() → vrdIncandescence
+    * setBaseColor(color)
+    * setBaseColorSpectrum(value)
+
+Functions
+=========
+
+.. py:method:: vrdUnicolorCarpaintMaterial.getBaseColor()
+
+    Get the the basic color.
+
+    :return: The current used the basic color
+    :rtype: QVector3D
+
+.. py:method:: vrdUnicolorCarpaintMaterial.getBaseColorSpectrum()
+
+    Gets the spectrum of the base color.
+
+    :return: The current used spectrum for base color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdUnicolorCarpaintMaterial.getClearcoat()
+
+    Gets access to all properties of         vrdClearcoat.
+
+    :return: An vrdClearcoat object, to read and write access of alls properties.
+    :rtype: vrdClearcoat
+
+.. py:method:: vrdUnicolorCarpaintMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdUnicolorCarpaintMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdUnicolorCarpaintMaterial.setBaseColor(color)
+
+    Defines the basic color, which is the main characteristic of the material.
+
+    :param color: Value for the new base color.
+    :type color: QVector3D
+
+.. py:method:: vrdUnicolorCarpaintMaterial.setBaseColorSpectrum(value)
+
+    Sets the spectrum of the base color.
+
+    :param value: New spectrum for base color
+    :type value: vrSpectrum
+

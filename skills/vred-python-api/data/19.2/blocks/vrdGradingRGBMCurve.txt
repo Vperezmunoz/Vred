@@ -1,0 +1,129 @@
+-------------------
+vrdGradingRGBMCurve
+-------------------
+
+.. py:class:: vrdGradingRGBMCurve
+
+(Inherits vrdSceneObject)
+
+Class to access grading functionality.
+
+To access the grading of a camera or viewpoint, use vrdCameraBaseNode.getGradingRGBCurve():
+
+```
+
+     cam = vrCameraService.getActiveCamera()
+     grading = cam.getGradingRGBCurve()
+
+Summary
+=======
+
+Functions:
+    * getBlueCurve() → List[QVector2D]
+    * getEnabled() → bool
+    * getGreenCurve() → List[QVector2D]
+    * getMasterCurve() → List[QVector2D]
+    * getMode() → vrCameraTypes.CameraResponseCurveMode
+    * getRedCurve() → List[QVector2D]
+    * reset(mode)
+    * setBlueCurve(values)
+    * setEnabled(enabled)
+    * setGreenCurve(values)
+    * setMasterCurve(values)
+    * setMode(mode)
+    * setRedCurve(values)
+
+Functions
+=========
+
+.. py:method:: vrdGradingRGBMCurve.getBlueCurve()
+
+    Returns the blue grading curve.
+
+    :return: The blue grading curve as a list of x/y values.
+    :rtype: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.getEnabled()
+
+    Returns the current grading curve state.
+
+    :return: True if grading curve is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdGradingRGBMCurve.getGreenCurve()
+
+    Returns the green grading curve.
+
+    :return: The green grading curve as a list of x/y values.
+    :rtype: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.getMasterCurve()
+
+    Returns the rgb master grading curve.
+
+    :return: The rgb master grading curve as a list of x/y values.
+    :rtype: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.getMode()
+
+    Returns the active rgbm grading curve mode.
+
+    :return: The rgbm grading curve mode.
+    :rtype: vrCameraTypes.CameraResponseCurveMode
+
+.. py:method:: vrdGradingRGBMCurve.getRedCurve()
+
+    Returns the red grading curve.
+
+    :return: The red grading curve as a list of x/y values.
+    :rtype: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.reset(mode)
+
+    Resets the given grading curve to the default values.
+
+    :param mode: The grading curve to reset.
+    :type mode: vrCameraTypes.CameraResponseCurveMode
+
+.. py:method:: vrdGradingRGBMCurve.setBlueCurve(values)
+
+    Sets the blue grading curve.
+
+    :param values: The blue grading curve as a list of x/y values.
+    :type values: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.setEnabled(enabled)
+
+    Enables / disables grading curve.
+
+    :param enabled: True to enable, False to disable
+    :type enabled: bool
+
+.. py:method:: vrdGradingRGBMCurve.setGreenCurve(values)
+
+    Sets the green grading curve.
+
+    :param values: The green grading curve as a list of x/y values.
+    :type values: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.setMasterCurve(values)
+
+    Sets the rgb master grading curve.
+
+    :param values: The rgb master grading curve as a list of x/y values.
+    :type values: List[QVector2D]
+
+.. py:method:: vrdGradingRGBMCurve.setMode(mode)
+
+    Sets the rgbm grading curve mode.
+
+    :param mode: The rgbm grading curve mode.
+    :type mode: vrCameraTypes.CameraResponseCurveMode
+
+.. py:method:: vrdGradingRGBMCurve.setRedCurve(values)
+
+    Sets the red grading curve.
+
+    :param values: The red grading curve as a list of x/y values.
+    :type values: List[QVector2D]
+

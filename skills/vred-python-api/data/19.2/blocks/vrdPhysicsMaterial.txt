@@ -1,0 +1,76 @@
+------------------
+vrdPhysicsMaterial
+------------------
+
+.. py:class:: vrdPhysicsMaterial
+
+(Inherits vrdObject)
+
+The physics material class for handling friction and restitution properties.
+
+This class encapsulates the material properties that define how physics objects interact with each other during collisions and contact.
+
+Summary
+=======
+
+Functions:
+    * getDynamicFriction() → float
+    * getRestitution() → float
+    * getStaticFriction() → float
+    * setDynamicFriction(dynamicFriction)
+    * setRestitution(restitution)
+    * setStaticFriction(staticFriction)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsMaterial.getDynamicFriction()
+
+    Get the dynamic friction coefficient.
+
+    :return: The dynamic friction value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsMaterial.getRestitution()
+
+    Get the restitution coefficient.
+
+    :return: The restitution value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsMaterial.getStaticFriction()
+
+    Get the static friction coefficient.
+
+    :return: The static friction value.
+    :rtype: float
+
+.. py:method:: vrdPhysicsMaterial.setDynamicFriction(dynamicFriction)
+
+    Set the dynamic friction coefficient.
+
+    Dynamic friction determines the force opposing motion when surfaces are already sliding. Should typically be less than or equal to static friction.
+
+    :param dynamicFriction: The dynamic friction value to set.
+    :type dynamicFriction: float
+
+.. py:method:: vrdPhysicsMaterial.setRestitution(restitution)
+
+    Set the restitution coefficient (bounciness).
+
+    Restitution controls how bouncy collisions are:
+
+    0.0 = perfectly inelastic (no bounce)1.0 = perfectly elastic (full bounce)
+
+    :param restitution: The restitution value to set.
+    :type restitution: float
+
+.. py:method:: vrdPhysicsMaterial.setStaticFriction(staticFriction)
+
+    Set the static friction coefficient.
+
+    Static friction determines the force needed to start sliding between two surfaces. Typical values range from 0.0 (frictionless) to 1.0+ (high friction).
+
+    :param staticFriction: The static friction value to set.
+    :type staticFriction: float
+

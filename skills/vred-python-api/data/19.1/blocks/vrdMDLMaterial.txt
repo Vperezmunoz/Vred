@@ -1,0 +1,236 @@
+--------------
+vrdMDLMaterial
+--------------
+
+.. py:class:: vrdMDLMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all MDL module based material properties.
+
+An MDL material represents a module and can contain multiple materials.
+
+    .. py:class:: CompilationType
+       :no-index:
+
+        Defines the method used to compile the material for Raytracing.
+
+            .. py:data:: InstanceCompilation
+               :no-index:
+
+                The material is compiled and optimized specifically for its current attribute values. Any MDL attribute change (e.g. color) triggers a recompile. Initial material compilation is usually faster with InstanceCompilation than with ClassCompilation.
+
+            .. py:data:: ClassCompilation
+               :no-index:
+
+                The material is compiled with its attributes as runtime parameters. Changing MDL attributes (e.g. colors) does not trigger a recompile, making interactive editing faster at the cost of lower render performance. Initial material compilation usually takes longer with ClassCompilation than with InstanceCompilation.
+
+Summary
+=======
+
+Functions:
+    * getActiveAttributeGroups() → List[vrdAttributeGroup]
+    * getActiveMaterialIndex() → integer
+    * getActiveMaterialName() → string
+    * getActiveMaterialProperty(parameterId) → QVariant
+    * getCompilationType() → vrdMDLMaterial.CompilationType
+    * getMaterialCount() → integer
+    * getMaterialName(index) → string
+    * getModulePath() → string
+    * getProperties() → vrdMDLProperties
+    * getProperty(materialName, parameterId) → QVariant
+    * getUseCutoutTransparency() → bool
+    * getUseScreenSpaceRefractions() → bool
+    * hasModuleData() → bool
+    * isModuleValid() → bool
+    * loadModule(path) → bool
+    * resetMaterial()
+    * setActiveMaterialIndex(index)
+    * setActiveMaterialProperty(parameterId, value)
+    * setCompilationType(compilationType)
+    * setProperty(materialName, parameterId, value)
+    * setUseCutoutTransparency(value)
+    * setUseScreenSpaceRefractions(value)
+
+Functions
+=========
+
+.. py:method:: vrdMDLMaterial.getActiveAttributeGroups()
+
+    Gets access to all vrdAttributeGroup objects.
+
+    :return: All vrdAttributeGroup objects
+    :rtype: List[vrdAttributeGroup]
+
+.. py:method:: vrdMDLMaterial.getActiveMaterialIndex()
+
+    Gets the index of the active material. For the first material it is zero.
+
+    :return: The index of the active material.
+    :rtype: integer
+
+.. py:method:: vrdMDLMaterial.getActiveMaterialName()
+
+    Gets the name of the active material.
+
+    :return: The name of the material.
+    :rtype: string
+
+.. py:method:: vrdMDLMaterial.getActiveMaterialProperty(parameterId)
+
+    Query the value of a MDL property in the active material.
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :return: The value for this property
+    :rtype: QVariant
+
+.. py:method:: vrdMDLMaterial.getCompilationType()
+
+    Gets the material compilation type. See         vrdMDLMaterial.CompilationType for more information.
+
+    :return: The current compilation type.
+    :rtype: vrdMDLMaterial.CompilationType
+
+.. py:method:: vrdMDLMaterial.getMaterialCount()
+
+    Gets the number of all materials.
+
+    :return: The number of all materials.
+    :rtype: integer
+
+.. py:method:: vrdMDLMaterial.getMaterialName(index)
+
+    Gets the name of a material.
+
+    :param index: The index of the material.
+    :type index: integer
+
+    :return: The name of the material.
+    :rtype: string
+
+.. py:method:: vrdMDLMaterial.getModulePath()
+
+    Get the path of the underlying MDL module file.
+
+    :return: The path of the underlying MDL module file.
+    :rtype: string
+
+.. py:method:: vrdMDLMaterial.getProperties()
+
+    Returns a list of all properties.
+
+    :return: The list of all properties.
+    :rtype: vrdMDLProperties
+
+.. py:method:: vrdMDLMaterial.getProperty(materialName, parameterId)
+
+    Query the value of a MDL property.
+
+    :param materialName: Name of a MDL material
+    :type materialName: string
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :return: The value for this property
+    :rtype: QVariant
+
+.. py:method:: vrdMDLMaterial.getUseCutoutTransparency()
+
+    :return: If cutout transparency is used.
+    :rtype: bool
+
+.. py:method:: vrdMDLMaterial.getUseScreenSpaceRefractions()
+
+    :return: If screen space refractions are used.
+    :rtype: bool
+
+.. py:method:: vrdMDLMaterial.hasModuleData()
+
+    Check if a MDL module file was successfully loaded.
+
+    :return: True, if MDL module data are available.
+    :rtype: bool
+
+.. py:method:: vrdMDLMaterial.isModuleValid()
+
+    Check if a MDL module file is valid.
+
+    :return: True, if MDL module data is valid.
+    :rtype: bool
+
+.. py:method:: vrdMDLMaterial.loadModule(path)
+
+    Load a MDL module to this material.
+
+    :param path: The path for the MDL module file.
+    :type path: string
+
+    :return: True, if the MDL module was successfully loaded.
+    :rtype: bool
+
+.. py:method:: vrdMDLMaterial.resetMaterial()
+
+    Resets a material to its default state.
+
+.. py:method:: vrdMDLMaterial.setActiveMaterialIndex(index)
+
+    Gets the index of the active material.
+
+    :param index:
+    :type index: integer
+
+.. py:method:: vrdMDLMaterial.setActiveMaterialProperty(parameterId, value)
+
+    Sets a MDL property for the active material.
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :param value: New value for the property
+    :type value: QVariant
+
+.. py:method:: vrdMDLMaterial.setCompilationType(compilationType)
+
+    Sets the material compilation type. See         vrdMDLMaterial.CompilationType for more information.
+
+    :param compilationType: The new compilation type.
+    :type compilationType: vrdMDLMaterial.CompilationType
+
+.. py:method:: vrdMDLMaterial.setProperty(materialName, parameterId, value)
+
+    Sets a MDL property.
+
+    :param materialName: Name of the material
+    :type materialName: string
+
+    :param parameterId: Property ID
+    :type parameterId: string
+
+    :param value: New value for the property
+    :type value: QVariant
+
+.. py:method:: vrdMDLMaterial.setUseCutoutTransparency(value)
+
+    Enables cutout transparency for the material.
+
+    Useful for rendering materials with opacity masks, such as foliage or grates.
+
+    When enabled, transparency is handled in a binary way: opacity values less than or equal to 0.5 are treated as fully transparent, while values above 0.5 are treated as opaque.
+
+    Cutout enables the opaque parts of the material to cast shadows in the rasterizer. It also allows proper sorting in OpenGL in 'Object Sorting' transparency mode, and can improve raytracing performance when rendering foliage or similar scenes.
+
+    This option does not affect glass-like transmission behavior.
+
+    :param value: New state.
+    :type value: bool
+
+.. py:method:: vrdMDLMaterial.setUseScreenSpaceRefractions(value)
+
+    Enable or disable the use of screen space refractions (only supported in Vulkan rendering mode).
+
+    :param value: New state.
+    :type value: bool
+

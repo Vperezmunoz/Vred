@@ -1,0 +1,133 @@
+-----------------
+vrdCameraCollider
+-----------------
+
+.. py:class:: vrdCameraCollider
+
+(Inherits vrdSceneObject)
+
+This class provides access to the camera collision configuration.
+
+An instance of this class modifies only the parameters of the camera it belongs to. After changing any property or adding / removing a node     vrdCameraCollider.buildCollisionStructure() must always be called to update the collision structures with the changed parameters.
+
+Summary
+=======
+
+Functions:
+    * addNode(nodeName)
+    * buildCollisionStructure()
+    * getCollisionStructureBuildMethod() → vrCameraTypes.CollisionStructureBuildMethod
+    * getDistance() → float
+    * getEnabled() → bool
+    * getNodes() → List[string]
+    * getSlide() → bool
+    * removeNode(nodeName)
+    * setCollisionStructureBuildMethod(method)
+    * setDistance(distance)
+    * setEnabled(enabled)
+    * setNodes(nodeNames)
+    * setSlide(enabled)
+
+Functions
+=========
+
+.. py:method:: vrdCameraCollider.addNode(nodeName)
+
+    Add a not to collide with the camera.
+
+    :param nodeName: The name of the node. If it's not unique, the first node found with this name will be used.
+    :type nodeName: string
+
+.. py:method:: vrdCameraCollider.buildCollisionStructure()
+
+    Starts the precalculation of the collision structures.
+
+    To use this feature, precalculation that adopts the collision settings is required. Any change made using this API requires recalculating the scene again.
+
+.. py:method:: vrdCameraCollider.getCollisionStructureBuildMethod()
+
+    Returns the collision structure build method.
+
+    :return: The collision structure build method (triangle or bounding box).
+    :rtype: vrCameraTypes.CollisionStructureBuildMethod
+
+.. py:method:: vrdCameraCollider.getDistance()
+
+    Returns the closest allowed distance from the camera to a colliding object.
+
+    :return: The collision detection distance (mm).
+    :rtype: float
+
+.. py:method:: vrdCameraCollider.getEnabled()
+
+    Returns if camera collisions are enabled.
+
+    :return: True if collisions are enabled, False if disabled.
+    :rtype: bool
+
+.. py:method:: vrdCameraCollider.getNodes()
+
+    Returns the list of node names that can collide with the camera.
+
+    :return: The list of node names.
+    :rtype: List[string]
+
+.. py:method:: vrdCameraCollider.getSlide()
+
+    Returns if the slide mode is activated.
+
+    :return: True if activated, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraCollider.removeNode(nodeName)
+
+    Remove a node from the camera collision detection.
+
+    :param nodeName: The name of the node.
+    :type nodeName: string
+
+.. py:method:: vrdCameraCollider.setCollisionStructureBuildMethod(method)
+
+    Sets the collision structure build method.
+
+    This is the selection of the algorithm that is used for collision detection. It can either be triangle or bounding box based.
+
+    :param method: The collision structure build method.
+    :type method: vrCameraTypes.CollisionStructureBuildMethod
+
+.. py:method:: vrdCameraCollider.setDistance(distance)
+
+    Sets the closest allowed distance from the camera to a colliding object.
+
+    This defines the distance between the camera and an object in mm, when the camera detects a collision.
+
+    :param distance: The collision detection distance (mm).
+    :type distance: float
+
+.. py:method:: vrdCameraCollider.setEnabled(enabled)
+
+    Enable / disable camera collisions.
+
+    Activate collision detection to avoid flying through objects with the camera.
+
+    :param enabled: True to enable, False to disable camera collisions.
+    :type enabled: bool
+
+.. py:method:: vrdCameraCollider.setNodes(nodeNames)
+
+    Add nodes allowed to collide with the camera.
+
+    This adds a list of node names which will be able to collide with the camera.
+
+    :param nodeNames: The list of node names. If a name is not unique, the first node found with the name will be used.
+    :type nodeNames: List[string]
+
+.. py:method:: vrdCameraCollider.setSlide(enabled)
+
+    Enable / disable the slide mode.
+
+    This enables the camera to slide over the surface when a collision occurs.
+
+    :param enabled: True to enable sliding, False to disable.
+    :type enabled: bool
+

@@ -1,0 +1,84 @@
+-----------------
+vrdDeltaLightNode
+-----------------
+
+.. py:class:: vrdDeltaLightNode
+
+(Inherits vrdBaseLightNode)
+
+This is the base class for all delta light types.
+
+Derived light types are     vrdPointLightNode, vrdSpotLightNode and vrdDirectionalLightNode.
+
+Summary
+=======
+
+Functions:
+    * getIlluminateScene() → bool
+    * getLocalLight() → bool
+    * getShadowMap() → vrdShadowMap
+    * getVisualizationScale() → float
+    * setIlluminateScene(illuminateScene)
+    * setLocalLight(isLocalLight)
+    * setVisualizationScale(scale)
+
+Functions
+=========
+
+.. py:method:: vrdDeltaLightNode.getIlluminateScene()
+
+    Returns whether the light illuminates the scene.
+
+    If set to false the light will add nothing to the scene. Lens flares are still active.
+
+    :return: True if the light illuminates the scene, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdDeltaLightNode.getLocalLight()
+
+    Returns if this light is a local light.
+
+    If this is enabled and the light is part of a light link set, only the nodes in the light link set will be illuminated.
+
+    :return: True if this light is a local light, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdDeltaLightNode.getShadowMap()
+
+    Gives access to shadow map settings of the light.
+
+    :return: The shadow map settings.
+    :rtype: vrdShadowMap
+
+.. py:method:: vrdDeltaLightNode.getVisualizationScale()
+
+    Returns the scale of the light visualization.
+
+    :return: The visualization scale.
+    :rtype: float
+
+.. py:method:: vrdDeltaLightNode.setIlluminateScene(illuminateScene)
+
+    Sets whether the light source illuminates the scene.
+
+    If set to false the light will add nothing to the scene. Lens flares are still active.
+
+    :param illuminateScene: True to let the light illuminate the scene, False otherwise.
+    :type illuminateScene: bool
+
+.. py:method:: vrdDeltaLightNode.setLocalLight(isLocalLight)
+
+    Sets the local light flag.
+
+    If this is enabled and the light is part of a light link set, only the nodes in the light link set will be illuminated.
+
+    :param isLocalLight: True to make this light a local light, False otherwise.
+    :type isLocalLight: bool
+
+.. py:method:: vrdDeltaLightNode.setVisualizationScale(scale)
+
+    Sets the scale of the light visualization.
+
+    :param scale: The visualization scale
+    :type scale: float
+

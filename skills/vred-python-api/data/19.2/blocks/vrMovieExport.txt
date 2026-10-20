@@ -1,0 +1,500 @@
+MODULE vrMovieExport (legacy v1 API)
+
+-------------
+vrMovieExport
+-------------
+
+.. module:: vrMovieExport
+
+Summary
+=======
+
+Functions:
+    * createMovie(filename, width, height, fps, startFrame, stopFrame, ssf, alpha, alphaRed, alphaGreen, alphaBlue, overwrite)
+    * createSnapshot(width, height)
+    * createSnapshotFast(filename)
+    * createSnapshotFastInit(width, height)
+    * createSnapshotFastTerminate()
+    * createSnapshotStream(mime-type, width, height)
+    * getDepthMode()
+    * getDepthRange()
+    * getExportExrHalf()
+    * getExportMultiLayer()
+    * getExportTiffHDR()
+    * getLastRenderTime()
+    * getOcclusionRange()
+    * getSnapshotNoShowImage()
+    * getSnapshotNoSound()
+    * imageStream(function)
+    * imageStreamBase64(function)
+    * renderAnimation(animation, filename, width, height, fps, startFrame, stopFrame, ssf, alpha, alphaRed, alphaGreen, alphaBlue, overwrite, alpha_premultiply)
+    * renderStepAnimation(animation, filename, width, height, fps, startFrame, stopFrame, ssf, alpha, alphaRed, alphaGreen, alphaBlue, overwrite, alpha_premultiply, step)
+    * resetActiveSnapshotMovieRenderPasses()
+    * setActiveSnapshotMovieRenderPasses(beauty_pass, diffuse_ibl_pass, diffuse_light_pass, glossy_ibl_pass, glossy_light_pass, specular_reflection_pass, translucency_pass, incandescence_pass, diffuse_indirect_pass, glossy_indirect_pass, occlusion_pass, normal_pass, depth_pass, material_id_pass)
+    * setAuxiliaryChannelsRenderPasses(occlusion_pass, normal_pass, depth_pass, material_id_pass, mask_pass, position_pass, view_vector_pass, cryptomatte_object_pass, cryptomatte_material_pass)
+    * setCombinedChannelsRenderPasses(beauty_pass, diffuse_ibl_pass, diffuse_light_pass, glossy_ibl_pass, glossy_light_pass, specular_reflection_pass, translucency_pass, incandescence_pass, diffuse_indirect_pass, glossy_indirect_pass, transparency_pass, background_pass, volume_pass)
+    * setDepthMode(depthMode)
+    * setDepthRange(min, max)
+    * setExportExrHalf(on)
+    * setExportMultiLayer(on)
+    * setExportTiffHDR(on)
+    * setIlluminationChannelsRenderPasses(diffuse_ibl_pass, glossy_ibl_pass, translucency_ibl_pass, diffuse_light_pass, glossy_light_pass, translucency_light_pass, diffuse_indirect_pass, glossy_indirect_pass, specular_indirect_pass, translucency_indirect_pass)
+    * setImageProcessingRenderPasses(fog_pass, lens_flare_pass, backplate_pass, frontplate_pass)
+    * setMaterialChannelsRenderPasses(diffuse_material_pass, glossy_material_pass, specular_material_pass, translucency_material_pass, transparency_material_pass, background_pass, incandescence_pass)
+    * setOcclusionRange(min, max)
+    * setSnapshotEmbedMetaData(embedRenderSettings, embedCameraSettings, embedNodeVisibilities, embedSwitchNodeStates, embedSwitchMaterialStates)
+    * setSnapshotICCProfile(profileID)
+    * setSnapshotNoShowImage(state)
+    * setSnapshotNoSound(state)
+    * setSnapshotQuality(quality)
+
+.. method:: createSnapshot(width, height)
+
+    Opens a file dialog and writes the snapshot in the specified resolution with no supersampling.
+
+    :param width: Width of the snapshot.
+    :type width: int
+    :param height: Height of the snapshot.
+    :type height: int
+
+.. method:: createSnapshotStream(mime-type, width, height)
+
+    Creates a snapshot stream with the specified MIME type and dimensions.
+
+    :param mime-type: The MIME type of the snapshot.
+    :type mime-type: str
+    :param width: Width of the snapshot.
+    :type width: int
+    :param height: Height of the snapshot.
+    :type height: int
+
+.. method:: imageStream(function)
+
+    Redirects image write operations of a function into a string which is returned.
+
+    :param function: The function to execute.
+    :type function: callable
+
+.. method:: imageStreamBase64(function)
+
+    Redirects image write operations of a function into a Base64-encoded string.
+
+    :param function: The function to execute.
+    :type function: callable
+
+.. method:: createSnapshotFastInit(width, height)
+
+    Initializes the fast snapshot method by setting the image resolution.
+
+    :param width: Width of the snapshot.
+    :type width: int
+    :param height: Height of the snapshot.
+    :type height: int
+
+.. method:: createSnapshotFast(filename)
+
+    Creates a fast snapshot with the provided file name.
+
+    :param filename: The name of the file.
+    :type filename: str
+
+.. method:: createSnapshotFastTerminate()
+
+    Terminates the creation of a fast snapshot.
+
+.. method:: setSnapshotQuality(quality)
+
+    Sets the quality of the image to be exported.
+
+    :param quality: The quality of the image.
+    :type quality: int
+
+.. method:: setSnapshotNoShowImage(state)
+
+    Suppresses the image viewer from being shown after rendering.
+
+    :param state: True to suppress the image viewer, False otherwise.
+    :type state: bool
+
+.. method:: getSnapshotNoShowImage()
+
+    Returns whether the image viewer is suppressed.
+
+    :return: True if suppressed, False otherwise.
+    :rtype: bool
+
+.. method:: setSnapshotNoSound(state)
+
+    Suppresses sound from being played after rendering.
+
+    :param state: True to suppress sound, False otherwise.
+    :type state: bool
+
+.. method:: getSnapshotNoSound()
+
+    Returns whether sound is suppressed after rendering.
+
+    :return: True if suppressed, False otherwise.
+    :rtype: bool
+
+.. method:: setSnapshotICCProfile(profileID)
+
+    Sets the ICC Profile to store with the output image.
+
+    :param profileID: The profile ID.
+    :type profileID: int
+
+.. method:: setSnapshotEmbedMetaData(embedRenderSettings, embedCameraSettings, embedNodeVisibilities, embedSwitchNodeStates, embedSwitchMaterialStates)
+
+    Sets which metadata to store within the output image.
+
+    :param embedRenderSettings: Embed render settings.
+    :type embedRenderSettings: bool
+    :param embedCameraSettings: Embed camera settings.
+    :type embedCameraSettings: bool
+    :param embedNodeVisibilities: Embed node visibilities.
+    :type embedNodeVisibilities: bool
+    :param embedSwitchNodeStates: Embed switch node states.
+    :type embedSwitchNodeStates: bool
+    :param embedSwitchMaterialStates: Embed switch material states.
+    :type embedSwitchMaterialStates: bool
+
+.. method:: createMovie(filename, width, height, fps, startFrame, stopFrame, ssf, alpha, alphaRed, alphaGreen, alphaBlue, overwrite)
+
+    Creates a movie with the specified parameters.
+
+    :param filename: The name of the file.
+    :type filename: str
+    :param width: Width of the movie.
+    :type width: int
+    :param height: Height of the movie.
+    :type height: int
+    :param fps: Frames per second.
+    :type fps: int
+    :param startFrame: The first frame.
+    :type startFrame: int
+    :param stopFrame: The last frame.
+    :type stopFrame: int
+    :param ssf: Supersampling factor.
+    :type ssf: int
+    :param alpha: Enable alpha channel.
+    :type alpha: bool
+    :param alphaRed: Red component of the background color.
+    :type alphaRed: float
+    :param alphaGreen: Green component of the background color.
+    :type alphaGreen: float
+    :param alphaBlue: Blue component of the background color.
+    :type alphaBlue: float
+    :param overwrite: Overwrite existing file.
+    :type overwrite: bool
+
+.. method:: renderAnimation(animation, filename, width, height, fps, startFrame, stopFrame, ssf, alpha, alphaRed, alphaGreen, alphaBlue, overwrite, alpha_premultiply)
+
+    Writes an animation as a movie with the specified parameters.
+
+    :param animation: The name of the animation.
+    :type animation: str
+    :param filename: The name of the file.
+    :type filename: str
+    :param width: Width of the movie.
+    :type width: int
+    :param height: Height of the movie.
+    :type height: int
+    :param fps: Frames per second.
+    :type fps: int
+    :param startFrame: The first frame.
+    :type startFrame: int
+    :param stopFrame: The last frame.
+    :type stopFrame: int
+    :param ssf: Supersampling factor.
+    :type ssf: int
+    :param alpha: Enable alpha channel.
+    :type alpha: bool
+    :param alphaRed: Red component of the background color.
+    :type alphaRed: float
+    :param alphaGreen: Green component of the background color.
+    :type alphaGreen: float
+    :param alphaBlue: Blue component of the background color.
+    :type alphaBlue: float
+    :param overwrite: Overwrite existing file.
+    :type overwrite: bool
+    :param alpha_premultiply: Enable alpha pre-multiplication.
+    :type alpha_premultiply: bool
+
+.. method:: renderStepAnimation(animation, filename, width, height, fps, startFrame, stopFrame, ssf, alpha, alphaRed, alphaGreen, alphaBlue, overwrite, alpha_premultiply, step)
+
+    Writes an animation as a movie with the specified parameters and step size.
+
+    :param animation: The name of the animation.
+    :type animation: str
+    :param filename: The name of the file.
+    :type filename: str
+    :param width: Width of the movie.
+    :type width: int
+    :param height: Height of the movie.
+    :type height: int
+    :param fps: Frames per second.
+    :type fps: int
+    :param startFrame: The first frame.
+    :type startFrame: int
+    :param stopFrame: The last frame.
+    :type stopFrame: int
+    :param ssf: Supersampling factor.
+    :type ssf: int
+    :param alpha: Enable alpha channel.
+    :type alpha: bool
+    :param alphaRed: Red component of the background color.
+    :type alphaRed: float
+    :param alphaGreen: Green component of the background color.
+    :type alphaGreen: float
+    :param alphaBlue: Blue component of the background color.
+    :type alphaBlue: float
+    :param overwrite: Overwrite existing file.
+    :type overwrite: bool
+    :param alpha_premultiply: Enable alpha pre-multiplication.
+    :type alpha_premultiply: bool
+    :param step: Frame advance step size.
+    :type step: int
+
+.. method:: setActiveSnapshotMovieRenderPasses(beauty_pass, diffuse_ibl_pass, diffuse_light_pass, glossy_ibl_pass, glossy_light_pass, specular_reflection_pass, translucency_pass, incandescence_pass, diffuse_indirect_pass, glossy_indirect_pass, occlusion_pass, normal_pass, depth_pass, material_id_pass)
+
+    Sets the active render passes for rendering a snapshot.
+
+    :param beauty_pass: Enable beauty pass.
+    :type beauty_pass: bool
+    :param diffuse_ibl_pass: Enable diffuse IBL pass.
+    :type diffuse_ibl_pass: bool
+    :param diffuse_light_pass: Enable diffuse light pass.
+    :type diffuse_light_pass: bool
+    :param glossy_ibl_pass: Enable glossy IBL pass.
+    :type glossy_ibl_pass: bool
+    :param glossy_light_pass: Enable glossy light pass.
+    :type glossy_light_pass: bool
+    :param specular_reflection_pass: Enable specular reflection pass.
+    :type specular_reflection_pass: bool
+    :param translucency_pass: Enable translucency pass.
+    :type translucency_pass: bool
+    :param incandescence_pass: Enable incandescence pass.
+    :type incandescence_pass: bool
+    :param diffuse_indirect_pass: Enable diffuse indirect pass.
+    :type diffuse_indirect_pass: bool
+    :param glossy_indirect_pass: Enable glossy indirect pass.
+    :type glossy_indirect_pass: bool
+    :param occlusion_pass: Enable occlusion pass.
+    :type occlusion_pass: bool
+    :param normal_pass: Enable normal pass.
+    :type normal_pass: bool
+    :param depth_pass: Enable depth pass.
+    :type depth_pass: bool
+    :param material_id_pass: Enable material ID pass.
+    :type material_id_pass: bool
+
+.. method:: setCombinedChannelsRenderPasses(beauty_pass, diffuse_ibl_pass, diffuse_light_pass, glossy_ibl_pass, glossy_light_pass, specular_reflection_pass, translucency_pass, incandescence_pass, diffuse_indirect_pass, glossy_indirect_pass, transparency_pass, background_pass, volume_pass)
+
+    Sets the active combined channels render passes.
+
+    :param beauty_pass: Enable beauty pass.
+    :type beauty_pass: bool
+    :param diffuse_ibl_pass: Enable diffuse IBL pass.
+    :type diffuse_ibl_pass: bool
+    :param diffuse_light_pass: Enable diffuse light pass.
+    :type diffuse_light_pass: bool
+    :param glossy_ibl_pass: Enable glossy IBL pass.
+    :type glossy_ibl_pass: bool
+    :param glossy_light_pass: Enable glossy light pass.
+    :type glossy_light_pass: bool
+    :param specular_reflection_pass: Enable specular reflection pass.
+    :type specular_reflection_pass: bool
+    :param translucency_pass: Enable translucency pass.
+    :type translucency_pass: bool
+    :param incandescence_pass: Enable incandescence pass.
+    :type incandescence_pass: bool
+    :param diffuse_indirect_pass: Enable diffuse indirect pass.
+    :type diffuse_indirect_pass: bool
+    :param glossy_indirect_pass: Enable glossy indirect pass.
+    :type glossy_indirect_pass: bool
+    :param transparency_pass: Enable transparency pass.
+    :type transparency_pass: bool
+    :param background_pass: Enable background pass.
+    :type background_pass: bool
+    :param volume_pass: Enable volume pass.
+    :type volume_pass: bool
+
+.. method:: setMaterialChannelsRenderPasses(diffuse_material_pass, glossy_material_pass, specular_material_pass, translucency_material_pass, transparency_material_pass, background_pass, incandescence_pass)
+
+    Sets the active material channels render passes.
+
+    :param diffuse_material_pass: Enable diffuse material pass.
+    :type diffuse_material_pass: bool
+    :param glossy_material_pass: Enable glossy material pass.
+    :type glossy_material_pass: bool
+    :param specular_material_pass: Enable specular material pass.
+    :type specular_material_pass: bool
+    :param translucency_material_pass: Enable translucency material pass.
+    :type translucency_material_pass: bool
+    :param transparency_material_pass: Enable transparency pass.
+    :type transparency_material_pass: bool
+    :param background_pass: Enable background pass.
+    :type background_pass: bool
+    :param incandescence_pass: Enable incandescence pass.
+    :type incandescence_pass: bool
+
+.. method:: setIlluminationChannelsRenderPasses(diffuse_ibl_pass, glossy_ibl_pass, translucency_ibl_pass, diffuse_light_pass, glossy_light_pass, translucency_light_pass, diffuse_indirect_pass, glossy_indirect_pass, specular_indirect_pass, translucency_indirect_pass)
+
+    Sets the active illumination channels render passes.
+
+    :param diffuse_ibl_pass: Enable diffuse IBL pass.
+    :type diffuse_ibl_pass: bool
+    :param glossy_ibl_pass: Enable glossy IBL pass.
+    :type glossy_ibl_pass: bool
+    :param translucency_ibl_pass: Enable translucency IBL pass.
+    :type translucency_ibl_pass: bool
+    :param diffuse_light_pass: Enable diffuse light pass.
+    :type diffuse_light_pass: bool
+    :param glossy_light_pass: Enable glossy light pass.
+    :type glossy_light_pass: bool
+    :param translucency_light_pass: Enable translucency light pass.
+    :type translucency_light_pass: bool
+    :param diffuse_indirect_pass: Enable diffuse indirect pass.
+    :type diffuse_indirect_pass: bool
+    :param glossy_indirect_pass: Enable glossy indirect pass.
+    :type glossy_indirect_pass: bool
+    :param specular_indirect_pass: Enable specular indirect pass.
+    :type specular_indirect_pass: bool
+    :param translucency_indirect_pass: Enable translucency indirect pass.
+    :type translucency_indirect_pass: bool
+
+.. method:: setAuxiliaryChannelsRenderPasses(occlusion_pass, normal_pass, depth_pass, material_id_pass, mask_pass, position_pass, view_vector_pass, cryptomatte_object_pass, cryptomatte_material_pass)
+
+    Sets the active auxiliary channels render passes.
+
+    :param occlusion_pass: Enable occlusion pass.
+    :type occlusion_pass: bool
+    :param normal_pass: Enable normal pass.
+    :type normal_pass: bool
+    :param depth_pass: Enable depth pass.
+    :type depth_pass: bool
+    :param material_id_pass: Enable material ID pass.
+    :type material_id_pass: bool
+    :param mask_pass: Enable mask pass.
+    :type mask_pass: bool
+    :param position_pass: Enable position pass.
+    :type position_pass: bool
+    :param view_vector_pass: Enable view vector pass.
+    :type view_vector_pass: bool
+    :param cryptomatte_object_pass: Enable cryptomatte object pass.
+    :type cryptomatte_object_pass: bool
+    :param cryptomatte_material_pass: Enable cryptomatte material pass.
+    :type cryptomatte_material_pass: bool
+
+.. method:: setImageProcessingRenderPasses(fog_pass, lens_flare_pass, backplate_pass, frontplate_pass)
+
+    Sets the active image processing render passes.
+
+    :param fog_pass: Enable fog pass.
+    :type fog_pass: bool
+    :param lens_flare_pass: Enable lens flare pass.
+    :type lens_flare_pass: bool
+    :param backplate_pass: Enable backplate pass.
+    :type backplate_pass: bool
+    :param frontplate_pass: Enable frontplate pass.
+    :type frontplate_pass: bool
+
+.. method:: resetActiveSnapshotMovieRenderPasses()
+
+    Resets the active render passes for rendering a snapshot.
+
+.. method:: getLastRenderTime()
+
+    Returns the duration in seconds of the last image render.
+
+    :return: Render duration in seconds.
+    :rtype: float
+
+.. method:: setExportTiffHDR(on)
+
+    Enables or disables export of TIFF/PSD in HDR format.
+
+    :param on: True to enable HDR export, False otherwise.
+    :type on: bool
+
+.. method:: getExportTiffHDR()
+
+    Returns whether TIFF/PSD is exported in HDR format.
+
+    :return: True if HDR export is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setExportExrHalf(on)
+
+    Enables or disables export of EXR format in 16-bit float.
+
+    :param on: True to enable 16-bit export, False otherwise.
+    :type on: bool
+
+.. method:: getExportExrHalf()
+
+    Returns whether EXR is exported in 16-bit float format.
+
+    :return: True if 16-bit export is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setExportMultiLayer(on)
+
+    Enables or disables export of EXR/PSD as layers for render passes.
+
+    :param on: True to enable layer export, False otherwise.
+    :type on: bool
+
+.. method:: getExportMultiLayer()
+
+    Returns whether EXR/PSD is exported as layers for render passes.
+
+    :return: True if layer export is enabled, False otherwise.
+    :rtype: bool
+
+.. method:: setDepthMode(depthMode)
+
+    Sets the depth mode for writing the depth pass.
+
+    :param depthMode: Depth mode (0 = Standard, 1 = Linear, etc.).
+    :type depthMode: int
+
+.. method:: getDepthMode()
+
+    Returns the depth mode used to write the depth pass.
+
+    :return: Depth mode.
+    :rtype: int
+
+.. method:: setDepthRange(min, max)
+
+    Sets the range the depth is mapped to.
+
+    :param min: Minimum depth value.
+    :type min: float
+    :param max: Maximum depth value.
+    :type max: float
+
+.. method:: getDepthRange()
+
+    Gets the range for mapping depth values.
+
+    :return: A tuple with min and max values.
+    :rtype: tuple
+
+.. method:: setOcclusionRange(min, max)
+
+    Sets the range used for ambient occlusion calculation.
+
+    :param min: Minimum distance for occlusion.
+    :type min: float
+    :param max: Maximum distance for occlusion.
+    :type max: float
+
+.. method:: getOcclusionRange()
+
+    Gets the range used for ambient occlusion calculation.
+
+    :return: A tuple with min and max values.
+    :rtype: tuple

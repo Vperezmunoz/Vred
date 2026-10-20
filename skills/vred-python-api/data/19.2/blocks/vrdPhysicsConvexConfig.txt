@@ -1,0 +1,195 @@
+----------------------
+vrdPhysicsConvexConfig
+----------------------
+
+.. py:class:: vrdPhysicsConvexConfig
+
+(Inherits vrdPhysicsHullConfig)
+
+The configuration class for physics objects produced by convex decomposition.
+
+This configuration class is used to specify the properties of physics objects that are produced by convex decomposition. Convex decomposition is a process that takes a complex mesh and breaks it down into a set of convex hulls that approximate the original mesh. This is useful for creating physics objects from non convex meshes that are more precise than a simple convex hull. If possible, this should be prefered over the use of triangle meshes.
+
+The library used for convex decomposition is the v-hacd library (Hierarchical Approximate Convex Decomposition):     https://github.com/kmammou/v-hacd. Its documentation contains more information about the parameters that can be set in this configuration class. Almost all of its parameters are exposded here and can be set in this class to fine-tune the decomposition process
+
+Summary
+=======
+
+Functions:
+    * getAsync() → bool
+    * getFillMode() → integer
+    * getMaxNumberOfConvexHulls() → integer
+    * getMaxNumVerticesPerHull() → integer
+    * getMaxRecursionDepth() → integer
+    * getMinEdgeLength() → integer
+    * getMinimumVolumePercentErrorAllowed() → float
+    * getResolution() → integer
+    * getShrinkWrap() → bool
+    * setAsync(mode)
+    * setFillMode(mode)
+    * setMaxNumberOfConvexHulls(numHulls)
+    * setMaxNumVerticesPerHull(numVertices)
+    * setMaxRecursionDepth(depth)
+    * setMinEdgeLength(length)
+    * setMinimumVolumePercentErrorAllowed(percent)
+    * setResolution(resolution)
+    * setShrinkWrap(enable)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsConvexConfig.getAsync()
+
+    Check if running asynchronously is enabled.
+
+    :return: True if running asynchronously is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsConvexConfig.getFillMode()
+
+    Get the fill mode.
+
+    :return: The fill mode.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexConfig.getMaxNumberOfConvexHulls()
+
+    Get the maximum number of convex hulls allowed.
+
+    :return: The maximum number of convex hulls.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexConfig.getMaxNumVerticesPerHull()
+
+    Get the maximum number of vertices per convex hull.
+
+    :return: The maximum number of vertices per convex hull.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexConfig.getMaxRecursionDepth()
+
+    Get the maximum recursion depth.
+
+    :return: The maximum recursion depth.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexConfig.getMinEdgeLength()
+
+    Get the minimum edge length.
+
+    :return: The minimum edge length.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexConfig.getMinimumVolumePercentErrorAllowed()
+
+    Get the minimum volume percent error allowed.
+
+    :return: The minimum volume percent error.
+    :rtype: float
+
+.. py:method:: vrdPhysicsConvexConfig.getResolution()
+
+    Get the voxel resolution.
+
+    :return: The voxel resolution.
+    :rtype: integer
+
+.. py:method:: vrdPhysicsConvexConfig.getShrinkWrap()
+
+    Check if shrinkwrapping is enabled.
+
+    :return: True if shrinkwrapping is enabled, false otherwise.
+    :rtype: bool
+
+.. py:method:: vrdPhysicsConvexConfig.setAsync(mode)
+
+    Set whether to run asynchronously.
+
+    The default value is 'true'.
+
+    :param mode: The state indicating whether to run asynchronously.
+    :type mode: bool
+
+.. py:method:: vrdPhysicsConvexConfig.setFillMode(mode)
+
+    Set the fill mode.
+
+    The fill mode specifies which algorithm is used by the v-hacd library to fill the insid of the voxelized mesh. The possible values are (from the v-hacd documentation): 0: Flood fill mode. This is the default behavior, after the voxelization step it uses a flood fill to determine 'inside' from 'outside'. However, meshes with holes can fail and create hollow results. 1: Surface only mode. Only consider the 'surface', will create 'skins' with hollow centers. 2: Raycast fill mode. Uses raycasting to determine inside from outside.
+
+    The default value is 0.
+
+    :param mode: The fill mode.
+    :type mode: integer
+
+.. py:method:: vrdPhysicsConvexConfig.setMaxNumberOfConvexHulls(numHulls)
+
+    Set the maximum number of convex hulls that the algorithm will produce.
+
+    The algorithm will not produce more hulls than this number. The actual number of hulls produced can be lower than this upper threshold.
+
+    The default value is 64, the maximum is 1024.
+
+    :param numHulls: The maximum number of convex hulls.
+    :type numHulls: integer
+
+.. py:method:: vrdPhysicsConvexConfig.setMaxNumVerticesPerHull(numVertices)
+
+    Set the maximum number of vertices per convex hull.
+
+    The number of vertices per convex hull is limited to 256 by PhysX, so the value must be between 4 and 256. It will be adapted to the nearest valid value if it is not.
+
+    The default value is 64.
+
+    :param numVertices: The maximum number of vertices per convex hull.
+    :type numVertices: integer
+
+.. py:method:: vrdPhysicsConvexConfig.setMaxRecursionDepth(depth)
+
+    Set the maximum recursion depth.
+
+    This sets the maximum recursion depth for the convex decomposition algorithm. The default value is 5, the maximum is 15. 0 means no recursion.
+
+    :param depth: The maximum recursion depth.
+    :type depth: integer
+
+.. py:method:: vrdPhysicsConvexConfig.setMinEdgeLength(length)
+
+    Set the minimum edge length.
+
+    From the v-hacd documentation: "Once a voxel patch has an edge length of less than 4 on all 3 sides, we don't keep recursing."
+
+    The default value is 2.
+
+    :param length: The minimum edge length.
+    :type length: integer
+
+.. py:method:: vrdPhysicsConvexConfig.setMinimumVolumePercentErrorAllowed(percent)
+
+    Set the minimum volume percent error allowed.
+
+    From the v-hacd documentation: "If the voxels are within 1% of the volume of the hull,
+    we consider this a close enough approximation"
+
+    The default value is 1.0.
+
+    :param percent: The minimum volume percent error.
+    :type percent: float
+
+.. py:method:: vrdPhysicsConvexConfig.setResolution(resolution)
+
+    Set the voxel resolution to use.
+
+    The default value is 400000.
+
+    :param resolution: The voxel resolution.
+    :type resolution: integer
+
+.. py:method:: vrdPhysicsConvexConfig.setShrinkWrap(enable)
+
+    Set whether to shrinkwrap the voxel positions to the source mesh.
+
+    Deprecated: This property is now always true and cannot be changed.
+
+    :param enable: The state indicating whether to shrinkwrap.
+    :type enable: bool
+

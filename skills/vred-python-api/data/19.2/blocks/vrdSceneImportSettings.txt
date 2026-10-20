@@ -1,0 +1,179 @@
+----------------------
+vrdSceneImportSettings
+----------------------
+
+.. py:class:: vrdSceneImportSettings
+
+(Inherits vrdData)
+
+Summary
+=======
+
+Functions:
+    * getApplyMaterialsFromAssetManager() → bool
+    * getCenterInOrigin() → bool
+    * getCreateReferences() → bool
+    * getImportAnimations() → bool
+    * getMergeMaterials() → bool
+    * getPreserveAnimations() → bool
+    * getPreserveRenderLayerSettings() → bool
+    * getPreserveTouchSensors() → bool
+    * getPreserveTransformations() → bool
+    * getPutOnGround() → bool
+    * setApplyMaterialsFromAssetManager(value)
+    * setCenterInOrigin(value)
+    * setCreateReferences(value)
+    * setImportAnimations(value)
+    * setMergeMaterials(value)
+    * setPreserveAnimations(value)
+    * setPreserveRenderLayerSettings(value)
+    * setPreserveTouchSensors(value)
+    * setPreserveTransformations(value)
+    * setPutOnGround(value)
+    * vrdSceneImportSettings()
+
+Functions
+=========
+
+.. py:method:: vrdSceneImportSettings.getApplyMaterialsFromAssetManager()
+
+    Returns if materials from the asset manager are applied.
+
+    :return: True if materials are applied, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getCenterInOrigin()
+
+    Queries if the imported geometry will be centered into origin.
+
+    :return: True if the geometry will be centered into origin, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getCreateReferences()
+
+    Returns if reference nodes are created during import.
+
+    :return: True if reference nodes are created, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getImportAnimations()
+
+    Queries if animations should be imported.
+
+    :return: True if animations will be imported, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getMergeMaterials()
+
+    Returns if materials are merged during source import.
+
+    :return: True if materials are merged, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getPreserveAnimations()
+
+    Returns if animations are tried to preserve during source re-import.
+
+    :return: True if animations are preserved, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getPreserveRenderLayerSettings()
+
+    Returns if render layer settings are tried to preserve during source re-import.
+
+    :return: True if render layer settings are preserved, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getPreserveTouchSensors()
+
+    Returns if touch sensors are tried to preserve during source re-import.
+
+    :return: True if touch sensors are preserved, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getPreserveTransformations()
+
+    Returns if transformations are tried to preserve during source re-import.
+
+    :return: True if transformations are preserved, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.getPutOnGround()
+
+    Queries if the imported geometry will be placed onto the ground (zero-plane).
+
+    :return: True if the geoemtry will be placed onto the ground, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdSceneImportSettings.setApplyMaterialsFromAssetManager(value)
+
+    Sets if materials from asset manager should be applied.
+
+    :param value: True to apply materials, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setCenterInOrigin(value)
+
+    The center of the imported geometry will be placed into the scene origin.
+
+    :param value: True to center the geoemtry into origin, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setCreateReferences(value)
+
+    Sets if reference nodes are created during import.
+
+    :param value: True to create reference nodes, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setImportAnimations(value)
+
+    Determines if animations will be imported.
+
+    :param value: True to import animations, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setMergeMaterials(value)
+
+    Sets if materials are merged during source import.
+
+    :param value: True to merge materials, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setPreserveAnimations(value)
+
+    Sets if animations are tried to preserve during source re-import.
+
+    :param value: True to preserve animations, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setPreserveRenderLayerSettings(value)
+
+    Sets if render layer settings are tried to preserve during source re-import.
+
+    :param value: True to preserve render layer settings, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setPreserveTouchSensors(value)
+
+    Sets if touch sensors are tried to preserve during source re-import.
+
+    :param value: True to preserve touch sensors, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setPreserveTransformations(value)
+
+    Sets if transformations are tried to preserve during source re-import.
+
+    :param value: True to preserve transformations, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.setPutOnGround(value)
+
+    Determines that the imported geometry will be put on the ground (zero-plane).
+
+    :param value: True to put the geoemtry on the ground, False otherwise.
+    :type value: bool
+
+.. py:method:: vrdSceneImportSettings.vrdSceneImportSettings()
+

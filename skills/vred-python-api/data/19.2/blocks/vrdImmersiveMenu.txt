@@ -1,0 +1,243 @@
+----------------
+vrdImmersiveMenu
+----------------
+
+.. py:class:: vrdImmersiveMenu
+
+(Inherits vrdObject)
+
+VR menu object.
+
+    .. py:class:: MenuOrigin
+
+            .. py:data:: ORIGIN_LOCAL
+
+            .. py:data:: ORIGIN_WORLD
+
+            .. py:data:: ORIGIN_CAMERA
+
+            .. py:data:: ORIGIN_HEAD
+
+            .. py:data:: ORIGIN_LEFTHAND
+
+            .. py:data:: ORIGIN_RIGHTHAND
+
+    .. py:class:: MenuConstraint
+
+            .. py:data:: CONSTRAINT_NONE
+
+            .. py:data:: CONSTRAINT_NO_ROTATION
+
+            .. py:data:: CONSTRAINT_YAW_ONLY
+
+Summary
+=======
+
+Functions:
+    * attachTo(origin, constraint)
+    * getConstraint() → vrdImmersiveMenu.MenuConstraint
+    * getDepth() → float
+    * getHeight() → float
+    * getName() → string
+    * getOrigin() → vrdImmersiveMenu.MenuOrigin
+    * getRotation() → QVector3D
+    * getTranslation() → QVector3D
+    * getWidth() → float
+    * isVisible() → bool
+    * setConstraint(value)
+    * setContent(content)
+    * setDepth(value)
+    * setHeight(value)
+    * setModule(moduleTitle)
+    * setName(value)
+    * setOrigin(value)
+    * setRotation(rotation)
+    * setRotation(xDeg, yDeg, zDeg)
+    * setTranslation(position)
+    * setTranslation(x, y, z)
+    * setUrl(url, pixelWidth, pixelHeight)
+    * setVisible(value)
+    * setWidget(widget)
+    * setWidth(value)
+
+Functions
+=========
+
+.. py:method:: vrdImmersiveMenu.attachTo(origin, constraint)
+
+    Reattaches the menu.
+
+    :param origin: New Origin
+    :type origin: integer
+
+    :param constraint: Constraint to use
+    :type constraint: integer
+
+.. py:method:: vrdImmersiveMenu.getConstraint()
+
+    :return: Gets the current constraint
+    :rtype: vrdImmersiveMenu.MenuConstraint
+
+.. py:method:: vrdImmersiveMenu.getDepth()
+
+    :return: The depth of the menu
+    :rtype: float
+
+.. py:method:: vrdImmersiveMenu.getHeight()
+
+    :return: The height of the menu
+    :rtype: float
+
+.. py:method:: vrdImmersiveMenu.getName()
+
+    :return: The name of the menu
+    :rtype: string
+
+.. py:method:: vrdImmersiveMenu.getOrigin()
+
+    :return: Gets the origin for the menu
+    :rtype: vrdImmersiveMenu.MenuOrigin
+
+.. py:method:: vrdImmersiveMenu.getRotation()
+
+    :return: The current rotation angles
+    :rtype: QVector3D
+
+.. py:method:: vrdImmersiveMenu.getTranslation()
+
+    :return: The current translation
+    :rtype: QVector3D
+
+.. py:method:: vrdImmersiveMenu.getWidth()
+
+    :return: The width of the menu
+    :rtype: float
+
+.. py:method:: vrdImmersiveMenu.isVisible()
+
+    :return: True, if the menu is visible
+    :rtype: bool
+
+.. py:method:: vrdImmersiveMenu.setConstraint(value)
+
+    Changes the transformation constraint.
+
+    :param value: Constraint
+    :type value: vrdImmersiveMenu.MenuConstraint
+
+.. py:method:: vrdImmersiveMenu.setContent(content)
+
+    Use the given string to show the content.
+
+    :param content: VRED tries to guess what content to show
+    :type content: string
+
+.. py:method:: vrdImmersiveMenu.setDepth(value)
+
+    Sets the depth of the menu.
+
+    :param value: Depth in mm
+    :type value: float
+
+.. py:method:: vrdImmersiveMenu.setHeight(value)
+
+    Sets the height of the menu.
+
+    :param value: Height in mm
+    :type value: float
+
+.. py:method:: vrdImmersiveMenu.setModule(moduleTitle)
+
+    Use the given name to find a module to be displayed on the menu.
+
+    :param moduleTitle: Name of the module
+    :type moduleTitle: string
+
+.. py:method:: vrdImmersiveMenu.setName(value)
+
+    Changes the name of the menu.
+
+    :param value: New menu name
+    :type value: string
+
+.. py:method:: vrdImmersiveMenu.setOrigin(value)
+
+    Changes the origin for the menu.
+
+    :param value: New attachment point
+    :type value: vrdImmersiveMenu.MenuOrigin
+
+.. py:method:: vrdImmersiveMenu.setRotation(rotation)
+
+    Changes rotation of the menu relative to the selected origin.
+
+    :param rotation: New rotation angles
+    :type rotation: QVector3D
+
+.. py:method:: vrdImmersiveMenu.setRotation(xDeg, yDeg, zDeg)
+   :no-index:
+
+    Changes rotation of the menu relative to the selected origin.
+
+    :param xDeg: X achsis rotation
+    :type xDeg: float
+
+    :param yDeg: Y achsis rotation
+    :type yDeg: float
+
+    :param zDeg: Z achsis rotation
+    :type zDeg: float
+
+.. py:method:: vrdImmersiveMenu.setTranslation(position)
+
+    Changes position of the menu relative to the selected origin.
+
+    :param position: New position
+    :type position: QVector3D
+
+.. py:method:: vrdImmersiveMenu.setTranslation(x, y, z)
+   :no-index:
+
+    Changes position of the menu relative to the selected origin.
+
+    :param x: X coordinate
+    :type x: float
+
+    :param y: Y coordinate
+    :type y: float
+
+    :param z: Z coordinate
+    :type z: float
+
+.. py:method:: vrdImmersiveMenu.setUrl(url, pixelWidth=800, pixelHeight=600)
+
+    Use the given url to show web content on the mneu.
+
+    :param url: Html link
+    :type url: string
+
+    :param pixelWidth: Horzontal pixel resolution
+    :type pixelWidth: integer
+
+    :param pixelHeight: Vertical pixel resolution
+    :type pixelHeight: integer
+
+.. py:method:: vrdImmersiveMenu.setVisible(value)
+
+    Shows or hides the menu.
+
+    :param value: If True, the menu is visible
+    :type value: bool
+
+.. py:method:: vrdImmersiveMenu.setWidget(widget)
+
+    :param widget:
+    :type widget: QObject
+
+.. py:method:: vrdImmersiveMenu.setWidth(value)
+
+    Sets the width of the menu.
+
+    :param value: Width in mm
+    :type value: float
+

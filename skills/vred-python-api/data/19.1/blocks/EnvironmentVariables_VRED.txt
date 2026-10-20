@@ -1,0 +1,147 @@
+Environment Variables
+=====================
+
+Here is a list of the VRED-specific and external environment variables and explanations and/or values for them in VRED.
+
+Where To Enter Environment Variables (Beginners)
+------------------------------------------------
+
+If this is the first time setting an environment variable, here is where to do it.
+
+1. Right-click your **This PC** icon and select **Properties**.
+2. Click **Advanced system settings**.
+3. Click the **Advanced** tab, then the **Environment Variables** button.
+4. In the **System variables** section (at the bottom), click **New**. This opens the **New System Variable** dialog.
+5. Enter the environment variable name and a value, then click **OK**.
+
+VRED-specific Variables
+------------------------
+
+These environment variables are VRED-specific.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+   :class: tg
+
+   * - **VRED-specific Variable**
+     - **Value/Explanation**
+   * - `ALIAS_VRED_LIVEREF_LOC`
+     - Provides the path to the directory to search for Alias / VRED Live Reference Data.
+   * - `VRED_ALLOW_STANDBY_MODE` / `ADSK_VRED_ALLOW_STANDBY_MODE`
+     - **Any value**: Allows the machine to enter sleep mode. By default, VRED prevents sleep mode.
+   * - `VRED_CLUSTERMANAGER_PATH`
+     - Provides the path to a user-defined storage location for cluster manager data (database, encrypted project files, and images).
+   * - `VRED_CLUSTERSERVICE_CONFIG`
+     - JSON config string. Uses the value as setup string for the VRED Cluster Service.
+   * - `VRED_CLUSTERSERVICE_DISABLE_ALL`
+     - **1**: Blocks all services of the VRED Cluster Service.
+   * - `VRED_CLUSTERSERVICE_ENABLE_ALL`
+     - **1**: Allows all services of the VRED Cluster Service.
+   * - `VRED_COLLABORATION_NO_AUDIO`
+     - **Any value**: Prevents the use of VRED native audio in Collaboration mode.
+   * - `VRED_COLLABORATION_NO_UPLOAD`
+     - **Any value**: Prevents the upload of scenes in Collaboration mode and blocks the upload of custom and Copresence avatars in a collaboration session.
+   * - `VRED_CURRENT_PROJECT_DIR`
+     - **Read-only**: Returns the current directory of loaded VPB file.
+   * - `VRED_CUSTOM_HANDS`
+     - Provides the path to a user-defined directory for custom VR hand geometry.
+   * - `VRED_DATA`
+     - **Read-only**: Returns the path to the VRED data directory.
+   * - `VRED_DEBUG_IDLE_LICENSE`
+     - **Any value**: Enables the debug output for License Idle mode.
+   * - `VRED_DISABLE_CASCADING`
+     - **Any value**: Disables license cascading.
+   * - `VRED_DISABLE_CLIC_IPM`
+     - **Any value**: Hides the license UI in VRED.
+   * - `VRED_DISABLE_CLIC_USER_LICENSE`
+     - **Any value**: Disables the user license feature.
+   * - `VRED_DISABLE_CUDA_MEMORY_POOL_SUPPORT`
+     - **0**: Use CUDA Memory Pool on supporting devices.
+       **Other value**: Disables CUDA Memory Pool Support.
+   * - `VRED_DISABLE_IDLE_LICENSE`
+     - **Any value**: Disables the license release on idle.
+   * - `VRED_DISABLE_ONLINE_STORES`
+     - **Any value**: Disables the use of online stores in the main window. No UI will be shown.
+   * - `VRED_DISABLE_SHARED_VIEWS`
+     - **Any value**: Disables the shared views feature.
+   * - `VRED_DISABLE_WEB_ACCESS`
+     - **Any value**: Disables access to web content. It will hide the Community menu and online stores.
+   * - `VRED_DISABLE_WEBINTERFACE` / `ADSK_VRED_DISABLE_WEBINTERFACE`
+     - **Any value**: Disables the VRED web interface. No UI will be shown.
+   * - `VRED_EXAMPLES`
+     - **Read-only**: Returns the path to the VRED examples directory.
+   * - `VRED_FILEIO_TMP_DIR`
+     - Provides the path to a user-defined file IO tmp dir for VRED.
+   * - `VRED_FORCE_EGL`
+     - **Any value**: Forces the use of EGL (https://www.khronos.org/egl/) under Linux.
+   * - `VRED_FORCE_HTTPS`
+     - **1**: Redirects incoming unencrypted HTTP connection requests to encrypted HTTPS connection requests in the VRED web interface.
+   * - `VRED_IDLE_LICENSE_TIME`
+     - Provides the time, in seconds, after which VRED will release the license when on idle. The value is clamped to range [60, 900].
+   * - `VRED_IGNORE_INVISIBLE`
+     - **1**: Ignores the invisible geometry of non-wire files on import.
+       **Other value**: Import invisible geometry.
+   * - `VRED_INSECURE_PYTHON`
+     - **Any value**: Disables the Python Sandbox. If VRED_SECURE_PYTHON is set it will be ignored. VRED_INSECURE_PYTHON will override command line option and preference settings.
+   * - `VRED_IMPORT_PERFORMANCE_LOG`
+     - **1**: Writes the ATF performance log file.
+       **Other value**: No log file.
+   * - `VRED_PREFERENCES_OVERRIDE`
+     - Provides the path to a config file (XML) containing a subset of preferences to overwrite the local preferences for the session upon startup.
+   * - `VRED_ROOT`
+     - **Read-only**: Returns the path to the VRED root directory.
+   * - `VRED_SCRIPT_PLUGINS`
+     - Provides the path to a user-defined directory for script plugins.
+       The subfolder structure of that folder must match the following constraint: `Autodesk/VRED-<Version>/ScriptPlugins` where `<Version>` is the number of the VRED release (e.g., 13.0).
+   * - `VRED_SECURE_PYTHON`
+     - **Any value**: Enables the Python Sandbox.
+   * - `VRED_SERVICE_PAGE`
+     - **0**: Completely blocks the web interface.
+       **1**: Blocks the web interface HTTP site, but requests are enabled.
+       **2**: Completely enables the web interface.
+   * - `VRED_TMP_DIR`
+     - Provides the path to a user-defined tmp directory for VRED.
+   * - `VRED_TRANSLATION_DIR`
+     - Provides the path to a user-defined directory for translations.
+   * - `VRED_USE_ALL_TRACKING`
+     - **0 or not set**: Uses a specific tracking module, instead of loading all.
+       **Other value**: Loads all tracking module plugins.
+   * - `VRED_USE_CUSTOM_CUDA_MEMORY_POOL`
+     - **0**: Uses CUDA Default Memory Pool.
+       **Other value**: Uses a custom CUDA Memory Pool on supporting devices.
+   * - `VRED_USE_OLD_MATERIAL_SORTING`
+     - **Any value**: Enables the old sorting algorithm for materials in the Material Editor that was used before VRED 2023.
+   * - `VRED_USE_OLD_TRACKING`
+     - **1**: Ignores the new VRPN tracking module and only loads the old tracking module.
+       **Other value or not set**: Loads the new VRPN tracking module. Requires `VRED_USE_ALL_TRACKING = 1` or not set.
+   * - `VRED_WORKSPACES_PATH`
+     - Provides the path from which workspace .ini files are loaded on startup.
+   * - `VRED_WRITE_IMPORT_DEBUG_FILE`
+     - **1**: Writes the ATF import debug file.
+       **Other value**: No debug file.
+   * - `VRED_WRITABLE_DATA`
+     - **Read-only**: Returns the path to the VRED writable data directory.
+   * - `VRED<VersionYear>_SCRIPT_PLUGINS` (e.g., `VRED2020_2_SCRIPT_PLUGINS`)
+     - Provides the path to a user-defined directory for script plugins.
+   * - `<AppName>_LOG_DIR` (e.g., `VREDPRO_LOG_DIR`)
+     - Provides the path to a user-defined log directory.
+
+External Variables
+------------------
+
+These environment variables are external.
+
+.. list-table::
+  :header-rows: 1
+  :widths: 30 70
+  :class: tg
+
+  * - **External Variable**
+    - **Value/Explanation**
+  * - `HDRLS_HOME_V4`
+    - Provides the path to HDR LightStudio V4 libraries.
+  * - `HDRLS_HOME_V5`
+    - Provides the path to HDR LightStudio V5 libraries.
+  * - `MAYA_LOCATION`
+    - Provides the path to the Maya location.

@@ -1,0 +1,36 @@
+-------------
+vrdSwitchNode
+-------------
+
+.. py:class:: vrdSwitchNode
+
+(Inherits vrdNode)
+
+Switch node.
+
+Summary
+=======
+
+Functions:
+    * getChoice() → integer
+    * setChoice(choice)
+
+Functions
+=========
+
+.. py:method:: vrdSwitchNode.getChoice()
+
+    Returns the current choice
+
+    :return: The choice.
+    :rtype: integer
+
+.. py:method:: vrdSwitchNode.setChoice(choice)
+
+    Set the choice.
+
+    Choice defines which children should be rendered -2: Render all visible children, -1: Render no child, >=0: Render child with given index
+
+    :param choice: Choice
+    :type choice: integer
+

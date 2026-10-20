@@ -1,0 +1,236 @@
+----------------
+vrdIncandescence
+----------------
+
+.. py:class:: vrdIncandescence
+
+(Inherits vrdSceneObject)
+
+This class is used for all incandescence properties.
+
+Summary
+=======
+
+Functions:
+    * getAreaLightQuality() → integer
+    * getBakeLayer() → integer
+    * getCastShadowOnShadowMaterial() → bool
+    * getColor() → QVector3D
+    * getColorSpectrum() → vrSpectrum
+    * getDirectRaylightEvaluation() → bool
+    * getGroundShadowIntensity() → float
+    * getIlluminateShadowMaterial() → bool
+    * getImportanceMultiplier() → float
+    * getIntensity() → float
+    * getInteractiveAreaLightQuality() → integer
+    * getLightUnit() → vrLightTypes.Unit
+    * getShadowIntensity() → float
+    * getTexture() → vrdTexture
+    * getUseAsLightSource() → bool
+    * setAreaLightQuality(quality)
+    * setBakeLayer(layer)
+    * setCastShadowOnShadowMaterial(s)
+    * setColor(color)
+    * setColorSpectrum(value)
+    * setDirectRaylightEvaluation(s)
+    * setGroundShadowIntensity(intensity)
+    * setIlluminateShadowMaterial(s)
+    * setImportanceMultiplier(multiplier)
+    * setIntensity(intensity)
+    * setInteractiveAreaLightQuality(quality)
+    * setLightUnit(unit)
+    * setShadowIntensity(intensity)
+    * setUseAsLightSource(s)
+
+Functions
+=========
+
+.. py:method:: vrdIncandescence.getAreaLightQuality()
+
+    Gets the light sampling quality during still frame rendering.
+
+    :return: Current quality from 0 to 4
+    :rtype: integer
+
+.. py:method:: vrdIncandescence.getBakeLayer()
+
+    Returns which lightmap layer the illumination from this light source is baked to with texture baking. See setBakeLayer(int).
+
+    :return: The layer index.
+    :rtype: integer
+
+.. py:method:: vrdIncandescence.getCastShadowOnShadowMaterial()
+
+    :return: Whether other objects may cast shadows on the shadow material due to the materials incandescence illumination
+    :rtype: bool
+
+.. py:method:: vrdIncandescence.getColor()
+
+    :return: Current incandescence color
+    :rtype: QVector3D
+
+.. py:method:: vrdIncandescence.getColorSpectrum()
+
+    Gets the incandescence color spectrum.
+
+    :return: The current used spectrum for incandescence color.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdIncandescence.getDirectRaylightEvaluation()
+
+    :return: Current evaluation state of ray lights on the surface.
+    :rtype: bool
+
+.. py:method:: vrdIncandescence.getGroundShadowIntensity()
+
+    Gets the shadow intensity of the geometry light on the shadow material.
+
+    :return: Current shadow intensity
+    :rtype: float
+
+.. py:method:: vrdIncandescence.getIlluminateShadowMaterial()
+
+    :return: Whether the incandescence light may illuminate shadow material
+    :rtype: bool
+
+.. py:method:: vrdIncandescence.getImportanceMultiplier()
+
+    :return: Current importance multiplier of the geometric light source for photon mapping
+    :rtype: float
+
+.. py:method:: vrdIncandescence.getIntensity()
+
+    :return: Current incandescence intensity
+    :rtype: float
+
+.. py:method:: vrdIncandescence.getInteractiveAreaLightQuality()
+
+    Gets the light sampling quality during interactive rendering.
+
+    :return: Current quality from 0 to 4
+    :rtype: integer
+
+.. py:method:: vrdIncandescence.getLightUnit()
+
+    Returns the unit used for this light source.
+
+    :return: The light unit.
+    :rtype: vrLightTypes.Unit
+
+.. py:method:: vrdIncandescence.getShadowIntensity()
+
+    Gets the intensity of shadows cast by the geometry light on BRDF-based materials.
+
+    :return: Current shadow intensity
+    :rtype: float
+
+.. py:method:: vrdIncandescence.getTexture()
+
+    Gets access to all properties of vrdIncandescenceTexture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdIncandescence.getUseAsLightSource()
+
+    :return: Whether the material is used as a light source for other materials in the scene while raytracing
+    :rtype: bool
+
+.. py:method:: vrdIncandescence.setAreaLightQuality(quality)
+
+    Sets the light sampling quality during still frame rendering.
+
+    :param quality: New quality from 0 to 4. Default 1
+    :type quality: integer
+
+.. py:method:: vrdIncandescence.setBakeLayer(layer)
+
+    For texture baking, a layer can be set with         vrdIlluminationBakeSettings.setLightsLayer(value) to bake only illumination from lights that have this bake layer number set. Use this function to set the layer for this light source. Default is 0.
+
+    :param layer: The layer index. Supported values are 0 (base illumination/shadows) and 1 (separate illumination).
+    :type layer: integer
+
+.. py:method:: vrdIncandescence.setCastShadowOnShadowMaterial(s)
+
+    Allows other objects to cast shadows on the shadow material due to the material's incandescence illumination.
+
+    :param s: New enable state
+    :type s: bool
+
+.. py:method:: vrdIncandescence.setColor(color)
+
+    Sets the incandescence color.
+
+    :param color: New color
+    :type color: QVector3D
+
+.. py:method:: vrdIncandescence.setColorSpectrum(value)
+
+    Sets the incandescence color spectrum.
+
+    :param value: New spectrum for incandescence color
+    :type value: vrSpectrum
+
+.. py:method:: vrdIncandescence.setDirectRaylightEvaluation(s)
+
+    Enables evaluation of ray lights on the surface. This is used to be able to look into a ray file light and to make it visible in reflections and refractions. The origins of the rays should be on the surface to be evaluated.
+
+    :param s: New state
+    :type s: bool
+
+.. py:method:: vrdIncandescence.setGroundShadowIntensity(intensity)
+
+    Sets the shadow intensity of the geometry light on the shadow material.
+
+    :param intensity: New shadow intensity
+    :type intensity: float
+
+.. py:method:: vrdIncandescence.setIlluminateShadowMaterial(s)
+
+    Allows the incandescence light to illuminate shadow materials. See         vrdShadowMaterial.setReflectionMode(mode).
+
+    :param s: New state
+    :type s: bool
+
+.. py:method:: vrdIncandescence.setImportanceMultiplier(multiplier)
+
+    A value higher than 1 increases the probability that a geometric light source emits photons when using photon mapping.
+
+    :param multiplier: New importance multiplier. Default 1.0
+    :type multiplier: float
+
+.. py:method:: vrdIncandescence.setIntensity(intensity)
+
+    Sets the incandescence intensity.
+
+    :param intensity: New intensity
+    :type intensity: float
+
+.. py:method:: vrdIncandescence.setInteractiveAreaLightQuality(quality)
+
+    Sets the light sampling quality during interactive rendering.
+
+    :param quality: New quality from 0 to 4. Default 1
+    :type quality: integer
+
+.. py:method:: vrdIncandescence.setLightUnit(unit)
+
+    Sets the unit used for this light source. At the moment only candela per squaremeter is supported.
+
+    :param unit: The unit.
+    :type unit: vrLightTypes.Unit
+
+.. py:method:: vrdIncandescence.setShadowIntensity(intensity)
+
+    Sets the intensity of shadows cast by the geometry light on BRDF-based materials.
+
+    :param intensity: New shadow intensity
+    :type intensity: float
+
+.. py:method:: vrdIncandescence.setUseAsLightSource(s)
+
+    Enable to use objects with this material as a light source for other materials in the scene while raytracing.
+
+    :param s: Enable state
+    :type s: bool
+

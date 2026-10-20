@@ -1,0 +1,103 @@
+-----------
+vrdMetadata
+-----------
+
+.. py:class:: vrdMetadata
+
+(Inherits vrdObject)
+
+This class gives access to the metadata of an object.
+
+Metadata is organized in metadata sets (vrdMetadataSet) which contain metadata entries (vrdMetadataEntry).
+
+Metadata entries are either assigned to an object directly (those entries are bundled in the so called object set), or stored in shareable metadata sets that can be assigned to multiple objects.
+
+Summary
+=======
+
+Functions:
+    * entryCount() → integer
+    * getObjectSet() → vrdMetadataSet
+    * getSets() → List[vrdMetadataSet]
+    * getTags() → List[string]
+    * getValue(key) → QVariant
+    * hasKey(key) → bool
+    * hasObjectEntries() → bool
+    * hasSet(name) → bool
+    * hasType(type) → bool
+    * hasValue(value) → bool
+
+Functions
+=========
+
+.. py:method:: vrdMetadata.entryCount()
+
+    Gets the count of all assigned metadata entries.
+
+    :return: The count of all assigned metadata entries.
+    :rtype: integer
+
+.. py:method:: vrdMetadata.getObjectSet()
+
+    Gets the object set if an object set exists. If not, creates an object set.
+
+    :return: A metadata set which contains all entries assigned to only this object.
+    :rtype: vrdMetadataSet
+
+.. py:method:: vrdMetadata.getSets()
+
+    :return: Gets a list of all metadata sets assigned to the referenced object. The object set is not part of this list.
+    :rtype: List[vrdMetadataSet]
+
+.. py:method:: vrdMetadata.getTags()
+
+    :return: A list of names of all assigned metadata entries of type Tag (vrMetadataTypes.ValueType.Tag).
+    :rtype: List[string]
+
+.. py:method:: vrdMetadata.getValue(key)
+
+    Gets the value of a specific key. If the key does not exist, a null variant is returned. If the key exists multiple times, it is undefined which one is returned.
+
+    :param key: The key we are looking for.
+    :type key: string
+
+    :return: The value of a specific key.
+    :rtype: QVariant
+
+.. py:method:: vrdMetadata.hasKey(key)
+
+    :param key: The key of an entry.
+    :type key: string
+
+    :return: True, if the object has an entry with the given key
+    :rtype: bool
+
+.. py:method:: vrdMetadata.hasObjectEntries()
+
+    :return: True, if this object has an object set with entries.
+    :rtype: bool
+
+.. py:method:: vrdMetadata.hasSet(name)
+
+    :param name: The metadata set name we are looking for.
+    :type name: string
+
+    :return: True, if the object has a metadata set with the given name
+    :rtype: bool
+
+.. py:method:: vrdMetadata.hasType(type)
+
+    :param type: The value type of an entry.
+    :type type: vrMetadataTypes.ValueType
+
+    :return: True, if the object has an entry with the value type
+    :rtype: bool
+
+.. py:method:: vrdMetadata.hasValue(value)
+
+    :param value: The value of an entry.
+    :type value: QVariant
+
+    :return: True, if the object has an entry with the given value
+    :rtype: bool
+

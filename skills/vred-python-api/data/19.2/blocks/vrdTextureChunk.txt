@@ -1,0 +1,237 @@
+---------------
+vrdTextureChunk
+---------------
+
+.. py:class:: vrdTextureChunk
+
+(Inherits vrdMaterialChunk)
+
+This class represents a texture chunk.
+
+    .. py:class:: MinFilter
+
+            .. py:data:: Fastest
+
+            .. py:data:: Fast
+               :no-index:
+
+            .. py:data:: Medium
+
+            .. py:data:: Nice
+
+            .. py:data:: Nicer
+
+            .. py:data:: Nicest
+
+    .. py:class:: MagFilter
+
+            .. py:data:: Fast
+               :no-index:
+
+            .. py:data:: Nice
+               :no-index:
+
+    .. py:class:: WrapMode
+
+            .. py:data:: Clamp
+
+            .. py:data:: ClampToEdge
+
+            .. py:data:: ClampToBorder
+
+            .. py:data:: Repeat
+
+            .. py:data:: MirroredRepeat
+
+    .. py:class:: InternalFormat
+
+            .. py:data:: GetFromLoadedTexture
+
+            .. py:data:: R8
+
+            .. py:data:: RG8
+
+            .. py:data:: RGB8
+
+            .. py:data:: RGBA8
+
+            .. py:data:: R16
+
+            .. py:data:: RG16
+
+            .. py:data:: RGB16
+
+            .. py:data:: RGBA16
+
+            .. py:data:: R16F
+
+            .. py:data:: RG16F
+
+            .. py:data:: RGB16F
+
+            .. py:data:: RGBA16F
+
+            .. py:data:: R32F
+
+            .. py:data:: RG32F
+
+            .. py:data:: RGB32F
+
+            .. py:data:: RGBA32F
+
+            .. py:data:: SRGB8
+
+            .. py:data:: SRGB8ALPHA8
+
+Summary
+=======
+
+Functions:
+    * getAnisotropy() → float
+    * getImage() → vrdImage
+    * getInternalFormat() → vrdTextureChunk.InternalFormat
+    * getLodBias() → float
+    * getMagFilter() → vrdTextureChunk.MagFilter
+    * getMinFilter() → vrdTextureChunk.MinFilter
+    * getWrapModeR() → vrdTextureChunk.WrapMode
+    * getWrapModeS() → vrdTextureChunk.WrapMode
+    * getWrapModeT() → vrdTextureChunk.WrapMode
+    * setAnisotropy(anisotropy)
+    * setImage(img)
+    * setInternalFormat(format)
+    * setLodBias(bias)
+    * setMagFilter(minFilter)
+    * setMinFilter(minFilter)
+    * setWrapModeR(mode)
+    * setWrapModeS(mode)
+    * setWrapModeT(mode)
+
+Functions
+=========
+
+.. py:method:: vrdTextureChunk.getAnisotropy()
+
+    Returns texture anisotropy filtering.
+
+    :return: The texture anisotropy filtering value.
+    :rtype: float
+
+.. py:method:: vrdTextureChunk.getImage()
+
+    Returns the texture.
+
+    :return: The texture image.
+    :rtype: vrdImage
+
+.. py:method:: vrdTextureChunk.getInternalFormat()
+
+    Returns the internal texture format.
+
+    :return: The internal texture format.
+    :rtype: vrdTextureChunk.InternalFormat
+
+.. py:method:: vrdTextureChunk.getLodBias()
+
+    Bias of LOD calculation for texture access.
+
+    :return: The LOD Bias
+    :rtype: float
+
+.. py:method:: vrdTextureChunk.getMagFilter()
+
+    Returns the magnification filter, default GL_LINEAR (Nice)
+
+    :return: The magnification filter.
+    :rtype: vrdTextureChunk.MagFilter
+
+.. py:method:: vrdTextureChunk.getMinFilter()
+
+    Returns the minimization filter, default GL_LINEAR_MIPMAP_LINEAR (Nicest)
+
+    :return: The minimization filter.
+    :rtype: vrdTextureChunk.MinFilter
+
+.. py:method:: vrdTextureChunk.getWrapModeR()
+
+    Returns texture coordinate R wrapping, default GL_REPEAT (Repeat).
+
+    :return: The R wrap mode.
+    :rtype: vrdTextureChunk.WrapMode
+
+.. py:method:: vrdTextureChunk.getWrapModeS()
+
+    Returns texture coordinate S wrapping, default GL_REPEAT (Repeat).
+
+    :return: The S wrap mode.
+    :rtype: vrdTextureChunk.WrapMode
+
+.. py:method:: vrdTextureChunk.getWrapModeT()
+
+    Returns texture coordinate T wrapping, default GL_REPEAT (Repeat).
+
+    :return: The T wrap mode.
+    :rtype: vrdTextureChunk.WrapMode
+
+.. py:method:: vrdTextureChunk.setAnisotropy(anisotropy)
+
+    Sets texture anisotropy filtering.
+
+    :param anisotropy: The texture anisotropy filtering value.
+    :type anisotropy: float
+
+.. py:method:: vrdTextureChunk.setImage(img)
+
+    Sets the texture.
+
+    :param img: The new texture.
+    :type img: vrdImage
+
+.. py:method:: vrdTextureChunk.setInternalFormat(format)
+
+    Sets the internal texture format.
+
+    :param format: The internal texture format.
+    :type format: vrdTextureChunk.InternalFormat
+
+.. py:method:: vrdTextureChunk.setLodBias(bias)
+
+    Set bias of LOD calculation for texture access.
+
+    :param bias: The LOD Bias
+    :type bias: float
+
+.. py:method:: vrdTextureChunk.setMagFilter(minFilter)
+
+    Sets the magnification filter, default GL_LINEAR (Nice)
+
+    :param minFilter: The magnification filter
+    :type minFilter: vrdTextureChunk.MagFilter
+
+.. py:method:: vrdTextureChunk.setMinFilter(minFilter)
+
+    Sets the minimization filter, default GL_LINEAR_MIPMAP_LINEAR (Nicest)
+
+    :param minFilter: The minimization filter
+    :type minFilter: vrdTextureChunk.MinFilter
+
+.. py:method:: vrdTextureChunk.setWrapModeR(mode)
+
+    Sets texture coordinate R wrapping, default GL_REPEAT (Repeat).
+
+    :param mode: The R wrap mode
+    :type mode: vrdTextureChunk.WrapMode
+
+.. py:method:: vrdTextureChunk.setWrapModeS(mode)
+
+    Sets texture coordinate S wrapping, default GL_REPEAT (Repeat).
+
+    :param mode: The wrap mode
+    :type mode: vrdTextureChunk.WrapMode
+
+.. py:method:: vrdTextureChunk.setWrapModeT(mode)
+
+    Sets texture coordinate T wrapping, default GL_REPEAT (Repeat).
+
+    :param mode: The T wrap mode
+    :type mode: vrdTextureChunk.WrapMode
+

@@ -1,0 +1,26 @@
+MODULE vrCubeImages (legacy v1 API)
+
+------------
+vrCubeImages
+------------
+
+Summary
+=======
+
+Functions:
+    * createCubeImages(node_name, type, resolution, supersampling, filename)
+
+.. function:: createCubeImages(node_name, type, resolution, supersampling, filename)
+
+    Exports an environment image.
+
+    :param node_name: Use this node for the camera position.
+    :type node_name: string
+    :param type: Type of the cube image format. Possible values (0 = Separate Images, 1 = Vertical Cross, 2 = Horizontal Cross, 3 = Spherical Map).
+    :type type: integer
+    :param resolution: Image resolution of one cube side in pixels.
+    :type resolution: integer
+    :param supersampling: Supersampling. Possible values (0 = Off, 1 = 4x, 2 = 16x, 3 = 64x).
+    :type supersampling: integer
+    :param filename: Filename of the image(s). Default type is png if no extension is specified. For separate images, provide a single filename (including extension), the name is extended for the 6 sides. Example: 'C:/cube.png' => 'C:/cube_zleft.png', 'C:/cube_zright.png', 'C:/cube_ztop.png', 'C:/cube_zbottom.png', 'C:/cube_zfront.png', 'C:/cube_zback.png' for z-up vector.
+    :type filename: string

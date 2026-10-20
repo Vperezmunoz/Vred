@@ -1,0 +1,38 @@
+-----------------------
+vrdParentConstraintNode
+-----------------------
+
+.. py:class:: vrdParentConstraintNode
+
+(Inherits vrdConstraintNode)
+
+Parent constraints control constrained nodes by making them behave like children of target nodes. Multiple targets are combined using weighted average calculations.
+
+To obtain the vrdParentConstraintObject and configure how transformations are applied from target nodes to constrained nodes, see vrdConstraintNode::getConstrainedObject(vrdNode).
+
+For managing constraints and code examples see     vrConstraintService.
+
+Summary
+=======
+
+Functions:
+    * getMaintainOffset() → bool
+    * setMaintainOffset(value)
+
+Functions
+=========
+
+.. py:method:: vrdParentConstraintNode.getMaintainOffset()
+
+    Returns if the constraint maintains the offset to its sources. Deprecated, this method is still here for backward compatibility, please use         vrdParentConstraintObject.getMaintainOffset()
+
+    :return: True if at least one constrained node maintains the offset, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdParentConstraintNode.setMaintainOffset(value)
+
+    Sets if the constraint should maintain the offset to the sources when creating it. Deprecated, this method is still here for backward compatibility, please use         vrdParentConstraintObject.setMaintainOffset(maintain)
+
+    :param value: True if the offset shall be maintained, False otherwise.
+    :type value: bool
+

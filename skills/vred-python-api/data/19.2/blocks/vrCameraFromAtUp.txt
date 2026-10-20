@@ -1,0 +1,84 @@
+----------------
+vrCameraFromAtUp
+----------------
+
+.. py:class:: vrCameraFromAtUp
+
+Class that contains from, at and up vector for use with the camera nodes.
+
+Summary
+=======
+
+Functions:
+    * getAt() → QVector3D
+    * getFrom() → QVector3D
+    * getUp() → QVector3D
+    * setAt(at)
+    * setFrom(from)
+    * setUp(up)
+    * vrCameraFromAtUp()
+    * vrCameraFromAtUp(from, at, up)
+
+Functions
+=========
+
+.. py:method:: vrCameraFromAtUp.getAt()
+
+    Gets the at vector.
+
+    :return: The at vector.
+    :rtype: QVector3D
+
+.. py:method:: vrCameraFromAtUp.getFrom()
+
+    Gets the from vector.
+
+    :return: The from vector.
+    :rtype: QVector3D
+
+.. py:method:: vrCameraFromAtUp.getUp()
+
+    Gets the up vector.
+
+    :return: The up vector.
+    :rtype: QVector3D
+
+.. py:method:: vrCameraFromAtUp.setAt(at)
+
+    Sets the at vector.
+
+    :param at: The at vector.
+    :type at: QVector3D
+
+.. py:method:: vrCameraFromAtUp.setFrom(from)
+
+    Sets the from vector.
+
+    :param from: The from vector.
+    :type from: QVector3D
+
+.. py:method:: vrCameraFromAtUp.setUp(up)
+
+    Sets the up vector.
+
+    :param up: The up vector.
+    :type up: QVector3D
+
+.. py:method:: vrCameraFromAtUp.vrCameraFromAtUp()
+
+    Default constructor. Initializes from, at, up with zeros.
+
+.. py:method:: vrCameraFromAtUp.vrCameraFromAtUp(from, at, up)
+   :no-index:
+
+    Constructor with from, at, up parameters.
+
+    :param from: The from vector.
+    :type from: QVector3D
+
+    :param at: The at vector.
+    :type at: QVector3D
+
+    :param up: The up vector.
+    :type up: QVector3D
+

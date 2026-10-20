@@ -1,0 +1,109 @@
+---------------------
+vrdLinearGradientStop
+---------------------
+
+.. py:class:: vrdLinearGradientStop
+
+(Inherits vrdData)
+
+Holds the data of a stop of a linear gradient.
+
+Summary
+=======
+
+Functions:
+    * getColor() → QColor
+    * getMidColorPosition() → qreal
+    * getPosition() → qreal
+    * isPositionLess(other) → bool
+    * isPositionLess(otherPosition) → bool
+    * setColor(color)
+    * setMidColorPosition(midColorPosition)
+    * setPosition(position)
+    * vrdLinearGradientStop()
+    * vrdLinearGradientStop(color, position, midColorPosition)
+
+Functions
+=========
+
+.. py:method:: vrdLinearGradientStop.getColor()
+
+    Gets the color.
+
+    :return: The color of the stop.
+    :rtype: QColor
+
+.. py:method:: vrdLinearGradientStop.getMidColorPosition()
+
+    Gets the position of the mid-color.
+
+    :return: Relative position of the mid-color between previous and this stop.
+    :rtype: qreal
+
+.. py:method:: vrdLinearGradientStop.getPosition()
+
+    Gets the position.
+
+    :return: The position of the stop within the gradient.
+    :rtype: qreal
+
+.. py:method:: vrdLinearGradientStop.isPositionLess(other)
+
+    Compares the position to the position of another stop.
+
+    :param other: The stop to compare to.
+    :type other: vrdLinearGradientStop
+
+    :return: True if the position is less than the position of the other stop.
+    :rtype: bool
+
+.. py:method:: vrdLinearGradientStop.isPositionLess(otherPosition)
+   :no-index:
+
+    Compares the position to another position.
+
+    :param otherPosition: The other position to compare to.
+    :type otherPosition: float
+
+    :return: True if the position is less than the other position.
+    :rtype: bool
+
+.. py:method:: vrdLinearGradientStop.setColor(color)
+
+    Sets the color.
+
+    :param color: The color of the stop.
+    :type color: QColor
+
+.. py:method:: vrdLinearGradientStop.setMidColorPosition(midColorPosition)
+
+    Sets the position of the mid-color.
+
+    :param midColorPosition: Relative position of the mid-color between previous and this stop.
+    :type midColorPosition: qreal
+
+.. py:method:: vrdLinearGradientStop.setPosition(position)
+
+    Sets the position.
+
+    :param position: The position of the stop within the gradient.
+    :type position: qreal
+
+.. py:method:: vrdLinearGradientStop.vrdLinearGradientStop()
+
+    Default constructor.
+
+.. py:method:: vrdLinearGradientStop.vrdLinearGradientStop(color, position, midColorPosition)
+   :no-index:
+
+    Constructor with parameters.
+
+    :param color: Color of the stop.
+    :type color: QColor
+
+    :param position: Position of the stop within the gradient.
+    :type position: qreal
+
+    :param midColorPosition: Relative position of the mid-color between previous and this stop.
+    :type midColorPosition: qreal
+

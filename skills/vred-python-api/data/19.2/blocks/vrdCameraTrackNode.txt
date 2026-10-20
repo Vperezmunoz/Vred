@@ -1,0 +1,141 @@
+------------------
+vrdCameraTrackNode
+------------------
+
+.. py:class:: vrdCameraTrackNode
+
+(Inherits vrdNode)
+
+This class represents a camera track node.
+
+These nodes exist only in the internal scene graph of the camera module and not in the regular scene graph. Camera track nodes are created by the camera service: vrCameraService.createCameraTrack(name, cameraNode).
+
+Camera tracks created by the camera service are of type 'Regular' and have vrdViewpointNodes as children. vrdViewpointNodes can individually override the settings set here in the camera track.
+
+Summary
+=======
+
+Functions:
+    * getFadeInDuration() → float
+    * getPauseDuration() → float
+    * getPlaying() → bool
+    * getTransitionDuration() → float
+    * getType() → vrCameraTypes.CameraTrackType
+    * getViewpoint(index) → vrdViewpointNode
+    * getViewpointCount() → integer
+    * getViewpoints() → List[vrdViewpointNode]
+    * isRenderQueueCameraTrack() → bool
+    * isVariantSetCameraTrack() → bool
+    * setFadeInDuration(duration)
+    * setPauseDuration(duration)
+    * setPlaying(playing)
+    * setTransitionDuration(duration)
+
+Functions
+=========
+
+.. py:method:: vrdCameraTrackNode.getFadeInDuration()
+
+    Returns the fade in duration of the camera track.
+
+    :return: The fade in duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdCameraTrackNode.getPauseDuration()
+
+    Returns the pause duration of the camera track.
+
+    :return: The pause duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdCameraTrackNode.getPlaying()
+
+    Returns the playback state of the camera track.
+
+    :return: The playback state of the camera track.
+    :rtype: bool
+
+.. py:method:: vrdCameraTrackNode.getTransitionDuration()
+
+    Returns the transition duration of the camera track.
+
+    :return: The transition duration in seconds.
+    :rtype: float
+
+.. py:method:: vrdCameraTrackNode.getType()
+
+    Returns the type of the camera track.
+
+    Possible types are Regular, RenderQueue and VariantSet. RenderQueue and VariantSet tracks are internally created nodes and should not be modified. Camera tracks created by the camera service are always of type 'Regular'.
+
+    :return: The camera track type.
+    :rtype: vrCameraTypes.CameraTrackType
+
+.. py:method:: vrdCameraTrackNode.getViewpoint(index)
+
+    Returns a viewpoint node by index.
+
+    :param index: The index of the viewpoint node.
+    :type index: integer
+
+    :return: The viewpoint node. Can be Null if the index was invalid.
+    :rtype: vrdViewpointNode
+
+.. py:method:: vrdCameraTrackNode.getViewpointCount()
+
+    Returns the number of viewpoints belonging to this camera track node.
+
+    :return: The number of viewpoints.
+    :rtype: integer
+
+.. py:method:: vrdCameraTrackNode.getViewpoints()
+
+    Returns all viewpoints belonging to this camera track node.
+
+    This is a convenience function that collects all viewpoint children of the camera track.
+
+    :return: The list of viewpoints.
+    :rtype: List[vrdViewpointNode]
+
+.. py:method:: vrdCameraTrackNode.isRenderQueueCameraTrack()
+
+    Check if the camera track is of type RenderQueue.
+
+    :return: True if the type is RenderQueue, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraTrackNode.isVariantSetCameraTrack()
+
+    Check if the camera track is of type VariantSet.
+
+    :return: True if the type is VariantSet, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdCameraTrackNode.setFadeInDuration(duration)
+
+    Sets the fade in duration of the camera track.
+
+    :param duration: The fade in duration in seconds.
+    :type duration: float
+
+.. py:method:: vrdCameraTrackNode.setPauseDuration(duration)
+
+    Sets the pause duration of the camera track.
+
+    :param duration: The pause duration in seconds.
+    :type duration: float
+
+.. py:method:: vrdCameraTrackNode.setPlaying(playing)
+
+    Start / stop playback of the camera track.
+
+    :param playing: True to start playback, False to stop it.
+    :type playing: bool
+
+.. py:method:: vrdCameraTrackNode.setTransitionDuration(duration)
+
+    Sets the transition duration of the camera track.
+
+    :param duration: The transition duration in seconds.
+    :type duration: float
+

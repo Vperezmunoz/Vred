@@ -1,0 +1,49 @@
+-------------------
+vrdPhysicsBoxConfig
+-------------------
+
+.. py:class:: vrdPhysicsBoxConfig
+
+(Inherits vrdPhysicsConfig)
+
+The configuration class for PhysX box colliders.
+
+Summary
+=======
+
+Functions:
+    * getScale() → QVector3D
+    * setScale(scale)
+    * vrdPhysicsBoxConfig()
+    * vrdPhysicsBoxConfig(other)
+    * ~vrdPhysicsBoxConfig()
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsBoxConfig.getScale()
+
+    Get the scale of the box.
+
+    :return: The scale of the box.
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsBoxConfig.setScale(scale)
+
+    Set the scale of the box.
+
+    The scale of the box is used to scale the bounding box. The default value is (1.0, 1.0, 1.0).
+
+    :param scale: The scale of the box.
+    :type scale: QVector3D
+
+.. py:method:: vrdPhysicsBoxConfig.vrdPhysicsBoxConfig()
+
+.. py:method:: vrdPhysicsBoxConfig.vrdPhysicsBoxConfig(other)
+   :no-index:
+
+    :param other:
+    :type other: vrdPhysicsBoxConfig
+
+.. py:method:: vrdPhysicsBoxConfig.~vrdPhysicsBoxConfig()
+

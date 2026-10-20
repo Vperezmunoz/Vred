@@ -1,0 +1,41 @@
+-------------
+vrdVertexBake
+-------------
+
+.. py:class:: vrdVertexBake
+
+(Inherits vrdSceneObject)
+
+This class provides functionality for vertex bake data of a single geometry.
+
+Summary
+=======
+
+Functions:
+    * clearBake(clearDirectIllumination, clearIndirectIllumination)
+    * getIlluminationBakeSettings() → vrdIlluminationBakeSettings
+    * getVertexBakeSettings() → vrdVertexBakeSettings
+
+Functions
+=========
+
+.. py:method:: vrdVertexBake.clearBake(clearDirectIllumination=True, clearIndirectIllumination=True)
+
+    Clears all vertex bake render data from the geometry (direct and/or indirect illumination).
+
+    :param clearDirectIllumination: Clears the direct illumination bake data of the geometry.
+    :type clearDirectIllumination: bool
+
+    :param clearIndirectIllumination: Clears the indirect illumination bake data of the geometry.
+    :type clearIndirectIllumination: bool
+
+.. py:method:: vrdVertexBake.getIlluminationBakeSettings()
+
+    :return: Gets the illumination bake settings which were used for the last vertex bake on the geometry.
+    :rtype: vrdIlluminationBakeSettings
+
+.. py:method:: vrdVertexBake.getVertexBakeSettings()
+
+    :return: Gets the vertex bake settings which were used for the last vertex bake on the geometry.
+    :rtype: vrdVertexBakeSettings
+

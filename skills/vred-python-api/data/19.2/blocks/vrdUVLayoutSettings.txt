@@ -1,0 +1,236 @@
+-------------------
+vrdUVLayoutSettings
+-------------------
+
+.. py:class:: vrdUVLayoutSettings
+
+(Inherits vrdData)
+
+Holds settings for UV layout (packing of UV islands in the UV space) with Unfold3D. See     vrUVService.layout(nodes, settings, uvSet).
+
+Summary
+=======
+
+Functions:
+    * getBox() → QVector4D
+    * getIslandPadding() → float
+    * getIterations() → integer
+    * getPostScaleMode() → vrUVTypes.PostScaleMode
+    * getPreRotateMode() → vrUVTypes.PreRotateMode
+    * getPreScaleMode() → vrUVTypes.PreScaleMode
+    * getResolution() → integer
+    * getRotate() → bool
+    * getRotateMax() → float
+    * getRotateMin() → float
+    * getRotateStep() → float
+    * getTileAssignMode() → vrUVTypes.TileAssignMode
+    * getTilePadding() → float
+    * getTilesU() → integer
+    * getTilesV() → integer
+    * getTranslate() → bool
+    * setBox(box)
+    * setIslandPadding(padding)
+    * setIterations(i)
+    * setPostScaleMode(mode)
+    * setPreRotateMode(mode)
+    * setPreScaleMode(mode)
+    * setResolution(resolution)
+    * setRotate(enable)
+    * setRotateMax(rMaxDeg)
+    * setRotateMin(rMinDeg)
+    * setRotateStep(rStepDeg)
+    * setTileAssignMode(mode)
+    * setTilePadding(padding)
+    * setTilesU(tilesU)
+    * setTilesV(tilesV)
+    * setTranslate(enable)
+
+Functions
+=========
+
+.. py:method:: vrdUVLayoutSettings.getBox()
+
+    Get the UV space box in which the islands will be packed (packing region).
+
+    :return: Box as (U_min, U_max, V_min, V_max)
+    :rtype: QVector4D
+
+.. py:method:: vrdUVLayoutSettings.getIslandPadding()
+
+    :return: Padding between islands in UV unit
+    :rtype: float
+
+.. py:method:: vrdUVLayoutSettings.getIterations()
+
+    :return: Packing iterations. See vrdUVLayoutSettings.setIterations(i) for an explanation.
+    :rtype: integer
+
+.. py:method:: vrdUVLayoutSettings.getPostScaleMode()
+
+    :return: How the packed islands are scaled into the box after packing.
+    :rtype: vrUVTypes.PostScaleMode
+
+.. py:method:: vrdUVLayoutSettings.getPreRotateMode()
+
+    :return: How the islands are re-oriented before packing in a pre-process phase
+    :rtype: vrUVTypes.PreRotateMode
+
+.. py:method:: vrdUVLayoutSettings.getPreScaleMode()
+
+    :return: How the islands are rescaled in a pre-process phase before packing
+    :rtype: vrUVTypes.PreScaleMode
+
+.. py:method:: vrdUVLayoutSettings.getResolution()
+
+    :return: Packing grid resolution. See vrdUVLayoutSettings.setResolution(resolution) for an explanation.
+    :rtype: integer
+
+.. py:method:: vrdUVLayoutSettings.getRotate()
+
+    :return: Whether UV islands may be rotated during the packing process.
+    :rtype: bool
+
+.. py:method:: vrdUVLayoutSettings.getRotateMax()
+
+    Get the maximum allowable orientation for UV islands during the packing process.
+
+    :return: maximum allowable angle in degrees
+    :rtype: float
+
+.. py:method:: vrdUVLayoutSettings.getRotateMin()
+
+    Get the minimum allowable orientation for UV islands during the packing process.
+
+    :return: minimum allowable angle in degrees
+    :rtype: float
+
+.. py:method:: vrdUVLayoutSettings.getRotateStep()
+
+    :return: Get rotation step in degrees for the optimization of island orientation. See vrdUVLayoutSettings.setRotateStep(rStepDeg) for an explanation.
+    :rtype: float
+
+.. py:method:: vrdUVLayoutSettings.getTileAssignMode()
+
+    :return: How islands are distributed to the available tiles. See vrdUVLayoutSettings.setTilesU(tilesU) and vrdUVLayoutSettings.setTilesV(tilesV).
+    :rtype: vrUVTypes.TileAssignMode
+
+.. py:method:: vrdUVLayoutSettings.getTilePadding()
+
+    :return: Tile padding in UV unit
+    :rtype: float
+
+.. py:method:: vrdUVLayoutSettings.getTilesU()
+
+    :return: Number of tiles in the U direction for island distribution
+    :rtype: integer
+
+.. py:method:: vrdUVLayoutSettings.getTilesV()
+
+    :return: Number of tiles in the V direction for island distribution
+    :rtype: integer
+
+.. py:method:: vrdUVLayoutSettings.getTranslate()
+
+    :return: Whether UV islands may be moved during packing.
+    :rtype: bool
+
+.. py:method:: vrdUVLayoutSettings.setBox(box)
+
+    Set the UV space box in which the islands will be packed (packing region).
+
+    :param box: Box as (U_min, U_max, V_min, V_max)
+    :type box: QVector4D
+
+.. py:method:: vrdUVLayoutSettings.setIslandPadding(padding)
+
+    Set padding between islands in UV unit.
+
+    :param padding: Padding in UV unit. Value must be >= 0.0, negative values are clamped to 0.
+    :type padding: float
+
+.. py:method:: vrdUVLayoutSettings.setIterations(i)
+
+    Set the number of trials the packing algorithm will take to achieve the desired result. More iterations are slower, but can increase accuracy.
+
+    :param i: Packing iterations. Default is 1
+    :type i: integer
+
+.. py:method:: vrdUVLayoutSettings.setPostScaleMode(mode)
+
+    :param mode: Sets how the packed islands are scaled into the box after packing.
+    :type mode: vrUVTypes.PostScaleMode
+
+.. py:method:: vrdUVLayoutSettings.setPreRotateMode(mode)
+
+    :param mode: Sets how the islands are re-oriented in a pre-process phase before packing
+    :type mode: vrUVTypes.PreRotateMode
+
+.. py:method:: vrdUVLayoutSettings.setPreScaleMode(mode)
+
+    :param mode: Sets how the islands are rescaled in a pre-process phase before packing
+    :type mode: vrUVTypes.PreScaleMode
+
+.. py:method:: vrdUVLayoutSettings.setResolution(resolution)
+
+    Determines the resolution of the packing grid used to place UV islands next to each other in the UV space. Higher values are slower, but produce better results when there are a lot of smaller islands.
+
+    :param resolution: Packing grid resolution. Default is 256.
+    :type resolution: integer
+
+.. py:method:: vrdUVLayoutSettings.setRotate(enable)
+
+    :param enable: Set whether UV islands may be rotated during the packing process.
+    :type enable: bool
+
+.. py:method:: vrdUVLayoutSettings.setRotateMax(rMaxDeg)
+
+    Set the maximum allowable orientation for UV islands during the packing process. Only used if rotation is enabled with         vrdUVLayoutSettings.setRotate(enable).
+
+    :param rMaxDeg: maximum angle in degrees
+    :type rMaxDeg: float
+
+.. py:method:: vrdUVLayoutSettings.setRotateMin(rMinDeg)
+
+    Set the minimum allowable orientation for UV islands during the packing process. Only used if rotation is enabled with         vrdUVLayoutSettings.setRotate(enable).
+
+    :param rMinDeg: minimum angle in degrees
+    :type rMinDeg: float
+
+.. py:method:: vrdUVLayoutSettings.setRotateStep(rStepDeg)
+
+    Set rotation step for the optimization of island orientation. Only used if rotation optimization is enabled with         vrdUVLayoutSettings.setRotate(enable). Rotation optimization begins at the minimum value, see vrdUVLayoutSettings.setRotateMin(rMinDeg), then progressively increases by the rotation step as necessary, up to the maximum value, see vrdUVLayoutSettings.setRotateMax(rMaxDeg).
+
+    :param rStepDeg: angle step in degrees. Please note, rStepDeg = 0.0 disables the rotation optimization. Small values incur slower packing speeds. Default is 90 degrees.
+    :type rStepDeg: float
+
+.. py:method:: vrdUVLayoutSettings.setTileAssignMode(mode)
+
+    :param mode: Set how islands are distributed to the available tiles. See vrdUVLayoutSettings.setTilesU(tilesU) and vrdUVLayoutSettings.setTilesV(tilesV).
+    :type mode: vrUVTypes.TileAssignMode
+
+.. py:method:: vrdUVLayoutSettings.setTilePadding(padding)
+
+    Set padding on top/left/right/bottom of the tiles in UV unit.
+
+    :param padding: Padding in UV unit. Value must be >= 0.0, negative values are clamped to 0.
+    :type padding: float
+
+.. py:method:: vrdUVLayoutSettings.setTilesU(tilesU)
+
+    Specify tiling to distribute islands to more than one tile. See         vrdUVLayoutSettings.setTilesV(tilesV) and vrdUVLayoutSettings.setTileAssignMode(mode).
+
+    :param tilesU: The number of tiles in the U direction (default is 1)
+    :type tilesU: integer
+
+.. py:method:: vrdUVLayoutSettings.setTilesV(tilesV)
+
+    Specify tiling to distribute islands to more than one tile. See         vrdUVLayoutSettings.setTilesU(tilesU) and vrdUVLayoutSettings.setTileAssignMode(mode).
+
+    :param tilesV: The number of tiles in the V direction (default is 1)
+    :type tilesV: integer
+
+.. py:method:: vrdUVLayoutSettings.setTranslate(enable)
+
+    :param enable: Set whether UV islands may be moved during packing.
+    :type enable: bool
+

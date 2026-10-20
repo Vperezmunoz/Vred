@@ -1,0 +1,147 @@
+-----------------------
+vrdProjectMergeSettings
+-----------------------
+
+.. py:class:: vrdProjectMergeSettings
+
+(Inherits vrdData)
+
+Summary
+=======
+
+Functions:
+    * getEnvironmentImportOption() → integer
+    * getImportVredAnimationClips() → bool
+    * getImportVredAnimationCurves() → bool
+    * getImportVredAnnotations() → bool
+    * getImportVredSequences() → bool
+    * getImportVredTouchSensors() → bool
+    * getImportVredVariants() → bool
+    * getMergeVredMaterials() → bool
+    * setEnvironmentImportOption(value)
+    * setImportVredAnimationClips(value)
+    * setImportVredAnimationCurves(value)
+    * setImportVredAnnotations(value)
+    * setImportVredSequences(value)
+    * setImportVredTouchSensors(value)
+    * setImportVredVariants(value)
+    * setMergeVredMaterials(value)
+    * vrdProjectMergeSettings()
+
+Functions
+=========
+
+.. py:method:: vrdProjectMergeSettings.getEnvironmentImportOption()
+
+    Returns environment merge behavior.
+
+    :return: Option value: 0 = Use from scene, 1 = Use from file, 2 = Add from file, 3 = Merge
+    :rtype: integer
+
+.. py:method:: vrdProjectMergeSettings.getImportVredAnimationClips()
+
+    Queries if animation clips should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.getImportVredAnimationCurves()
+
+    Queries if animation curves should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.getImportVredAnnotations()
+
+    Queries if annotations clips should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.getImportVredSequences()
+
+    Queries if sequences should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.getImportVredTouchSensors()
+
+    Queries if touch sensors should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.getImportVredVariants()
+
+    Queries if variants should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.getMergeVredMaterials()
+
+    Queries if materials should be merged during file import.
+
+    :return: True for merging, False for not merging
+    :rtype: bool
+
+.. py:method:: vrdProjectMergeSettings.setEnvironmentImportOption(value)
+
+    Sets environment merge behavior that should be used during file import
+
+    :param value: 0 = Use from scene, 1 = Use from file, 2 = Add from file, 3 = Merge
+    :type value: integer
+
+.. py:method:: vrdProjectMergeSettings.setImportVredAnimationClips(value)
+
+    Sets the flag indicating that animation clips should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.setImportVredAnimationCurves(value)
+
+    Sets the flag indicating that animation curves should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.setImportVredAnnotations(value)
+
+    Sets the flag indicating that annotations should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.setImportVredSequences(value)
+
+    Sets the flag indicating that sequences should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.setImportVredTouchSensors(value)
+
+    Sets the flag indicating that touch sensors should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.setImportVredVariants(value)
+
+    Sets the flag indicating that variants should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.setMergeVredMaterials(value)
+
+    Sets the flag indicating that materials should be merged during file import
+
+    :param value: True for merging, False for not merging
+    :type value: bool
+
+.. py:method:: vrdProjectMergeSettings.vrdProjectMergeSettings()
+

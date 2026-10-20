@@ -1,0 +1,15 @@
+-----------------
+vrAnnotationTypes
+-----------------
+
+.. py:class:: vrAnnotationTypes
+
+    .. py:class:: ScalingMode
+
+            .. py:data:: Off
+               :no-index:
+
+            .. py:data:: Near
+
+            .. py:data:: Far
+

@@ -1,0 +1,497 @@
+----------
+vrSpectrum
+----------
+
+.. py:class:: vrSpectrum
+
+This class represents a color spectrum.
+
+The vrSpectrum represents a color spectrum and provides various functions to construct a spectrum. A spectrum is represented as a list of wavelengths and a matching list of values for these wavelengths. From these wavelenghts and source values a sample spectrum is calculated for rendering which always uses the spectral range from 380nm to 780nm with 10nm wide sample buckets (40 samples in total). This class provides functions for loading and saving spectrum files as well as creating a reflection or D65 illumination spectrum from RGB values. Additional functions for creating and combining analytic spectra and setting fully custom spectra are also provided.
+
+A basic example on how to apply a spectrum and the corresponding color to a material:
+
+```
+
+     # create a plastic material
+     plastic = vrMaterialService.createMaterial("Plastic Material", vrMaterialTypes.Plastic)
+
+     # create a spectrum
+     spectrum = vrSpectrum()
+     spectrum.set(380, 50, [0.6,0.8,0.4,0.2,0.15,0.1,0.1,0.0,0.0])
+     spectrum.setUseSpectrum(True)
+
+     # apply the spectrum
+     plastic.setDiffuseColorSpectrum(spectrum)
+
+     # apply the color that matches the spectrum
+     plastic.setDiffuseColor(spectrum.getRGB())
+
+    .. py:class:: SpectraDefines
+
+            .. py:data:: SpectraSampleCount
+
+            .. py:data:: WavelengthStart
+
+            .. py:data:: WavelengthEnd
+
+            .. py:data:: WavelengthDelta
+
+            .. py:data:: SourceWavelengthsCount
+
+            .. py:data:: SourceWavelengthDelta
+
+    .. py:class:: AnalyticFunction
+
+            .. py:data:: Blackbody
+
+            .. py:data:: CIE_D
+
+            .. py:data:: Gauss
+
+            .. py:data:: Cosine
+
+            .. py:data:: Bartlett
+
+            .. py:data:: Blackman
+
+            .. py:data:: Connes
+
+            .. py:data:: Hamming
+
+            .. py:data:: Hanning
+
+            .. py:data:: Lorentzian
+
+            .. py:data:: Welch
+
+Summary
+=======
+
+Functions:
+    * add(spectrumB)
+    * addAnalyticFunction(function, peakWavelength, peakIntensity, fwhm, kelvin, clear, wavelengthStart, wavelengthDelta, wavelengthCount)
+    * copy(source) → bool
+    * getMaxValue() → float
+    * getPhotometricValue() → float
+    * getRGB() → QVector3D
+    * getSample(i) → float
+    * getSamples() → List[float]
+    * getSourceValue(i) → float
+    * getSourceValues() → List[float]
+    * getStartWavelength() → integer
+    * getSum() → float
+    * getUseSpectrum() → bool
+    * getWavelength(i) → float
+    * getWavelengthCount() → integer
+    * getWavelengthDelta() → integer
+    * getWavelengths() → List[float]
+    * getXYZ() → QVector3D
+    * isActive() → bool
+    * isInitialized() → bool
+    * load(filename) → bool
+    * operator=(other) → vrSpectrum
+    * resampleSource(wavelengthStart, wavelengthDelta, wavelengthCount)
+    * save(filename) → bool
+    * scale(scalingFactor)
+    * set(value, wavelengthStart, wavelengthDelta, wavelengthCount)
+    * set(wavelengthStart, wavelengthDelta, values) → bool
+    * set(wavelengths, values) → bool
+    * setIlluminationSpectrumFromRGB(red, green, blue, wavelengthStart, wavelengthDelta, wavelengthCount)
+    * setOne()
+    * setPhotometricValue(value)
+    * setRGB(red, green, blue, wavelengthStart, wavelengthDelta, wavelengthCount)
+    * setUseSpectrum(useSpectrum)
+    * vrSpectrum()
+    * vrSpectrum(other)
+    * vrSpectrum(red, green, blue)
+    * vrSpectrum(rgb)
+
+Functions
+=========
+
+.. py:method:: vrSpectrum.add(spectrumB)
+
+    Adds a spectrum to the current spectrum When the wavelengths of the two spectra do not overlap they will be concatenated. If the wavelengths do overlap the values of the provided spectrum will be added to the current spectrum. If both spectra were loaded from a .TXT file they are assumed to contain adjoining spectra and will be scaled to create a unified spectrum.
+
+    :param spectrumB: The spectrum to add to the current spectrum
+    :type spectrumB: vrSpectrum
+
+.. py:method:: vrSpectrum.addAnalyticFunction(function, peakWavelength, peakIntensity, fwhm, kelvin, clear=True, wavelengthStart=WavelengthStart, wavelengthDelta=SourceWavelengthDelta, wavelengthCount=SourceWavelengthsCount)
+
+    Calculates an analytic spectrum and adds it to the current spectrum.
+
+The addAnalyticFunction calculates an analytic function with the given parameters and adds them to the current spectrum. Various types are available:
+    Blackbody
+    CIE_D
+    Gauss
+    Cosine
+    Bartlett
+    Blackman
+    Connes
+    Hamming
+    Hanning
+    Lorentzian
+    Welch
+
+    :param function: The type of function to use
+    :type function: AnalyticFunction
+
+    :param peakWavelength: The center wavelength for the calculated spectrum except for the CIE_D type
+    :type peakWavelength: float
+
+    :param peakIntensity: The maximum intensity of the calculated spectrum
+    :type peakIntensity: float
+
+    :param fwhm: The full width at half maximum value. It describes the width of the analytic functions except for the CIE_D type
+    :type fwhm: float
+
+    :param kelvin: The correlated color temperature for the CIE_D function calculation
+    :type kelvin: float
+
+    :param clear: If true the existing spectrum is replaced, otherwise the calculated spectrum is added to the existing spectrum
+    :type clear: bool
+
+    :param wavelengthStart: The start wavelength for the initialization. Default is 380nm
+    :type wavelengthStart: integer
+
+    :param wavelengthDelta: The delta between two adjacent wavelengths. Default is 5nm
+    :type wavelengthDelta: integer
+
+    :param wavelengthCount: The number of wavelengths to use. Default is 81 samples. The end wavelength is calculated as startwavelength + wavelengthCount * wavelengthDelta
+    :type wavelengthCount: integer
+
+.. py:method:: vrSpectrum.copy(source)
+
+    Copies the given spectrum to the current spectrum.
+
+    :param source: The source spectrum to copy from
+    :type source: vrSpectrum
+
+    :return: True if the copy was successful, False otherwise
+    :rtype: bool
+
+.. py:method:: vrSpectrum.getMaxValue()
+
+    Returns the maximum value of the spectrum.
+
+    :return: The maximum value of the spectrum
+    :rtype: float
+
+.. py:method:: vrSpectrum.getPhotometricValue()
+
+    Returns the photometric value of the spectrum.
+
+    :return: The photometric value of the spectrum
+    :rtype: float
+
+.. py:method:: vrSpectrum.getRGB()
+
+    Converts the reflection spectrum to linear rgb with sRGB primaries and returns it.
+
+    :return: The linear rgb color with sRGB primaries of the spectrum
+    :rtype: QVector3D
+
+.. py:method:: vrSpectrum.getSample(i)
+
+    Returns sampled for the i-th sample in the spectrum.
+
+    :param i:
+    :type i: integer
+
+    :return: Value of i-th sample in the spectrum
+    :rtype: float
+
+.. py:method:: vrSpectrum.getSamples()
+
+    Returns the sampled spectrum values.
+
+    The returned values represent the spectrum used for rendering in the 380nm to 780nm range with 10nm wide sample buckets
+
+    :return: List of sampled spectrum values in the spectrum
+    :rtype: List[float]
+
+.. py:method:: vrSpectrum.getSourceValue(i)
+
+    Returns source spectrum value for the i-th sample in the spectrum.
+
+    :param i: The index of the source spectrum value to return
+    :type i: integer
+
+    :return: Source spectrum value of the i-th sample in the spectrum
+    :rtype: float
+
+.. py:method:: vrSpectrum.getSourceValues()
+
+    Returns the list of source spectrum values used in the spectrum.
+
+    :return: List of source spectrum values in the spectrum
+    :rtype: List[float]
+
+.. py:method:: vrSpectrum.getStartWavelength()
+
+    Returns the first wavelength of the spectrum.
+
+    :return: The first wavelength
+    :rtype: integer
+
+.. py:method:: vrSpectrum.getSum()
+
+    Returns the sum of all sample values of the spectrum.
+
+    :return: The sum of all sample values of the spectrum
+    :rtype: float
+
+.. py:method:: vrSpectrum.getUseSpectrum()
+
+    Returns whether the spectrum is set to active or not.
+
+    :return: The state of the spectrum usage flag
+    :rtype: bool
+
+.. py:method:: vrSpectrum.getWavelength(i)
+
+    Returns wavelength for the i-th sample in the spectrum.
+
+    :param i: The index of the wavelength to return
+    :type i: integer
+
+    :return: Wavelength of i-th sample in the spectrum
+    :rtype: float
+
+.. py:method:: vrSpectrum.getWavelengthCount()
+
+    Returns the number of wavelength/value pairs in the spectrum.
+
+    :return: The number of wavelength/value pairs in the spectrum
+    :rtype: integer
+
+.. py:method:: vrSpectrum.getWavelengthDelta()
+
+    Returns the delta between wavelengths of the spectrum.
+
+    :return: The delta between wavelengths in the spectrum
+    :rtype: integer
+
+.. py:method:: vrSpectrum.getWavelengths()
+
+    Returns the list of wavelengths used in the spectrum.
+
+    :return: List of wavelengths in the spectrum
+    :rtype: List[float]
+
+.. py:method:: vrSpectrum.getXYZ()
+
+    Converts the spectrum to CIE XYZ and returns it.
+
+    :return: The XYZ color of the spectrum
+    :rtype: QVector3D
+
+.. py:method:: vrSpectrum.isActive()
+
+    Returns whether the spectrum is active or inactive.
+
+    :return: The active state of the spectrum
+    :rtype: bool
+
+.. py:method:: vrSpectrum.isInitialized()
+
+    Returns whether the spectrum has been initialized.
+
+    :return: The initialization state
+    :rtype: bool
+
+.. py:method:: vrSpectrum.load(filename)
+
+    Loads the spectrum data from a file.
+
+    :param filename: The filename of the spectrum file to load
+    :type filename: string
+
+    :return: True if loading the file was successful, False otherwise
+    :rtype: bool
+
+.. py:method:: vrSpectrum.operator=(other)
+
+    Assigns another spectrum to the current spectrum.
+
+    :param other: The spectrum to set this spectrum to
+    :type other: vrSpectrum
+
+    :return:
+    :rtype: vrSpectrum
+
+.. py:method:: vrSpectrum.resampleSource(wavelengthStart, wavelengthDelta, wavelengthCount)
+
+    Resamples the source spectrum according to the given settings.
+
+    :param wavelengthStart: The start wavelength for the resampling
+    :type wavelengthStart: integer
+
+    :param wavelengthDelta: The delta between two adjacent wavelengths
+    :type wavelengthDelta: integer
+
+    :param wavelengthCount: The number of wavelengths to use
+    :type wavelengthCount: integer
+
+.. py:method:: vrSpectrum.save(filename)
+
+    Saves the spectrum data to a file.
+
+    :param filename: The filename of the spectrum file to save
+    :type filename: string
+
+    :return: True if loading the file was successful, False otherwise
+    :rtype: bool
+
+.. py:method:: vrSpectrum.scale(scalingFactor)
+
+    Scales the current spectrum.
+
+    :param scalingFactor: The scaling factor
+    :type scalingFactor: float
+
+.. py:method:: vrSpectrum.set(value, wavelengthStart=WavelengthStart, wavelengthDelta=SourceWavelengthDelta, wavelengthCount=SourceWavelengthsCount)
+
+    Sets the spectrum to a given value for all wavelengths.
+
+    :param value: The value to set all wavelengths to
+    :type value: float
+
+    :param wavelengthStart: The start wavelength for the initialization. Default is 380nm
+    :type wavelengthStart: integer
+
+    :param wavelengthDelta: The delta between two adjacent wavelengths. Default is 5nm
+    :type wavelengthDelta: integer
+
+    :param wavelengthCount: The number of wavelengths to use. Default is 81 samples. The end wavelength is calculated as startwavelength + wavelengthCount * wavelengthDelta
+    :type wavelengthCount: integer
+
+.. py:method:: vrSpectrum.set(wavelengthStart, wavelengthDelta, values)
+   :no-index:
+
+    Sets the values of a spectrum.
+
+    :param wavelengthStart: The wavelength for the first value
+    :type wavelengthStart: integer
+
+    :param wavelengthDelta: The delta between wavelengths
+    :type wavelengthDelta: integer
+
+    :param values: The values of the wavelengths
+    :type values: List[float]
+
+    :return: True if setting the spectrum was successful, False otherwise
+    :rtype: bool
+
+.. py:method:: vrSpectrum.set(wavelengths, values)
+   :no-index:
+
+    Sets the values of a spectrum.
+
+    :param wavelengths: The wavelengths of the spectrum. The number of wavelengths must match the number of values
+    :type wavelengths: List[float]
+
+    :param values: The values of the wavelengths. The number values of must match the number of wavelengths
+    :type values: List[float]
+
+    :return: True if setting the spectrum was successful, False otherwise
+    :rtype: bool
+
+.. py:method:: vrSpectrum.setIlluminationSpectrumFromRGB(red, green, blue, wavelengthStart=WavelengthStart, wavelengthDelta=SourceWavelengthDelta, wavelengthCount=SourceWavelengthsCount)
+
+    Set the spectrum to a D65 based illumination spectrum from linear rgb values with sRGB primaries.
+
+    The setIlluminationSpectrumFromRGB function set the spectrum to a D65 based illumination spectrum from linear rgb values with sRGB primaries. Use this function to set a spectrum for a lightsource or the incandescence channel of a material when using the default D65 whitepoint.
+
+    :param red: Red color component
+    :type red: float
+
+    :param green: Green color component
+    :type green: float
+
+    :param blue: Blue color component
+    :type blue: float
+
+    :param wavelengthStart: The start wavelength for the initialization. Default is 380nm
+    :type wavelengthStart: integer
+
+    :param wavelengthDelta: The delta between two adjacent wavelengths. Default is 5nm
+    :type wavelengthDelta: integer
+
+    :param wavelengthCount: The number of wavelengths to use. Default is 81 samples. The end wavelength is calculated as startwavelength + wavelengthCount * wavelengthDelta
+    :type wavelengthCount: integer
+
+.. py:method:: vrSpectrum.setOne()
+
+    Sets the spectrum to all 1 with the default range from 380nm to 780nm with a wavelength delta of 5nm.
+
+.. py:method:: vrSpectrum.setPhotometricValue(value)
+
+    Scales the spectrum to match the given photometric value.
+
+    :param value: The photometric value to set
+    :type value: float
+
+.. py:method:: vrSpectrum.setRGB(red, green, blue, wavelengthStart=WavelengthStart, wavelengthDelta=SourceWavelengthDelta, wavelengthCount=SourceWavelengthsCount)
+
+    Set the spectrum to a reflection spectrum from linear rgb values with sRGB primaries.
+
+    :param red: Red color component
+    :type red: float
+
+    :param green: Green color component
+    :type green: float
+
+    :param blue: Blue color component
+    :type blue: float
+
+    :param wavelengthStart: The start wavelength for the initialization. Default is 380nm
+    :type wavelengthStart: integer
+
+    :param wavelengthDelta: The delta between two adjacent wavelengths. Default is 5nm
+    :type wavelengthDelta: integer
+
+    :param wavelengthCount: The number of wavelengths to use. Default is 81 samples. The end wavelength is calculated as startwavelength + wavelengthCount * wavelengthDelta
+    :type wavelengthCount: integer
+
+.. py:method:: vrSpectrum.setUseSpectrum(useSpectrum)
+
+    Sets the spectrum to active or inactive.
+
+    :param useSpectrum: Set to True to enable the use of the spectrum or to False otherwise
+    :type useSpectrum: bool
+
+.. py:method:: vrSpectrum.vrSpectrum()
+
+    Creates an empty spectrum.
+
+.. py:method:: vrSpectrum.vrSpectrum(other)
+   :no-index:
+
+    Creates a copy of another spectrum.
+
+    :param other: The spectrum to copy the data from
+    :type other: vrSpectrum
+
+.. py:method:: vrSpectrum.vrSpectrum(red, green, blue)
+   :no-index:
+
+    Creates a new spectrum initialized form linear rgb values with sRGB primaries. The range of the spectrum is from 380nm to 780nm with a wavelength delta of 5nm.
+
+    :param red: Red color component
+    :type red: float
+
+    :param green: Green color component
+    :type green: float
+
+    :param blue: Blue color component
+    :type blue: float
+
+.. py:method:: vrSpectrum.vrSpectrum(rgb)
+   :no-index:
+
+    Creates a new spectrum initialized form linear rgb values with sRGB primaries. The range of the spectrum is from 380nm to 780nm with a wavelength delta of 5nm.
+
+    :param rgb: RGB color in linear space with sRGB primaries
+    :type rgb: QVector3D
+

@@ -1,0 +1,160 @@
+--------------------------------
+vrdUVTriplanarProjectionSettings
+--------------------------------
+
+.. py:class:: vrdUVTriplanarProjectionSettings
+
+(Inherits vrdData)
+
+Class for triplanar UV coordinate projection settings.
+
+How to setup a triplanar projection:
+
+Set 3d projection center with vrdUVTriplanarProjectionSettings.setCenter(center).
+
+Set 3d projection rotation with vrdUVTriplanarProjectionSettings.setRotation3D(rotation).
+
+Each plane can be additionally rotated around its axis with vrdUVTriplanarProjectionSettings.setRotation2D(rotation).
+
+Set the base projection plane size in scene units with vrdUVTriplanarProjectionSettings.setSize(size).
+
+Set additional repeat values to scale the projection planes with vrdUVTriplanarProjectionSettings.setRepeatU(repeat) and vrdUVTriplanarProjectionSettings.setRepeatV(repeat).
+
+Set an offset to shift the projection from the center, per plane, with vrdUVTriplanarProjectionSettings.setOffsetU(offset) and vrdUVTriplanarProjectionSettings.setOffsetV(offset).
+
+Also, you can use     vrUVService.getTriplanarProjectionDefaultSettings(nodes, textureWidth, textureHeight) to query default initial values for a projection.
+
+Summary
+=======
+
+Functions:
+    * getCenter() → QVector3D
+    * getFewerIslandsEnabled() → bool
+    * getOffsetU() → QVector3D
+    * getOffsetV() → QVector3D
+    * getRepeatU() → QVector3D
+    * getRepeatV() → QVector3D
+    * getRotation2D() → QVector3D
+    * getRotation3D() → QVector3D
+    * getSize() → QSizeF
+    * setCenter(center)
+    * setFewerIslandsEnabled(enabled)
+    * setOffsetU(offset)
+    * setOffsetV(offset)
+    * setRepeatU(repeat)
+    * setRepeatV(repeat)
+    * setRotation2D(rotation)
+    * setRotation3D(rotation)
+    * setSize(size)
+
+Functions
+=========
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getCenter()
+
+    :return: Get center of the projection in 3d world space.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getFewerIslandsEnabled()
+
+    :return: Whether fewer islands option is enabled, see setFewerIslands(bool) for an explanation.
+    :rtype: bool
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getOffsetU()
+
+    :return: U offsets of the projection planes for x, y and z projection.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getOffsetV()
+
+    :return: V offsets of the projection planes for x, y and z projection.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getRepeatU()
+
+    :return: U repeat values of the projection for x, y and z projection.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getRepeatV()
+
+    :return: V repeat values of the projection for x, y and z projection.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getRotation2D()
+
+    :return: Get 2d rotation angles in degrees.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getRotation3D()
+
+    :return: Get 3d projection rotation angles in degrees.
+    :rtype: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.getSize()
+
+    Get projection plane size in scene units.
+
+    :return: Size in scene units
+    :rtype: QSizeF
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setCenter(center)
+
+    Set center of the projection in 3d world space.
+
+    :param center: Center of the projection in 3d world space.
+    :type center: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setFewerIslandsEnabled(enabled)
+
+    :param enabled: When True, projects each plane until the projection encounters a projection angle that is not ideal. This can result in larger islands, and fewer of them. When False, projects all planes equally. It is particularly useful if you have a symmetrical model and you want the islands of the projection to be symmetrical.
+    :type enabled: bool
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setOffsetU(offset)
+
+    Set the U offsets to shift the projection from the center within the x, y and z projection.
+
+    :param offset: Offsets in scene units
+    :type offset: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setOffsetV(offset)
+
+    Set the V offsets to shift the projection from the center within the x, y and z projection.
+
+    :param offset: Offsets in scene units
+    :type offset: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setRepeatU(repeat)
+
+    Set U repeat values to scale the projection within the x, y and z projection.
+
+    :param repeat: Repeat values in scene units
+    :type repeat: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setRepeatV(repeat)
+
+    Set V repeat values to scale the projection within the x, y and z projection.
+
+    :param repeat: Repeat values in scene units
+    :type repeat: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setRotation2D(rotation)
+
+    Set 2d rotation angles. This controls the rotation around the projection axes. The angles are Euler angles.
+
+    :param rotation: Rotation angles in degrees.
+    :type rotation: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setRotation3D(rotation)
+
+    Set 3d projection rotation angles. This controls the orientation of the projection planes. The angles are Euler angles (rotation order xyz).
+
+    :param rotation: Rotation angles in degrees.
+    :type rotation: QVector3D
+
+.. py:method:: vrdUVTriplanarProjectionSettings.setSize(size)
+
+    Set projection plane size in scene units. This base size is further scaled with the repeat value set by         vrdUVTriplanarProjectionSettings.setRepeatU(repeat) and vrdUVTriplanarProjectionSettings.setRepeatV(repeat).
+
+    :param size: Size in scene units
+    :type size: QSizeF
+

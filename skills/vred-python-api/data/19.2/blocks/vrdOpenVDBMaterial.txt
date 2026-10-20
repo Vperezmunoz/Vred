@@ -1,0 +1,210 @@
+------------------
+vrdOpenVDBMaterial
+------------------
+
+.. py:class:: vrdOpenVDBMaterial
+
+(Inherits vrdVolumeMaterial)
+
+This class is used to handle all OpenVDB material properties.
+
+Summary
+=======
+
+Functions:
+    * getChannelNames() → List[string]
+    * getEmissionChannelIndex() → integer
+    * getEmissionGradient() → vrdLinearGradient
+    * getEnableTraversalOptimization() → bool
+    * getEnableTrilinearSampling() → bool
+    * getFrameOffset() → integer
+    * getInlineSequence() → bool
+    * getScatterAndAbsorptionChannelIndex() → integer
+    * getSigmaE() → float
+    * getUseSequence() → bool
+    * getVdbFilename() → string
+    * getVdbNumber() → integer
+    * setEmissionChannelIndex(index)
+    * setEmissionGradient(gradient)
+    * setEnableTraversalOptimization(enable)
+    * setEnableTrilinearSampling(enable)
+    * setFrameOffset(offset)
+    * setInlineSequence(value)
+    * setScatterAndAbsorptionChannelIndex(index)
+    * setSigmaE(sigmaE)
+    * setUseSequence(value)
+    * setVdbFilename(filename)
+    * setVdbNumber(vdbNumber)
+
+Functions
+=========
+
+.. py:method:: vrdOpenVDBMaterial.getChannelNames()
+
+    Gets a list of available channels in the VDB.
+
+    :return: Current list of channels
+    :rtype: List[string]
+
+.. py:method:: vrdOpenVDBMaterial.getEmissionChannelIndex()
+
+    Gets the index of the emission channel.
+
+    :return: Current index of the emission channel
+    :rtype: integer
+
+.. py:method:: vrdOpenVDBMaterial.getEmissionGradient()
+
+    Gets the         vrdLinearGradient object for controlling the emission color as a function of VDB grid value.
+
+    :return: Current emission gradient
+    :rtype: vrdLinearGradient
+
+.. py:method:: vrdOpenVDBMaterial.getEnableTraversalOptimization()
+
+    Gets whether the traversal optimization is enabled.
+
+    The traversal optimization begins the VDB traversal at its firsta active voxel, rather than its bounding box. This can either increase or decrease the performance depending on the VDB.
+
+    :return: True if traversal optimization is enabled; false otherwise
+    :rtype: bool
+
+.. py:method:: vrdOpenVDBMaterial.getEnableTrilinearSampling()
+
+    Gets whether trilinear sampling is enabled.
+
+    Trilinear sampling performs a smoothing trilinear interpolation of the VDB grid by interpolating over 8 VDB grid samples.
+
+    :return: True if trilinear sampling is enabled; false otherwise
+    :rtype: bool
+
+.. py:method:: vrdOpenVDBMaterial.getFrameOffset()
+
+    Gets the frame offset of the VDB sequence.
+
+    :return: Current frame offset
+    :rtype: integer
+
+.. py:method:: vrdOpenVDBMaterial.getInlineSequence()
+
+    Gets whether the VDB sequence is inlined into the project file.
+
+    :return: True if the sequence is inlined
+    :rtype: bool
+
+.. py:method:: vrdOpenVDBMaterial.getScatterAndAbsorptionChannelIndex()
+
+    Gets the index of the scatter and absorption channel.
+
+    :return: Current index
+    :rtype: integer
+
+.. py:method:: vrdOpenVDBMaterial.getSigmaE()
+
+    Gets the emission coefficient, which is the average number of emission particle interactions per meter.
+
+    :return: Current emission coefficient
+    :rtype: float
+
+.. py:method:: vrdOpenVDBMaterial.getUseSequence()
+
+    Gets whether the VDB has sequencing enabled to use of a series of VDB frames for animations, which can be controlled using the frame control and animated using the Curve Editor.
+
+    :return: True if sequencing is enabled, false otherwise
+    :rtype: bool
+
+.. py:method:: vrdOpenVDBMaterial.getVdbFilename()
+
+    Gets the currently loaded VDB filename.
+
+    :return: Current OpenVDB filename
+    :rtype: string
+
+.. py:method:: vrdOpenVDBMaterial.getVdbNumber()
+
+    Gets the current frame number of the VDB sequence.
+
+    :return: Current frame number
+    :rtype: integer
+
+.. py:method:: vrdOpenVDBMaterial.setEmissionChannelIndex(index)
+
+    Sets the index of the emission channel.
+
+    :param index: New index
+    :type index: integer
+
+.. py:method:: vrdOpenVDBMaterial.setEmissionGradient(gradient)
+
+    Sets the         vrdLinearGradient object for controlling the emission color as a function of VDB grid value.
+
+    :param gradient: New emission gradient
+    :type gradient: vrdLinearGradient
+
+.. py:method:: vrdOpenVDBMaterial.setEnableTraversalOptimization(enable)
+
+    Sets whether the traversal optimization is enabled.
+
+    The traversal optimization begins the VDB traversal at its firsta active voxel, rather than its bounding box. This can either increase or decrease the performance depending on the VDB.
+
+    :param enable: New value
+    :type enable: bool
+
+.. py:method:: vrdOpenVDBMaterial.setEnableTrilinearSampling(enable)
+
+    Sets whether trilinear sampling is enabled.
+
+    Trilinear sampling performs a smoothing trilinear interpolation of the VDB grid by interpolating over 8 VDB grid samples.
+
+    :param enable: New value
+    :type enable: bool
+
+.. py:method:: vrdOpenVDBMaterial.setFrameOffset(offset)
+
+    Sets the frame offset of the VDB sequence.
+
+    :param offset: New frame offset
+    :type offset: integer
+
+.. py:method:: vrdOpenVDBMaterial.setInlineSequence(value)
+
+    Sets whether the VDB sequence is inlined into the project file.
+
+    :param value: New value
+    :type value: bool
+
+.. py:method:: vrdOpenVDBMaterial.setScatterAndAbsorptionChannelIndex(index)
+
+    Sets the index of the scatter and absorption channel.
+
+    :param index: New index
+    :type index: integer
+
+.. py:method:: vrdOpenVDBMaterial.setSigmaE(sigmaE)
+
+    Sets the emission coefficient, which is the average number of emission particle interactions per meter.
+
+    :param sigmaE: New emission coefficient
+    :type sigmaE: float
+
+.. py:method:: vrdOpenVDBMaterial.setUseSequence(value)
+
+    Sets whether the VDB has sequencing enabled to use of a series of VDB frames for animations, which can be controlled using the frame control and animated using the Curve Editor.
+
+    :param value: New value
+    :type value: bool
+
+.. py:method:: vrdOpenVDBMaterial.setVdbFilename(filename)
+
+    Sets the VDB filename to be loaded.
+
+    :param filename: New VDB filename
+    :type filename: string
+
+.. py:method:: vrdOpenVDBMaterial.setVdbNumber(vdbNumber)
+
+    sets the current frame number of the VDB sequence
+
+    :param vdbNumber: New frame number
+    :type vdbNumber: integer
+

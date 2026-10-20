@@ -1,0 +1,44 @@
+-----------------
+vrdSwitchMaterial
+-----------------
+
+.. py:class:: vrdSwitchMaterial
+
+(Inherits vrdMultiMaterial)
+
+This class is used to handle all switch material properties.
+
+Summary
+=======
+
+Functions:
+    * getChoice() → integer
+    * getStateNames() → List[string]
+    * setChoice(index)
+
+Functions
+=========
+
+.. py:method:: vrdSwitchMaterial.getChoice()
+
+    Gets which entry of the materials in the list is set to active.
+
+    :return: Index of the active material
+    :rtype: integer
+
+.. py:method:: vrdSwitchMaterial.getStateNames()
+
+    Returns a list with all states of the switch.
+
+    The state names are sorted. The first entry is choice 0, the second is choice 1 and so on.
+
+    :return: The state names.
+    :rtype: List[string]
+
+.. py:method:: vrdSwitchMaterial.setChoice(index)
+
+    Defines which entry of the sub materials is set to active.
+
+    :param index: Index of the active material
+    :type index: integer
+

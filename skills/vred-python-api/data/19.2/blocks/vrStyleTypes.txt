@@ -1,0 +1,15 @@
+------------
+vrStyleTypes
+------------
+
+.. py:class:: vrStyleTypes
+
+    .. py:class:: ColorTheme
+
+            .. py:data:: DarkGray
+
+            .. py:data:: DarkBlue
+
+            .. py:data:: Light
+               :no-index:
+

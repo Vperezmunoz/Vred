@@ -1,0 +1,42 @@
+-----------------------------
+vrdPhysicsBoxColliderSettings
+-----------------------------
+
+.. py:class:: vrdPhysicsBoxColliderSettings
+
+(Inherits vrdPhysicsColliderSettings)
+
+Settings for a box collider, providing a simple rectangular collision volume.
+
+A box collider creates a rectangular collision volume based on the axis-aligned bounding box of the source geometry. The box is positioned at the geometry center and respects the node's rotation. Box colliders are computationally efficient and well-suited for objects with simple, box-like shapes such as crates, furniture, walls, or architectural elements.
+
+The scale property allows you to adjust the box dimensions relative to the computed bounding box. For example, a scale of (1.2, 1.0, 1.0) makes the box 20% wider while keeping height and depth unchanged.
+
+Box colliders can be used with static, kinematic, or dynamic objects. For complex shapes, consider using a convex hull or mesh collider instead.
+
+Summary
+=======
+
+Functions:
+    * getScale() → QVector3D
+    * setScale(scale)
+
+Functions
+=========
+
+.. py:method:: vrdPhysicsBoxColliderSettings.getScale()
+
+    Get the current scale factor of the box collider.
+
+    :return: The scale factors for width (X), height (Y), and depth (Z).
+    :rtype: QVector3D
+
+.. py:method:: vrdPhysicsBoxColliderSettings.setScale(scale)
+
+    Set the scale factor for the box collider dimensions.
+
+    The scale is applied to the axis-aligned bounding box computed from the source geometry. Each component (X, Y, Z) independently scales the corresponding box dimension. Default value is (1.0, 1.0, 1.0).
+
+    :param scale: The scale factors for width (X), height (Y), and depth (Z).
+    :type scale: QVector3D
+

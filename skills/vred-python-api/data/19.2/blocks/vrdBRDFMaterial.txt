@@ -1,0 +1,72 @@
+---------------
+vrdBRDFMaterial
+---------------
+
+.. py:class:: vrdBRDFMaterial
+
+(Inherits vrdMaterial)
+
+This class is used to handle all BRDF based material properties.
+
+Summary
+=======
+
+Functions:
+    * getAnalytic() → vrdAnalyticSettings
+    * getCommon() → vrdBRDFCommonSettings
+    * getNPR() → vrdNPRSettings
+    * getRaytracing() → vrdMaterialRaytracingSettings
+    * getRoundedEdges() → vrdRoundedEdges
+    * getTransparency() → vrdTransparency
+    * isDisplacementActive() → bool
+
+Functions
+=========
+
+.. py:method:: vrdBRDFMaterial.getAnalytic()
+
+    Gets access to all properties of         vrdAnalyticSettings.
+
+    :return: A vrdAnalytic object to read and write of all properties.
+    :rtype: vrdAnalyticSettings
+
+.. py:method:: vrdBRDFMaterial.getCommon()
+
+    Gets access to all properties of         vrdBRDFCommonSettings.
+
+    :return: A vrdBRDFCommonSettings object to read and write of all properties.
+    :rtype: vrdBRDFCommonSettings
+
+.. py:method:: vrdBRDFMaterial.getNPR()
+
+    Gets access to all properties of         vrdNPRSettings.
+
+    :return: An vrdNPRSettings object to read and write of all properties.
+    :rtype: vrdNPRSettings
+
+.. py:method:: vrdBRDFMaterial.getRaytracing()
+
+    Gets access to all raytracing settings of this material.
+
+    :return: A vrdMaterialRaytracingSettings object to read and write all properties.
+    :rtype: vrdMaterialRaytracingSettings
+
+.. py:method:: vrdBRDFMaterial.getRoundedEdges()
+
+    Gets access to all properties of         vrdRoundedEdges.
+
+    :return: An vrdRoundedEdges object to read and write of all properties.
+    :rtype: vrdRoundedEdges
+
+.. py:method:: vrdBRDFMaterial.getTransparency()
+
+    Gets access to all properties of         vrdTransparency.
+
+    :return: An vrdTransparency object to read and write of all properties.
+    :rtype: vrdTransparency
+
+.. py:method:: vrdBRDFMaterial.isDisplacementActive()
+
+    :return: If a vrdDisplacementTexture is active on this material.
+    :rtype: bool
+

@@ -1,0 +1,170 @@
+-----------------
+vrdVelvetMaterial
+-----------------
+
+.. py:class:: vrdVelvetMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all velvet material properties.
+
+Summary
+=======
+
+Functions:
+    * getBumpTexture() → vrdBumpTexture
+    * getDarkening() → float
+    * getDiffuseColor() → QVector3D
+    * getDiffuseColorSpectrum() → vrSpectrum
+    * getDiffuseTexture() → vrdTexture
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getFalloff() → float
+    * getGlossyColor() → QVector3D
+    * getGlossyColorSpectrum() → vrSpectrum
+    * getGlossyTexture() → vrdTexture
+    * getIncandescence() → vrdIncandescence
+    * getSubsurfaceScattering() → vrdSubsurfaceScattering
+    * getTextureSettings() → vrdTextureSettings
+    * setDarkening(v)
+    * setDiffuseColor(value)
+    * setDiffuseColorSpectrum(value)
+    * setFalloff(v)
+    * setGlossyColor(value)
+    * setGlossyColorSpectrum(value)
+
+Functions
+=========
+
+.. py:method:: vrdVelvetMaterial.getBumpTexture()
+
+    Gets access to all properties of         vrdBumpTexture.
+
+    :return: An vrdBumpTexture object, to read and write access of alls properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdVelvetMaterial.getDarkening()
+
+    Gets the value for the appearance of the diffuse component.
+
+    :return: Value for the appearance of the diffuse component.
+    :rtype: float
+
+.. py:method:: vrdVelvetMaterial.getDiffuseColor()
+
+    :return: Current diffuse reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdVelvetMaterial.getDiffuseColorSpectrum()
+
+    Gets the diffuse color spectrum.
+
+    :return: The current used spectrum for diffuse color
+    :rtype: vrSpectrum
+
+.. py:method:: vrdVelvetMaterial.getDiffuseTexture()
+
+    Gets access to all properties of the diffuse texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdVelvetMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of alls properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdVelvetMaterial.getFalloff()
+
+    Gets the value for the glossy component.
+
+    :return: Value for the glossy component
+    :rtype: float
+
+.. py:method:: vrdVelvetMaterial.getGlossyColor()
+
+    :return: Current glossy reflection color
+    :rtype: QVector3D
+
+.. py:method:: vrdVelvetMaterial.getGlossyColorSpectrum()
+
+    :return: The material's color spectrum for glossy reflections
+    :rtype: vrSpectrum
+
+.. py:method:: vrdVelvetMaterial.getGlossyTexture()
+
+    Gets access to all properties of the glossy texture.
+
+    :return: An vrdTexture object, to read and write access of alls properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdVelvetMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of alls properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdVelvetMaterial.getSubsurfaceScattering()
+
+    Gets access to all properties of         vrdSubsurfaceScattering.
+
+    :return: An vrdSubsurfaceScattering object, to read and write access of alls properties.
+    :rtype: vrdSubsurfaceScattering
+
+.. py:method:: vrdVelvetMaterial.getTextureSettings()
+
+    Gets access to all properties of         vrdTextureSettings.
+
+    For vrdVelvetMaterial, the texture mapping type can only be changed for all textures at once through this object, and set to either vrTextureTypes.MappingType.UVMapping or vrTextureTypes.MappingType.TriplanarMapping.
+
+    For triplanar mapping, the triplanar settings from this vrdTextureSettings object are used. Repeat mode is to be set in the individual vrdTexture objects. Please note, the repeat, offset and rotate settings for UV mapping in the individual vrdTexture objects are applied in addition to the global triplanar settings.
+
+    For UV mapping, settings like repeat, offset, rotate need to be changed in the individual vrdTexture objects, e.g. in vrdVelvetMaterial.getDiffuseTexture().
+
+    :return: An vrdTextureSettings object, to read and write access of all properties.
+    :rtype: vrdTextureSettings
+
+.. py:method:: vrdVelvetMaterial.setDarkening(v)
+
+    Controls the appearance of the diffuse component. The default darkening value of 1.0 corresponds to a perfectly diffuse surface. Higher values than 1.0 darken the material and lower values brighten it up.
+
+    :param v: New value for the appearance of the diffuse component.
+    :type v: float
+
+.. py:method:: vrdVelvetMaterial.setDiffuseColor(value)
+
+    Sets the diffuse reflection color of the material. Diffuse reflections can be further controlled with the darkening value.
+
+    :param value: New diffuse color.
+    :type value: QVector3D
+
+.. py:method:: vrdVelvetMaterial.setDiffuseColorSpectrum(value)
+
+    Sets the diffuse color spectrum.
+
+    :param value: New spectrum for diffuse color
+    :type value: vrSpectrum
+
+.. py:method:: vrdVelvetMaterial.setFalloff(v)
+
+    Controls the glossy component, which depends on the viewing angle and affecting the edges of the objects.
+
+    :param v: New value for the glossy component
+    :type v: float
+
+.. py:method:: vrdVelvetMaterial.setGlossyColor(value)
+
+    Sets the material's color for glossy reflections. Glossy reflections can be further controlled with the falloff value.
+
+    :param value: New used glossy reflection color
+    :type value: QVector3D
+
+.. py:method:: vrdVelvetMaterial.setGlossyColorSpectrum(value)
+
+    Sets the material's color spectrum for glossy reflections.
+
+    :param value: New color spectrum
+    :type value: vrSpectrum
+

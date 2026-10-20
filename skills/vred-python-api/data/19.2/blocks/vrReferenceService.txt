@@ -1,0 +1,363 @@
+------------------
+vrReferenceService
+------------------
+
+.. py:class:: vrReferenceService
+
+(Inherits vrBaseService)
+
+The reference service provides functions for querying and managing reference nodes. Additionally, settings from the preferences can be queried.
+
+Summary
+=======
+
+Functions:
+    * convertToSmart(node, useSourcePath) → vrdNode
+    * createSmart(parent) → vrdReferenceNode
+    * createSource(path, parent) → vrdReferenceNode
+    * getAllAvailableFileFormats() → List[string]
+    * getChildReferences(node) → List[vrdReferenceNode]
+    * getCustomExportPath() → string
+    * getExportLocation() → vrReferenceTypes.ExportLocation
+    * getLoadMode() → vrReferenceTypes.LoadMode
+    * getNotificationMode() → vrReferenceTypes.NotificationMode
+    * getParentReferences(node) → List[vrdReferenceNode]
+    * getReferences(node) → List[vrdReferenceNode]
+    * getRevisionMonitoringEnabled() → bool
+    * getRevisionMonitoringExpressions() → List[string]
+    * getSceneReferences() → List[vrdReferenceNode]
+    * getShowConvertToSmartWarning() → bool
+    * getUpdateMonitoringEnabled() → bool
+    * getUpdateMonitoringInterval() → integer
+    * getUpdateMonitoringPaused() → bool
+    * loadSourceReferences(references)
+    * pauseUpdateMonitoring(state)
+    * reimportSmartReferences(references)
+    * reimportSourceReferences(references) → List[vrdReferenceNode]
+    * removeReference(node) → vrdNode
+    * setCustomExportPath(path)
+    * setExportLocation(value)
+    * setLoadMode(value)
+    * setNotificationMode(value)
+    * setRevisionMonitoringEnabled(value)
+    * setRevisionMonitoringExpressions(expressions)
+    * setShowConvertToSmartWarning(value)
+    * setUpdateMonitoringEnabled(value)
+    * setUpdateMonitoringInterval(msecs)
+    * sortRevisions(revisions) → List[string]
+
+Signals:
+    * referenceCreated(node)
+    * referenceEditStateChagned()
+    * referencesChanged(nodes)
+    * sceneHasReferences(state)
+    * sceneSelectionChanged(nodes)
+    * updateMonitoringChanged(state)
+
+Functions
+=========
+
+.. py:method:: vrReferenceService.convertToSmart(node, useSourcePath=False)
+
+    Converts the passed node into a smart reference.
+
+    :param node: The node which should be converted. If it can't be converted, a new smart reference is inserted above the node.
+    :type node: vrdNode
+
+    :param useSourcePath: Use the path of the source reference for conversion.
+    :type useSourcePath: bool
+
+    :return: The converted/created reference node
+    :rtype: vrdNode
+
+.. py:method:: vrReferenceService.createSmart(parent=vrdNode())
+
+    Creates a new smart reference below the given parent.
+
+    :param parent: The parent node to add the reference node. If no parent is given, the reference is created below the scene root
+    :type parent: vrdNode
+
+    :return: The created reference node
+    :rtype: vrdReferenceNode
+
+.. py:method:: vrReferenceService.createSource(path, parent=vrdNode())
+
+    Creates a new source reference with the given path.
+
+    :param path: The file path
+    :type path: string
+
+    :param parent: The parent node to add the reference node. If no parent is given, the reference is created below the scene root
+    :type parent: vrdNode
+
+    :return: The created reference node
+    :rtype: vrdReferenceNode
+
+.. py:method:: vrReferenceService.getAllAvailableFileFormats()
+
+    Returns a list with all file endings used in the loaded references (source and smart).
+
+    :return: The available file formats.
+    :rtype: List[string]
+
+.. py:method:: vrReferenceService.getChildReferences(node)
+
+    Get all reference nodes in the tree below node without further sub references.
+
+    :param node: Root node of the tree to search
+    :type node: vrdNode
+
+    :return: a list of reference nodes including clones
+    :rtype: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.getCustomExportPath()
+
+    Queries the custom export path.
+
+    :return: The file system path
+    :rtype: string
+
+.. py:method:: vrReferenceService.getExportLocation()
+
+    Queries the default smart export location mode.
+
+    :return: The default export location mode
+    :rtype: vrReferenceTypes.ExportLocation
+
+.. py:method:: vrReferenceService.getLoadMode()
+
+    Queries the load mode for smart references.
+
+    :return: The current load mode
+    :rtype: vrReferenceTypes.LoadMode
+
+.. py:method:: vrReferenceService.getNotificationMode()
+
+    Queries the current file change notification mode.
+
+    :return: The notification mode
+    :rtype: vrReferenceTypes.NotificationMode
+
+.. py:method:: vrReferenceService.getParentReferences(node)
+
+    Get all reference nodes in the tree above node.
+
+    :param node: Node of the tree to search
+    :type node: vrdNode
+
+    :return: a list of reference nodes including clones
+    :rtype: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.getReferences(node)
+
+    Get all references tree below the given node with all sub references.
+
+    :param node: Root node of the tree to search
+    :type node: vrdNode
+
+    :return: a list of reference nodes without clones
+    :rtype: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.getRevisionMonitoringEnabled()
+
+    :return: true if update monitoring should consider file revisions
+    :rtype: bool
+
+.. py:method:: vrReferenceService.getRevisionMonitoringExpressions()
+
+    :return: A list of regular expression used to detect revision numbers in file names
+    :rtype: List[string]
+
+.. py:method:: vrReferenceService.getSceneReferences()
+
+    Get all references in the scene.
+
+    :return: a list of reference nodes without clones
+    :rtype: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.getShowConvertToSmartWarning()
+
+    Queries the convert to smart warning flag.
+
+    :return: True Warning is enabled
+    :rtype: bool
+
+.. py:method:: vrReferenceService.getUpdateMonitoringEnabled()
+
+    Checks if update monitoring is currently enabled.
+
+    :return: True if update monitoring is enabled, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrReferenceService.getUpdateMonitoringInterval()
+
+    Returns the current time between background update checks in miliseconds.
+
+    :return: The update monitoring interval.
+    :rtype: integer
+
+.. py:method:: vrReferenceService.getUpdateMonitoringPaused()
+
+    Queries if the background update monitoring is currently in pause mode.
+
+    :return: True if update check is paused, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrReferenceService.loadSourceReferences(references)
+
+    Opens an import dialog and loads the given list of references with the current settings. No user interaction required.
+
+    :param references: List of references to be loaded
+    :type references: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.pauseUpdateMonitoring(state)
+
+    Temporarily pauses / unpauses the background update monitoring. This will suspend the asynchrounous update check but will not cancel it.
+
+    :param state: True to pause, False to unpause
+    :type state: bool
+
+.. py:method:: vrReferenceService.reimportSmartReferences(references)
+
+    Reimports the list of given smart references.
+
+    :param references: List of smart references.
+    :type references: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.reimportSourceReferences(references)
+
+    Opens an import dialog for the given list of references.
+
+    :param references: List of references to be re-imported
+    :type references: List[vrdReferenceNode]
+
+    :return: List of re-imported reference nodes.
+    :rtype: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.removeReference(node)
+
+    Converts the passed node into a none reference node.
+
+    :param node: The reference node to be converted
+    :type node: vrdReferenceNode
+
+    :return: The converted node
+    :rtype: vrdNode
+
+.. py:method:: vrReferenceService.setCustomExportPath(path)
+
+    Sets the custom path for exported smart references. This path will be used, when the location is set to Custom.
+
+    :param path: A valid file system path
+    :type path: string
+
+.. py:method:: vrReferenceService.setExportLocation(value)
+
+    Changes the default location mode for unsaved smart references.
+
+    :param value: The location mode
+    :type value: vrReferenceTypes.ExportLocation
+
+.. py:method:: vrReferenceService.setLoadMode(value)
+
+    Sets the load mode for smart references. LoadedReferences -> preserve the load state saved in the project AllReferences -> load all smart references NoReferences -> Do not load any smart reference LoadedSkipLeafReferences -> Load all but the leafes of the reference tree.
+
+    :param value: The load mode
+    :type value: vrReferenceTypes.LoadMode
+
+.. py:method:: vrReferenceService.setNotificationMode(value)
+
+    Sets the file change notification monitoring mode.
+
+    :param value: The new mode.
+    :type value: vrReferenceTypes.NotificationMode
+
+.. py:method:: vrReferenceService.setRevisionMonitoringEnabled(value)
+
+    Enables revision number check for update monitoring.
+
+    :param value: The new value
+    :type value: bool
+
+.. py:method:: vrReferenceService.setRevisionMonitoringExpressions(expressions)
+
+    Sets the list of regular expressions used to detect revision numbers.
+
+    :param expressions: A list of regular expressions
+    :type expressions: List[string]
+
+.. py:method:: vrReferenceService.setShowConvertToSmartWarning(value)
+
+    Enables or disables warnings on convert to smart.
+
+    :param value: True, show warning
+    :type value: bool
+
+.. py:method:: vrReferenceService.setUpdateMonitoringEnabled(value)
+
+    Starts / stops the background update monitoring.
+
+    This will start or stop an update check that continuously scans the loaded references for updates. It will monitor both smart and source references. If updates are available, vrReferenceService.referencesChanged(nodes) will be emitted.
+
+    :param value: True to start update monitoring, False to stop it.
+    :type value: bool
+
+.. py:method:: vrReferenceService.setUpdateMonitoringInterval(msecs)
+
+    Sets the update monitoring interval in miliseconds. The minimum allowed value is 1000.
+
+    :param msecs: The time between two backgound update checks.
+    :type msecs: integer
+
+.. py:method:: vrReferenceService.sortRevisions(revisions)
+
+    Sorts a list of revisions from oldest to newest.
+
+    :param revisions:
+    :type revisions: List[string]
+
+    :return: Sorted revision list.
+    :rtype: List[string]
+
+Signals
+=======
+
+.. py:method:: vrReferenceService.referenceCreated(node)
+
+    Signal is emitted when a reference has been created.
+
+    :param node: The created node.
+    :type node: vrdReferenceNode
+
+.. py:method:: vrReferenceService.referenceEditStateChagned()
+
+    Signal is emitted when a reference has been edited or edit has been undone.
+
+.. py:method:: vrReferenceService.referencesChanged(nodes)
+
+    Signal is emitted when references have internal changes. If the list of nodes is empty, then all nodes should be considered as changed.
+
+    :param nodes: List of changed reference nodes.
+    :type nodes: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.sceneHasReferences(state)
+
+    Signal is sent when the scene has references or the last one is deleted
+
+    :param state: True when the first reference is created / loaded, False when the last reference is deleted from the scene.
+    :type state: bool
+
+.. py:method:: vrReferenceService.sceneSelectionChanged(nodes)
+
+    This signal is sent when the selection of reference nodes in the scene graph changes.
+
+    :param nodes: A list of all selected reference nodes
+    :type nodes: List[vrdReferenceNode]
+
+.. py:method:: vrReferenceService.updateMonitoringChanged(state)
+
+    Signal is emitted when update monitoring is turned on or off.
+
+    :param state: True, if switched on
+    :type state: bool
+

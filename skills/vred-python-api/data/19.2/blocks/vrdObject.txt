@@ -1,0 +1,74 @@
+---------
+vrdObject
+---------
+
+.. py:class:: vrdObject
+
+This is the base class for all decoupled objects in VRED.
+
+Summary
+=======
+
+Functions:
+    * asType(type) → vrdObject
+    * getObjectId() → integer
+    * isNull() → bool
+    * isType(type) → bool
+
+Functions
+=========
+
+.. py:method:: vrdObject.asType(type)
+
+    Tries to convert a         vrdObject to a different type.
+
+    :param type: The type to convert to.
+    :type type: vrdObject
+
+    :return: The converted vrdObject. Check with vrdObject.isNull() if the conversion succeeded.
+    :rtype: vrdObject
+
+.. py:method:: vrdObject.getObjectId()
+
+    Returns the internal object id.
+
+    :return: The object identifier.
+    :rtype: integer
+
+.. py:method:: vrdObject.isNull()
+
+    Determines if the object is null.
+
+    An object is null if its internal object has not been set so that its object id is 0. This is the case for all default constructed vrdObjects.
+
+    An object is not null, when its internal object becomes invalid. For that specialized checks like vrdSceneObject.isValid() are needed.
+
+    :return: True if null, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdObject.isType(type)
+
+    Determines whether the specified object is of a specific type.
+
+    Example: To check if a specific object has a type derived from vrdMaterial, you can call this:
+
+```
+
+         if (someObject.isType(vrdMaterial)):
+            print("material found!")
+
+    Note, to check only the concrete type, use:
+
+```
+
+         # Matches only nodes that are a vrdTransformNode,
+         # does not match nodes with type derived from vrdTransformNode:
+         if (type(someObject) == vrdTransformNode):
+            print("transform node found!")
+
+    :param type: The object type
+    :type type: vrdObject
+
+    :return: True if the specified object is type, False otherwise.
+    :rtype: bool
+

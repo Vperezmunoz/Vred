@@ -1,0 +1,86 @@
+-------------------
+vrdLightLinkSetNode
+-------------------
+
+.. py:class:: vrdLightLinkSetNode
+
+(Inherits vrdNode)
+
+Class for light links defining local lighting.
+
+Light links hold sets of lights and sets of nodes from the scene graph. If a light is in a light link set and has Local Lighting selected, it only illuminates all scene nodes in the light link set, nothing else in the scene.
+
+Summary
+=======
+
+Functions:
+    * addNode(node)
+    * addNodes(nodes)
+    * clearLightNodes()
+    * clearSceneNodes()
+    * getLightNodes() → List[vrdNode]
+    * getSceneNodes() → List[vrdNode]
+    * removeNode(node)
+    * removeNodes(nodes)
+
+Functions
+=========
+
+.. py:method:: vrdLightLinkSetNode.addNode(node)
+
+    Add a node to the light link set.
+
+    The vrdLightLinkSetNode will internally sort the added nodes in two groups: lights and scene nodes, depending on their type.
+
+    :param node: The node to add.
+    :type node: vrdNode
+
+.. py:method:: vrdLightLinkSetNode.addNodes(nodes)
+
+    Adds a list of nodes to the light link set.
+
+    See vrdLightLinkSetNode.addNode(node): the nodes can be either lights or scene node. They will be internally sorted by type.
+
+    :param nodes: The list of nodes to add.
+    :type nodes: List[vrdNode]
+
+.. py:method:: vrdLightLinkSetNode.clearLightNodes()
+
+    Removes all lights from the light link set.
+
+.. py:method:: vrdLightLinkSetNode.clearSceneNodes()
+
+    Removes all scene nodes from the light link set.
+
+.. py:method:: vrdLightLinkSetNode.getLightNodes()
+
+    Returns a list with the lights contained in the light link set.
+
+    :return: The light nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdLightLinkSetNode.getSceneNodes()
+
+    Returns a list with the scene nodes from the light link set.
+
+    :return: The scene nodes.
+    :rtype: List[vrdNode]
+
+.. py:method:: vrdLightLinkSetNode.removeNode(node)
+
+    Removes a node from the light link set.
+
+    The node can either be a light node or a scene node.
+
+    :param node: The node to remove.
+    :type node: vrdNode
+
+.. py:method:: vrdLightLinkSetNode.removeNodes(nodes)
+
+    Removes a list of nodes from the light link set.
+
+    The list of nodes can contain light nodes and scene nodes.
+
+    :param nodes: The list of nodes to remove.
+    :type nodes: List[vrdNode]
+

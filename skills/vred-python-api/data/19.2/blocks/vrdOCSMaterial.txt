@@ -1,0 +1,82 @@
+--------------
+vrdOCSMaterial
+--------------
+
+.. py:class:: vrdOCSMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all OCS material properties.
+
+Summary
+=======
+
+Functions:
+    * getAutomaticReload() → bool
+    * getClearcoat() → vrdClearcoat
+    * getExposure() → float
+    * getIncandescence() → vrdIncandescence
+    * getOCSBRDFFilename() → string
+    * setAutomaticReload(value)
+    * setExposure(exposure)
+    * setOCSBRDFFilename(filename)
+
+Functions
+=========
+
+.. py:method:: vrdOCSMaterial.getAutomaticReload()
+
+    Get the state of automatic reload approach.
+
+    :return: Gets the state of use of automatic reload approach
+    :rtype: bool
+
+.. py:method:: vrdOCSMaterial.getClearcoat()
+
+    Gets access to all properties of         vrdClearcoat.
+
+    :return: An vrdClearcoat object, to read and write access of all properties.
+    :rtype: vrdClearcoat
+
+.. py:method:: vrdOCSMaterial.getExposure()
+
+    Get the current value for exposure.
+
+    :return: The current value for exposure.
+    :rtype: float
+
+.. py:method:: vrdOCSMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of all properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdOCSMaterial.getOCSBRDFFilename()
+
+    Gets the BRDF file used.
+
+    :return: The BRDF file used.
+    :rtype: string
+
+.. py:method:: vrdOCSMaterial.setAutomaticReload(value)
+
+    If enabled, VRED checks whether CI-Navigator has updated the currently loaded BRDF file. This is the case when the BRDF export from CI-Navigator overwrites the file. VRED detects this modification and reloads the file automatically. Only one OCS Material can be monitored at the same time.
+
+    :param value: Allow or disable the automatic reload approach.
+    :type value: bool
+
+.. py:method:: vrdOCSMaterial.setExposure(exposure)
+
+    Controls the intensity of the material colors. The default value 1.0 keeps colors unchanged.
+
+    :param exposure: The new used value for exposure.
+    :type exposure: float
+
+.. py:method:: vrdOCSMaterial.setOCSBRDFFilename(filename)
+
+    Loads a BRDF file with file type pbrdf.
+
+    :param filename: The BRDF file path.
+    :type filename: string
+

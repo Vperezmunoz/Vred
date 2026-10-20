@@ -1,0 +1,16 @@
+--------------------
+vrLiveReferenceTypes
+--------------------
+
+.. py:class:: vrLiveReferenceTypes
+
+    .. py:class:: SearchOption
+
+            .. py:data:: EnvironmentVariable
+
+            .. py:data:: Preferences
+
+            .. py:data:: WireHeader
+
+            .. py:data:: SourceLocation
+

@@ -1,0 +1,467 @@
+----------------
+vrdGlassMaterial
+----------------
+
+.. py:class:: vrdGlassMaterial
+
+(Inherits vrdBRDFMaterial)
+
+This class is used to handle all glass material properties.
+
+    .. py:class:: MediumType
+
+            .. py:data:: Custom
+               :no-index:
+
+            .. py:data:: Diamond
+
+            .. py:data:: Polysilicon
+
+            .. py:data:: AcrylicGlass
+
+            .. py:data:: PlasticPolystyrene
+
+            .. py:data:: PlasticPolycarbonates
+
+            .. py:data:: Ethanol
+
+            .. py:data:: Methanol
+
+            .. py:data:: Water19degrees
+
+            .. py:data:: Water24degrees
+
+            .. py:data:: CrownGlassBorosilicateGlass
+
+            .. py:data:: GlassLanthanumDenseFlint
+
+            .. py:data:: GlassBariumFlint
+
+            .. py:data:: GlassDenseFlint
+
+            .. py:data:: QuartzFusedSilica
+
+            .. py:data:: FusedGermania
+
+    .. py:class:: FresnelQuality
+
+        Defines the computation method for the fresnel term.
+
+            .. py:data:: Fast
+               :no-index:
+
+                Fast: Schlick approximation for the fresnel term is used.
+
+            .. py:data:: Accurate
+               :no-index:
+
+                Accurate: Cook-Torrance approximation for the fresnel term is used.
+
+    .. py:class:: DispersionInputType
+
+        Defines how the refraction indices for different wavelengths are calculated.
+
+            .. py:data:: AbbeD
+
+                Abbe Number d-line: Bases the calculation on the d Fraunhofer line at 587.56nm.
+
+            .. py:data:: AbbeE
+
+                Abbe Number e-line: Bases the calculation on the e Fraunhofer line at 546.07nm.
+
+            .. py:data:: Spectral
+
+                Spectral Distribution: Uses the refraction indices defined by the spectrum.
+
+Summary
+=======
+
+Functions:
+    * getAbbeNumber() → float
+    * getBumpTexture() → vrdBumpTexture
+    * getDensity() → float
+    * getDispersionInputType() → vrdGlassMaterial.DispersionInputType
+    * getDisplacementTexture() → vrdDisplacementTexture
+    * getExteriorColor() → QVector3D
+    * getExteriorColorSpectrum() → vrSpectrum
+    * getExteriorTransparencyTexture() → vrdTexture
+    * getFresnelQuality() → vrdGlassMaterial.FresnelQuality
+    * getIncandescence() → vrdIncandescence
+    * getIndexOfRefractionSpectrum() → vrSpectrum
+    * getInteriorColor() → QVector3D
+    * getInteriorColorSpectrum() → vrSpectrum
+    * getMediumType() → vrdGlassMaterial.MediumType
+    * getReflectionColor() → QVector3D
+    * getReflectionColorSpectrum() → vrSpectrum
+    * getReflectivity() → float
+    * getRefractionIndex() → float
+    * getRoughness() → float
+    * getRoughnessTexture() → vrdRoughnessTexture
+    * getSimulatedThickness() → float
+    * getTextureSettings() → vrdTextureSettings
+    * getThinFilm() → vrdThinFilm
+    * getUseCustomReflectivity() → bool
+    * getUseDensity() → bool
+    * getUseDispersion() → bool
+    * getUseRoughness() → bool
+    * getUseScreenSpaceRefractions() → bool
+    * getUseSolidShadows() → bool
+    * setAbbeNumber(value)
+    * setDensity(value)
+    * setDispersionInputType(type)
+    * setExteriorColor(value)
+    * setExteriorColorSpectrum(value)
+    * setFresnelQuality(type)
+    * setIndexOfRefractionSpectrum(spectrum)
+    * setInteriorColor(value)
+    * setInteriorColorSpectrum(value)
+    * setMediumType(type)
+    * setReflectionColor(value)
+    * setReflectionColorSpectrum(value)
+    * setReflectivity(v)
+    * setRefractionIndex(value)
+    * setRoughness(roughness)
+    * setSimulatedThickness(value)
+    * setUseCustomReflectivity(value)
+    * setUseDensity(value)
+    * setUseDispersion(value)
+    * setUseRoughness(value)
+    * setUseScreenSpaceRefractions(value)
+    * setUseSolidShadows(value)
+
+Functions
+=========
+
+.. py:method:: vrdGlassMaterial.getAbbeNumber()
+
+    Gets the approximate dispersion of the glass material.
+
+    :return: Current value for the approximate dispersion of the glass material.
+    :rtype: float
+
+.. py:method:: vrdGlassMaterial.getBumpTexture()
+
+    Gets access to all properties of         vrdBumpTexture.
+
+    :return: An vrdBumpTexture object, to read and write access of all properties.
+    :rtype: vrdBumpTexture
+
+.. py:method:: vrdGlassMaterial.getDensity()
+
+    :return: Current material density.
+    :rtype: float
+
+.. py:method:: vrdGlassMaterial.getDispersionInputType()
+
+    :return: Current dispersion input type.
+    :rtype: vrdGlassMaterial.DispersionInputType
+
+.. py:method:: vrdGlassMaterial.getDisplacementTexture()
+
+    Gets access to all properties of         vrdDisplacementTexture.
+
+    :return: An vrdDisplacementTexture object, to read and write access of all properties.
+    :rtype: vrdDisplacementTexture
+
+.. py:method:: vrdGlassMaterial.getExteriorColor()
+
+    Gets the value for exterior transparency color.
+
+    :return: Current color.
+    :rtype: QVector3D
+
+.. py:method:: vrdGlassMaterial.getExteriorColorSpectrum()
+
+    Gets the exterior transparency color spectrum.
+
+    :return: Current exterior transparency color spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.getExteriorTransparencyTexture()
+
+    Gets access to all properties of vrdExteriorTransparencyTexture.
+
+    :return: An vrdTexture object, to read and write access of all properties.
+    :rtype: vrdTexture
+
+.. py:method:: vrdGlassMaterial.getFresnelQuality()
+
+    Gets computation method for the fresnel term.
+
+    :return: Current quality.
+    :rtype: vrdGlassMaterial.FresnelQuality
+
+.. py:method:: vrdGlassMaterial.getIncandescence()
+
+    Gets access to all properties of         vrdIncandescence.
+
+    :return: An vrdIncandescence object, to read and write access of all properties.
+    :rtype: vrdIncandescence
+
+.. py:method:: vrdGlassMaterial.getIndexOfRefractionSpectrum()
+
+    Gets the refraction spectrum of the glass material.
+
+    :return: The current index of refraction spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.getInteriorColor()
+
+    :return: Current interior transparency color.
+    :rtype: QVector3D
+
+.. py:method:: vrdGlassMaterial.getInteriorColorSpectrum()
+
+    :return: Current interior transparency color spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.getMediumType()
+
+    :return: Current medium type.
+    :rtype: vrdGlassMaterial.MediumType
+
+.. py:method:: vrdGlassMaterial.getReflectionColor()
+
+    Gets the material color for reflections.
+
+    :return: Current color for the reflections.
+    :rtype: QVector3D
+
+.. py:method:: vrdGlassMaterial.getReflectionColorSpectrum()
+
+    Gets the material reflection color spectrum.
+
+    :return: Current reflection color spectrum.
+    :rtype: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.getReflectivity()
+
+    :return: Current reflectivity value. When no custom reflectivity is used this value is autmatically computed from the current medium / refraction index.
+    :rtype: float
+
+.. py:method:: vrdGlassMaterial.getRefractionIndex()
+
+    :return: Current refraction index value.
+    :rtype: float
+
+.. py:method:: vrdGlassMaterial.getRoughness()
+
+    :return: The current roughness value of this material.
+    :rtype: float
+
+.. py:method:: vrdGlassMaterial.getRoughnessTexture()
+
+    Gets access to all properties of         vrdRoughnessTexture. The roughness texture is only used if Use Roughness is enabled for this material.
+
+    :return: An vrdRoughnessTexture object, to read and write access of all properties.
+    :rtype: vrdRoughnessTexture
+
+.. py:method:: vrdGlassMaterial.getSimulatedThickness()
+
+    :return: Current value for simulated thickness.
+    :rtype: float
+
+.. py:method:: vrdGlassMaterial.getTextureSettings()
+
+    Gets access to all properties of         vrdTextureSettings.
+
+    Deprecated. Use individual texture objects instead. The values in the texture settings will not represent the actual values of the texture projections anymore. Writing to the texture settings will not change any values anymore. This function may be removed in a future version.
+
+    :return: An vrdTextureSettings object, to read and write access of all properties.
+    :rtype: vrdTextureSettings
+
+.. py:method:: vrdGlassMaterial.getThinFilm()
+
+    Gets access to all properties of         vrdThinFilm.
+
+    :return: An vrdThinFilm object, to read and write access of alls properties.
+    :rtype: vrdThinFilm
+
+.. py:method:: vrdGlassMaterial.getUseCustomReflectivity()
+
+    :return: If custom reflectivity value is used.
+    :rtype: bool
+
+.. py:method:: vrdGlassMaterial.getUseDensity()
+
+    :return: If density evaluation is enabled.
+    :rtype: bool
+
+.. py:method:: vrdGlassMaterial.getUseDispersion()
+
+    :return: True if dispersion effects are enabled for this material in spectral raytracing.
+    :rtype: bool
+
+.. py:method:: vrdGlassMaterial.getUseRoughness()
+
+    :return: If glossy reflections and refractions are enabled.
+    :rtype: bool
+
+.. py:method:: vrdGlassMaterial.getUseScreenSpaceRefractions()
+
+    :return: If screen space refractions are used.
+    :rtype: bool
+
+.. py:method:: vrdGlassMaterial.getUseSolidShadows()
+
+    :return: Current state for solid shadows.
+    :rtype: bool
+
+.. py:method:: vrdGlassMaterial.setAbbeNumber(value)
+
+    Sets the approximate dispersion of the glass material. (Also known as the V-number or constringence of a transparent material) It is used to classify the chromaticity of glass and other optical materials. The higher the value, the lower its dispersion.
+
+    :param value: New value for approximate dispersion of the glass.
+    :type value: float
+
+.. py:method:: vrdGlassMaterial.setDensity(value)
+
+    Sets the density value for beer-lambert law evaluation I(x) = I(0) * e^(-c*d*t). See         vrdGlassMaterial.setUseDensity(value).
+
+    :param value: New value for the density.
+    :type value: float
+
+.. py:method:: vrdGlassMaterial.setDispersionInputType(type)
+
+    Defines how the refraction indices for different wavelengths are calculated.
+
+    :param type: New input type.
+    :type type: vrdGlassMaterial.DispersionInputType
+
+.. py:method:: vrdGlassMaterial.setExteriorColor(value)
+
+    Sets the material exterior transparency color. This acts like a color filter for the light coming from behind the surface. A darker color blocks more light and makes the surface more opaque. In rasterization (OpenGL and Vulkan) the exterior transparency sets the color of the glass when the surface normal is facing towards the camera. This is in contrast of the interior transparency which sets the color when the normal is facing away from the camera. Raytracing uses this attribute for both sides.
+
+    :param value: New value for exterior transparency color.
+    :type value: QVector3D
+
+.. py:method:: vrdGlassMaterial.setExteriorColorSpectrum(value)
+
+    Sets the exterior transparency color spectrum.
+
+    :param value: The new exterior transparency color spectrum.
+    :type value: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.setFresnelQuality(type)
+
+    Defines the computation method for the fresnel term.
+
+    :param type: New quality.
+    :type type: vrdGlassMaterial.FresnelQuality
+
+.. py:method:: vrdGlassMaterial.setIndexOfRefractionSpectrum(spectrum)
+
+    Sets the refraction spectrum of the glass material.
+
+    :param spectrum: The desired index of refraction spectrum.
+    :type spectrum: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.setInteriorColor(value)
+
+    Sets the material interior transparency. It acts the same as the exterior transparency by filtering the light coming from behind the surface. A darker color blocks more light making the surface more opaque. In rasterization (OpenGL and Vulkan) the interior transparency sets the color of the glass when the surface normal is facing away from the camera. This is in contrast of the exterior transparency which sets the color when the normal is facing towards the camera. Raytracing ignores this attribute.
+
+    :param value: New value for interior transparency color.
+    :type value: QVector3D
+
+.. py:method:: vrdGlassMaterial.setInteriorColorSpectrum(value)
+
+    Sets the interior transparency color spectrum.
+
+    :param value: The new interior transparency color spectrum.
+    :type value: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.setMediumType(type)
+
+    Offers a wide selection of refraction indices based on materials existing in reality. The selected medium changes the refraction index automatically.
+
+    :param type: New medium type.
+    :type type: vrdGlassMaterial.MediumType
+
+.. py:method:: vrdGlassMaterial.setReflectionColor(value)
+
+    Sets the material color for reflections.
+
+    :param value: New color for reflections.
+    :type value: QVector3D
+
+.. py:method:: vrdGlassMaterial.setReflectionColorSpectrum(value)
+
+    Sets the material reflection color spectrum.
+
+    :param value: The new reflection color spectrum.
+    :type value: vrSpectrum
+
+.. py:method:: vrdGlassMaterial.setReflectivity(v)
+
+    Controls the intensity of the reflection on the surface. The higher the value, the more the influence from the environment and objects around.
+
+    :param v: New reflectivity value.
+    :type v: float
+
+.. py:method:: vrdGlassMaterial.setRefractionIndex(value)
+
+    Sets the material's refraction index (IOR). Only supported in Raytracing rendering mode.
+
+    :param value: New refraction index value.
+    :type value: float
+
+.. py:method:: vrdGlassMaterial.setRoughness(roughness)
+
+    Controls the sharpness of the glossy reflections and refractions. The higher the value, the rougher the microscopic structure of the surface.
+
+    The roughness value is used when Use Roughness is enabled and no roughness texture is active.
+
+    :param roughness: New value of roughness for this material.
+    :type roughness: float
+
+.. py:method:: vrdGlassMaterial.setSimulatedThickness(value)
+
+    Sets the material's simulated thickness.
+
+    :param value: New value for simulated thickness.
+    :type value: float
+
+.. py:method:: vrdGlassMaterial.setUseCustomReflectivity(value)
+
+    Enable or disable the use of custom reflectivity value. See         vrdGlassMaterial.setReflectivity(v). When disabled the reflectivity value is computed from the current medium / refraction index.
+
+    :param value: New state.
+    :type value: bool
+
+.. py:method:: vrdGlassMaterial.setUseDensity(value)
+
+    Enables beer-lambert law evaluation I(x) = I(0) * e^(-c*d*t).
+
+    When this option is enabled the exterior transparency color lets you specify the spectral or rgb absorption coefficient c (a value of 1 specifies no absorption while a value of 0 absorbs everything). The material density factor specifies the factor d which can be used for converting the unit of the distance t to match the unit of the absorption coefficient.
+
+    :param value: New state.
+    :type value: bool
+
+.. py:method:: vrdGlassMaterial.setUseDispersion(value)
+
+    Simulates how different wavelengths of light are refracted, resulting in dispersion effects. Use Dispersion only works with spectral raytracing.
+
+    :param value: True to enable dispersion effects for this material in spectral raytracing.
+    :type value: bool
+
+.. py:method:: vrdGlassMaterial.setUseRoughness(value)
+
+    Makes the glass frosted with glossy reflections and refractions, when enabled.
+
+    :param value: New state.
+    :type value: bool
+
+.. py:method:: vrdGlassMaterial.setUseScreenSpaceRefractions(value)
+
+    Enable or disable the use of screen space refractions (only supported in Vulkan rendering mode).
+
+    :param value: New state.
+    :type value: bool
+
+.. py:method:: vrdGlassMaterial.setUseSolidShadows(value)
+
+    Casts a solid (black) shadow (if a render mode is selected that can calculate caustic effects due to refractions). Otherwise, the color of the shadow is calculated solely on the Glass's color.
+
+    :param value: New state for solid shadows.
+    :type value: bool
+

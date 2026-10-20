@@ -1,0 +1,141 @@
+------------------------
+vrdVirtualTouchpadButton
+------------------------
+
+.. py:class:: vrdVirtualTouchpadButton
+
+(Inherits vrdData)
+
+Represents a virtual button loacted on a touchpad of an VR controller. This virtual button can be used to split up the touchpad on a VR controller that can be used as regular buttons by the input mapping system.
+
+Summary
+=======
+
+Functions:
+    * getEndAngle() → float
+    * getMaxRadius() → float
+    * getMinRadius() → float
+    * getName() → string
+    * getStartAngle() → float
+    * getVirtualButtonId() → integer
+    * setEndAngle(end)
+    * setMaxRadius(max)
+    * setMinRadius(min)
+    * setName(name)
+    * setStartAngle(start)
+    * vrdVirtualTouchpadButton()
+    * vrdVirtualTouchpadButton(button)
+    * vrdVirtualTouchpadButton(name, minRadius, maxRadius, startAngle, endAngle)
+
+Functions
+=========
+
+.. py:method:: vrdVirtualTouchpadButton.getEndAngle()
+
+    Gets the end angle of the virtual button.
+
+    :return: The end angle of the virtual button.
+    :rtype: float
+
+.. py:method:: vrdVirtualTouchpadButton.getMaxRadius()
+
+    Gets the maximum radius of the virtual button.
+
+    :return: The maximum radius of the virtual button.
+    :rtype: float
+
+.. py:method:: vrdVirtualTouchpadButton.getMinRadius()
+
+    Gets the minimum radius of the virtual button.
+
+    :return: The minimum radius of the virtual button.
+    :rtype: float
+
+.. py:method:: vrdVirtualTouchpadButton.getName()
+
+    Gets the name of the virtual button.
+
+    :return: The name of the virtual button.
+    :rtype: string
+
+.. py:method:: vrdVirtualTouchpadButton.getStartAngle()
+
+    Gets the start angle of the virtual button.
+
+    :return: The start angle of the virtual button.
+    :rtype: float
+
+.. py:method:: vrdVirtualTouchpadButton.getVirtualButtonId()
+
+    Gets the virtual button id, which is set internally.
+
+    :return: The id of the button.
+    :rtype: integer
+
+.. py:method:: vrdVirtualTouchpadButton.setEndAngle(end)
+
+    Sets the end angle of the virtual button.
+
+    :param end: The end angle of the virtual button. Range: 0.0 - 360.0.
+    :type end: float
+
+.. py:method:: vrdVirtualTouchpadButton.setMaxRadius(max)
+
+    Sets the maximum radius if the virtual button.
+
+    :param max: The maximzm radius of the virtual button. Range: 0.0 - 1.0. Must be larger than minRadius.
+    :type max: float
+
+.. py:method:: vrdVirtualTouchpadButton.setMinRadius(min)
+
+    Sets the minimum radius of the virtual button.
+
+    :param min: The minimum radius of the virtual button. Range: 0.0 - 1.0. Must be smaller than maxRadius.
+    :type min: float
+
+.. py:method:: vrdVirtualTouchpadButton.setName(name)
+
+    Sets the name of the virtual button.
+
+    :param name: The name that will be set.
+    :type name: string
+
+.. py:method:: vrdVirtualTouchpadButton.setStartAngle(start)
+
+    Sets the start angle of the virtual button.
+
+    :param start: The start angle of the virtual button. Range: 0.0 - 360.0.
+    :type start: float
+
+.. py:method:: vrdVirtualTouchpadButton.vrdVirtualTouchpadButton()
+
+    Default constructor.
+
+.. py:method:: vrdVirtualTouchpadButton.vrdVirtualTouchpadButton(button)
+   :no-index:
+
+    Copy constructor.
+
+    :param button:
+    :type button: vrdVirtualTouchpadButton
+
+.. py:method:: vrdVirtualTouchpadButton.vrdVirtualTouchpadButton(name, minRadius, maxRadius, startAngle, endAngle)
+   :no-index:
+
+    Constructor that creates an object with all necessary parameters to describe the virtual button.
+
+    :param name: The name of the button, that is used to identify it.
+    :type name: string
+
+    :param minRadius: The radius on the circular touchpad, where the area of the button starts. Range: 0.0 - 1.0. Must be smaller than maxRadius.
+    :type minRadius: float
+
+    :param maxRadius: The radius on the circular touchpad, where the area of the button ends. Range: 0.0 - 1.0. Must be larger than minRadius.
+    :type maxRadius: float
+
+    :param startAngle: The angle on the circular touchpad, where the area of the button starts. Range: 0.0 - 360.0.
+    :type startAngle: float
+
+    :param endAngle: The angle on the circular touchpad, where the area of the button ends. Range: 0.0 - 360.0.
+    :type endAngle: float
+

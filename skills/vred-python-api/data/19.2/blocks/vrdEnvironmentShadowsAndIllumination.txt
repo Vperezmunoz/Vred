@@ -1,0 +1,110 @@
+------------------------------------
+vrdEnvironmentShadowsAndIllumination
+------------------------------------
+
+.. py:class:: vrdEnvironmentShadowsAndIllumination
+
+(Inherits vrdSceneObject)
+
+This class is used for all environment shadow and illumination properties.
+
+Summary
+=======
+
+Functions:
+    * getGroundShadowIntensity() → float
+    * getLightsourcesCount() → integer
+    * getMapFilterRadius() → float
+    * getMapResolution() → integer
+    * getMaterialShadowIntensity() → float
+    * getUseLightsourcesOnly() → integer
+    * setGroundShadowIntensity(value)
+    * setLightsourcesCount(value)
+    * setMapFilterRadius(value)
+    * setMapResolution(value)
+    * setMaterialShadowIntensity(value)
+    * setUseLightsourcesOnly(value)
+
+Functions
+=========
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.getGroundShadowIntensity()
+
+    Gets the shadow intensity of the generated light sources on the shadow material.
+
+    :return: Current intensity
+    :rtype: float
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.getLightsourcesCount()
+
+    :return: Current number of light sources to be created from the HDR
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.getMapFilterRadius()
+
+    Gets the radius used for filtering the shadow map lookup in OpenGL and Vulkan.
+
+    :return: Current map filter radius
+    :rtype: float
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.getMapResolution()
+
+    Gets the resolution of OpenGL/Vulkan shadow maps.
+
+    :return: Current shadow map resolution
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.getMaterialShadowIntensity()
+
+    Gets the shadow intensity of the generated light sources on BRDF based materials.
+
+    :return: The current intensity
+    :rtype: float
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.getUseLightsourcesOnly()
+
+    :return: True if only the shadow light sources generated for the environment will be used for illumination, False if a combination of prefiltered environment maps and light sources will be used.
+    :rtype: integer
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.setGroundShadowIntensity(value)
+
+    Sets the shadow intensity of the generated light sources on the shadow material.
+
+    :param value: New intensity
+    :type value: float
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.setLightsourcesCount(value)
+
+    Specifies the number of light sources to be created from the HDR.
+
+    :param value: New number of lightsources
+    :type value: integer
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.setMapFilterRadius(value)
+
+    Sets the radius used for filtering the shadow map lookup in OpenGL and Vulkan.
+
+    :param value: New map filter radius from 0 to 10
+    :type value: float
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.setMapResolution(value)
+
+    Sets the resolution of OpenGL/Vulkan shadow maps. Higher values increase the quality.
+
+    :param value: New shadow map resolution
+    :type value: integer
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.setMaterialShadowIntensity(value)
+
+    Sets the shadow intensity of the generated light sources on BRDF based materials.
+
+    :param value: New intensity
+    :type value: float
+
+.. py:method:: vrdEnvironmentShadowsAndIllumination.setUseLightsourcesOnly(value)
+
+    If enabled only the shadow light sources generated for the environment will be used for illumination, otherwise a combination of prefiltered environment maps and light sources will be used.
+
+    :param value: New state.
+    :type value: bool
+

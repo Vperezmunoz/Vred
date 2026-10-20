@@ -1,0 +1,133 @@
+-----------
+vrdMaterial
+-----------
+
+.. py:class:: vrdMaterial
+
+(Inherits vrdSceneObject)
+
+Base class for all materials.
+
+Summary
+=======
+
+Functions:
+    * compressTextures()
+    * duplicate(name) → vrdMaterial
+    * getIcon() → QIcon
+    * getLocked() → bool
+    * getName() → string
+    * getPreview() → QImage
+    * getPreviewScene() → string
+    * getTextures() → List[vrdTexture]
+    * isAsset() → bool
+    * isComponent() → bool
+    * isEditable() → bool
+    * isEditedAsset() → bool
+    * setInlineAllImageSequences(value) → List[vrdImage]
+    * setLocked(locked)
+    * setName(name)
+    * setPreviewScene(name)
+
+Functions
+=========
+
+.. py:method:: vrdMaterial.compressTextures()
+
+    Compresses all textures in this material.
+
+.. py:method:: vrdMaterial.duplicate(name="")
+
+    Creates a duplicate of this material.
+
+    :param name: The name of the new material. If empty, a unique name is generated
+    :type name: string
+
+    :return: The newly created material
+    :rtype: vrdMaterial
+
+.. py:method:: vrdMaterial.getIcon()
+
+    :return: Material type icon
+    :rtype: QIcon
+
+.. py:method:: vrdMaterial.getLocked()
+
+    :return: Returns True, if the material is locked
+    :rtype: bool
+
+.. py:method:: vrdMaterial.getName()
+
+    Returns the name of the material.
+
+    :return: The name of the material.
+    :rtype: string
+
+.. py:method:: vrdMaterial.getPreview()
+
+    :return: Preview image of this material
+    :rtype: QImage
+
+.. py:method:: vrdMaterial.getPreviewScene()
+
+    :return: Returns The currently selected preview scene
+    :rtype: string
+
+.. py:method:: vrdMaterial.getTextures()
+
+    :return: A list of all available texture objects in this material
+    :rtype: List[vrdTexture]
+
+.. py:method:: vrdMaterial.isAsset()
+
+    :return: True, if material is linked the asset manager
+    :rtype: bool
+
+.. py:method:: vrdMaterial.isComponent()
+
+    Some materials can only exist as a component of other materials.
+
+    :return: True, if this is a component material. E.g. an XRite child material
+    :rtype: bool
+
+.. py:method:: vrdMaterial.isEditable()
+
+    :return: True, if material is not locked and is not an unedited asset
+    :rtype: bool
+
+.. py:method:: vrdMaterial.isEditedAsset()
+
+    :return: True, if this is an edited asset.
+    :rtype: bool
+
+.. py:method:: vrdMaterial.setInlineAllImageSequences(value)
+
+    Inlines (embeds) all image sequences of this material in the project file, or removes embedded image sequence data from project.
+
+    :param value: True to inline, False to remove inlined image sequence data.
+    :type value: bool
+
+    :return: A list of all changed images
+    :rtype: List[vrdImage]
+
+.. py:method:: vrdMaterial.setLocked(locked)
+
+    Locks this material.
+
+    :param locked: If true, material is locked.
+    :type locked: bool
+
+.. py:method:: vrdMaterial.setName(name)
+
+    Sets the name of the material.
+
+    :param name: The new name of the material.
+    :type name: string
+
+.. py:method:: vrdMaterial.setPreviewScene(name)
+
+    Selects the scene used for preview images.
+
+    :param name: Name of the preview scene
+    :type name: string
+

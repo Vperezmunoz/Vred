@@ -1,0 +1,1348 @@
+MODULE vrScenegraph (legacy v1 API)
+
+------------
+vrScenegraph
+------------
+
+The vrScenegraph class contains all necessary functions to work in a scenegraph system.
+It supports all basic node functions for changing and rearranging the scenegraph structure.
+
+**Deprecated**. Use API v2 vrScenegraphService instead.
+
+Summary
+=======
+
+Functions:
+    * addChilds(node, children)
+    * applyMaterial(nodes, mats, applyToMaterialGroupParent, skipMaterialGroupChilds)
+    * addNodeTag(node, tag)
+    * addNodeTag(nodes, tag)
+    * addNodeTags(node, tags)
+    * addNodeTags(nodes, tags)
+    * clearFindCache()
+    * cloneMirrorAxisNode(node, deep, flush, axis)
+    * cloneMirrorNode(node, deep, flush)
+    * cloneNode(node, deep)
+    * convertCore(node, type)
+    * copyNode(node)
+    * copyNodes(nodes)
+    * copyTransformation(source, target, copyTranslation, copyRotation, copyScale, copyRotatePivot, copyScalePivot, copyShearing)
+    * copyTransformation(source, target)
+    * createNode(typeString, checkUniqueName)
+    * createNode(typeString, name, checkUniqueName)
+    * createNode(typeString, name, parent, checkUniqueName)
+    * createNode(typeString, name, parent)
+    * createNode(typeString, name)
+    * createNode(typeString)
+    * cutNode(node)
+    * cutNodes(nodes)
+    * deleteNode(node, force)
+    * deleteNode(node)
+    * deleteNodes(nodes, force)
+    * deleteNodes(nodes)
+    * deselectAll()
+    * enableScenegraph(status)
+    * findNode(node_name, regex)
+    * findNode(node_name)
+    * findNodePath(node_path, regex)
+    * findNodePath(node_path)
+    * findNodes(node_name, regex, include_components)
+    * findNodes(node_name, regex)
+    * findNodes(node_name)
+    * findNodes(node_names, regex, include_components)
+    * findNodes(node_names, regex)
+    * findNodes(node_names)
+    * findUniquePath(unique_path)
+    * fixDepthOfField(node)
+    * getAllNodes()
+    * getClipboard()
+    * getHeadlight()
+    * getInternalRootNode()
+    * getNodeID(name)
+    * getNodeName(node)
+    * getNodePath(node)
+    * getNodesWithTag(node, tag)
+    * getNodesWithTag(tag)
+    * getNodesWithTags(node, tags, matchAllTags)
+    * getNodesWithTags(tags, matchAllTags)
+    * getNodeTags(node)
+    * getRootNode()
+    * getSceneSwitches()
+    * getSelectedNode()
+    * getSelectedNodes()
+    * getSelectedRootNodes()
+    * getSuperRootNode()
+    * getTransformRootNode()
+    * getUniquePath(node)
+    * groupSelection()
+    * hasNodeTag(node, tag)
+    * hasNodeTags(node, tags)
+    * hideNode(node)
+    * hideNodes(nodes)
+    * ignoreAutoHeadlight()
+    * initFindCache()
+    * insertParentNode(node, newParent)
+    * invertSelection()
+    * invertSelectionInGroup()
+    * isCloned(node)
+    * macget()
+    * moveNode(node, from, to)
+    * moveNodes(nodes, froms, tos)
+    * moveNodesAfter(nodesList, fromList, toList, afterList)
+    * pasteNode(node)
+    * pasteNodes(nodes)
+    * rebuildClones()
+    * removeNodeTag(node, tag)
+    * removeNodeTag(nodes, tag)
+    * removeNodeTags(node, tags)
+    * removeNodeTags(nodes, tags)
+    * removeSelectedNodes()
+    * removeSelectedNodes(nodes)
+    * replaceNodeTag(node, oldTag, newTag)
+    * replaceNodeTag(nodes, oldTag, newTag)
+    * selectAll()
+    * splitGeometryTris()
+    * selectNode(name, status)
+    * selectNode(name)
+    * selectNode(node, status)
+    * selectNode(node)
+    * selectNodes(nodes, status)
+    * selectNodes(nodes)
+    * selectNodesNoUndo(nodes, status)
+    * selectNodesNoUndo(nodes)
+    * selectParent()
+    * setBoundingBoxSelection(enabled)
+    * setIgnoreMaterialGroup(name, ignore)
+    * setIgnoreMaterialGroup(node, ignore)
+    * setSwitchChoiceByTag(node, tag)
+    * setSwitchChoiceByTags(node, tags, matchAllTags)
+    * showComponents(enabled)
+    * showNode(node)
+    * showNodes(nodes)
+    * showScenegraph(status)
+    * subChilds(node, children)
+    * uncreateNode(node, typeString, name, parent)
+    * undeleteNode(node)
+    * undeleteNodes(nodes)
+    * unshareNode(node)
+    * unsplitGeometryTris()
+    * updateScenegraph(force)
+
+.. method:: selectNode(name)
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Select a node by name.
+
+    :param name: The name of the node to select.
+    :type name: string
+
+.. method:: selectNode(name, status)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Select/Deselect a node by name.
+
+    :param name: The name of the node to select.
+    :type name: string
+    :param status: Status for de-/selection: true to select and false to deselect.
+    :type status: boolean
+
+.. method:: selectNode(node)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Select a node.
+
+    :param node: The node to select.
+    :type node: NodePtr
+
+.. method:: selectNode(node, status)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Select/Deselect a node.
+
+    :param node: The node to select.
+    :type node: NodePtr
+    :param status: Status for de-/selection: true to select and false to deselect.
+    :type status: boolean
+
+.. method:: selectNodesNoUndo(nodes)
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Selects all nodes from a list of nodes without adding an entry to the undo stack.
+
+    :param nodes: The list of nodes.
+    :type nodes: list of vrNodePtrs
+
+.. method:: selectNodesNoUndo(nodes, status)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Select/Deselects all nodes from a list of nodes without adding an entry to the undo stack.
+
+    :param nodes: The list of nodes.
+    :type nodes: list of vrNodePtrs
+    :param status: Status for de-/selection: true to select and false to deselect.
+    :type status: boolean
+
+.. method:: selectNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Selects all nodes from a list of nodes.
+
+    :param nodes: The list of nodes.
+    :type nodes: list of vrNodePtrs
+
+.. method:: selectNodes(nodes, status)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.setSelection()` in API v2.
+
+    Select/Deselects all nodes from a list of nodes.
+
+    :param nodes: The list of nodes.
+    :type nodes: list of vrNodePtrs
+    :param status: Status for de-/selection: true to select and false to deselect.
+    :type status: boolean
+
+.. method:: getNodeID(name)
+
+    Deprecated: Use `vrdNode.getObjectId()` in API v2.
+
+    Returns the node id of the node with the provided name.
+
+    :param name: The name of node.
+    :type name: string
+    :return: The node id.
+    :rtype: unsigned integer
+
+.. method:: getNodeName(node)
+
+    Deprecated: Use `vrdNode.getName()` in API v2.
+
+    Returns the name of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :return: The name of node.
+    :rtype: string
+
+.. method:: getNodePath(node)
+
+    Deprecated: Use `vrdNode.getPath()` in API v2.
+
+    Returns the whole path name of a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :return: The path name of node.
+    :rtype: string
+
+.. method:: deleteNode(node)
+
+    Deprecated: Use `vrScenegraphService.deleteNodes()` in API v2.
+
+    Deletes a node.
+
+    :param node: Node to delete.
+    :type node: NodePtr
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: deleteNode(node, force)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.deleteNodes()` in API v2.
+
+    Deletes a node with an option to force delete.
+
+    :param node: Node to delete.
+    :type node: NodePtr
+    :param force: Force delete: If true, otherwise undeleteable nodes are also deleted.
+    :type force: bool
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: deleteNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.deleteNodes()` in API v2.
+
+    Deletes a list of nodes.
+
+    :param nodes: The nodes to delete.
+    :type nodes: list of vrNodePtrs
+
+.. method:: deleteNodes(nodes, force)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.deleteNodes()` in API v2.
+
+    Deletes a list of nodes with an option to force delete.
+
+    :param nodes: The nodes to delete.
+    :type nodes: list of vrNodePtrs
+    :param force: Force delete: If true, otherwise undeleteable nodes are also deleted.
+    :type force: bool
+
+.. method:: removeSelectedNodes()
+
+    Deprecated: Use `vrScenegraphService.deleteNodes()` in API v2.
+
+    Removes the selected node.
+
+.. method:: removeSelectedNodes(nodes)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.deleteNodes()` in API v2.
+
+    Removes a list of nodes.
+
+    :param nodes: The nodes to delete.
+    :type nodes: list of vrNodePtrs
+
+.. method:: undeleteNode(node)
+
+    Deprecated: Use `vrUndoService.undo()` in API v2.
+
+    Undeletes a node.
+
+    :param node: The node to undelete.
+    :type node: NodePtr
+
+.. method:: undeleteNodes(nodes)
+
+    Deprecated: Use `vrUndoService.undo()` in API v2.
+
+    Undelete a list of nodes.
+
+    :param nodes: The nodes to undelete.
+    :type nodes: list of vrNodePtrs
+
+.. method:: moveNode(node, from, to)
+
+    Deprecated: Use `vrdNode.children` to get and manipulate the children of a node in API v2.
+
+    Move a node from "from" to "to".
+
+    :param node: The node to move.
+    :type node: NodePtr
+    :param from: The node "from".
+    :type from: NodePtr
+    :param to: The node "to".
+    :type to: NodePtr
+
+.. method:: moveNodes(nodes, froms, tos)
+
+    Deprecated: Use `vrdNode.children` to get and manipulate the children of a node in API v2.
+
+    Move a list of nodes from a list "from" to a list "to".
+
+    :param nodes: The nodes to move.
+    :type nodes: list of vrNodePtrs
+    :param froms: From the actual parent nodes "from".
+    :type froms: list of vrNodePtrs
+    :param tos: To their new parent nodes "to".
+    :type tos: list of vrNodePtrs
+
+.. method:: moveNodesAfter(nodesList, fromList, toList, afterList)
+
+    Deprecated: Use `vrdNode.children` to get and manipulate the children of a node in API v2.
+
+    Internal function.
+
+.. method:: copyNode(node)
+
+    Deprecated: Use `vrScenegraphService.copyNodes()` in API v2.
+
+    Copy a node from the scenegraph.
+
+    :param node: The node to copy.
+    :type node: NodePtr
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: copyNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.copyNodes()` in API v2.
+
+    Copy a list of nodes from the scenegraph.
+
+    :param nodes: The nodes to copy.
+    :type nodes: list of vrNodePtrs
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: cutNode(node)
+
+    Deprecated: Use `vrScenegraphService.cutNodes()` in API v2.
+
+    Cut a node from the scenegraph.
+
+    :param node: The node to cut.
+    :type node: NodePtr
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: cutNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.cutNodes()` in API v2.
+
+    Cut a list of nodes from the scenegraph.
+
+    :param nodes: The nodes to cut.
+    :type nodes: list of vrNodePtrs
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: addChilds(node, children)
+
+    Deprecated: Use `vrdNode.children` to get and manipulate the children of a node in API v2.
+
+    Adds a list of child nodes to a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param children: The list of children.
+    :type children: list of vrNodePtrs
+
+.. method:: subChilds(node, children)
+
+    Deprecated: Use `vrdNode.children` to get and manipulate the children of a node in API v2.
+
+    Remove a list of children from a node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param children: The list of children.
+    :type children: list of vrNodePtrs
+
+.. method:: pasteNode(node)
+
+    Deprecated: Use `vrScenegraphService.pasteNodes()` in API v2.
+
+    Paste a node into the scenegraph.
+
+    :param node: The node to paste.
+    :type node: NodePtr
+
+.. method:: pasteNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.pasteNodes()` in API v2.
+
+    Paste some nodes into the scenegraph.
+
+    :param nodes: The nodes to paste.
+    :type nodes: list of vrNodePtrs
+
+.. method:: copyTransformation(source, target)
+
+    Copies the transformation of one node to another. If only source and target node are provided a full copy will be done, otherwise only the chosen attributes will be copied if the target is a standard transform. If the target is a matrix transform, the full matrix will always be copied.
+
+    :param source: The source node.
+    :type source: NodePtr
+    :param target: The target node.
+    :type target: NodePtr
+
+.. method:: copyTransformation(source, target, copyTranslation, copyRotation, copyScale, copyRotatePivot, copyScalePivot, copyShearing)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.copyTransformations()` in API v2.
+
+    Copies the transformation of one node to another. If only source and target node are provided a full copy will be done, otherwise only the chosen attributes will be copied if the target is a standard transform. If the target is a matrix transform, the full matrix will always be copied.
+
+    :param source: The source node.
+    :type source: NodePtr
+    :param target: The target node.
+    :type target: NodePtr
+    :param copyTranslation: Copy translation values.
+    :type copyTranslation: bool
+    :param copyRotation: Copy rotation values.
+    :type copyRotation: bool
+    :param copyScale: Copy scaling values.
+    :type copyScale: bool
+    :param copyRotatePivot: Copy rotation pivot values.
+    :type copyRotatePivot: bool
+    :param copyScalePivot: Copy scale pivot values.
+    :type copyScalePivot: bool
+    :param copyShearing: Copy shearing values.
+    :type copyShearing: bool
+
+.. method:: hideNode(node)
+
+    Deprecated: Use `vrScenegraphService.setNodeVisibility()` in API v2.
+
+    Hide the node from the perspective view and disable it on the scenegraph.
+
+    :param node: The node to hide.
+    :type node: NodePtr
+
+.. method:: showNode(node)
+
+    Deprecated: Use `vrScenegraphService.setNodeVisibility()` in API v2.
+
+    Show the node in the perspective view and enable it on the scenegraph.
+
+    :param node: The node to show.
+    :type node: NodePtr
+
+.. method:: hideNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.setNodeVisibility()` in API v2.
+
+    Hide the nodes in the list from the perspective view and disable them on the scenegraph.
+
+    :param nodes: The nodes to hide.
+    :type nodes: list of vrNodePtrs
+
+.. method:: showNodes(nodes)
+
+    Deprecated: Use `vrScenegraphService.setNodeVisibility()` in API v2.
+
+    Show the nodes in the list from the perspective view and enable them on the scenegraph.
+
+    :param nodes: The nodes to show.
+    :type nodes: list of vrNodePtrs
+
+.. method:: insertParentNode(node, newParent)
+
+    Deprecated: Use `vrdNode.children` to get and manipulate the children of a node in API v2.
+
+    Insert a new parent node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param newParent: The new parent node.
+    :type newParent: NodePtr
+
+.. method:: getSelectedNode()
+
+    Deprecated: Use `vrScenegraphService.getSelectedNode()` in API v2.
+
+    Returns the selected node.
+
+    :return: The selected node.
+    :rtype: vrNodePtr
+
+.. method:: getSelectedNodes()
+
+    Deprecated: Use `vrScenegraphService.getSelectedNodes()` in API v2.
+
+    Returns a list of selected nodes.
+
+    :return: The selected nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: getSelectedRootNodes()
+
+    Deprecated: Use `vrScenegraphService.getSelectedRootNodes()` in API v2.
+
+    Returns a list of selected root nodes.
+
+    :return: The selected root nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: getAllNodes()
+
+    Deprecated: Use `vrScenegraphService.getAllNodes()` in API v2.
+
+    Returns a list of all scenegraph nodes.
+
+    :return: All the nodes in the scenegraph.
+    :rtype: list of vrNodePtrs
+
+.. method:: getClipboard()
+
+    Deprecated: Use `vrScenegraphService.getNodesInClipboard()` in API v2.
+
+    Returns a list of all nodes in the clipboard.
+
+    :return: All the nodes in the clipboard.
+    :rtype: list of vrNodePtrs
+
+.. method:: showScenegraph(status)
+
+    Shows/hides the scenegraph widget.
+
+    :param status: Enable/disable: true shows and false hides.
+    :type status: boolean
+
+.. method:: updateScenegraph(force)
+
+    Deprecated: Emit the `vrScenegraphService.scenegraphChanged()` signal to update UI in API v2.
+
+    Updates the scenegraph.
+
+    :param force: Enable/disable force: true enables and false disables force.
+    :type force: boolean
+
+.. method:: enableScenegraph(status)
+
+    Deprecated: Beginning from API v2, the scenegraph module will only be updated when it is open.
+
+    Enables scenegraph updates.
+
+    :param status: Enable/disable update: true enables and false disables scenegraph updates.
+    :type status: boolean
+
+.. method:: selectAll()
+
+    Deprecated: Use `vrScenegraphService.selectTopLevel()` in API v2.
+
+    Selects all objects from the scenegraph.
+
+.. method:: deselectAll()
+
+    Deprecated: Use `vrScenegraphService.clearSelection()` in API v2.
+
+    Deselects all objects from the scenegraph.
+
+.. method:: getRootNode()
+
+    Deprecated: Use `vrScenegraphService.getRootNode()` in API v2.
+
+    Returns the root node.
+
+    :return: The root node.
+    :rtype: vrNodePtr
+
+.. method:: getSuperRootNode()
+
+    Deprecated: Use `vrScenegraphService.getSuperRootNode()` in API v2.
+
+    Returns the super root node.
+
+    :return: The super root node.
+    :rtype: vrNodePtr
+
+.. method:: getInternalRootNode()
+
+    Deprecated: Use `vrScenegraphService.getInternalRootNode()` in API v2.
+
+    Returns the internal root node.
+
+    :return: The internal root node.
+    :rtype: vrNodePtr
+
+.. method:: getTransformRootNode()
+
+    Deprecated: Use `vrScenegraphService.getTransformRootNode()` in API v2.
+
+    Returns the transform root node.
+
+    :return: The transform root node.
+    :rtype: vrNodePtr
+
+.. method:: initFindCache()
+
+    Deprecated: Use `vrNodeService.initFindCache()` in API v2.
+
+    Build up an internal cache structure to speed up execution of the python commands findNode and findNodes.
+
+.. method:: clearFindCache()
+
+    Deprecated: Use `vrNodeService.clearFindCache()` in API v2.
+
+    Clears the find cache. The find cache is an internal cache structure to speed up the execution of the findNode(s) command.
+
+.. method:: findNode(node_name)
+
+    Finds the node via name.
+
+    :param node_name: The name of the node.
+    :type node_name: string
+    :return: The found node.
+    :rtype: vrNodePtr
+
+.. method:: findNode(node_name, regex)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds the node via name or regular expression. Be aware that this is a costly operation. To speed up, use the function initFindCache once your scenegraph structure does no longer change. Confirm the validity of the resulting vrNodePtr by checking nodePtr.isValid().
+
+    :param node_name: The name of the node.
+    :type node_name: string
+    :param regex: Use regular expressions: On/Off.
+    :type regex: boolean
+    :return: The found node.
+    :rtype: vrNodePtr
+
+.. method:: findNodes(node_name)
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds a list of nodes depending on their name.
+
+    :param node_name: The name of the node.
+    :type node_name: string
+    :return: The found nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: findNodes(node_name, regex)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds a list of nodes depending on a regular expression.
+
+    :param node_name: The name of the node.
+    :type node_name: string
+    :param regex: Use regular expressions: On/Off.
+    :type regex: boolean
+    :return: The found nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: findNodes(node_name, regex, include_components)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds a list of nodes depending on a regular expression. Also searches below shells.
+
+    :param node_name: The name of the node.
+    :type node_name: string
+    :param regex: Use regular expressions: On/Off.
+    :type regex: boolean
+    :param include_components: Include components in the search.
+    :type include_components: boolean
+    :return: The found nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: findNodes(node_names)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds a list of nodes depending on a list of names.
+
+    :param node_names: The list of names of the nodes.
+    :type node_names: list of strings
+    :return: The found nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: findNodes(node_names, regex)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds a list of nodes depending on a list of regular expressions.
+
+    :param node_names: The list of names of the nodes.
+    :type node_names: list of strings
+    :param regex: Use regular expressions: On/Off.
+    :type regex: boolean
+    :return: The found nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: findNodes(node_names, regex, include_components)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodes()` in API v2.
+
+    Finds a list of nodes depending on a list of regular expressions. Also searches below shells.
+
+    :param node_names: The list of names of the nodes.
+    :type node_names: list of strings
+    :param regex: Use regular expressions: On/Off.
+    :type regex: boolean
+    :param include_components: Include components in the search.
+    :type include_components: boolean
+    :return: The found nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: getSceneSwitches()
+
+    Finds all the switches in the scene.
+
+    :return: The found switches.
+    :rtype: list of strings
+
+.. method:: findNodePath(node_path)
+
+    Finds the node via path name.
+
+    :param node_path: The names of the ancestor nodes and the node itself concatenated by a slash (/), e.g., "Root/Group/Geometry123".
+    :type node_path: string
+    :return: The found node.
+    :rtype: vrNodePtr
+
+.. method:: findNodePath(node_path, regex)
+    :no-index:
+
+    Deprecated: Use `vrNodeService.findNodeWithPath()` in API v2.
+
+    Finds the node via path name or regular expression.
+
+    :param node_path: The names of the ancestor nodes and the node itself concatenated by a slash (/), e.g., "Root/Group/Geometry123".
+    :type node_path: string
+    :param regex: Use regular expressions: On/Off.
+    :type regex: boolean
+    :return: The found node.
+    :rtype: vrNodePtr
+
+.. method:: findUniquePath(unique_path)
+
+    Deprecated: Use `vrNodeService.findNodeWithUniquePath()` in API v2.
+
+    Finds the node via unique path.
+
+    :param unique_path: Unique path name with index:name for each node in the path.
+    :type unique_path: string
+    :return: The found node.
+    :rtype: vrNodePtr
+
+.. method:: getUniquePath(node)
+
+    Deprecated: Use `vrdNode.getUniquePath()` in API v2.
+
+    Returns a unique path for this node.
+
+    :param node: The node.
+    :type node: NodePtr
+    :return: The unique path of the node.
+    :rtype: string
+
+.. method:: createNode(typeString)
+
+    Deprecated: Use `vrScenegraphService.createNode()` in API v2.
+
+    Creates a new node of a given type.
+
+    :param typeString: The type of the node.
+    :type typeString: string
+
+.. method:: createNode(typeString, checkUniqueName)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.createNode()` in API v2.
+
+    Creates a new node of a given type with unique naming.
+
+    :param typeString: The type of the node.
+    :type typeString: string
+    :param checkUniqueName: Check for unique naming.
+    :type checkUniqueName: boolean
+
+.. method:: createNode(typeString, name)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.createNode()` in API v2.
+
+    Creates a new node of a given type and name.
+
+    :param typeString: The type of the node.
+    :type typeString: string
+    :param name: The name of the node.
+    :type name: string
+
+.. method:: createNode(typeString, name, checkUniqueName)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.createNode()` in API v2.
+
+    Creates a new node of a given type and name with unique naming.
+
+    :param typeString: The type of the node.
+    :type typeString: string
+    :param name: The name of the node.
+    :type name: string
+    :param checkUniqueName: Check for unique naming.
+    :type checkUniqueName: boolean
+
+.. method:: createNode(typeString, name, parent)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.createNode()` in API v2.
+
+    Creates a new node of a given type and name as a child of the given parent.
+
+    :param typeString: The type of the node.
+    :type typeString: string
+    :param name: The name of the node.
+    :type name: string
+    :param parent: The parent node.
+    :type parent: NodePtr
+
+.. method:: createNode(typeString, name, parent, checkUniqueName)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.createNode()` in API v2.
+
+    Creates a new node of a given type and name as a child of the given parent with unique naming.
+
+    :param typeString: The type of the node.
+    :type typeString: string
+    :param name: The name of the node.
+    :type name: string
+    :param parent: The parent node.
+    :type parent: NodePtr
+    :param checkUniqueName: Check for unique naming.
+    :type checkUniqueName: boolean
+
+.. method:: convertCore(node, type)
+
+    Deprecated: Use `vrScenegraphService.convertNode()` in API v2.
+
+    Converts the core of a node to another type.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param type: The new core type.
+    :type type: string
+
+.. method:: uncreateNode(node, typeString, name, parent)
+
+    Deprecated: Use `vrUndoService.undo()` in API v2.
+
+    Uncreates a node with the specified type, name, and parent.
+
+    :param node: The node.
+    :type node: vrNodePtr
+    :param typeString: The type of the node.
+    :type typeString: string
+    :param name: The name of the node.
+    :type name: string
+    :param parent: The parent of the node.
+    :type parent: vrNodePtr
+
+.. method:: getHeadlight()
+
+    Deprecated: Use `vrLightService.getHeadlight()` in API v2.
+
+    Returns the headlight node.
+
+    :return: The headlight node.
+    :rtype: vrNodePtr
+
+.. method:: ignoreAutoHeadlight()
+
+    Ignores the automatic headlight if another light source is set.
+
+.. method:: invertSelection()
+
+    Deprecated: Use `vrScenegraphService.invertGeometrySelection()` in API v2.
+
+    Inverts the current selection in the scenegraph.
+
+.. method:: invertSelectionInGroup()
+
+    Deprecated: Use `vrScenegraphService.invertGeometrySelectionInGroup()` in API v2.
+
+    Inverts the current selection inside the parent group in the scenegraph.
+
+.. method:: selectParent()
+
+    Deprecated: Use `vrScenegraphService.selectCommonParent()` in API v2.
+
+    Selects the parent node from the currently selected node in the scenegraph.
+
+.. method:: cloneNode(node, deep)
+
+    Deprecated: Use `vrScenegraphService.cloneNodes()`, or `vrScenegraphService.duplicateNodes()` for deep clone, in API v2.
+
+    Clones a subtree.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param deep: Deep clone: On/Off.
+    :type deep: bool
+    :return: The cloned node.
+    :rtype: vrNodePtr
+
+.. method:: cloneMirrorNode(node, deep, flush)
+
+    Deprecated: Use `vrScenegraphService.cloneNodesMirrorAxis()`, or `vrScenegraphService.duplicateNodesMirrorAxis()` for deep clone, in API v2.
+
+    Clone mirrors a subtree at the y-axis.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param deep: Deep clone: On/Off.
+    :type deep: bool
+    :param flush: Flush transformations: On/Off.
+    :type flush: bool
+
+.. method:: cloneMirrorAxisNode(node, deep, flush, axis)
+
+    Deprecated: Use `vrScenegraphService.cloneNodesMirrorAxis()`, or `vrScenegraphService.duplicateNodesMirrorAxis()` for deep clone, in API v2.
+
+    Clone mirrors a subtree at a specific axis.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param deep: Deep clone: On/Off.
+    :type deep: bool
+    :param flush: Flush transformations: On/Off.
+    :type flush: bool
+    :param axis: The mirror axis.
+    :type axis: Vec3f
+
+.. method:: rebuildClones()
+
+    Rebuilds all clone nodes in case an operation has broken the cloning.
+
+.. method:: isCloned(node)
+
+    Deprecated: Use `vrdNode.isShared()` in API v2.
+
+    Checks if a node is cloned.
+
+    :param node: The node to check.
+    :type node: NodePtr
+
+.. method:: unshareNode(node)
+
+    Deprecated: Use `vrNodeService.unshareNodes()` in API v2.
+
+    Unshares a node.
+
+    :param node: The node to unshare.
+    :type node: NodePtr
+
+.. method:: fixDepthOfField(node)
+
+    Adjusts the f-stop and ISO values of all cameras beneath the selected root to match the depth of field of older versions.
+
+    :param node: The root node.
+    :type node: NodePtr
+
+.. method:: getNodesWithTag(tag)
+
+    Deprecated: Use `vrScenegraphService.getNodesWithAnyTag()` in API v2.
+
+    Returns a list of nodes which have the metadatatag assigned starting from the root node.
+
+    :param tag: The tag string to check.
+    :type tag: string
+    :return: The nodes with the tag.
+    :rtype: list of vrNodePtrs
+
+.. method:: getNodesWithTag(node, tag)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.getNodesWithAnyTag()` in API v2.
+
+    Returns a list of nodes which have the metadatatag assigned starting from the root node.
+
+    :param node: The root node to start the search.
+    :type node: NodePtr
+    :param tag: The tag string to check.
+    :type tag: string
+    :return: The selected nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: getNodesWithTags(tags, matchAllTags)
+
+    Deprecated: Use `vrScenegraphService.getNodesWithAnyTag()` or `vrScenegraphService.getNodesWithAllTags()` in API v2.
+
+    Returns a list of nodes which have the metadatatag assigned.
+
+    :param tags: The list of tag strings to check.
+    :type tags: list of strings
+    :param matchAllTags: If true only nodes which contain all give tags are returns. If false any node that contains at least one tag is returned.
+    :type matchAllTags: bool
+    :return: The selected nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: getNodesWithTags(node, tags, matchAllTags)
+    :no-index:
+
+    Deprecated: Use `vrScenegraphService.getNodesWithAnyTag()` or `vrScenegraphService.getNodesWithAllTags()` in API v2.
+
+    Returns a list of nodes which have the metadatatag assigned.
+
+    :param node: The root node to start the search
+    :type node: NodePtr
+    :param tags: The list of tag strings to check.
+    :type tags: list of strings
+    :param matchAllTags: If true only nodes which contain all give tags are returns. If false any node that contains at least one tag is returned.
+    :type matchAllTags: bool
+    :return: The selected nodes.
+    :rtype: list of vrNodePtrs
+
+.. method:: setSwitchChoiceByTag(node, tag)
+
+    Deprecated: Use `vrScenegraphService::setSwitchChoiceByAnyTag` in API v2.
+
+    Sets the choice of a switch node based on the given tag.
+
+    :param node: The switch node.
+    :type node: NodePtr
+    :param tag: The tag to check.
+    :type tag: string
+
+.. method:: setSwitchChoiceByTags(node, tags, matchAllTags)
+
+    Deprecated: Use `vrScenegraphService::setSwitchChoiceByAnyTag or vrScenegraphService::setSwitchChoiceByAllTags` in API v2.
+
+    Sets the choice of a switch node based on the given tags.
+
+    :param node: The switch node.
+    :type node: NodePtr
+    :param tags: The list of tag strings to check.
+    :type tags: list of strings
+    :param matchAllTags: If true only nodes which contain all given tags are returned. If false any node that contains at least one tag is returned.
+    :type matchAllTags: bool
+
+.. method:: setIgnoreMaterialGroup(nodepath, ignore)
+
+    Deprecated: Use `vrNodeService.findNodeWithPath()` and `vrdMaterialNode.setEnabled()` in API v2, with enabled = not ignore.
+
+    Ignores a material group.
+
+    :param nodepath: The full path of the node. Use '/' to separate the hierarchy levels.
+    :type name: string
+    :param ignore: Whether or not the material group should be ignored.
+    :type ignore: bool
+
+.. method:: setIgnoreMaterialGroup(node, ignore)
+    :no-index:
+
+    Deprecated: `vrdMaterialNode.setEnabled()` in API v2, with enabled = not ignore.
+
+    Ignores a material group.
+
+    :param node: The node.
+    :type node: NodePtr
+    :param ignore: Whether or not the material group should be ignored.
+    :type ignore: bool
+
+.. method:: setBoundingBoxSelection(enabled)
+
+    Sets bounding box selection mode.
+
+    :param enabled: true or false.
+    :type enabled: bool
+
+.. method:: showComponents(enabled)
+
+    Deprecated: Use `vrScenegraphService.setShowComponents()` in API v2.
+
+    Sets show components mode.
+
+    :param enabled: true or false.
+    :type enabled: bool
+
+.. method:: applyMaterial(nodes, mats, applyToMaterialGroupParent, skipMaterialGroupChilds)
+
+    **Deprecated:** Use `vrMaterialService.applyMaterialToNodes()` in API v2.
+
+    Applies a list of materials to a list of nodes.
+
+    :param nodes: The nodes.
+    :type nodes: list of vrNodePtr
+    :param mats: The materials.
+    :type mats: list of vrMaterialPtr
+    :param applyToMaterialGroupParent: Apply the material to the group parent of the provided node: On/Off.
+    :type applyToMaterialGroupParent: bool
+    :param skipMaterialGroupChilds: Skip material group children: On/Off.
+    :type skipMaterialGroupChilds: bool
+
+.. method:: groupSelection()
+
+    **Deprecated:** Use `vrScenegraphService.groupNodes()` in API v2.
+
+    Groups the selected nodes under a newly created Transform3D node.
+
+.. method:: splitGeometryTris()
+
+    **Deprecated:** Use `vrGeometryService.splitGeometry` in API v2.
+
+    Splits a geometry into triangles.
+
+.. method:: unsplitGeometryTris()
+
+    **Deprecated:** Use `vrGeometryService.unsplitFromPrimitives` in API v2.
+
+    Merges a geometry that was split into triangles back to one geometry.
+
+.. method:: macget()
+
+    MAC crash test function. Returns a list of integers.
+
+    :return: A list of integers.
+    :rtype: list of int
+
+.. method:: addNodeTag(node, tag)
+
+    Deprecated: Use `vrMetadataService.addTags()` in API v2.
+
+    Adds a tag to the node.
+
+    :param node: The node to add the tag to.
+    :type node: NodePtr
+    :param tag: The tag string to add.
+    :type tag: string
+    :return: true: The tag could be added.
+    :rtype: bool
+
+.. method:: addNodeTag(nodes, tag)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.addTags()` in API v2.
+
+    Adds a tag to the node.
+
+    :param nodes: The nodes to add the tag to.
+    :type nodes: list of NodePtr
+    :param tag: The tag string to add.
+    :type tag: string
+    :return: true: The tag could be added.
+    :rtype: bool
+
+.. method:: addNodeTags(node, tags)
+
+    Deprecated: Use `vrMetadataService.addTags()` in API v2.
+
+    Adds a list of tags to the node.
+
+    :param node: he node to add the tag to.
+    :type node: NodePtr
+    :param tags: The tag strings to add.
+    :type tags: list of strings
+    :return: true: The tag could be added
+    :rtype: bool
+
+.. method:: addNodeTags(nodes, tags)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.addTags()` in API v2.
+
+    Adds a list of tags to a list of node.
+
+    :param nodes: The nodes to add the tag to.
+    :type nodes: list of NodePtr
+    :param tags: The tag strings to add
+    :type tags: list of strings
+    :return: true: The tag could be added.
+    :rtype: bool
+
+.. method:: removeNodeTag(node, tag)
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+
+    Removes a tag from a node.
+
+    :param node: The node to remove the tag from.
+    :type node: NodePtr
+    :param tag: The tag string to remove.
+    :type tag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: removeNodeTag(nodes, tag)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+
+     Removes a tag from the given nodes.
+
+    :param nodes: he nodes to remove the tag from.
+    :type nodes: list of NodePtrs
+    :param tag: The tag string to remove.
+    :type tag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: removeNodeTags(node, tags)
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+
+    Removes the tags from a node.
+
+    :param node: The node to remove the tag from.
+    :type node: NodePtr
+    :param tags: The list of tag strings to remove.
+    :type tags: list of strings
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: removeNodeTags(nodes, tags)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.removeTags()` in API v2.
+
+    Removes the tags from the given nodes.
+
+    :param nodes: The nodes to remove the tag from.
+    :type nodes: list of NodePtr
+    :param tags: The list of tag strings to remove.
+    :type tags: list of strings
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: replaceNodeTag(node, oldTag, newTag)
+
+    Deprecated: Use `vrMetadataService.renameTag()` in API v2.
+
+    Replaces an existing tag.
+
+    :param node: The node in question.
+    :type node: NodePtr
+    :param oldTag: The tag string to remove.
+    :type oldTag: string
+    :param newTag: The tag string to add instead.
+    :type newTag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: replaceNodeTag(nodes, oldTag, newTag)
+    :no-index:
+
+    Deprecated: Use `vrMetadataService.renameTag()` in API v2.
+
+    Replaces an existing tag.
+
+    :param nodes: The nodes to replace the tags.
+    :type nodes: list of NodePtr
+    :param oldTag: The tag string to remove.
+    :type oldTag: string
+    :param newTag: The tag string to add instead.
+    :type newTag: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: getNodeTags(node)
+
+    Deprecated: Use `vrMetadataService.getTags()` in API v2.
+
+    Returns the list of tags attached to the given node.
+
+    :param node: The node to check.
+    :type node: NodePtr
+    :return: The list of tags.
+    :rtype: list of strings
+
+.. method:: hasNodeTag(node, tag)
+
+    Deprecated: Use `vrMetadataService.hasTag()` in API v2.
+
+    Checks if a node has a certain tag.
+
+    :param node: The node to check.
+    :type node: NodePtr
+    :param tag: The tag string to check.
+    :type tag: string
+    :return: True if the node has the tag, false otherwise.
+    :rtype: bool
+
+.. method:: hasNodeTags(node, tags)
+
+    Deprecated: Use `vrMetadataService.getTags()` in API v2.
+
+    Checks if a node has all the given tags.
+
+    :param node: The node to check.
+    :type node: NodePtr
+    :param tags: The tags to check.
+    :type tags: list of strings
+    :return: True if the node has all tags, false otherwise.
+    :rtype: bool

@@ -1,0 +1,227 @@
+----------------
+vrdImmersiveTool
+----------------
+
+.. py:class:: vrdImmersiveTool
+
+(Inherits vrdObject)
+
+VR tool object.
+
+Summary
+=======
+
+Functions:
+    * getCheckable() → bool
+    * getChecked() → bool
+    * getCheckedCommand() → string
+    * getClickedCommand() → string
+    * getGroup() → string
+    * getHideAway() → bool
+    * getIcon() → QIcon
+    * getIsInternal() → bool
+    * getName() → string
+    * getText() → string
+    * getUncheckedCommand() → string
+    * getViewContent() → string
+    * getViewWidget() → QWidget
+    * hideAway(value)
+    * setCheckable(value)
+    * setChecked(value)
+    * setCheckedCommand(value)
+    * setClickedCommand(value)
+    * setGroup(value)
+    * setIcon(icon)
+    * setIconData(data, format)
+    * setIconPath(iconPath)
+    * setOnOffIconData(onData, offData, format)
+    * setText(text)
+    * setUncheckedCommand(value)
+    * setViewContent(value)
+    * setViewWidget(widget)
+    * signal() → Q_SLOTvrdImmersiveToolSignal
+
+Functions
+=========
+
+.. py:method:: vrdImmersiveTool.getCheckable()
+
+    :return: True, if the tool button is checkable
+    :rtype: bool
+
+.. py:method:: vrdImmersiveTool.getChecked()
+
+    :return: True, if the tool button is checked
+    :rtype: bool
+
+.. py:method:: vrdImmersiveTool.getCheckedCommand()
+
+    :return: The command executed, when the button is checked
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getClickedCommand()
+
+    :return: The command executed on click
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getGroup()
+
+    :return: The button group
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getHideAway()
+
+    Returns if the tool is hidden from the VR menu.
+
+    :return: True if the tool is hidden, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdImmersiveTool.getIcon()
+
+    :return: The current icon
+    :rtype: QIcon
+
+.. py:method:: vrdImmersiveTool.getIsInternal()
+
+    Returns if the tool is marked as internal. All tools that are created internally by default will have this flag set.
+
+    :return: True if the tool is internal, False otherwise.
+    :rtype: bool
+
+.. py:method:: vrdImmersiveTool.getName()
+
+    :return: The name of the tool
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getText()
+
+    :return: The current display text
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getUncheckedCommand()
+
+    :return: The command executed, when the button is unchecked
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getViewContent()
+
+    :return: The content that is displayed on button click
+    :rtype: string
+
+.. py:method:: vrdImmersiveTool.getViewWidget()
+
+    :return: The widget that is displayed on button click
+    :rtype: QWidget
+
+.. py:method:: vrdImmersiveTool.hideAway(value)
+
+    If value is True, this tool is not visible on the VR menu.
+
+    :param value:
+    :type value: bool
+
+.. py:method:: vrdImmersiveTool.setCheckable(value)
+
+    Sets the tool button to checkable.
+
+    :param value: If True, the button is checkable
+    :type value: bool
+
+.. py:method:: vrdImmersiveTool.setChecked(value)
+
+    Sets the tool button to checked.
+
+    :param value: If True, the button is checked
+    :type value: bool
+
+.. py:method:: vrdImmersiveTool.setCheckedCommand(value)
+
+    Sets the Python command that is executed when the button is checked.
+
+    :param value: Python command string
+    :type value: string
+
+.. py:method:: vrdImmersiveTool.setClickedCommand(value)
+
+    Sets the Python command that is executed on button click.
+
+    :param value: Python command string
+    :type value: string
+
+.. py:method:: vrdImmersiveTool.setGroup(value)
+
+    Changes the group in which the tool is inserted. Use "Tools" to add the tool to the tools menu, "MenuBar" to add the tool to the menu icon bar, or "Settings/YourGroup" to add it to the settings menu in the subgroup "YourGroup". If the group doesn't exist, it will be created.
+
+    :param value: Group name
+    :type value: string
+
+.. py:method:: vrdImmersiveTool.setIcon(icon)
+
+    Sets the icon displayed on the VR tools menu.
+
+    :param icon: New icon
+    :type icon: QIcon
+
+.. py:method:: vrdImmersiveTool.setIconData(data, format="png")
+
+    Use a base64 encoded string to set the icon.
+
+    :param data: base64 encoded image data
+    :type data: string
+
+    :param format: Image format. Default is png
+    :type format: string
+
+.. py:method:: vrdImmersiveTool.setIconPath(iconPath)
+
+    Use the image at the given path as an icon.
+
+    :param iconPath: File path to an image
+    :type iconPath: string
+
+.. py:method:: vrdImmersiveTool.setOnOffIconData(onData, offData, format="png")
+
+    Use two base64 encoded strings to set the icon.
+
+    :param onData: base64 encoded image data for checked state
+    :type onData: string
+
+    :param offData: base64 encoded image data for unchecked state
+    :type offData: string
+
+    :param format: Image format. Default is png
+    :type format: string
+
+.. py:method:: vrdImmersiveTool.setText(text)
+
+    Changes the text displayed on the VR tools menu.
+
+    :param text: Text to display
+    :type text: string
+
+.. py:method:: vrdImmersiveTool.setUncheckedCommand(value)
+
+    Sets the Python command that is executed when the button is unchecked.
+
+    :param value: Python command string
+    :type value: string
+
+.. py:method:: vrdImmersiveTool.setViewContent(value)
+
+    On tool button press, the given content is displayed on a menu panel.
+
+    :param value: Url or module title
+    :type value: string
+
+.. py:method:: vrdImmersiveTool.setViewWidget(widget)
+
+    On tool button press, the given content is displayed on a menu panel.
+
+    :param widget: Reference to a QWidget object
+    :type widget: QWidget
+
+.. py:method:: vrdImmersiveTool.signal()
+
+    :return: Access to tool signals
+    :rtype: Q_SLOTvrdImmersiveToolSignal
+

@@ -1,0 +1,804 @@
+MODULE vrFileIO (legacy v1 API)
+
+--------
+vrFileIO
+--------
+
+.. module:: vrFileIO
+
+Summary
+=======
+
+Functions:
+    * exportSceneSummary(filename, options)
+    * exportSceneSummary(filename)
+    * exportSceneSummary(node, filename, options)
+    * exportSceneSummary(node, filename)
+    * exportSelectedSurface(filename, version)
+    * findFile(filename)
+    * getApproximationEnabled()
+    * getDisableMultithreadedImport()
+    * getFileIOBaseDir()
+    * getFileIOFilePath()
+    * getFixSurfaceOrientation()
+    * getHealStitchEnabled()
+    * getImportAssociativeMeshes()
+    * getImportBookmarks()
+    * getImportCameras()
+    * getImportCurves()
+    * getImportEmptyLayers()
+    * getImportInvisibleCurves()
+    * getImportInvisibleInstances()
+    * getImportInvisibleMeshes()
+    * getImportInvisibleSurfaces()
+    * getImportLights()
+    * getImportMeshes()
+    * getImportParts()
+    * getImportSurfaces()
+    * getImportTemplateGeometries()
+    * getMaxParallelImportTasks()
+    * getRobustTessellationEnabled()
+    * getVServerScene()
+    * getVREDDataDir()
+    * getVREDDir()
+    * getVREDExamplesDir()
+    * isLoading()
+    * load(filename)
+    * load(filenames, parent, newFile, showImportOptions)
+    * load(filenames)
+    * loadGeometry(filename)
+    * loadOSB(filenames)
+    * save(filename)
+    * saveGeometry(root, filename)
+    * saveGeometryNoSwapCubeMaps()
+    * saveOSG(filename, options)
+    * saveOSG(filename)
+    * saveOSG(node, filename, options)
+    * saveOSG(node, filename)
+    * saveSelectedGeometry(filename, includeEnvironmentGeometries)
+    * saveSelectedGeometry(filename)
+    * setApproximationEnabled(enable_approximation)
+    * setConvertToUberMaterials(value)
+    * setDisableMultithreadedImport(disable_multithreading)
+    * setFileIOKey(key)
+    * setFileIOMergeEnvironmentOption(option)
+    * setFileIOMergeMaterials(merge)
+    * setFileIOMergeProjectAnimations(import)
+    * setFileIOMergeProjectAnnotations(merge)
+    * setFileIOMergeProjectClips(import)
+    * setFileIOMergeProjectSequences(merge)
+    * setFileIOMergeProjectTouchSensors(merge)
+    * setFileIOMergeProjectVariants(merge)
+    * setFileIOValidationKey(vkey)
+    * setFixSurfaceOrientation(fix_surface_orientation)
+    * setHealStitchEnabled(enable_heal_stitch)
+    * setImportApplyMaterialsFromAssetManager(apply)
+    * setImportAssociativeMeshes(enable_associative_meshes)
+    * setImportBookmarks(enable_bookmarks)
+    * setImportCameras(enable_cameras)
+    * setImportCenterInOrigin(centerInOrigin)
+    * setImportCurves(enable_curves)
+    * setImportEmptyLayers(enable_empty_layers)
+    * setImportInvisibleCurves(enable_invisible_curves)
+    * setImportInvisibleInstances(enable_invisible_instances)
+    * setImportInvisibleMeshes(enable_invisible_meshes)
+    * setImportInvisibleSurfaces(enable_invisible_surfaces)
+    * setImportLights(enable_lights)
+    * setImportMeshes(enable_meshes)
+    * setImportParts(enable_parts)
+    * setImportPutOnGround(putOnGround)
+    * setImportSurfaces(enable_surfaces)
+    * setImportTemplateGeometries(enable_template_geometries)
+    * setMaxParallelImportTasks(max_parallel_tasks)
+    * setRobustTessellationEnabled(robust_tessellation)
+    * setTessellationOptions(...)
+    * setVServerScene(scene)
+    * unloadGeometry(node, filename)
+    * vrFileClearTmpDir()
+    * vrFileGetTmpDir()
+    * vrFileRemoveTmpFile(filename)
+
+.. method:: load(filename)
+
+    Loads a single file with wildcard support from disk. The loaded node is automatically attached to the root of the scenegraph.
+
+    :param filename: A single filename.
+    :type filename: string
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: load(filenames)
+    :no-index:
+
+    Loads multiple files with wildcard support from disk. The loaded nodes are automatically attached to the root of the scenegraph.
+
+    :param filenames: A list of filenames.
+    :type filenames: list of strings
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: load(filenames, parent, newFile, showImportOptions)
+    :no-index:
+
+    Loads multiple files with additional options for parent node, new scene, and import dialog.
+
+    :param filenames: A list of filenames.
+    :type filenames: list of strings
+    :param parent: Scenegraph parent node.
+    :type parent: vrNodePtr
+    :param newFile: False means add, true means calls new scene and load the files.
+    :type newFile: bool
+    :param showImportOptions: Show import dialog options.
+    :type showImportOptions: bool
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: loadOSB(filenames)
+
+    Loads a single or multiple OSB files from disk. The loaded nodes are automatically attached to the root of the scenegraph.
+
+    :param filenames: A list of filenames.
+    :type filenames: list of strings
+    :return: Returns a list of root nodes added by this command.
+    :rtype: list of vrNodePtr
+
+.. method:: loadGeometry(filename)
+
+    Loads a geometry file. The geometry is not attached to the scenegraph.
+
+    :param filename: The name of the geometry file.
+    :type filename: string
+    :return: Returns the root node of the geometry on success, NullFC otherwise.
+    :rtype: vrNodePtr
+
+.. method:: unloadGeometry(node, filename)
+
+    Unloads a geometry file.
+
+    :param node: The node to unload.
+    :type node: NodePtr
+    :param filename: The name of the geometry file.
+    :type filename: string
+
+.. method:: save(filename)
+
+    Saves a geometry, script, or project file.
+
+    :param filename: The name of the file.
+    :type filename: string
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveGeometry(root, filename)
+
+    Saves a geometry file.
+
+    :param root: The root node.
+    :type root: vrNodePtr
+    :param filename: The name of the geometry file.
+    :type filename: string
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveSelectedGeometry(filename)
+
+    Saves selected geometry file.
+
+    :param filename: The name of the geometry file.
+    :type filename: string
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveSelectedGeometry(filename, includeEnvironmentGeometries)
+    :no-index:
+
+    Saves selected geometry file with an option to include environment geometries.
+
+    :param filename: The name of the geometry file.
+    :type filename: string
+    :param includeEnvironmentGeometries: Defines if environment geometry switch should be included in the saved file.
+    :type includeEnvironmentGeometries: bool
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: exportSelectedSurface(filename, version)
+
+    Saves selected geometry file.
+
+    :param filename: The name of the geometry file.
+    :type filename: string
+    :param version: The version of the IGES file (0: OpenCascade Import, 1: vCAD Import).
+    :type version: int
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveGeometryNoSwapCubeMaps()
+
+    Saves geometry without swapping the cube maps.
+
+    :return: Returns true on success, false otherwise.
+    :rtype: bool
+
+.. method:: setTessellationOptions(...)
+
+    Sets the tessellation parameters to use when loading a file.
+
+    :param chord_deviation: The chord deviation.
+    :type chord_deviation: float
+    :param normal_tolerance: The normal tolerance.
+    :type normal_tolerance: float
+    :param max_chord_length: The maximum length of a triangle edge.
+    :type max_chord_length: float
+    :param stitching: Enables stitching.
+    :type stitching: bool
+    :param stitching_tolerance: Sets the stitching tolerance.
+    :type stitching_tolerance: float
+    :param mergegeometries: Merges triangle geometries and creates shells if present.
+    :type mergegeometries: bool
+    :param keep_nurbs: Keeps the nurbs information to allow retessellation later on.
+    :type keep_nurbs: bool
+    :param create_layer_groups: Creates groups for layers.
+    :type create_layer_groups: bool
+    :param remove_groups: Removes any empty hierarchy branches.
+    :type remove_groups: bool
+    :param unshare_nodes: If set to true, all clone connections are disrupted.
+    :type unshare_nodes: bool
+    :param flush_transforms: If set to true, moves transform information to the geometry on the lowest level.
+    :type flush_transforms: bool
+
+.. method:: setImportCurves(enable_curves)
+
+    Enables or disables the import of independent curve and polyline geometries.
+
+    :param enable_curves: True to enable, false to disable.
+    :type enable_curves: bool
+
+.. method:: getImportCurves()
+
+    Returns whether the import of independent curve and polyline geometries is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportInvisibleCurves(enable_invisible_curves)
+
+    Enables or disables the import of invisible independent curve and polyline geometries.
+
+    :param enable_invisible_curves: True to enable, false to disable.
+    :type enable_invisible_curves: bool
+
+.. method:: getImportInvisibleCurves()
+
+    Returns whether the import of invisible independent curve and polyline geometries is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportSurfaces(enable_surfaces)
+
+    Enables or disables the import of NURB surfaces.
+
+    :param enable_surfaces: True to enable, false to disable.
+    :type enable_surfaces: bool
+
+.. method:: getImportSurfaces()
+
+    Returns whether the import of NURB surfaces is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportInvisibleSurfaces(enable_invisible_surfaces)
+
+    Enables or disables the import of invisible NURB surfaces.
+
+    :param enable_invisible_surfaces: True to enable, false to disable.
+    :type enable_invisible_surfaces: bool
+
+.. method:: getImportInvisibleSurfaces()
+
+    Returns whether the import of invisible NURB surfaces is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportAssociativeMeshes(enable_associative_meshes)
+
+    Enables or disables the import of associative mesh geometry (e.g., Catia V5, NX, STEP).
+
+    :param enable_associative_meshes: True to enable, false to disable.
+    :type enable_associative_meshes: bool
+
+.. method:: getImportAssociativeMeshes()
+
+    Returns whether the import of associative mesh geometry is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportMeshes(enable_meshes)
+
+    Enables or disables the import of mesh geometry.
+
+    :param enable_meshes: True to enable, false to disable.
+    :type enable_meshes: bool
+
+.. method:: getImportMeshes()
+
+    Returns whether the import of mesh geometry is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportInvisibleMeshes(enable_invisible_meshes)
+
+    Enables or disables the import of invisible mesh geometry.
+
+    :param enable_invisible_meshes: True to enable, false to disable.
+    :type enable_invisible_meshes: bool
+
+.. method:: getImportInvisibleMeshes()
+
+    Returns whether the import of invisible mesh geometry is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportParts(enable_parts)
+
+    Enables or disables the import of part files referenced in assemblies.
+
+    :param enable_parts: True to enable, false to disable.
+    :type enable_parts: bool
+
+.. method:: getImportParts()
+
+    Returns whether the import of part files is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportInvisibleInstances(enable_invisible_instances)
+
+    Enables or disables the import of invisible instances.
+
+    :param enable_invisible_instances: True to enable, false to disable.
+    :type enable_invisible_instances: bool
+
+.. method:: getImportInvisibleInstances()
+
+    Returns whether the import of invisible instances is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportCameras(enable_cameras)
+
+    Enables or disables the import of cameras.
+
+    :param enable_cameras: True to enable, false to disable.
+    :type enable_cameras: bool
+
+.. method:: getImportCameras()
+
+    Returns whether the import of cameras is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportLights(enable_lights)
+
+    Enables or disables the import of lights.
+
+    :param enable_lights: True to enable, false to disable.
+    :type enable_lights: bool
+
+.. method:: getImportLights()
+
+    Returns whether the import of lights is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportBookmarks(enable_bookmarks)
+
+    Enables or disables the import of bookmarks.
+
+    :param enable_bookmarks: True to enable, false to disable.
+    :type enable_bookmarks: bool
+
+.. method:: getImportBookmarks()
+
+    Returns whether the import of bookmarks is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportTemplateGeometries(enable_template_geometries)
+
+    Enables or disables the import of template geometries.
+
+    :param enable_template_geometries: True to enable, false to disable.
+    :type enable_template_geometries: bool
+
+.. method:: getImportTemplateGeometries()
+
+    Returns whether the import of template geometries is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setImportEmptyLayers(enable_empty_layers)
+
+    Enables or disables the import of empty layers.
+
+    :param enable_empty_layers: True to enable, false to disable.
+    :type enable_empty_layers: bool
+
+.. method:: getImportEmptyLayers()
+
+    Returns whether the import of empty layers is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setFixSurfaceOrientation(fix_surface_orientation)
+
+    Enables or disables surface normal unification during import.
+
+    :param fix_surface_orientation: True to enable, false to disable.
+    :type fix_surface_orientation: bool
+
+.. method:: getFixSurfaceOrientation()
+
+    Returns whether surface normal unification is enabled during import.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setHealStitchEnabled(enable_heal_stitch)
+
+    Enables or disables additional healing during stitching in import.
+
+    :param enable_heal_stitch: True to enable, false to disable.
+    :type enable_heal_stitch: bool
+
+.. method:: getHealStitchEnabled()
+
+    Returns whether additional healing during stitching is enabled in import.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setApproximationEnabled(enable_approximation)
+
+    Enables or disables body approximation during import.
+
+    :param enable_approximation: True to enable, false to disable.
+    :type enable_approximation: bool
+
+.. method:: getApproximationEnabled()
+
+    Returns whether body approximation is enabled during import.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setRobustTessellationEnabled(robust_tessellation)
+
+    Enables or disables a more robust tessellation algorithm.
+
+    :param robust_tessellation: True to enable, false to disable.
+    :type robust_tessellation: bool
+
+.. method:: getRobustTessellationEnabled()
+
+    Returns whether the robust tessellation algorithm is enabled.
+
+    :return: True if enabled, false otherwise.
+    :rtype: bool
+
+.. method:: setMaxParallelImportTasks(max_parallel_tasks)
+
+    Sets the maximum number of parallel import tasks for reading part files from assemblies.
+
+    :param max_parallel_tasks: The maximum number of parallel import tasks.
+    :type max_parallel_tasks: int
+
+.. method:: getMaxParallelImportTasks()
+
+    Returns the maximum number of parallel import tasks for reading part files from assemblies.
+
+    :return: The maximum number of parallel import tasks.
+    :rtype: int
+
+.. method:: setDisableMultithreadedImport(disable_multithreading)
+
+    Enables or disables internal multithreading in CAD import.
+
+    :param disable_multithreading: True to disable, false to enable.
+    :type disable_multithreading: bool
+
+.. method:: getDisableMultithreadedImport()
+
+    Returns whether internal multithreading is disabled in CAD import.
+
+    :return: True if disabled, false otherwise.
+    :rtype: bool
+
+.. method:: setFileIOMergeMaterials(merge)
+
+    Sets the current VRED project file merge behavior when adding a VPB file.
+
+    :param merge: True for merging, false otherwise.
+    :type merge: bool
+
+.. method:: setFileIOMergeProjectVariants(merge)
+
+    Sets the current VRED project file merge behavior for variants when adding a VPB file.
+
+    :param merge: True for merging, false otherwise.
+    :type merge: bool
+
+.. method:: setFileIOMergeProjectTouchSensors(merge)
+
+    Sets the current VRED project file merge behavior for touch sensors when adding a VPB file.
+
+    :param merge: True for merging, false otherwise.
+    :type merge: bool
+
+.. method:: setFileIOMergeProjectSequences(merge)
+
+    Sets the current VRED project file merge behavior for sequences when adding a VPB file.
+
+    :param merge: True for merging, false otherwise.
+    :type merge: bool
+
+.. method:: setFileIOMergeProjectAnnotations(merge)
+
+    Sets the current VRED project file merge behavior for annotations when adding a VPB file.
+
+    :param merge: True for merging, false otherwise.
+    :type merge: bool
+
+.. method:: setFileIOMergeProjectAnimations(import)
+
+    Sets the value for importing animations when loading VRED files.
+
+    :param import: True for importing, false otherwise.
+    :type import: bool
+
+.. method:: setImportApplyMaterialsFromAssetManager(apply)
+
+    Sets the value for applying materials from the asset manager when importing a file.
+
+    :param apply: True to apply materials, false otherwise.
+    :type apply: bool
+
+.. method:: setImportCenterInOrigin(centerInOrigin)
+
+    Sets the value for centering loaded geometry in the origin.
+
+    :param centerInOrigin: True to center in origin, false otherwise.
+    :type centerInOrigin: bool
+
+.. method:: setImportPutOnGround(putOnGround)
+
+    Sets the value for placing loaded geometry on the ground plane.
+
+    :param putOnGround: True to place on ground, false otherwise.
+    :type putOnGround: bool
+
+.. method:: saveOSG(filename)
+
+    Writes the scene as an ASCII OpenSG file (debugging only).
+
+    :param filename: The name of the file.
+    :type filename: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveOSG(filename, options)
+    :no-index:
+
+    Writes the scene as an ASCII OpenSG file with additional options (debugging only).
+
+    :param filename: The name of the file.
+    :type filename: string
+    :param options: Options for saving the file.
+    :type options: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveOSG(node, filename)
+    :no-index:
+
+    Writes the scene graph node as an ASCII OpenSG file (debugging only).
+
+    :param node: The scene graph node.
+    :type node: NodePtr
+    :param filename: The name of the file.
+    :type filename: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: saveOSG(node, filename, options)
+    :no-index:
+
+    Writes the scene graph node as an ASCII OpenSG file with additional options (debugging only).
+
+    :param node: The scene graph node.
+    :type node: NodePtr
+    :param filename: The name of the file.
+    :type filename: string
+    :param options: Options for saving the file.
+    :type options: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: exportSceneSummary(node, filename, options)
+
+    Writes the scene summary as an XML file (debugging only).
+
+    :param node: The scene graph node.
+    :type node: NodePtr
+    :param filename: The name of the file.
+    :type filename: string
+    :param options: A comma-separated list of options (e.g., "nodes=false,transforms=false,shells=false").
+    :type options: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: exportSceneSummary(node, filename)
+    :no-index:
+
+    Writes the scene summary as an XML file (debugging only).
+
+    :param node: The scene graph node.
+    :type node: NodePtr
+    :param filename: The name of the file.
+    :type filename: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: exportSceneSummary(filename, options)
+    :no-index:
+
+    Writes the scene summary as an XML file with additional options (debugging only).
+
+    :param filename: The name of the file.
+    :type filename: string
+    :param options: A comma-separated list of options (e.g., "nodes=false,transforms=false,shells=false").
+    :type options: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: exportSceneSummary(filename)
+    :no-index:
+
+    Writes the scene summary as an XML file (debugging only).
+
+    :param filename: The name of the file.
+    :type filename: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: getVREDDir()
+
+    Returns the VRED installation directory.
+
+    :return: The installation directory.
+    :rtype: string
+
+.. method:: getVREDDataDir()
+
+    Returns the VRED data directory.
+
+    :return: The data directory.
+    :rtype: string
+
+.. method:: getVREDExamplesDir()
+
+    Returns the VRED examples directory.
+
+    :return: The examples directory.
+    :rtype: string
+
+.. method:: setFileIOKey(key)
+
+    Sets the current file IO key for encrypted VPB files.
+
+    :param key: The encryption key.
+    :type key: string
+
+.. method:: setFileIOValidationKey(vkey)
+
+    Sets the current file IO validation key for encrypted VPB files.
+
+    :param vkey: The validation key.
+    :type vkey: string
+
+.. method:: getFileIOFilePath()
+
+    Returns the current loaded file path.
+
+    :return: The file path.
+    :rtype: string
+
+.. method:: getFileIOBaseDir()
+
+    Returns the base directory of the project.
+
+    :return: The directory name.
+    :rtype: string
+
+.. method:: vrFileGetTmpDir()
+
+    Returns a temporary file path.
+
+    :return: The temporary file path.
+    :rtype: string
+
+.. method:: vrFileClearTmpDir()
+
+    Deletes all files in the temporary directory.
+
+.. method:: vrFileRemoveTmpFile(filename)
+
+    Deletes a file in the temporary directory.
+
+    :param filename: The name of the file to remove.
+    :type filename: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: setVServerScene(scene)
+
+    Sets the current VServer scene path.
+
+    :param scene: The VServer scene path.
+    :type scene: string
+
+.. method:: getVServerScene()
+
+    Returns the current VServer scene path.
+
+    :return: The scene path.
+    :rtype: string
+
+.. method:: isLoading()
+
+    Returns the loading file state.
+
+    :return: True if a file is currently loading, false otherwise.
+    :rtype: bool
+
+.. method:: findFile(filename)
+
+    Finds a filename relative to the file IO base directory.
+
+    :param filename: The relative filename.
+    :type filename: string
+    :return: The absolute file path.
+    :rtype: string
+
+.. method:: setFileIOMergeProjectClips(import)
+
+    Sets the value for importing animation clips when loading VRED files.
+
+    :param import: True for importing, false otherwise.
+    :type import: bool
+
+.. method:: setFileIOMergeEnvironmentOption(option)
+
+    Sets the current VRED project file merge behavior when adding a VPB file.
+
+    :param option: 0 = Use from scene, 1 = Use from file, 2 = Add from file, 3 = Merge.
+    :type option: int
+
+.. method:: setConvertToUberMaterials(value)
+
+    Deprecated. Imported materials should always be converted to UberMaterials.
+
+    :param value: True to convert, false otherwise.
+    :type value: bool

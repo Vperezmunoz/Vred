@@ -1,0 +1,123 @@
+MODULE vrQObject (legacy v1 API)
+
+---------
+vrQObject
+---------
+
+.. class:: vrQObject
+
+   The vrQObject class provides a Python wrapper for Qt objects.
+
+   Example::
+
+       def returnPressed():
+           print('Pressed return in linedit!')
+
+       def textChanged(text):
+           print('Changed lineedit text to', text)
+
+       def toggledCheckBox(s):
+           print('Toggled checkbox to', s)
+
+       def clickedButton():
+           print('Clicked button1!')
+
+       def valueChanged1(v):
+           print('Changed spinbox value to', v)
+
+       def valueChanged2(v):
+           print('Changed slider value to', v)
+
+       widget = vrWidget("gui/test.ui")
+       widget.connect("_lineedit", "returnPressed()", returnPressed)
+       widget.connect("_lineedit", "textChanged(const QString &)", textChanged)
+       widget.connect("_button", "clicked()", clickedButton)
+       widget.connect("_spinbox", "valueChanged(int)", valueChanged1)
+       widget.connect("_slider", "valueChanged(int)", valueChanged2)
+
+       checkbox = findQObject(widget.getQObject(), "_checkbox")
+       widget2 = vrWidget(checkbox)
+       widget2.connect("_checkbox", "toggled(bool)", toggledCheckBox)
+
+       lineedit = findQObject(widget.getQObject(), "_lineedit")
+       lineedit.setProperty("text", "Hallo")
+       print("lineedit enabled =", lineedit.getProperty("enabled"))
+       print("lineedit text =", lineedit.getProperty("text"))
+
+       text = vrWidget("QTextEdit", vrQObject(), "text edit")
+       text.getQObject().setProperty("caption", "TextEditor Test")
+       text.getQObject().setProperty("text", "Hi!")
+
+Summary
+=======
+
+Functions:
+    * connect(sender, signal, member) → bool
+    * findQObject(name) → vrQObject
+    * findQObject(root, name) → vrQObject
+    * getProperty(name) → bool/int/float/string
+    * isValid() → bool
+    * setProperty(name, value) → bool
+
+.. method:: isValid()
+    :no-index:
+
+    Returns the valid status.
+
+    :return: Status: Valid/Invalid.
+    :rtype: bool
+
+.. method:: getProperty(name)
+
+    Gets a property value.
+
+    :param name: The name of the property.
+    :type name: string
+    :return: The value.
+    :rtype: boolean, integer (32bit), float (64bit), or string
+
+.. method:: setProperty(name, value)
+
+    Sets a property value.
+
+    :param name: The name of the property.
+    :type name: string
+    :param value: The value.
+    :type value: boolean, integer (32bit), float (64bit), or string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: connect(sender, signal, member)
+    :no-index:
+
+    Connects the signal of a sender with a member function.
+
+    :param sender: The sender object.
+    :type sender: vrQObject
+    :param signal: The emitted signal.
+    :type signal: string
+    :param member: The member function to connect with the signal.
+    :type member: string
+    :return: True on success, false otherwise.
+    :rtype: bool
+
+.. method:: findQObject(name)
+
+    Searches for a QObject via name.
+
+    :param name: The name of the object.
+    :type name: string
+    :return: The retrieved QObject.
+    :rtype: vrQObject
+
+.. method:: findQObject(root, name)
+    :no-index:
+
+    Searches for a QObject via name, starting from a root QObject.
+
+    :param root: The root QObject.
+    :type root: vrQObject
+    :param name: The name of the object.
+    :type name: string
+    :return: The retrieved QObject.
+    :rtype: vrQObject

@@ -1,0 +1,99 @@
+--------------
+vrdBoundingBox
+--------------
+
+.. py:class:: vrdBoundingBox
+
+(Inherits vrdData)
+
+Holds an axis aligned bounding box.
+
+Summary
+=======
+
+Functions:
+    * extendBy(bb)
+    * getCenter() → QVector3D
+    * getMax() → QVector3D
+    * getMin() → QVector3D
+    * getSize() → QVector3D
+    * isValid() → bool
+    * setMax(max)
+    * setMin(min)
+    * vrdBoundingBox()
+    * vrdBoundingBox(min, max)
+
+Functions
+=========
+
+.. py:method:: vrdBoundingBox.extendBy(bb)
+
+    Extend the current bounding box with the given one.
+
+    :param bb: Bounding box
+    :type bb: vrdBoundingBox
+
+.. py:method:: vrdBoundingBox.getCenter()
+
+    Get center of bounding box.
+
+    :return: Center point
+    :rtype: QVector3D
+
+.. py:method:: vrdBoundingBox.getMax()
+
+    Get maximum of bounding box.
+
+    :return: Maximum corner
+    :rtype: QVector3D
+
+.. py:method:: vrdBoundingBox.getMin()
+
+    Get minimum of bounding box.
+
+    :return: Minimum corner
+    :rtype: QVector3D
+
+.. py:method:: vrdBoundingBox.getSize()
+
+    Gets the extents along x-, y-, and z-axis.
+
+    :return: Extents along x-, y-, and z-axis
+    :rtype: QVector3D
+
+.. py:method:: vrdBoundingBox.isValid()
+
+    Returns if the bounding box is valid.
+
+    :return: True, if bounding box is valid
+    :rtype: bool
+
+.. py:method:: vrdBoundingBox.setMax(max)
+
+    Set maximum of bounding box.
+
+    :param max: Maximum corner
+    :type max: QVector3D
+
+.. py:method:: vrdBoundingBox.setMin(min)
+
+    Set minimum of bounding box.
+
+    :param min: Minimum corner
+    :type min: QVector3D
+
+.. py:method:: vrdBoundingBox.vrdBoundingBox()
+
+    Default constructor.
+
+.. py:method:: vrdBoundingBox.vrdBoundingBox(min, max)
+   :no-index:
+
+    Create bounding box with minimum and maximum corner.
+
+    :param min: Minimum corner
+    :type min: QVector3D
+
+    :param max: Maximum corner
+    :type max: QVector3D
+

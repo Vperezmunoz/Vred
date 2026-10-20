@@ -1,0 +1,22 @@
+--------------------
+vrVRInputDeviceTypes
+--------------------
+
+.. py:class:: vrVRInputDeviceTypes
+
+    .. py:class:: VisualizationMode
+
+            .. py:data:: Controller
+
+            .. py:data:: Hand
+
+            .. py:data:: ControllerAndHand
+
+            .. py:data:: Uninitialized
+
+    .. py:class:: DeviceCollisionType
+
+            .. py:data:: Tip
+
+            .. py:data:: Hull
+

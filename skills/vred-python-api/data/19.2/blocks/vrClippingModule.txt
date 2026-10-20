@@ -1,0 +1,219 @@
+MODULE vrClippingModule (legacy v1 API)
+
+----------------
+vrClippingModule
+----------------
+
+.. module:: vrClippingModule
+
+Summary
+=======
+
+Functions:
+    * cloneClippingContour()
+    * enableClippingPlane(state)
+    * getClippingContourColor() → Vec3f
+    * getClippingContourWidth() → int
+    * getClippingGridColor() → Vec3f
+    * getClippingHideScene() → bool
+    * getClippingPlaneColor() → Vec3f
+    * getClippingPlaneInvertDirection() → bool
+    * getClippingPlaneNormal() → Vec3f
+    * getClippingPlanePosition() → Pnt3f
+    * getClippingPlaneState() → bool
+    * getClippingShowContour() → bool
+    * getClippingShowGrid() → bool
+    * getClippingShowManipulator() → bool
+    * getClippingShowPlane() → bool
+    * setClippingContourVisualization(state, color, width)
+    * setClippingGridVisualization(state, color)
+    * setClippingHideScene(state)
+    * setClippingPlane(position, normal, flipped)
+    * setClippingPlanePosition(position)
+    * setClippingPlaneQuaternionRotation(axis, angle)
+    * setClippingPlaneRotation(rotationX, rotationY, rotationZ)
+    * setClippingPlaneVisualization(state, color)
+    * setClippingShowManipulator(state)
+
+.. function:: enableClippingPlane(state)
+
+    Enables/disables clipping.
+
+    :param state: Clipping: Enable/Disable.
+    :type state: bool
+
+.. function:: setClippingPlane(position, normal, flipped)
+
+    Sets the clipping plane.
+
+    :param position: The position of the clipping plane.
+    :type position: Pnt3f
+    :param normal: The normal of the clipping plane.
+    :type normal: Vec3f
+    :param flipped: Sets the direction of the normal.
+    :type flipped: bool
+
+.. function:: setClippingPlaneVisualization(state, color)
+
+    Sets the clipping plane visualization.
+
+    :param state: Clipping plane visualization: Enable/Disable.
+    :type state: bool
+    :param color: Sets the color of the clipping plane visualization.
+    :type color: Vec3f
+
+.. function:: setClippingGridVisualization(state, color)
+
+    Sets the clipping grid visualization.
+
+    :param state: Clipping grid visualization: Enable/Disable.
+    :type state: bool
+    :param color: Sets the color of the clipping grid visualization.
+    :type color: Vec3f
+
+.. function:: setClippingContourVisualization(state, color, width)
+
+    Sets the clipping grid visualization.
+
+    :param state: Clipping contour visualization: Enable/Disable.
+    :type state: bool
+    :param color: Sets the color of the clipping contour visualization.
+    :type color: Vec3f
+    :param width: Sets the width of the clipping contour visualization.
+    :type width: int
+
+.. function:: setClippingShowManipulator(state)
+
+    Shows/hides the clipping manipulator.
+
+    :param state: Clipping manipulator: Enable/Disable.
+    :type state: bool
+
+.. function:: setClippingHideScene(state)
+
+    Shows/hides the scene during clipping.
+
+    :param state: Show/hide the scene.
+    :type state: bool
+
+.. function:: setClippingPlanePosition(position)
+
+    Sets the position of the clipping plane.
+
+    :param position: A vector with x, y and z coordinates.
+    :type position: Pnt3f
+
+.. function:: setClippingPlaneQuaternionRotation(axis, angle)
+
+    Sets the rotation of the clipping plane with a quaternion.
+
+    :param axis: Rotation axis.
+    :type axis: Vec3f
+    :param angle: Rotation angle in degrees.
+    :type angle: float
+
+.. function:: setClippingPlaneRotation(rotationX, rotationY, rotationZ)
+
+    Sets the rotation of the clipping plane with euler rotation angles.
+
+    :param rotationX: Euler rotation angle x in degrees.
+    :type rotationX: float
+    :param rotationY: Euler rotation angle y in degrees.
+    :type rotationY: float
+    :param rotationZ: Euler rotation angle z in degrees.
+    :type rotationZ: float
+
+.. function:: cloneClippingContour()
+
+    Clones the contour.
+
+.. function:: getClippingPlanePosition() → Pnt3f
+
+    Gets the position of the clipping plane.
+
+    :return: A vector with x, y and z coordinates.
+    :rtype: Pnt3f
+
+.. function:: getClippingPlaneNormal() → Vec3f
+
+    Gets the normal of the clipping plane.
+
+    :return: A vector with x, y and z coordinates.
+    :rtype: Vec3f
+
+.. function:: getClippingPlaneInvertDirection() → bool
+
+    Gets the inversion flag of the clipping plane.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. function:: getClippingHideScene() → bool
+
+    Gets the hide scene flag of the clipping plane.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. function:: getClippingShowPlane() → bool
+
+    Gets the show plane flag.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. function:: getClippingPlaneState() → bool
+
+    Gets the clipping plane status.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. function:: getClippingPlaneColor() → Vec3f
+
+    Gets the color of the clipping plane.
+
+    :return: A vector with r, g and b values.
+    :rtype: Vec3f
+
+.. function:: getClippingShowGrid() → bool
+
+    Gets the show grid flag.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. function:: getClippingGridColor() → Vec3f
+
+    Gets the color of the clipping grid.
+
+    :return: A vector with r, g and b values.
+    :rtype: Vec3f
+
+.. function:: getClippingShowContour() → bool
+
+    Gets the show contour flag.
+
+    :return: a bool flag.
+    :rtype: bool
+
+.. function:: getClippingContourColor() → Vec3f
+
+    Gets the color of the clipping contour.
+
+    :return: A vector with r, g and b values.
+    :rtype: Vec3f
+
+.. function:: getClippingContourWidth() → int
+
+    Gets the width of the contour.
+
+    :return: a int flag.
+    :rtype: int
+
+.. function:: getClippingShowManipulator() → bool
+
+    Gets the show manipulator flag.
+
+    :return: a bool flag.
+    :rtype: bool

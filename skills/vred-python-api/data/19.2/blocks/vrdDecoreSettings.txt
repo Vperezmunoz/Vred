@@ -1,0 +1,137 @@
+-----------------
+vrdDecoreSettings
+-----------------
+
+.. py:class:: vrdDecoreSettings
+
+(Inherits vrdData)
+
+Settings for object decoring/optimization.
+
+Decoring removes redundant geometry that is inside other geometry, like screws and mountings inside a door covering. A virtual camera flies around the selected object, takes screen shots, and removes any non-visible geometry.
+
+Summary
+=======
+
+Functions:
+    * getCorrectFaceNormals() → bool
+    * getDecoreEnabled() → bool
+    * getDecoreMode() → vrGeometryTypes.DecoreMode
+    * getQualitySteps() → integer
+    * getResolution() → integer
+    * getSubObjectMode() → vrGeometryTypes.DecoreSubObjectMode
+    * getTransparentObjectMode() → vrGeometryTypes.DecoreTransparentObjectMode
+    * setCorrectFaceNormals(correctFaceNormals)
+    * setDecoreEnabled(enabled)
+    * setDecoreMode(decoreMode)
+    * setQualitySteps(steps)
+    * setResolution(resolution)
+    * setSubObjectMode(subObjects)
+    * setTransparentObjectMode(ignoreTransparentObjects)
+    * vrdDecoreSettings()
+
+Functions
+=========
+
+.. py:method:: vrdDecoreSettings.getCorrectFaceNormals()
+
+    If enabled, flips polygon normals pointing away from the camera, if they are encountered during the analysis.
+
+    :return: True, if correcting of face normals is enabled, otherwise false
+    :rtype: bool
+
+.. py:method:: vrdDecoreSettings.getDecoreEnabled()
+
+    Returns if decoring is enabled.
+
+    :return: True, if decoring is enabled
+    :rtype: bool
+
+.. py:method:: vrdDecoreSettings.getDecoreMode()
+
+    Returns the action to be taken, when geometry is determined to be inside another and non-visible.
+
+    :return: Decore mode
+    :rtype: vrGeometryTypes.DecoreMode
+
+.. py:method:: vrdDecoreSettings.getQualitySteps()
+
+    Returns the number of images taken during the analysis. A higher value gives more accurate results.
+
+    :return: Number of images taken during the analysis
+    :rtype: integer
+
+.. py:method:: vrdDecoreSettings.getResolution()
+
+    Returnss the resolution of the images taken. A higher resolution gives more precise results.
+
+    :return: Resolution of the images
+    :rtype: integer
+
+.. py:method:: vrdDecoreSettings.getSubObjectMode()
+
+    Returns how sub objects are taken into account.
+
+    :return: Mode for sub objects
+    :rtype: vrGeometryTypes.DecoreSubObjectMode
+
+.. py:method:: vrdDecoreSettings.getTransparentObjectMode()
+
+    Returns how transparent objects should be handled.
+
+    :return: Mode for transparent objects
+    :rtype: vrGeometryTypes.DecoreTransparentObjectMode
+
+.. py:method:: vrdDecoreSettings.setCorrectFaceNormals(correctFaceNormals)
+
+    If enabled, flips polygon normals pointing away from the camera, if they are encountered during the analysis.
+
+    :param correctFaceNormals: Enables correcting of face normals
+    :type correctFaceNormals: bool
+
+.. py:method:: vrdDecoreSettings.setDecoreEnabled(enabled)
+
+    Defines if decoring is enabled.
+
+    :param enabled: Enables decoring
+    :type enabled: bool
+
+.. py:method:: vrdDecoreSettings.setDecoreMode(decoreMode)
+
+    Defines the action to be taken, when geometry is determined to be inside another and non-visible.
+
+    :param decoreMode: Decore mode
+    :type decoreMode: vrGeometryTypes.DecoreMode
+
+.. py:method:: vrdDecoreSettings.setQualitySteps(steps)
+
+    Defines the number of images taken during the analysis. A higher value gives more accurate results.
+
+    :param steps: Number of images taken during the analysis
+    :type steps: integer
+
+.. py:method:: vrdDecoreSettings.setResolution(resolution)
+
+    Defines the resolution of the images taken. A higher resolution gives more precise results.
+
+    :param resolution: Resolution of the images
+    :type resolution: integer
+
+.. py:method:: vrdDecoreSettings.setSubObjectMode(subObjects)
+
+    Defines how sub objects are taken into account.
+
+    :param subObjects: Mode for sub objects
+    :type subObjects: vrGeometryTypes.DecoreSubObjectMode
+
+.. py:method:: vrdDecoreSettings.setTransparentObjectMode(ignoreTransparentObjects)
+
+    Defines how transparent objects should be handled.
+
+    :param ignoreTransparentObjects: Mode for transparent objects
+    :type ignoreTransparentObjects: vrGeometryTypes.DecoreTransparentObjectMode
+
+.. py:method:: vrdDecoreSettings.vrdDecoreSettings()
+
+    Default constructor.
+
