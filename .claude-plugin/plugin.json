@@ -1,6 +1,6 @@
 {
   "name": "vred-skills",
-  "description": "Skills for developing against Autodesk VRED 2027.x: offline Python API index per release (19.1 = 2027.1, 19.2 = 2027.2), script plugin guide, STL smoothing, VLM design review, FPS comparison.",
+  "description": "Skills for developing against Autodesk VRED 2027.x: offline Python API index per release (19.1 = 2027.1, 19.2 = 2027.2), script plugin guide, STL smoothing, XR physics pinch-grab, VLM design review, FPS comparison.",
   "version": "1.0.0",
   "author": {
     "name": "Vperezmunoz",

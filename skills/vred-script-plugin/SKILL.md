@@ -131,7 +131,14 @@ rejects the v1 `vrMaterialPtr` that `node.getMaterial()` can return on older geo
 
 **`QVector3D` has no copy-constructor overload in this VRED's bundled PySide6.**
 `QtGui.QVector3D(other_vector)` raises `TypeError: called with wrong argument types`. Build
-from components: `QtGui.QVector3D(v.x(), v.y(), v.z())`.
+from components: `QtGui.QVector3D(v.x(), v.y(), v.z())`. **`QMatrix4x4(other)` fails the
+same way**; build a new matrix instead (`m = QMatrix4x4(); m.translate(d); out = m * other`).
+`QMatrix4x4.inverted()` may return the matrix or `(matrix, ok)` - handle both. Inside a timer
+slot this TypeError stops every tick without any visible error; see `vred-physics-grab`.
+
+**Physics in VR** (pinch grab, start/stop physics, moving physics objects, hand colliders):
+use the `vred-physics-grab` skill - physics object paths collide, deactivated bodies ignore
+node moves, and VRED's hand colliders are themselves dynamic physics objects.
 
 **VRED does not tick "Use Texture" for you.** After assigning, set
 `tex.setUseTexture(True)` on both the diffuse and incandescence textures, and

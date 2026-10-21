@@ -58,6 +58,13 @@ inconsistent triangle orientation and compute smooth normals with a crease angle
 the finished `STLSmooth` script plugin (pure Python, progress bar and Cancel, versions of a
 part in a switch node, an orientative defect colour map), algorithm notes and offline tests.
 
+### [vred-physics-grab](skills/vred-physics-grab/)
+Pinch-grab objects with tracked hands in VRED XR, and start/stop scene physics without breaking
+VRED's own hand interaction. Includes the headset-verified `PhysicsGrab` script plugin (freeze
+on approach so fingers don't push the target, kinematic carrying, hand rotation around the
+pinch point, reset with automatic fallbacks), the undocumented physics API behaviour it relies
+on, and offline tests.
+
 ### [vred-vlm-review](skills/vred-vlm-review/)
 An AI design-review copilot on VRED: an in-VRED capture trigger plus an external worker that
 sends the on-screen render to a vision-language model and returns a critique as a carousel
